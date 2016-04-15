@@ -46,6 +46,25 @@ export class HelloWorldComponent {
 `[]`綁定　`()`事件
 
 ### 元件
+```ts
+// click-me.ts
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'click-me',
+  template: `
+    <button (click)="onClickMe()">點擊我</button>
+    <p>{{ clickMessage }}</p>
+  `
+})
+export class ClickMeComponent {
+  public clickMessage: string = '';
+  onClickMe() {
+    this.clickMessage = 'Hello Angular 2';
+  }
+}
+```
+
 
 ### 內建指令
 
