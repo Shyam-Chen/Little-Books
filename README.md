@@ -103,11 +103,39 @@ export class AddItemComponent {
 ```html
 <base href="/">
 ```
-```html
-<nav>
-  <a [routerLink]="['Home']">Home</a> /
-  <a [routerLink]="['About']">About</a>
-</nav>
+```ts
+import { Component } from 'angular2/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+
+import { HomeComponent } from './home';
+import { AboutComponent } from './about';
+
+@Component({
+  selector: 'app',
+  template: `
+    <nav>
+      <a [routerLink]="['Home']">Home</a> /
+      <a [routerLink]="['About']">About</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
+  directives: [
+    ROUTER_DIRECTIVES,
+    HomeComponent,
+    AboutComponent
+  ]
+})
+@RouteConfig([{
+    path: '/',
+    name: 'Home',
+    component: HomeComponent,
+    useAsDefault: true
+  }, {
+    path: '/about',
+    name: 'About',
+    component: AboutComponent
+}])
+export class App { }
 ```
 
 
