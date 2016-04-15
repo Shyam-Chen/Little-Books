@@ -17,6 +17,15 @@
 ### 快速入門
 ```ts
 // basic-app.ts
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'basic-app',
+  template: `
+    <p>Hello {{ 1 + 1 }}</p>
+  `
+})
+export class BasicAppComponent { }
 ```
 ```ts
 // hello-world.ts
