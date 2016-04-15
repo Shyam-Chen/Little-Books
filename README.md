@@ -40,7 +40,7 @@ import { Component } from 'angular2/core';
   `
 })
 export class HelloWorldComponent {
-  yourName: string = '';
+  public yourName: string = '';
 }
 ```
 `[]`綁定　`()`事件
