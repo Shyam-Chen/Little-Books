@@ -27,6 +27,7 @@ import { Component } from 'angular2/core';
 })
 export class BasicAppComponent { }
 ```
+`{{}}`表達式
 ```ts
 // hello-world.ts
 import { Component } from 'angular2/core';
@@ -42,6 +43,7 @@ export class HelloWorldComponent {
   yourName: string = '';
 }
 ```
+`[]`綁定　`()`事件
 
 ### 元件
 
