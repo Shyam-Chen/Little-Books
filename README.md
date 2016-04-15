@@ -64,6 +64,23 @@ export class ClickMeComponent {
   }
 }
 ```
+```ts
+// add-item.ts
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'add-item',
+  template: ``
+})
+export class AddItemComponent {
+  public list: string[] = ['Angular', 'Material', 'Firebase'];  // 預設的清單
+  addItem(newItem: string) {
+    if (newItem) {  // 防止無輸入的狀態下新增項目
+      this.list.push(newItem);
+    }
+  }
+}
+```
 
 
 ### 內建指令
