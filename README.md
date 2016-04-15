@@ -36,7 +36,7 @@ import { Component } from 'angular2/core';
   template: `
     <label>姓名:</label>
     <input type="text" [(ngModel)]="yourName" placeholder="輸入您的姓名">
-    <p [hidden]="!yourName">Hello {{ yourName }}!</p>
+    <p [hidden]="!yourName">Hello {{ yourName }}</p>
   `
 })
 export class HelloWorldComponent {
