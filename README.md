@@ -100,6 +100,16 @@ export class AddItemComponent {
 ### 表單與輸入
 
 ### 路由與導覽列
+```html
+<base href="/">
+```
+```html
+<nav>
+  <a [routerLink]="['Home']">Home</a> /
+  <a [routerLink]="['About']">About</a>
+</nav>
+```
+
 
 ### 指令
 
