@@ -44,6 +44,7 @@ export class HelloWorldComponent {
 }
 ```
 `[]`綁定　`()`事件
+`<input [(ngModel)]="thing">` 供雙向資料綁定、解析和驗證表單的資料
 
 ### 元件
 ```ts
