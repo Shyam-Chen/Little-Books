@@ -56,6 +56,11 @@ export class HelloWorldComponent {
 ### 指令
 
 ### 生命週期掛鉤
+元件與指令
+* ngOnInit
+* ngOnChanges
+* ngDoCheck
+* ngOnDestroy
 
 ### 管道
 
