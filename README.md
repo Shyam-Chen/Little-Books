@@ -22,7 +22,7 @@ import { Component } from 'angular2/core';
 @Component({
   selector: 'basic-app',
   template: `
-    <p>Hello {{ 1 + 1 }}</p>
+    <p>1 + 1 的結果是 {{ 1 + 1 }}</p>
   `
 })
 export class BasicAppComponent { }
