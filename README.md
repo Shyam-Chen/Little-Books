@@ -28,6 +28,22 @@ import { Component } from 'angular2/core';
 export class BasicAppComponent { }
 ```
 `{{}}`表達式
+
+```ts
+// my-name.ts
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'my-name',
+  template: `
+    <p>我的姓名是: {{ myName }}</p>
+  `
+})
+export class BasicAppComponent {
+  public myName: string = '陳彥澄'; 
+}
+```
+
 ```ts
 // hello-world.ts
 import { Component } from 'angular2/core';
