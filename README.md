@@ -38,7 +38,7 @@ import { Component } from 'angular2/core';
     <p>我的姓名是: {{ myName }}</p>
   `
 })
-export class BasicAppComponent {
+export class MyNameComponent {
   public myName: string = '陳彥澄'; 
 }
 ```
