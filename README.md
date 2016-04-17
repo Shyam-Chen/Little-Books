@@ -118,7 +118,7 @@ export class AddItemComponent {
   }
 }
 ```
-
+##### 元件之間的溝通
 
 ### 內建指令
 
