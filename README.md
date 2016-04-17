@@ -91,6 +91,7 @@ export class ClickMeComponent {
   }
 }
 ```
+
 ```ts
 // add-item.ts
 import { Component } from 'angular2/core';
