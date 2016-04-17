@@ -17,18 +17,21 @@
 * 靜態分析
   * Codelyzer
 * 單元測試
+  * Jasmine 與 Karma
   * 測試元件
   * 測試指令
   * 測試管道
   * 測試服務
 * 情境測試
+  * Jasmine 與 Protractor
 * 持續整合
+  * Travis CI
 * 為應用程式增加設計
   * Material 是甚麼
 * 為應用程式增加後端
   * Firebase 是甚麼
   * 增刪改查的應用程式
-  * 為網站增加驗證
+  * 為應用程式增加驗證
 * 佈署應用程式
 
 ***
