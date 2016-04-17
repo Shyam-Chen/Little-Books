@@ -137,19 +137,22 @@ import { Component } from 'angular2/core';
 @Component({
   selector: 'data-list',
   template: `
+    <p>程式語言:</p>
     <ul>
       <li *ngFor="#item of list">
         {{ item.label }}
       </li>
     </ul>
+    <p>我最喜愛的語言是: {{ favorite.label }}</p>
   `
 })
 export class DataListComponent {
   public list = [
-    { label: 'Angular' },
-    { label: 'Material' },
-    { label: 'Firebase' }
+    { label: 'JavaScript' },
+    { label: 'CoffeeScript' },
+    { label: 'TypeScript' }
   ];
+  public favorite = this.list[1];
 }
 ```
 
