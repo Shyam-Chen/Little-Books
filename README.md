@@ -132,6 +132,21 @@ export class AddItemComponent {
 
 ### 內建指令
 ```ts
+// see-things.ts
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'see-things',
+  template: `
+    <p *ngIf="true">我看的到它</p>
+    <p *ngIf="false">我看不到它</p>
+  `
+})
+export class SeeThingsComponent { }
+```
+
+```ts
+// data-list.ts
 import { Component } from 'angular2/core';
 
 @Component({
