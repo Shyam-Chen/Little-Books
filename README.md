@@ -131,6 +131,28 @@ export class AddItemComponent {
 ##### 元件之間的溝通
 
 ### 內建指令
+```ts
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'data-list',
+  template: `
+    <ul>
+      <li *ngFor="#item of list">
+        {{ item.label }}
+      </li>
+    </ul>
+  `
+})
+export class DataListComponent {
+  public list = [
+    { label: 'Angular' },
+    { label: 'Material' },
+    { label: 'Firebase' }
+  ];
+}
+```
+
 
 ### 表單與輸入
 
