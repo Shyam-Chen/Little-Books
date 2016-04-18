@@ -104,7 +104,7 @@ import { Component } from 'angular2/core';
 export class ClickMeComponent {
   public clickMessage: string = '';
   onClickMe() {
-    this.clickMessage = 'Hello Angular 2';
+    this.clickMessage = '我是點擊後的資訊';
   }
 }
 ```
