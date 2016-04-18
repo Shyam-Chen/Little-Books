@@ -103,8 +103,9 @@ import { Component } from 'angular2/core';
 })
 export class ClickMeComponent {
   public clickMessage: string = '';
+
   onClickMe() {
-    this.clickMessage = '我是點擊後的資訊';
+    this.clickMessage = '我是點擊後的訊息';
   }
 }
 ```
@@ -130,6 +131,7 @@ import { Component } from 'angular2/core';
 })
 export class AddItemComponent {
   public list: string[] = ['Angular', 'Material', 'Firebase'];  // 預設的清單
+
   addItem(newItem: string) {
     if (newItem) {  // 防止無輸入的狀態下新增項目
       this.list.push(newItem);
