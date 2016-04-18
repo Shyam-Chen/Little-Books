@@ -23,8 +23,12 @@
   * 測試服務
 * 情境測試
   * Jasmine 與 Protractor
+  * 測試路由操作
 * 持續整合
   * Travis CI
+  * Codelyzer 集成
+  * Karma 集成
+  * Protractor集成
 * 為應用程式增加設計
   * Material 是什麼
 * 為應用程式增加後端
