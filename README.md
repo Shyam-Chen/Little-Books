@@ -1,7 +1,5 @@
 # Angular 2 實戰
 
-[![級別](https://img.shields.io/badge/%E7%B4%9A%E5%88%A5-%E5%88%9D%E7%B4%9A-brightgreen.svg)](https://github.com/Shyam-Chen/Angular2-in-Action)
-
 ### 目錄
 * Angular 2 是什麼
 * 環境配置
