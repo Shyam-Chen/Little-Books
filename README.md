@@ -102,7 +102,7 @@ import { Component } from 'angular2/core';
   `
 })
 export class ClickMeComponent {
-  public clickMessage: string = '';
+  public clickMessage: string = '';  // 初始值的設定
 
   onClickMe() {
     this.clickMessage = '我是點擊後的訊息';
