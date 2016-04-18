@@ -28,7 +28,7 @@
   * Travis CI
   * Codelyzer 集成
   * Karma 集成
-  * Protractor集成
+  * Protractor 集成
 * 為應用程式增加設計
   * Material 是什麼
 * 為應用程式增加後端
