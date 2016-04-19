@@ -3,6 +3,7 @@
 ### 目錄
 * Angular 是什麼
 * 環境配置
+  * TypeScript
   * Gulp 與 SystemJS
   * Typings
   * BrowserSync
@@ -22,6 +23,7 @@
   * Post
   * JSONP
 * 靜態分析
+  * TSLint
   * Codelyzer
 * 單元測試
   * Jasmine 與 Karma
@@ -34,7 +36,7 @@
   * 測試路由操作
 * 持續整合
   * Travis CI
-  * Codelyzer 集成
+  * TSLint 與 Codelyzer 集成
   * Karma 集成
   * Protractor 集成
 * 為應用程式增加設計
