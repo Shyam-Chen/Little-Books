@@ -25,14 +25,16 @@
 * 靜態分析
   * TSLint
   * Codelyzer
+* 測試驅動
+  * Jasmine 是什麼
 * 單元測試
-  * Jasmine 與 Karma
+  * Karma
   * 測試元件
   * 測試指令
   * 測試管道
   * 測試服務
 * 情境測試
-  * Jasmine 與 Protractor
+  * Protractor
   * 測試路由操作
 * 持續整合
   * Travis CI
