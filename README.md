@@ -231,14 +231,14 @@ export class App { }
 import { Directive, ElementRef, Input } from 'angular2/core';
 
 @Directive({
-  selector: '[at-highlight]',
+  selector: '[atHighlight]',
   host: {
     '(mouseenter)': 'onMouseEnter()',
     '(mouseleave)': 'onMouseLeave()'
   }
 })
 export class HighlightDirective {
-  @Input('at-highlight') highlightColor: string;
+  @Input('atHighlight') highlightColor: string;
 
   private defaultColor = 'yellow';
 
@@ -263,7 +263,7 @@ export class HighlightDirective {
   <input type="radio" name="colors" (click)="color='#4CAF50'">綠色
   <input type="radio" name="colors" (click)="color='#2196F3'">藍色
 </form>
-<span [at-highlight]="color">滑鼠游標靠過來吧!</span>
+<span [atHighlight]="color">滑鼠游標靠過來吧!</span>
 ```
 
 ### 生命週期掛鉤
