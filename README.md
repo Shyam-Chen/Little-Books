@@ -227,6 +227,44 @@ export class App { }
 
 
 ### 指令
+```ts
+import { Directive, ElementRef, Input } from 'angular2/core';
+
+@Directive({
+  selector: '[atHighlight]',
+  host: {
+    '(mouseenter)': 'onMouseEnter()',
+    '(mouseleave)': 'onMouseLeave()'
+  }
+})
+export class HighlightDirective {
+  @Input('highlight') highlightColor: string;
+
+  private defaultColor = 'yellow';
+
+  constructor(private el: ElementRef) { }
+
+  onMouseEnter() {
+    this.highlight(this.highlightColor || this.defaultColor);
+  }
+  
+  onMouseLeave() {
+    this.highlight(null);
+  }
+
+  private highlight(color: string) {
+    this.el.nativeElement.style.color = color;
+  }
+}
+```
+```html
+<form>
+  <input type="radio" name="colors" (click)="color='red'">紅色
+  <input type="radio" name="colors" (click)="color='green'">綠色
+  <input type="radio" name="colors" (click)="color='blue'">藍色
+</form>
+<span [highlight]="color">滑鼠游標靠過來吧!</span>
+```
 
 ### 生命週期掛鉤
 元件與指令
