@@ -183,6 +183,11 @@ export class DataListComponent {
 }
 ```
 
+```html
+<p [style.background-color]="'yellow'">
+  我的背景是黃色的
+</p>
+```
 
 ### 表單與輸入
 
