@@ -231,14 +231,14 @@ export class App { }
 import { Directive, ElementRef, Input } from 'angular2/core';
 
 @Directive({
-  selector: '[atHighlight]',
+  selector: '[at-highlight]',
   host: {
     '(mouseenter)': 'onMouseEnter()',
     '(mouseleave)': 'onMouseLeave()'
   }
 })
 export class HighlightDirective {
-  @Input('highlight') highlightColor: string;
+  @Input('at-highlight') highlightColor: string;
 
   private defaultColor = 'yellow';
 
@@ -247,23 +247,23 @@ export class HighlightDirective {
   onMouseEnter() {
     this.highlight(this.highlightColor || this.defaultColor);
   }
-  
+
   onMouseLeave() {
     this.highlight(null);
   }
 
   private highlight(color: string) {
-    this.el.nativeElement.style.color = color;
+    this.el.nativeElement.style.backgroundColor = color;
   }
 }
 ```
 ```html
 <form>
-  <input type="radio" name="colors" (click)="color='red'">紅色
-  <input type="radio" name="colors" (click)="color='green'">綠色
-  <input type="radio" name="colors" (click)="color='blue'">藍色
+  <input type="radio" name="colors" (click)="color='#F44336'">紅色
+  <input type="radio" name="colors" (click)="color='#4CAF50'">綠色
+  <input type="radio" name="colors" (click)="color='#2196F3'">藍色
 </form>
-<span [highlight]="color">滑鼠游標靠過來吧!</span>
+<span [at-highlight]="color">滑鼠游標靠過來吧!</span>
 ```
 
 ### 生命週期掛鉤
