@@ -3,6 +3,9 @@
 ### 目錄
 * Angular 是什麼
 * 環境配置
+  * Gulp 與 SystemJS
+  * Typings
+  * BrowserSync
 * [快速入門](#快速入門)
 * [元件](#元件)
 * [內建指令](#內建指令)
