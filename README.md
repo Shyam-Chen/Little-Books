@@ -24,11 +24,11 @@
   * Post
   * JSONP
 * ---------- 第二部分 ----------
+* 撰寫測試
+  * Jasmine 是什麼
 * 靜態分析
   * TSLint
   * Codelyzer
-* 撰寫測試
-  * Jasmine 是什麼
 * 單元測試
   * Karma
   * 測試元件
