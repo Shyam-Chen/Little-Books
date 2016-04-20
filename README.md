@@ -213,8 +213,8 @@ export class DataListComponent {
 }
 ```
 ```html
-<h3 [ngClass]="{title: true}">這是標題</h3>
-<p [ngClass]="{title: false}">這不是標題</p>
+<h3 [ngClass]="{ title: true }">這是標題</h3>
+<p [ngClass]="{ title: false }">這不是標題</p>
 ```
 
 ### 表單與輸入
