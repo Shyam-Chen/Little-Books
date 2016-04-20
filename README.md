@@ -195,14 +195,26 @@ export class DataListComponent {
 ```
 
 ```html
+<!-- 模板表達式 -->
 <p [style.background-color]="'yellow'">
   我的背景是黃色的
 </p>
 ```
 ```html
+<!-- 模板表達式 -->
 <div [ngStyle]="{ 'background-color': 'yellow' }"> 
   我的背景是黃色的
 </div>
+```
+
+```css
+.title {
+  background-color: yellow
+}
+```
+```html
+<h3 [ngClass]="{title: true}">這是標題</h3>
+<p [ngClass]="{title: false}">這不是標題</p>
 ```
 
 ### 表單與輸入
