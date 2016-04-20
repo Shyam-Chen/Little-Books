@@ -199,11 +199,10 @@ export class DataListComponent {
 <p [style.background-color]="'yellow'">
   我的背景是黃色的
 </p>
-```
-```html
-<!-- 模板表達式 -->
+
+<!-- 內建指令 -->
 <div [ngStyle]="{ 'background-color': 'yellow' }"> 
-  我的背景是黃色的
+  我的背景也是黃色的
 </div>
 ```
 
