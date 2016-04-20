@@ -2,7 +2,8 @@
 
 ### 目錄
 * ---------- 第一部分 ----------
-* Angular 是什麼
+* 旅程開始
+  * Angular 是什麼
 * 環境配置
   * TypeScript
   * Gulp 與 SystemJS
