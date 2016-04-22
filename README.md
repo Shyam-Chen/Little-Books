@@ -169,8 +169,16 @@ export class SeeThingsComponent { }
 ```
 
 ```ts
+// data-list.interface.ts
+export interface DataList {
+  label: string;
+}
+```
+```ts
 // data-list.ts
 import { Component } from 'angular2/core';
+
+import { DataList } from './data-list.interface.ts';
 
 @Component({
   selector: 'data-list',
@@ -185,10 +193,7 @@ import { Component } from 'angular2/core';
   `
 })
 export class DataListComponent {
-  interface List {
-    label: string;
-  }
-  public list: List[] = [
+  public list: DataList[] = [
     { label: 'JavaScript' },
     { label: 'CoffeeScript' },
     { label: 'TypeScript' }
