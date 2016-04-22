@@ -280,7 +280,7 @@ import { Directive, ElementRef, Input } from 'angular2/core';
 export class HighlightDirective {
   @Input('atHighlight') highlightColor: string;
 
-  private defaultColor = 'yellow';
+  private defaultColor: string = 'yellow';
 
   constructor(private el: ElementRef) { }
 
