@@ -185,7 +185,10 @@ import { Component } from 'angular2/core';
   `
 })
 export class DataListComponent {
-  public list = [
+  interface List {
+    label: string;
+  }
+  public list: List[] = [
     { label: 'JavaScript' },
     { label: 'CoffeeScript' },
     { label: 'TypeScript' }
