@@ -355,6 +355,21 @@ export class HighlightDirective {
 * ngOnDestroy
 
 ### 管道
+##### 內建管道
+```ts
+import { Component } from 'angular2/core';
+
+@Component({
+  selector: 'at-date',
+  template: `
+    <p>{{ atDate | date: "MM/dd" }}</p>
+  `
+})
+export class AtDateComponent {
+  public atDate = new Date(2020, 2, 14);
+}
+```
+##### 自訂管道
 
 ### 服務
 
