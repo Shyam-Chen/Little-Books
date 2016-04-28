@@ -70,9 +70,12 @@ import { Component } from 'angular2/core';
   selector: 'basic-app',
   template: `
     <p>1 + 1 的結果是: {{ 1 + 1 }}</p>
+    <a href="{{ link }}">網站連結</a>
   `
 })
-export class BasicAppComponent { }
+export class BasicAppComponent {
+  public link: string = 'https://angular.io/';
+}
 ```
 
 ```ts
