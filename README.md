@@ -281,6 +281,18 @@ export class App { }
 
 ### 指令
 ```ts
+import { Directive } from 'angular2/core';
+
+@Directive({
+  selector: 'atTitle',
+  host: {
+    class: 'title'
+  }
+})
+export class TitleDirective { }
+```
+
+```ts
 import { Directive, ElementRef, Input } from 'angular2/core';
 
 @Directive({
