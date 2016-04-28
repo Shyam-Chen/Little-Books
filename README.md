@@ -145,6 +145,7 @@ import { Component } from 'angular2/core';
       <li *ngFor="#item of list">{{ item }}</li>
     </ul>
   `
+  // 宣告一個 #newItem="" 的區域變數
 })
 export class AddItemComponent {
   public list: string[] = ['Angular', 'Material', 'Firebase'];  // 預設的清單
