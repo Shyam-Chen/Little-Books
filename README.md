@@ -241,6 +241,19 @@ export class DataListComponent {
 ```
 
 ### 表單與輸入
+```ts
+import { Component } from 'angular2/core';
+import { FORM_DIRECTIVES } from 'angular2/common';
+
+@Component({
+  selector: 'at-form',
+  template: `
+
+  `,
+  directives: [FORM_DIRECTIVES]
+})
+export class AtFormComponent { }
+```
 
 ### 路由與導覽列
 ```html
