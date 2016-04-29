@@ -122,10 +122,10 @@ import { Component } from 'angular2/core';
   `
 })
 export class ClickMeComponent {
-  public clickMessage: string = '';  // 初始值的設定
+  public clickMessage: string = '我是點擊「前」的訊息';  // 初始值的設定
 
   onClickMe() {
-    this.clickMessage = '我是點擊後的訊息';
+    this.clickMessage = '我是點擊「後」的訊息';
   }
 }
 ```
