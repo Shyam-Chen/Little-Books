@@ -137,8 +137,6 @@ import { Component } from 'angular2/core';
 @Component({
   selector: 'add-item',
   /**
-   * 模板說明
-   *
    * 宣告一個區域變數
    * @param let newItem
    *
