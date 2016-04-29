@@ -145,7 +145,7 @@ import { Component } from 'angular2/core';
     <p>{{ values }}</p>
     <button (click)="addItem(newItem.value); newItem.value=''; values=''">新增</button>
     <ul>
-      <li *ngFor="#item of list">{{ item }}</li>
+      <li *ngFor="let item of list">{{ item }}</li>
     </ul>
   `
   /**
@@ -201,7 +201,7 @@ import { DataList } from './data-list.interface.ts';
   template: `
     <p>程式語言:</p>
     <ul>
-      <li *ngFor="#item of list">
+      <li *ngFor="let item of list">
         {{ item.label }}
       </li>
     </ul>
