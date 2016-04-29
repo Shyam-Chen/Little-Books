@@ -140,8 +140,9 @@ import { Component } from 'angular2/core';
    * 宣告一個區域變數
    * @param let newItem
    *
-   * 綁定一個按鍵放開事件且按鍵是 Enter 鍵
-   * @param (keyup.enter)
+   * 綁定一個按鍵放開事件
+   * @param (keyup.enter)  按鍵是 Enter 鍵
+   * @param (keyup)
    *
    * 綁定一個點擊事件
    * @param (click)
