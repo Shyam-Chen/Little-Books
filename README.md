@@ -138,7 +138,7 @@ import { Component } from 'angular2/core';
   selector: 'add-item',
   template: `
     <input
-      #newItem=""
+      let newItem
       (keyup.enter)="addItem(newItem.value); newItem.value=''"
       (keyup)="values=newItem.value"
     >
@@ -151,7 +151,7 @@ import { Component } from 'angular2/core';
   /**
    * 模板說明
    *
-   * 宣告一個 #newItem="" 的區域變數
+   * 宣告一個 let newItem 的區域變數
    * 綁定 Enter 按鍵且按鍵放開 (keyup.enter)
    * 綁定一個 (click) 點擊事件
    *
