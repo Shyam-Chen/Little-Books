@@ -136,18 +136,6 @@ import { Component } from 'angular2/core';
 
 @Component({
   selector: 'add-item',
-  template: `
-    <input
-      let newItem
-      (keyup.enter)="addItem(newItem.value); newItem.value=''"
-      (keyup)="values=newItem.value"
-    >
-    <p>{{ values }}</p>
-    <button (click)="addItem(newItem.value); newItem.value=''; values=''">新增</button>
-    <ul>
-      <li *ngFor="let item of list">{{ item }}</li>
-    </ul>
-  `
   /**
    * 模板說明
    *
@@ -160,6 +148,18 @@ import { Component } from 'angular2/core';
    * 綁定一個點擊事件
    * @param (click)
    */
+  template: `
+    <input
+      let newItem
+      (keyup.enter)="addItem(newItem.value); newItem.value=''"
+      (keyup)="values=newItem.value"
+    >
+    <p>{{ values }}</p>
+    <button (click)="addItem(newItem.value); newItem.value=''; values=''">新增</button>
+    <ul>
+      <li *ngFor="let item of list">{{ item }}</li>
+    </ul>
+  `
 })
 export class AddItemComponent {
   public list: string[] = ['Angular', 'Material', 'Firebase'];  // 預設的清單
