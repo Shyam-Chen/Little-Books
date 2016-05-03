@@ -64,7 +64,7 @@
 ### 快速入門
 ```ts
 // basic-app.ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'basic-app',
@@ -80,7 +80,7 @@ export class BasicAppComponent {
 
 ```ts
 // my-name.ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-name',
@@ -95,7 +95,7 @@ export class MyNameComponent {
 
 ```ts
 // hello-world.ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'hello-world',
@@ -112,7 +112,7 @@ export class HelloWorldComponent {
 ### 元件
 ```ts
 // click-me.ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'click-me',
@@ -132,7 +132,7 @@ export class ClickMeComponent {
 
 ```ts
 // add-item.ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'add-item',
@@ -175,7 +175,7 @@ export class AddItemComponent {
 ### 內建指令
 ```ts
 // see-things.ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'see-things',
@@ -195,7 +195,7 @@ export interface DataList {
 ```
 ```ts
 // data-list.ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 import { DataList } from './data-list.interface.ts';
 
@@ -245,8 +245,8 @@ export class DataListComponent {
 
 ### 表單與輸入
 ```ts
-import { Component } from 'angular2/core';
-import { FORM_DIRECTIVES } from 'angular2/common';
+import { Component } from '@angular/core';
+import { FORM_DIRECTIVES } from '@angular/common';
 
 @Component({
   selector: 'at-form',
@@ -263,8 +263,8 @@ export class AtFormComponent { }
 <base href="/">
 ```
 ```ts
-import { Component } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
 
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
