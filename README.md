@@ -300,7 +300,7 @@ export class App { }
 
 ### 指令
 ```ts
-import { Directive } from 'angular2/core';
+import { Directive } from '@angular/core';
 
 @Directive({
   selector: 'atTitle',
@@ -312,7 +312,7 @@ export class TitleDirective { }
 ```
 
 ```ts
-import { Directive, ElementRef, Input } from 'angular2/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[atHighlight]',
@@ -360,7 +360,7 @@ export class HighlightDirective {
 ### 管道
 ##### 內建管道
 ```ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-date',
