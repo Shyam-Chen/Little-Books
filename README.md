@@ -1,8 +1,7 @@
 # Angular 2 實戰
 
 ### 目錄
-* 環境配置
-  [Angular2TS-Quick-Start](https://github.com/Shyam-Chen/Angular2TS-Quick-Start)
+* [環境配置](#環境配置)
 * [快速入門](#快速入門)
 * [元件](#元件)
 * [內建指令](#內建指令)
@@ -23,6 +22,9 @@
 * [參考資料](#參考資料)
 
 ***
+
+### 環境配置
+[Angular2TS-Quick-Start](https://github.com/Shyam-Chen/Angular2TS-Quick-Start)
 
 ### 快速入門
 ```ts
