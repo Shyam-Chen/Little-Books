@@ -1,9 +1,6 @@
 # Angular 2 實戰
 
 ### 目錄
-* ---------- 第一部分 開發篇 ----------
-* 旅程開始
-  * Angular 是什麼
 * 環境配置
   [Angular2TS-Quick-Start](https://github.com/Shyam-Chen/Angular2TS-Quick-Start)
 * [快速入門](#快速入門)
@@ -23,37 +20,6 @@
   * Post
   * JSONP
 * 動畫
-* ---------- 第二部分 測試篇 ----------
-* 撰寫測試
-  * Jasmine 是什麼
-* 靜態分析
-  * TSLint
-  * Codelyzer
-* 單元測試
-  * Karma
-  * 測試元件
-  * 測試指令
-  * 測試管道
-  * 測試服務
-  * 測試動畫
-* 情境測試
-  * Protractor
-  * 測試路由操作
-* 持續整合
-  * Travis CI
-  * TSLint 與 Codelyzer 集成
-  * Karma 集成
-  * Protractor 集成
-* ---------- 第三部分 姊妹篇 ----------
-* 原質化設計
-  * Material 是什麼
-* 後端即服務
-  * Firebase 是什麼
-  * 增刪改查
-  * 用戶驗證
-  * 安全規則
-  * 資產託管
-* ---------- 附錄 ----------
 * [參考資料](#參考資料)
 
 ***
