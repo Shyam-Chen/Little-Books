@@ -5,10 +5,7 @@
 * 旅程開始
   * Angular 是什麼
 * 環境配置
-  * TypeScript
-  * Gulp 與 SystemJS
-  * Typings
-  * HotLoader 與 BrowserSync
+  [Angular2TS-Quick-Start](https://github.com/Shyam-Chen/Angular2TS-Quick-Start)
 * [快速入門](#快速入門)
 * [元件](#元件)
 * [內建指令](#內建指令)
