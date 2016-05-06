@@ -60,12 +60,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'hello-world',
   template: `
-    <input type="text" [(ngModel)]="yourName" placeholder="輸入您的姓名">
-    <p>Hello {{ yourName }}</p>
+    <input type="text" [(ngModel)]="name" placeholder="輸入你的名字">
+    <p>Hello {{ name }}</p>
   `
 })
 export class HelloWorldComponent {
-  public yourName: string = '';
+  public name: string = '';
 }
 ```
 
@@ -77,15 +77,37 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'click-me',
   template: `
-    <button (click)="onClickMe()">點擊我</button>
-    <p>{{ clickMessage }}</p>
+    <button (click)="onClick()">點擊我</button>
+    <p>{{ message }}</p>
   `
 })
 export class ClickMeComponent {
-  public clickMessage: string = '我是點擊「前」的訊息';
+  public message: string = '我是點擊「前」的訊息';
 
-  onClickMe() {
-    this.clickMessage = '我是點擊「後」的訊息';
+  onClick() {
+    this.message = '我是點擊「後」的訊息';
+  }
+}
+```
+
+```ts
+// toggle-me.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'toggle-me',
+  template: `
+    <button (click)="onToggle()">點擊我 (切換內容)</button>
+    <p>{{ message }} Angular</p>
+  `
+})
+export class ToggleMeComponent {
+  public message: string = 'Hello';
+  public toggle: boolean = true;
+
+  onToggle() {
+    this.toggle = !this.toggle;
+    this.toggle ? this.message = 'Hello' : this.message = 'Goodbye';
   }
 }
 ```
