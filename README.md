@@ -98,16 +98,16 @@ import { Component } from '@angular/core';
   selector: 'toggle-me',
   template: `
     <button (click)="onToggle()">點擊我 (切換內容)</button>
-    <p>{{ message }} Angular</p>
+    <p>{{ message }}</p>
   `
 })
 export class ToggleMeComponent {
-  public message: string = 'Hello';
+  public message: string = '你好';
   public toggle: boolean = true;
 
   onToggle() {
     this.toggle = !this.toggle;
-    this.toggle ? this.message = 'Hello' : this.message = 'Goodbye';
+    this.toggle ? this.message = '你好' : this.message = '再見';
   }
 }
 ```
