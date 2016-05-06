@@ -82,7 +82,7 @@ import { Component } from '@angular/core';
   `
 })
 export class ClickMeComponent {
-  public clickMessage: string = '我是點擊「前」的訊息';  // 初始值的設定
+  public clickMessage: string = '我是點擊「前」的訊息';
 
   onClickMe() {
     this.clickMessage = '我是點擊「後」的訊息';
@@ -96,17 +96,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'add-item',
-  /**
-   * 宣告一個區域變數
-   * @param let newItem
-   *
-   * 綁定一個按鍵放開事件
-   * @param (keyup.enter)  按鍵是 Enter 鍵
-   * @param (keyup)
-   *
-   * 綁定一個點擊事件
-   * @param (click)
-   */
   template: `
     <input
       let newItem
@@ -121,10 +110,10 @@ import { Component } from '@angular/core';
   `
 })
 export class AddItemComponent {
-  public list: string[] = ['Angular', 'Material', 'Firebase'];  // 預設的清單
+  public list: string[] = ['Angular', 'Material', 'Firebase'];
 
   addItem(newItem: string) {
-    if (newItem) {  // 防止無輸入的狀態下新增項目
+    if (newItem) {
       this.list.push(newItem);
     }
   }
@@ -317,6 +306,21 @@ export class HighlightDirective {
 
 ### 管道
 ##### 內建管道
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'at-pipes',
+  template: `
+    <p>{{ thing | uppercase }}</p>
+    <p>{{ thing | lowercase }}</p>
+    <p>{{ thing | uppercase | lowercase }}</p>
+  `
+})
+export class AtPipesComponent {
+  public thing = 'Angular';
+}
+```
 ```ts
 import { Component } from '@angular/core';
 
