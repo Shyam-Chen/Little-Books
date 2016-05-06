@@ -224,7 +224,7 @@ export class AtFormComponent { }
 ```
 ```ts
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES, Routes } from '@angular/router';
 
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
@@ -233,8 +233,8 @@ import { AboutComponent } from './about';
   selector: 'app',
   template: `
     <nav>
-      <a [routerLink]="['Home']">Home</a> /
-      <a [routerLink]="['About']">About</a>
+      <a [routerLink]="['/']">Home</a> /
+      <a [routerLink]="['/about']">About</a>
     </nav>
     <router-outlet></router-outlet>
   `,
@@ -244,14 +244,12 @@ import { AboutComponent } from './about';
     AboutComponent
   ]
 })
-@RouteConfig([{
+@Routes([{
     path: '/',
-    name: 'Home',
     component: HomeComponent,
     useAsDefault: true
   }, {
     path: '/about',
-    name: 'About',
     component: AboutComponent
 }])
 export class App { }
