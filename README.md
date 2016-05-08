@@ -364,5 +364,6 @@ export class AtDateComponent {
 
 ### 參考資料
 * Angular 2 Developer Guides by Angular Team
+* Introduction to Angular 2 and ngCourse2 by Rangle.io
 * ng-book 2 by Ari Lerner, Felipe Coury, Nate Murray and Carlos Taborda
 * Switching to Angular 2 by Minko Gechev
