@@ -120,7 +120,7 @@ import { Component } from '@angular/core';
   selector: 'add-item',
   template: `
     <input
-      let newItem
+      #newItem=''
       (keyup.enter)="addItem(newItem.value); newItem.value=''"
       (keyup)="values=newItem.value"
     >
