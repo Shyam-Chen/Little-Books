@@ -339,6 +339,19 @@ export class HighlightDirective {
 * ngDoCheck
 * ngOnDestroy
 
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'at-lifecycle'
+})
+export class AtLifecycleComponent {
+  ngOnInit() {
+    console.log('Hello Angular 2');
+  }
+}
+```
+
 ### 管道
 ##### 內建管道
 ```ts
