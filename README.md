@@ -12,7 +12,6 @@
 * [管道](#管道)
 * [服務](#服務)
 * 觀測
-* [伺服器通訊](#伺服器通訊)
 * 動畫
 * [參考資料](#參考資料)
 
@@ -396,8 +395,22 @@ export class MessageLengthPipe implements PipeTransform {
 ```
 
 ### 服務
+```ts
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
-### 伺服器通訊
+@Injectable()
+export class PostService {
+  constructor(private http: Http) { }
+
+  getPosts() {
+    return this
+      .http.get('./posts.json')
+      .map(res => res.json())
+      .map(res => res.posts);
+  }
+}
+```
 
 ### 參考資料
 * Angular 2 Developer Guides by Angular Team
