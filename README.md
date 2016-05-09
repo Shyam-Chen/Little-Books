@@ -332,12 +332,6 @@ export class HighlightDirective {
 ```
 
 ### 生命週期掛鉤
-元件與指令
-* ngOnInit
-* ngOnChanges
-* ngDoCheck
-* ngOnDestroy
-
 ```ts
 import { Component } from '@angular/core';
 
