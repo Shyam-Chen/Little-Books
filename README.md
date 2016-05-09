@@ -369,7 +369,18 @@ export class AtDateComponent {
   public atDate = new Date(2020, 2, 14);
 }
 ```
+
 ##### 自訂管道
+```ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({ name: 'length' })
+export class MessageLengthPipe implements PipeTransform {
+  transform(value: string, args: string[]): any {
+    return `${value.length}`
+  }
+}
+```
 
 ### 服務
 
