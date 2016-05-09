@@ -142,6 +142,19 @@ export class AddItemComponent {
 }
 ```
 ##### 元件之間的溝通
+```ts
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'at-input',
+  template: `
+    <p>Hello {{ something }}</p>
+  `
+})
+export class AtInputComponent {
+  @Input('something') something: string;
+}
+```
 
 ### 內建指令
 ```ts
