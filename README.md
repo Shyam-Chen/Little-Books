@@ -6,7 +6,6 @@
 * [指令](#指令)
 * [管道](#管道)
 * [服務](#服務)
-* [動畫](#動畫)
 * [參考](#參考)
 
 ***
@@ -399,8 +398,6 @@ export class PostService {
   }
 }
 ```
-
-## 動畫
 
 ### 參考
 * Angular 2 Developer Guides by Angular Team
