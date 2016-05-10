@@ -392,8 +392,8 @@ export class PostService {
   constructor(private http: Http) { }
 
   getPosts() {
-    return this
-      .http.get('./posts.json')
+    return this.http
+      .get('./posts.json')
       .map(res => res.json())
       .map(res => res.posts);
   }
