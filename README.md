@@ -11,10 +11,10 @@
 
 ***
 
-### 環境配置
+### 配置
 [Angular2TS-Quick-Start](https://github.com/Shyam-Chen/Angular2TS-Quick-Start)
 
-### 快速入門
+### 元件
 ```ts
 // basic-app.ts
 import { Component } from '@angular/core';
@@ -62,7 +62,6 @@ export class HelloWorldComponent {
 }
 ```
 
-### 元件
 ```ts
 // click-me.ts
 import { Component } from '@angular/core';
@@ -134,6 +133,22 @@ export class AddItemComponent {
   }
 }
 ```
+
+##### 表單
+```ts
+import { Component } from '@angular/core';
+import { FORM_DIRECTIVES } from '@angular/common';
+
+@Component({
+  selector: 'at-form',
+  template: `
+
+  `,
+  directives: [FORM_DIRECTIVES]
+})
+export class AtFormComponent { }
+```
+
 ##### 元件之間的溝通
 ```ts
 import { Component, Input } from '@angular/core';
@@ -149,7 +164,59 @@ export class AtInputComponent {
 }
 ```
 
-### 內建指令
+##### 生命週期掛鉤
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'at-lifecycle'
+})
+export class AtLifecycleComponent {
+  ngOnInit() {
+    console.log('Hello Angular 2');
+  }
+}
+```
+
+##### 路由
+```html
+<base href="/">
+```
+```ts
+import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES, Routes } from '@angular/router';
+
+import { HomeComponent } from './home';
+import { AboutComponent } from './about';
+
+@Component({
+  selector: 'app',
+  template: `
+    <nav>
+      <a [routerLink]="['/']">Home</a> /
+      <a [routerLink]="['/about']">About</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
+  directives: [
+    ROUTER_DIRECTIVES,
+    HomeComponent,
+    AboutComponent
+  ]
+})
+@Routes([{
+    path: '/',
+    component: HomeComponent,
+    useAsDefault: true
+  }, {
+    path: '/about',
+    component: AboutComponent
+}])
+export class App { }
+```
+
+### 指令
+##### 內建指令
 ```ts
 // see-things.ts
 import { Component } from '@angular/core';
@@ -220,60 +287,7 @@ export class DataListComponent {
 <p [ngClass]="{ title: false }">這不是標題，所以背景是沒有黃色的</p>
 ```
 
-### 表單與輸入
-```ts
-import { Component } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/common';
-
-@Component({
-  selector: 'at-form',
-  template: `
-
-  `,
-  directives: [FORM_DIRECTIVES]
-})
-export class AtFormComponent { }
-```
-
-### 路由與導覽列
-```html
-<base href="/">
-```
-```ts
-import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES, Routes } from '@angular/router';
-
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-
-@Component({
-  selector: 'app',
-  template: `
-    <nav>
-      <a [routerLink]="['/']">Home</a> /
-      <a [routerLink]="['/about']">About</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
-  directives: [
-    ROUTER_DIRECTIVES,
-    HomeComponent,
-    AboutComponent
-  ]
-})
-@Routes([{
-    path: '/',
-    component: HomeComponent,
-    useAsDefault: true
-  }, {
-    path: '/about',
-    component: AboutComponent
-}])
-export class App { }
-```
-
-
-### 指令
+##### 自訂指令
 ```ts
 import { Directive } from '@angular/core';
 
@@ -323,20 +337,6 @@ export class HighlightDirective {
   <input type="radio" name="colors" (click)="color='#2196F3'">藍色
 </form>
 <span [atHighlight]="color">滑鼠游標靠過來吧!</span>
-```
-
-### 生命週期掛鉤
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'at-lifecycle'
-})
-export class AtLifecycleComponent {
-  ngOnInit() {
-    console.log('Hello Angular 2');
-  }
-}
 ```
 
 ### 管道
@@ -400,7 +400,9 @@ export class PostService {
 }
 ```
 
-### 參考資料
+## 動畫
+
+### 參考
 * Angular 2 Developer Guides by Angular Team
 * Introduction to Angular 2 and ngCourse2 by Rangle.io
 * ng-book 2 by Ari Lerner, Felipe Coury, Nate Murray and Carlos Taborda
