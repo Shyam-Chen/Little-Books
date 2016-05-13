@@ -122,6 +122,25 @@ export class ToggleClassComponent { }
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'key-up',
+  template: `
+    <input #new="" (keyup)="onKeyup(new.value)">
+    <p>{{ values }}</p>
+  `
+})
+export class KeyUpComponent {
+  public valuse: string = '';
+
+  onKeyup(value: string) {
+     this.values += `${value} | `;
+  }
+}
+```
+
+```ts
 // add-item.ts
 import { Component } from '@angular/core';
 
@@ -129,7 +148,7 @@ import { Component } from '@angular/core';
   selector: 'add-item',
   template: `
     <input
-      #newItem=''
+      #newItem=""
       (keyup.enter)="addItem(newItem.value); newItem.value=''"
       (keyup)="values=newItem.value"
     >
