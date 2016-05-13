@@ -118,9 +118,7 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class ToggleClassComponent {
-}
-
+export class ToggleClassComponent { }
 ```
 
 ```ts
