@@ -352,6 +352,19 @@ export class AtTitleDirective { }
 ```
 
 ```ts
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[atColor]'
+})
+export class AtColorDirective {
+  constructor(private element: ElementRef) {
+    element.nativeElement.style.color = '#F44336';
+  }
+}
+```
+
+```ts
 import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
@@ -366,7 +379,7 @@ export class HighlightDirective {
 
   private defaultColor: string = 'yellow';
 
-  constructor(private el: ElementRef) { }
+  constructor(private element: ElementRef) { }
 
   onMouseEnter() {
     this.highlight(this.highlightColor || this.defaultColor);
@@ -377,7 +390,7 @@ export class HighlightDirective {
   }
 
   private highlight(color: string) {
-    this.el.nativeElement.style.backgroundColor = color;
+    this.element.nativeElement.style.backgroundColor = color;
   }
 }
 ```
