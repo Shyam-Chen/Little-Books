@@ -328,12 +328,27 @@ export class DataListComponent {
 import { Directive } from '@angular/core';
 
 @Directive({
+  /**
+   * thing
+   * [thing]
+   * .thing
+   * input[type=text]
+   */
+  selector: ''
+})
+export class ThingDirective { }
+```
+
+```ts
+import { Directive } from '@angular/core';
+
+@Directive({
   selector: 'atTitle',
   host: {
     class: 'title'
   }
 })
-export class TitleDirective { }
+export class AtTitleDirective { }
 ```
 
 ```ts
