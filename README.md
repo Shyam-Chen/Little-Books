@@ -436,6 +436,14 @@ export class MessageLengthPipe implements PipeTransform {
 ### 服務
 ```ts
 import { Injectable } from '@angular/core';
+
+@Injectable()
+export class Languages {
+  public decide: string = 'TypeScript';
+}
+```
+```ts
+import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Injectable()
