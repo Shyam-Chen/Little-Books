@@ -4,8 +4,8 @@
 * [配置](#配置)
 * [元件](#元件)
 * [指令](#指令)
-* [管道](#管道)
 * [服務](#服務)
+* [管道](#管道)
 * [參考](#參考)
 
 ***
@@ -403,6 +403,32 @@ export class HighlightDirective {
 <span [atHighlight]="color">滑鼠游標靠過來吧!</span>
 ```
 
+### 服務
+```ts
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class Languages {
+  public decide: string = 'TypeScript';
+}
+```
+```ts
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
+@Injectable()
+export class PostService {
+  constructor(private http: Http) { }
+
+  getPosts() {
+    return this.http
+      .get('./posts.json')
+      .map(res => res.json())
+      .map(res => res.posts);
+  }
+}
+```
+
 ### 管道
 ##### 內建管道
 ```ts
@@ -442,32 +468,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class MessageLengthPipe implements PipeTransform {
   transform(value: string, args: string[]): any {
     return `${value.length}`
-  }
-}
-```
-
-### 服務
-```ts
-import { Injectable } from '@angular/core';
-
-@Injectable()
-export class Languages {
-  public decide: string = 'TypeScript';
-}
-```
-```ts
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-
-@Injectable()
-export class PostService {
-  constructor(private http: Http) { }
-
-  getPosts() {
-    return this.http
-      .get('./posts.json')
-      .map(res => res.json())
-      .map(res => res.posts);
   }
 }
 ```
