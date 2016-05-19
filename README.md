@@ -408,8 +408,10 @@ export class HighlightDirective {
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class Languages {
-  public decide: string = 'TypeScript';
+export class LanguagesService {
+  public js: string = 'JavaScript';
+  public coffee: string = 'CoffeeScript';
+  public ts: string = 'TypeScript';
 }
 ```
 
