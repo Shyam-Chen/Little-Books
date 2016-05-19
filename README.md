@@ -412,6 +412,30 @@ export class Languages {
   public decide: string = 'TypeScript';
 }
 ```
+
+```ts
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { Http } from '@angular/http';
+
+@Component({
+	selector: 'response-data',
+	template: `
+	  <code>{{ response }}</code>
+	  `
+})
+
+export class ResponseDataComponent {
+  constructor(private http: Http, private changeDetectorRef: ChangeDetectorRef) {
+    http
+      .get('./app/data.json')
+      .subscribe((data) => {
+        this.response = data._body;
+        changeDetectorRef.detectChanges();
+      });
+  }
+}
+```
+
 ```ts
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
