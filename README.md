@@ -415,21 +415,27 @@ export class LanguagesService {
 }
 ```
 
+```json
+{
+  "id": 1,
+  "title": "Angular2TS-Quick-Start",
+  "description": "Getting started with Angular 2 using TypeScript"
+}
+```
 ```ts
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Component({
-	selector: 'response-data',
+  selector: 'response-data',
 	template: `
 	  <code>{{ response }}</code>
 	  `
 })
-
 export class ResponseDataComponent {
   constructor(private http: Http, private changeDetectorRef: ChangeDetectorRef) {
     http
-      .get('./app/data.json')
+      .get('./assets/data.json')
       .subscribe((data) => {
         this.response = data._body;
         changeDetectorRef.detectChanges();
