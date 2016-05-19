@@ -178,11 +178,40 @@ import { FORM_DIRECTIVES } from '@angular/common';
 @Component({
   selector: 'at-form',
   template: `
+    <form [ngFormModel]="group" (ngSubmit)="onSubmit()" novalidate>
+      <label for="email">Email:</label>
+      <input type="email" id="email" [ngFormControl]="email">
 
+      <label for="password">Password:</label>
+      <input type="password" id="password" [ngFormControl]="password">
+
+      <button type="submit">Register</button>
+    </form>
+
+    <pre>{{ formValue | json }}</pre>
   `,
   directives: [FORM_DIRECTIVES]
 })
-export class AtFormComponent { }
+export class AtFormComponent {
+  public email: Control;
+  public password: Control;
+  public group: ControlGroup;
+  public formValue: any;
+  
+  constructor(public formBuilder: FormBuilder) {
+    this.email = new Control();
+    this.password = new Control();
+    
+    this.group = formBuilder.group({
+      email: this.email,
+      password: this.password
+    });
+  }
+  
+  onSubmit() {
+    this.formValue = this.group.value;
+  }
+}
 ```
 
 ##### 元件之間的溝通
@@ -219,7 +248,6 @@ export class AtCounterComponent {
     this.countChange.emit(this.count);
   }
 }
-
 ```
 
 ##### 生命週期掛鉤
