@@ -345,6 +345,19 @@ export class DataListComponent {
 <p [ngClass]="{ title: false }">這不是標題，所以背景是沒有黃色的</p>
 ```
 
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'use-content',
+  template: `
+    <p>Hi, TypeScript</p>
+    <ng-content></ng-content>
+  `
+})
+export class UseContnetComponent { }
+```
+
 ##### 自訂指令
 ```ts
 import { Directive } from '@angular/core';
