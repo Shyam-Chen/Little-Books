@@ -358,9 +358,9 @@ export class DataListComponent {
 </p>
 
 <!-- 內建指令 -->
-<div [ngStyle]="{ 'background-color': 'yellow' }"> 
+<p [ngStyle]="{ 'background-color': 'yellow' }"> 
   我的背景也是黃色的
-</div>
+</p>
 ```
 
 ```css
