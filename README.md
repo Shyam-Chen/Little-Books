@@ -135,7 +135,7 @@ export class KeyUpComponent {
   public valuse: string = '';
 
   onKeyup(value: string) {
-     this.values += `${value} | `;
+     this.values += `${ value } | `;
   }
 }
 ```
@@ -150,7 +150,7 @@ import { Component } from '@angular/core';
     <input
       #newItem=""
       (keyup.enter)="addItem(newItem.value); newItem.value=''"
-      (keyup)="values=newItem.value"
+      (keyup)="values = newItem.value"
     >
     <p>{{ values }}</p>
     <button (click)="addItem(newItem.value); newItem.value=''; values=''">新增</button>
