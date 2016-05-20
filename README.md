@@ -18,7 +18,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  // 一些配置在這裡
+  // 一些組態在這裡
 })
 export class ThingComponent {
   // 一些程式碼在這裡
