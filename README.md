@@ -20,7 +20,7 @@ import { Component } from '@angular/core';
 @Component({
   // 一些組態在這裡
 })
-export class ThingComponent {
+export class AtThingComponent {
   // 一些程式碼在這裡
 }
 ```
