@@ -24,6 +24,22 @@ export class AtThingComponent {
   // 一些程式碼在這裡
 }
 ```
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  moduleId: module.id,
+  selector: 'at-thing',
+  templateUrl: 'thing.component.html',
+  styleUrls: ['thing.component.css']
+  // 其它更多的組態
+})
+export class AtThingComponent {
+  // 一些程式碼在這裡
+}
+```
+
 ```ts
 // basic-app.ts
 import { Component } from '@angular/core';
