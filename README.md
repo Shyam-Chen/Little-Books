@@ -521,13 +521,13 @@ export class NgClassComponent { }
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'use-content',
+  selector: 'content-projection',
   template: `
     <p>Hi, TypeScript</p>
     <ng-content></ng-content>
   `
 })
-export class UseContnetComponent { }
+export class ContentProjectionComponent { }
 ```
 
 ##### 自訂指令
