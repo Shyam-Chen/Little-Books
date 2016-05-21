@@ -305,7 +305,7 @@ export class AtFormComponent {
   public group: ControlGroup;
   public formValue: any;
   
-  constructor(public formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder) {
     this.email = new Control();
     this.password = new Control();
     
