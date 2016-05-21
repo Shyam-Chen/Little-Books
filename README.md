@@ -52,6 +52,9 @@ export class AtThingComponent {
 import { Component } from '@angular/core';
 
 @Component({
+  /**
+   * 常用的組態
+   */
   moduleId: module.id,
   selector: 'at-thing',
   templateUrl: 'thing.component.html',
