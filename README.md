@@ -548,12 +548,12 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Component({
-  selector: 'response-data',
+	selector: 'get-data',
 	template: `
-	  <code>{{ response }}</code>
-	  `
+	  <pre>{{ response }}</pre>
+	`
 })
-export class ResponseDataComponent {
+export class GetDataComponent {
   constructor(private http: Http, private changeDetectorRef: ChangeDetectorRef) {
     http
       .get('./assets/data.json')
@@ -563,6 +563,10 @@ export class ResponseDataComponent {
       });
   }
 }
+```
+
+```ts
+import{ Http, Response, RequestOptions, Headers } from'@angular/http';
 ```
 
 ```ts
