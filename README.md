@@ -444,26 +444,42 @@ export class DataListComponent {
 }
 ```
 
-```html
-<!-- 模板表達式 -->
-<p [style.background-color]="'yellow'">
-  我的背景是黃色的
-</p>
+```ts
+import { Component } from '@angular/core';
 
-<!-- 內建指令 -->
-<p [ngStyle]="{ 'background-color': 'yellow' }"> 
-  我的背景也是黃色的
-</p>
+@Component({
+  selector: 'ng-style',
+  template: `
+		<!-- 模板表達式 -->
+		<p [style.background-color]="'yellow'">
+		  我的背景是黃色的
+		</p>
+		
+		<!-- 內建指令 -->
+		<p [ngStyle]="{ 'background-color': 'yellow' }"> 
+		  我的背景也是黃色的
+		</p>
+  `
+})
+export class NgStyleComponent { }
 ```
 
-```css
-.title {
-  background-color: yellow
-}
-```
-```html
-<h3 [ngClass]="{ title: true }">這是標題，所以背景是有黃色的</h3>
-<p [ngClass]="{ title: false }">這不是標題，所以背景是沒有黃色的</p>
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'ng-class',
+  template: `
+    <p [ngClass]="{ 'at-color': true }">Angular 2</p>
+    <p [ngClass]="{ 'at-color': false }">TypeScript</p>
+  `,
+  styles: [`
+    .at-color {
+      color: #F44336
+    }
+  `]
+})
+export class NgClassComponent { }
 ```
 
 ```ts
