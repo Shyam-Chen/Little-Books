@@ -690,7 +690,7 @@ export class AtDateComponent {
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-	name: 'length'
+  name: 'length'
 })
 export class MessageLengthPipe implements PipeTransform {
   transform(value: string, args: string[]): any {
