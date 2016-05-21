@@ -327,8 +327,16 @@ export class AtLifecycleComponent {
 ```
 
 ##### 路由
-```html
-<base href="/">
+```ts
+import { APP_BASE_HREF } from '@angular/common';
+
+// ...
+
+bootstrap(App, [
+  // ...
+  provide(APP_BASE_HREF, { useValue: '/' })
+  // ...
+]);
 ```
 ```ts
 import { Component } from '@angular/core';
