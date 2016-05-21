@@ -592,10 +592,10 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Component({
-	selector: 'get-data',
-	template: `
-	  <pre>{{ response }}</pre>
-	`
+  selector: 'get-data',
+  template: `
+    <pre>{{ response }}</pre>
+  `
 })
 export class GetDataComponent {
   constructor(private http: Http, private changeDetectorRef: ChangeDetectorRef) {
