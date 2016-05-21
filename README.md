@@ -18,7 +18,7 @@
 import { Component } from '@angular/core';
 
 /**
- * 元件組態可使用的選項
+ * 建構子
  *
  * selector?: string,
  * inputs?: string[],  // 不建議使用
