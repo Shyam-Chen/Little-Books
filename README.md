@@ -235,6 +235,48 @@ import { Component } from '@angular/core';
 export class AtPropertiesComponent { }
 ```
 
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'encapsulation-emulated',
+  template: `
+  `,
+  styles: [`
+  `],
+  encapsulation: ViewEncapsulation.Emulated
+})
+export class NgClassComponent { }
+```
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'encapsulation-native',
+  template: `
+  `,
+  styles: [`
+  `],
+  encapsulation: ViewEncapsulation.Native
+})
+export class NgClassComponent { }
+```
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'encapsulation-none',
+  template: `
+  `,
+  styles: [`
+  `],
+  encapsulation: ViewEncapsulation.None
+})
+export class NgClassComponent { }
+```
+
 ##### 表單
 ```ts
 import { Component } from '@angular/core';
