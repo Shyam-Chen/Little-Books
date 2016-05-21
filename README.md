@@ -21,11 +21,11 @@ import { Component } from '@angular/core';
  * 元件組態可使用的選項
  *
  * selector?: string,
- * inputs?: string[],
- * outputs?: string[],
+ * inputs?: string[],  // 不建議使用
+ * outputs?: string[],  // 不建議使用
  * properties?: string[],
  * events?: string[],
- * host?: {[key: string]: string},
+ * host?: {[key: string]: string},  // 不建議使用
  * providers?: any[],
  * exportAs?: string,
  * moduleId?: string,
