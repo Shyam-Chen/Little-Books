@@ -329,12 +329,13 @@ export class AtLifecycleComponent {
 ##### 路由
 ```ts
 import { APP_BASE_HREF } from '@angular/common';
+import { provide } from '@angular/core';
 
 // ...
 
 bootstrap(App, [
   // ...
-  provide(APP_BASE_HREF, { useValue: '/' })
+  provide(APP_BASE_HREF, { useValue: '/' }),
   // ...
 ]);
 ```
