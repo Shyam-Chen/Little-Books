@@ -411,36 +411,29 @@ export class NgSwitchComponent {
 ```
 
 ```ts
-// data-list.interface.ts
-export interface DataList {
-  label: string;
-}
-```
-```ts
-// data-list.ts
 import { Component } from '@angular/core';
 
-import { DataList } from './data-list.interface.ts';
+interface List {
+  label: string;
+}
 
 @Component({
-  selector: 'data-list',
+  selector: 'ng-for',
   template: `
-    <p>程式語言:</p>
+    <p>Technologies:</p>
     <ul>
-      <li *ngFor="let item of list">
-        {{ item.label }}
+      <li *ngFor="let item of list; let i = index">
+        ({{ i + 1 }}) {{ item.label }}
       </li>
     </ul>
-    <p>我最喜愛的語言是: {{ favorite.label }}</p>
   `
 })
-export class DataListComponent {
-  public list: DataList[] = [
-    { label: 'JavaScript' },
-    { label: 'CoffeeScript' },
-    { label: 'TypeScript' }
+export class NgForComponent {
+  public list: List[] = [
+    { label: 'ECMAScript' },
+    { label: 'HTML5' },
+    { label: 'Node.js' }
   ];
-  public favorite = this.list[1];
 }
 ```
 
