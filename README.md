@@ -17,6 +17,29 @@
 ```ts
 import { Component } from '@angular/core';
 
+/**
+ * 元件組態可使用的選項
+ *
+ * selector?: string,
+ * inputs?: string[],
+ * outputs?: string[],
+ * properties?: string[],
+ * events?: string[],
+ * host?: {[key: string]: string},
+ * providers?: any[],
+ * exportAs?: string,
+ * moduleId?: string,
+ * viewProviders?: any[],
+ * queries?: {[key: string]: any},
+ * changeDetection?: ChangeDetectionStrategy,
+ * templateUrl?: string,
+ * template?: string,
+ * styleUrls?: string[],
+ * styles?: string[],
+ * directives?: Array<Type | any[]>,
+ * pipes?: Array<Type | any[]>,
+ * encapsulation?: ViewEncapsulation
+ */
 @Component({
   // 一些組態在這裡
 })
