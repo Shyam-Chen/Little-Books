@@ -51,10 +51,10 @@ export class AtThingComponent {
 ```ts
 import { Component } from '@angular/core';
 
+/**
+ * 常用的組態
+ */
 @Component({
-  /**
-   * 常用的組態
-   */
   moduleId: module.id,
   selector: 'at-thing',
   templateUrl: 'thing.component.html',
