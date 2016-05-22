@@ -697,6 +697,16 @@ export class OnRequestService {
 }
 ```
 
+```ts
+// class Http
+request(url: string | Request, options?: RequestOptionsArgs) : Observable<Response>
+get(url: string, options?: RequestOptionsArgs) : Observable<Response>
+post(url: string, body: string, options?: RequestOptionsArgs) : Observable<Response>
+put(url: string, body: string, options?: RequestOptionsArgs) : Observable<Response>
+delete(url: string, options?: RequestOptionsArgs) : Observable<Response>
+patch(url: string, body: string, options?: RequestOptionsArgs) : Observable<Response>
+head(url: string, options?: RequestOptionsArgs) : Observable<Response>
+```
 
 ```ts
 import{ Http, Response, RequestOptions, Headers } from'@angular/http';
