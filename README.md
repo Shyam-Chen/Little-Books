@@ -672,6 +672,14 @@ export class OnRequestComponent {
 
   onRequest() {
     this.http
+      /**
+       * class Request
+       * 
+       * new Request({
+       * method: RequestMethod.Get
+       * // 更多的組態
+       * })
+       */
       .request('./assets/data.json')  // or .get('./assets/data.json')
       .subscribe((res: Response) => {
         this.response = res.json();
