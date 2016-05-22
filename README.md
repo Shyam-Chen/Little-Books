@@ -672,14 +672,6 @@ export class OnRequestComponent {
 
   onRequest() {
     this.http
-      /**
-       * class Request
-       * 
-       * new Request({
-       * method: RequestMethod.Get
-       * // 更多的組態
-       * })
-       */
       .request('./assets/data.json')  // or .get('./assets/data.json')
       .subscribe((res: Response) => {
         this.response = res.json();
@@ -687,6 +679,24 @@ export class OnRequestComponent {
   }
 }
 ```
+```ts
+import { Injectable } from '@angular/core';
+import { Http, Request, RequestMethod } from '@angular/http';
+
+@Injectable()
+export class OnRequestService {
+  constructor(private http: Http) { }
+
+  onRequest(url: string) {
+    return this.http
+      .request(new Request({
+        method: RequestMethod.Get,
+        url: url
+      }));
+  }
+}
+```
+
 
 ```ts
 import{ Http, Response, RequestOptions, Headers } from'@angular/http';
