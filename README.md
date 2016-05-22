@@ -362,12 +362,12 @@ export class AtCounterComponent {
 
 ##### 生命週期掛鉤
 ```ts
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'at-lifecycle'
 })
-export class AtLifecycleComponent {
+export class AtLifecycleComponent implements OnInit {
   ngOnInit() {
     console.log('Hello Angular 2');
   }
