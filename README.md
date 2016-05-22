@@ -672,7 +672,7 @@ export class OnRequestComponent {
 
   onRequest() {
     this.http
-      .request('./assets/data.json')
+      .request('./assets/data.json')  // or .get('./assets/data.json')
       .subscribe((res: Response) => {
         this.response = res.json();
       });
