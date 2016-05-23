@@ -555,14 +555,14 @@ import { Directive } from '@angular/core';
 
 @Directive({
   /**
-   * thing
-   * [thing]
-   * .thing
+   * at-thing
+   * [atThing]
+   * .at-thing
    * input[type=text]
    */
   selector: ''
 })
-export class ThingDirective { }
+export class AtThingDirective { }
 ```
 
 ```ts
