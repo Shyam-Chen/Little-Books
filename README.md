@@ -569,7 +569,7 @@ export class AtThingDirective { }
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: 'atTitle',
+  selector: 'at-title',
   host: {
     class: 'title'
   }
