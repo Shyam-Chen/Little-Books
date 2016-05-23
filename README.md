@@ -189,7 +189,7 @@ import { Component } from '@angular/core';
 export class KeyUpComponent {
   public valuse: string = '';
 
-  onKeyup(value: string) {
+  onKeyup(value: string): string {
      this.values += `${ value } | `;
   }
 }
@@ -531,6 +531,21 @@ import { Component } from '@angular/core';
   `
 })
 export class ContentProjectionComponent { }
+```
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'more-content',
+  template: `
+    <ng-content select="[js]"></ng-content>
+    <ng-content select="[coffee]"></ng-content>
+    <ng-content select="[ts]"></ng-content>
+  `
+})
+export class MoreContentComponent { }
+
 ```
 
 ##### 自訂指令
