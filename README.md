@@ -130,7 +130,7 @@ import { Component } from '@angular/core';
 export class ClickMeComponent {
   public message: string = '我是點擊「前」的訊息';
 
-  onClick(): void {
+  onClick(): string {
     this.message = '我是點擊「後」的訊息';
   }
 }
