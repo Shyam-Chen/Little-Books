@@ -368,7 +368,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'at-lifecycle'
 })
 export class AtLifecycleComponent implements OnInit {
-  ngOnInit() {
+  ngOnInit(): void {
     console.log('Hello Angular 2');
   }
 }
