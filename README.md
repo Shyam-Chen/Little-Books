@@ -335,7 +335,7 @@ import { Component, Input } from '@angular/core';
   `
 })
 export class AtInputComponent {
-  @Input('something') something: string;
+  @Input('atSomething') something: string;
 }
 ```
 
