@@ -579,13 +579,18 @@ export class AtColorDirective {
 ```
 
 ```ts
-import { Directive } from '@angular/core';
+import { Directive, HostBinding } from '@angular/core';
 
 @Directive({
-  selector: 'at-title'
+  selector: '[at-title]'
 })
 export class TitleDirective {
-  @HostBinding('[class.valid]') isValid;
+  public useTitle: boolean = true;
+
+  @HostBinding('[class.title]')
+  get title {
+    return this.useTitle;
+  }
 }
 ```
 
