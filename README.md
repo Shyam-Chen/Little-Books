@@ -688,7 +688,7 @@ import { LanguagesService } from './services/languages';
 export class App {
   public language: string = '';
 
-  constructor(@Inject(LanguagesService) languages) {
+  constructor(@Inject(LanguagesService) private languages) {
     this.language = languages.ts;
   }
 }
