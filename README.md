@@ -595,7 +595,7 @@ export class TitleDirective {
 ```
 
 ```ts
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, Input, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[atHighlight]'
