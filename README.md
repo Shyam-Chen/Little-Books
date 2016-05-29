@@ -688,7 +688,7 @@ import { LanguagesService } from './services/languages';
 export class App {
   public language: string = '';
 
-  constructor(@Inject(LanguagesService) private languages) {
+  constructor(@Inject(LanguagesService) languages) {
     this.language = languages.ts;
   }
 }
@@ -834,7 +834,7 @@ import { Component } from '@angular/core';
   template: `
     <p>{{ thing | uppercase }}</p>
     <p>{{ thing | lowercase }}</p>
-    <p>{{ thing | uppercase | lowercase }}</p>
+    <p>{{ thing | uppercase | lowercase }}</p>  <!-- 先 uppercase 再來 lowercase -->
   `
 })
 export class AtPipesComponent {
