@@ -631,6 +631,7 @@ export class HighlightDirective {
 
 ### 服務
 ```ts
+// languages.ts
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -638,6 +639,58 @@ export class LanguagesService {
   public js: string = 'JavaScript';
   public coffee: string = 'CoffeeScript';
   public ts: string = 'TypeScript';
+}
+```
+```ts
+// app.ts
+import { Component } from '@angular/core';
+
+import { LanguagesService } from './services/languages';
+
+@Component({
+  selector: 'app',
+  template: `
+    <h3 class="title">Languages Service</h3>
+    <div class="content">
+      <p>Decided Language: {{ language }}</p>
+    </div>
+  `,
+  viewProviders: [
+    LanguagesService
+  ]
+})
+export class App {
+  public language: string = '';
+
+  constructor(private languages: LanguagesService) {
+    this.language = languages.ts;
+  }
+}
+
+// or
+
+import { Component, Inject } from '@angular/core';
+
+import { LanguagesService } from './services/languages';
+
+@Component({
+  selector: 'app',
+  template: `
+    <h3 class="title">Languages Service</h3>
+    <div class="content">
+      <p>Decided Language: {{ language }}</p>
+    </div>
+  `,
+  viewProviders: [
+    LanguagesService
+  ]
+})
+export class App {
+  public language: string = '';
+
+  constructor(@Inject(LanguagesService) languages) {
+    this.language = languages.ts;
+  }
 }
 ```
 
