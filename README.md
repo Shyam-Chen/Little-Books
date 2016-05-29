@@ -11,10 +11,9 @@
 ***
 
 ### 配置
-* [angular/quickstart](https://github.com/angular/quickstart)
-* [angular/angular-cli](https://github.com/angular/angular-cli)
-* [mgechev/angular2-seed](https://github.com/mgechev/angular2-seed)
-* [AngularClass/angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter)
+* [使用 CLI](https://github.com/angular/angular-cli)
+* [使用 Gulp](https://github.com/mgechev/angular2-seed)
+* [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
 
 ### 元件
 ```ts
