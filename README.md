@@ -594,11 +594,7 @@ export class AtColorDirective {
 import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-  selector: '[atHighlight]',
-  host: {
-    '(mouseenter)': 'onMouseEnter()',
-    '(mouseleave)': 'onMouseLeave()'
-  }
+  selector: '[atHighlight]'
 })
 export class HighlightDirective {
   @Input('atHighlight') highlightColor: string;
@@ -607,10 +603,12 @@ export class HighlightDirective {
 
   constructor(private element: ElementRef) { }
 
+  @HostListener('mouseenter', ['$event.target'])
   onMouseEnter() {
     this.highlight(this.highlightColor || this.defaultColor);
   }
 
+  @HostListener('mouseleave', ['$event.target'])
   onMouseLeave() {
     this.highlight(null);
   }
