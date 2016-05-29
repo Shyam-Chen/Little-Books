@@ -566,18 +566,6 @@ export class AtThingDirective { }
 ```
 
 ```ts
-import { Directive } from '@angular/core';
-
-@Directive({
-  selector: 'at-title',
-  host: {
-    class: 'title'
-  }
-})
-export class AtTitleDirective { }
-```
-
-```ts
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
@@ -587,6 +575,17 @@ export class AtColorDirective {
   constructor(private element: ElementRef) {
     element.nativeElement.style.color = '#F44336';
   }
+}
+```
+
+```ts
+import { Directive } from '@angular/core';
+
+@Directive({
+  selector: 'at-title'
+})
+export class TitleDirective {
+  @HostBinding('[class.valid]') isValid;
 }
 ```
 
