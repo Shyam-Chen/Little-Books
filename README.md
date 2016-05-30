@@ -359,6 +359,13 @@ export class AtCounterComponent {
 }
 ```
 
+```ts
+@ContentChild()
+@ContentChildren()
+@ViewChild()
+@ViewChildren()
+```
+
 ##### 生命週期掛鉤
 ```ts
 import { Component, OnInit } from '@angular/core';
@@ -371,6 +378,15 @@ export class AtLifecycleComponent implements OnInit {
     console.log('Hello Angular 2');
   }
 }
+```
+
+```ts
+ngDoCheck() { ... }
+
+ngAfterContentInit() { ... }
+ngAfterContentChecked() { ... }
+ngAfterViewInit() { ... }
+ngAfterViewChecked() { ... }
 ```
 
 ##### 路由
