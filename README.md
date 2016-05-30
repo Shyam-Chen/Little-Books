@@ -548,6 +548,21 @@ import { Component } from '@angular/core';
 export class MoreContentComponent { }
 ```
 
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'ng-non-bindable',
+  template: `
+    <p>Hello {{ content }}</p>
+    <p ngNonBindable>Hello {{ content }}</p>
+  `
+})
+export class NgNonBindableComponent {
+  public content: string = 'Angular 2';
+}
+```
+
 ##### 自訂指令
 ```ts
 import { Directive } from '@angular/core';
