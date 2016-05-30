@@ -11,7 +11,7 @@
 ***
 
 ### 配置
-* [使用 CLI](https://github.com/angular/angular-cli)
+* [使用 Angular CLI](https://github.com/angular/angular-cli)
 * [使用 Gulp](https://github.com/mgechev/angular2-seed)
 * [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
 
