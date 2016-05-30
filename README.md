@@ -695,11 +695,11 @@ export class App {
 }
 ```
 
-```json
+```js
+// data.json
 {
-  "id": 1,
-  "title": "Angular2TS-Quick-Start",
-  "description": "Getting started with Angular 2 using TypeScript"
+  "title": "Angular2-in-Action",
+  "description": "Angular 2 實戰"
 }
 ```
 ```ts
