@@ -673,7 +673,7 @@ export class ToggleMeComponent {
   public message: string = '你好';
   public toggle: boolean = true;
 
-  onToggle() {
+  onToggle(): boolean | string {
     this.toggle = !this.toggle;
     this.toggle ? this.message = '你好' : this.message = '再見';
   }
@@ -840,7 +840,7 @@ export class AtFormComponent {
     });
   }
   
-  onSubmit() {
+  onSubmit(): void {
     this.formValue = this.group.value;
   }
 }
@@ -955,7 +955,7 @@ import { AboutComponent } from './about';
 export class App implements OnInit {
   constructor(private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.router.navigate(['/home']);
   }
 }
