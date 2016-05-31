@@ -1422,6 +1422,156 @@ export class MessageLengthPipe implements PipeTransform {
 }
 ```
 
+### 靜態分析
+##### 使用 Codelyzer
+```bash
+$ npm i codelyzer -D
+```
+
+```js
+// tslint.json
+{
+  "rulesDirectory": ["node_modules/codelyzer"],
+  "rules":{
+    // 一些 TSLint 的規則在這裡
+
+    // Codelyzer 的規則
+    "directive-selector-name": [true, "camelCase"],
+    "component-selector-name": [true, "kebab-case"],
+    "directive-selector-type": [true, "attribute"],
+    "component-selector-type": [true, "element"],
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "component-class-suffix": true,
+    "directive-class-suffix": true
+  }
+}
+```
+
+### 單元測試
+```js
+// test-main.js
+if (!Object.hasOwnProperty('name')) {
+  Object.defineProperty(Function.prototype, 'name', {
+    get: function() {
+      var matches = this.toString().match(/^\s*function\s*(\S*)\s*\(/);
+      var name = matches && matches.length > 1 ? matches[1] : "";
+      Object.defineProperty(this, 'name', {value: name});
+      return name;
+    }
+  });
+}
+
+Error.stackTraceLimit = Infinity;
+
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
+
+__karma__.loaded = function() {};
+
+System.config({
+  baseURL: '/base/'
+});
+
+System.config({
+  defaultJSExtensions: true,
+  map: {
+    '@angular': 'node_modules/@angular',
+    'rxjs': 'node_modules/rxjs'
+  },
+  packages: {
+    '@angular/core': {
+      main: 'index.js',
+      defaultExtension: 'js'
+    },
+    '@angular/compiler': {
+      main: 'index.js',
+      defaultExtension: 'js'
+    },
+    '@angular/common': {
+      main: 'index.js',
+      defaultExtension: 'js'
+    },
+    '@angular/http': {
+      main: 'index.js',
+      defaultExtension: 'js'
+    },
+    '@angular/platform-browser': {
+      main: 'index.js',
+      defaultExtension: 'js'
+    },
+    '@angular/platform-browser-dynamic': {
+      main: 'index.js',
+      defaultExtension: 'js'
+    },
+    '@angular/router': {
+      main: 'index.js',
+      defaultExtension: 'js'
+    },
+    'rxjs': {
+      defaultExtension: 'js'
+    }
+  }
+});
+
+Promise
+  .all([
+    System.import('@angular/core/testing'),
+    System.import('@angular/platform-browser-dynamic/testing')
+  ])
+  .then(function (providers) {
+    var testing = providers[0];
+    var testingBrowser = providers[1];
+
+    testing.setBaseTestProviders(
+      testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+      testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+    );
+  })
+  .then(function() {
+    return Promise.all(
+      Object.keys(window.__karma__.files)
+      .filter(onlySpecFiles)
+      .map(file2moduleName)
+      .map(function(path) {
+        return System.import(path).then(function(module) {
+          if (module.hasOwnProperty('main')) {
+            module.main();
+          } else {
+            throw new Error('Module ' + path + ' does not implement main() method.');
+          }
+        });
+      }));
+  })
+  .then(
+    function() {
+      __karma__.start();
+    },
+    function(error) {
+      console.error(error.stack || error);
+      __karma__.start();
+    }
+  );
+
+function onlySpecFiles(path) {
+  var patternMatched = __karma__.config.files ? path.match(new RegExp(__karma__.config.files)) : true;
+  return patternMatched && /[\.|_]spec\.js$/.test(path);
+}
+
+function file2moduleName(filePath) {
+  return filePath
+    .replace(/\\/g, '/')
+    .replace(/^\/base\//, '')
+    .replace(/\.js$/, '');
+}
+```
+
+### 端對端測試
+
 ### 參考資料
 * TypeScript Handbook by TypeScript Team
 * TypeScript Deep Dive by Basarat Ali Syed
