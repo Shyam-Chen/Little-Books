@@ -904,7 +904,9 @@ export class AtLifecycleComponent implements OnInit {
 ```
 
 ```ts
+ngOnChanges() { ... }
 ngDoCheck() { ... }
+ngOnDestroy() { ... }
 
 ngAfterContentInit() { ... }
 ngAfterContentChecked() { ... }
