@@ -1605,6 +1605,51 @@ const config = {
 exports.config = config;
 ```
 
+### 持續整合
+```bash
+# .travis.yml
+language: node_js
+node_js:
+  - 4
+  - 5
+  - stable
+
+sudo: false
+
+os:
+  - linux
+  - osx
+
+matrix:
+  exclude:
+    - os: osx
+      node_js: 4
+    - os: osx
+      node_js: 5
+
+cache:
+  directories: node_modules
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew outdated xctool || brew upgrade xctool; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew tap caskroom/cask; fi
+
+before_script:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then nohup bash -c "webdriver-manager start 2>&1 &"; fi
+
+script:
+  - npm run gulp -- build
+  - npm run gulp -- lint
+  - npm run gulp -- unit
+  - npm run gulp -- e2e
+```
+
+### 簡單的應用程式
+https://github.com/Shyam-Chen/Angular2-Sample-App
+
 ### 參考資料
 * TypeScript Handbook by TypeScript Team
 * TypeScript Deep Dive by Basarat Ali Syed
