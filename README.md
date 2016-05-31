@@ -966,6 +966,25 @@ export class App implements OnInit {
 OnActivate() { ... }
 ```
 
+##### 層疊路由
+```ts
+import { Component } from '@angular/core';
+import { OnActivate, RouteSegment, Router, RouteTree } from '@angular/router';
+
+@Component({
+  template: `
+    
+  `,
+})
+export class CrisisListComponent implements OnActivate {
+  private routeSegment: RouteSegment;
+
+  constructor(private router: Router) { }
+
+  routerOnActivate(curr: RouteSegment, prev: RouteSegment, currTree: RouteTree) { }
+}
+```
+
 ### 指令
 ##### 內建指令
 ```ts
