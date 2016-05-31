@@ -37,6 +37,8 @@
 
 ***
 
+### 初識 Angular 與 TypeScript
+
 ### 環境配置
 * [使用 Angular CLI](https://github.com/angular/angular-cli)
 * [使用 Gulp](https://github.com/mgechev/angular2-seed)
