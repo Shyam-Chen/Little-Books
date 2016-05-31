@@ -928,8 +928,8 @@ bootstrap(App, [
 ]);
 ```
 ```ts
-import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES, Routes } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ROUTER_DIRECTIVES, Routes, Router } from '@angular/router';
 
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
@@ -938,26 +938,32 @@ import { AboutComponent } from './about';
   selector: 'app',
   template: `
     <nav>
-      <a [routerLink]="['/']">Home</a> /
+      <a [routerLink]="['/home']">Home</a> /
       <a [routerLink]="['/about']">About</a>
     </nav>
     <router-outlet></router-outlet>
   `,
-  directives: [
-    ROUTER_DIRECTIVES,
-    HomeComponent,
-    AboutComponent
-  ]
+  directives: [ROUTER_DIRECTIVES]
 })
 @Routes([{
-    path: '/',
-    component: HomeComponent,
-    useAsDefault: true
+    path: '/home',
+    component: HomeComponent
   }, {
     path: '/about',
     component: AboutComponent
 }])
-export class App { }
+export class App implements OnInit {
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+    this.router.navigate(['/home']);
+  }
+}
+```
+
+##### 路由生命週期掛鉤
+```ts
+OnActivate() { ... }
 ```
 
 ### 指令
