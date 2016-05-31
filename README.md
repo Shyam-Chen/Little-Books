@@ -1571,6 +1571,39 @@ function file2moduleName(filePath) {
 ```
 
 ### 端對端測試
+```js
+// protractor.conf.js
+const tsNode = require('ts-node');
+const jasmineSpecReporter = require('jasmine-spec-reporter');
+
+const config = {
+  directConnect: true,
+  specs: ['./src/**/*.e2e-spec.ts'],
+  exclude: [],
+  capabilities: {
+    browserName: 'chrome'
+  },
+  baseUrl: 'http://localhost:9876/',
+  beforeLaunch() {
+    tsNode.register({ project: 'e2e' });
+  },
+  onPrepare() {
+    let SpecReporter = jasmineSpecReporter;
+    jasmine.getEnv().addReporter(new SpecReporter({ displayStacktrace: true }));
+
+    browser.ignoreSynchronization = false;
+  },
+  framework: 'jasmine',
+  jasmineNodeOpts: {
+    isVerbose: false,
+    showColors: true,
+    includeStackTrace: false
+  },
+  useAllAngular2AppRoots: true
+};
+
+exports.config = config;
+```
 
 ### 參考資料
 * TypeScript Handbook by TypeScript Team
