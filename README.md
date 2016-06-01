@@ -1139,6 +1139,15 @@ import { Component } from '@angular/core';
   template: `
     <p *ngIf="true">我看的到它</p>
     <p *ngIf="false">我看不到它</p>
+
+    <!-- or -->
+
+    <template [ngIf]="true">
+      <p>我看的到它</p>
+    </template>
+    <template [ngIf]="false">
+      <p>我看不到它</p>
+    </template>
   `
 })
 export class SeeThingsComponent { }
