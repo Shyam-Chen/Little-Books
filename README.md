@@ -1810,26 +1810,7 @@ export class HelloE2EComponent {
 }
 ```
 ```ts
-// hello-e2e.component.ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'hello-e2e',
-  template: `
-    <button (click)="onClick()">點擊我</button>
-    <p>{{ message }}</p>
-  `
-})
-export class HelloE2EComponent {
-  public message: string = '';
-
-  onClick(): string {
-    this.message = 'Hello E2E';
-  }
-}
-```
-```ts
-// hello-e2e.component.ts
+// hello-e2e.component.e2e-spec.ts
 describe('HelloE2EComponent', () => {
 
   beforeEach( () => {
