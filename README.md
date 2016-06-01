@@ -1600,6 +1600,9 @@ function file2moduleName(filePath) {
 ```
 
 ### 端對端測試
+```bash
+$ npm i protractor -D
+```
 ```js
 // protractor.conf.js
 const tsNode = require('ts-node');
@@ -1692,6 +1695,42 @@ if (process.env.TRAVIS) {
 }
 
 exports.config = config;
+```
+
+```bash
+$ npm i express gulp-protractor -D
+```
+
+```js
+// gulpfile.js
+import * as express from 'express';
+import { protractor, webdriver_update } from 'gulp-protractor';
+
+class Protractor {
+  server(port, dir) {
+    let app = express();
+    app.use(express.static(dir));
+    return new Promise((resolve, reject) => {
+      let server = app.listen(port, () => {
+        resolve(server);
+      });
+    });
+  }
+}
+
+gulp.task('webdriver', webdriver_update);
+
+gulp.task('e2e', (done) => {
+  new Protractor()
+    .server(9876, './public')
+    .then((server) => {
+      gulp
+        .src('./src/**/*.e2e-spec.ts')
+        .pipe(protractor({ configFile: 'protractor.conf.js' }))
+        .on('error', (error) => {throw error; })
+        .on('end', () => { server.close(done); });
+    });
+});
 ```
 
 ### 簡單的應用程式
