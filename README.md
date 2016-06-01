@@ -1572,7 +1572,7 @@ import { Component } from '@angular/core';
   `
 })
 export class AtPipesComponent {
-  public thing = 'Angular';
+  public thing: string = 'Angular';
 }
 ```
 ```ts
@@ -1586,6 +1586,22 @@ import { Component } from '@angular/core';
 })
 export class AtDateComponent {
   public atDate = new Date(2020, 2, 14);
+}
+```
+```ts
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+
+@Component({
+  selector: 'at-date2',
+  template: `
+    {{ clock | date:'medium' }}    
+  `
+})
+export class AtDate2Component {
+  public clock = Observable
+    .interval(1000)
+    .map( () => { new Date(); });
 }
 ```
 
