@@ -1595,7 +1595,7 @@ import { Observable } from 'rxjs/Rx';
 @Component({
   selector: 'at-date2',
   template: `
-    {{ clock | date:'medium' }}    
+    {{ clock | async | date:'medium' }}    
   `
 })
 export class AtDate2Component {
