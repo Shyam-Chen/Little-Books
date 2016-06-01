@@ -1676,6 +1676,24 @@ script:
   - npm run gulp -- e2e
 ```
 
+```js
+// protractor.conf.js
+[...]
+
+const config = {
+  [...]
+};
+
+// 將端對端整合至 Travis 上
+if (process.env.TRAVIS) {
+  config.capabilities = {
+    browserName: 'firefox'
+  };
+}
+
+exports.config = config;
+```
+
 ### 簡單的應用程式
 https://github.com/Shyam-Chen/Angular2-Sample-App
 
