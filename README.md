@@ -1754,6 +1754,8 @@ function file2moduleName(filePath) {
 ### 端對端測試
 ```bash
 $ npm i protractor -D
+$ typings i dt~angular-protractor -G -S
+$ typings i dt~selenium-webdriver -G -S
 ```
 ```js
 // protractor.conf.js
@@ -1787,6 +1789,63 @@ const config = {
 };
 
 exports.config = config;
+```
+```ts
+// hello-e2e.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'hello-e2e',
+  template: `
+    <button (click)="onClick()">點擊我</button>
+    <p>{{ message }}</p>
+  `
+})
+export class HelloE2EComponent {
+  public message: string = '';
+
+  onClick(): string {
+    this.message = 'Hello E2E';
+  }
+}
+```
+```ts
+// hello-e2e.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'hello-e2e',
+  template: `
+    <button (click)="onClick()">點擊我</button>
+    <p>{{ message }}</p>
+  `
+})
+export class HelloE2EComponent {
+  public message: string = '';
+
+  onClick(): string {
+    this.message = 'Hello E2E';
+  }
+}
+```
+```ts
+// hello-e2e.component.ts
+describe('HelloE2EComponent', () => {
+
+  beforeEach( () => {
+    browser.get('/');
+  });
+
+  it('should have a content', () => {
+    element(by.css('hello-e2e')).click();
+    expect(element(by.css('hello-e2e p')).getText()).toEqual('Hello E2E');
+  });
+
+});
+```
+```bash
+$ webdriver-manager update
+$ protractor protractor.conf.js
 ```
 
 ### 持續整合
