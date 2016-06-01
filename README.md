@@ -40,9 +40,124 @@
 ### 初識 Angular 與 TypeScript
 
 ### 環境配置
+##### 優質的樣板
 * [使用 Angular CLI](https://github.com/angular/angular-cli)
 * [使用 Gulp](https://github.com/mgechev/angular2-seed)
 * [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
+
+##### 簡單的配置
+```js
+// package.json
+{
+  "name": "simple-configuration",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "lite-server -c config.json"
+  },
+  "author": "陳彥澄",
+  "license": "MIT",
+  "devDependencies": {
+    "lite-server": "^2.2.0"
+  }
+}
+```
+```js
+// config.json
+{
+  "port": 3000,
+  "files": ["./src/**/*.{html,css,ts}"],
+  "server": {
+    "baseDir": "./src"
+  }
+}
+```
+```html
+<!-- index.html -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>simple-configuration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://npmcdn.com/core-js/client/shim.min.js"></script>
+    <script src="https://npmcdn.com/zone.js@0.6.12?main=browser"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.27/system.js"></script>
+    <script>
+      (function(global) {
+        var ngVer = '@2.0.0-rc.1';
+
+        var map = {
+          'app': 'app',
+          'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
+          'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
+          'typescript': 'https://npmcdn.com/typescript@1.8.10/lib/typescript.js'
+        };
+
+        var packages = {
+          'app': {
+            main: 'main.ts',
+            defaultExtension: 'ts'
+          },
+          'rxjs': {
+            defaultExtension: 'js'
+          },
+          'angular2-in-memory-web-api': {
+            defaultExtension: 'js'
+          }
+        };
+
+        var packageNames = [
+          '@angular/common',
+          '@angular/compiler',
+          '@angular/core',
+          '@angular/http',
+          '@angular/platform-browser',
+          '@angular/platform-browser-dynamic',
+          '@angular/router',
+          '@angular/upgrade'
+        ];
+
+        packageNames.forEach(function(pkgName) {
+          map[pkgName] = 'https://npmcdn.com/' + pkgName + ngVer;
+        });
+
+        packageNames.forEach(function(pkgName) {
+          packages[pkgName] = {
+            main: 'index.js',
+            defaultExtension: 'js'
+          };
+        });
+
+        var config = {
+          transpiler: 'typescript',
+          typescriptOptions: {
+            emitDecoratorMetadata: true
+          },
+          map: map,
+          packages: packages
+        }
+
+        if (global.filterSystemConfig) {
+          global.filterSystemConfig(config);
+        }
+
+        System.config(config);
+      })(this);
+    </script>
+    <script>
+      System
+        .import('app')
+        .catch(function(err) {
+          console.error(err);
+        });
+    </script>
+  </head>
+  <body>
+    <app>Loading...</app>
+  </body>
+</html>
+```
 
 ### 型別
 ```ts
