@@ -1870,7 +1870,7 @@ gulp.task('e2e', (done) => {
       gulp
         .src('./src/**/*.e2e-spec.ts')
         .pipe(protractor({ configFile: 'protractor.conf.js' }))
-        .on('error', (error) => {throw error; })
+        .on('error', (error) => { throw error; })
         .on('end', () => { server.close(done); });
     });
 });
