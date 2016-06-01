@@ -72,7 +72,7 @@
 }
 ```
 ```html
-<!-- index.html -->
+<!-- src/index.html -->
 <!doctype html>
 <html>
   <head>
@@ -157,6 +157,29 @@
     <app>Loading...</app>
   </body>
 </html>
+```
+```ts
+// src/app/main.ts
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { ROUTER_PROVIDERS } from '@angular/router';
+import { HTTP_PROVIDERS} from '@angular/http';
+
+import { AppComponent } from './app.component';
+
+bootstrap(App, [
+  ROUTER_PROVIDERS,
+  HTTP_PROVIDERS
+]);
+```
+```ts
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: '<h1>My First Angular 2 App</h1>'
+})
+export class AppComponent { }
 ```
 
 ##### 製作起始專案
