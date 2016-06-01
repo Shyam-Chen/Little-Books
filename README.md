@@ -1622,9 +1622,8 @@ export class MessageLengthPipe implements PipeTransform {
 ### 靜態分析
 ##### 使用 Codelyzer
 ```bash
-$ npm i codelyzer -D
+$ npm i tslint codelyzer -D
 ```
-
 ```js
 // tslint.json
 {
@@ -1648,6 +1647,9 @@ $ npm i codelyzer -D
     "directive-class-suffix": true
   }
 }
+```
+```bash
+$ tslint src/**/*.ts
 ```
 
 ### 單元測試
