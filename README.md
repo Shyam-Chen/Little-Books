@@ -170,7 +170,7 @@ import { HTTP_PROVIDERS} from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-bootstrap(App, [
+bootstrap(AppComponent, [
   ROUTER_PROVIDERS,
   HTTP_PROVIDERS
 ]);
