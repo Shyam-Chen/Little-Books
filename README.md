@@ -46,6 +46,10 @@
 * [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
 
 ##### 簡單的配置
+```bash
+$ mkdir simple-configuration
+$ cd simple-configuration
+```
 ```js
 // package.json
 {
