@@ -1113,7 +1113,7 @@ export class App implements OnInit {
 OnActivate() { ... }
 ```
 
-##### 層疊路由
+##### 巢狀路由
 ```ts
 import { Component } from '@angular/core';
 import { OnActivate, RouteSegment, Router, RouteTree } from '@angular/router';
