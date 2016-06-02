@@ -1,7 +1,7 @@
 # Angular 實戰
 
 ### 目錄
-* [初識 Angular、RxJS 與 TypeScript](#初識-angular-與-typescript)
+* [初識 Angular、RxJS 與 TypeScript](#初識-angularrxjs-與-typescript)
 * [環境配置](#環境配置)
 * ----- 學習 TypeScript 程式設計 -----
 * [型別](#型別)
