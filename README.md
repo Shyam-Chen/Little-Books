@@ -21,7 +21,7 @@
 * [合併宣告](#合併宣告)
 * [修飾器](#修飾器)
 * ----- 學習 RxJS 程式設計
-* [轉換算子](#轉換算子)
+* [轉換運算子](#轉換運算子)
 * ----- 學習 Angular 開發 -----
 * [元件](#元件)
 * [指令](#指令)
@@ -691,7 +691,7 @@ function thing(target: any, key: string, index: number) {
 }
 ```
 
-### 轉換算子
+### 轉換運算子
 ```
 delay
 delayWithSelector
