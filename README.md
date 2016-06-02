@@ -523,9 +523,10 @@ const ng: Ng[] = [new Angular(), new Material(), new Firebase()];
 
 ### 後設資料
 ```bash
-$ npm i reflect-metadata -S
+$ npm i core-js -S
 ```
-```json
+```js
+// tsconfig.json
 {
   "compilerOptions": {
     "target": "es5",
