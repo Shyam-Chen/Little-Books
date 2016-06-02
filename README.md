@@ -1657,7 +1657,7 @@ $ npm i tslint codelyzer -D
 }
 ```
 ```bash
-$ tslint src/**/*.ts
+$ tslint src/**/*.ts  # 把它封裝在 package.json 的 scripts
 ```
 
 ### 單元測試
