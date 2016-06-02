@@ -20,6 +20,8 @@
 * [混入](#混入)
 * [合併宣告](#合併宣告)
 * [修飾器](#修飾器)
+* ----- 學習 RxJS 程式設計
+* [轉換算子](#轉換算子)
 * ----- 學習 Angular 開發 -----
 * [元件](#元件)
 * [指令](#指令)
@@ -687,6 +689,17 @@ function thing(value: string) {  // 修飾器工廠
 function thing(target: any, key: string, index: number) {
   // 一些 target 和參數的操作
 }
+```
+
+### 轉換算子
+```
+delay
+delayWithSelector
+findIndex
+map
+scan
+debounce
+debounceWithSelector
 ```
 
 ### 元件
