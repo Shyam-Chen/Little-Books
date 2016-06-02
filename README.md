@@ -24,6 +24,7 @@
 * [轉換運算子](#轉換運算子)
 * ----- 學習 Angular 開發 -----
 * [元件](#元件)
+* [路由](#路由)
 * [指令](#指令)
 * [服務](#服務)
 * [管道](#管道)
@@ -1090,7 +1091,7 @@ ngAfterViewInit() { ... }
 ngAfterViewChecked() { ... }
 ```
 
-##### 路由
+### 路由
 ```ts
 import { APP_BASE_HREF } from '@angular/common';
 import { provide } from '@angular/core';
