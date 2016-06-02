@@ -935,7 +935,7 @@ import { Component } from '@angular/core';
   `],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class NgClassComponent { }
+export class Component { }
 ```
 
 ```ts
@@ -949,7 +949,7 @@ import { Component } from '@angular/core';
   `],
   encapsulation: ViewEncapsulation.Native
 })
-export class NgClassComponent { }
+export class Component { }
 ```
 
 ```ts
@@ -963,7 +963,19 @@ import { Component } from '@angular/core';
   `],
   encapsulation: ViewEncapsulation.None
 })
-export class NgClassComponent { }
+export class Component { }
+```
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: '',
+  template: `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class Component { }
 ```
 
 ##### 表單
