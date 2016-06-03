@@ -785,6 +785,23 @@ import { Component } from '@angular/core';
 export class MyNameComponent {
   public myName: string = '陳彥澄'; 
 }
+
+// or
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-name',
+  template: `
+    <p>我的姓名是: {{ myName }}</p>
+  `
+})
+export class MyNameComponent {
+  public myName: string;
+  constructor() {
+    this.myName = '陳彥澄';
+  }
+}
 ```
 
 ```ts
