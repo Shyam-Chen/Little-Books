@@ -1488,6 +1488,41 @@ export class App {
 }
 ```
 
+```ts
+[...]
+
+provide(ColorService, { useClass: RedService })
+
+provide(ColorService, { useExisting: RedService })
+
+[...]
+```
+
+```ts
+[...]
+
+provide(ColorService, { useValue: 'red' })
+
+[...]
+```
+
+```ts
+[...]
+
+provide(ColorService, { useValue: 'red' })
+provide(ColorService, { useValue: 'blue', multi: true })
+
+[...]
+```
+
+```ts
+[...]
+
+provide(ColorService, { useFactory: () => { return x + y; }})
+
+[...]
+```
+
 ### HTTP
 ```js
 // data.json
