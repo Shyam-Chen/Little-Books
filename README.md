@@ -1633,6 +1633,7 @@ export class AtPipesComponent {
 ```ts
 import { Component } from '@angular/core';
 
+// https://angular.io/docs/ts/latest/api/common/index/DatePipe-class.html
 @Component({
   selector: 'at-date',
   template: `
