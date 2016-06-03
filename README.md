@@ -24,9 +24,11 @@
 * [轉換運算子](#轉換運算子)
 * ----- 學習 Angular 開發 -----
 * [元件](#元件)
+* [表單](#表單)
 * [路由](#路由)
 * [指令](#指令)
 * [服務](#服務)
+* [HTTP](#http)
 * [管道](#管道)
 * ----- 學習 Angular 測試 -----
 * [靜態分析](#靜態分析)
@@ -704,6 +706,7 @@ debounceWithSelector
 ```
 
 ### 元件
+##### 基本的元件
 ```ts
 import { Component } from '@angular/core';
 
@@ -996,54 +999,6 @@ import { Component } from '@angular/core';
 export class Component { }
 ```
 
-##### 表單
-```ts
-import { Component } from '@angular/core';
-import { FORM_DIRECTIVES, Control, ControlGroup, FormBuilder } from '@angular/common';
-
-@Component({
-  selector: 'at-form',
-  template: `
-    <form [ngFormModel]="group" (ngSubmit)="onSubmit()" novalidate>
-      <label for="email">郵箱:</label>
-      <input type="email" id="email" [ngFormControl]="email">
-      
-      <br><br>
-      
-      <label for="password">密碼:</label>
-      <input type="password" id="password" [ngFormControl]="password">
-
-      <br><br>
-
-      <button type="submit">註冊</button>
-    </form>
-
-    <pre>{{ formValue | json }}</pre>
-  `,
-  directives: [FORM_DIRECTIVES]
-})
-export class AtFormComponent {
-  public email: Control;
-  public password: Control;
-  public group: ControlGroup;
-  public formValue: any;
-
-  constructor(formBuilder: FormBuilder) {
-    this.email = new Control();
-    this.password = new Control();
-
-    this.group = formBuilder.group({
-      email: this.email,
-      password: this.password
-    });
-  }
-
-  onSubmit(): void {
-    this.formValue = this.group.value;
-  }
-}
-```
-
 ##### 元件之間的溝通
 ```ts
 import { Component, Input } from '@angular/core';
@@ -1110,6 +1065,54 @@ ngAfterContentInit() { ... }
 ngAfterContentChecked() { ... }
 ngAfterViewInit() { ... }
 ngAfterViewChecked() { ... }
+```
+
+### 表單
+```ts
+import { Component } from '@angular/core';
+import { FORM_DIRECTIVES, Control, ControlGroup, FormBuilder } from '@angular/common';
+
+@Component({
+  selector: 'at-form',
+  template: `
+    <form [ngFormModel]="group" (ngSubmit)="onSubmit()" novalidate>
+      <label for="email">郵箱:</label>
+      <input type="email" id="email" [ngFormControl]="email">
+
+      <br><br>
+
+      <label for="password">密碼:</label>
+      <input type="password" id="password" [ngFormControl]="password">
+
+      <br><br>
+
+      <button type="submit">註冊</button>
+    </form>
+
+    <pre>{{ formValue | json }}</pre>
+  `,
+  directives: [FORM_DIRECTIVES]
+})
+export class AtFormComponent {
+  public email: Control;
+  public password: Control;
+  public group: ControlGroup;
+  public formValue: any;
+
+  constructor(formBuilder: FormBuilder) {
+    this.email = new Control();
+    this.password = new Control();
+
+    this.group = formBuilder.group({
+      email: this.email,
+      password: this.password
+    });
+  }
+
+  onSubmit(): void {
+    this.formValue = this.group.value;
+  }
+}
 ```
 
 ### 路由
@@ -1483,6 +1486,7 @@ export class App {
 }
 ```
 
+### HTTP
 ```js
 // data.json
 {
