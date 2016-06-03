@@ -1714,6 +1714,54 @@ export class NumberComponent {
 }
 ```
 
+```ts
+[...]
+
+@Component({
+  selector: 'at-json',
+  template: `
+    <button type="button" (click)="onRequest()">請求</button>
+    <pre>{{ response | json }}</pre>
+  `
+})
+export class JsonComponent {
+
+[...]
+```
+
+```ts
+[...]
+
+@Component({
+  selector: 'at-percent',
+  template: `
+    <p>{{ pi | percent }}</p>
+    <p>{{ pi | percent: '3.2-5' }}</p>
+  `
+})
+export class PercentComponent {
+  public pi: number = 3.14159265358979;
+}
+```
+
+```ts
+[...]
+
+@Component({
+  selector: 'slice-list',
+  template: `
+    <ul>
+      <!-- 從陣列索引的 1 開始 ~ 到 3 結束，但不包含 3 -->
+      <!-- Array.prototype.slice -->
+      <li *ngFor="let item of list | slice: 1:3">{{ item }}</li>  
+    </ul>
+  `
+})
+export class SliceListComponent {
+  public list: string[] = ['0', '1', '2', '3', '4', '5'];
+}
+```
+
 ##### 自訂管道
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
@@ -2022,14 +2070,17 @@ $ npm i express gulp-protractor -D
 
 ```js
 // gulpfile.js
-import * as express from 'express';
-import { protractor, webdriver_update } from 'gulp-protractor';
+// import * as express from 'express';
+const express = reuqire('express');
+// import { protractor, webdriver_update } from 'gulp-protractor';
+const protractor = require('gulp-protractor').protractor;
+const webdriver_update = require('gulp-protractor').webdriver_update;
 
 class Protractor {
   server(port, dir) {
     let app = express();
     app.use(express.static(dir));
-    return new Promise((resolve, reject) => {
+    return new Promise( (resolve, reject) => {
       let server = app.listen(port, () => {
         resolve(server);
       });
