@@ -1978,7 +1978,6 @@ gulp.task('e2e', (done) => {
 ```
 
 ### 簡單的應用程式
-https://github.com/Shyam-Chen/Angular2-Sample-App
 
 ### 參考資料
 * TypeScript Handbook by TypeScript Team
