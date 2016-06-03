@@ -999,19 +999,23 @@ export class Component { }
 ##### 表單
 ```ts
 import { Component } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/common';
+import { FORM_DIRECTIVES, Control, ControlGroup, FormBuilder } from '@angular/common';
 
 @Component({
   selector: 'at-form',
   template: `
     <form [ngFormModel]="group" (ngSubmit)="onSubmit()" novalidate>
-      <label for="email">Email:</label>
+      <label for="email">郵箱:</label>
       <input type="email" id="email" [ngFormControl]="email">
-
-      <label for="password">Password:</label>
+      
+      <br><br>
+      
+      <label for="password">密碼:</label>
       <input type="password" id="password" [ngFormControl]="password">
 
-      <button type="submit">Register</button>
+      <br><br>
+
+      <button type="submit">註冊</button>
     </form>
 
     <pre>{{ formValue | json }}</pre>
@@ -1023,17 +1027,17 @@ export class AtFormComponent {
   public password: Control;
   public group: ControlGroup;
   public formValue: any;
-  
+
   constructor(formBuilder: FormBuilder) {
     this.email = new Control();
     this.password = new Control();
-    
+
     this.group = formBuilder.group({
       email: this.email,
       password: this.password
     });
   }
-  
+
   onSubmit(): void {
     this.formValue = this.group.value;
   }
