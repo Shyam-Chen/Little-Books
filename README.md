@@ -1,7 +1,7 @@
 # Angular 實戰
 
 ### 目錄
-* [初識 Angular、RxJS 與 TypeScript](#初識-angularrxjs-與-typescript)
+* [初識 Angular](#初識-angular)
 * [環境配置](#環境配置)
 * ----- 學習 TypeScript 程式設計 -----
 * [型別](#型別)
@@ -40,7 +40,7 @@
 
 ***
 
-### 初識 Angular、RxJS 與 TypeScript
+### 初識 Angular
 
 ### 環境配置
 ##### 優質的樣板
@@ -1988,4 +1988,3 @@ https://github.com/Shyam-Chen/Angular2-Sample-App
 * Angular 2 Developer Guides by Angular Team
 * Introduction to Angular 2 and ngCourse2 by Rangle.io
 * ng-book 2 by Ari Lerner, Felipe Coury, Nate Murray and Carlos Taborda
-* Switching to Angular 2 by Minko Gechev
