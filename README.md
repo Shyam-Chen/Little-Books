@@ -1661,6 +1661,19 @@ export class AtDate2Component {
 }
 ```
 
+```ts
+[...]
+
+@Component({
+  selector: 'at-async',
+  template: `
+    <p>Wait for it... {{ data | async }}</p>
+})
+export class AsyncPipe {
+
+[...]
+```
+
 ##### 自訂管道
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
