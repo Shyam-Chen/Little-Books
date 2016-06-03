@@ -1651,7 +1651,7 @@ import { Observable } from 'rxjs/Rx';
 @Component({
   selector: 'at-date2',
   template: `
-    {{ atDate | async | date:'medium' }}    
+    {{ atDate | async | date: 'medium' }}    
   `
 })
 export class AtDate2Component {
@@ -1668,10 +1668,27 @@ export class AtDate2Component {
   selector: 'at-async',
   template: `
     <p>Wait for it... {{ data | async }}</p>
+  `
 })
 export class AsyncPipe {
 
 [...]
+```
+
+```ts
+[...]
+
+@Component({
+  selector: 'at-currency',
+  template: `
+    <!-- currency: 貨幣代號: 是否顯示金錢符號: 位數資訊 -->
+    <p>{{ price | currency: 'USD': false }}</p>
+    <p>{{ price | currency: 'USD': true: '4.2-2' }}</p>
+  `
+})
+export class CurrencyPipe {
+  public price: number = 3.14159265358979;
+}
 ```
 
 ##### 自訂管道
