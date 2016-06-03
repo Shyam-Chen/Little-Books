@@ -705,6 +705,8 @@ debounce
 debounceWithSelector
 ```
 
+https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core
+
 ### 元件
 ##### 基本的元件
 ```ts
