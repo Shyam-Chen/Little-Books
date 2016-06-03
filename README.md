@@ -1640,7 +1640,7 @@ import { Component } from '@angular/core';
     <p>{{ atDate | date: "MM/dd" }}</p>
   `
 })
-export class AtDateComponent {
+export class DateComponent {
   public atDate = new Date(2020, 2, 14);
 }
 ```
@@ -1654,7 +1654,7 @@ import { Observable } from 'rxjs/Rx';
     {{ atDate | async | date: 'medium' }}    
   `
 })
-export class AtDate2Component {
+export class Date2Component {
   public atDate = Observable
     .interval(1000)
     .map( () => { new Date(); });
@@ -1670,7 +1670,7 @@ export class AtDate2Component {
     <p>Wait for it... {{ data | async }}</p>
   `
 })
-export class AsyncPipe {
+export class AsyncComponent {
 
 [...]
 ```
@@ -1686,8 +1686,25 @@ export class AsyncPipe {
     <p>{{ price | currency: 'USD': true: '4.2-2' }}</p>
   `
 })
-export class CurrencyPipe {
+export class CurrencyComponent {
   public price: number = 3.14159265358979;
+}
+```
+
+```ts
+[...]
+
+@Component({
+  selector: 'at-number',
+  template: `
+    <p>pi (no formatting): {{ pi }}</p>
+
+    <!-- 整數位數.小數最小位數-小數最大位數 -->
+    <p>pi (2.2-6): {{ pi | number: '2.2-6' }}</p>
+  `
+})
+export class NumberComponent {
+  public pi: number = 3.14159265358979;
 }
 ```
 
