@@ -1,7 +1,7 @@
-# Angular 實戰
+# Angular 2 實戰
 
 ### 目錄
-* [初識 Angular](#初識-angular)
+* [初識 Angular 2](#初識-angular-2)
 * [環境配置](#環境配置)
 * ----- 學習 TypeScript 程式設計 -----
 * [型別](#型別)
@@ -40,7 +40,7 @@
 
 ***
 
-### 初識 Angular
+### 初識 Angular 2
 
 ### 環境配置
 ##### 優質的樣板
@@ -1980,10 +1980,14 @@ gulp.task('e2e', (done) => {
 ### 簡單的應用程式
 
 ### 參考資料
+* ----- TypeScript -----
 * TypeScript Handbook by TypeScript Team
 * TypeScript Deep Dive by Basarat Ali Syed
 * Mastering TypeScript by Nathan Rozentals
 * Pro TypeScript by Steve Fenton
+* ----- RxJS -----
+* Reactive Programming with RxJS by Sergi Mansilla
+* ----- Angular 2 -----
 * Angular 2 Developer Guides by Angular Team
 * Introduction to Angular 2 and ngCourse2 by Rangle.io
 * ng-book 2 by Ari Lerner, Felipe Coury, Nate Murray and Carlos Taborda
