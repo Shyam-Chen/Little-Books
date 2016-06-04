@@ -1520,6 +1520,23 @@ provide(ColorService, { useFactory: () => { return x + y; }})
 ```
 
 ### HTTP
+```ts
+[...]
+
+import { HTTP_PROVIDERS } from '@angular/http';
+
+[...]
+
+@Component({
+  [...]
+
+  providers: [HTTP_PROVIDERS]
+
+  [...]
+})
+
+[...]
+```
 ```js
 // data.json
 {
