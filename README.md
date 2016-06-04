@@ -1720,22 +1720,6 @@ export class AsyncComponent {
 [...]
 
 @Component({
-  selector: 'at-currency',
-  template: `
-    <!-- currency: 貨幣代號: 是否顯示金錢符號: 位數資訊 -->
-    <p>{{ price | currency: 'USD': false }}</p>
-    <p>{{ price | currency: 'USD': true: '4.2-2' }}</p>
-  `
-})
-export class CurrencyComponent {
-  public price: number = 3.14159265358979;
-}
-```
-
-```ts
-[...]
-
-@Component({
   selector: 'at-number',
   template: `
     <p>pi (no formatting): {{ pi }}</p>
@@ -1746,6 +1730,35 @@ export class CurrencyComponent {
 })
 export class NumberComponent {
   public pi: number = 3.14159265358979;
+}
+```
+```ts
+[...]
+
+@Component({
+  selector: 'at-percent',
+  template: `
+    <p>{{ pi | percent }}</p>
+    <p>{{ pi | percent: '3.2-5' }}</p>
+  `
+})
+export class PercentComponent {
+  public pi: number = 3.14159265358979;
+}
+```
+```ts
+[...]
+
+@Component({
+  selector: 'at-currency',
+  template: `
+    <!-- currency: 貨幣代號: 是否顯示金錢符號: 位數資訊 -->
+    <p>{{ price | currency: 'USD': false }}</p>
+    <p>{{ price | currency: 'USD': true: '4.2-2' }}</p>
+  `
+})
+export class CurrencyComponent {
+  public price: number = 3.14159265358979;
 }
 ```
 
@@ -1768,21 +1781,6 @@ export class JsonComponent {
 [...]
 
 @Component({
-  selector: 'at-percent',
-  template: `
-    <p>{{ pi | percent }}</p>
-    <p>{{ pi | percent: '3.2-5' }}</p>
-  `
-})
-export class PercentComponent {
-  public pi: number = 3.14159265358979;
-}
-```
-
-```ts
-[...]
-
-@Component({
   selector: 'slice-list',
   template: `
     <ul>
@@ -1798,22 +1796,30 @@ export class SliceListComponent {
 ```
 
 ```ts
-[...]
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-i18nSelect',
   template: `
-    <p>{{ gender | i18nSelect: inviteMap }}</p>
+    <p>{{ gender | i18nSelect: chinese }}</p>
   `
 })
 export class I18nSelectComponent {
   public gender: string = 'male';
-  public inviteMap: any = {
-    'male': 'Invite her.',
-    'female': 'Invite him.',
-    'other': 'Invite them.'
+  public chinese: any = {
+    'male': '男',
+    'female': '女'
   }
 }
+```
+
+```ts
+I18nPlural Pipe
+```
+
+
+```ts
+Replace Pipe
 ```
 
 ##### 自訂管道
