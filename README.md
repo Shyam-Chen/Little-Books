@@ -1836,6 +1836,18 @@ export class MessageLengthPipe implements PipeTransform {
 }
 ```
 
+```ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name:'search'
+})
+export class InputSearchPipe implements PipeTransform {
+  transform() {
+  }
+}
+```
+
 ### 靜態分析
 ##### 使用 Codelyzer
 ```bash
