@@ -1797,6 +1797,25 @@ export class SliceListComponent {
 }
 ```
 
+```ts
+[...]
+
+@Component({
+  selector: 'at-i18nSelect',
+  template: `
+    <p>{{ gender | i18nSelect: inviteMap }}</p>
+  `
+})
+export class I18nSelectComponent {
+  public gender: string = 'male';
+  public inviteMap: any = {
+    'male': 'Invite her.',
+    'female': 'Invite him.',
+    'other': 'Invite them.'
+  }
+}
+```
+
 ##### 自訂管道
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
