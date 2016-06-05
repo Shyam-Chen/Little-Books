@@ -1040,6 +1040,42 @@ export class AtCounterComponent {
 @ViewChildren()
 ```
 
+```ts
+import { Component, ViewChildren, ContentChildren, QueryList } from '@angular/core';
+```
+
+```ts
+@Component({
+  selector: 'at-a',
+  template: `
+    <p>View Child</p>
+  `
+})
+class AComponent { }
+```
+
+```ts
+@Component({
+  selector: 'at-b',
+  template: `
+    <p>Content Child</p>
+  `
+})
+class BComponent { }
+```
+
+```ts
+@Component({
+  selector: 'at-ab',
+  template: '<at-a></at-a>',
+  directives: [AComponent]
+})
+class UserPanel {
+  @ViewChildren(AComponent) viewChildren: QueryList<AComponent>;
+  @ContentChildren(BComponent) contentChildren: QueryList<BComponent>;
+}
+```
+
 ##### 生命週期掛鉤
 ```ts
 import { Component, OnInit } from '@angular/core';
