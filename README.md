@@ -1519,6 +1519,10 @@ provide(ColorService, { useFactory: () => { return x + y; }})
 [...]
 ```
 
+```ts
+import { Inject, Injectable, Injector, OpaqueToken, provide } from '@angular/core';
+```
+
 ### HTTP
 ```ts
 [...]
