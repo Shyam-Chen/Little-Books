@@ -1065,6 +1065,7 @@ class BComponent { }
 ```
 
 ```ts
+// QueryList Deprecated
 @Component({
   selector: 'at-ab',
   template: '<at-a></at-a>',
