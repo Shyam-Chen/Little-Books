@@ -1515,9 +1515,31 @@ import { LanguagesService } from './services/languages';
 export class App {
   public language: string = '';
 
-  constructor(@Inject(LanguagesService) private languages) {  // 不推薦
+  constructor(@Inject(LanguagesService) private languages) {
     this.language = languages.ts;
   }
+}
+
+// or
+
+import { Component } from '@angular/core';
+
+import { LanguagesService } from './services/languages';
+
+@Component({
+  selector: 'app',
+  template: `
+    <h3 class="title">Languages Service</h3>
+    <div class="content">
+      <p>Decided Language: {{ languages.ts }}</p>
+    </div>
+  `,
+  viewProviders: [
+    LanguagesService
+  ]
+})
+export class App {
+  constructor(private languages: LanguagesService) { }
 }
 ```
 
