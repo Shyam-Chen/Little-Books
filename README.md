@@ -1150,6 +1150,11 @@ export class AtFormComponent {
 }
 ```
 
+##### 表單驗證
+```ts
+this.password = new Control('', Validators.minLength(6));
+```
+
 ### 路由
 ```ts
 import { APP_BASE_HREF } from '@angular/common';
