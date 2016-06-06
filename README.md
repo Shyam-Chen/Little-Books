@@ -18,8 +18,6 @@
 * [持續整合](#持續整合)
 * ----- 範例 -----
 * [簡單的應用程式](#簡單的應用程式)
-* ----- 附錄 -----
-* [參考資料](#參考資料)
 
 ***
 
@@ -1730,16 +1728,3 @@ gulp.task('e2e', (done) => {
 ```
 
 ### 簡單的應用程式
-
-### 參考資料
-* ----- TypeScript -----
-* TypeScript Handbook by TypeScript Team
-* TypeScript Deep Dive by Basarat Ali Syed
-* Mastering TypeScript by Nathan Rozentals
-* Pro TypeScript by Steve Fenton
-* ----- RxJS -----
-* Reactive Programming with RxJS by Sergi Mansilla
-* ----- Angular 2 -----
-* Angular 2 Developer Guides by Angular Team
-* Introduction to Angular 2 and ngCourse2 by Rangle.io
-* ng-book 2 by Ari Lerner, Felipe Coury, Nate Murray and Carlos Taborda
