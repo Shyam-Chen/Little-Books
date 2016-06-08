@@ -1206,6 +1206,27 @@ export class WikipediaService {
 }
 ```
 
+```ts
+// 平行請求
+
+[...]
+
+import { Observable } from 'rxjs/Observable';
+
+[...]
+
+Observable
+  .forkJoin(
+    this.http.get('./data-1.json').map((res: Response) => res.json()),
+    this.http.get('./data-2.json').map((res: Response) => res.json())
+  )
+  .subscribe(
+    // ...
+  )
+
+[...]
+```
+
 ### 管道
 ##### 內建管道
 ```ts
