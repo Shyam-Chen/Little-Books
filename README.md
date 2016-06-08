@@ -1738,6 +1738,11 @@ script:
 ```
 
 ```js
+// karma.conf.js
+
+```
+
+```js
 // protractor.conf.js
 [...]
 
