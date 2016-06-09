@@ -773,6 +773,51 @@ export class NgForComponent {
 ```ts
 import { Component } from '@angular/core';
 
+interface List {
+  language: string;
+}
+
+@Component({
+  selector: 'at-edit',
+  template:`
+    <h3>程式語言</h3>
+    <ul>
+      <li *ngFor="let item of list">
+        <span>{{ item.language }}</span>
+        <button (click)="onEdit(item)">編輯</button>
+      </li>
+    </ul>
+    <div *ngIf="edited">
+      <div>
+        <label>語言: </label>
+        <input [(ngModel)]="edited.language">
+        <button (click)="onSave()">確定</button>
+      </div>
+    </div>
+  `
+})
+export class EditComponent {
+  public list: List[] = [
+    { "language": "JavaScript" },
+    { "language": "CoffeeScript" },
+    { "language": "TypeScript" }
+  ];;
+
+  public edited: List;
+
+  onEdit(item: List) {
+    this.edited = item;
+  }
+  
+  onSave() {
+    this.edited = false;
+  }
+}
+```
+
+```ts
+import { Component } from '@angular/core';
+
 @Component({
   selector: 'ng-style',
   template: `
