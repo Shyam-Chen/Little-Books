@@ -1013,7 +1013,7 @@ import { LanguagesService } from './services/languages';
     </div>
   `,
   viewProviders: [
-    LanguagesService
+    LanguagesService  // 僅限於該元件的模板使用
   ]
 })
 export class App {
