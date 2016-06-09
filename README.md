@@ -232,9 +232,7 @@ export class AtThingComponent {
 // basic-app.ts
 import { Component } from '@angular/core';
 
-/**
- * 渲染
- */
+// 渲染模板
 @Component({
   selector: 'basic-app',
   template: `
@@ -285,6 +283,7 @@ export class MyNameComponent {
 // hello-world.ts
 import { Component } from '@angular/core';
 
+// 雙向綁定
 @Component({
   selector: 'hello-world',
   template: `
@@ -301,6 +300,7 @@ export class HelloWorldComponent {
 // click-me.ts
 import { Component } from '@angular/core';
 
+// 事件處理
 @Component({
   selector: 'click-me',
   template: `
@@ -410,13 +410,17 @@ export class AddItemComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-properties',
+  selector: 'binding properties',
   template: `
-    <p>Hello Angular {{ atVersion }}</p>
+    <p>Angular {{ version }}</p>
   `,
-  properties: ['atVersion']
+  properties: ['version']
 })
 export class AtPropertiesComponent { }
+```
+```html
+<!-- 屬性綁定 -->
+<binding properties [version]="2"></binding properties>
 ```
 
 ```ts
