@@ -307,6 +307,24 @@ export class ToggleMeComponent {
 }
 ```
 
+##### 屬性綁定
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'binding-properties',
+  template: `
+    <p>Angular {{ version }}</p>
+  `,
+  properties: ['version']
+})
+export class AtPropertiesComponent { }
+```
+```html
+<!-- 屬性綁定 -->
+<binding-properties [version]="2"></binding-properties>
+```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -325,6 +343,7 @@ import { Component } from '@angular/core';
 export class ToggleClassComponent { }
 ```
 
+##### 本地變數
 ```ts
 import { Component } from '@angular/core';
 
@@ -337,15 +356,11 @@ import { Component } from '@angular/core';
 })
 export class KeyUpComponent {
   public valuse: string = '';
-
-  onKeyup(value: string): string {
-     this.values += `${ value } | `;
-  }
+  onKeyup(value: string): string { this.values += `${ value } | `; }
 }
 ```
 
 ```ts
-// add-item.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -374,23 +389,7 @@ export class AddItemComponent {
 }
 ```
 
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'binding-properties',
-  template: `
-    <p>Angular {{ version }}</p>
-  `,
-  properties: ['version']
-})
-export class AtPropertiesComponent { }
-```
-```html
-<!-- 屬性綁定 -->
-<binding-properties [version]="2"></binding-properties>
-```
-
+##### Shadow DOM
 ```ts
 import { Component } from '@angular/core';
 
@@ -433,6 +432,7 @@ import { Component } from '@angular/core';
 export class Component { }
 ```
 
+##### 變化檢測
 ```ts
 import { Component } from '@angular/core';
 
