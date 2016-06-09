@@ -175,7 +175,7 @@ $ npm i webpack gulp -D
 ```
 
 ### 元件
-##### 基本的元件
+##### 基本元件
 ```ts
 import { Component } from '@angular/core';
 
@@ -213,9 +213,7 @@ export class AtThingComponent {
 ```ts
 import { Component } from '@angular/core';
 
-/**
- * 常用的組態
- */
+// 常用的組態
 @Component({
   moduleId: module.id,
   selector: 'at-thing',
@@ -228,79 +226,58 @@ export class AtThingComponent {
 }
 ```
 
+##### 渲染模板
 ```ts
-// basic-app.ts
 import { Component } from '@angular/core';
 
-// 渲染模板
 @Component({
-  selector: 'basic-app',
+  selector: 'rendering-templates',
   template: `
     <p>1 + 1 的結果是: {{ 1 + 1 }}</p>
     <a href="{{ link }}">網站連結</a>
     <img src="{{ image }}">
   `
 })
-export class BasicAppComponent {
+export class RenderingTemplatesComponent {
   public link: string = 'https://angular.io/';
   public image: string = '../assets/images/angular.png';
 }
 ```
 
 ```ts
-// my-name.ts
+// 也可以這樣
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-name',
-  template: `
-    <p>我的姓名是: {{ myName }}</p>
-  `
-})
-export class MyNameComponent {
-  public myName: string = '陳彥澄'; 
-}
-
-// or
-
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'my-name',
-  template: `
-    <p>我的姓名是: {{ myName }}</p>
-  `
+  template: `<p>我的姓名是: {{ myName }}</p>`
 })
 export class MyNameComponent {
   public myName: string;
-  constructor() {
-    this.myName = '陳彥澄';
-  }
+  constructor() { this.myName = '陳彥澄'; }
 }
 ```
 
+##### 雙向綁定
 ```ts
-// hello-world.ts
 import { Component } from '@angular/core';
 
-// 雙向綁定
 @Component({
-  selector: 'hello-world',
+  selector: 'two-way-binding',
   template: `
     <input type="text" [(ngModel)]="name" placeholder="輸入你的名字">
-    <p>Hello {{ name }}</p>
+    <p>{{ name }}</p>
   `
 })
-export class HelloWorldComponent {
+export class TwoWayBindingComponent {
   public name: string = '';
 }
 ```
 
+##### 事件處理
 ```ts
-// click-me.ts
 import { Component } from '@angular/core';
 
-// 事件處理
 @Component({
   selector: 'click-me',
   template: `
@@ -310,15 +287,11 @@ import { Component } from '@angular/core';
 })
 export class ClickMeComponent {
   public message: string = '我是點擊「前」的訊息';
-
-  onClick(): string {
-    this.message = '我是點擊「後」的訊息';
-  }
+  onClick(): string { this.message = '我是點擊「後」的訊息'; }
 }
 ```
 
 ```ts
-// toggle-me.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -410,7 +383,7 @@ export class AddItemComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'binding properties',
+  selector: 'binding-properties',
   template: `
     <p>Angular {{ version }}</p>
   `,
@@ -420,7 +393,7 @@ export class AtPropertiesComponent { }
 ```
 ```html
 <!-- 屬性綁定 -->
-<binding properties [version]="2"></binding properties>
+<binding-properties [version]="2"></binding-properties>
 ```
 
 ```ts
