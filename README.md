@@ -169,13 +169,8 @@ export class AppComponent { }
 $ npm start
 ```
 
-##### 製作起始專案
-```bash
-$ npm i webpack gulp -D
-```
-
 ### 元件
-##### 基本元件
+##### 初識元件
 ```ts
 import { Component } from '@angular/core';
 
