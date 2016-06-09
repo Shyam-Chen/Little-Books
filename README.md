@@ -5,14 +5,35 @@
 * [環境配置](#環境配置)
 * ----- 開發 -----
 * [元件](#元件)
+  * 初識元件
+  * 渲染模板
+  * 雙向綁定
+  * 事件綁定
+  * 屬性綁定
+  * 本地變數
+  * Shadow DOM
+  * 變化檢測
+  * 元件之間的溝通
+  * 生命週期掛鉤
 * [表單](#表單)
+  * 使用表單
+  * 驗證與狀態
+  * 錯誤處理
 * [路由](#路由)
+  * 使用路由
+  * 生命週期掛鉤
+  * 巢狀路由
 * [指令](#指令)
+  * 內建指令
+  * 自訂指令
 * [服務](#服務)
 * [HTTP](#http)
 * [管道](#管道)
+  * 內建管道
+  * 自訂管道
 * ----- 測試 -----
 * [靜態分析](#靜態分析)
+  * 使用 Codelyzer
 * [單元測試](#單元測試)
 * [端對端測試](#端對端測試)
 * [持續整合](#持續整合)
@@ -269,7 +290,7 @@ export class TwoWayBindingComponent {
 }
 ```
 
-##### 事件處理
+##### 事件綁定
 ```ts
 import { Component } from '@angular/core';
 
@@ -607,6 +628,7 @@ this.password = new Control('', Validators.minLength(6));
 ##### 錯誤處理
 
 ### 路由
+##### 使用路由
 ```ts
 import { APP_BASE_HREF } from '@angular/common';
 import { provide } from '@angular/core';
