@@ -551,6 +551,7 @@ ngAfterViewChecked() { ... }
 ```
 
 ### 表單
+##### 使用表單
 ```ts
 import { Component } from '@angular/core';
 import { FORM_DIRECTIVES, Control, ControlGroup, FormBuilder } from '@angular/common';
@@ -598,10 +599,12 @@ export class AtFormComponent {
 }
 ```
 
-##### 表單驗證
+##### 驗證與狀態
 ```ts
 this.password = new Control('', Validators.minLength(6));
 ```
+
+##### 錯誤處理
 
 ### 路由
 ```ts
