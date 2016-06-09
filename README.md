@@ -232,15 +232,20 @@ export class AtThingComponent {
 // basic-app.ts
 import { Component } from '@angular/core';
 
+/**
+ * 渲染
+ */
 @Component({
   selector: 'basic-app',
   template: `
     <p>1 + 1 的結果是: {{ 1 + 1 }}</p>
     <a href="{{ link }}">網站連結</a>
+    <img src="{{ image }}">
   `
 })
 export class BasicAppComponent {
   public link: string = 'https://angular.io/';
+  public image: string = '../assets/images/angular.png';
 }
 ```
 
