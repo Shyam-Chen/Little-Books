@@ -543,6 +543,7 @@ class BComponent { }
 class UserPanel {
   @ViewChildren(AComponent) viewChildren: QueryList<AComponent>;
   @ContentChildren(BComponent) contentChildren: QueryList<BComponent>;
+  // ...
 }
 ```
 
@@ -635,7 +636,7 @@ import { provide } from '@angular/core';
 
 // ...
 
-bootstrap(App, [
+bootstrap(AppComponent, [
   // ...
   provide(APP_BASE_HREF, { useValue: '/' }),
   // ...
@@ -666,12 +667,9 @@ import { AboutComponent } from './about';
     path: '/about',
     component: AboutComponent
 }])
-export class App implements OnInit {
+export class AppComponent implements OnInit {
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
-    this.router.navigate(['/home']);
-  }
+  ngOnInit(): void { this.router.navigate(['/home']); }
 }
 ```
 
