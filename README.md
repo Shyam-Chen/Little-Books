@@ -1081,6 +1081,26 @@ export class ListService {
   getList() { return this.LIST; }
 }
 ```
+```ts
+import { Component, Inject } from '@angular/core';
+
+import { ListService } from './services/list';
+
+@Component({
+  selector: 'app',
+  template: `
+    <ul>
+      <li *ngFor="let item of list">{{ item.label }}</li>
+    </ul>
+  `,
+  viewProviders: [ListService]
+})
+export class AppComponent mplements OnInit {
+  constructor(private listService: ListService) { }
+  getList() { this.list = this.listService.getList(); }
+  ngOnInit() { this.getList(); }
+}
+```
 
 ```ts
 [...]
