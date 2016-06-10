@@ -1004,7 +1004,7 @@ import { LanguagesService } from './services/languages';
     </div>
   `,
   viewProviders: [
-    LanguagesService
+    LanguagesService  // 僅限於該元件的模板中使用
   ]
 })
 export class App {
@@ -1056,11 +1056,29 @@ import { LanguagesService } from './services/languages';
     </div>
   `,
   viewProviders: [
-    LanguagesService  // 僅限於該元件的模板使用
+    LanguagesService
   ]
 })
 export class App {
   constructor(private languages: LanguagesService) { }
+}
+```
+
+```ts
+import { Injectable } from '@angular/core';
+
+interface List {
+  label: string;
+}
+
+@Injectable()
+export class ListService {
+  private LIST: List[] = [
+    { label: 'JavaScript' },
+    { label: 'CoffeeScript' },
+    { label: 'TypeScript' }
+  ];
+  getList() { return this.LIST; }
 }
 ```
 
