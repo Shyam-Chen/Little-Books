@@ -27,6 +27,7 @@
   * [內建指令](#內建指令)
   * [自訂指令](#自訂指令)
 * [服務](#服務)
+  * 相依性注入
   * 注入器
   * 型別
   * 層疊注入
@@ -576,10 +577,13 @@ export class AtLifecycleComponent implements OnInit {
 ```
 
 ```ts
+// 還可以用在指令
+ngOnInit() { ... }
 ngOnChanges() { ... }
 ngDoCheck() { ... }
 ngOnDestroy() { ... }
 
+// 只能在元件中使用
 ngAfterContentInit() { ... }
 ngAfterContentChecked() { ... }
 ngAfterViewInit() { ... }
