@@ -350,6 +350,12 @@ export class AtPropertiesComponent { }
 ```
 
 ```ts
+[attr.name]="expression"
+[class.name]="condition"
+[style.rule]="expression"
+```
+
+```ts
 import { Component } from '@angular/core';
 
 @Component({
