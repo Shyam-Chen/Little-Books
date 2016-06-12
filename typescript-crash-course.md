@@ -141,11 +141,14 @@ $ npm i typings -g
 ```
 ```bash
 $ npm i core-js -S
-$ typings i core-js -G -S
+$ typings i dt~core-js -G -S
 ```
 ```bash
 # 自訂
 $ mkdir manual_typings
+```
+```bash
+$ npm i systemjs -S
 ```
 ```ts
 // systemjs-builder.d.ts
