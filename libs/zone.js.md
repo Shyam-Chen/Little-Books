@@ -1,5 +1,5 @@
 ### 英
-*
+* https://angular.io/docs/js/latest/api/core/NgZone-class.html
 
 ### 中
 * http://www.cnblogs.com/whitewolf/p/zone-js.html
