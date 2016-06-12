@@ -343,9 +343,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'binding-properties',
-  template: `
-    <p>Angular {{ version }}</p>
-  `,
+  template: `<p>Angular {{ version }}</p>`,
   properties: ['version']
 })
 export class AtPropertiesComponent { }
@@ -368,12 +366,10 @@ import { Component } from '@angular/core';
   selector: 'toggle-class',
   template: `
     <button (click)="isClassVisible = !isClassVisible">Toggle Class</button>
-    <p [ngClass]="{ 'my-class': isClassVisible }">Hello Angular 2</p>
+    <p [ngClass]="{ 'at-color': isClassVisible }">Hello Angular 2</p>
   `,
   styles: [`
-    .my-class {
-      color: #F44336
-    }
+    .at-color { color: #F44336 }
   `]
 })
 export class ToggleClassComponent { }
@@ -519,8 +515,8 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'student-profiles',
   template: `
-    學校: {{ schoolName }}
-    學號: {{ id }}
+    <p>學校: {{ schoolName }}</p>
+    <p>學號: {{ id }}</p>
   `
 })
 export class StudentProfilesComponent {
