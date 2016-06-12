@@ -483,17 +483,53 @@ export class Component { }
 
 ##### 元件之間的溝通
 ```ts
+// 使用 Input 建構子
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'use-input',
+  template: `<p>Angular {{ version }}</p>`,
+  inputs: ['version']
+})
+export class UseInputComponent {
+  public version: string;
+}
+```
+```html
+<use-input version="2"></use-input>
+```
+
+```ts
+// 改用 Input 修飾器
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'at-input',
+  selector: 'use-input',
+  template: `<p>Angular {{ version }}</p>`
+})
+export class UseInputComponent {
+  @Input() version: string;
+}
+```
+
+```ts
+// 更多的 Input 修飾器
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'student-profiles',
   template: `
-    <p>Hello {{ something }}</p>
+    School Name: {{ schoolName }}
+    Student ID: {{ id }}
   `
 })
-export class AtInputComponent {
-  @Input('atSomething') something: string;
+export class StudentProfilesComponent {
+  @Input() schoolName: string;
+  @Input('student-id') id: string;
 }
+```
+```html
+<student-profiles school-name="NFU" student-id="40148155"></student-profiles>
 ```
 
 ```ts
