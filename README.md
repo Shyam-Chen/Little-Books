@@ -519,8 +519,8 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'student-profiles',
   template: `
-    School Name: {{ schoolName }}
-    Student ID: {{ id }}
+    學校: {{ schoolName }}
+    學號: {{ id }}
   `
 })
 export class StudentProfilesComponent {
@@ -529,7 +529,7 @@ export class StudentProfilesComponent {
 }
 ```
 ```html
-<student-profiles school-name="NFU" student-id="40148155"></student-profiles>
+<student-profiles schoolName="NFU" student-id="40148155"></student-profiles>
 ```
 
 ```ts
