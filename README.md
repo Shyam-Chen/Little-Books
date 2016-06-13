@@ -11,6 +11,7 @@
   * [事件綁定](#事件綁定)
   * [屬性綁定](#屬性綁定)
   * [本地變數](#本地變數)
+  * [內容投影](#內容投影)
   * [Shadow DOM](#shadow-dom)
   * [變化檢測](#變化檢測)
   * [元件之間的溝通](#元件之間的溝通)
@@ -459,6 +460,36 @@ export class AddItemComponent {
     }
   }
 }
+```
+
+##### 內容投影
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'content-projection',
+  template: `
+    <p>Hi, TypeScript</p>
+    <ng-content></ng-content>
+  `
+})
+export class ContentProjectionComponent { }
+```
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'more-content',
+  template: `
+    <ng-content select="[js]"></ng-content>
+    <p>Angular 1</p>
+    <ng-content select="[coffee]"></ng-content>
+    <p>Angular 2</p>
+    <ng-content select="[ts]"></ng-content>
+  `
+})
+export class MoreContentComponent { }
 ```
 
 ##### Shadow DOM
@@ -1006,35 +1037,6 @@ export class NgClassComponent { }
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'content-projection',
-  template: `
-    <p>Hi, TypeScript</p>
-    <ng-content></ng-content>
-  `
-})
-export class ContentProjectionComponent { }
-```
-
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'more-content',
-  template: `
-    <ng-content select="[js]"></ng-content>
-    <p>Angular 1</p>
-    <ng-content select="[coffee]"></ng-content>
-    <p>Angular 2</p>
-    <ng-content select="[ts]"></ng-content>
-  `
-})
-export class MoreContentComponent { }
-```
-
-```ts
-import { Component } from '@angular/core';
-
-@Component({
   selector: 'ng-non-bindable',
   template: `
     <p>Hello {{ content }}</p>
@@ -1191,7 +1193,7 @@ export class AppComponent {
   }
 }
 
-// 使用 Inject
+// 使用 Inject 修飾器
 
 import { Component, Inject } from '@angular/core';
 
