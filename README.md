@@ -1065,14 +1065,45 @@ export class AtThingDirective { }
 ```ts
 import { Directive, ElementRef } from '@angular/core';
 
-@Directive({
-  selector: '[atColor]'
-})
+@Directive({ selector: '[atColor]' })
 export class AtColorDirective {
-  constructor(private element: ElementRef) {
+  constructor(element: ElementRef) {
     element.nativeElement.style.color = '#F44336';
   }
 }
+
+// 使用渲染器
+
+import { Directive, ElementRef, Renderer } from '@angular/core';
+
+@Directive({ selector: '[atColor]' })
+class AtColorDirective {
+  constructor(element: ElementRef, renderer: Renderer) {
+    renderer.setElementStyle(element.nativeElement, 'color', '#F44336');
+  }
+}
+```
+
+更多的渲染器
+```ts
+selectRootElement(selectorOrNode: string | any, debugInfo: RenderDebugInfo) : any
+createElement(parentElement: any, name: string, debugInfo: RenderDebugInfo) : any
+createViewRoot(hostElement: any) : any
+createTemplateAnchor(parentElement: any, debugInfo: RenderDebugInfo) : any
+createText(parentElement: any, value: string, debugInfo: RenderDebugInfo) : any
+projectNodes(parentElement: any, nodes: any[]) : void
+attachViewAfter(node: any, viewRootNodes: any[]) : void
+detachView(viewRootNodes: any[]) : void
+destroyView(hostElement: any, viewAllNodes: any[]) : void
+listen(renderElement: any, name: string, callback: Function) : Function
+listenGlobal(target: string, name: string, callback: Function) : Function
+setElementProperty(renderElement: any, propertyName: string, propertyValue: any) : void
+setElementAttribute(renderElement: any, attributeName: string, attributeValue: string) : void
+setBindingDebugInfo(renderElement: any, propertyName: string, propertyValue: string) : void
+setElementClass(renderElement: any, className: string, isAdd: boolean)
+setElementStyle(renderElement: any, styleName: string, styleValue: string)  // 我們使用到的
+invokeElementMethod(renderElement: any, methodName: string, args: any[])
+setText(renderNode: any, text: string)
 ```
 
 ```ts
