@@ -365,6 +365,7 @@ export class BindingPropertiesComponent { }
 <binding-properties [version]="2"></binding-properties>
 ```
 
+語法: `[style.規則]="'表達式'"`
 ```ts
 import { Component } from '@angular/core';
 
