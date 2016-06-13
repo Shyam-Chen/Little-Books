@@ -1083,6 +1083,9 @@ class AtColorDirective {
   }
 }
 ```
+```html
+<p atColor>Hello Angular 2</p>
+```
 
 更多的渲染器
 ```ts
