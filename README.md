@@ -649,6 +649,12 @@ ControlGroup
 AbstractControl
 ```
 
+|狀態|為`true`時的 CSS 類別|為`false`時的 CSS 類別|
+|:---:|:---:|:---:|
+|控制已被訪問|`ng-touched`|`ng-untouched`|
+|控制的值發生變化|`ng-dirty`|`ng-pristine`|
+|控制的值是否有效|`ng-valid`|`ng-invalid`|
+
 ##### 使用表單
 ```ts
 import { Component } from '@angular/core';
