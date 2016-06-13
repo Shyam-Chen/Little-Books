@@ -683,6 +683,47 @@ export class AtFormComponent {
 }
 ```
 
+##### 簡單的驗證
+```ts
+import { Component } from '@angular/core';
+import { FORM_DIRECTIVES } from '@angular/common';
+
+@Component({
+  selector: 'at-form',
+  template: `
+    <form #atForm="ngForm" novalidate>
+      <label for="email">郵箱:</label>
+      <input type="email" id="email" ngControl="email" #email="ngForm"
+        required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+      >
+      <span class="error-messages" *ngIf="email.dirty && !email.valid">
+        <span *ngIf="email.errors.required">* 這是必填欄位</span>
+        <span *ngIf="email.errors.pattern">* 這個格式不正確</span>
+      </span>
+
+      <br><br>
+
+      <label for="password">密碼:</label>
+      <input type="password" id="password" ngControl="password" #password="ngForm"
+        required minlength="6"
+      >
+      <span class="error-messages" *ngIf="password.dirty && !password.valid">
+        <span *ngIf="password.errors.required">* 這是必填欄位</span>
+        <span *ngIf="password.errors.minlength">* 密碼最少為 6 碼</span>
+      </span>
+
+      <br><br>
+
+      <button type="submit" [disabled]="!atForm.valid">註冊</button>
+
+    </form>
+  `,
+  styles: [`.error-messages { color: #F44336 }`],
+  directives: [FORM_DIRECTIVES]
+})
+export class AtFormComponent { }
+```
+
 ##### 驗證與狀態
 ```ts
 this.password = new Control('', Validators.minLength(6));
