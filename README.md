@@ -1528,7 +1528,7 @@ export class AsyncComponent {
   public messages: string;
   constructor() {
     this.messages = new Promise( (resolve, reject) => {
-      setTimeout( () => { resolve('兩秒後呈現'); }, 2000);
+      setTimeout( () => resolve('兩秒後呈現'), 2000);
     });
   }
 }
