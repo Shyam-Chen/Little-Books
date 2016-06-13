@@ -361,7 +361,6 @@ import { Component } from '@angular/core';
 export class BindingPropertiesComponent { }
 ```
 ```html
-<!-- 屬性綁定 -->
 <binding-properties [version]="2"></binding-properties>
 ```
 
@@ -377,15 +376,27 @@ import { Component } from '@angular/core';
       [style.color]="'#FFFFFF'"
       [style.padding]="'1rem'"
       [style.width]="'6.5rem'"
-    >Hello Angular 2</p>
+    >
+    Hello Angular 2</p>
   `
+})
+export class BindingPropertiesComponent { }
+```
+
+語法: `[class.名稱]="條件式"`
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'binding-properties',
+  template: `<p [class.at-color]="true">Hello Angular 2</p>`,
+  styles: [`.at-color { color: #E91E63 }`]
 })
 export class BindingPropertiesComponent { }
 ```
 
 ```ts
 [attr.name]="expression"
-[class.name]="condition"
 ```
 
 ```ts
