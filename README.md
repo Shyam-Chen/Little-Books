@@ -1077,7 +1077,7 @@ export class AtColorDirective {
 import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({ selector: '[atColor]' })
-class AtColorDirective {
+export class AtColorDirective {
   constructor(element: ElementRef, renderer: Renderer) {
     renderer.setElementStyle(element.nativeElement, 'color', '#F44336');
   }
@@ -1191,7 +1191,7 @@ export class AppComponent {
   }
 }
 
-// 或者
+// 使用 Inject
 
 import { Component, Inject } from '@angular/core';
 
@@ -1208,7 +1208,7 @@ export class AppComponent {
   }
 }
 
-// 或者
+// 直接寫在模板裡
 
 import { Component } from '@angular/core';
 
