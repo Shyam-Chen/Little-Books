@@ -374,7 +374,7 @@ import { Component } from '@angular/core';
     <p
       [style.background-color]="'#E91E63'"
       [style.color]="'#FFFFFF'"
-      [style.padding]="'1rem'"
+      [style.padding.rem]="'1'"
       [style.width]="'6.5rem'"
     >
     Hello Angular 2</p>
