@@ -358,7 +358,7 @@ import { Component } from '@angular/core';
   template: `<p>Angular {{ version }}</p>`,
   properties: ['version']
 })
-export class AtPropertiesComponent { }
+export class BindingPropertiesComponent { }
 ```
 ```html
 <!-- 屬性綁定 -->
@@ -366,9 +366,25 @@ export class AtPropertiesComponent { }
 ```
 
 ```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'binding-properties',
+  template: `
+    <p
+      [style.background-color]="'#E91E63'"
+      [style.color]="'#FFFFFF'"
+      [style.padding]="'1rem'"
+      [style.width]="'6.5rem'"
+    >Hello Angular 2</p>
+  `
+})
+export class BindingPropertiesComponent { }
+```
+
+```ts
 [attr.name]="expression"
 [class.name]="condition"
-[style.rule]="expression"
 ```
 
 ```ts
