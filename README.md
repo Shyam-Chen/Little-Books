@@ -36,12 +36,12 @@
   * 注入器
   * 型別
   * 層疊注入
-* [HTTP](#http)
-  * Get
+* [通訊](#通訊)
+  * 獲取資料
   * 錯誤處理
   * 平行請求
-  * Post
-  * JSONP
+  * 發送資料
+  * 跨域請求
 * [管道](#管道)
   * [內建管道](#內建管道)
   * [自訂管道](#自訂管道)
@@ -1303,7 +1303,7 @@ provide(ColorService, { useFactory: () => { return x + y; }})
 import { Inject, Injectable, Injector, OpaqueToken, provide } from '@angular/core';
 ```
 
-### HTTP
+### 通訊
 ```ts
 [...]
 
