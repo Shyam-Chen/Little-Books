@@ -1882,6 +1882,33 @@ module.exports = function(config) {
   })
 }
 ```
+```ts
+import { TestComponentBuilder } from '@angular/compiler/testing';
+import { Component } from '@angular/core';
+import { async, describe, it, expect, inject  } from '@angular/core/testing';
+
+import { AppComponent } from './app.component';
+
+export function main() {
+  describe('AppComponent', () => {
+    it('should build without a problem',
+      async(inject([TestComponentBuilder], (testComponentBuilder: TestComponentBuilder) => {
+        testComponentBuilder
+          .createAsync(TestComponent)
+          .then( () => {
+            // ...
+          });
+      })));
+  });
+}
+
+@Component({
+  selector: 'test-component',
+  template: '<app></app>',
+  directives: [AppComponent]
+})
+class TestComponent { }
+```
 
 ### 端對端測試
 ```bash
