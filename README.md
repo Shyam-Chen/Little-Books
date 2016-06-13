@@ -1475,25 +1475,25 @@ Observable
 
 ### 管道
 ##### 內建管道
+
 大小寫
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-pipes',
+  selector: 'at-uppercase-lowercase',
   template: `
-    <p>{{ thing | uppercase }}</p>
-    <p>{{ thing | lowercase }}</p>
-    <p>{{ thing | uppercase | lowercase }}</p>  <!-- 先 uppercase 再來 lowercase -->
+    <p>{{ messages | uppercase }}</p>
+    <p>{{ messages | lowercase }}</p>
+    <p>{{ messages | uppercase | lowercase }}</p>  <!-- 先 uppercase 再來 lowercase -->
   `
 })
-export class AtPipesComponent {
-  public thing: string = 'Angular';
+export class UppercaseLowercaseComponent {
+  public messages: string = 'Angular';
 }
 ```
 
 日期
-語法: `表達式 | date[: 格式]`
 ```ts
 import { Component } from '@angular/core';
 
@@ -1501,61 +1501,59 @@ import { Component } from '@angular/core';
   selector: 'at-date',
   template: `
     <p>{{ atDate | date }}</p>
+    <p>{{ atDate | date: 'medium' }}</p>
+    <p>{{ atDate | date: 'short' }}</p>
+    <p>{{ atDate | date: 'fullDate' }}</p>
     <p>{{ atDate | date: 'longDate' }}</p>
+    <p>{{ atDate | date: 'mediumDate' }}</p>
     <p>{{ atDate | date: 'shortDate' }}</p>
+    <p>{{ atDate | date: 'mediumTime' }}</p>
+    <p>{{ atDate | date: 'shortTime' }}</p>
   `
 })
-export class AtDateComponent {
+export class DateComponent {
   public atDate: Date = new Date();
 }
 ```
 
-格式名稱
+非同步
 ```ts
-medium     等同於 yMMMdjms
-short      等同於 yMdjm
-fullDate   等同於 yMMMMEEEEd
-longDate   等同於 yMMMMd
-mediumDate 等同於 yMMMd
-shortDate  等同於 yMd
-mediumTime 等同於 jms
-shortTime  等同於 jm
-```
+import { Component } from '@angular/core';
 
+@Component({
+  selector: 'at-async',
+  template: `<p>{{ messages | async }}</p>`
+})
+export class AsyncComponent {
+  public messages: string;
+  constructor() {
+    this.messages = new Promise( (resolve, reject) => {
+      setTimeout( () => { resolve('兩秒後呈現'); }, 2000);
+    });
+  }
+}
+```
 
 ```ts
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
-  selector: 'at-date2',
-  template: `
-    {{ atDate | async | date: 'medium' }}    
-  `
+  selector: 'at-async-date',
+  template: `<p>{{ atDate | async | date: 'medium' }}</p>`
 })
-export class Date2Component {
-  public atDate = Observable
-    .interval(1000)
-    .map( () => { new Date(); });
+export class AsyncDateComponent {
+  public atDate: Date;
+  constructor() {
+    this.atDate = Observable
+      .interval(1000)
+      .map( () => new Date() );
+  }
 }
 ```
 
 ```ts
-[...]
-
-@Component({
-  selector: 'at-async',
-  template: `
-    <p>Wait for it... {{ data | async }}</p>
-  `
-})
-export class AsyncComponent {
-
-[...]
-```
-
-```ts
-[...]
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-number',
