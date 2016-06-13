@@ -1120,25 +1120,16 @@ import { LanguagesService } from './services/languages';
 
 @Component({
   selector: 'app',
-  template: `
-    <h3 class="title">Languages Service</h3>
-    <div class="content">
-      <p>Decided Language: {{ language }}</p>
-    </div>
-  `,
-  viewProviders: [
-    LanguagesService  // 僅限於該元件的模板中使用
-  ]
+  template: `<p>所決定的語言是: {{ language }}</p>`,
+  viewProviders: [LanguagesService]  // 僅限於該元件的模板中使用
 })
-export class App {
-  public language: string = '';
-
-  constructor(private languages: LanguagesService) {
-    this.language = languages.ts;
+export class AppComponent {
+  constructor(languagesService: LanguagesService) {
+    this.language = languagesService.ts;
   }
 }
 
-// or
+// 或者
 
 import { Component, Inject } from '@angular/core';
 
@@ -1146,25 +1137,16 @@ import { LanguagesService } from './services/languages';
 
 @Component({
   selector: 'app',
-  template: `
-    <h3 class="title">Languages Service</h3>
-    <div class="content">
-      <p>Decided Language: {{ language }}</p>
-    </div>
-  `,
-  viewProviders: [
-    LanguagesService
-  ]
+  template: `<p>所決定的語言是: {{ language }}</p>`,
+  viewProviders: [LanguagesService]
 })
-export class App {
-  public language: string = '';
-
-  constructor(@Inject(LanguagesService) private languages) {
-    this.language = languages.ts;
+export class AppComponent {
+  constructor(@Inject(LanguagesService) languagesService) {
+    this.language = languagesService.ts;
   }
 }
 
-// or
+// 或者
 
 import { Component } from '@angular/core';
 
@@ -1172,18 +1154,11 @@ import { LanguagesService } from './services/languages';
 
 @Component({
   selector: 'app',
-  template: `
-    <h3 class="title">Languages Service</h3>
-    <div class="content">
-      <p>Decided Language: {{ languages.ts }}</p>
-    </div>
-  `,
-  viewProviders: [
-    LanguagesService
-  ]
+  template: `<p>所決定的語言是: {{ languagesService.ts }}</p>`,
+  viewProviders: [LanguagesService]
 })
-export class App {
-  constructor(private languages: LanguagesService) { }
+export class AppComponent {
+  constructor(languagesService: LanguagesService) { }
 }
 ```
 
