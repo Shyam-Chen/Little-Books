@@ -1393,8 +1393,8 @@ export class OnRequestService {
 }
 ```
 
+更多的方法
 ```ts
-// class Http
 request(url: string | Request, options?: RequestOptionsArgs) : Observable<Response>
 get(url: string, options?: RequestOptionsArgs) : Observable<Response>
 post(url: string, body: string, options?: RequestOptionsArgs) : Observable<Response>
@@ -1457,6 +1457,7 @@ export class WikipediaService {
 [...]
 
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 [...]
 
@@ -1474,6 +1475,7 @@ Observable
 
 ### 管道
 ##### 內建管道
+大小寫
 ```ts
 import { Component } from '@angular/core';
 
@@ -1489,20 +1491,38 @@ export class AtPipesComponent {
   public thing: string = 'Angular';
 }
 ```
+
+日期
+語法: `表達式 | date[: 格式]`
 ```ts
 import { Component } from '@angular/core';
 
-// https://angular.io/docs/ts/latest/api/common/index/DatePipe-class.html
 @Component({
   selector: 'at-date',
   template: `
-    <p>{{ atDate | date: "MM/dd" }}</p>
+    <p>{{ atDate | date }}</p>
+    <p>{{ atDate | date: 'longDate' }}</p>
+    <p>{{ atDate | date: 'shortDate' }}</p>
   `
 })
-export class DateComponent {
-  public atDate = new Date(2020, 2, 14);
+export class AtDateComponent {
+  public atDate: Date = new Date();
 }
 ```
+
+格式名稱
+```ts
+medium     等同於 yMMMdjms
+short      等同於 yMdjm
+fullDate   等同於 yMMMMEEEEd
+longDate   等同於 yMMMMd
+mediumDate 等同於 yMMMd
+shortDate  等同於 yMd
+mediumTime 等同於 jms
+shortTime  等同於 jm
+```
+
+
 ```ts
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
