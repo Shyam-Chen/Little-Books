@@ -498,13 +498,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'encapsulation-emulated',
-  template: `
-  `,
-  styles: [`
-  `],
+  template: `<p class="pink-500">Emulated</p>`,
+  styles: [`.pink-500 { color: #E91E63 }`],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class Component { }
+export class EmulatedComponent { }
 ```
 
 ```ts
@@ -512,13 +510,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'encapsulation-native',
-  template: `
-  `,
-  styles: [`
-  `],
+  `<p class="pink-500">Native</p>`,
   encapsulation: ViewEncapsulation.Native
 })
-export class Component { }
+export class NativeComponent { }
 ```
 
 ```ts
@@ -526,13 +521,16 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'encapsulation-none',
-  template: `
-  `,
+  `<p class="pink-500 other-pink">None</p>`,
   styles: [`
+    .other-pink {
+      background-color: #F8BBD0;
+      color: #FFFFFF;
+    }
   `],
   encapsulation: ViewEncapsulation.None
 })
-export class Component { }
+export class NoneComponent { }
 ```
 
 ##### 變化檢測
