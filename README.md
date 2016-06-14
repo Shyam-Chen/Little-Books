@@ -491,18 +491,40 @@ export class MoreContentComponent { }
 ```
 
 ##### Shadow DOM
+
+Emulated
 ```ts
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'encapsulation-emulated',
-  template: `<p class="pink-500">Emulated</p>`,
-  styles: [`.pink-500 { color: #E91E63 }`],
+  template: `
+    <div class="pink-500">
+      <p>Emulated</p>
+    </div>
+  `,
   encapsulation: ViewEncapsulation.Emulated
 })
 export class EmulatedComponent { }
 ```
+```ts
+import { Component } from '@angular/core';
 
+import { EmulatedComponent } from './components/encapsulation-emulated'
+
+@Component({
+  selector: 'app',
+  template: `
+    <div class="pink-500"></div>
+    <encapsulation-emulated></encapsulation-emulated>
+  `,
+  styles: [`.pink-500 { color: #E91E63 }`],
+  directives: [EmulatedComponent]
+})
+export class AppComponent { }
+```
+
+Native
 ```ts
 import { Component } from '@angular/core';
 
@@ -514,6 +536,7 @@ import { Component } from '@angular/core';
 export class NativeComponent { }
 ```
 
+None
 ```ts
 import { Component } from '@angular/core';
 
