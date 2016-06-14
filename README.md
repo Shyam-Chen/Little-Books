@@ -524,7 +524,7 @@ import { Component } from '@angular/core';
   `<p class="pink-500 other-pink">None</p>`,
   styles: [`
     .other-pink {
-      background-color: #F8BBD0;
+      background-color: #E91E63;
       color: #FFFFFF;
     }
   `],
