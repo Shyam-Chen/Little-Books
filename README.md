@@ -1572,7 +1572,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'at-number',
   template: `
-    <!-- 格式資訊: 整數位數.小數最小位數-小數最大位數 -->
+    <!-- number: 整數位數.小數最小位數-小數最大位數 -->
     <p>{{ pi | number: '1.2-5' }}</p> 
   `
 })
@@ -1596,8 +1596,9 @@ export class PercentComponent {
 }
 ```
 
+貨幣
 ```ts
-[...]
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-currency',
@@ -1608,12 +1609,13 @@ export class PercentComponent {
   `
 })
 export class CurrencyComponent {
-  public price: number = 3.14159265358979;
+  public price: number = 125.18;
 }
 ```
 
+JSON
 ```ts
-[...]
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-json',
