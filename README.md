@@ -1541,7 +1541,7 @@ export class AsyncComponent {
   public messages: string;
   constructor() {
     this.messages = new Promise( (resolve, reject) => {
-      setTimeout( () => resolve('兩秒後呈現'), 2000);
+      setTimeout(() => resolve('兩秒後呈現'), 2000);
     });
   }
 }
@@ -1560,41 +1560,42 @@ export class AsyncDateComponent {
   constructor() {
     this.atDate = Observable
       .interval(1000)
-      .map( () => new Date() );
+      .map(() => new Date());
   }
 }
 ```
 
+數值 (十進制)
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-number',
   template: `
-    <p>pi (no formatting): {{ pi }}</p>
-
-    <!-- 整數位數.小數最小位數-小數最大位數 -->
-    <p>pi (2.2-6): {{ pi | number: '2.2-6' }}</p>
+    <!-- 格式資訊: 整數位數.小數最小位數-小數最大位數 -->
+    <p>{{ pi | number: '1.2-5' }}</p> 
   `
 })
 export class NumberComponent {
   public pi: number = 3.14159265358979;
 }
 ```
+
+百分率
 ```ts
-[...]
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-percent',
   template: `
-    <p>{{ pi | percent }}</p>
-    <p>{{ pi | percent: '3.2-5' }}</p>
+    <p>{{ proficiency | percent: '1.2-2' }}</p>
   `
 })
 export class PercentComponent {
-  public pi: number = 3.14159265358979;
+  public proficiency: number = 0.703517;
 }
 ```
+
 ```ts
 [...]
 
@@ -1634,7 +1635,6 @@ export class JsonComponent {
   template: `
     <ul>
       <!-- 從陣列索引的 1 開始 ~ 到 3 結束，但不包含 3 -->
-      <!-- Array.prototype.slice -->
       <li *ngFor="let item of list | slice: 1:3">{{ item }}</li>  
     </ul>
   `
