@@ -716,16 +716,19 @@ ngAfterViewChecked() { ... }
 ### 表單
 ```ts
 ngForm
-ngFormControl
-ngFormModel
 ngControl
+ngFormControl
+ngModel
+ngFormModel
 ngControlGroup
+
 FormBuilder
 Control
 ControlArray
 ControlContainer
 ControlGroup
 AbstractControl
+Validators
 ```
 
 |狀態|為`true`時的 CSS 類別|為`false`時的 CSS 類別|
