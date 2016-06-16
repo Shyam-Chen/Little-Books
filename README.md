@@ -670,14 +670,17 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   `
 })
 export class AtCounterComponent {
-  @Input('atCount') count: number = 0;
-  @Output('atCountChange') countChange: EventEmitter<number> = new EventEmitter<number>();
+  @Input() count: number;
+  @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
 
-  onClick() {
+  onClick(): void {
     this.count++;
     this.countChange.emit(this.count);
   }
 }
+```
+```html
+<at-counter count="7" (countChange)="$event"></at-counter>
 ```
 
 ```ts
