@@ -11,7 +11,7 @@
   * [事件綁定](#事件綁定)
   * [屬性綁定](#屬性綁定)
   * [本地變數](#本地變數)
-  * [內容投影](#內容投影)
+  * [內容投射](#內容投射)
   * [Shadow DOM](#shadow-dom)
   * [變化檢測](#變化檢測)
   * [元件之間的溝通](#元件之間的溝通)
@@ -470,7 +470,7 @@ export class AddItemComponent {
 }
 ```
 
-##### 內容投影
+##### 內容投射
 ```ts
 import { Component } from '@angular/core';
 
@@ -483,12 +483,25 @@ import { Component } from '@angular/core';
 })
 export class ContentProjectionComponent { }
 ```
+```ts
+import { Component } from '@angular/core';
 
+import { ContentProjectionComponent } from './content-projection';
+
+@Component({
+  selector: 'app',
+  template: `<content-projection>Hi, Angular 2</content-projection>`,
+  directives: [ContentProjectionComponent]
+})
+export class AppComponent { }
+```
+
+更多的投射
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'more-content',
+  selector: 'more-projection',
   template: `
     <ng-content select="[js]"></ng-content>
     <p>Angular 1</p>
@@ -497,7 +510,25 @@ import { Component } from '@angular/core';
     <ng-content select="[ts]"></ng-content>
   `
 })
-export class MoreContentComponent { }
+export class MoreProjectionComponent { }
+```
+```ts
+import { Component } from '@angular/core';
+
+import { MoreProjectionComponent } from './more-projection';
+
+@Component({
+  selector: 'app',
+  template: `
+    <more-projection>
+      <p js>Hi, JavaScript</p>
+      <p coffee>Hi, CoffeeScript</p>
+      <p ts>Hi, TypeScript</p>
+    </more-projection>
+  `,
+  directives: [MoreProjectionComponent]
+})
+export class AppComponent { }
 ```
 
 ##### Shadow DOM
