@@ -223,35 +223,33 @@ $ npm start
 ### 元件
 ##### 初識元件
 ```ts
+// 建構子
+selector?: string
+inputs?: string[]
+outputs?: string[]
+host?: {[key: string]: string}
+providers?: any[]
+exportAs?: string
+moduleId?: string
+viewProviders?: any[]
+queries?: {[key: string]: any}
+changeDetection?: ChangeDetectionStrategy
+templateUrl?: string
+template?: string
+styleUrls?: string[]
+styles?: string[]
+animations?: AnimationEntryMetadata[]
+directives?: Array<Type|any[]>
+pipes?: Array<Type|any[]>
+encapsulation?: ViewEncapsulation
+```
+```ts
 import { Component } from '@angular/core';
 
-/**
- * 建構子
- *
- * selector?: string,
- * inputs?: string[],  // 不建議使用
- * outputs?: string[],  // 不建議使用
- * properties?: string[],
- * events?: string[],
- * host?: {[key: string]: string},  // 不建議使用
- * providers?: any[],
- * exportAs?: string,
- * moduleId?: string,
- * viewProviders?: any[],
- * queries?: {[key: string]: any},
- * changeDetection?: ChangeDetectionStrategy,
- * templateUrl?: string,
- * template?: string,
- * styleUrls?: string[],
- * styles?: string[],
- * directives?: Array<Type | any[]>,
- * pipes?: Array<Type | any[]>,
- * encapsulation?: ViewEncapsulation
- */
 @Component({
   // 一些組態在這裡
 })
-export class AtThingComponent {
+export class ThingComponent {
   // 一些程式碼在這裡
 }
 ```
