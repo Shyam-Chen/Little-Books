@@ -44,7 +44,7 @@
 * [管道](#管道)
   * [內建管道](#內建管道)
   * [自訂管道](#自訂管道)
-* 動畫
+* [動畫](#動畫)
 * ----- 測試 -----
 * [靜態分析](#靜態分析)
   * [使用 Codelyzer](#使用-codelyzer)
@@ -1741,6 +1741,29 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class InputSearchPipe implements PipeTransform {
   transform() {
   }
+}
+```
+
+### 動畫
+```ts
+import { Component, animate, state, style, transition, trigger } from '@angular/core';
+
+@Component({
+  selector: 'at-thing',
+  template: `
+    <p @openThing="stateExpression">Hello Angular 2</p>
+  `,
+  styles: [`
+  `],
+  animations: [
+    trigger('openThing', [
+      // ...
+    ])
+  ]
+})
+export class ThingComponent {
+  public stateExpression: string;
+  // ...
 }
 ```
 
