@@ -44,6 +44,7 @@
 * [管道](#管道)
   * [內建管道](#內建管道)
   * [自訂管道](#自訂管道)
+* 動畫
 * ----- 測試 -----
 * [靜態分析](#靜態分析)
   * [使用 Codelyzer](#使用-codelyzer)
@@ -503,14 +504,14 @@ import { Component, ViewEncapsulation } from '@angular/core';
       <p>Emulated</p>
     </div>
   `,
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.Emulated  // 預設值
 })
 export class EmulatedComponent { }
 ```
 ```ts
 import { Component } from '@angular/core';
 
-import { EmulatedComponent } from './components/encapsulation-emulated'
+import { EmulatedComponent } from './components/encapsulation-emulated';
 
 @Component({
   selector: 'app',
