@@ -362,13 +362,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'binding-properties',
-  template: `<p>Angular {{ version }}</p>`,
-  properties: ['version']
+  template: `<p [innerHTML]="messages"></p>`
 })
-export class BindingPropertiesComponent { }
-```
-```html
-<binding-properties [version]="2"></binding-properties>
+export class BindingPropertiesComponent {
+  public messages: string = 'Hello Angular 2';
+}
 ```
 
 語法: `[style.規則]="'表達式'"`
