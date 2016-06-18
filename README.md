@@ -890,6 +890,19 @@ bootstrap(AppComponent, [
 ]);
 ```
 ```ts
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+
+@Component({
+  moduleId: module.id,
+  selector: 'app',
+  templateUrl: 'app.component.html',
+  directives: [ROUTER_DIRECTIVES]
+})
+export class AppComponent { }
+```
+```ts
 // src/app/+home/home.routes.ts
 import { HomeComponent } from './index';
 
