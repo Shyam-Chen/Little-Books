@@ -875,7 +875,7 @@ this.password = new Control('', Validators.minLength(6));
 ### 路由
 ##### 使用路由
 ```ts
-// main.ts
+// src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { APP_BASE_HREF } from '@angular/common';
 
@@ -889,6 +889,36 @@ bootstrap(AppComponent, [
   }
 ]);
 ```
+```ts
+// src/app/+home/home.routes.ts
+import { HomeComponent } from './index';
+
+export const HomeRoutes = [{
+    path: '/',
+    component: HomeComponent,
+    index: true
+}];
+```
+```ts
+// src/app/+home/index.ts
+export * from './home.component';
+export * from './home.routes';
+```
+```ts
+// src/app/+about/about.routes.ts
+import { AboutComponent } from './index';
+
+export const AboutRoutes = [{
+  path: '/about',
+  component: AboutComponent
+}];
+```
+```ts
+// src/app/+about/index.ts
+export * from './about.component';
+export * from './about.routes';
+```
+
 ```ts
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES, Routes, Router } from '@angular/router';
