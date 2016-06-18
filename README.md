@@ -227,20 +227,20 @@ $ npm start
 selector?: string
 inputs?: string[]
 outputs?: string[]
-host?: {[key: string]: string}
-providers?: any[]
-exportAs?: string
+host?: {[key: string]: string}  // 查看指令章節
+providers?: any[]  // 查看服務章節
+exportAs?: string  // 查看指令章節
 moduleId?: string
-viewProviders?: any[]
+viewProviders?: any[]  // 查看服務章節
 queries?: {[key: string]: any}
 changeDetection?: ChangeDetectionStrategy
 templateUrl?: string
 template?: string
 styleUrls?: string[]
 styles?: string[]
-animations?: AnimationEntryMetadata[]
-directives?: Array<Type|any[]>
-pipes?: Array<Type|any[]>
+animations?: AnimationEntryMetadata[]  // 查看動畫章節
+directives?: Array<Type|any[]>  // 查看指令章節
+pipes?: Array<Type|any[]>  // 查看管道章節
 encapsulation?: ViewEncapsulation
 ```
 ```ts
