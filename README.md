@@ -717,9 +717,28 @@ class BComponent { }
   template: '<at-a></at-a>',
   directives: [AComponent]
 })
-class UserPanel {
+export class Component {
   @ViewChildren(AComponent) viewChildren: QueryList<AComponent>;
   @ContentChildren(BComponent) contentChildren: QueryList<BComponent>;
+  // ...
+}
+```
+
+```ts
+@Component({
+  selector: 'app',
+  queries: {
+    contentChildren: new ContentChildren(ChildDirective),
+    viewChildren: new ViewChildren(ChildDirective)
+  },
+  template: '
+    <!-- ... -->
+  ',
+  directives: [ChildDirective]
+})
+export class Component {
+  contentChildren: QueryList<ChildDirective>,
+  viewChildren: QueryList<ChildDirective>
   // ...
 }
 ```
