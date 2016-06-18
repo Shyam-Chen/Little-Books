@@ -875,15 +875,18 @@ this.password = new Control('', Validators.minLength(6));
 ### 路由
 ##### 使用路由
 ```ts
+// main.ts
+import { bootstrap } from '@angular/platform-browser-dynamic';
 import { APP_BASE_HREF } from '@angular/common';
-import { provide } from '@angular/core';
 
-// ...
+import { APP_ROUTER_PROVIDERS } from './app.routes';
+import { AppComponent } from './app.component';
 
 bootstrap(AppComponent, [
-  // ...
-  provide(APP_BASE_HREF, { useValue: '/' }),
-  // ...
+  APP_ROUTER_PROVIDERS, {
+    provide: APP_BASE_HREF,
+    useValue: '/'
+  }
 ]);
 ```
 ```ts
