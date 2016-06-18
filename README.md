@@ -903,6 +903,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 export class AppComponent { }
 ```
 ```ts
+// src/app/app.routes.ts
 import { provideRouter, RouterConfig } from '@angular/router';
 
 import { AboutRoutes } from './+about/index';
@@ -945,37 +946,6 @@ export const AboutRoutes = [{
 // src/app/+about/index.ts
 export * from './about.component';
 export * from './about.routes';
-```
-
-```ts
-import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES, Routes, Router } from '@angular/router';
-
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-
-@Component({
-  selector: 'app',
-  template: `
-    <nav>
-      <a [routerLink]="['/home']">Home</a> /
-      <a [routerLink]="['/about']">About</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
-  directives: [ROUTER_DIRECTIVES]
-})
-@Routes([{
-    path: '/home',
-    component: HomeComponent
-  }, {
-    path: '/about',
-    component: AboutComponent
-}])
-export class AppComponent implements OnInit {
-  constructor(private router: Router) { }
-  ngOnInit(): void { this.router.navigate(['/home']); }
-}
 ```
 
 ##### 路由生命週期掛鉤
