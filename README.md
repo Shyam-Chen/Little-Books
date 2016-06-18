@@ -934,9 +934,9 @@ export class HomeComponent { }
 import { HomeComponent } from './index';
 
 export const HomeRoutes = [{
-    path: '/',
-    component: HomeComponent,
-    index: true
+  path: '/',
+  component: HomeComponent,
+  index: true
 }];
 ```
 ```ts
@@ -1271,6 +1271,28 @@ export class HighlightDirective {
   <input type="radio" name="colors" (click)="color='#2196F3'">藍色
 </form>
 <span [atHighlight]="color">滑鼠游標靠過來吧!</span>
+```
+
+```ts
+import { Directive } from '@angular/core';
+
+@Directive({
+  selector: 'at-thing',
+  exportAs: 'thing'
+})
+export class ThingDirective { }
+```
+```ts
+import { Component } from '@angular/core';
+
+import { ThingDirective } from './thing.directive'
+
+@Component({
+  selector: 'app',
+  template: `<at-thing #some="thing"></at-thing>`,
+  directives: [ThingDirective]
+})
+export class AppComponent { }
 ```
 
 ### 服務
