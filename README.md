@@ -14,7 +14,7 @@
   * [內容投射](#內容投射)
   * [Shadow DOM](#shadow-dom)
   * [變化檢測](#變化檢測)
-  * [元件之間的溝通](#元件之間的溝通)
+  * [相互溝通](#相互溝通)
   * [生命週期掛鉤](#生命週期掛鉤)
 * [表單](#表單)
   * [使用表單](#使用表單)
@@ -604,7 +604,7 @@ import { Component } from '@angular/core';
 export class Component { }
 ```
 
-##### 元件之間的溝通
+##### 相互溝通
 ```ts
 // 使用 Input 建構子
 import { Component } from '@angular/core';
