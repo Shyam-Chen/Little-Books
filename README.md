@@ -903,6 +903,21 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 export class AppComponent { }
 ```
 ```ts
+import { provideRouter, RouterConfig } from '@angular/router';
+
+import { AboutRoutes } from './+about/index';
+import { HomeRoutes } from './+home/index';
+
+const routes: RouterConfig = [
+  ...HomeRoutes,
+  ...AboutRoutes
+];
+
+export const APP_ROUTER_PROVIDERS = [
+  provideRouter(routes)
+];
+```
+```ts
 // src/app/+home/home.routes.ts
 import { HomeComponent } from './index';
 
