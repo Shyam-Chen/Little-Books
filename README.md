@@ -919,6 +919,17 @@ export const APP_ROUTER_PROVIDERS = [
 ];
 ```
 ```ts
+// src/app/+home/home.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  moduleId: module.id,
+  templateUrl: 'home.component.html',
+  styleUrls: ['home.component.css']
+})
+export class HomeComponent { }
+```
+```ts
 // src/app/+home/home.routes.ts
 import { HomeComponent } from './index';
 
@@ -932,6 +943,17 @@ export const HomeRoutes = [{
 // src/app/+home/index.ts
 export * from './home.component';
 export * from './home.routes';
+```
+```ts
+//  src/app/+about/about.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  moduleId: module.id,
+  templateUrl: 'about.component.html',
+  styleUrls: ['about.component.css']
+})
+export class AboutComponent { }
 ```
 ```ts
 // src/app/+about/about.routes.ts
