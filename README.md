@@ -3,6 +3,9 @@
 ### 目錄
 * [初識 Angular 2](#初識-angular-2)
 * [環境配置](#環境配置)
+  * [既有的樣板](#既有的樣板)
+  * [簡單的配置](#簡單的配置)
+  * [專案架構](#專案架構)
 * ----- 開發 -----
 * [元件](#元件)
   * [初識元件](#初識元件)
@@ -66,7 +69,7 @@
 ### 初識 Angular 2
 
 ### 環境配置
-##### 優質的樣板
+##### 既有的樣板
 * [使用 Angular CLI](https://github.com/angular/angular-cli)
 * [使用 Gulp](https://github.com/mgechev/angular2-seed)
 * [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
@@ -219,6 +222,8 @@ export class AppComponent { }
 ```bash
 $ npm start
 ```
+
+##### 專案架構
 
 ### 元件
 ##### 初識元件
