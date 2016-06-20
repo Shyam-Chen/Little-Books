@@ -232,6 +232,48 @@ $ npm start
 (2)
 ```
 .
+├── src
+│   ├── app
+│   │   ├── +about
+│   │   │   ├── about.component.css
+│   │   │   ├── about.component.e2e-spec.ts
+│   │   │   ├── about.component.html
+│   │   │   ├── about.component.spec.ts
+│   │   │   ├── about.component.ts
+│   │   │   └── index.ts
+│   │   ├── +home
+│   │   │   ├── home.component.css
+│   │   │   ├── home.component.e2e-spec.ts
+│   │   │   ├── home.component.html
+│   │   │   ├── home.component.spec.ts
+│   │   │   ├── home.component.ts
+│   │   │   └── index.ts
+│   │   ├── app.component.e2e-spec.ts
+│   │   ├── app.component.html
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   ├── main.ts
+│   │   └── shared
+│   │       ├── index.ts
+│   │       ├── 
+│   │       ├── 
+│   │       └── 
+│   ├── assets
+│   │   ├── styles
+│   │   ├── images
+│   │   └── fonts
+│   ├── index.html
+│   ├── tsconfig.json
+│   └── typings.d.ts
+├── gulpfile.ts
+├── karma.conf.js
+├── typings.json
+├── protractor.conf.js
+├── tsconfig.json
+├── tslint.json
+├── typings
+├── 
+└── package.json
 ```
 
 ### 元件
@@ -2265,7 +2307,7 @@ $ npm i express gulp-protractor -D
 ```
 
 ```js
-// gulpfile.js
+// gulpfile.ts
 import * as express from 'express';
 import * as history from 'express-history-api-fallback';
 import * as gulp from 'gulp';
