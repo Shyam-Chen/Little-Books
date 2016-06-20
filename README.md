@@ -424,12 +424,18 @@ export class ToggleMeComponent {
 ```
 
 ##### 屬性綁定
+語法: `[innerHTML]="表達式"`
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'binding-properties',
-  template: `<p [innerHTML]="messages"></p>`
+  template: `
+    <p [innerHTML]="messages"></p>
+    
+    <!-- 等同於 -->
+    <p>{{ messages }}</p>
+  `
 })
 export class BindingPropertiesComponent {
   public messages: string = 'Hello Angular 2';
@@ -595,7 +601,6 @@ export class AppComponent { }
 ```
 
 ##### Shadow DOM
-
 Emulated
 ```ts
 import { Component, ViewEncapsulation } from '@angular/core';
@@ -634,10 +639,30 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'encapsulation-native',
-  `<p class="pink-500">Native</p>`,
+  template: `
+    <div class="pink-500">
+      <p>Native</p>
+    </div>
+  `,
   encapsulation: ViewEncapsulation.Native
 })
 export class NativeComponent { }
+```
+```ts
+import { Component } from '@angular/core';
+
+import { NativeComponent } from './components/encapsulation-native';
+
+@Component({
+  selector: 'app',
+  template: `
+    <div class="pink-500"></div>
+    <encapsulation-native></encapsulation-native>
+  `,
+  styles: [`.pink-500 { color: #E91E63 }`],
+  directives: [NativeComponent]
+})
+export class AppComponent { }
 ```
 
 None
@@ -888,7 +913,7 @@ import { FORM_DIRECTIVES, Control, ControlGroup, FormBuilder } from '@angular/co
   `,
   directives: [FORM_DIRECTIVES]
 })
-export class AtFormComponent {
+export class FormComponent {
   public email: Control;
   public password: Control;
   public group: ControlGroup;
@@ -948,7 +973,7 @@ import { FORM_DIRECTIVES } from '@angular/common';
   styles: [`.error-messages { color: #F44336 }`],
   directives: [FORM_DIRECTIVES]
 })
-export class AtFormComponent { }
+export class FormComponent { }
 ```
 
 ##### 驗證與狀態
