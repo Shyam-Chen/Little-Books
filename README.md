@@ -280,6 +280,7 @@ pipes?: Array<Type|any[]>  // 查看管道章節
 encapsulation?: ViewEncapsulation
 ```
 ```ts
+// thing.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -291,17 +292,18 @@ export class ThingComponent {
 ```
 
 ```ts
+// thing.component.ts
 import { Component } from '@angular/core';
 
 // 常用的組態
 @Component({
   moduleId: module.id,
-  selector: 'at-thing',
+  selector: 'at-thing',  // 加入前綴 `at` (看自己專案要用什麼前綴，這裡是使用 Angular 和 TypeScript 的字首)
   templateUrl: 'thing.component.html',
   styleUrls: ['thing.component.css']
   // 其它更多的組態
 })
-export class AtThingComponent {
+export class ThingComponent {
   // 一些程式碼在這裡
 }
 ```
