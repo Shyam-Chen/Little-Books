@@ -609,7 +609,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   selector: 'encapsulation-emulated',
   template: `
     <div class="pink-500">
-      <p>Emulated</p>
+      <p>這是 Emulated</p>
     </div>
   `,
   encapsulation: ViewEncapsulation.Emulated  // 預設值
@@ -624,7 +624,7 @@ import { EmulatedComponent } from './components/encapsulation-emulated';
 @Component({
   selector: 'app',
   template: `
-    <div class="pink-500"></div>
+    <div class="pink-500">Hello Angular 2</div>
     <encapsulation-emulated></encapsulation-emulated>
   `,
   styles: [`.pink-500 { color: #E91E63 }`],
@@ -641,7 +641,7 @@ import { Component } from '@angular/core';
   selector: 'encapsulation-native',
   template: `
     <div class="pink-500">
-      <p>Native</p>
+      <p>這是 Native</p>
     </div>
   `,
   encapsulation: ViewEncapsulation.Native
@@ -656,7 +656,7 @@ import { NativeComponent } from './components/encapsulation-native';
 @Component({
   selector: 'app',
   template: `
-    <div class="pink-500"></div>
+    <div class="pink-500">Hello Angular 2</div>
     <encapsulation-native></encapsulation-native>
   `,
   styles: [`.pink-500 { color: #E91E63 }`],
@@ -671,7 +671,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'encapsulation-none',
-  `<p class="pink-500 other-pink">None</p>`,
+  template: `
+    <div class="pink-500 other-pink">
+      <p>這是 None</p>
+    </div>
+  `,
   styles: [`
     .other-pink {
       background-color: #E91E63;
@@ -681,6 +685,22 @@ import { Component } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class NoneComponent { }
+```
+```ts
+import { Component } from '@angular/core';
+
+import { NoneComponent } from './components/encapsulation-none';
+
+@Component({
+  selector: 'app',
+  template: `
+    <div class="pink-500">Hello Angular 2</div>
+    <encapsulation-none></encapsulation-none>
+  `,
+  styles: [`.pink-500 { color: #E91E63 }`],
+  directives: [NoneComponent]
+})
+export class AppComponent { }
 ```
 
 ##### 變化檢測
