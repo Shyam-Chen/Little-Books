@@ -2326,12 +2326,12 @@ import { resolve } from 'path';
 import { protractor } from 'gulp-protractor';
 
 class Protractor {
-  server(port, dir) {
+  server(port: number, dir: string) {
     let app = express();
     let root = resolve(process.cwd(), dir);
     app.use(express.static(root));
     app.use(history('index.html', { root }));
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       let server = app.listen(port, () => {
         resolve(server);
       });
@@ -2344,11 +2344,11 @@ gulp.task('webdriver', webdriver_update);
 gulp.task('e2e', (done) => {
   new Protractor()
     .server(9876, './public')
-    .then((server) => {
+    .then((server: any) => {
       gulp
         .src('./src/**/*.e2e-spec.ts')
         .pipe(protractor({ configFile: 'protractor.conf.js' }))
-        .on('error', (error) => { throw error; })
+        .on('error', (error: string) => { throw error; })
         .on('end', () => { server.close(done); });
     });
 });
