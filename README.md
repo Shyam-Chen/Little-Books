@@ -2266,16 +2266,18 @@ $ npm i express gulp-protractor -D
 
 ```js
 // gulpfile.js
-// import * as express from 'express';
-const express = reuqire('express');
-// import { protractor, webdriver_update } from 'gulp-protractor';
-const protractor = require('gulp-protractor').protractor;
-const webdriver_update = require('gulp-protractor').webdriver_update;
+import * as express from 'express';
+import * as history from 'express-history-api-fallback';
+import * as gulp from 'gulp';
+import { resolve } from 'path';
+import { protractor } from 'gulp-protractor';
 
 class Protractor {
   server(port, dir) {
     let app = express();
-    app.use(express.static(dir));
+    let root = resolve(process.cwd(), dir);
+    app.use(express.static(root));
+    app.use(history('index.html', { root }));
     return new Promise( (resolve, reject) => {
       let server = app.listen(port, () => {
         resolve(server);
