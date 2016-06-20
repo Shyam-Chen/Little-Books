@@ -308,6 +308,33 @@ export class ThingComponent {
 }
 ```
 
+##### 使用模板
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'use-template',
+  template: `<p>Hello Angular 2</p>`
+})
+export class UseTemplateComponent { }
+```
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'use-template',
+  templateUrl: '../app/use-template.html'
+})
+export class UseTemplateComponent { }
+```
+```html
+<!-- use-template.html -->
+<p>Hello Angular 2</p>
+```
+
+##### 使用樣式
+
 ##### 渲染模板
 ```ts
 import { Component } from '@angular/core';
