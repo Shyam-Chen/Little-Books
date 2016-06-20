@@ -227,6 +227,77 @@ $ npm start
 (1)
 ```
 .
+├── src
+│   ├── fonts
+│   ├── images
+│   ├── scripts
+│   │   ├── animations
+│   │   │   ├── demo.
+│   │   │   └── index.
+│   │   ├── components
+│   │   │   ├── about.
+│   │   │   ├── home.
+│   │   │   ├── index.
+│   │   │   └── title.
+│   │   ├── directives
+│   │   │   ├── demo.
+│   │   │   └── index.
+│   │   ├── pipes
+│   │   │   ├── demo.
+│   │   │   └── index.
+│   │   ├── services
+│   │   │   ├── demo.
+│   │   │   └── index.
+│   │   ├── app.
+│   │   ├── main.
+│   │   └── vendor.
+│   ├── styles
+│   │   ├── components
+│   │   │   ├── about.styl
+│   │   │   ├── home.styl
+│   │   │   └── title.styl
+│   │   ├── layout.styl
+│   │   ├── main.styl
+│   │   ├── mixins.styl
+│   │   ├── structure.styl
+│   │   ├── typography.styl
+│   │   ├── variables.styl
+│   │   └── vendor.styl
+│   ├── views
+│   │   ├── components
+│   │   │   ├── about.pug
+│   │   │   ├── home.pug
+│   │   │   └── title.pug
+│   │   ├── demo.pug
+│   │   ├── main.pug
+│   │   └── toolbar.pug
+│   ├── favicon.ico
+│   ├── index.pug
+│   └── robots.txt
+├── test
+│   ├── e2e
+│   │   ├── about.
+│   │   ├── app.
+│   │   └── home.
+│   └── unit
+│       ├── animations
+│       │   └── demo.
+│       ├── components
+│       │   ├── about.
+│       │   ├── home.
+│       │   └── title.
+│       ├── directives
+│       │   └── demo.
+│       ├── pipes
+│       │   └── demo.
+│       ├── services
+│       │   └── demo.
+│       └── app.
+├── tslint.json
+├── gulpfile.ts
+├── karma.conf.js
+├── package.json
+└── protractor.conf.js
 ```
 
 (2)
