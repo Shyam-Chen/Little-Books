@@ -1878,8 +1878,9 @@ export class JsonComponent {
 [...]
 ```
 
+裁切
 ```ts
-[...]
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'slice-list',
@@ -1895,6 +1896,12 @@ export class SliceListComponent {
 }
 ```
 
+替換
+```ts
+Replace Pipe
+```
+
+選擇 (國際化)
 ```ts
 import { Component } from '@angular/core';
 
@@ -1913,13 +1920,9 @@ export class I18nSelectComponent {
 }
 ```
 
+多元 (國際化)
 ```ts
 I18nPlural Pipe
-```
-
-
-```ts
-Replace Pipe
 ```
 
 ##### 自訂管道
