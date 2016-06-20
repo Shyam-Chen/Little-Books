@@ -224,127 +224,36 @@ $ npm start
 ```
 
 ##### 專案架構
-(1)
-```
-.
-├── src
-│   ├── fonts
-│   ├── images
-│   ├── scripts
-│   │   ├── animations
-│   │   │   ├── demo.
-│   │   │   └── index.
-│   │   ├── components
-│   │   │   ├── about.
-│   │   │   ├── home.
-│   │   │   ├── index.
-│   │   │   └── title.
-│   │   ├── directives
-│   │   │   ├── demo.
-│   │   │   └── index.
-│   │   ├── pipes
-│   │   │   ├── demo.
-│   │   │   └── index.
-│   │   ├── services
-│   │   │   ├── demo.
-│   │   │   └── index.
-│   │   ├── app.
-│   │   ├── main.
-│   │   └── vendor.
-│   ├── styles
-│   │   ├── components
-│   │   │   ├── about.styl
-│   │   │   ├── home.styl
-│   │   │   └── title.styl
-│   │   ├── layout.styl
-│   │   ├── main.styl
-│   │   ├── mixins.styl
-│   │   ├── structure.styl
-│   │   ├── typography.styl
-│   │   ├── variables.styl
-│   │   └── vendor.styl
-│   ├── views
-│   │   ├── components
-│   │   │   ├── about.pug
-│   │   │   ├── home.pug
-│   │   │   └── title.pug
-│   │   ├── demo.pug
-│   │   ├── main.pug
-│   │   └── toolbar.pug
-│   ├── favicon.ico
-│   ├── index.pug
-│   └── robots.txt
-├── test
-│   ├── e2e
-│   │   ├── about.
-│   │   ├── app.
-│   │   └── home.
-│   └── unit
-│       ├── animations
-│       │   └── demo.
-│       ├── components
-│       │   ├── about.
-│       │   ├── home.
-│       │   └── title.
-│       ├── directives
-│       │   └── demo.
-│       ├── pipes
-│       │   └── demo.
-│       ├── services
-│       │   └── demo.
-│       └── app.
-├── tslint.json
-├── gulpfile.ts
-├── karma.conf.js
-├── package.json
-└── protractor.conf.js
-```
-
-(2)
 ```
 .
 ├── src
 │   ├── app
 │   │   ├── +about
-│   │   │   ├── about.component.css
-│   │   │   ├── about.component.e2e-spec.ts
-│   │   │   ├── about.component.html
-│   │   │   ├── about.component.spec.ts
-│   │   │   ├── about.component.ts
+│   │   │   ├── about.component.ts|html|css|spec.ts|e2e-spec.ts
 │   │   │   └── index.ts
 │   │   ├── +home
-│   │   │   ├── home.component.css
-│   │   │   ├── home.component.e2e-spec.ts
-│   │   │   ├── home.component.html
-│   │   │   ├── home.component.spec.ts
-│   │   │   ├── home.component.ts
+│   │   │   ├── home.component.ts|html|css|spec.ts|e2e-spec.ts
 │   │   │   └── index.ts
-│   │   ├── app.component.e2e-spec.ts
-│   │   ├── app.component.html
-│   │   ├── app.component.spec.ts
-│   │   ├── app.component.ts
+│   │   ├── app.component.ts|html|css|spec.ts|e2e-spec.ts
 │   │   ├── main.ts
+│   │   ├── vendor.ts
 │   │   └── shared
-│   │       ├── index.ts
-│   │       ├── 
-│   │       ├── 
-│   │       └── 
+│   │       ├── data-list.service.ts|spec.ts
+│   │       └── index.ts
 │   ├── assets
 │   │   ├── styles
 │   │   ├── images
 │   │   └── fonts
+│   ├── favicon.ico
 │   ├── index.html
-│   ├── tsconfig.json
-│   └── typings.d.ts
+│   └── robots.txt
 ├── gulpfile.ts
 ├── karma.conf.js
-├── typings.json
+├── package.json
 ├── protractor.conf.js
 ├── tsconfig.json
 ├── tslint.json
-├── typings
-├── 
-└── package.json
+└── typings.json
 ```
 
 ### 元件
