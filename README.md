@@ -309,6 +309,7 @@ export class ThingComponent {
 ```
 
 ##### 使用模板
+(1) `template`
 ```ts
 import { Component } from '@angular/core';
 
@@ -319,6 +320,7 @@ import { Component } from '@angular/core';
 export class UseTemplateComponent { }
 ```
 
+(2) `templateUrl`
 ```ts
 import { Component } from '@angular/core';
 
