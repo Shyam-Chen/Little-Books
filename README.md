@@ -928,6 +928,19 @@ Validators
 
 ##### 使用表單
 ```ts
+// src/app/main.ts
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+
+bootstrap(AppComponent, [
+  disableDeprecatedForms(),
+  provideForms()
+]);
+```
+```ts
+// Deprecated
 import { Component } from '@angular/core';
 import { FORM_DIRECTIVES, Control, ControlGroup, FormBuilder } from '@angular/common';
 
