@@ -940,9 +940,8 @@ bootstrap(AppComponent, [
 ]);
 ```
 ```ts
-// Deprecated
 import { Component } from '@angular/core';
-import { FORM_DIRECTIVES, Control, ControlGroup, FormBuilder } from '@angular/common';
+import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 @Component({
   selector: 'at-form',
@@ -963,7 +962,7 @@ import { FORM_DIRECTIVES, Control, ControlGroup, FormBuilder } from '@angular/co
 
     <pre>{{ formValue | json }}</pre>
   `,
-  directives: [FORM_DIRECTIVES]
+  directives: [REACTIVE_FORM_DIRECTIVES]
 })
 export class FormComponent {
   public email: Control;
