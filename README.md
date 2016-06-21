@@ -940,6 +940,27 @@ bootstrap(AppComponent, [
 ]);
 ```
 ```ts
+// src/app/app.component.ts
+```
+```ts
+// src/app/form.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'at-form',
+  template: `
+    <form #atForm="ngForm" novalidate>
+      <!-- 一些程式碼寫在這裡 -->
+    </form>
+  `
+})
+export class FormComponent { }
+```
+
+
+***
+
+```ts
 import { Component } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
