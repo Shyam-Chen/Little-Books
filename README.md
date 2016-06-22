@@ -1952,7 +1952,7 @@ export class SliceListComponent {
 Replace Pipe
 ```
 
-選擇 (國際化)
+選擇
 ```ts
 import { Component } from '@angular/core';
 
@@ -1964,16 +1964,30 @@ import { Component } from '@angular/core';
 })
 export class I18nSelectComponent {
   public gender: string = 'male';
-  public chinese: any = {
-    'male': '男',
-    'female': '女'
-  }
+  public chinese: any = { 'male': '男', 'female': '女' };
 }
 ```
 
-多元 (國際化)
+複數
 ```ts
-I18nPlural Pipe
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'at-i18nPlural',
+  template: `
+    <p>姓名: {{ messages[0] }}</p>
+    <p>年齡: {{ messages[1] }} 歲</p>
+    <p>訊息: {{ messages.length | i18nPlural: messageMapping }}</p>
+  `
+})
+export class I18nPluralComponent {
+  public messages: any[] = ['陳彥澄', 22];
+  public messageMapping: any = {
+    '=0': '沒有任何訊息',
+    '=1': '只有 1 條訊息',
+    'other': '有 # 條訊息'
+  };
+}
 ```
 
 ##### 自訂管道
