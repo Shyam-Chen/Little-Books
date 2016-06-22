@@ -2046,8 +2046,18 @@ import { Pipe, PipeTransform } from '@angular/core';
   pure: false
 })
 export class DelayPipe implements PipeTransform {
+  public fetchedValue: any;
+  public fetchPromise: Promise;
+
   transform(value: any, seconds: number): any {
-    
+    if (!this.fetchPromise) {
+      this.fetchPromise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve(value), seconds * 1000);
+      });
+      
+      this.fetchPromise.then((val: any) => this.fetchedValue = val);
+    }
+    return this.fetchedValue;
   }
 }
 ```
