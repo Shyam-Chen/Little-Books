@@ -1966,9 +1966,12 @@ import { Component } from '@angular/core';
   template: `
     <p>{{ 'Angular 2' | replace: ' ':'_' }}</p>
     <p>{{ 'Angular 2' | replace: 'Angular ':'ng' }}</p>
+    <p>{{ 'Angular_2_in_Action' | replace: regex:' ' }}</p>
   `
 })
-export class ReplaceComponent { }
+export class ReplaceComponent {
+  public regex: RegExp = /_/g;
+}
 ```
 
 選擇
