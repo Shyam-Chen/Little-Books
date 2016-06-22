@@ -1997,28 +1997,62 @@ name: string
 pure?: boolean
 ```
 ```ts
+// thing.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'length'
+  name: 'thing'
 })
-export class MessageLengthPipe implements PipeTransform {
-  transform(value: string, args: string[]): any {
-    return `${value.length}`
+export class ThingPipe implements PipeTransform {
+  transform(value: any) {
+    // 一些程式碼寫在這裡
   }
 }
 ```
 
 ```ts
+// length.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'search'
+  name: 'length'
 })
-export class InputSearchPipe implements PipeTransform {
-  transform() {
+export class LengthPipe implements PipeTransform {
+  transform(value: string): number {
+    return value.length;
   }
 }
+```
+```html
+<p>Angular 2 的字段長度是: {{ 'Angular 2' | length }})</p>
+```
+
+```ts
+// delay.pipe.ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'delay',
+  pure: false
+})
+export class DelayPipe implements PipeTransform {
+  transform(value: any, seconds: number): any {
+    
+  }
+}
+```
+```html
+<p>
+  <span>{{ '文' | delay: 1 }}</span>
+  <span>{{ '字' | delay: 2 }}</span>
+  <span>{{ '一' | delay: 3 }}</span>
+  <span>{{ '個' | delay: 4 }}</span>
+  <span>{{ '一' | delay: 5 }}</span>
+  <span>{{ '個' | delay: 6 }}</span>
+  <span>{{ '跑' | delay: 7 }}</span>
+  <span>{{ '出' | delay: 8 }}</span>
+  <span>{{ '來' | delay: 9 }}</span>
+</p>
 ```
 
 ### 動畫
