@@ -1789,7 +1789,6 @@ Observable
 
 ### 管道
 ##### 內建管道
-
 大小寫
 ```ts
 import { Component } from '@angular/core';
@@ -1978,6 +1977,11 @@ I18nPlural Pipe
 ```
 
 ##### 自訂管道
+```ts
+// 建構子
+name: string
+pure?: boolean
+```
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
