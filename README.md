@@ -118,7 +118,7 @@ $ cd simple-configuration
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.27/system.js"></script>
     <script>
       (function(global) {
-        var ngVer = '@2.0.0-rc.2';
+        var ngVer = '@2.0.0-rc.3';
 
         var map = {
           'app': 'app',
@@ -1115,7 +1115,7 @@ export class HomeComponent { }
 import { HomeComponent } from './index';
 
 export const HomeRoutes = [{
-  path: '/',
+  path: '',
   component: HomeComponent,
   index: true
 }];
@@ -1141,7 +1141,7 @@ export class AboutComponent { }
 import { AboutComponent } from './index';
 
 export const AboutRoutes = [{
-  path: '/about',
+  path: 'about',
   component: AboutComponent
 }];
 ```
