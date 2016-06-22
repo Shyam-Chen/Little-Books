@@ -1959,7 +1959,16 @@ export class SliceListComponent {
 
 替換
 ```ts
-Replace Pipe
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'at-replace',
+  template: `
+    <p>{{ 'Angular 2' | replace: ' ':'_' }}</p>
+    <p>{{ 'Angular 2' | replace: 'Angular ':'ng' }}</p>
+  `
+})
+export class ReplaceComponent { }
 ```
 
 選擇
