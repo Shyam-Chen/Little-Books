@@ -1840,6 +1840,7 @@ export class DateComponent {
 ```
 
 非同步
+(1)
 ```ts
 import { Component } from '@angular/core';
 
@@ -1857,6 +1858,7 @@ export class AsyncComponent {
 }
 ```
 
+(2)
 ```ts
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
