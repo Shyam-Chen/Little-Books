@@ -1823,19 +1823,19 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'at-date',
   template: `
-    <p>{{ atDate | date }}</p>
-    <p>{{ atDate | date: 'medium' }}</p>
-    <p>{{ atDate | date: 'short' }}</p>
-    <p>{{ atDate | date: 'fullDate' }}</p>
-    <p>{{ atDate | date: 'longDate' }}</p>
-    <p>{{ atDate | date: 'mediumDate' }}</p>
-    <p>{{ atDate | date: 'shortDate' }}</p>
-    <p>{{ atDate | date: 'mediumTime' }}</p>
-    <p>{{ atDate | date: 'shortTime' }}</p>
+    <p>{{ today | date }}</p>
+    <p>{{ today | date: 'medium' }}</p>
+    <p>{{ today | date: 'short' }}</p>
+    <p>{{ today | date: 'fullDate' }}</p>
+    <p>{{ today | date: 'longDate' }}</p>
+    <p>{{ today | date: 'mediumDate' }}</p>
+    <p>{{ today | date: 'shortDate' }}</p>
+    <p>{{ today | date: 'mediumTime' }}</p>
+    <p>{{ today | date: 'shortTime' }}</p>
   `
 })
 export class DateComponent {
-  public atDate: Date = new Date();
+  public today: Date = new Date();
 }
 ```
 
@@ -1850,8 +1850,8 @@ import { Component } from '@angular/core';
 export class AsyncComponent {
   public messages: string;
   constructor() {
-    this.messages = new Promise( (resolve, reject) => {
-      setTimeout(() => resolve('兩秒後呈現'), 2000);
+    this.messages = new Promise((resolve, reject) => {
+      setTimeout(() => resolve('三秒後呈現'), 3000);
     });
   }
 }
@@ -1863,12 +1863,12 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'at-async-date',
-  template: `<p>{{ atDate | async | date: 'medium' }}</p>`
+  template: `<p>{{ TimeNow | async | date: 'medium' }}</p>`
 })
 export class AsyncDateComponent {
-  public atDate: Date;
+  public TimeNow: Date;
   constructor() {
-    this.atDate = Observable
+    this.TimeNow = Observable
       .interval(1000)
       .map(() => new Date());
   }
@@ -1897,9 +1897,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-percent',
-  template: `
-    <p>{{ proficiency | percent: '1.2-2' }}</p>
-  `
+  template: `<p>{{ proficiency | percent: '1.2-2' }}</p>`
 })
 export class PercentComponent {
   public proficiency: number = 0.703517;
@@ -1929,14 +1927,15 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-json',
-  template: `
-    <button type="button" (click)="onRequest()">請求</button>
-    <pre>{{ response | json }}</pre>
-  `
+  template: `<pre>{{ languages | json }}</pre>`
 })
 export class JsonComponent {
-
-[...]
+  public languages: any = {
+    'js': 'JavaScript',
+    'coffee': 'CoffeeScript',
+    'ts': 'TypeScript'
+  };
+}
 ```
 
 裁切
@@ -2013,18 +2012,17 @@ export class I18nPluralComponent {
 ```
 
 ##### 自訂管道
+建構子
 ```ts
-// 建構子
 name: string
 pure?: boolean
 ```
+
+基本構造
 ```ts
-// thing.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({
-  name: 'thing'
-})
+@Pipe({ name: 'thing' })
 export class ThingPipe implements PipeTransform {
   transform(value: any) {
     // 一些程式碼寫在這裡
@@ -2032,13 +2030,11 @@ export class ThingPipe implements PipeTransform {
 }
 ```
 
+自訂長度
 ```ts
-// length.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({
-  name: 'length'
-})
+@Pipe({ name: 'length' })
 export class LengthPipe implements PipeTransform {
   transform(value: string): number {
     return value.length;
@@ -2049,8 +2045,8 @@ export class LengthPipe implements PipeTransform {
 <p>Angular 2 的字段長度是: {{ 'Angular 2' | length }}</p>
 ```
 
+自訂延遲
 ```ts
-// delay.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
