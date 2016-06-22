@@ -1840,6 +1840,7 @@ export class DateComponent {
 ```
 
 非同步
+
 (1)
 ```ts
 import { Component } from '@angular/core';
