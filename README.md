@@ -1342,6 +1342,16 @@ export class NgNonBindableComponent {
 
 ##### 自訂指令
 ```ts
+// 建構子
+selector?: string
+inputs?: string[]
+outputs?: string[]
+host?: {[key: string]: string}
+providers?: any[]
+exportAs?: string
+queries?: {[key: string]: any}
+```
+```ts
 import { Directive } from '@angular/core';
 
 @Directive({
