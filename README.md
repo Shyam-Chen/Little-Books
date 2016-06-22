@@ -59,8 +59,6 @@
   * Protractor
 * [持續整合](#持續整合)
   * Travis CI
-* ----- 範例 -----
-* [簡單的應用程式](#簡單的應用程式)
 * ----- 附錄 -----
 * [TypeScript 速成班](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/typescript-crash-course.md)
 * [Zone.js 資源](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/libs/zone.js.md)
@@ -2536,5 +2534,3 @@ gulp.task('e2e', (done) => {
     });
 });
 ```
-
-### 簡單的應用程式
