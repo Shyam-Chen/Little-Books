@@ -2034,7 +2034,7 @@ export class LengthPipe implements PipeTransform {
 }
 ```
 ```html
-<p>Angular 2 的字段長度是: {{ 'Angular 2' | length }})</p>
+<p>Angular 2 的字段長度是: {{ 'Angular 2' | length }}</p>
 ```
 
 ```ts
