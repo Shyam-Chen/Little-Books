@@ -91,31 +91,41 @@
 
 ##### 簡單的配置
 ```bash
-$ mkdir simple-configuration
-$ cd simple-configuration
+$ mkdir ng2-starter
+$ cd ng2-starter
 ```
 ```js
 // package.json
 {
-  "name": "simple-configuration",
+  "name": "ng2-starter",
   "version": "1.0.0",
-  "scripts": {
-    "start": "lite-server -c config.json"
-  },
-  "author": "陳彥澄",
-  "license": "MIT",
-  "devDependencies": {
-    "lite-server": "^2.2.0"
-  }
+  "scripts": { "start": "lite-server -c bsconfig.json" },
+  "devDependencies": { "lite-server": "^2.2.0" }
 }
 ```
 ```js
-// config.json
+// bsconfig.json
 {
   "port": 3000,
   "files": ["./src/**/*.{html,css,ts}"],
   "server": {
     "baseDir": "./src"
+  }
+}
+```
+```js
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true
   }
 }
 ```
@@ -130,67 +140,65 @@ $ cd simple-configuration
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://npmcdn.com/core-js/client/shim.min.js"></script>
     <script src="https://npmcdn.com/zone.js@0.6.12?main=browser"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.27/system.js"></script>
+    <script src="https://npmcdn.com/systemjs@0.19.27/dist/system.src.js"></script>
     <script>
       (function(global) {
+
         var ngVer = '@2.0.0-rc.3';
+        var routerVer = '@3.0.0-alpha.7';
+        var formsVer = '@0.1.1';
 
         var map = {
           'app': 'app',
-          'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
+          '@angular': 'https://npmcdn.com/@angular',
+          '@angular/router': 'https://npmcdn.com/@angular/router' + routerVer,
+          '@angular/forms': 'https://npmcdn.com/@angular/forms' + formsVer,
           'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
-          'typescript': 'https://npmcdn.com/typescript@1.8.10/lib/typescript.js'
-        };
+          'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
+          'ts': 'https://npmcdn.com/plugin-typescript@4.0.10/lib/plugin.js',
+          'typescript': 'https://npmcdn.com/typescript@1.9.0-dev.20160409/lib/typescript.js'
+       };
 
         var packages = {
-          'app': {
-            main: 'main.ts',
-            defaultExtension: 'ts'
-          },
-          'rxjs': {
-            defaultExtension: 'js'
-          },
-          'angular2-in-memory-web-api': {
-            defaultExtension: 'js'
-          }
+          'app': { main: 'main.ts', defaultExtension: 'ts' },
+          'rxjs': { defaultExtension: 'js' },
+          'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' }
         };
 
-        var packageNames = [
-          '@angular/common',
-          '@angular/compiler',
-          '@angular/core',
-          '@angular/http',
-          '@angular/platform-browser',
-          '@angular/platform-browser-dynamic',
-          '@angular/router',
-          '@angular/upgrade'
+        var ngPackageNames = [
+          'common',
+          'compiler',
+          'core',
+          'http',
+          'platform-browser',
+          'platform-browser-dynamic',
+          'upgrade'
         ];
 
-        packageNames.forEach(function(pkgName) {
-          map[pkgName] = 'https://npmcdn.com/' + pkgName + ngVer;
+        ngPackageNames.forEach(function(pkgName) {
+          map['@angular/' + pkgName] = 'https://npmcdn.com/@angular/' + pkgName + ngVer;
         });
 
-        packageNames.forEach(function(pkgName) {
-          packages[pkgName] = {
-            main: 'index.js',
-            defaultExtension: 'js'
-          };
+        ngPackageNames.forEach(function(pkgName) {
+          packages['@angular/' + pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
         });
+
+        packages['@angular/router'] = { main: 'index.js', defaultExtension: 'js' };
+
+        packages['@angular/forms'] = { main: 'index.js', defaultExtension: 'js' };
 
         var config = {
-          transpiler: 'typescript',
-          typescriptOptions: {
-            emitDecoratorMetadata: true
+          transpiler: 'ts',
+          typescriptOptions: { tsconfig: true },
+          meta: {
+            'typescript': { "exports": "ts" }
           },
           map: map,
           packages: packages
-        }
-
-        if (global.filterSystemConfig) {
-          global.filterSystemConfig(config);
-        }
+        };
 
         System.config(config);
+
       })(this);
     </script>
     <script>
