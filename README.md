@@ -1191,13 +1191,15 @@ export class CrisisListComponent implements OnActivate {
 ```
 
 ### 指令
+
 ##### 內建指令
+
+###### ng-if
 ```ts
-// see-things.ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'see-things',
+  selector: 'at-ng-if',
   template: `
     <p *ngIf="true">我看的到它</p>
     <p *ngIf="false">我看不到它</p>
@@ -1212,14 +1214,15 @@ import { Component } from '@angular/core';
     </template>
   `
 })
-export class SeeThingsComponent { }
+export class NgIfComponent { }
 ```
 
+###### ng-switch
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ng-switch',
+  selector: 'at-ng-switch',
   template: `
     <div [ngSwitch]="language">
       <p *ngSwitchWhen="'JavaScript'">Angular 2 in JavaScript</p>
@@ -1234,6 +1237,7 @@ export class NgSwitchComponent {
 }
 ```
 
+###### ng-for
 ```ts
 import { Component } from '@angular/core';
 
@@ -1306,6 +1310,7 @@ export class EditComponent {
 }
 ```
 
+###### ng-style
 ```ts
 import { Component } from '@angular/core';
 
@@ -1320,6 +1325,7 @@ import { Component } from '@angular/core';
 export class NgStyleComponent { }
 ```
 
+###### ng-class
 ```ts
 import { Component } from '@angular/core';
 
@@ -1338,6 +1344,7 @@ import { Component } from '@angular/core';
 export class NgClassComponent { }
 ```
 
+###### ng-non-bindable
 ```ts
 import { Component } from '@angular/core';
 
@@ -1354,8 +1361,9 @@ export class NgNonBindableComponent {
 ```
 
 ##### 自訂指令
+
+###### 建構子
 ```ts
-// 建構子
 selector?: string
 inputs?: string[]
 outputs?: string[]
@@ -1374,9 +1382,9 @@ import { Directive } from '@angular/core';
    * .at-thing
    * input[type=text]
    */
-  selector: ''
+  selector: '[atThing]'
 })
-export class AtThingDirective { }
+export class ThingDirective { }
 ```
 
 ```ts
