@@ -1830,6 +1830,10 @@ Observable
 
 ##### 內建管道
 
+```ts
+import { COMMON_PIPES } from '@angular/common';
+```
+
 ###### 大小寫
 ```ts
 import { Component } from '@angular/core';
@@ -2058,10 +2062,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'thing' })
 export class ThingPipe implements PipeTransform {
-  transform(value: any) {
+  transform(value: any, ...args: any[]): any {
     // 一些程式碼寫在這裡
   }
 }
+```
+```ts
+// 導入自訂管道並註冊到元件中
 ```
 
 ###### 自訂長度
