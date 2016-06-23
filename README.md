@@ -9,6 +9,9 @@
 * ----- 開發 -----
 * [元件](#元件)
   * [初識元件](#初識元件)
+    * [建構子](#建構子)
+    * [基本構造](#基本構造)
+    * [常用的配置](#常用的配置)
   * [使用模板](#使用模板)
   * [使用樣式](#使用樣式)
   * [渲染模板](#渲染模板)
@@ -287,9 +290,11 @@ $ npm start
 ```
 
 ### 元件
+
 ##### 初識元件
+
+###### 建構子
 ```ts
-// 建構子
 selector?: string
 inputs?: string[]
 outputs?: string[]
@@ -310,8 +315,8 @@ pipes?: Array<Type|any[]>  // 查看管道章節
 encapsulation?: ViewEncapsulation
 ```
 
+###### 基本構造
 ```ts
-// thing.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -322,40 +327,8 @@ export class ThingComponent {
 }
 ```
 
-```ts
-// thing.component.ts
-import { Component } from '@angular/core';
-
-// 常用的組態
-@Component({
-  moduleId: module.id,
-  selector: 'at-thing',  // 加入前綴 `at` (看自己專案要用什麼前綴，這裡是使用 Angular 和 TypeScript 的字首)
-  templateUrl: 'thing.component.html',
-  styleUrls: ['thing.component.css']
-  // 其它更多的組態
-})
-export class ThingComponent {
-  // 一些程式碼在這裡
-}
-```
-
-```ts
-// thing.component.ts
-import { Component } from '@angular/core';
-
-@Component({
-  // moduleId: module.id,  如果沒有使用它
-  selector: 'at-thing',
-  templateUrl: './app/+thing/thing.component.html',  // 模板路徑會變得很長
-  styleUrls: ['./app/+thing/thing.component.css']  // 樣式路徑也會變得很長
-  // 其它更多的組態
-})
-export class ThingComponent {
-  // 一些程式碼在這裡
-}
-```
-
 ##### 使用模板
+
 (1) `template`
 ```ts
 import { Component } from '@angular/core';
@@ -383,6 +356,61 @@ export class UseTemplateComponent { }
 ```
 
 ##### 使用樣式
+
+(1) `styles`
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'use-template',
+  templateUrl: '../app/use-template.html'
+})
+export class ThingComponent { }
+```
+
+(2) `styleUrls`
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'at-thing',
+  templateUrl: 'thing.component.html',
+  styleUrls: ['thing.component.css']
+})
+export class ThingComponent { }
+```
+
+###### 模組識別
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  moduleId: module.id,
+  selector: 'at-thing',  // 加入前綴 `at` (看自己專案要用什麼前綴，這裡是使用 Angular 和 TypeScript 的字首)
+  templateUrl: 'thing.component.html',
+  styleUrls: ['thing.component.css']
+  // 其它更多的組態
+})
+export class ThingComponent {
+  // 一些程式碼在這裡
+}
+```
+
+```ts
+// thing.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  // moduleId: module.id,  如果沒有使用它
+  selector: 'at-thing',
+  templateUrl: './app/+thing/thing.component.html',  // 模板路徑會變得很長
+  styleUrls: ['./app/+thing/thing.component.css']  // 樣式路徑也會變得很長
+  // 其它更多的組態
+})
+export class ThingComponent {
+  // 一些程式碼在這裡
+}
+```
 
 ##### 渲染模板
 ```ts
