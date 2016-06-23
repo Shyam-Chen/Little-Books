@@ -48,7 +48,22 @@
   * 跨域請求
 * [管道](#管道)
   * [內建管道](#內建管道)
+    * [大小寫](#大小寫)
+    * [日期](#日期)
+    * [非同步](#非同步)
+    * [數值](#數值)
+    * [百分率](#百分率)
+    * [貨幣](#貨幣)
+    * [JSON](#json)
+    * [裁切](#裁切)
+    * [替換](#替換)
+    * [選擇](@選擇)
+    * [複數](#複數)
   * [自訂管道](#自訂管道)
+    * [建構子](#建構子)
+    * [基本構造](#基本構造)
+    * [自訂長度](#自訂長度)
+    * [自訂延遲](自訂延遲)
 * [動畫](#動畫)
 * ----- 測試 -----
 * [靜態分析](#靜態分析)
@@ -1796,8 +1811,10 @@ Observable
 ```
 
 ### 管道
+
 ##### 內建管道
-大小寫
+
+###### 大小寫
 ```ts
 import { Component } from '@angular/core';
 
@@ -1814,7 +1831,7 @@ export class UppercaseLowercaseComponent {
 }
 ```
 
-日期
+###### 日期
 ```ts
 import { Component } from '@angular/core';
 
@@ -1837,8 +1854,7 @@ export class DateComponent {
 }
 ```
 
-非同步
-
+###### 非同步
 (1)
 ```ts
 import { Component } from '@angular/core';
@@ -1876,7 +1892,7 @@ export class AsyncDateComponent {
 }
 ```
 
-數值 (十進制)
+###### 數值 (十進制)
 ```ts
 import { Component } from '@angular/core';
 
@@ -1892,7 +1908,7 @@ export class NumberComponent {
 }
 ```
 
-百分率
+###### 百分率
 ```ts
 import { Component } from '@angular/core';
 
@@ -1905,7 +1921,7 @@ export class PercentComponent {
 }
 ```
 
-貨幣
+###### 貨幣
 ```ts
 import { Component } from '@angular/core';
 
@@ -1922,7 +1938,7 @@ export class CurrencyComponent {
 }
 ```
 
-JSON
+###### JSON
 ```ts
 import { Component } from '@angular/core';
 
@@ -1939,7 +1955,7 @@ export class JsonComponent {
 }
 ```
 
-裁切
+###### 裁切
 ```ts
 import { Component } from '@angular/core';
 
@@ -1957,7 +1973,7 @@ export class SliceListComponent {
 }
 ```
 
-替換
+###### 替換
 ```ts
 import { Component } from '@angular/core';
 
@@ -1974,7 +1990,7 @@ export class ReplaceComponent {
 }
 ```
 
-選擇
+###### 選擇
 ```ts
 import { Component } from '@angular/core';
 
@@ -1990,7 +2006,7 @@ export class I18nSelectComponent {
 }
 ```
 
-複數
+###### 複數
 ```ts
 import { Component } from '@angular/core';
 
@@ -2013,13 +2029,14 @@ export class I18nPluralComponent {
 ```
 
 ##### 自訂管道
-建構子
+
+###### 建構子
 ```ts
 name: string
 pure?: boolean
 ```
 
-基本構造
+###### 基本構造
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -2031,7 +2048,7 @@ export class ThingPipe implements PipeTransform {
 }
 ```
 
-自訂長度
+###### 自訂長度
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -2046,7 +2063,7 @@ export class LengthPipe implements PipeTransform {
 <p>Angular 2 的字段長度是: {{ 'Angular 2' | length }}</p>
 ```
 
-自訂延遲
+###### 自訂延遲
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
