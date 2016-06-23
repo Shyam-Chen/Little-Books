@@ -1880,12 +1880,12 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'at-async-date',
-  template: `<p>{{ TimeNow | async | date: 'medium' }}</p>`
+  template: `<p>{{ timeNow | async | date: 'medium' }}</p>`
 })
 export class AsyncDateComponent {
-  public TimeNow: Date;
+  public timeNow: Date;
   constructor() {
-    this.TimeNow = Observable
+    this.timeNow = Observable
       .interval(1000)
       .map(() => new Date());
   }
