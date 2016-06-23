@@ -1832,9 +1832,20 @@ Observable
 ### 管道
 
 ##### 內建管道
-
 ```ts
-import { COMMON_PIPES } from '@angular/common';
+import { Component } from '@angular/core';
+import { COMMON_PIPES } from '@angular/common';  // 導入內建管道
+
+@Component({
+  selector: 'at-thing',
+  template: `
+    <!-- 一些程式碼寫在這裡 -->
+  `,
+  pipes: [COMMON_PIPES]  // 將內建管道註冊到元件裡
+})
+export class ThingComponent { }
+
+// [註]: 也是可以不用 COMMON_PIPES 就可以使用內建管道了
 ```
 
 ###### 大小寫
