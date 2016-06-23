@@ -34,13 +34,13 @@
   * [巢狀路由](#巢狀路由)
 * [指令](#指令)
   * [內建指令](#內建指令)
-    * ng-if
-    * ng-switch
-    * ng-for
-    * ng-style
-    * ng-class
-    * ng-plural
-    * ng-template-outlet
+    * [ng-if](#ng-if)
+    * [ng-switch](#ng-switch)
+    * [ng-for](#ng-for)
+    * [ng-style](#ng-style)
+    * [ng-class](#ng-class)
+    * [ng-plural](#ng-plural)
+    * [ng-template-outlet](#ng-template-outlet)
   * [自訂指令](#自訂指令)
 * [服務](#服務)
   * 相依性注入
@@ -1362,21 +1362,9 @@ import { Component } from '@angular/core';
 export class NgClassComponent { }
 ```
 
-###### ng-non-bindable
-```ts
-import { Component } from '@angular/core';
+###### ng-plural
 
-@Component({
-  selector: 'ng-non-bindable',
-  template: `
-    <p>Hello {{ content }}</p>
-    <p ngNonBindable>Hello {{ content }}</p>
-  `
-})
-export class NgNonBindableComponent {
-  public content: string = 'Angular 2';
-}
-```
+###### ng-template-outlet
 
 ##### 自訂指令
 
