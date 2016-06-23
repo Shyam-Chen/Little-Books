@@ -34,6 +34,13 @@
   * [巢狀路由](#巢狀路由)
 * [指令](#指令)
   * [內建指令](#內建指令)
+    * ng-if
+    * ng-switch
+    * ng-for
+    * ng-style
+    * ng-class
+    * ng-plural
+    * ng-template-outlet
   * [自訂指令](#自訂指令)
 * [服務](#服務)
   * 相依性注入
