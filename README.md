@@ -1545,7 +1545,7 @@ export class AppComponent { }
 
 ### 服務
 ```ts
-// languages.ts
+// languages.service.ts
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -1556,10 +1556,10 @@ export class LanguagesService {
 }
 ```
 ```ts
-// app.ts
+// app.component.ts
 import { Component } from '@angular/core';
 
-import { LanguagesService } from './services/languages';
+import { LanguagesService } from './languages.service';
 
 @Component({
   selector: 'app',
@@ -1572,11 +1572,30 @@ export class AppComponent {
   }
 }
 
+// 或者
+
+import { Component } from '@angular/core';
+
+import { LanguagesService } from './languages.service';
+
+@Component({
+  selector: 'app',
+  template: `<p>所決定的語言是: {{ language }}</p>`,
+  viewProviders: [LanguagesService]
+})
+export class AppComponent {
+  constructor() {
+    this.languagesService = new LanguagesService();  // 沒有相依性注入
+    this.language = this.languagesService.ts;
+  }
+}
+
+
 // 使用 Inject 修飾器
 
 import { Component, Inject } from '@angular/core';
 
-import { LanguagesService } from './services/languages';
+import { LanguagesService } from './languages.service';
 
 @Component({
   selector: 'app',
@@ -1593,7 +1612,7 @@ export class AppComponent {
 
 import { Component } from '@angular/core';
 
-import { LanguagesService } from './services/languages';
+import { LanguagesService } from './languages.service';
 
 @Component({
   selector: 'app',
