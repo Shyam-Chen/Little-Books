@@ -2114,6 +2114,7 @@ pure?: boolean
 
 ###### 基本構造
 ```ts
+// thing.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'thing' })
@@ -2124,7 +2125,19 @@ export class ThingPipe implements PipeTransform {
 }
 ```
 ```ts
-// 導入自訂管道並註冊到元件中
+// app.component.ts
+import { Component } from '@angular/core';
+
+import { ThingPipe } from './thing.pipe';  // 導入所自訂管道
+
+@Component({
+  selector: 'app',
+  template: `
+    <!-- 一些程式碼寫在這裡 -->
+  `,
+  pipe: [ThingPipe]  // 將所自訂管道註冊到元件中
+})
+export class AppComponent { }
 ```
 
 ###### 自訂長度
