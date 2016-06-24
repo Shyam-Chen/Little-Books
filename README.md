@@ -14,11 +14,12 @@
     * [使用模板](#使用模板)
     * [使用樣式](#使用樣式)
     * [模組識別](#模組識別)
-  * [渲染模板](#渲染模板)
-  * [雙向綁定](#雙向綁定)
-  * [事件綁定](#事件綁定)
-  * [屬性綁定](#屬性綁定)
-  * [本地變數](#本地變數)
+  * [檢視](#檢視)
+    * [渲染模板](#渲染模板)
+    * [雙向綁定](#雙向綁定)
+    * [事件綁定](#事件綁定)
+    * [屬性綁定](#屬性綁定)
+    * [本地變數](#本地變數)
   * [內容投射](#內容投射)
   * [Shadow DOM](#shadow-dom)
   * [變化檢測](#變化檢測)
@@ -412,7 +413,9 @@ export class ThingComponent {
 }
 ```
 
-##### 渲染模板
+##### 檢視
+
+###### 渲染模板
 ```ts
 import { Component } from '@angular/core';
 
@@ -444,7 +447,7 @@ export class MyNameComponent {
 }
 ```
 
-##### 雙向綁定
+###### 雙向綁定
 ```ts
 import { Component } from '@angular/core';
 
@@ -460,7 +463,7 @@ export class TwoWayBindingComponent {
 }
 ```
 
-##### 事件綁定
+###### 事件綁定
 ```ts
 import { Component } from '@angular/core';
 
@@ -498,7 +501,7 @@ export class ToggleMeComponent {
 }
 ```
 
-##### 屬性綁定
+###### 屬性綁定
 語法: `[innerHTML]="表達式"`
 ```ts
 import { Component } from '@angular/core';
@@ -568,7 +571,7 @@ import { Component } from '@angular/core';
 export class ToggleClassComponent { }
 ```
 
-##### 本地變數
+###### 本地變數
 ```ts
 import { Component } from '@angular/core';
 
