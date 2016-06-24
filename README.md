@@ -506,7 +506,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'binding-properties',
   template: `
-    <p [innerHTML]="messages"></p>
+    <p [innerHTML]="messages"></p>  <!-- 不安全 -->
     
     <!-- 等同於 -->
     <p>{{ messages }}</p>
