@@ -989,14 +989,11 @@ Validators
 ```ts
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
+import { provideForms } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-bootstrap(AppComponent, [
-  disableDeprecatedForms(),
-  provideForms()
-]);
+bootstrap(AppComponent, [provideForms()]);
 ```
 ```ts
 // src/app/app.component.ts
@@ -1655,7 +1652,7 @@ import { ListService } from './services/list';
   `,
   viewProviders: [ListService]
 })
-export class AppComponent mplements OnInit {
+export class AppComponent implements OnInit {
   constructor(private listService: ListService) { }
   getList() { this.list = this.listService.getList(); }
   ngOnInit() { this.getList(); }
