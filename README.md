@@ -1567,7 +1567,7 @@ import { LanguagesService } from './services/languages';
   viewProviders: [LanguagesService]  // 僅限於該元件的模板中使用
 })
 export class AppComponent {
-  constructor(languagesService: LanguagesService) {
+  constructor(languagesService: LanguagesService) {  // 相依性注入
     this.language = languagesService.ts;
   }
 }
