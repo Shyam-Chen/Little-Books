@@ -24,6 +24,7 @@
     * [內容投射](#內容投射)
     * [Shadow DOM](#shadow-dom)
     * [Input 與 Output](#input-與-output)
+    * [生命週期掛勾](#生命週期掛勾)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
     * [變化檢測](#變化檢測)
@@ -622,7 +623,9 @@ export class AddItemComponent {
 }
 ```
 
-##### 內容投射
+##### 相互關係
+
+###### 內容投射
 ```ts
 import { Component } from '@angular/core';
 
@@ -648,7 +651,6 @@ import { ContentProjectionComponent } from './content-projection';
 export class AppComponent { }
 ```
 
-更多的投射
 ```ts
 import { Component } from '@angular/core';
 
@@ -683,8 +685,9 @@ import { MoreProjectionComponent } from './more-projection';
 export class AppComponent { }
 ```
 
-##### Shadow DOM
-Emulated
+###### Shadow DOM
+
+(1) Emulated
 ```ts
 import { Component, ViewEncapsulation } from '@angular/core';
 
@@ -716,7 +719,7 @@ import { EmulatedComponent } from './components/encapsulation-emulated';
 export class AppComponent { }
 ```
 
-Native
+(2) Native
 ```ts
 import { Component } from '@angular/core';
 
@@ -748,7 +751,7 @@ import { NativeComponent } from './components/encapsulation-native';
 export class AppComponent { }
 ```
 
-None
+(3) None
 ```ts
 import { Component } from '@angular/core';
 
@@ -786,20 +789,8 @@ import { NoneComponent } from './components/encapsulation-none';
 export class AppComponent { }
 ```
 
-##### 變化檢測
-```ts
-import { Component } from '@angular/core';
+###### Input 與 Output
 
-@Component({
-  selector: '',
-  template: `
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-export class Component { }
-```
-
-##### 相互溝通
 ```ts
 // 使用 Input 建構子
 import { Component } from '@angular/core';
@@ -874,11 +865,43 @@ export class AtCounterComponent {
 <at-counter count="7" (countChange)="$event"></at-counter>
 ```
 
+###### 生命週期掛勾
+
+```ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'at-lifecycle'
+})
+export class AtLifecycleComponent implements OnInit {
+  ngOnInit(): void {
+    console.log('Hello Angular 2');
+  }
+}
+```
+
+```ts
+// 還可以用在指令
+ngOnInit() { ... }
+ngOnChanges() { ... }
+ngDoCheck() { ... }
+ngOnDestroy() { ... }
+```
+
+###### ContentChild 與 ContentChildren
+
+###### ViewChild 與 ViewChildren
+
 ```ts
 @ContentChild()
 @ContentChildren()
 @ViewChild()
 @ViewChildren()
+
+ngAfterContentInit() { ... }
+ngAfterContentChecked() { ... }
+ngAfterViewInit() { ... }
+ngAfterViewChecked() { ... }
 ```
 
 ```ts
@@ -938,32 +961,17 @@ export class Component {
 }
 ```
 
-##### 生命週期掛鉤
+##### 變化檢測
 ```ts
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-lifecycle'
+  selector: '',
+  template: `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AtLifecycleComponent implements OnInit {
-  ngOnInit(): void {
-    console.log('Hello Angular 2');
-  }
-}
-```
-
-```ts
-// 還可以用在指令
-ngOnInit() { ... }
-ngOnChanges() { ... }
-ngDoCheck() { ... }
-ngOnDestroy() { ... }
-
-// 只能在元件中使用
-ngAfterContentInit() { ... }
-ngAfterContentChecked() { ... }
-ngAfterViewInit() { ... }
-ngAfterViewChecked() { ... }
+export class Component { }
 ```
 
 ### 表單
