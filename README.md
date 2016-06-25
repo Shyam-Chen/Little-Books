@@ -6,7 +6,7 @@
   * [既有的樣板](#既有的樣板)
   * [簡單的配置](#簡單的配置)
   * [專案架構](#專案架構)
-* ----- 開發 -----
+* ---------- 開發 ----------
 * [元件](#元件)
   * [初識元件](#初識元件)
     * [建構子](#建構子)
@@ -84,7 +84,7 @@
   * 時間軸
   * 影格
   * 平行
-* ----- 測試 -----
+* ---------- 測試 ----------
 * [靜態分析](#靜態分析)
   * [使用 Codelyzer](#使用-codelyzer)
 * [單元測試](#單元測試)
@@ -93,7 +93,7 @@
   * Protractor
 * [持續整合](#持續整合)
   * Travis CI
-* ----- 附錄 -----
+* ---------- 附錄 ----------
 * [TypeScript 速成班](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/typescript-crash-course.md)
 * [Zone.js 資源](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/libs/zone.js.md)
 * [RxJS 資源](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/libs/rxjs.md)
