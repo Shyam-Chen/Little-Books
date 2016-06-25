@@ -1678,9 +1678,9 @@ export class AppComponent implements OnInit {
 ```ts
 [...]
 
-provide(ColorService, { useClass: RedService })
+provide(ColorService, { useClass: RedService })  // RedService 會與 ColorService 為 false
 
-provide(ColorService, { useExisting: RedService })
+provide(ColorService, { useExisting: RedService })  // RedService 會與 ColorService 為 true
 
 [...]
 ```
