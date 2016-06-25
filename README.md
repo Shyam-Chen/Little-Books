@@ -1690,12 +1690,22 @@ provide(ColorService, { useExisting: RedService })  // RedService 會與 ColorSe
 
 provide(ColorService, { useValue: 'red' })
 
+// 會被覆蓋
+
+provide(ColorService, { useValue: 'red' })
+provide(ColorService, { useValue: 'blue' })  // 後面會覆蓋前面
+
 [...]
 ```
 
 ```ts
 [...]
 
+// 可以
+provide(ColorService, { useValue: 'red', multi: true })
+provide(ColorService, { useValue: 'blue', multi: true })
+
+// 不可以
 provide(ColorService, { useValue: 'red' })
 provide(ColorService, { useValue: 'blue', multi: true })
 
