@@ -274,8 +274,8 @@ $ npm start
 │   │   └── shared
 │   │       ├── data-list.service.ts|spec.ts
 │   │       └── index.ts
+│   ├── styles
 │   ├── assets
-│   │   ├── styles
 │   │   ├── images
 │   │   └── fonts
 │   ├── favicon.ico
@@ -364,7 +364,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'use-template',
-  templateUrl: '../app/use-template.html'
+  templateUrl: '../app/thing.html',
+  styles: [`
+    .thing { color: #F44336 }
+  `]
 })
 export class ThingComponent { }
 ```
