@@ -960,7 +960,61 @@ export class AppComponent { }
 
 (2) ContentChildren
 ```ts
+import { Component } from '@angular/core';
 
+@Component({
+  selector: 'at-child',
+  template: `
+    <p>這是「子」元件 - 1</p>
+  `
+})
+export class ChildComponent {
+  public name: string = '這是「子」元件 - 2';
+}
+```
+```ts
+import { Component, ContentChildren, QueryList } from '@angular/core';
+
+import { ChildComponent } from './child.component';
+
+@Component({
+  selector: 'at-parent',
+  template: `
+    <p>這是「父」元件 - 1</p>
+    <p>{{ name }}</p>
+
+    <ng-content></ng-content>
+    <p *ngFor="let childComponent of childComponents">
+      {{ childComponent.name }}
+    </p>
+  `
+})
+export class ParentComponent {
+  @ContentChildren(ChildComponent) childComponents: QueryList<ChildComponent>;
+  public name: string = '這是「父」元件 - 2';
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { ParentComponent } from './parent.component';
+import { ChildComponent } from './child.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <at-parent>
+      <at-child></at-child>
+      <at-child></at-child>
+      <at-child></at-child>
+    </at-parent>
+  `,
+  directives: [
+    ParentComponent,
+    ChildComponent
+  ]
+})
+export class AppComponent { }
 ```
 
 (3) 生命週期掛勾
