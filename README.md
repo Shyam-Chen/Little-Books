@@ -247,7 +247,7 @@ import { AppComponent } from './app.component';
 
 bootstrap(AppComponent, [ROUTER_PROVIDERS]);
 
-// 使用 Web Web Workers
+// 使用 Web Workers
 
 import { bootstrapWorkerApp } from '@angular/platform-browser-dynamic';
 import { ROUTER_PROVIDERS } from '@angular/router';
