@@ -636,6 +636,8 @@ export class AddItemComponent {
 ##### 相互關係
 
 ###### 內容投射
+
+(1) 單一投射
 ```ts
 import { Component } from '@angular/core';
 
@@ -661,6 +663,7 @@ import { ContentProjectionComponent } from './content-projection';
 export class AppComponent { }
 ```
 
+(2) 多個投射
 ```ts
 import { Component } from '@angular/core';
 
@@ -801,8 +804,8 @@ export class AppComponent { }
 
 ###### Input 與 Output
 
+(1) Input 建構子
 ```ts
-// 使用 Input 建構子
 import { Component } from '@angular/core';
 
 @Component({
@@ -818,8 +821,8 @@ export class UseInputComponent {
 <use-input version="2"></use-input>
 ```
 
+(2) Input 修飾器
 ```ts
-// 改用 Input 修飾器
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -831,8 +834,8 @@ export class UseInputComponent {
 }
 ```
 
+(3) 自訂 Input 修飾器的名稱
 ```ts
-// 更多的 Input 修飾器
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -851,6 +854,7 @@ export class StudentProfilesComponent {
 <student-profiles schoolName="NFU" student-id="40148155"></student-profiles>
 ```
 
+(4) 使用 Output 修飾器
 ```ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
@@ -876,7 +880,6 @@ export class AtCounterComponent {
 ```
 
 ###### 生命週期掛勾
-
 ```ts
 import { Component, OnInit } from '@angular/core';
 
@@ -900,6 +903,7 @@ ngOnDestroy() { ... }
 
 ###### ContentChild 與 ContentChildren
 
+(1) ContentChild
 ```ts
 import { Component } from '@angular/core';
 
@@ -954,16 +958,23 @@ import { ChildComponent } from './child.component';
 export class AppComponent { }
 ```
 
+(2) ContentChildren
+```ts
+
+```
+
+(3) 生命週期掛勾
+```ts
+ngAfterContentInit() { ... }
+ngAfterContentChecked() { ... }
+```
+
 ###### ViewChild 與 ViewChildren
 
 ```ts
-@ContentChild()
-@ContentChildren()
 @ViewChild()
 @ViewChildren()
 
-ngAfterContentInit() { ... }
-ngAfterContentChecked() { ... }
 ngAfterViewInit() { ... }
 ngAfterViewChecked() { ... }
 ```
