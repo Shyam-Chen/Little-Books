@@ -1019,8 +1019,38 @@ export class AppComponent { }
 
 (3) 生命週期掛勾
 ```ts
-ngAfterContentInit() { ... }
-ngAfterContentChecked() { ... }
+// 導入 AfterContentInit 與 AfterContentChecked
+import { AfterContentInit, AfterContentChecked } from '@angular/core';
+```
+```ts
+// 混入 AfterContentInit 與 AfterContentChecked
+export class ParentComponent implements AfterContentInit, AfterContentChecked { }
+```
+```ts
+import { Component, ContentChildren, QueryList, AfterContentInit, AfterContentChecked } from '@angular/core';
+
+import { ChildComponent } from './child.component';
+
+@Component({
+  // ...
+})
+export class ParentComponent implements AfterContentInit, AfterContentChecked {
+  // ...
+
+  // 使用 AfterContentInit
+  ngAfterContentInit() {
+    console.log('AfterContentInit 開始');
+    console.log(this.childComponents);
+    console.log('AfterContentInit 結束');
+  }
+
+  // 使用 AfterContentChecked
+  ngAfterContentChecked() {
+    console.log('AfterContentChecked 開始');
+    console.log(this.childComponents);
+    console.log('AfterContentChecked 結束');
+  }
+}
 ```
 
 ###### ViewChild 與 ViewChildren
