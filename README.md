@@ -271,6 +271,8 @@ export class AppComponent { }
 $ npm start
 ```
 
+##### 開始使用
+
 ##### 專案架構
 ```
 .
@@ -342,7 +344,7 @@ export class ThingComponent {
 }
 ```
 
-##### 使用模板
+###### 使用模板
 
 (1) `template`
 ```ts
@@ -370,7 +372,7 @@ export class UseTemplateComponent { }
 <p>Hello Angular 2</p>
 ```
 
-##### 使用樣式
+###### 使用樣式
 
 (1) `styles`
 ```ts
@@ -1127,7 +1129,7 @@ export class Component {
 }
 ```
 
-##### 變化檢測
+###### 變化檢測
 ```ts
 import { Component } from '@angular/core';
 
