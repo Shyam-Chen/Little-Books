@@ -670,11 +670,16 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'more-projection',
   template: `
-    <ng-content select="[js]"></ng-content>
-    <p>Angular 1</p>
-    <ng-content select="[coffee]"></ng-content>
-    <p>Angular 2</p>
-    <ng-content select="[ts]"></ng-content>
+    <p>原本的內容</p>
+    <ng-content select="[at-attr]"></ng-content>
+    <ng-content select=".at-style"></ng-content>
+    <ng-content select="span"></ng-content>
+
+    <!-- 無法選擇 ID -->
+    <ng-content select="#thing"></ng-content>
+    
+    <!-- 相同的選擇器無法重複渲染 -->
+    <ng-content select="span"></ng-content>
   `
 })
 export class MoreProjectionComponent { }
@@ -688,9 +693,12 @@ import { MoreProjectionComponent } from './more-projection';
   selector: 'app',
   template: `
     <more-projection>
-      <p js>Hi, JavaScript</p>
-      <p coffee>Hi, CoffeeScript</p>
-      <p ts>Hi, TypeScript</p>
+      <p at-attr>選擇 HTML 屬性</p>
+      <p class="at-style">選擇 CSS 樣式</p>
+      <span>選擇 HTML 標籤</span>
+
+      <!-- 這個不會被渲染 -->
+      <p id="thing">ID 無法被選擇</p>
     </more-projection>
   `,
   directives: [MoreProjectionComponent]
