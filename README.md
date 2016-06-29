@@ -1642,9 +1642,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'ng-style',
   template: `
-    <p [ngStyle]="{ 'background-color': 'yellow' }"> 
-      我的背景是黃色的
-    </p>
+    <p 
+      [ngStyle]="{
+        'background-color': '#F44336',
+        'color': '#FFFFFF'
+      }"
+    >
+    我的背景是紅的，而字體是白的</p>
   `
 })
 export class NgStyleComponent { }
