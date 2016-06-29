@@ -1021,10 +1021,9 @@ export class AppComponent { }
 ```ts
 // 導入 AfterContentInit 與 AfterContentChecked
 import { AfterContentInit, AfterContentChecked } from '@angular/core';
-```
-```ts
+
 // 混入 AfterContentInit 與 AfterContentChecked
-export class ParentComponent implements AfterContentInit, AfterContentChecked { }
+export class ThingComponent implements AfterContentInit, AfterContentChecked { }
 ```
 ```ts
 import { Component, ContentChildren, QueryList, AfterContentInit, AfterContentChecked } from '@angular/core';
