@@ -60,6 +60,7 @@
     * [簡單的指令](#簡單的指令)
 * [服務](#服務)
   * [注入器](#注入器)
+    * [基本構造](#基本構造)
   * 相依性注入
   * 層疊注入
   * 型別
@@ -1883,6 +1884,15 @@ export class AppComponent { }
 ### 服務
 
 ##### 注入器
+
+###### 基本構造
+```ts
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ThingService { }
+```
+
 ```ts
 // languages.service.ts
 import { Injectable } from '@angular/core';
