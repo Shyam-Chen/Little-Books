@@ -55,6 +55,9 @@
     * [ng-plural](#ng-plural)
     * [ng-template-outlet](#ng-template-outlet)
   * [自訂指令](#自訂指令)
+    * [建構子](#建構子)
+    * [基本構造](#基本構造)
+    * [簡單的指令](#簡單的指令)
 * [服務](#服務)
   * 相依性注入
   * 注入器
@@ -1689,7 +1692,7 @@ exportAs?: string
 queries?: {[key: string]: any}
 ```
 
-###### 基本架構
+###### 基本構造
 ```ts
 import { Directive } from '@angular/core';
 
@@ -1705,7 +1708,7 @@ import { Directive } from '@angular/core';
 export class ThingDirective { }
 ```
 
-###### 自訂簡單的指令
+###### 簡單的指令
 ```ts
 import { Directive, ElementRef } from '@angular/core';
 
