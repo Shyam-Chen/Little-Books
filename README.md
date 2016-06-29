@@ -1922,9 +1922,12 @@ import { LanguagesService } from './languages.service';  // 導入新建立的�
 export class AppComponent {
   constructor(languagesService: LanguagesService) {  // 相依性注入
     this.language = languagesService.ts;  // 使用服務
+    
+    // 使用服務裡的其它選項
+    // this.language = languagesService.js;
+    // this.language = languagesService.coffee;
   }
 }
-
 ```
 
 ```ts
