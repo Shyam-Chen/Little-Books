@@ -276,6 +276,29 @@ $ npm start
 ```
 
 ##### 開始使用
+```ts
+//  src/app/thing.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'at-thing',
+  template: `<h3>這是新建立的元件</h3>`
+})
+export class ThingComponent { }
+```
+```ts
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+
+import { ThingComponent } from './thing.component';  // 導入新建立的元件
+
+@Component({
+  selector: 'app',
+  template: `<h3>Hello Angular 2</h3>`,
+  directives: [ThingComponent]  // 將新建立的元件註冊到 App 元件中
+})
+export class AppComponent { }
+```
 
 ##### 專案架構
 ```
