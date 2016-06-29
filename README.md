@@ -846,7 +846,7 @@ export class UseInputComponent {
 }
 ```
 
-(3) 自訂 Input 修飾器的名稱
+(3) 字串選擇
 ```ts
 import { Component, Input } from '@angular/core';
 
@@ -1104,6 +1104,25 @@ import { ParentComponent } from './parent.component';
   directives: [ParentComponent]
 })
 export class AppComponent { }
+```
+
+使用字串選擇
+```ts
+import { Component, ViewChild } from '@angular/core';
+
+import { ChildComponent } from './child.component';
+
+@Component({
+  selector: 'at-parent',
+  template: `
+    <p>這是「父」元件</p>
+    <at-child #child></at-child>
+  `,
+  directives: [ChildComponent]
+})
+export class ParentComponent {
+  @ViewChild('child') childComponent: ChildComponent;
+}
 ```
 
 (2) ViewChildren
