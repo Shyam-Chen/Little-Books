@@ -976,9 +976,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-child',
-  template: `
-    <p>這是「子」元件 - 1</p>
-  `
+  template: `<p>這是「子」元件 - 1</p>`
 })
 export class ChildComponent {
   public name: string = '這是「子」元件 - 2';
@@ -1077,7 +1075,7 @@ import { Component } from '@angular/core';
 export class ChildComponent { }
 ```
 ```ts
-import { Component,ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 import { ChildComponent } from './child.component';
 
