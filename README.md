@@ -1072,10 +1072,12 @@ import { Component } from '@angular/core';
   selector: 'at-child',
   template: `<p>這是「子」元件</p>`
 })
-export class ChildComponent { }
+export class ChildComponent {
+  onLog(): void { console.log('一個日誌'); }
+}
 ```
 ```ts
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 
 import { ChildComponent } from './child.component';
 
@@ -1087,8 +1089,9 @@ import { ChildComponent } from './child.component';
   `,
   directives: [ChildComponent]
 })
-export class ParentComponent {
+export class ParentComponent implements AfterViewInit {
   @ViewChild(ChildComponent) childComponent: ChildComponent;
+  ngAfterViewInit(): void { this.childComponent.onLog(); }
 }
 ```
 ```ts
@@ -1098,9 +1101,7 @@ import { ParentComponent } from './parent.component';
 
 @Component({
   selector: 'app',
-  template: `
-    <at-parent></at-parent>
-  `,
+  template: `<at-parent></at-parent>`,
   directives: [ParentComponent]
 })
 export class AppComponent { }
@@ -1108,7 +1109,7 @@ export class AppComponent { }
 
 使用字串選擇
 ```ts
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 
 import { ChildComponent } from './child.component';
 
@@ -1120,8 +1121,9 @@ import { ChildComponent } from './child.component';
   `,
   directives: [ChildComponent]
 })
-export class ParentComponent {
+export class ParentComponent implements AfterViewInit {
   @ViewChild('child') childComponent: ChildComponent;
+  ngAfterViewInit(): void { this.childComponent.onLog(); }
 }
 ```
 
