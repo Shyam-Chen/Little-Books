@@ -909,22 +909,29 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'at-counter',
   template: `
-    <button (click)="onClick()">Increment</button>
-    <p>Count: {{ count }}</p>
+    <button (click)="onClick()">點擊我</button>
+    <p>計數: {{ count }}</p>
   `
 })
-export class AtCounterComponent {
+export class CounterComponent {
   @Input() count: number;
   @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
-
-  onClick(): void {
-    this.count++;
-    this.countChange.emit(this.count);
-  }
+  onClick(): void { this.countChange.emit(this.count++); }
 }
 ```
-```html
-<at-counter count="7" (countChange)="$event"></at-counter>
+```ts
+import { Component } from '@angular/core';
+
+import { CounterComponent } from './counter.component';
+
+@Component({
+  selector: 'app',
+  template: `<at-counter count="0" (countChange)="onChange($event)"></at-counter>`,
+  directives: [CounterComponent]
+})
+export class AppComponent {
+  onChange(event): any { return event; }
+}
 ```
 
 ###### 生命週期掛勾
