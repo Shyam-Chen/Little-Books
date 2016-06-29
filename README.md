@@ -882,7 +882,7 @@ export class UseInputComponent {
 }
 ```
 
-(3) Input 修飾器的字串選擇器
+自訂名稱
 ```ts
 import { Component, Input } from '@angular/core';
 
