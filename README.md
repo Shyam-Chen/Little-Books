@@ -523,7 +523,7 @@ export class ToggleMeComponent {
 
 ###### 屬性綁定
 
-(1)
+(1) 基本
 ```ts
 import { Component } from '@angular/core';
 
@@ -532,7 +532,10 @@ import { Component } from '@angular/core';
   template: `
     <a [href]="url">Angular 2 官網</a>
     
-    <!-- 等同於 -->
+    <!-- 也可以這樣 -->
+    <a bind-href="url">Angular 2 官網</a>
+    
+    <!-- 都等同於 -->
     <a href="{{ url }}">Angular 2 官網</a>
   `
 })
@@ -541,7 +544,7 @@ export class BindingPropertiesComponent {
 }
 ```
 
-語法: `[innerHTML]="表達式"`
+(2) `[innerHTML]="表達式"`
 ```ts
 import { Component } from '@angular/core';
 
@@ -559,7 +562,7 @@ export class BindingPropertiesComponent {
 }
 ```
 
-語法: `[style.規則]="'表達式'"`
+(3) `[style.規則]="'表達式'"`
 ```ts
 import { Component } from '@angular/core';
 
@@ -578,7 +581,7 @@ import { Component } from '@angular/core';
 export class BindingPropertiesComponent { }
 ```
 
-語法: `[class.名稱]="條件式"`
+(4) `[class.名稱]="條件式"`
 ```ts
 import { Component } from '@angular/core';
 
@@ -590,24 +593,35 @@ import { Component } from '@angular/core';
 export class BindingPropertiesComponent { }
 ```
 
-```ts
-[attr.name]="expression"
-```
-
+切換 CSS 類別
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'toggle-class',
   template: `
-    <button (click)="isClassVisible = !isClassVisible">Toggle Class</button>
-    <p [ngClass]="{ 'at-color': isClassVisible }">Hello Angular 2</p>
+    <button (click)="isClassVisible = !isClassVisible">點擊我</button>
+    <p [class.at-color]="isClassVisible">注意看我字體的顏色</p>
   `,
-  styles: [`
-    .at-color { color: #F44336 }
-  `]
+  styles: [`.at-color { color: #F44336 }`]
 })
 export class ToggleClassComponent { }
+```
+
+(5) `[attr.名稱]="表達式"`
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'binding-properties',
+  template: `<p [attr.at-version]="version">Angular</p>`
+})
+export class BindingPropertiesComponent {
+  public version: number = 2;
+}
+```
+```html
+<p at-version="2">Angular</p>
 ```
 
 ###### 本地變數
