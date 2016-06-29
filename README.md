@@ -61,6 +61,7 @@
 * [服務](#服務)
   * [注入器](#注入器)
     * [基本構造](#基本構造)
+    * [簡單的服務](#簡單的服務)
   * 相依性注入
   * 層疊注入
   * 型別
@@ -1893,6 +1894,7 @@ import { Injectable } from '@angular/core';
 export class ThingService { }
 ```
 
+###### 簡單的服務
 ```ts
 // languages.service.ts
 import { Injectable } from '@angular/core';
@@ -1908,19 +1910,24 @@ export class LanguagesService {
 // app.component.ts
 import { Component } from '@angular/core';
 
-import { LanguagesService } from './languages.service';
+import { LanguagesService } from './languages.service';  // 導入新建立的服務
 
 @Component({
   selector: 'app',
   template: `<p>所決定的語言是: {{ language }}</p>`,
-  viewProviders: [LanguagesService]  // 僅限於該元件的模板中使用
+  viewProviders: [  // 僅限於該元件的模板中使用
+    LanguagesService  // 將新建立的服務註冊的元件中
+  ]
 })
 export class AppComponent {
   constructor(languagesService: LanguagesService) {  // 相依性注入
-    this.language = languagesService.ts;
+    this.language = languagesService.ts;  // 使用服務
   }
 }
 
+```
+
+```ts
 // 或者
 
 import { Component } from '@angular/core';
