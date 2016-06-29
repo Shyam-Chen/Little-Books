@@ -522,6 +522,25 @@ export class ToggleMeComponent {
 ```
 
 ###### 屬性綁定
+
+(1)
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'binding-properties',
+  template: `
+    <a [href]="url">Angular 2 官網</a>
+    
+    <!-- 等同於 -->
+    <a href="{{ url }}">Angular 2 官網</a>
+  `
+})
+export class BindingPropertiesComponent {
+  public url: string = 'https://angular.io/';
+}
+```
+
 語法: `[innerHTML]="表達式"`
 ```ts
 import { Component } from '@angular/core';
