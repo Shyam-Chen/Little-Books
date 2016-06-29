@@ -882,7 +882,7 @@ export class UseInputComponent {
 }
 ```
 
-(3) 字串選擇
+(3) Input 修飾器的字串選擇器
 ```ts
 import { Component, Input } from '@angular/core';
 
@@ -902,7 +902,7 @@ export class StudentProfilesComponent {
 <student-profiles schoolName="NFU" student-id="40148155"></student-profiles>
 ```
 
-(4) 使用 Output 修飾器
+(4) Output 建構子
 ```ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
@@ -911,11 +911,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   template: `
     <button (click)="onClick()">點擊我</button>
     <p>計數: {{ count }}</p>
-  `
+  `,
+  outputs: ['countChange']
 })
 export class CounterComponent {
   @Input() count: number;
-  @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
+  public countChange: EventEmitter<number> = new EventEmitter<number>();
   onClick(): void { this.countChange.emit(this.count++); }
 }
 ```
@@ -931,6 +932,24 @@ import { CounterComponent } from './counter.component';
 })
 export class AppComponent {
   onChange(event): any { return event; }
+}
+```
+
+(5) Output 修飾器
+```ts
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'at-counter',
+  template: `
+    <button (click)="onClick()">點擊我</button>
+    <p>計數: {{ count }}</p>
+  `
+})
+export class CounterComponent {
+  @Input() count: number;
+  @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
+  onClick(): void { this.countChange.emit(this.count++); }
 }
 ```
 
