@@ -1107,8 +1107,51 @@ export class AppComponent { }
 ```
 
 (2) ViewChildren
+```ts
+import { Component, ViewChildren, QueryList } from '@angular/core';
+
+import { ChildComponent } from './child.component';
+
+@Component({
+  selector: 'at-parent',
+  template: `
+    <p>這是「父」元件</p>
+    <at-child></at-child>
+    <at-child></at-child>
+    <at-child></at-child>
+  `,
+  directives: [ChildComponent]
+})
+export class ParentComponent {
+  @ViewChildren(ChildComponent) childComponents: QueryList<ChildComponent>;
+}
+```
 
 (3) 生命週期掛勾
+```ts
+import { Component, ViewChildren, QueryList, AfterViewInit, AfterViewChecked } from '@angular/core';
+
+import { ChildComponent } from './child.component';
+
+@Component({
+  // ...
+})
+export class ParentComponent implements AfterViewInit, AfterViewChecked {
+  // ...
+  
+  ngAfterViewInit() {
+    console.log('AfterViewInit 開始');
+    console.log(this.childComponents);
+    console.log('AfterViewInit 結束');
+  }
+  
+  ngAfterViewChecked() {
+    console.log('AfterViewChecked 開始');
+    console.log(this.childComponents);
+    console.log('AfterViewChecked 結束');
+  }
+}
+```
 
 ###### 查找
 ```ts
