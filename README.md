@@ -360,12 +360,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'use-template',
-  templateUrl: '../app/use-template.html'
+  templateUrl: '../app/use-template.component.html'
 })
 export class UseTemplateComponent { }
 ```
 ```html
-<!-- use-template.html -->
+<!-- use-template.component.html -->
 <p>Hello Angular 2</p>
 ```
 
@@ -376,13 +376,13 @@ export class UseTemplateComponent { }
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'use-template',
-  templateUrl: '../app/thing.html',
+  selector: 'use-styles',
+  templateUrl: '../app/thing.component.html',
   styles: [`
     .thing { color: #F44336 }
   `]
 })
-export class ThingComponent { }
+export class UseStylesComponent { }
 ```
 
 (2) `styleUrls`
@@ -390,11 +390,11 @@ export class ThingComponent { }
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-thing',
+  selector: 'use-styles',
   templateUrl: 'thing.component.html',
   styleUrls: ['thing.component.css']
 })
-export class ThingComponent { }
+export class UseStylesComponent { }
 ```
 
 ###### 模組識別
@@ -653,7 +653,7 @@ export class ContentProjectionComponent { }
 ```ts
 import { Component } from '@angular/core';
 
-import { ContentProjectionComponent } from './content-projection';
+import { ContentProjectionComponent } from './content-projection.component';
 
 @Component({
   selector: 'app',
@@ -687,7 +687,7 @@ export class MoreProjectionComponent { }
 ```ts
 import { Component } from '@angular/core';
 
-import { MoreProjectionComponent } from './more-projection';
+import { MoreProjectionComponent } from './more-projection.component';
 
 @Component({
   selector: 'app',
@@ -726,7 +726,7 @@ export class EmulatedComponent { }
 ```ts
 import { Component } from '@angular/core';
 
-import { EmulatedComponent } from './components/encapsulation-emulated';
+import { EmulatedComponent } from './encapsulation-emulated.component';
 
 @Component({
   selector: 'app',
@@ -758,7 +758,7 @@ export class NativeComponent { }
 ```ts
 import { Component } from '@angular/core';
 
-import { NativeComponent } from './components/encapsulation-native';
+import { NativeComponent } from './encapsulation-native.component';
 
 @Component({
   selector: 'app',
@@ -796,7 +796,7 @@ export class NoneComponent { }
 ```ts
 import { Component } from '@angular/core';
 
-import { NoneComponent } from './components/encapsulation-none';
+import { NoneComponent } from './encapsulation-none.component';
 
 @Component({
   selector: 'app',
