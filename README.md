@@ -1065,51 +1065,53 @@ export class ParentComponent implements AfterContentInit, AfterContentChecked {
 
 ###### ViewChild 與 ViewChildren
 
+(1) ViewChild
 ```ts
-@ViewChild()
-@ViewChildren()
+import { Component } from '@angular/core';
 
-ngAfterViewInit() { ... }
-ngAfterViewChecked() { ... }
-```
-
-```ts
-import { Component, ViewChildren, ContentChildren, QueryList } from '@angular/core';
-```
-
-```ts
 @Component({
-  selector: 'at-a',
+  selector: 'at-child',
+  template: `<p>這是「子」元件</p>`
+})
+export class ChildComponent { }
+```
+```ts
+import { Component,ViewChild } from '@angular/core';
+
+import { ChildComponent } from './child.component';
+
+@Component({
+  selector: 'at-parent',
   template: `
-    <p>View Child</p>
-  `
+    <p>這是「父」元件</p>
+    <at-child></at-child>
+  `,
+  directives: [ChildComponent]
 })
-class AComponent { }
-```
-
-```ts
-@Component({
-  selector: 'at-b',
-  template: `
-    <p>Content Child</p>
-  `
-})
-class BComponent { }
-```
-
-```ts
-@Component({
-  selector: 'at-ab',
-  template: '<at-a></at-a>',
-  directives: [AComponent]
-})
-export class Component {
-  @ViewChildren(AComponent) viewChildren: QueryList<AComponent>;
-  @ContentChildren(BComponent) contentChildren: QueryList<BComponent>;
-  // ...
+export class ParentComponent {
+  @ViewChild(ChildComponent) childComponent: ChildComponent;
 }
 ```
+```ts
+import { Component } from '@angular/core';
 
+import { ParentComponent } from './parent.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <at-parent></at-parent>
+  `,
+  directives: [ParentComponent]
+})
+export class AppComponent { }
+```
+
+(2) ViewChildren
+
+(3) 生命週期掛勾
+
+###### 查
 ```ts
 @Component({
   selector: 'app',
