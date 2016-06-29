@@ -32,6 +32,7 @@
     * [生命週期掛勾](#生命週期掛勾)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
+    * [查找](#查找)
     * [變化檢測](#變化檢測)
 * [表單](#表單)
   * [使用表單](#使用表單)
@@ -1111,7 +1112,7 @@ export class AppComponent { }
 
 (3) 生命週期掛勾
 
-###### 查
+###### 查找
 ```ts
 @Component({
   selector: 'app',
