@@ -59,10 +59,10 @@
     * [基本構造](#基本構造)
     * [簡單的指令](#簡單的指令)
 * [服務](#服務)
+  * [注入器](#注入器)
   * 相依性注入
-  * 注入器
-  * 型別
   * 層疊注入
+  * 型別
 * [通訊](#通訊)
   * 獲取資料
   * 錯誤處理
@@ -1881,6 +1881,8 @@ export class AppComponent { }
 ```
 
 ### 服務
+
+##### 注入器
 ```ts
 // languages.service.ts
 import { Injectable } from '@angular/core';
