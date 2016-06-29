@@ -1661,13 +1661,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'ng-class',
   template: `
-    <p [ngClass]="{ 'at-color': true }">Angular 2</p>
-    <p [ngClass]="{ 'at-color': false }">TypeScript</p>
+    <p [ngClass]="{ 'at-color': true }">字體是紅的</p>
+    <p [ngClass]="{ 'at-color': false, 'at-background': true }">背景是紅的</p>
   `,
   styles: [`
-    .at-color {
-      color: #F44336
-    }
+    .at-color { color: #F44336 }
+    .at-background { background-color: #F44336 }
   `]
 })
 export class NgClassComponent { }
@@ -1689,6 +1688,8 @@ providers?: any[]
 exportAs?: string
 queries?: {[key: string]: any}
 ```
+
+###### 基本架構
 ```ts
 import { Directive } from '@angular/core';
 
@@ -1697,13 +1698,14 @@ import { Directive } from '@angular/core';
    * at-thing
    * [atThing]
    * .at-thing
-   * input[type=text]
+   * input[type=thing]
    */
   selector: '[atThing]'
 })
 export class ThingDirective { }
 ```
 
+###### 自訂簡單的指令
 ```ts
 import { Directive, ElementRef } from '@angular/core';
 
