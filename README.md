@@ -1365,7 +1365,25 @@ export interface User {
 
 ###### 控制表單
 
-###### ngControl 與 ngModel
+
+##### 表單方法
+```ts
+// 指令
+ngControl
+ngFormControl
+ngModel
+ngFormModel
+ngControlGroup
+
+// 服務
+Control()
+ControlGroup()
+ControlArray()
+FormBuilder
+Validators
+```
+
+###### ngControl / ngControlGroup 與 ngModel
 ```ts
 import { Component } from '@angular/core';
 
