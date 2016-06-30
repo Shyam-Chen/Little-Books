@@ -176,7 +176,7 @@ $ cd ng2-starter
       (function(global) {
 
         var ngVer = '@2.0.0-rc.3';
-        var routerVer = '@3.0.0-alpha.7';
+        var routerVer = '@3.0.0-alpha.8';
         var formsVer = '@0.1.1';
 
         var map = {
