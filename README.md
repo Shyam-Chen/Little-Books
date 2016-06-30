@@ -1627,11 +1627,14 @@ export class NgSwitchComponent {
 
 ###### ng-for
 ```ts
-import { Component } from '@angular/core';
-
-interface List {
+export interface List {
   label: string;
 }
+```
+```ts
+import { Component } from '@angular/core';
+
+import { List } from './list.interface';
 
 @Component({
   selector: 'ng-for',
@@ -1654,11 +1657,14 @@ export class NgForComponent {
 ```
 
 ```ts
-import { Component } from '@angular/core';
-
-interface List {
+export interface List {
   language: string;
 }
+```
+```ts
+import { Component } from '@angular/core';
+
+import { List } from './list.interface';
 
 @Component({
   selector: 'at-edit',
@@ -1681,9 +1687,9 @@ interface List {
 })
 export class EditComponent {
   public list: List[] = [
-    { "language": "JavaScript" },
-    { "language": "CoffeeScript" },
-    { "language": "TypeScript" }
+    { language: 'JavaScript' },
+    { language: 'CoffeeScript' },
+    { language: 'TypeScript' }
   ];;
 
   public edited: List;
