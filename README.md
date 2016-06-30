@@ -1341,6 +1341,12 @@ export class AppComponent { }
 ```
 
 ###### 建立模型
+```ts
+export interface User {
+  name: string;
+  email: string;
+}
+```
 
 ###### 建立模板
 ```ts
