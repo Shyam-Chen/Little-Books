@@ -1365,6 +1365,45 @@ export interface User {
 
 ###### 控制表單
 
+###### ngControl 與 ngModel
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <form #atForm="ngForm">
+      <div ngControlGroup="user">
+        <div>
+          <label for="name1">中文名:</label>
+          <input type="text" id="name1"
+            ngControl="name1" [(ngModel)]="account.user.name1" #name1="ngForm"
+          >
+        </div>
+        <br>
+        <div>
+          <label for="name2">英文名:</label>
+          <input type="text" id="name2"
+            ngControl="name2" [(ngModel)]="account.user.name2" #name2="ngForm"
+          >
+        </div>
+      </div>
+    </form>
+    <hr>
+    <pre>{{ atForm.value | json }}</pre>
+    <p>{{ name1.value }} - {{ name2.value }}</p>
+  `
+})
+export class AppComponent {
+  public account = {
+    user: {
+      name1: '陳彥澄',
+      name2: 'Chen Yen-Cheng'
+    }     
+  }
+}
+```
+
 ***
 
 ```ts
