@@ -1343,6 +1343,8 @@ import { Component } from '@angular/core';
   template: `
     <form #atForm="ngForm" novalidate>
       <!-- 一些程式碼寫在這裡 -->
+
+      <button type="submit" (click)="send(atForm.value, atForm.valid)">送出</button>
     </form>
   `
 })
