@@ -35,7 +35,7 @@
     * [查找](#查找)
     * [變化檢測](#變化檢測)
 * [表單](#表單)
-  * [使用表單](#使用表單)
+  * [建立表單](#建立表單)
   * 驗證與狀態
   * 錯誤提示
   * 內建驗證
@@ -1296,32 +1296,9 @@ export class Component { }
 
 ### 表單
 
-https://github.com/angular/angular/tree/master/modules/%40angular/forms/src
+##### 建立表單
 
-```ts
-ngForm
-ngControl
-ngFormControl
-ngModel
-ngFormModel
-ngControlGroup
-
-FormBuilder
-Control
-ControlArray
-ControlContainer
-ControlGroup
-AbstractControl
-Validators
-```
-
-|狀態|為`true`時的 CSS 類別|為`false`時的 CSS 類別|
-|:-:|:-:|:-:|
-|控制已被訪問|`ng-touched`|`ng-untouched`|
-|控制的值發生變化|`ng-dirty`|`ng-pristine`|
-|控制的值是否有效|`ng-valid`|`ng-invalid`|
-
-##### 使用表單
+###### 啟動表單
 ```ts
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
@@ -1332,9 +1309,6 @@ import { AppComponent } from './app.component';
 bootstrap(AppComponent, [provideForms()]);
 ```
 ```ts
-// src/app/app.component.ts
-```
-```ts
 // src/app/form.component.ts
 import { Component } from '@angular/core';
 
@@ -1343,14 +1317,39 @@ import { Component } from '@angular/core';
   template: `
     <form #atForm="ngForm" novalidate>
       <!-- 一些程式碼寫在這裡 -->
-
-      <button type="submit" (click)="send(atForm.value, atForm.valid)">送出</button>
     </form>
   `
 })
 export class FormComponent { }
 ```
+```ts
+// src/app/app.component.ts
+import { Component } from '@angular/core';
 
+import { FormComponent } from './form.component';
+
+@Component({
+  selector: 'app',
+  template: `<at-form></at-form>`,
+  directives: [FormComponent]
+})
+export class AppComponent { }
+```
+
+###### 建立模板
+```ts
+<form #atForm="ngForm" novalidate>
+  <div>
+    <label for="name">姓名:</label>
+    <input type="text" id="name" required>
+  </div>
+  <div>
+    <label for="email">郵箱:</label>
+    <input type="text" id="email" required>
+  </div>
+  <button type="submit">送出</button>
+</form>
+```
 
 ***
 
