@@ -77,6 +77,7 @@
   * 跨域請求
 * [管道](#管道)
   * [內建管道](#內建管道)
+    * [開始使用](#開始使用)
     * [大小寫](#大小寫)
     * [日期](#日期)
     * [非同步](#非同步)
@@ -2344,6 +2345,8 @@ Observable
 ### 管道
 
 ##### 內建管道
+
+###### 開始使用
 ```ts
 import { Component } from '@angular/core';
 import { COMMON_PIPES } from '@angular/common';  // 導入內建管道
