@@ -2393,6 +2393,7 @@ import { Component } from '@angular/core';
     <p>{{ today | date: 'shortDate' }}</p>
     <p>{{ today | date: 'mediumTime' }}</p>
     <p>{{ today | date: 'shortTime' }}</p>
+    <p>{{ today | date: 'dd/MM/yyyy' }}</p>
   `
 })
 export class DateComponent {
