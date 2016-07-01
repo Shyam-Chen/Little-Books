@@ -91,8 +91,8 @@
   * [自訂管道](#自訂管道)
     * [建構子](#建構子)
     * [基本構造](#基本構造)
-    * [自訂長度](#自訂長度)
-    * [自訂延遲](#自訂延遲)
+    * [字節管道](#字節管道)
+    * [延遲管道](#延遲管道)
 * [動畫](#動畫)
   * 狀態
   * 漸變
@@ -2613,7 +2613,7 @@ import { ThingPipe } from './thing.pipe';  // 導入所自訂管道
 export class AppComponent { }
 ```
 
-###### 自訂長度
+###### 字節管道
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -2625,10 +2625,10 @@ export class LengthPipe implements PipeTransform {
 }
 ```
 ```html
-<p>Angular 2 的字段長度是: {{ 'Angular 2' | length }}</p>
+<p>Angular 2 的字節是: {{ 'Angular 2' | length }}</p>
 ```
 
-###### 自訂延遲
+###### 延遲管道
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
