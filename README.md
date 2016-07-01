@@ -1805,8 +1805,14 @@ export class NgClassComponent { }
 ```
 
 ###### ng-plural
+```
+[ngPlural]
+```
 
 ###### ng-template-outlet
+```html
+<template [ngTemplateOutlet]="templateRefExpression" [ngOutletContext]="objectExpression"></template>
+```
 
 ##### 自訂指令
 
