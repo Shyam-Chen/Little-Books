@@ -1810,8 +1810,25 @@ export class NgClassComponent { }
 ```
 
 ###### ng-template-outlet
-```html
-<template [ngTemplateOutlet]="templateRefExpression" [ngOutletContext]="objectExpression"></template>
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <template
+      [ngTemplateOutlet]="atTemplate" [ngOutletContext]="{ items: ng }"
+    ></template>
+
+    <template #atTemplate let-items="items">
+      <p>{{ items }} {{ version }}</p>
+    </template>
+  `
+})
+export class AppComponent {
+  public ng: string = 'Angular';
+  public version: number = 2;
+}
 ```
 
 ##### 自訂指令
