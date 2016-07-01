@@ -1383,7 +1383,7 @@ FormBuilder
 Validators
 ```
 
-###### ngControl / ngControlGroup 與 ngModel
+###### ngControl 與 ngControlGroup
 ```ts
 import { Component } from '@angular/core';
 
