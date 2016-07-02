@@ -511,7 +511,7 @@ import { Component } from '@angular/core';
 })
 export class ClickMeComponent {
   public message: string = '我是點擊「前」的訊息';
-  onClick(): string { this.message = '我是點擊「後」的訊息'; }
+  onClick(): void { this.message = '我是點擊「後」的訊息'; }
 }
 ```
 
@@ -529,7 +529,7 @@ export class ToggleMeComponent {
   public message: string = '你好';
   public toggle: boolean = true;
 
-  onToggle(): boolean | string {
+  onToggle(): void {
     this.toggle = !this.toggle;
     this.toggle ? this.message = '你好' : this.message = '再見';
   }
@@ -652,7 +652,7 @@ import { Component } from '@angular/core';
 })
 export class KeyUpComponent {
   public valuse: string = '';
-  onKeyup(value: string): string { this.values += `${ value } | `; }
+  onKeyup(value: string): void { this.values += `${ value } | `; }
 }
 ```
 
@@ -677,7 +677,7 @@ import { Component } from '@angular/core';
 export class AddItemComponent {
   public list: string[] = ['Angular', 'Material', 'Firebase'];
 
-  addItem(newItem: string) {
+  addItem(newItem: string): void {
     if (newItem) {
       this.list.push(newItem);
     }
@@ -943,7 +943,7 @@ import { CounterComponent } from './counter.component';
   directives: [CounterComponent]
 })
 export class AppComponent {
-  onChange(event): any { return event; }
+  onChange(event): number { return event; }
 }
 ```
 
