@@ -2746,17 +2746,17 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
 __karma__.loaded = function() {};
 
 System.config({
-  baseURL: '/base/'
+  baseURL: '/base'
 });
 
 System.config({
   defaultJSExtensions: true,
   map: {
-    '@angular': 'node_modules/@angular',
-    'rxjs': 'node_modules/rxjs'
+    'rxjs': 'node_modules/rxjs',
+    '@angular': 'node_modules/@angular'
   },
   packages: {
-    '@angular/core': {
+    '@angular/common': {
       main: 'index.js',
       defaultExtension: 'js'
     },
@@ -2764,7 +2764,11 @@ System.config({
       main: 'index.js',
       defaultExtension: 'js'
     },
-    '@angular/common': {
+    '@angular/core': {
+      main: 'index.js',
+      defaultExtension: 'js'
+    },
+    '@angular/forms': {
       main: 'index.js',
       defaultExtension: 'js'
     },
@@ -2870,32 +2874,29 @@ module.exports = function(config) {
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
 
-
       { pattern: 'test-main.js', included: true, watched: true },
-      { pattern: 'built/test/matchers.js', included: true, watched: true },
 
       // paths loaded via module imports
       // Angular itself
       { pattern: 'node_modules/@angular/**/*.js', included: false, watched: true },
       { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: true },
 
-      // Our built application code
-      { pattern: 'built/**/*.js', included: false, watched: true },
+      { pattern: 'dist/**/*.js', included: false, watched: true },
 
       // paths loaded via Angular's component compiler
       // (these paths need to be rewritten, see proxies section)
-      { pattern: 'built/**/*.html', included: false, watched: true },
-      { pattern: 'built/**/*.css', included: false, watched: true },
+      { pattern: 'dist/**/*.html', included: false, watched: true },
+      { pattern: 'dist/**/*.css', included: false, watched: true },
 
       // paths to support debugging with source maps in dev tools
       { pattern: 'src/**/*.ts', included: false, watched: false },
-      { pattern: 'built/**/*.js.map', included: false, watched: false }
+      { pattern: 'dist/**/*.js.map', included: false, watched: false }
     ],
 
     // proxied base paths
     proxies: {
       // required for component assests fetched by Angular's compiler
-      "/app/": "/base/built/app/"
+      "/app/": "/base/dist/app/"
     },
 
     reporters: ['mocha'],
@@ -2909,9 +2910,8 @@ module.exports = function(config) {
 }
 ```
 ```ts
-import { TestComponentBuilder } from '@angular/compiler/testing';
+import { TestComponentBuilder } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { async, describe, it, expect, inject  } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 
