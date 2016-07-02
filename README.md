@@ -135,33 +135,17 @@ $ cd ng2-starter
 {
   "name": "ng2-starter",
   "version": "1.0.0",
-  "scripts": { "start": "lite-server -c bsconfig.json" },
+  "scripts": { "start": "lite-server -c config.json" },
   "devDependencies": { "lite-server": "^2.2.0" }
 }
 ```
 ```js
-// bsconfig.json
+// config.json
 {
   "port": 3000,
   "files": ["./src/**/*.{html,css,ts}"],
   "server": {
     "baseDir": "./src"
-  }
-}
-```
-```js
-// tsconfig.json
-{
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
   }
 }
 ```
@@ -172,83 +156,81 @@ $ cd ng2-starter
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>simple-configuration</title>
+    <title>Angular2TS Quick Start</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://npmcdn.com/core-js/client/shim.min.js"></script>
     <script src="https://npmcdn.com/zone.js@0.6.12?main=browser"></script>
-    <script src="https://npmcdn.com/systemjs@0.19.27/dist/system.src.js"></script>
+    <script src="https://npmcdn.com/systemjs@0.19.31/dist/system.src.js"></script>
+    <script src="./system.config.js"></script>
     <script>
-      (function(global) {
-
-        var ngVer = '@2.0.0-rc.3';
-        var routerVer = '@3.0.0-alpha.8';
-        var formsVer = '@0.1.1';
-
-        var map = {
-          'app': 'app',
-          '@angular': 'https://npmcdn.com/@angular',
-          '@angular/router': 'https://npmcdn.com/@angular/router' + routerVer,
-          '@angular/forms': 'https://npmcdn.com/@angular/forms' + formsVer,
-          'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
-          'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
-          'ts': 'https://npmcdn.com/plugin-typescript@4.0.10/lib/plugin.js',
-          'typescript': 'https://npmcdn.com/typescript@1.9.0-dev.20160409/lib/typescript.js'
-       };
-
-        var packages = {
-          'app': { main: 'main.ts', defaultExtension: 'ts' },
-          'rxjs': { defaultExtension: 'js' },
-          'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' }
-        };
-
-        var ngPackageNames = [
-          'common',
-          'compiler',
-          'core',
-          'http',
-          'platform-browser',
-          'platform-browser-dynamic',
-          'upgrade'
-        ];
-
-        ngPackageNames.forEach(function(pkgName) {
-          map['@angular/' + pkgName] = 'https://npmcdn.com/@angular/' + pkgName + ngVer;
-        });
-
-        ngPackageNames.forEach(function(pkgName) {
-          packages['@angular/' + pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
-        });
-
-        packages['@angular/router'] = { main: 'index.js', defaultExtension: 'js' };
-
-        packages['@angular/forms'] = { main: 'index.js', defaultExtension: 'js' };
-
-        var config = {
-          transpiler: 'ts',
-          typescriptOptions: { tsconfig: true },
-          meta: {
-            'typescript': { "exports": "ts" }
-          },
-          map: map,
-          packages: packages
-        };
-
-        System.config(config);
-
-      })(this);
-    </script>
-    <script>
-      System
-        .import('app')
-        .catch(function(err) {
-          console.error(err);
-        });
+      System.import('app').catch(function(err){console.error(err);});
     </script>
   </head>
   <body>
     <app>Loading...</app>
   </body>
 </html>
+```
+```js
+// src/system.config.js
+(function(global) {
+
+  var ngVer = '@2.0.0-rc.4';
+  var routerVer = '@3.0.0-beta.2';
+  var formsVer = '@0.2.0';
+
+  var map = {
+    'app': 'app',
+    '@angular': 'https://npmcdn.com/@angular',
+    '@angular/router': 'https://npmcdn.com/@angular/router' + routerVer,
+    '@angular/forms': 'https://npmcdn.com/@angular/forms' + formsVer,
+    'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
+    'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
+    'ts': 'https://npmcdn.com/plugin-typescript@4.0.10/lib/plugin.js',
+    'typescript': 'https://npmcdn.com/typescript@1.9.0-dev.20160409/lib/typescript.js'
+ };
+
+  var packages = {
+    'app': { main: 'main.ts', defaultExtension: 'ts' },
+    'rxjs': { defaultExtension: 'js' },
+    'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' }
+  };
+
+  var ngPackageNames = [
+    'common',
+    'compiler',
+    'core',
+    'http',
+    'platform-browser',
+    'platform-browser-dynamic',
+    'upgrade'
+  ];
+
+  ngPackageNames.forEach(function(pkgName) {
+    map['@angular/' + pkgName] = 'https://npmcdn.com/@angular/' + pkgName + ngVer;
+  });
+
+  ngPackageNames.forEach(function(pkgName) {
+    packages['@angular/' + pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
+  });
+
+  packages['@angular/router'] = { main: 'index.js', defaultExtension: 'js' };
+
+  packages['@angular/forms'] = { main: 'index.js', defaultExtension: 'js' };
+
+  var config = {
+    transpiler: 'ts',
+    typescriptOptions: { tsconfig: false },
+    meta: {
+      'typescript': { "exports": "ts" }
+    },
+    map: map,
+    packages: packages
+  };
+
+  System.config(config);
+
+})(this);
 ```
 ```ts
 // src/app/main.ts
