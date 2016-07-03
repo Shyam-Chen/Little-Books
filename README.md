@@ -2971,7 +2971,7 @@ import { Component } from '@angular/core';
 export class HelloE2EComponent {
   public message: string = '';
 
-  onClick(): string {
+  onClick(): void {
     this.message = 'Hello E2E';
   }
 }
@@ -2980,7 +2980,7 @@ export class HelloE2EComponent {
 // hello-e2e.component.e2e-spec.ts
 describe('HelloE2EComponent', () => {
 
-  beforeEach( () => {
+  beforeEach(() => {
     browser.get('/');
   });
 
@@ -3000,10 +3000,7 @@ $ protractor protractor.conf.js
 ```bash
 # .travis.yml
 language: node_js
-node_js:
-  - 4
-  - 5
-  - stable
+node_js: stable
 
 sudo: false
 
@@ -3011,25 +3008,18 @@ os:
   - linux
   - osx
 
-matrix:
-  exclude:
-    - os: osx
-      node_js: 4
-    - os: osx
-      node_js: 5
-
 cache:
   directories: node_modules
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew outdated xctool || brew upgrade xctool; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew tap caskroom/cask; fi
-
-before_script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then nohup bash -c "webdriver-manager start 2>&1 &"; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew outdated xctool || brew upgrade xctool; fi
+
+before_script:
+  - npm install karma-firefox-launcher
 
 script:
   - npm run gulp -- build
@@ -3071,7 +3061,7 @@ import * as express from 'express';
 import * as history from 'express-history-api-fallback';
 import * as gulp from 'gulp';
 import { resolve } from 'path';
-import { protractor } from 'gulp-protractor';
+import { protractor, webdriver_update } from 'gulp-protractor';
 
 class Protractor {
   server(port: number, dir: string) {
