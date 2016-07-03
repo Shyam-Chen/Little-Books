@@ -967,6 +967,7 @@ export class CounterComponent {
 ```
 
 ###### 生命週期掛勾
+(1) OnInit
 ```ts
 import { Component, OnInit } from '@angular/core';
 
@@ -976,6 +977,48 @@ import { Component, OnInit } from '@angular/core';
 export class AtLifecycleComponent implements OnInit {
   ngOnInit(): void {
     console.log('Hello Angular 2');
+  }
+}
+```
+
+(2) OnInit 與 OnDestroy
+```ts
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+@Component({
+  selector: 'at-lifecycle',
+  template: `
+    <p>Hello Angular 2</p>
+  `
+})
+export class LifecycleComponent implements OnInit, OnDestroy {
+  ngOnInit(): void {
+    console.log('On init');
+  }
+  
+  ngOnDestroy(): void {
+    console.log('On destroy');
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { LifecycleComponent } from './lifecycle.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <button (click)="onToggle()">點擊我</button>
+    <at-lifecycle *ngIf="display"></at-lifecycle>
+  `,
+  directives: [LifecycleComponent]
+})
+export class AppComponent {
+  public display: boolean = true;
+  
+  onToggle(): void {
+    this.display = !this.display;
   }
 }
 ```
