@@ -1507,16 +1507,17 @@ this.password = new Control('', Validators.minLength(6));
 ```ts
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { APP_BASE_HREF } from '@angular/common';
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { APP_ROUTER_PROVIDERS } from './app.routes';
 import { AppComponent } from './app.component';
 
 bootstrap(AppComponent, [
-  APP_ROUTER_PROVIDERS, {
-    provide: APP_BASE_HREF,
-    useValue: '.'
-  }
+  APP_ROUTER_PROVIDERS,
+  // provide(APP_BASE_HREF, { useValue: '.' }),
+  { provide: APP_BASE_HREF, useValue: '.' },
+  // provide(LocationStrategy, { useClass: HashLocationStrategy })
+  { provide: LocationStrategy, useClass: HashLocationStrategy }
 ]);
 ```
 ```ts
