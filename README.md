@@ -40,6 +40,7 @@
     * [建立模型](#建立模型)
     * [建立模板](#建立模版)
     * [控制表單](#控制表單)
+  * [ngControl 與 ngControlGroup](#ngcontrol-與-ngcontrolgroup)
   * 驗證與狀態
   * 錯誤提示
   * 內建驗證
