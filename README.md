@@ -27,14 +27,19 @@
     * [本地變數](#本地變數)
   * [相互關係](#相互關係)
     * [內容投射](#內容投射)
-    * [Shadow DOM](#shadow-dom)
+    * [屬性](#屬性)
     * [Input 與 Output](#input-與-output)
-    * [生命週期掛勾](#生命週期掛勾)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
     * [可選](#可選)
     * [查找](#查找)
+    * [Shadow DOM](#shadow-dom)
     * [變化檢測](#變化檢測)
+  * [生命週期掛勾](#生命週期掛勾)
+    * OnInit
+    * OnDestroy
+    * OnChanges
+    * DoCheck
 * [表單](#表單)
   * [建立表單](#建立表單)
     * [啟動表單](#啟動表單)
