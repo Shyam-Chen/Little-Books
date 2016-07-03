@@ -972,77 +972,6 @@ export class CounterComponent {
 }
 ```
 
-###### 生命週期掛勾
-
-(1) OnInit
-```ts
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app',
-  template: `
-    <p>Hello Angular 2</p>
-  `
-})
-export class AppComponent implements OnInit {
-  ngOnInit(): void {
-    console.log('Hello Angular 2');
-  }
-}
-```
-
-(2) OnDestroy
-```ts
-import { Component, OnInit, OnDestroy } from '@angular/core';
-
-@Component({
-  selector: 'at-lifecycle',
-  template: `
-    <p>Hello Angular 2</p>
-  `
-})
-export class LifecycleComponent implements OnInit, OnDestroy {
-  ngOnInit(): void {
-    console.log('On init');
-  }
-  
-  ngOnDestroy(): void {
-    console.log('On destroy');
-  }
-}
-```
-```ts
-import { Component } from '@angular/core';
-
-import { LifecycleComponent } from './lifecycle.component';
-
-@Component({
-  selector: 'app',
-  template: `
-    <button (click)="onToggle()">點擊我</button>
-    <at-lifecycle *ngIf="display"></at-lifecycle>
-  `,
-  directives: [LifecycleComponent]
-})
-export class AppComponent {
-  public display: boolean = true;
-  
-  onToggle(): void {
-    this.display = !this.display;
-  }
-}
-```
-
-(3) OnChanges
-```
-ngOnChanges() { ... }
-```
-
-(4) DoCheck
-```ts
-ngDoCheck() { ... }
-```
-
 ###### ContentChild 與 ContentChildren
 
 (1) ContentChild
@@ -1336,7 +1265,7 @@ export class Component {
 }
 ```
 
-###### 變化檢測
+##### 變化檢測
 ```ts
 import { Component } from '@angular/core';
 
@@ -1347,6 +1276,77 @@ import { Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Component { }
+```
+
+###### 生命週期掛勾
+
+###### OnInit
+```ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p>Hello Angular 2</p>
+  `
+})
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    console.log('Hello Angular 2');
+  }
+}
+```
+
+###### OnDestroy
+```ts
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+@Component({
+  selector: 'at-lifecycle',
+  template: `
+    <p>Hello Angular 2</p>
+  `
+})
+export class LifecycleComponent implements OnInit, OnDestroy {
+  ngOnInit(): void {
+    console.log('On init');
+  }
+  
+  ngOnDestroy(): void {
+    console.log('On destroy');
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { LifecycleComponent } from './lifecycle.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <button (click)="onToggle()">點擊我</button>
+    <at-lifecycle *ngIf="display"></at-lifecycle>
+  `,
+  directives: [LifecycleComponent]
+})
+export class AppComponent {
+  public display: boolean = true;
+  
+  onToggle(): void {
+    this.display = !this.display;
+  }
+}
+```
+
+###### OnChanges
+```
+ngOnChanges() { ... }
+```
+
+###### DoCheck
+```ts
+ngDoCheck() { ... }
 ```
 
 ### 表單
