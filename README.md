@@ -36,10 +36,10 @@
     * [Shadow DOM](#shadow-dom)
     * [變化檢測](#變化檢測)
   * [生命週期掛勾](#生命週期掛勾)
-    * OnInit
-    * OnDestroy
-    * OnChanges
-    * DoCheck
+    * [OnInit](#oninit)
+    * [OnDestroy](#ondestroy)
+    * [OnChanges](#onchanges)
+    * [DoCheck](#docheck)
 * [表單](#表單)
   * [建立表單](#建立表單)
     * [啟動表單](#啟動表單)
