@@ -967,21 +967,25 @@ export class CounterComponent {
 ```
 
 ###### 生命週期掛勾
+
 (1) OnInit
 ```ts
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'at-lifecycle'
+  selector: 'app',
+  template: `
+    <p>Hello Angular 2</p>
+  `
 })
-export class AtLifecycleComponent implements OnInit {
+export class AppComponent implements OnInit {
   ngOnInit(): void {
     console.log('Hello Angular 2');
   }
 }
 ```
 
-(2) OnInit 與 OnDestroy
+(2) OnDestroy
 ```ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
@@ -1023,12 +1027,14 @@ export class AppComponent {
 }
 ```
 
-```ts
-// 還可以用在指令
-ngOnInit() { ... }
+(3) OnChanges
+```
 ngOnChanges() { ... }
+```
+
+(4) DoCheck
+```ts
 ngDoCheck() { ... }
-ngOnDestroy() { ... }
 ```
 
 ###### ContentChild 與 ContentChildren
