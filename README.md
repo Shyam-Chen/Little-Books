@@ -694,11 +694,9 @@ export class AddItemComponent {
 }
 ```
 
-##### 相互關係
+##### 內容投射
 
-###### 內容投射
-
-(1) 單一投射
+###### 單一投射
 ```ts
 import { Component } from '@angular/core';
 
@@ -724,7 +722,7 @@ import { ContentProjectionComponent } from './content-projection.component';
 export class AppComponent { }
 ```
 
-(2) 多個投射
+###### 多個投射
 ```ts
 import { Component } from '@angular/core';
 
@@ -766,6 +764,8 @@ import { MoreProjectionComponent } from './more-projection.component';
 })
 export class AppComponent { }
 ```
+
+##### 相互關係
 
 ###### Shadow DOM
 
