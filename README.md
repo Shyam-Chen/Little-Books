@@ -2126,6 +2126,9 @@ provide(ColorService, { useValue: 'red' })
 provide(ColorService, { useValue: 'red' })
 provide(ColorService, { useValue: 'blue' })  // 後面會覆蓋前面
 
+// API
+provide('API_URL', { useValue: 'https://thing.api.com/v1' })
+
 [...]
 ```
 
