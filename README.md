@@ -1299,21 +1299,33 @@ export class ParentComponent implements AfterViewInit, AfterViewChecked {
 ```
 
 ###### 查找
+
+(1) queries 建構子
 ```ts
 @Component({
   selector: 'app',
-  queries: {
-    contentChildren: new ContentChildren(ChildDirective),
-    viewChildren: new ViewChildren(ChildDirective)
-  },
   template: '
     <!-- ... -->
   ',
-  directives: [ChildDirective]
+  queries: {
+    // ...
+  }
 })
 export class Component {
-  contentChildren: QueryList<ChildDirective>,
-  viewChildren: QueryList<ChildDirective>
+  // ...
+}
+```
+
+(2) Query 修飾器
+```ts
+@Component({
+  selector: 'app',
+  template: '
+    <!-- ... -->
+  '
+})
+export class Component {
+  constructor(@Query(ChildChild) childChildQuery: QueryList<ElementRef>) { }
   // ...
 }
 ```
