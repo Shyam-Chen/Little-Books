@@ -522,6 +522,10 @@ import { Component } from '@angular/core';
   selector: 'click-me',
   template: `
     <button (click)="onClick()">點擊我</button>
+
+    <!-- 或者 -->
+    <button on-click="onClick()">點擊我</button>
+
     <p>{{ message }}</p>
   `
 })
