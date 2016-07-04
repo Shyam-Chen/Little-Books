@@ -34,11 +34,11 @@
     * [Input 與 Output](#input-與-output)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
-    * [Query](#查找)
+    * [Query](#query)
   * [Shadow DOM](#shadow-dom)
-    * Emulated
-    * Native
-    * None
+    * [Emulated](#emulated)
+    * [Native](#native)
+    * [None](#none)
   * [生命週期掛勾](#生命週期掛勾)
     * [OnInit](#oninit)
     * [OnDestroy](#ondestroy)
@@ -782,110 +782,6 @@ export class AppComponent { }
 
 ##### 相互關係
 
-###### Shadow DOM
-
-(1) Emulated
-```ts
-import { Component, ViewEncapsulation } from '@angular/core';
-
-@Component({
-  selector: 'encapsulation-emulated',
-  template: `
-    <div class="pink-500">
-      <p>這是 Emulated</p>
-    </div>
-  `,
-  encapsulation: ViewEncapsulation.Emulated  // 預設值
-})
-export class EmulatedComponent { }
-```
-```ts
-import { Component } from '@angular/core';
-
-import { EmulatedComponent } from './encapsulation-emulated.component';
-
-@Component({
-  selector: 'app',
-  template: `
-    <div class="pink-500">Hello Angular 2</div>
-    <encapsulation-emulated></encapsulation-emulated>
-  `,
-  styles: [`.pink-500 { color: #E91E63 }`],
-  directives: [EmulatedComponent]
-})
-export class AppComponent { }
-```
-
-(2) Native
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'encapsulation-native',
-  template: `
-    <div class="pink-500">
-      <p>這是 Native</p>
-    </div>
-  `,
-  encapsulation: ViewEncapsulation.Native
-})
-export class NativeComponent { }
-```
-```ts
-import { Component } from '@angular/core';
-
-import { NativeComponent } from './encapsulation-native.component';
-
-@Component({
-  selector: 'app',
-  template: `
-    <div class="pink-500">Hello Angular 2</div>
-    <encapsulation-native></encapsulation-native>
-  `,
-  styles: [`.pink-500 { color: #E91E63 }`],
-  directives: [NativeComponent]
-})
-export class AppComponent { }
-```
-
-(3) None
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'encapsulation-none',
-  template: `
-    <div class="pink-500 other-pink">
-      <p>這是 None</p>
-    </div>
-  `,
-  styles: [`
-    .other-pink {
-      background-color: #E91E63;
-      color: #FFFFFF;
-    }
-  `],
-  encapsulation: ViewEncapsulation.None
-})
-export class NoneComponent { }
-```
-```ts
-import { Component } from '@angular/core';
-
-import { NoneComponent } from './encapsulation-none.component';
-
-@Component({
-  selector: 'app',
-  template: `
-    <div class="pink-500">Hello Angular 2</div>
-    <encapsulation-none></encapsulation-none>
-  `,
-  styles: [`.pink-500 { color: #E91E63 }`],
-  directives: [NoneComponent]
-})
-export class AppComponent { }
-```
-
 ###### Input 與 Output
 
 (1) Input 建構子
@@ -1250,9 +1146,9 @@ export class ParentComponent implements AfterViewInit, AfterViewChecked {
 }
 ```
 
-###### 查找
+###### Query
 
-(1) queries 建構子
+(1) 建構子
 ```ts
 @Component({
   selector: 'app',
@@ -1268,7 +1164,7 @@ export class Component {
 }
 ```
 
-(2) Query 修飾器
+(2) 修飾器
 ```ts
 @Component({
   selector: 'app',
@@ -1280,6 +1176,110 @@ export class Component {
   constructor(@Query(ChildChild) childChildQuery: QueryList<ElementRef>) { }
   // ...
 }
+```
+
+##### Shadow DOM
+
+###### Emulated
+```ts
+import { Component, ViewEncapsulation } from '@angular/core';
+
+@Component({
+  selector: 'encapsulation-emulated',
+  template: `
+    <div class="pink-500">
+      <p>這是 Emulated</p>
+    </div>
+  `,
+  encapsulation: ViewEncapsulation.Emulated  // 預設值
+})
+export class EmulatedComponent { }
+```
+```ts
+import { Component } from '@angular/core';
+
+import { EmulatedComponent } from './encapsulation-emulated.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <div class="pink-500">Hello Angular 2</div>
+    <encapsulation-emulated></encapsulation-emulated>
+  `,
+  styles: [`.pink-500 { color: #E91E63 }`],
+  directives: [EmulatedComponent]
+})
+export class AppComponent { }
+```
+
+###### Native
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'encapsulation-native',
+  template: `
+    <div class="pink-500">
+      <p>這是 Native</p>
+    </div>
+  `,
+  encapsulation: ViewEncapsulation.Native
+})
+export class NativeComponent { }
+```
+```ts
+import { Component } from '@angular/core';
+
+import { NativeComponent } from './encapsulation-native.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <div class="pink-500">Hello Angular 2</div>
+    <encapsulation-native></encapsulation-native>
+  `,
+  styles: [`.pink-500 { color: #E91E63 }`],
+  directives: [NativeComponent]
+})
+export class AppComponent { }
+```
+
+###### None
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'encapsulation-none',
+  template: `
+    <div class="pink-500 other-pink">
+      <p>這是 None</p>
+    </div>
+  `,
+  styles: [`
+    .other-pink {
+      background-color: #E91E63;
+      color: #FFFFFF;
+    }
+  `],
+  encapsulation: ViewEncapsulation.None
+})
+export class NoneComponent { }
+```
+```ts
+import { Component } from '@angular/core';
+
+import { NoneComponent } from './encapsulation-none.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <div class="pink-500">Hello Angular 2</div>
+    <encapsulation-none></encapsulation-none>
+  `,
+  styles: [`.pink-500 { color: #E91E63 }`],
+  directives: [NoneComponent]
+})
+export class AppComponent { }
 ```
 
 ##### 變化檢測
