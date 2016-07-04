@@ -35,13 +35,18 @@
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
     * [Query](#查找)
-    * [Shadow DOM](#shadow-dom)
+  * [Shadow DOM](#shadow-dom)
+    * Emulated
+    * Native
+    * None
   * [生命週期掛勾](#生命週期掛勾)
     * [OnInit](#oninit)
     * [OnDestroy](#ondestroy)
     * [OnChanges](#onchanges)
     * [DoCheck](#docheck)
   * [變化檢測](#變化檢測)
+    * Default
+    * OnPush
 * [表單](#表單)
   * [建立表單](#建立表單)
     * [啟動表單](#啟動表單)
