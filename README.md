@@ -53,8 +53,10 @@
     * [建立模型](#建立模型)
     * [建立模板](#建立模版)
     * [控制表單](#控制表單)
-  * [ngControl 與 ngControlGroup](#ngcontrol-與-ngcontrolgroup)
-  * ngFormModel
+  * 表單方法
+    * ngModel
+    * [ngControl 與 ngControlGroup](#ngcontrol-與-ngcontrolgroup)
+    * ngFormModel
   * 驗證與狀態
   * 非同步驗證
 * [路由](#路由)
@@ -1448,6 +1450,8 @@ ControlArray()
 FormBuilder
 Validators
 ```
+
+###### ngModel
 
 ###### ngControl 與 ngControlGroup
 ```ts
