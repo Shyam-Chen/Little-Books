@@ -507,6 +507,8 @@ import { Component } from '@angular/core';
   template: `
     <input type="text" [(ngModel)]="name" placeholder="輸入你的名字">
     <p>{{ name }}</p>
+
+    <!-- ngModel 指令可以查看表單章節 -->
   `
 })
 export class TwoWayBindingComponent {
