@@ -53,7 +53,7 @@
     * [建立模型](#建立模型)
     * [建立模板](#建立模版)
     * [控制表單](#控制表單)
-  * 表單方法
+  * [表單方法](#表單方法)
     * ngModel
     * [ngControl 與 ngControlGroup](#ngcontrol-與-ngcontrolgroup)
     * ngFormModel
