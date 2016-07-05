@@ -29,11 +29,11 @@
     * [單一投射](#單一投射)
     * [選擇投射](#選擇投射)
   * [相互關係](#相互關係)
-    * [Attribute](#屬性)
-    * [Optional](#可選)
+    * [Attribute](#attribute)
     * [Input 與 Output](#input-與-output)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
+    * [Optional](#optional)
     * [Query](#query)
   * [Shadow DOM](#shadow-dom)
     * [Emulated](#emulated)
@@ -809,8 +809,6 @@ import { AttributeComponent } from './attribute.component';
 export class AppComponent { }
 ```
 
-###### Optional
-
 ###### Input 與 Output
 
 (1) Input 建構子
@@ -1175,10 +1173,32 @@ export class ParentComponent implements AfterViewInit, AfterViewChecked {
 }
 ```
 
+###### Optional
+```ts
+import { Component, Optional } from '@angular/core';
+
+import { ThingService } from './thing.service';
+
+@Component({
+  selector: 'app',
+  template: '
+    <!-- ... -->
+  ',
+  viewProviders: [ThingService]
+})
+export class Component {
+  constructor(@Optional() thingService: ThingService) {
+    // ...
+  }
+}
+```
+
 ###### Query
 
 (1) 建構子
 ```ts
+import { Component } from '@angular/core';
+
 @Component({
   selector: 'app',
   template: '
@@ -1195,6 +1215,8 @@ export class Component {
 
 (2) 修飾器
 ```ts
+import { Component, Query } from '@angular/core';
+
 @Component({
   selector: 'app',
   template: '
