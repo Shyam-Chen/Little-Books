@@ -782,6 +782,10 @@ export class AppComponent { }
 
 ##### 相互關係
 
+###### Attribute
+
+###### Optional
+
 ###### Input 與 Output
 
 (1) Input 建構子
