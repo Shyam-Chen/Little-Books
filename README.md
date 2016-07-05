@@ -1313,19 +1313,6 @@ export class AppComponent { }
 
 ##### 變化檢測
 
-###### Default
-```ts
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-
-@Component({
-  selector: 'at-default',
-  template: `
-  `,
-  changeDetection: ChangeDetectionStrategy.Default
-})
-export class DefaultComponent { }
-```
-
 ###### OnPush
 ```ts
 import { Component, ChangeDetectionStrategy } from '@angular/core';
@@ -1337,6 +1324,19 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OnPushComponent { }
+```
+
+###### Default
+```ts
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
+@Component({
+  selector: 'at-default',
+  template: `
+  `,
+  changeDetection: ChangeDetectionStrategy.Default
+})
+export class DefaultComponent { }
 ```
 
 ##### 生命週期掛鉤
