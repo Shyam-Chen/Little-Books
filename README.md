@@ -783,6 +783,31 @@ export class AppComponent { }
 ##### 相互關係
 
 ###### Attribute
+```ts
+import { Component, Attribute } from '@angular/core';
+
+@Component({
+  selector: 'at-attribute',
+  template: `<p>Hello Angular 2</p>`
+})
+export class AttributeComponent {
+  constructor(@Attribute('messages') messagesLog: string) {
+    console.log(messagesLog);
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { AttributeComponent } from './attribute.component';
+
+@Component({
+  selector: 'app',
+  template: `<at-attribute messages="Hello Angular 2"></at-attribute>`,
+  directives:[AttributeComponent]
+})
+export class AppComponent { }
+```
 
 ###### Optional
 
