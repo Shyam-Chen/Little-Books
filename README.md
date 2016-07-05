@@ -39,14 +39,14 @@
     * [Emulated](#emulated)
     * [Native](#native)
     * [None](#none)
-  * [生命週期掛勾](#生命週期掛勾)
+  * [生命週期掛鉤](#生命週期掛鉤)
     * [OnInit](#oninit)
     * [OnDestroy](#ondestroy)
     * [OnChanges](#onchanges)
     * [DoCheck](#docheck)
   * [變化檢測](#變化檢測)
-    * Default
-    * OnPush
+    * [Default](#default)
+    * [OnPush](#onpush)
 * [表單](#表單)
   * [建立表單](#建立表單)
     * [啟動表單](#啟動表單)
@@ -1028,7 +1028,7 @@ import { ChildComponent } from './child.component';
 export class AppComponent { }
 ```
 
-(3) 生命週期掛勾
+(3) 生命週期掛鉤
 ```ts
 // 導入 AfterContentInit 與 AfterContentChecked
 import { AfterContentInit, AfterContentChecked } from '@angular/core';
@@ -1149,7 +1149,7 @@ export class ParentComponent {
 }
 ```
 
-(3) 生命週期掛勾
+(3) 生命週期掛鉤
 ```ts
 import { Component, ViewChildren, QueryList, AfterViewInit, AfterViewChecked } from '@angular/core';
 
@@ -1312,19 +1312,34 @@ export class AppComponent { }
 ```
 
 ##### 變化檢測
+
+###### Default
 ```ts
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: '',
+  selector: 'at-default',
+  template: `
+  `,
+  changeDetection: ChangeDetectionStrategy.Default
+})
+export class DefaultComponent { }
+```
+
+###### OnPush
+```ts
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
+@Component({
+  selector: 'at-onpush',
   template: `
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Component { }
+export class OnPushComponent { }
 ```
 
-###### 生命週期掛勾
+##### 生命週期掛鉤
 
 ###### OnInit
 ```ts
