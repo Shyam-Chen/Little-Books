@@ -88,7 +88,11 @@
   * 層疊注入
   * 型別
 * [通訊](#通訊)
-  * 獲取資料
+  * [基本的 Get](#基本的-get)
+    * [啟動 HTTP](#啟動-http)
+    * [建立服務](#建立服務)
+    * [準備資料](#準備資料)
+    * [使用服務](#使用服務)
   * 錯誤處理
   * 平行請求
   * 發送資料
@@ -2313,7 +2317,9 @@ import { Inject, Injectable, Injector, OpaqueToken, provide } from '@angular/cor
 
 ### 通訊
 
-啟動 HTTP
+##### 基本的 Get
+
+###### 啟動 HTTP
 ```ts
 import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
@@ -2329,7 +2335,7 @@ import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
 export class AppComponent { }
 ```
 
-建立服務
+###### 建立服務
 ```ts
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
@@ -2348,7 +2354,7 @@ export class SampleService {
 }
 ```
 
-準備資料
+###### 準備資料
 ```js
 // data.json
 {
@@ -2357,7 +2363,7 @@ export class SampleService {
 }
 ```
 
-使用服務
+###### 使用服務
 ```ts
 import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
