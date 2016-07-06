@@ -2315,25 +2315,24 @@ import { Inject, Injectable, Injector, OpaqueToken, provide } from '@angular/cor
 ```ts
 [...]
 
-import { HTTP_PROVIDERS } from '@angular/http';
+import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
 
 [...]
 
 @Component({
-  [...]
-
-  providers: [HTTP_PROVIDERS]
-
-  [...]
+  selector: 'app',
+  providers: [HTTP_PROVIDERS]  // 註冊到全應用程式裡 
+  // ...
 })
-
-[...]
+export class AppComponent {
+  // ...
+}
 ```
 ```js
 // data.json
 {
   "title": "Angular2-in-Action",
-  "description": "Angular 2 實戰"
+  "description": "Angular 2 實戰手冊"
 }
 ```
 ```ts
