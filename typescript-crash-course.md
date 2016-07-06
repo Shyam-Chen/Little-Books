@@ -84,8 +84,8 @@ const enum Thing3 (
 ```ts
 // 任意值
 let notSure: any = 123;
-notSure = 'abc';
-notSure = 'true';
+notSure = 'abc';  // OK
+notSure = 'true';  // OK
 ```
 ```ts
 // 空值
