@@ -2362,7 +2362,7 @@ export class SampleService {
 import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 
-import { SampleService } from './sample.service'
+import { SampleService } from './sample.service';
 
 @Component({
   selector: 'app',
