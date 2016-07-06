@@ -2331,11 +2331,12 @@ export class AppComponent {
 }
 ```
 
-建立通訊服務
+建立服務
 ```ts
 import { Injectable } from '@angular/core';
-
 import { Http } from '@angular/http';
+
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SampleService {
@@ -2344,7 +2345,7 @@ export class SampleService {
   sampleMethod(): any {
     return this.http
       .get('./data.json')
-      // ...
+      .map(res => res.json());
   }
 }
 ```
