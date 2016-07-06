@@ -2367,21 +2367,24 @@ import { SampleService } from './sample.service';
 @Component({
   selector: 'app',
   template: `
-    <button (click)="onRequest">Get 請求</button>
-    <p>{{ getData }}</p>
+    <button (click)="onRequest()">點擊我</button>
+    <pre>{{ messages }}</pre>
   `,
   providers: [HTTP_PROVIDERS],
   viewProviders: [SampleService]
 })
 export class AppComponent {
   constructor(private sampleService: SampleService) { }
-  onRequest(): void {
+
+  onRequest() {
+    console.log('請求開始');
+
     this.sampleService
       .sampleMethod()
       .subscribe(
-        data => this.getData = JSON.stringify(data),
+        data => this.messages = JSON.stringify(data),
         err => console.log(err),
-        () => console.log('完成請求')
+        () => console.log('請求結束')
       );
   }
 }
