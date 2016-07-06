@@ -2312,6 +2312,8 @@ import { Inject, Injectable, Injector, OpaqueToken, provide } from '@angular/cor
 ```
 
 ### 通訊
+
+啟動 HTTP
 ```ts
 [...]
 
@@ -2328,6 +2330,26 @@ export class AppComponent {
   // ...
 }
 ```
+
+建立通訊服務
+```ts
+import { Injectable } from '@angular/core';
+
+import { Http } from '@angular/http';
+
+@Injectable()
+export class SampleService {
+  constructor(private http: Http) { }
+  
+  sampleMethod(): any {
+    return this.http
+      .get('./data.json')
+      // ...
+  }
+}
+```
+
+準備資料
 ```js
 // data.json
 {
@@ -2335,6 +2357,9 @@ export class AppComponent {
   "description": "Angular 2 實戰手冊"
 }
 ```
+
+***
+
 ```ts
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Http } from '@angular/http';
