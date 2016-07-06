@@ -2378,6 +2378,11 @@ export class AppComponent {
   onRequest(): void {
     this.sampleService
       .sampleMethod()
+      .subscribe(
+        data => this.getData = JSON.stringify(data),
+        err => console.log(err),
+        () => console.log('完成請求')
+      );
   }
 }
 ```
