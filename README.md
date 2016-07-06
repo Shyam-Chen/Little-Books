@@ -2348,7 +2348,7 @@ export class SampleService {
   
   sampleMethod(): any {
     return this.http
-      .get('./data.json')
+      .get('./assets/data.json')
       .map(res => res.json());
   }
 }
@@ -2382,7 +2382,7 @@ import { SampleService } from './sample.service';
 export class AppComponent {
   constructor(private sampleService: SampleService) { }
 
-  onRequest() {
+  onRequest(): void {
     console.log('請求開始');
 
     this.sampleService
