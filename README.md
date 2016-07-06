@@ -2315,16 +2315,19 @@ import { Inject, Injectable, Injector, OpaqueToken, provide } from '@angular/cor
 
 啟動 HTTP
 ```ts
-[...]
-
+import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
 
-[...]
+import { SampleService } from './sample.service'
 
 @Component({
   selector: 'app',
-  providers: [HTTP_PROVIDERS]  // 註冊到全應用程式裡 
-  // ...
+  template: `
+    <button>Get 請求</button>
+    <p>{{ getData }}</p>
+  `,
+  providers: [HTTP_PROVIDERS],  // 註冊到全應用程式裡
+  viewProviders: [SampleService]
 })
 export class AppComponent {
   // ...
