@@ -1641,8 +1641,6 @@ export class FormComponent { }
 this.password = new Control('', Validators.minLength(6));
 ```
 
-##### 錯誤處理
-
 ### 路由
 ##### 使用路由
 ```ts
