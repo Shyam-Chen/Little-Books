@@ -93,7 +93,7 @@
     * [建立服務](#建立服務)
     * [準備資料](#準備資料)
     * [使用服務](#使用服務)
-    * [換成 Promise](#換成-promise)
+    * [倒退為 Promise](#倒退為-promise)
   * 錯誤處理
   * 平行請求
   * 發送資料
@@ -2397,7 +2397,7 @@ export class AppComponent {
 }
 ```
 
-###### 換成 Promise
+###### 倒退為 Promise
 ```ts
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
