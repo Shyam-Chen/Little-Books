@@ -28,7 +28,7 @@
   * [內容投射](#內容投射)
     * [單一投射](#單一投射)
     * [選擇投射](#選擇投射)
-  * [屬性與參數](#相互關係)
+  * [相互關係](#相互關係)
     * [Attribute](#attribute)
     * [Input 與 Output](#input-與-output)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
