@@ -93,6 +93,7 @@
     * [建立服務](#建立服務)
     * [準備資料](#準備資料)
     * [使用服務](#使用服務)
+    * [換成 Promise](#換成-promise)
   * 錯誤處理
   * 平行請求
   * 發送資料
@@ -2391,6 +2392,41 @@ export class AppComponent {
         data => this.messages = JSON.stringify(data),
         err => console.log(err),
         () => console.log('請求結束')
+      );
+  }
+}
+```
+
+###### 換成 Promise
+```ts
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
+
+@Injectable()
+export class SampleService {
+  constructor(private http: Http) { }
+  
+  sampleMethod(): any {
+    return this.http
+      .get('./data.json')
+      .toPromise()
+      .then(res => res.json());
+  }
+}
+```
+```ts
+[...]
+export class AppComponent {
+  constructor(private sampleService: SampleService) { }
+
+  onRequest(): void {
+    this.sampleService
+      .sampleMethod()
+      .then(
+        data => this.messages = JSON.stringify(data),
+        err => console.log(err)
       );
   }
 }
