@@ -29,12 +29,11 @@
     * [單一投射](#單一投射)
     * [選擇投射](#選擇投射)
   * [屬性與參數](#相互關係)
+    * [Attribute](#attribute)
     * [Input 與 Output](#input-與-output)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
     * [Query 與 ViewQuery](#query)
-    * [Attribute](#attribute)
-    * [Optional](#optional)
   * [Shadow DOM](#shadow-dom)
     * [Emulated](#emulated)
     * [Native](#native)
@@ -85,6 +84,8 @@
     * [基本構造](#基本構造)
     * [簡單的服務](#簡單的服務)
   * 相依性注入
+  * Optional 與 Host
+  * Self 與 SkipSelf
   * 層疊注入
   * 型別
 * [通訊](#通訊)
