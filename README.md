@@ -2,7 +2,7 @@
 
 ### 目錄
 * ---------- 啟程 ----------
-* [初識 Angular 2](#初識-angular-2)
+* 初識 Angular 2
   * Angular 2 是什麼?
   * 為什麼要 Angular 2?
   * 先決條件
@@ -140,9 +140,8 @@
 
 ***
 
-### 初識 Angular 2
-
 ### 環境配置
+
 ##### 既有的樣板
 * [使用 Angular CLI](https://github.com/angular/angular-cli)
 * [使用 Gulp](https://github.com/mgechev/angular2-seed)
