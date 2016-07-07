@@ -2321,6 +2321,7 @@ import { Inject, Injectable, Injector, OpaqueToken, provide } from '@angular/cor
 
 ###### 啟動 HTTP
 ```ts
+// src/app/app.component.ts
 import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
 
@@ -2337,6 +2338,7 @@ export class AppComponent { }
 
 ###### 建立服務
 ```ts
+// src/app/sample.service.ts
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
@@ -2349,14 +2351,14 @@ export class SampleService {
   sampleMethod(): any {
     return this.http
       .get('./assets/data.json')
-      .map(res => res.json());
+      .map(res => res.json());  // 解析成 JSON
   }
 }
 ```
 
 ###### 準備資料
 ```js
-// data.json
+// src/assets/data.json
 {
   "title": "Angular2-in-Action",
   "description": "Angular 2 實戰手冊"
@@ -2365,6 +2367,7 @@ export class SampleService {
 
 ###### 使用服務
 ```ts
+// src/app/app.component.ts
 import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 
@@ -2398,6 +2401,7 @@ export class AppComponent {
 
 ###### 倒退為 Promise
 ```ts
+// src/app/sample.service.ts
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
@@ -2416,6 +2420,7 @@ export class SampleService {
 }
 ```
 ```ts
+// src/app/app.component.ts
 [...]
 export class AppComponent {
   constructor(private sampleService: SampleService) { }
