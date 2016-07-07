@@ -1181,29 +1181,9 @@ export class ParentComponent implements AfterViewInit, AfterViewChecked {
 }
 ```
 
-###### Optional
-```ts
-import { Component, Optional } from '@angular/core';
+###### Query 與 ViewQuery
 
-import { ThingService } from './thing.service';
-
-@Component({
-  selector: 'app',
-  template: '
-    <!-- ... -->
-  ',
-  viewProviders: [ThingService]
-})
-export class Component {
-  constructor(@Optional() thingService: ThingService) {
-    // ...
-  }
-}
-```
-
-###### Query
-
-(1) 建構子
+(1) Query 建構子
 ```ts
 import { Component } from '@angular/core';
 
@@ -1221,7 +1201,7 @@ export class Component {
 }
 ```
 
-(2) 修飾器
+(2) Query 修飾器
 ```ts
 import { Component, Query } from '@angular/core';
 
@@ -2195,7 +2175,6 @@ export class AppComponent {
   }
 }
 
-
 // 使用 Inject 修飾器
 
 import { Component, Inject } from '@angular/core';
@@ -2266,6 +2245,33 @@ export class AppComponent implements OnInit {
   ngOnInit() { this.getList(); }
 }
 ```
+
+###### Optional 與 Host
+
+(1) Optional
+```ts
+import { Component, Optional } from '@angular/core';
+
+import { ThingService } from './thing.service';
+
+@Component({
+  selector: 'app',
+  template: '
+    <!-- ... -->
+  ',
+  viewProviders: [ThingService]
+})
+export class Component {
+  constructor(@Optional() thingService: ThingService) {
+    // ...
+  }
+}
+```
+
+(2) Host
+```ts
+
+``
 
 ```ts
 [...]
