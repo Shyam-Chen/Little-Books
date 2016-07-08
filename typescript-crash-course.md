@@ -114,12 +114,12 @@ foo = 123;  // OK
 ```
 ```ts
 // 型別別名
-type ThingType = string | number | boolean;
+type ThingType = string | number;
 let foo: ThingType;
 
 foo = 'abc';  // OK
 foo = 123;  // OK
-foo = true;  // OK
+foo = true;  // Error
 ```
 
 ### 命名空間與模組
@@ -127,7 +127,7 @@ foo = true;  // OK
 namespace Thing {
   export let prefix: string = 'ng-';
   export interface Foo { }
-  export function bar() {  }
+  export function bar() { }
   export class Baz { }
 }
 ```
@@ -135,7 +135,7 @@ namespace Thing {
 ```ts
 // thing.d.ts
 declare module 'thing-module' {
-  export function fn(): void;
+  export function foo(): void;
 }
 ```
 ```ts
