@@ -131,7 +131,9 @@
   * [單元測試](#單元測試)
     * Karma
   * [端對端測試](#端對端測試)
-    * Protractor
+    * [安裝 Protractor](#安裝-protractor)
+    * [配置 Protractor](#配置-protractor)
+    * [第一個測試](#第一個測試)
   * [持續整合](#持續整合)
     * Travis CI
 * ---------- 附錄 ----------
@@ -3211,11 +3213,15 @@ class TestComponent { }
 ```
 
 ##### 端對端測試
+
+###### 安裝 Protractor
 ```bash
 $ npm i protractor -D
 $ typings i dt~angular-protractor -G -S
 $ typings i dt~selenium-webdriver -G -S
 ```
+
+###### 配置 Protractor
 ```js
 // protractor.conf.js
 const tsNode = require('ts-node');
@@ -3249,6 +3255,8 @@ const config = {
 
 exports.config = config;
 ```
+
+###### 第一個測試
 ```ts
 // hello-e2e.component.ts
 import { Component } from '@angular/core';
