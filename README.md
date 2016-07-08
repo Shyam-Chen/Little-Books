@@ -1369,28 +1369,60 @@ export class AppComponent { }
 
 ###### OnPush
 ```ts
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
-  selector: 'at-onpush',
-  template: `
-  `,
+  selector: 'change-detection',
+  template: `<p>{{ onePiece.name }}</p>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OnPushComponent { }
+export class ChangeDetectionComponent {
+  @Input() onePiece: string;
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { ChangeDetectionComponent } from './change-detection.component';
+
+class OnePiece {
+  constructor(private name) { }
+}
+
+@Component({
+  selector: 'app',
+  template: `
+    <button (click)="changeProperty()">改變屬性</button>
+    <button (click)="changeObject()">改變物件</button>
+    <change-detection [onePiece]="onePiece"></change-detection>
+  `,
+  directives: [ChangeDetectionComponent]
+})
+export class AppComponent {
+  public onePiece: OnePiece = new OnePiece('魯夫');
+
+  changeProperty(): void {
+    this.onePiece.name = '薩波';
+  }
+  
+  changeObject(): void {
+    this.onePiece = new OnePiece('艾斯');
+  }
+}
 ```
 
 ###### Default
 ```ts
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
-  selector: 'at-default',
-  template: `
-  `,
-  changeDetection: ChangeDetectionStrategy.Default
+  selector: 'change-detection',
+  template: `<p>{{ onePiece.name }}</p>`,
+  changeDetection: ChangeDetectionStrategy.Default  // 改成 Default，再看一次
 })
-export class DefaultComponent { }
+export class ChangeDetectionComponent {
+  @Input() onePiece: string;
+}
 ```
 
 ##### 生命週期掛鉤
