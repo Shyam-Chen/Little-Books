@@ -3396,7 +3396,31 @@ exports.config = config;
 ```
 
 ```bash
-$ npm i express gulp-protractor -D
+$ npm install express gulp-protractor -D
+$ typings install dt~express -D
+$ typings install dt~gulp-protractor -D
+```
+
+建立 express-history-api-fallback.d.ts
+```ts
+// tools/manual_typings/express-history-api-fallback.d.ts
+declare module 'express-history-api-fallback' {
+  import { RequestHandler } from 'express';
+
+  interface IOptions {
+    maxAge?: number;
+    root?: string;
+    lastModified?: number;
+    headers?: { [key: string]: string; };
+    dotfiles?: boolean;
+  }
+
+  function fallback(index: string, options?: IOptions): RequestHandler;
+
+  module fallback { }
+
+  export = fallback;
+}
 ```
 
 ```js
@@ -3423,7 +3447,7 @@ class Protractor {
 
 gulp.task('webdriver', webdriver_update);
 
-gulp.task('e2e', (done) => {
+gulp.task('e2e', (done: any) => {
   new Protractor()
     .server(9876, './public')
     .then((server: any) => {
