@@ -1274,7 +1274,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
       <p>這是 Emulated</p>
     </div>
   `,
-  encapsulation: ViewEncapsulation.Emulated  // 預設值
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class EmulatedComponent { }
 ```
