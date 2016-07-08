@@ -1,7 +1,6 @@
 # Angular 2 實戰手冊
 
 ### 目錄
-* ---------- 啟程 ----------
 * 初識 Angular 2
   * Angular 2 是什麼?
   * 為什麼要 Angular 2?
@@ -11,7 +10,6 @@
   * [簡單的配置](#簡單的配置)
   * [開始使用](#開始使用)
   * [專案架構](#專案架構)
-* ---------- 開發 ----------
 * [元件](#元件)
   * [初識元件](#初識元件)
     * [建構子](#建構子)
@@ -127,15 +125,15 @@
   * 時間軸
   * 影格
   * 平行
-* ---------- 測試 ----------
-* [靜態分析](#靜態分析)
-  * [使用 Codelyzer](#使用-codelyzer)
-* [單元測試](#單元測試)
-  * Karma
-* [端對端測試](#端對端測試)
-  * Protractor
-* [持續整合](#持續整合)
-  * Travis CI
+* [測試](#測試)
+  * [靜態分析](#靜態分析)
+    * [使用 Codelyzer](#使用-codelyzer)
+  * [單元測試](#單元測試)
+    * Karma
+  * [端對端測試](#端對端測試)
+    * Protractor
+  * [持續整合](#持續整合)
+    * Travis CI
 * ---------- 附錄 ----------
 * [TypeScript 速成班](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/typescript-crash-course.md)
 * [資源](https://github.com/Shyam-Chen/Angular2-in-Action/tree/master/libs)
@@ -2965,8 +2963,11 @@ export class ThingComponent {
 }
 ```
 
-### 靜態分析
-##### 使用 Codelyzer
+### 測試
+
+##### 靜態分析
+
+###### 使用 Codelyzer
 ```bash
 $ npm i tslint codelyzer -D
 ```
@@ -2998,7 +2999,7 @@ $ npm i tslint codelyzer -D
 $ tslint src/**/*.ts  # 把它封裝在 package.json 的 scripts
 ```
 
-### 單元測試
+##### 單元測試
 ```js
 // test-main.js
 if (!Object.hasOwnProperty('name')) {
@@ -3209,7 +3210,7 @@ export function main() {
 class TestComponent { }
 ```
 
-### 端對端測試
+##### 端對端測試
 ```bash
 $ npm i protractor -D
 $ typings i dt~angular-protractor -G -S
@@ -3287,7 +3288,7 @@ $ webdriver-manager update
 $ protractor protractor.conf.js
 ```
 
-### 持續整合
+##### 持續整合
 ```bash
 # .travis.yml
 language: node_js
