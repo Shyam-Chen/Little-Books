@@ -1203,18 +1203,62 @@ export class Component {
 
 (2) Query 修飾器
 ```ts
-import { Component, Query } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'at-child',
+  template: '
+    <p>這是「子」元件 - 1</p>
+  '
+})
+export class ChildComponent {
+  public messages: string = '這是「子」元件 - 2';
+}
+```
+```ts
+import { Component, Query, QueryList, ElementRef } from '@angular/core';
+
+@Component({
+  selector: 'at-parent',
   template: '
     <!-- ... -->
   '
 })
-export class Component {
-  constructor(@Query(ChildChild) childChildQuery: QueryList<ElementRef>) { }
+export class ParentComponent {
+  constructor(
+    @Query('messages') elementRefQuery: QueryList<ElementRef>,
+    @Query(ChildComponent) childComponentQuery: QueryList<ElementRef>,
+    @Query('thing', { descendants: true }) childComponentThing: QueryList<ElementRef>
+  ) { }
   // ...
 }
+```
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: '
+    <at-parent>
+      <p #messages>{{ messages }}</p>
+      <at-child>
+        <p #thing>{{ thing }}</p>
+      </at-child>
+    </at-parent>
+  ',
+  directives: [
+    ParentComponent,
+    ChildComponent
+  ]
+})
+export class AppComponent {
+  public messages: string = '';
+}
+```
+
+(3) ViewQuery 修飾器
+```ts
+// 匹配的條件是從 ViewChildren
 ```
 
 ##### Shadow DOM
