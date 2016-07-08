@@ -31,7 +31,7 @@
     * [Input 與 Output](#input-與-output)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
-    * [Query 與 ViewQuery](#query)
+    * [Query 與 ViewQuery](#query-與-viewquery)
   * [Shadow DOM](#shadow-dom)
     * [Emulated](#emulated)
     * [Native](#native)
@@ -1166,13 +1166,15 @@ import { ChildComponent } from './child.component';
 })
 export class ParentComponent implements AfterViewInit, AfterViewChecked {
   // ...
-  
+
+  // 使用 AfterViewInit
   ngAfterViewInit() {
     console.log('AfterViewInit 開始');
     console.log(this.childComponents);
     console.log('AfterViewInit 結束');
   }
-  
+
+  // 使用 AfterViewChecked
   ngAfterViewChecked() {
     console.log('AfterViewChecked 開始');
     console.log(this.childComponents);
