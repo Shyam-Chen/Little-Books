@@ -745,7 +745,7 @@ import { ContentProjectionComponent } from './content-projection.component';
 export class AppComponent { }
 ```
 
-###### 多個投射
+###### 選擇投射
 ```ts
 import { Component } from '@angular/core';
 
