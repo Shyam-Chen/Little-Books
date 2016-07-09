@@ -31,7 +31,7 @@
     * [Input 與 Output](#input-與-output)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
-    * [Query 與 ViewQuery](#query-與-viewquery)
+    * [<s>Query 與 ViewQuery</s>](#query-與-viewquery)
   * [Shadow DOM](#shadow-dom)
     * [Emulated](#emulated)
     * [Native](#native)
