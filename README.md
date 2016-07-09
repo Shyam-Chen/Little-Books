@@ -1088,13 +1088,6 @@ export class AppComponent { }
 
 (3) 生命週期掛鉤
 ```ts
-// 導入 AfterContentInit 與 AfterContentChecked
-import { AfterContentInit, AfterContentChecked } from '@angular/core';
-
-// 混入 AfterContentInit 與 AfterContentChecked
-export class ThingComponent implements AfterContentInit, AfterContentChecked { }
-```
-```ts
 import { Component, ContentChildren, QueryList, AfterContentInit, AfterContentChecked } from '@angular/core';
 
 import { ChildComponent } from './child.component';
@@ -1129,7 +1122,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-child',
-  template: `<p>這是「子」元件</p>`
+  template: `
+    <p>這是「子」元件</p>
+  `
 })
 export class ChildComponent {
   onLog(): void { console.log('一個日誌'); }
@@ -1243,9 +1238,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app',
-  template: '
+  template: `
     <!-- ... -->
-  ',
+  `,
   queries: {
     // ...
   }
@@ -1261,9 +1256,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-child',
-  template: '
+  template: `
     <p>這是「子」元件 - 1</p>
-  '
+  `
 })
 export class ChildComponent {
   public messages: string = '這是「子」元件 - 2';
@@ -1274,9 +1269,9 @@ import { Component, Query, QueryList, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'at-parent',
-  template: '
+  template: `
     <!-- ... -->
-  '
+  `
 })
 export class ParentComponent {
   constructor(
@@ -1292,14 +1287,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app',
-  template: '
+  template: `
     <at-parent>
       <p #messages>{{ messages }}</p>
       <at-child>
         <p #thing>{{ thing }}</p>
       </at-child>
     </at-parent>
-  ',
+  `,
   directives: [
     ParentComponent,
     ChildComponent
@@ -1471,8 +1466,10 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'change-detection',
-  template: `<p>{{ onePiece.name }}</p>`,
-  changeDetection: ChangeDetectionStrategy.Default  // 改成 Default，再看一次
+  template: `
+    <p>{{ onePiece.name }}</p>
+  `,
+  changeDetection: ChangeDetectionStrategy.Default  // 改成 Default，就能改變屬性
 })
 export class ChangeDetectionComponent {
   @Input() onePiece: string;
@@ -1546,7 +1543,9 @@ import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'at-lifecycle',
-  template: `<p>{{ messages }}</p>`
+  template: `
+    <p>{{ messages }}</p>
+  `
 })
 export class LifecycleComponent implements OnChanges {
   @Input() messages: string;
@@ -1605,7 +1604,7 @@ import { Component } from '@angular/core';
   selector: 'at-form',
   template: `
     <form #atForm="ngForm" novalidate>
-      <!-- 一些程式碼寫在這裡 -->
+      <!-- ... -->
     </form>
   `
 })
@@ -1941,7 +1940,7 @@ import { Component } from '@angular/core';
     <p *ngIf="true">我看的到它</p>
     <p *ngIf="false">我看不到它</p>
 
-    <!-- or -->
+    <!-- 或者 -->
 
     <template [ngIf]="true">
       <p>我看的到它</p>
@@ -2043,11 +2042,11 @@ export class EditComponent {
 
   public edited: List;
 
-  onEdit(item: List) {
+  onEdit(item: List): void {
     this.edited = item;
   }
-  
-  onSave() {
+
+  onSave(): void {
     this.edited = false;
   }
 }
@@ -2119,7 +2118,7 @@ export class AppComponent {
 
 ##### 自訂指令
 
-###### 建構子
+###### 指令建構子
 ```ts
 selector?: string
 inputs?: string[]
@@ -2130,20 +2129,20 @@ exportAs?: string
 queries?: {[key: string]: any}
 ```
 
-###### 基本構造
+###### 指令起點
 ```ts
 import { Directive } from '@angular/core';
 
 @Directive({
   /**
-   * at-thing
-   * [atThing]
-   * .at-thing
-   * input[type=thing]
+   * at-name
+   * [atName]
+   * .at-name
+   * input[type=name]
    */
   selector: '[atThing]'
 })
-export class ThingDirective { }
+export class NameDirective { }
 ```
 
 ###### 簡單的指令
@@ -2273,12 +2272,15 @@ export class AppComponent { }
 
 ##### 注入器
 
-###### 基本構造
+###### 服務起點
 ```ts
+// name.service.ts
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ThingService { }
+export class NameService {
+  // ...
+}
 ```
 
 ###### 簡單的服務
@@ -2402,8 +2404,14 @@ import { ListService } from './services/list';
 })
 export class AppComponent implements OnInit {
   constructor(private listService: ListService) { }
-  getList() { this.list = this.listService.getList(); }
-  ngOnInit() { this.getList(); }
+
+  getList(): void {
+    this.list = this.listService.getList();
+  }
+
+  ngOnInit(): void {
+    this.getList();
+  }
 }
 ```
 
@@ -2413,17 +2421,17 @@ export class AppComponent implements OnInit {
 ```ts
 import { Component, Optional } from '@angular/core';
 
-import { ThingService } from './thing.service';
+import { NameService } from './name.service';
 
 @Component({
   selector: 'app',
   template: '
     <!-- ... -->
   ',
-  viewProviders: [ThingService]
+  viewProviders: [NameService]
 })
 export class Component {
-  constructor(@Optional() thingService: ThingService) {
+  constructor(@Optional() nameService: NameService) {  // 這個服務是可以選擇的
     // ...
   }
 }
@@ -2432,21 +2440,15 @@ export class Component {
 (2) Host
 ```ts
 
-``
-
-```ts
-[...]
-
-provide(ColorService, { useClass: RedService })  // RedService 會與 ColorService 為 false
-
-provide(ColorService, { useExisting: RedService })  // RedService 會與 ColorService 為 true
-
-[...]
 ```
 
 ```ts
-[...]
+provide(ColorService, { useClass: RedService })  // RedService 會與 ColorService 為 false
 
+provide(ColorService, { useExisting: RedService })  // RedService 會與 ColorService 為 true
+```
+
+```ts
 provide(ColorService, { useValue: 'red' })
 
 // 會被覆蓋
@@ -2454,15 +2456,11 @@ provide(ColorService, { useValue: 'red' })
 provide(ColorService, { useValue: 'red' })
 provide(ColorService, { useValue: 'blue' })  // 後面會覆蓋前面
 
-// API
+// 如果是 API，通常會這麼做
 provide('API_URL', { useValue: 'https://thing.api.com/v1' })
-
-[...]
 ```
 
 ```ts
-[...]
-
 // 可以
 provide(ColorService, { useValue: 'red', multi: true })
 provide(ColorService, { useValue: 'blue', multi: true })
@@ -2470,16 +2468,10 @@ provide(ColorService, { useValue: 'blue', multi: true })
 // 不可以
 provide(ColorService, { useValue: 'red' })
 provide(ColorService, { useValue: 'blue', multi: true })
-
-[...]
 ```
 
 ```ts
-[...]
-
 provide(ColorService, { useFactory: () => { return x + y; }})
-
-[...]
 ```
 
 ```ts
@@ -2762,6 +2754,7 @@ export class WikipediaService {
 [...]
 
 import { Observable } from 'rxjs/Observable';
+
 import 'rxjs/add/operator/map';
 
 [...]
@@ -2788,15 +2781,15 @@ import { Component } from '@angular/core';
 import { COMMON_PIPES } from '@angular/common';  // 導入內建管道
 
 @Component({
-  selector: 'at-thing',
+  selector: 'at-name',
   template: `
-    <!-- 一些程式碼寫在這裡 -->
+    <!-- ... -->
   `,
   pipes: [COMMON_PIPES]  // 將內建管道註冊到元件裡
 })
-export class ThingComponent { }
+export class NameComponent { }
 
-// [註]: 也是可以不用 COMMON_PIPES 就可以使用內建管道了
+// [註]: 也是可以不用 COMMON_PIPES 就可以使用內建管道了，不過這是標準的行為
 ```
 
 ###### 大小寫
@@ -2843,6 +2836,7 @@ export class DateComponent {
 ```
 
 ###### 非同步
+
 (1)
 ```ts
 import { Component } from '@angular/core';
@@ -3018,21 +3012,23 @@ export class I18nPluralComponent {
 
 ##### 自訂管道
 
-###### 建構子
+###### 管道建構子
 ```ts
 name: string
 pure?: boolean
 ```
 
-###### 基本構造
+###### 管道起點
 ```ts
-// thing.pipe.ts
+// name.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'thing' })
-export class ThingPipe implements PipeTransform {
+@Pipe({
+  name: 'name'
+})
+export class NamePipe implements PipeTransform {
   transform(value: any, ...args: any[]): any {
-    // 一些程式碼寫在這裡
+    // ...
   }
 }
 ```
@@ -3040,14 +3036,14 @@ export class ThingPipe implements PipeTransform {
 // app.component.ts
 import { Component } from '@angular/core';
 
-import { ThingPipe } from './thing.pipe';  // 導入所自訂管道
+import { NamePipe } from './name.pipe';  // 導入所自訂管道
 
 @Component({
   selector: 'app',
   template: `
-    <!-- 一些程式碼寫在這裡 -->
+    <!-- ... -->
   `,
-  pipe: [ThingPipe]  // 將所自訂管道註冊到元件中
+  pipe: [NamePipe]  // 將所自訂管道註冊到元件中
 })
 export class AppComponent { }
 ```
@@ -3056,7 +3052,9 @@ export class AppComponent { }
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'length' })
+@Pipe({
+  name: 'length'
+})
 export class LengthPipe implements PipeTransform {
   transform(value: string): number {
     return value.length;
@@ -3110,7 +3108,7 @@ export class DelayPipe implements PipeTransform {
 import { Component, animate, state, style, transition, trigger } from '@angular/core';
 
 @Component({
-  selector: 'at-thing',
+  selector: 'at-name',
   template: `
     <p @openThing="stateExpression">Hello Angular 2</p>
   `,
@@ -3122,7 +3120,7 @@ import { Component, animate, state, style, transition, trigger } from '@angular/
     ])
   ]
 })
-export class ThingComponent {
+export class NameComponent {
   public stateExpression: string;
   // ...
 }
@@ -3132,14 +3130,14 @@ export class ThingComponent {
 
 ##### 靜態分析
 
-###### 使用 Codelyzer
+###### Codelyzer
 ```bash
-$ npm i tslint codelyzer -D
+$ npm install tslint codelyzer -D
 ```
 ```js
 // tslint.json
 {
-  "rulesDirectory": ["node_modules/codelyzer"],
+  "rulesDirectory": ["node_modules/codelyzer"],  // 使用 Codelyzer
   "rules":{
     // 一些 TSLint 的規則在這裡
 
@@ -3379,9 +3377,9 @@ class TestComponent { }
 
 ###### 安裝 Protractor
 ```bash
-$ npm i protractor -D
-$ typings i dt~angular-protractor -G -S
-$ typings i dt~selenium-webdriver -G -S
+$ npm install protractor -D
+$ typings install dt~angular-protractor -G -S
+$ typings install dt~selenium-webdriver -G -S
 ```
 
 ###### 配置 Protractor
@@ -3542,7 +3540,7 @@ declare module 'express-history-api-fallback' {
 }
 ```
 
-```js
+```ts
 // gulpfile.ts
 import * as express from 'express';
 import * as history from 'express-history-api-fallback';
