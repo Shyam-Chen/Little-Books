@@ -22,7 +22,7 @@
     * [雙向綁定](#雙向綁定)
     * [事件綁定](#事件綁定)
     * [屬性綁定](#屬性綁定)
-    * [本地變數](#本地變數)
+    * [區域變數](#區域變數)
   * [內容投射](#內容投射)
     * [單一投射](#單一投射)
     * [選擇投射](#選擇投射)
@@ -490,7 +490,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'rendering-templates',
   template: `
-    <!-- 插值 -->
+    <!-- 插值表達式 -->
     <p>1 + 1 的結果是: {{ 1 + 1 }}</p>
 
     <!-- HTML 的屬性綁定 -->
@@ -687,22 +687,22 @@ export class BindingPropertiesComponent {
 <p at-version="2">Angular</p>
 ```
 
-###### 本地變數
+###### 區域變數
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'key-up',
+  selector: 'local-variable',
   template: `
     <input #new="" (keyup)="onKeyup(new.value)">
-    <p>{{ values }}</p>
+    <p>{{ messages }}</p>
   `
 })
-export class KeyUpComponent {
-  public valuse: string = '';
+export class LocalVariableComponent {
+  public messages: string = '';
 
   onKeyup(value: string): void {
-    this.values += `${ value } | `;
+    this.messages += `${ value } | `;
   }
 }
 ```
@@ -716,10 +716,10 @@ import { Component } from '@angular/core';
     <input
       #newItem=""
       (keyup.enter)="addItem(newItem.value); newItem.value=''"
-      (keyup)="values = newItem.value"
+      (keyup)="messages = newItem.value"
     >
-    <p>{{ values }}</p>
-    <button (click)="addItem(newItem.value); newItem.value=''; values=''">新增</button>
+    <p>{{ messages }}</p>
+    <button (click)="addItem(newItem.value); newItem.value=''; messages=''">新增</button>
     <ul>
       <li *ngFor="let item of list">{{ item }}</li>
     </ul>
@@ -851,8 +851,17 @@ export class UseInputComponent {
   public version: string;
 }
 ```
-```html
-<use-input version="2"></use-input>
+```ts
+import { Component } from '@angular/core';
+
+import { UseInputComponent } from './use-input.component';
+
+@Component({
+  selector: 'app',
+  template: `<use-input version="2"></use-input>`,
+  directives: [UseInputComponent]
+})
+export class AppComponent { }
 ```
 
 (2) Input 修飾器
@@ -865,6 +874,22 @@ import { Component, Input } from '@angular/core';
 })
 export class UseInputComponent {
   @Input() version: string;
+}
+```
+
+綁定屬性
+```ts
+import { Component } from '@angular/core';
+
+import { UseInputComponent } from './use-input.component';
+
+@Component({
+  selector: 'app',
+  template: `<use-input [version]="value"></use-input>`,
+  directives: [UseInputComponent]
+})
+export class AppComponent {
+  public value: number = 2;
 }
 ```
 
@@ -903,7 +928,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class CounterComponent {
   @Input() count: number;
   public countChange: EventEmitter<number> = new EventEmitter<number>();
-  onClick(): void { this.countChange.emit(this.count++); }
+
+  onClick(): void {
+    this.countChange.emit(this.count++);
+  }
 }
 ```
 ```ts
@@ -917,7 +945,9 @@ import { CounterComponent } from './counter.component';
   directives: [CounterComponent]
 })
 export class AppComponent {
-  onChange(event): number { return event; }
+  onChange(event): number {
+    return event;
+  }
 }
 ```
 
@@ -935,7 +965,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class CounterComponent {
   @Input() count: number;
   @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
-  onClick(): void { this.countChange.emit(this.count++); }
+
+  onClick(): void {
+    this.countChange.emit(this.count++);
+  }
 }
 ```
 
