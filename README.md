@@ -1528,7 +1528,7 @@ export class AppComponent {
 
 ###### OnChanges
 ```ts
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'at-lifecycle',
@@ -1568,7 +1568,42 @@ export class AppComponent {
 
 ###### DoCheck
 ```ts
-ngDoCheck() { ... }
+import { Component, DoCheck, Input } from '@angular/core';
+
+@Component({
+  selector: 'at-lifecycle',
+  template: `
+    <p>計數: {{ count }}</p>
+  `
+})
+export class LifecycleComponent implements DoCheck {
+  @Input() count: number;
+
+  ngDoCheck(): void {
+    console.log('Do Check');
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { LifecycleComponent } from './lifecycle.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <button (click)="onClick()">點擊我</button>
+    <at-lifecycle [count]="count"></at-lifecycle>
+  `,
+  directives: [LifecycleComponent]
+})
+export class AppComponent {
+  public count: number = 0;
+
+  onClick(): void {
+    this.count++;
+  }
+}
 ```
 
 ### 表單
