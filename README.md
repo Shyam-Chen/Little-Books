@@ -1540,7 +1540,7 @@ export class LifecycleComponent implements OnChanges {
   @Input() messages: string;
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('Changes', changes['messages'].currentValue);
+    console.log('Changes:', changes['messages'].currentValue);
   }
 }
 ```
