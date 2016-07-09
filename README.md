@@ -459,11 +459,8 @@ import { Component } from '@angular/core';
   selector: 'at-name',  // 加入前綴 `at` (看自己專案要用什麼前綴，這裡是使用 Angular 和 TypeScript 的字首)
   templateUrl: 'name.component.html',
   styleUrls: ['name.component.css']
-  // 其它更多的組態
 })
-export class NameComponent {
-  // 一些程式碼在這裡
-}
+export class NameComponent { }
 ```
 
 ```ts
@@ -476,9 +473,7 @@ import { Component } from '@angular/core';
   templateUrl: './app/+name/name.component.html',  // 模板路徑會變得很長
   styleUrls: ['./app/+name/name.component.css']  // 樣式路徑也會變得很長
 })
-export class NameComponent {
-  // 一些程式碼在這裡
-}
+export class NameComponent { }
 ```
 
 ##### 檢視
@@ -492,6 +487,9 @@ import { Component } from '@angular/core';
   template: `
     <!-- 插值表達式 -->
     <p>1 + 1 的結果是: {{ 1 + 1 }}</p>
+    <p>一則訊息: {{ message }}</p>
+    <p>我的名字是: {{ name }}</p>
+    <p>這是可以選擇的: {{ optional? }}</p>
 
     <!-- HTML 的屬性綁定 -->
     <a href="{{ link }}">網站連結</a>
@@ -499,23 +497,14 @@ import { Component } from '@angular/core';
   `
 })
 export class RenderingTemplatesComponent {
+  public message: string = 'Hello Angular 2';
+  public name: string;
+  public optional: void = undefined;
   public link: string = 'https://angular.io/';
   public image: string = '../assets/images/angular.png';
-}
-```
-
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'my-name',
-  template: `<p>我的姓名是: {{ myName }}</p>`
-})
-export class MyNameComponent {
-  public myName: string;
 
   constructor() {
-    this.myName = '陳彥澄';
+    this.name = '陳彥澄';
   }
 }
 ```
