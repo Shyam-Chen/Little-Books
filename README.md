@@ -1918,6 +1918,21 @@ export class CrisisListComponent implements OnActivate {
 ### 指令
 
 ##### 內建指令
+```ts
+import { Component } from '@angular/core';
+import { CORE_DIRECTIVES } from '@angular/common';
+
+@Component({
+  selector: 'at-name',
+  template: `
+    <!-- ... -->
+  `,
+  directives: [CORE_DIRECTIVES]
+})
+export class NameComponent { }
+
+// [註]: 也是可以不用 CORE_DIRECTIVES 就可以使用內建指令了，不過這是標準的行為
+```
 
 ###### ng-if
 ```ts
