@@ -1406,7 +1406,7 @@ export class AppComponent {
   changeProperty(): void {
     this.onePiece.name = '薩波';
   }
-  
+
   changeObject(): void {
     this.onePiece = new OnePiece('艾斯');
   }
@@ -1460,7 +1460,7 @@ export class LifecycleComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     console.log('On init');
   }
-  
+
   ngOnDestroy(): void {
     console.log('On destroy');
   }
@@ -1481,7 +1481,7 @@ import { LifecycleComponent } from './lifecycle.component';
 })
 export class AppComponent {
   public display: boolean = true;
-  
+
   onToggle(): void {
     this.display = !this.display;
   }
@@ -1489,8 +1489,41 @@ export class AppComponent {
 ```
 
 ###### OnChanges
+```ts
+import { Component, Input, OnChanges } from '@angular/core';
+
+@Component({
+  selector: 'at-lifecycle',
+  template: `<p>{{ messages }}</p>`
+})
+export class LifecycleComponent implements OnChanges {
+  @Input() messages: string;
+
+  ngOnChanges(changes): void {
+    console.log('Changes', changes);
+  }
+}
 ```
-ngOnChanges() { ... }
+```ts
+import { Component } from '@angular/core';
+
+import { LifecycleComponent } from './lifecycle.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <button (click)="onClick()">點擊我</button>
+    <at-lifecycle [messages]="messages"></at-lifecycle>
+  `,
+  directives: [LifecycleComponent]
+})
+export class AppComponent {
+  public messages: string = 'Hello Angular 2';
+
+  onClick(): void {
+    this.messages = 'Goodbye Angular 2';
+  }
+}
 ```
 
 ###### DoCheck
