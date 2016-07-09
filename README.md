@@ -12,8 +12,8 @@
   * [專案架構](#專案架構)
 * [元件](#元件)
   * [初識元件](#初識元件)
-    * [建構子](#建構子)
-    * [基本構造](#基本構造)
+    * [元件建構子](#元件建構子)
+    * [元件起點](#元件起點)
     * [使用模板](#使用模板)
     * [使用樣式](#使用樣式)
     * [模組識別](#模組識別)
@@ -352,7 +352,7 @@ export class AppComponent { }
 
 ##### 初識元件
 
-###### 建構子
+###### 元件建構子
 ```ts
 selector?: string
 inputs?: string[]
@@ -374,14 +374,14 @@ pipes?: Array<Type|any[]>  // 查看管道章節
 encapsulation?: ViewEncapsulation
 ```
 
-###### 基本構造
+###### 元件起點
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
   // 一些組態在這裡
 })
-export class ThingComponent {
+export class NameComponent {
   // 一些程式碼在這裡
 }
 ```
@@ -405,7 +405,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'use-template',
-  templateUrl: '../app/use-template.component.html'
+  templateUrl: './app/use-template.component.html'
 })
 export class UseTemplateComponent { }
 ```
@@ -422,9 +422,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'use-styles',
-  templateUrl: '../app/thing.component.html',
+  template: `<p class="at-color">Hello Angular 2</p>`
   styles: [`
-    .thing { color: #F44336 }
+    .at-color { color: #F44336 }
   `]
 })
 export class UseStylesComponent { }
@@ -436,10 +436,18 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'use-styles',
-  templateUrl: 'thing.component.html',
-  styleUrls: ['thing.component.css']
+  templateUrl: './app/use-styles.component.html',
+  styleUrls: ['./app/use-styles.component.css']
 })
 export class UseStylesComponent { }
+```
+```html
+<!-- use-styles.component.html -->
+<p class="at-color">Hello Angular 2</p>
+```
+```css
+/* use-styles.component.css */
+.at-color { color: #F44336 }
 ```
 
 ###### 模組識別
@@ -448,28 +456,27 @@ import { Component } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'at-thing',  // 加入前綴 `at` (看自己專案要用什麼前綴，這裡是使用 Angular 和 TypeScript 的字首)
-  templateUrl: 'thing.component.html',
-  styleUrls: ['thing.component.css']
+  selector: 'at-name',  // 加入前綴 `at` (看自己專案要用什麼前綴，這裡是使用 Angular 和 TypeScript 的字首)
+  templateUrl: 'name.component.html',
+  styleUrls: ['name.component.css']
   // 其它更多的組態
 })
-export class ThingComponent {
+export class NameComponent {
   // 一些程式碼在這裡
 }
 ```
 
 ```ts
-// thing.component.ts
+// name.component.ts
 import { Component } from '@angular/core';
 
 @Component({
   // moduleId: module.id,  如果沒有使用它
-  selector: 'at-thing',
-  templateUrl: './app/+thing/thing.component.html',  // 模板路徑會變得很長
-  styleUrls: ['./app/+thing/thing.component.css']  // 樣式路徑也會變得很長
-  // 其它更多的組態
+  selector: 'at-name',
+  templateUrl: './app/+name/name.component.html',  // 模板路徑會變得很長
+  styleUrls: ['./app/+name/name.component.css']  // 樣式路徑也會變得很長
 })
-export class ThingComponent {
+export class NameComponent {
   // 一些程式碼在這裡
 }
 ```
@@ -483,7 +490,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'rendering-templates',
   template: `
+    <!-- 插值 -->
     <p>1 + 1 的結果是: {{ 1 + 1 }}</p>
+
+    <!-- HTML 的屬性綁定 -->
     <a href="{{ link }}">網站連結</a>
     <img src="{{ image }}">
   `
@@ -495,7 +505,6 @@ export class RenderingTemplatesComponent {
 ```
 
 ```ts
-// 也可以這樣
 import { Component } from '@angular/core';
 
 @Component({
@@ -504,7 +513,10 @@ import { Component } from '@angular/core';
 })
 export class MyNameComponent {
   public myName: string;
-  constructor() { this.myName = '陳彥澄'; }
+
+  constructor() {
+    this.myName = '陳彥澄';
+  }
 }
 ```
 
@@ -518,7 +530,7 @@ import { Component } from '@angular/core';
     <input type="text" [(ngModel)]="name" placeholder="輸入你的名字">
     <p>{{ name }}</p>
 
-    <!-- ngModel 指令可以查看表單章節 -->
+    <!-- [註]: ngModel 指令可以查看表單章節 -->
   `
 })
 export class TwoWayBindingComponent {
@@ -533,6 +545,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'click-me',
   template: `
+    <!-- JavaScript 的 DOM 事件 -->
     <button (click)="onClick()">點擊我</button>
 
     <!-- 或者 -->
@@ -543,7 +556,10 @@ import { Component } from '@angular/core';
 })
 export class ClickMeComponent {
   public message: string = '我是點擊「前」的訊息';
-  onClick(): void { this.message = '我是點擊「後」的訊息'; }
+
+  onClick(): void {
+    this.message = '我是點擊「後」的訊息';
+  }
 }
 ```
 
@@ -553,7 +569,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'toggle-me',
   template: `
-    <button (click)="onToggle()">點擊我 (切換內容)</button>
+    <button (click)="onToggle()">點擊我</button>
     <p>{{ message }}</p>
   `
 })
@@ -578,10 +594,10 @@ import { Component } from '@angular/core';
   selector: 'binding-properties',
   template: `
     <a [href]="url">Angular 2 官網</a>
-    
+
     <!-- 也可以這樣 -->
     <a bind-href="url">Angular 2 官網</a>
-    
+
     <!-- 都等同於 -->
     <a href="{{ url }}">Angular 2 官網</a>
   `
@@ -598,8 +614,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'binding-properties',
   template: `
-    <p [innerHTML]="messages"></p>  <!-- 不安全 -->
-    
+    <p [innerHTML]="messages"></p>  <!-- 這並不安全 -->
+
     <!-- 等同於 -->
     <p>{{ messages }}</p>
   `
@@ -684,7 +700,10 @@ import { Component } from '@angular/core';
 })
 export class KeyUpComponent {
   public valuse: string = '';
-  onKeyup(value: string): void { this.values += `${ value } | `; }
+
+  onKeyup(value: string): void {
+    this.values += `${ value } | `;
+  }
 }
 ```
 
@@ -759,7 +778,7 @@ import { Component } from '@angular/core';
 
     <!-- 無法選擇 ID -->
     <ng-content select="#thing"></ng-content>
-    
+
     <!-- 相同的選擇器無法重複渲染 -->
     <ng-content select="span"></ng-content>
   `
