@@ -1539,8 +1539,8 @@ import { Component, Input, OnChanges } from '@angular/core';
 export class LifecycleComponent implements OnChanges {
   @Input() messages: string;
 
-  ngOnChanges(changes): void {
-    console.log('Changes', changes);
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Changes', changes['messages'].currentValue);
   }
 }
 ```
