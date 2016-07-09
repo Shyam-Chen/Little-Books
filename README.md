@@ -26,8 +26,7 @@
   * [內容投射](#內容投射)
     * [單一投射](#單一投射)
     * [選擇投射](#選擇投射)
-  * [相互關係](#相互關係)
-    * [Attribute](#attribute)
+  * [相互溝通](#相互溝通)
     * [Input 與 Output](#input-與-output)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
@@ -73,6 +72,7 @@
     * [ng-class](#ng-class)
     * [ng-plural](#ng-plural)
     * [ng-template-outlet](#ng-template-outlet)
+  * [Attribute](#attribute)
   * [自訂指令](#自訂指令)
     * [指令建構子](#指令建構子)
     * [指令起點](#指令起點)
@@ -796,7 +796,7 @@ import { MoreProjectionComponent } from './more-projection.component';
 export class AppComponent { }
 ```
 
-##### 相互關係
+##### 相互溝通
 
 ###### Attribute
 ```ts
