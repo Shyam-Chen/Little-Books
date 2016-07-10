@@ -51,7 +51,7 @@
   * [表單方法](#表單方法)
     * ngModel
     * [ngControl 與 ngControlGroup](#ngcontrol-與-ngcontrolgroup)
-    * ngFormModel
+    * [ngFormModel](#ngformmodel)
   * 驗證與狀態
   * 非同步驗證
 * [路由](#路由)
