@@ -1904,8 +1904,8 @@ import { AppComponent } from './app.component';
 
 bootstrap(AppComponent, [
   APP_ROUTER_PROVIDERS,
-  provide(APP_BASE_HREF, { useValue: '.' }),
-  provide(LocationStrategy, { useClass: HashLocationStrategy })
+  { provide: APP_BASE_HREF, useValue: '.' },
+  { provide: LocationStrategy, useClass: HashLocationStrategy }
 ]);
 ```
 ```ts
