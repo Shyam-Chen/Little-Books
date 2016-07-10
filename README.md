@@ -1260,7 +1260,7 @@ export class ParentComponent implements AfterViewInit, AfterViewChecked {
 
 (1) Query 建構子
 ```ts
-import { Component } from '@angular/core';
+import { Component, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app',
@@ -1268,7 +1268,7 @@ import { Component } from '@angular/core';
     <!-- ... -->
   `,
   queries: {
-    // ...
+    childComponents: new ViewChildren(ChildComponent)
   }
 })
 export class Component {
