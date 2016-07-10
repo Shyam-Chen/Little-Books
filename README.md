@@ -1797,6 +1797,35 @@ export class AppComponent {
 }
 ```
 
+###### ngFormModel
+```ts
+import { Component } from '@angular/core';
+import { ControlGroup, Control } from '@angular/common';
+
+@Component({
+  selector: 'app',
+  template: `
+    <form [ngFormModel]="form">
+      <div ngControlGroup="user">
+        <label for="name">姓名:</label>
+        <input type="text" id="name"
+          ngControl="name" #name="ngForm"
+        >
+      </div>
+    </form>
+    <hr>
+    <p>{{ name.value }}</p>
+  `
+})
+export class AppComponent {
+  public form = new ControlGroup({
+    user: new ControlGroup({
+      name: new Control('陳彥澄')
+    })
+  });
+}
+```
+
 ***
 
 ```ts
