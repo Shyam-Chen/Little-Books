@@ -371,6 +371,8 @@ animations?: AnimationEntryMetadata[]  // 查看動畫章節
 directives?: Array<Type|any[]>  // 查看指令章節
 pipes?: Array<Type|any[]>  // 查看管道章節
 encapsulation?: ViewEncapsulation
+interpolation?: [string, string]
+precompile?: Array<Type|any[]>
 ```
 
 ###### 元件起點
@@ -378,10 +380,10 @@ encapsulation?: ViewEncapsulation
 import { Component } from '@angular/core';
 
 @Component({
-  // 一些組態在這裡
+  // ...
 })
 export class NameComponent {
-  // 一些程式碼在這裡
+  // ...
 }
 ```
 
@@ -393,7 +395,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'use-template',
-  template: `<p>Hello Angular 2</p>`
+  template: `
+    <p>Hello Angular 2</p>
+  `
 })
 export class UseTemplateComponent { }
 ```
@@ -421,9 +425,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'use-styles',
-  template: `<p class="at-color">Hello Angular 2</p>`
+  template: `
+    <p class="at-color">Hello Angular 2</p>
+  `
   styles: [`
-    .at-color { color: #F44336 }
+    .at-color {
+      color: #F44336;
+    }
   `]
 })
 export class UseStylesComponent { }
@@ -446,7 +454,9 @@ export class UseStylesComponent { }
 ```
 ```css
 /* use-styles.component.css */
-.at-color { color: #F44336 }
+.at-color {
+  color: #F44336;
+}
 ```
 
 ###### 模組識別
@@ -469,8 +479,8 @@ import { Component } from '@angular/core';
 @Component({
   // moduleId: module.id,  如果沒有使用它
   selector: 'at-name',
-  templateUrl: './app/+name/name.component.html',  // 模板路徑會變得很長
-  styleUrls: ['./app/+name/name.component.css']  // 樣式路徑也會變得很長
+  templateUrl: './app/name.component.html',  // 模板路徑會變得很長
+  styleUrls: ['./app/name.component.css']  // 樣式路徑也會變得很長
 })
 export class NameComponent { }
 ```
@@ -638,8 +648,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'binding-properties',
-  template: `<p [class.at-color]="true">Hello Angular 2</p>`,
-  styles: [`.at-color { color: #E91E63 }`]
+  template: `
+    <p [class.at-color]="true">Hello Angular 2</p>
+  `,
+  styles: [`
+    .at-color {
+      color: #E91E63;
+    }
+  `]
 })
 export class BindingPropertiesComponent { }
 ```
@@ -654,7 +670,11 @@ import { Component } from '@angular/core';
     <button (click)="isClassVisible = !isClassVisible">點擊我</button>
     <p [class.at-color]="isClassVisible">注意看我字體的顏色</p>
   `,
-  styles: [`.at-color { color: #F44336 }`]
+  styles: [`
+    .at-color {
+      color: #F44336;
+    }
+  `]
 })
 export class ToggleClassComponent { }
 ```
@@ -665,7 +685,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'binding-properties',
-  template: `<p [attr.at-version]="version">Angular</p>`
+  template: `
+    <p [attr.at-version]="version">Angular</p>
+  `
 })
 export class BindingPropertiesComponent {
   public version: number = 2;
@@ -746,7 +768,9 @@ import { ContentProjectionComponent } from './content-projection.component';
 
 @Component({
   selector: 'app',
-  template: `<content-projection>Hi, Angular 2</content-projection>`,
+  template: `
+    <content-projection>Hi, Angular 2</content-projection>
+  `,
   directives: [ContentProjectionComponent]
 })
 export class AppComponent { }
@@ -803,7 +827,9 @@ import { Component, Attribute } from '@angular/core';
 
 @Component({
   selector: 'at-attribute',
-  template: `<p>Hello Angular 2</p>`
+  template: `
+    <p>Hello Angular 2</p>
+  `
 })
 export class AttributeComponent {
   constructor(@Attribute('messages') messagesLog: string) {
@@ -818,7 +844,9 @@ import { AttributeComponent } from './attribute.component';
 
 @Component({
   selector: 'app',
-  template: `<at-attribute messages="Hello Angular 2"></at-attribute>`,
+  template: `
+    <at-attribute messages="Hello Angular 2"></at-attribute>
+  `,
   directives:[AttributeComponent]
 })
 export class AppComponent { }
@@ -832,7 +860,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'use-input',
-  template: `<p>Angular {{ version }}</p>`,
+  template: `
+    <p>Angular {{ version }}</p>
+  `,
   inputs: ['version']
 })
 export class UseInputComponent {
@@ -846,7 +876,9 @@ import { UseInputComponent } from './use-input.component';
 
 @Component({
   selector: 'app',
-  template: `<use-input version="2"></use-input>`,
+  template: `
+    <use-input version="2"></use-input>
+  `,
   directives: [UseInputComponent]
 })
 export class AppComponent { }
@@ -858,7 +890,9 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'use-input',
-  template: `<p>Angular {{ version }}</p>`
+  template: `
+    <p>Angular {{ version }}</p>
+  `
 })
 export class UseInputComponent {
   @Input() version: string;
@@ -873,7 +907,9 @@ import { UseInputComponent } from './use-input.component';
 
 @Component({
   selector: 'app',
-  template: `<use-input [version]="value"></use-input>`,
+  template: `
+    <use-input [version]="value"></use-input>
+  `,
   directives: [UseInputComponent]
 })
 export class AppComponent {
@@ -929,7 +965,9 @@ import { CounterComponent } from './counter.component';
 
 @Component({
   selector: 'app',
-  template: `<at-counter count="0" (countChange)="onChange($event)"></at-counter>`,
+  template: `
+    <at-counter count="0" (countChange)="onChange($event)"></at-counter>
+  `,
   directives: [CounterComponent]
 })
 export class AppComponent {
@@ -1023,7 +1061,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'at-child',
-  template: `<p>這是「子」元件 - 1</p>`
+  template: `
+    <p>這是「子」元件 - 1</p>
+  `
 })
 export class ChildComponent {
   public name: string = '這是「子」元件 - 2';
@@ -1115,7 +1155,9 @@ import { Component } from '@angular/core';
   `
 })
 export class ChildComponent {
-  onLog(): void { console.log('一個日誌'); }
+  onLog(): void {
+    console.log('一個日誌');
+  }
 }
 ```
 ```ts
@@ -1133,7 +1175,10 @@ import { ChildComponent } from './child.component';
 })
 export class ParentComponent implements AfterViewInit {
   @ViewChild(ChildComponent) childComponent: ChildComponent;
-  ngAfterViewInit(): void { this.childComponent.onLog(); }
+
+  ngAfterViewInit(): void {
+    this.childComponent.onLog();
+  }
 }
 ```
 ```ts
@@ -1143,7 +1188,9 @@ import { ParentComponent } from './parent.component';
 
 @Component({
   selector: 'app',
-  template: `<at-parent></at-parent>`,
+  template: `
+    <at-parent></at-parent>
+  `,
   directives: [ParentComponent]
 })
 export class AppComponent { }
@@ -1165,7 +1212,10 @@ import { ChildComponent } from './child.component';
 })
 export class ParentComponent implements AfterViewInit {
   @ViewChild('child') childComponent: ChildComponent;
-  ngAfterViewInit(): void { this.childComponent.onLog(); }
+
+  ngAfterViewInit(): void {
+    this.childComponent.onLog();
+  }
 }
 ```
 
@@ -1326,7 +1376,11 @@ import { EmulatedComponent } from './encapsulation-emulated.component';
     <div class="pink-500">Hello Angular 2</div>
     <encapsulation-emulated></encapsulation-emulated>
   `,
-  styles: [`.pink-500 { color: #E91E63 }`],
+  styles: [`
+    .pink-500 {
+      color: #E91E63;
+    }
+  `],
   directives: [EmulatedComponent]
 })
 export class AppComponent { }
@@ -1358,7 +1412,11 @@ import { NativeComponent } from './encapsulation-native.component';
     <div class="pink-500">Hello Angular 2</div>
     <encapsulation-native></encapsulation-native>
   `,
-  styles: [`.pink-500 { color: #E91E63 }`],
+  styles: [`
+    .pink-500 {
+      color: #E91E63;
+    }
+  `],
   directives: [NativeComponent]
 })
 export class AppComponent { }
@@ -1396,7 +1454,11 @@ import { NoneComponent } from './encapsulation-none.component';
     <div class="pink-500">Hello Angular 2</div>
     <encapsulation-none></encapsulation-none>
   `,
-  styles: [`.pink-500 { color: #E91E63 }`],
+  styles: [`
+    .pink-500 {
+      color: #E91E63;
+    }
+  `],
   directives: [NoneComponent]
 })
 export class AppComponent { }
@@ -1410,7 +1472,9 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'change-detection',
-  template: `<p>{{ onePiece.name }}</p>`,
+  template: `
+    <p>{{ onePiece.name }}</p>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChangeDetectionComponent {
@@ -1418,13 +1482,15 @@ export class ChangeDetectionComponent {
 }
 ```
 ```ts
+export class OnePiece {
+  constructor(private name) { }
+}
+```
+```ts
 import { Component } from '@angular/core';
 
 import { ChangeDetectionComponent } from './change-detection.component';
-
-class OnePiece {
-  constructor(private name) { }
-}
+import { OnePiece } from './one-piece.model';
 
 @Component({
   selector: 'app',
