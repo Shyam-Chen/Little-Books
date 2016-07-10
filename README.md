@@ -1921,7 +1921,7 @@ import { AppComponent } from './app.component';
 
 bootstrap(AppComponent, [
   APP_ROUTER_PROVIDERS,
-  { provide: APP_BASE_HREF, useValue: '.' },
+  { provide: APP_BASE_HREF, useValue: '' },
   { provide: LocationStrategy, useClass: HashLocationStrategy }
 ]);
 ```
@@ -1931,9 +1931,14 @@ import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
-  moduleId: module.id,
   selector: 'app',
-  templateUrl: 'app.component.html',
+  template: `
+    <nav>
+      <a [routerLink]="['/']">HOME</a>
+      <a [routerLink]="['/about']">ABOUT</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
   directives: [ROUTER_DIRECTIVES]
 })
 export class AppComponent { }
@@ -1959,20 +1964,21 @@ export const APP_ROUTER_PROVIDERS = [
 import { Component } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  templateUrl: 'home.component.html',
-  styleUrls: ['home.component.css']
+  template: `
+    <p>Home Page</p>
+  `
 })
 export class HomeComponent { }
 ```
 ```ts
 // src/app/+home/home.routes.ts
+import { RouterConfig } from '@angular/router';
+
 import { HomeComponent } from './index';
 
-export const HomeRoutes = [{
+export const HomeRoutes: RouterConfig = [{
   path: '',
-  component: HomeComponent,
-  index: true
+  component: HomeComponent
 }];
 ```
 ```ts
@@ -1985,17 +1991,19 @@ export * from './home.routes';
 import { Component } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  templateUrl: 'about.component.html',
-  styleUrls: ['about.component.css']
+  template: `
+    <p>About Page</p>
+  `
 })
 export class AboutComponent { }
 ```
 ```ts
 // src/app/+about/about.routes.ts
+import { RouterConfig } from '@angular/router';
+
 import { AboutComponent } from './index';
 
-export const AboutRoutes = [{
+export const AboutRoutes: RouterConfig = [{
   path: 'about',
   component: AboutComponent
 }];
