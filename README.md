@@ -1904,10 +1904,8 @@ import { AppComponent } from './app.component';
 
 bootstrap(AppComponent, [
   APP_ROUTER_PROVIDERS,
-  // provide(APP_BASE_HREF, { useValue: '.' }),
-  { provide: APP_BASE_HREF, useValue: '.' },
-  // provide(LocationStrategy, { useClass: HashLocationStrategy })
-  { provide: LocationStrategy, useClass: HashLocationStrategy }
+  provide(APP_BASE_HREF, { useValue: '.' }),
+  provide(LocationStrategy, { useClass: HashLocationStrategy })
 ]);
 ```
 ```ts
@@ -2415,7 +2413,7 @@ import { LanguagesService } from './languages.service';  // 導入新建立的�
 export class AppComponent {
   constructor(languagesService: LanguagesService) {  // 相依性注入
     this.language = languagesService.ts;  // 使用服務
-    
+
     // 使用服務裡的其它選項
     // this.language = languagesService.js;
     // this.language = languagesService.coffee;
@@ -2476,11 +2474,14 @@ export class AppComponent {
 ```
 
 ```ts
-import { Injectable } from '@angular/core';
-
-interface List {
+export interface List {
   label: string;
 }
+```
+```ts
+import { Injectable } from '@angular/core';
+
+import { List } from './list.interface';
 
 @Injectable()
 export class ListService {
@@ -2769,7 +2770,7 @@ export class OnRequestComponent {
 
   onRequest() {
     this.http
-      .request('./assets/data.json')  // or .get('./assets/data.json')
+      .request('./assets/data.json')  // 或者 .get('./assets/data.json')
       .subscribe((res: Response) => {
         this.response = res.json();
       });
