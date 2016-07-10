@@ -30,8 +30,7 @@
     * [Input 與 Output](#input-與-output)
     * [ContentChild 與 ContentChildren](#contentchild-與-contentchildren)
     * [ViewChild 與 ViewChildren](#viewchild-與-viewchildren)
-    * [<s>Query 與 ViewQuery</s>](#query-與-viewquery)
-  * [Shadow DOM](#shadow-dom)
+  * [隔離樣式](#隔離樣式)
     * [Emulated](#emulated)
     * [Native](#native)
     * [None](#none)
@@ -1299,7 +1298,7 @@ export class AppComponent {
 // 匹配的條件是從 ViewChildren
 ```
 
-##### Shadow DOM
+##### 隔離樣式
 
 ###### Emulated
 ```ts
