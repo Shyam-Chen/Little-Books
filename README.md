@@ -1129,10 +1129,10 @@ import { Component, ContentChildren, QueryList, AfterContentInit, AfterContentCh
 import { ChildComponent } from './child.component';
 
 @Component({
-  // ...
+  [...]
 })
 export class ParentComponent implements AfterContentInit, AfterContentChecked {
-  // ...
+  [...]
 
   // 使用 AfterContentInit
   ngAfterContentInit() {
@@ -1147,6 +1147,20 @@ export class ParentComponent implements AfterContentInit, AfterContentChecked {
     console.log(this.childComponents);
     console.log('AfterContentChecked 結束');
   }
+}
+```
+
+(4) 查找
+```ts
+import { Component, ContentChildren } from '@angular/core';
+
+@Component({
+  queries: {
+    childComponents: new ContentChildren(ChildComponent)
+  }
+})
+export class NameComponent {
+  // ...
 }
 ```
 
@@ -1255,10 +1269,10 @@ import { Component, ViewChildren, QueryList, AfterViewInit, AfterViewChecked } f
 import { ChildComponent } from './child.component';
 
 @Component({
-  // ...
+  [...]
 })
 export class ParentComponent implements AfterViewInit, AfterViewChecked {
-  // ...
+  [...]
 
   // 使用 AfterViewInit
   ngAfterViewInit() {
@@ -1273,6 +1287,20 @@ export class ParentComponent implements AfterViewInit, AfterViewChecked {
     console.log(this.childComponents);
     console.log('AfterViewChecked 結束');
   }
+}
+```
+
+(4) 查找
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  queries: {
+    childComponents: new ViewChildren(ChildComponent)
+  }
+})
+export class NameComponent {
+  // ...
 }
 ```
 
