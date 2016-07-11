@@ -1,9 +1,8 @@
 # Angular 2 實戰手冊
 
 ### 目錄
-* [建立第一個應用程式](#環境配置)
+* [第一個應用程式](#第一個應用程式)
   * 設定初始化環境
-  * [既有的樣板](#既有的樣板)
   * [簡單的配置](#簡單的配置)
   * [開始使用](#開始使用)
   * [專案架構](#專案架構)
@@ -140,9 +139,9 @@
 
 ***
 
-### 環境配置
+### 第一個應用程式
 
-##### 既有的樣板
+既有的樣板
 * [使用 Angular CLI](https://github.com/angular/angular-cli)
 * [使用 Gulp](https://github.com/mgechev/angular2-seed)
 * [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
@@ -178,7 +177,7 @@ $ cd ng2-starter
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Angular2TS Quick Start</title>
+    <title>Angular 2 in Action</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://npmcdn.com/core-js/client/shim.min.js"></script>
     <script src="https://npmcdn.com/zone.js@0.6.12?main=browser"></script>
@@ -257,11 +256,10 @@ $ cd ng2-starter
 ```ts
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { ROUTER_PROVIDERS } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-bootstrap(AppComponent, [ROUTER_PROVIDERS]);
+bootstrap(AppComponent, []);
 ```
 ```ts
 // src/app/app.component.ts
@@ -269,7 +267,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app',
-  template: `<h3>Hello Angular 2</h3>`
+  template: `
+    <p>第一個應用程式</p>
+  `
 })
 export class AppComponent { }
 ```
@@ -279,25 +279,29 @@ $ npm start
 
 ##### 開始使用
 ```ts
-//  src/app/thing.component.ts
+//  src/app/new.component.ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-thing',
-  template: `<h3>這是新建立的元件</h3>`
+  selector: 'at-new',  // 加入前綴 at (看自己專案要用什麼前綴，這裡是使用 Angular 和 TypeScript 的字首)
+  template: `
+    <p>這是新建立的元件</p>
+  `
 })
-export class ThingComponent { }
+export class NewComponent { }
 ```
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
 
-import { ThingComponent } from './thing.component';  // 導入新建立的元件
+import { NewComponent } from './new.component';  // 導入新建立的元件
 
 @Component({
   selector: 'app',
-  template: `<h3>Hello Angular 2</h3>`,
-  directives: [ThingComponent]  // 將新建立的元件註冊到 App 元件中
+  template: `
+    <p>第一個應用程式</p>
+  `,
+  directives: [NewComponent]  // 將新建立的元件註冊到 app 元件中
 })
 export class AppComponent { }
 ```
@@ -453,7 +457,7 @@ import { Component } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'at-name',  // 加入前綴 `at` (看自己專案要用什麼前綴，這裡是使用 Angular 和 TypeScript 的字首)
+  selector: 'at-name',
   templateUrl: 'name.component.html',
   styleUrls: ['name.component.css']
 })
@@ -503,6 +507,22 @@ export class RenderingTemplatesComponent {
   constructor() {
     this.name = '陳彥澄';
   }
+}
+```
+
+如果你不喜歡 Angular 預設，也是可以自訂插值的符號
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p>{{{ messages }}}</p>
+  `,
+  interpolation: ['{{{', '}}}']
+})
+export class AppComponent {
+  public messages: string = 'Hello Angular 2';
 }
 ```
 
