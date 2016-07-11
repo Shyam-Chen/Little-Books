@@ -531,7 +531,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'click-me',
   template: `
-    <!-- DOM 事件 -->
+    <!-- 觸發 DOM 事件 -->
     <button (click)="onClick()">點擊我</button>
 
     <!-- 或者 -->
