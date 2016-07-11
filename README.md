@@ -1536,7 +1536,7 @@ export class ChangeDetectionComponent {
 ```
 ```ts
 export class OnePiece {
-  constructor(private name) { }
+  constructor(public name: string) { }
 }
 ```
 ```ts
@@ -2747,9 +2747,9 @@ export class AppComponent {
     this.sampleService
       .sampleMethod()
       .subscribe(
-        data => this.messages = JSON.stringify(data),
-        err => console.log(err),
-        () => console.log('請求結束')
+        data => this.messages = JSON.stringify(data),  // 資料處理
+        err => console.log(err),  // 錯誤處理
+        () => console.log('請求結束')  // 完成處理
       );
   }
 }
@@ -2785,14 +2785,14 @@ export class AppComponent {
     this.sampleService
       .sampleMethod()
       .then(
-        data => this.messages = JSON.stringify(data),
-        err => console.log(err)
+        data => this.messages = JSON.stringify(data),  // 成功處理
+        err => console.log(err)  // 錯誤處理
       );
   }
 }
 ```
 
-###### 錯誤處理
+###### 捕獲錯誤
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
