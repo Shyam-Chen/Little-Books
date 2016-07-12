@@ -68,13 +68,14 @@
     * [ng-class](#ng-class)
     * [ng-plural](#ng-plural)
     * [ng-template-outlet](#ng-template-outlet)
-  * [Attribute](#attribute)
-  * [HostBinding](#hostbinding)
-  * [HostListener](#hostlistener)
   * [自訂指令](#自訂指令)
     * [指令建構子](#指令建構子)
     * [指令起點](#指令起點)
     * [簡單的指令](#簡單的指令)
+  * [修飾屬性](#修飾屬性)
+    * [Attribute](#attribute)
+    * [HostBinding](#hostbinding)
+    * [HostListener](#hostlistener)
 * [服務](#服務)
   * [注入器](#注入器)
     * [服務起點](#服務起點)
@@ -2281,104 +2282,6 @@ export class AppComponent {
 }
 ```
 
-### Attribute
-```ts
-import { Component, Attribute } from '@angular/core';
-
-@Component({
-  selector: 'at-attribute',
-  template: `
-    <p>Hello Angular 2</p>
-  `
-})
-export class AttributeComponent {
-  constructor(@Attribute('messages') messagesLog: string) {
-    console.log(messagesLog);
-  }
-}
-```
-```ts
-import { Component } from '@angular/core';
-
-import { AttributeComponent } from './attribute.component';
-
-@Component({
-  selector: 'app',
-  template: `
-    <at-attribute messages="Hello Angular 2"></at-attribute>
-  `,
-  directives:[AttributeComponent]
-})
-export class AppComponent { }
-```
-
-### HostBinding
-```ts
-import { Directive, HostBinding } from '@angular/core';
-
-@Directive({
-  selector: '[atColor]'
-})
-export class ColorDirective {
-  public useColor: boolean = true;
-
-  @HostBinding('class.at-color')
-  get color(): boolean {
-    return this.useColor;
-  }
-}
-```
-```ts
-import { Component } from '@angular/core';
-
-import { ColorDirective } from './color.directive';
-
-@Component({
-  selector: 'app',
-  template: `
-    <p atColor>Hello Angular 2</p>
-  `,
-  styles: [`
-    .at-color {
-      color: #F44336;
-    }
-  `],
-  directives: [ColorDirective]
-})
-export class AppComponent { }
-```
-
-### HostListener
-```ts
-import { Directive, HostListener, ElementRef, Renderer } from '@angular/core';
-
-@Directive({
-  selector: '[atClick]'
-})
-export class ClickDirective {
-  constructor(private element: ElementRef, private renderer: Renderer) { }
-
-  @HostListener('click', ['$event.target'])
-  onClick(): void {
-    this.renderer.setElementStyle(this.element.nativeElement, 'color', '#F44336');
-  }
-}
-```
-```ts
-import { Component } from '@angular/core';
-
-import { ClickDirective } from './click.directive';
-
-@Component({
-  selector: 'app',
-  template: `
-    <p atClick>點擊我</p>
-  `,
-  directives: [ClickDirective]
-})
-export class AppComponent { }
-```
-
 ### 自訂指令
 
 #### 指令建構子
@@ -2515,6 +2418,106 @@ import { ThingDirective } from './thing.directive'
   selector: 'app',
   template: `<at-thing #some="thing"></at-thing>`,
   directives: [ThingDirective]
+})
+export class AppComponent { }
+```
+
+### 修飾屬性
+
+#### Attribute
+```ts
+import { Component, Attribute } from '@angular/core';
+
+@Component({
+  selector: 'at-attribute',
+  template: `
+    <p>Hello Angular 2</p>
+  `
+})
+export class AttributeComponent {
+  constructor(@Attribute('messages') messagesLog: string) {
+    console.log(messagesLog);
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { AttributeComponent } from './attribute.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <at-attribute messages="Hello Angular 2"></at-attribute>
+  `,
+  directives:[AttributeComponent]
+})
+export class AppComponent { }
+```
+
+#### HostBinding
+```ts
+import { Directive, HostBinding } from '@angular/core';
+
+@Directive({
+  selector: '[atColor]'
+})
+export class ColorDirective {
+  public useColor: boolean = true;
+
+  @HostBinding('class.at-color')
+  get color(): boolean {
+    return this.useColor;
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { ColorDirective } from './color.directive';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p atColor>Hello Angular 2</p>
+  `,
+  styles: [`
+    .at-color {
+      color: #F44336;
+    }
+  `],
+  directives: [ColorDirective]
+})
+export class AppComponent { }
+```
+
+#### HostListener
+```ts
+import { Directive, HostListener, ElementRef, Renderer } from '@angular/core';
+
+@Directive({
+  selector: '[atClick]'
+})
+export class ClickDirective {
+  constructor(private element: ElementRef, private renderer: Renderer) { }
+
+  @HostListener('click', ['$event.target'])
+  onClick(): void {
+    this.renderer.setElementStyle(this.element.nativeElement, 'color', '#F44336');
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { ClickDirective } from './click.directive';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p atClick>點擊我</p>
+  `,
+  directives: [ClickDirective]
 })
 export class AppComponent { }
 ```
