@@ -439,7 +439,7 @@ import { Component } from '@angular/core';
   selector: 'use-styles',
   template: `
     <p class="at-color">Hello Angular 2</p>
-  `
+  `,
   styles: [`
     .at-color {
       color: #F44336;
