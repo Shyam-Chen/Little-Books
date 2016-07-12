@@ -128,11 +128,13 @@
   * [靜態分析](#靜態分析)
     * [使用 Codelyzer](#使用-codelyzer)
   * [單元測試](#單元測試)
-    * Karma
+    * 安裝 Karma
+    * 配置 Karma
+    * [第一個單元測試](#第一個單元測試)
   * [端對端測試](#端對端測試)
     * [安裝 Protractor](#安裝-protractor)
     * [配置 Protractor](#配置-protractor)
-    * [第一個測試](#第一個測試)
+    * [第一個端對端測試](#第一個測試)
   * [持續整合](#持續整合)
     * Travis CI
 * ---------- 附錄 ----------
@@ -3641,6 +3643,36 @@ export function main() {
   directives: [AppComponent]
 })
 class TestComponent { }
+```
+
+#### 第一個單元測試
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'hello-unit',
+  template: `
+    <p>{{ messages }}</p>
+  `
+})
+export class HelloUnitComponent {
+  public messages: string = 'Hello Unit';
+}
+```
+```ts
+import { HelloUnitComponent } from './hello-unit.component';
+
+describe('HelloUnitComponent', () => {
+
+  beforeEach(() => {
+    this.helloUnitComponent = new HelloUnitComponent();
+  });
+
+  it('should have a content', () => {
+    expect(this.helloUnitComponent.messages).toEqual('Hello Unit');
+  });
+
+});
 ```
 
 ### 端對端測試
