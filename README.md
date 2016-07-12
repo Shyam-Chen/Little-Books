@@ -69,6 +69,7 @@
     * [ng-plural](#ng-plural)
     * [ng-template-outlet](#ng-template-outlet)
   * [Attribute](#attribute)
+  * HostBinding 與 HostListener
   * [自訂指令](#自訂指令)
     * [指令建構子](#指令建構子)
     * [指令起點](#指令起點)
