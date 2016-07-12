@@ -2,7 +2,7 @@
 
 ### 目錄
 * [第一個應用程式](#第一個應用程式)
-  * 設定初始化環境
+  * [設定初始化環境](#設定初始化環境)
   * [簡單的配置](#簡單的配置)
   * [開始使用](#開始使用)
   * [專案架構](#專案架構)
@@ -149,14 +149,14 @@
 
 ## 第一個應用程式
 
-既有的樣板
-* [使用 Angular CLI](https://github.com/angular/angular-cli)
-* [使用 Gulp](https://github.com/mgechev/angular2-seed)
-* [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
+### 設定初始化環境
 
-##### 簡單的配置
+#### 簡單的配置
 ```bash
+# 建立名為 ng2-starter 的資料夾
 $ mkdir ng2-starter
+
+# 切到名為 ng2-starter 的資料夾
 $ cd ng2-starter
 ```
 ```js
@@ -319,25 +319,17 @@ export class AppComponent { }
 .
 ├── src
 │   ├── app
-│   │   ├── +about
-│   │   │   ├── about.component.ts|html|css|spec.ts|e2e-spec.ts
-│   │   │   └── index.ts
-│   │   ├── +home
-│   │   │   ├── home.component.ts|html|css|spec.ts|e2e-spec.ts
-│   │   │   └── index.ts
-│   │   ├── app.component.ts|html|css|spec.ts|e2e-spec.ts
-│   │   ├── main.ts
-│   │   ├── vendor.ts
-│   │   └── shared
-│   │       ├── data-list.service.ts|spec.ts
-│   │       └── index.ts
+│   │   ├── app.component.ts|html|css
+│   │   └── main.ts
 │   ├── styles
+│   │   └── ...
 │   ├── assets
 │   │   ├── images
+│   │   │   └── ...
 │   │   └── fonts
-│   ├── favicon.ico
+│   │       └── ...
 │   ├── index.html
-│   └── robots.txt
+│   └── system.config.js
 ├── gulpfile.ts
 ├── karma.conf.js
 ├── package.json
@@ -346,6 +338,11 @@ export class AppComponent { }
 ├── tslint.json
 └── typings.json
 ```
+
+既有的樣板
+* [使用 Angular CLI](https://github.com/angular/angular-cli)
+* [使用 Gulp](https://github.com/mgechev/angular2-seed)
+* [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
 
 ## 模組
 ```ts
