@@ -143,7 +143,7 @@
 
 ***
 
-### 第一個應用程式
+## 第一個應用程式
 
 既有的樣板
 * [使用 Angular CLI](https://github.com/angular/angular-cli)
@@ -343,7 +343,7 @@ export class AppComponent { }
 └── typings.json
 ```
 
-### 模組
+## 模組
 ```ts
 import { AppModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -359,11 +359,11 @@ export class MainModule {
 }
 ```
 
-### 元件
+## 元件
 
-##### 初識元件
+### 初識元件
 
-###### 元件建構子
+#### 元件建構子
 ```ts
 selector?: string
 inputs?: string[]
@@ -387,7 +387,7 @@ interpolation?: [string, string]
 precompile?: Array<Type|any[]>
 ```
 
-###### 元件起點
+#### 元件起點
 ```ts
 import { Component } from '@angular/core';
 
@@ -399,7 +399,7 @@ export class NameComponent {
 }
 ```
 
-###### 使用模板
+#### 使用模板
 
 (1) `template`
 ```ts
@@ -429,7 +429,7 @@ export class UseTemplateComponent { }
 <p>Hello Angular 2</p>
 ```
 
-###### 使用樣式
+#### 使用樣式
 
 (1) `styles`
 ```ts
@@ -471,7 +471,7 @@ export class UseStylesComponent { }
 }
 ```
 
-###### 模組識別
+#### 模組識別
 ```ts
 import { Component } from '@angular/core';
 
@@ -497,9 +497,9 @@ import { Component } from '@angular/core';
 export class NameComponent { }
 ```
 
-##### 檢視
+### 檢視
 
-###### 渲染模板
+#### 渲染模板
 ```ts
 import { Component } from '@angular/core';
 
@@ -546,7 +546,7 @@ export class AppComponent {
 }
 ```
 
-###### 雙向綁定
+#### 雙向綁定
 ```ts
 import { Component } from '@angular/core';
 
@@ -564,7 +564,7 @@ export class TwoWayBindingComponent {
 }
 ```
 
-###### 事件綁定
+#### 事件綁定
 ```ts
 import { Component } from '@angular/core';
 
@@ -610,7 +610,7 @@ export class ToggleMeComponent {
 }
 ```
 
-###### 屬性綁定
+#### 屬性綁定
 
 (1) 基本
 ```ts
@@ -725,7 +725,7 @@ export class BindingPropertiesComponent {
 <p at-version="2">Angular</p>
 ```
 
-###### 區域變數
+#### 區域變數
 ```ts
 import { Component } from '@angular/core';
 
@@ -774,9 +774,9 @@ export class AddItemComponent {
 }
 ```
 
-##### 內容投射
+### 內容投射
 
-###### 單一投射
+#### 單一投射
 ```ts
 import { Component } from '@angular/core';
 
@@ -804,7 +804,7 @@ import { ContentProjectionComponent } from './content-projection.component';
 export class AppComponent { }
 ```
 
-###### 選擇投射
+#### 選擇投射
 ```ts
 import { Component } from '@angular/core';
 
@@ -847,9 +847,9 @@ import { MoreProjectionComponent } from './more-projection.component';
 export class AppComponent { }
 ```
 
-##### 相互溝通
+### 相互溝通
 
-###### Attribute
+#### Attribute
 ```ts
 import { Component, Attribute } from '@angular/core';
 
@@ -880,7 +880,7 @@ import { AttributeComponent } from './attribute.component';
 export class AppComponent { }
 ```
 
-###### Input 與 Output
+#### Input 與 Output
 
 (1) Input 建構子
 ```ts
@@ -1026,7 +1026,7 @@ export class CounterComponent {
 }
 ```
 
-###### ContentChild 與 ContentChildren
+#### ContentChild 與 ContentChildren
 
 (1) ContentChild
 ```ts
@@ -1184,7 +1184,7 @@ export class NameComponent {
 }
 ```
 
-###### ViewChild 與 ViewChildren
+#### ViewChild 與 ViewChildren
 
 (1) ViewChild
 ```ts
@@ -1324,7 +1324,7 @@ export class NameComponent {
 }
 ```
 
-###### Query 與 ViewQuery
+#### Query 與 ViewQuery
 
 (1) Query 建構子
 ```ts
@@ -1404,9 +1404,9 @@ export class AppComponent {
 // 匹配的條件是從 ViewChildren
 ```
 
-##### 隔離樣式
+### 隔離樣式
 
-###### Emulated
+#### Emulated
 ```ts
 import { Component, ViewEncapsulation } from '@angular/core';
 
@@ -1442,7 +1442,7 @@ import { EmulatedComponent } from './encapsulation-emulated.component';
 export class AppComponent { }
 ```
 
-###### Native
+#### Native
 ```ts
 import { Component } from '@angular/core';
 
@@ -1478,7 +1478,7 @@ import { NativeComponent } from './encapsulation-native.component';
 export class AppComponent { }
 ```
 
-###### None
+#### None
 ```ts
 import { Component } from '@angular/core';
 
@@ -1520,9 +1520,9 @@ import { NoneComponent } from './encapsulation-none.component';
 export class AppComponent { }
 ```
 
-##### 變化檢測
+### 變化檢測
 
-###### OnPush
+#### OnPush
 ```ts
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
@@ -1570,7 +1570,7 @@ export class AppComponent {
 }
 ```
 
-###### Default
+#### Default
 ```ts
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
@@ -1586,9 +1586,9 @@ export class ChangeDetectionComponent {
 }
 ```
 
-##### 生命週期掛鉤
+### 生命週期掛鉤
 
-###### OnInit
+#### OnInit
 ```ts
 import { Component, OnInit } from '@angular/core';
 
@@ -1605,7 +1605,7 @@ export class AppComponent implements OnInit {
 }
 ```
 
-###### OnDestroy
+#### OnDestroy
 ```ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
@@ -1647,7 +1647,7 @@ export class AppComponent {
 }
 ```
 
-###### OnChanges
+#### OnChanges
 ```ts
 import { Component, OnChanges, Input } from '@angular/core';
 
@@ -1687,7 +1687,7 @@ export class AppComponent {
 }
 ```
 
-###### DoCheck
+#### DoCheck
 ```ts
 import { Component, DoCheck, Input } from '@angular/core';
 
@@ -1727,11 +1727,11 @@ export class AppComponent {
 }
 ```
 
-### 表單
+## 表單
 
-##### 建立表單
+### 建立表單
 
-###### 啟動表單
+#### 啟動表單
 ```ts
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
@@ -1769,7 +1769,7 @@ import { FormComponent } from './form.component';
 export class AppComponent { }
 ```
 
-###### 建立模型
+#### 建立模型
 ```ts
 export interface User {
   name: string;
@@ -1777,7 +1777,7 @@ export interface User {
 }
 ```
 
-###### 建立模板
+#### 建立模板
 ```ts
 <form #atForm="ngForm" novalidate>
   <div>
@@ -1792,10 +1792,10 @@ export interface User {
 </form>
 ```
 
-###### 控制表單
+#### 控制表單
 
 
-##### 表單方法
+#### 表單方法
 ```ts
 // 指令
 ngControl
@@ -1812,9 +1812,9 @@ FormBuilder
 Validators
 ```
 
-###### ngModel
+#### ngModel
 
-###### ngControl 與 ngControlGroup
+#### ngControl 與 ngControlGroup
 ```ts
 import { Component } from '@angular/core';
 
@@ -1853,7 +1853,7 @@ export class AppComponent {
 }
 ```
 
-###### ngFormModel
+#### ngFormModel
 ```ts
 import { Component } from '@angular/core';
 import { ControlGroup, Control } from '@angular/common';
@@ -1931,7 +1931,7 @@ export class FormComponent {
 }
 ```
 
-##### 簡單的驗證
+#### 簡單的驗證
 ```ts
 import { Component } from '@angular/core';
 import { FORM_DIRECTIVES } from '@angular/common';
@@ -1972,13 +1972,14 @@ import { FORM_DIRECTIVES } from '@angular/common';
 export class FormComponent { }
 ```
 
-##### 驗證與狀態
+#### 驗證與狀態
 ```ts
 this.password = new Control('', Validators.minLength(6));
 ```
 
-### 路由
-##### 使用路由
+## 路由
+
+### 基本路由
 ```ts
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
@@ -2082,12 +2083,12 @@ export * from './about.component';
 export * from './about.routes';
 ```
 
-##### 路由生命週期掛鉤
+### 路由生命週期掛鉤
 ```ts
 OnActivate() { ... }
 ```
 
-##### 巢狀路由
+### 巢狀路由
 ```ts
 import { Component } from '@angular/core';
 import { OnActivate, RouteSegment, Router, RouteTree } from '@angular/router';
@@ -2106,9 +2107,9 @@ export class CrisisListComponent implements OnActivate {
 }
 ```
 
-### 指令
+## 指令
 
-##### 內建指令
+### 內建指令
 ```ts
 import { Component } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common';
@@ -2125,7 +2126,7 @@ export class NameComponent { }
 // [註]: 也是可以不用 CORE_DIRECTIVES 就可以使用內建指令了，不過這是標準的行為
 ```
 
-###### ng-if
+#### ng-if
 ```ts
 import { Component } from '@angular/core';
 
@@ -2148,7 +2149,7 @@ import { Component } from '@angular/core';
 export class NgIfComponent { }
 ```
 
-###### ng-switch
+#### ng-switch
 ```ts
 import { Component } from '@angular/core';
 
@@ -2168,7 +2169,7 @@ export class NgSwitchComponent {
 }
 ```
 
-###### ng-for
+#### ng-for
 ```ts
 export interface List {
   label: string;
@@ -2247,7 +2248,7 @@ export class EditComponent {
 }
 ```
 
-###### ng-style
+#### ng-style
 ```ts
 import { Component } from '@angular/core';
 
@@ -2266,7 +2267,7 @@ import { Component } from '@angular/core';
 export class NgStyleComponent { }
 ```
 
-###### ng-class
+#### ng-class
 ```ts
 import { Component } from '@angular/core';
 
@@ -2284,12 +2285,12 @@ import { Component } from '@angular/core';
 export class NgClassComponent { }
 ```
 
-###### ng-plural
+#### ng-plural
 ```
 [ngPlural]
 ```
 
-###### ng-template-outlet
+#### ng-template-outlet
 ```ts
 import { Component } from '@angular/core';
 
@@ -2311,9 +2312,9 @@ export class AppComponent {
 }
 ```
 
-##### 自訂指令
+### 自訂指令
 
-###### 指令建構子
+#### 指令建構子
 ```ts
 selector?: string
 inputs?: string[]
@@ -2324,7 +2325,7 @@ exportAs?: string
 queries?: {[key: string]: any}
 ```
 
-###### 指令起點
+#### 指令起點
 ```ts
 import { Directive } from '@angular/core';
 
@@ -2340,7 +2341,7 @@ import { Directive } from '@angular/core';
 export class NameDirective { }
 ```
 
-###### 簡單的指令
+#### 簡單的指令
 ```ts
 import { Directive, ElementRef } from '@angular/core';
 
@@ -2463,11 +2464,11 @@ import { ThingDirective } from './thing.directive'
 export class AppComponent { }
 ```
 
-### 服務
+## 服務
 
-##### 注入器
+### 注入器
 
-###### 服務起點
+#### 服務起點
 ```ts
 // name.service.ts
 import { Injectable } from '@angular/core';
@@ -2478,7 +2479,7 @@ export class NameService {
 }
 ```
 
-###### 簡單的服務
+#### 簡單的服務
 ```ts
 // languages.service.ts
 import { Injectable } from '@angular/core';
@@ -2613,7 +2614,7 @@ export class AppComponent implements OnInit {
 }
 ```
 
-###### Optional 與 Host
+#### Optional 與 Host
 
 (1) Optional
 ```ts
@@ -2674,11 +2675,11 @@ export class Component {
 import { Inject, Injectable, Injector, OpaqueToken, provide } from '@angular/core';
 ```
 
-### 通訊
+## 通訊
 
-##### 獲取資料
+### 獲取資料
 
-###### 啟動 HTTP
+#### 啟動 HTTP
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
@@ -2695,7 +2696,7 @@ import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
 export class AppComponent { }
 ```
 
-###### 建立服務
+#### 建立服務
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
@@ -2715,7 +2716,7 @@ export class SampleService {
 }
 ```
 
-###### 準備資料
+#### 準備資料
 ```js
 // src/assets/data.json
 {
@@ -2724,7 +2725,7 @@ export class SampleService {
 }
 ```
 
-###### 使用服務
+#### 使用服務
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
@@ -2758,7 +2759,7 @@ export class AppComponent {
 }
 ```
 
-###### 倒退為 Promise
+#### 倒退為 Promise
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
@@ -2795,7 +2796,7 @@ export class AppComponent {
 }
 ```
 
-###### 捕獲錯誤
+#### 捕獲錯誤
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
@@ -2967,11 +2968,11 @@ Observable
 [...]
 ```
 
-### 管道
+## 管道
 
-##### 內建管道
+### 內建管道
 
-###### 開始使用
+#### 開始使用
 ```ts
 import { Component } from '@angular/core';
 import { COMMON_PIPES } from '@angular/common';  // 導入內建管道
@@ -2988,7 +2989,7 @@ export class NameComponent { }
 // [註]: 也是可以不用 COMMON_PIPES 就可以使用內建管道了，不過這是標準的行為
 ```
 
-###### 大小寫
+#### 大小寫
 ```ts
 import { Component } from '@angular/core';
 
@@ -3005,21 +3006,21 @@ export class UppercaseLowercaseComponent {
 }
 ```
 
-###### 日期
-| Component | Symbol | Short Form   | Long Form         | Numeric   | 2-digit   |
-|-----------|:------:|--------------|-------------------|-----------|-----------|
-| era       |   G    | G (AD)       | GGGG (Anno Domini)| -         | -         |
-| year      |   y    | -            | -                 | y (2015)  | yy (15)   |
-| month     |   M    | MMM (Sep)    | MMMM (September)  | M (9)     | MM (09)   |
-| day       |   d    | -            | -                 | d (3)     | dd (03)   |
-| weekday   |   E    | EEE (Sun)    | EEEE (Sunday)     | -         | -         |
-| hour      |   j    | -            | -                 | j (13)    | jj (13)   |
-| hour12    |   h    | -            | -                 | h (1 PM)  | hh (01 PM)|
-| hour24    |   H    | -            | -                 | H (13)    | HH (13)   |
-| minute    |   m    | -            | -                 | m (5)     | mm (05)   |
-| second    |   s    | -            | -                 | s (9)     | ss (09)   |
-| timezone  |   z    | -            | z (Pacific Standard Time)| -  | -         |
-| timezone  |   Z    | Z (GMT-8:00) | -                 | -         | -         |
+#### 日期
+| Component | Symbol | Short Form   | Long Form                 | Numeric  | 2-digit    |
+|-----------|:------:|--------------|---------------------------|----------|------------|
+| era       | G      | G (AD)       | GGGG (Anno Domini)        | -        | -          |
+| year      | y      | -            | -                         | y (2015) | yy (15)    |
+| month     | M      | MMM (Sep)    | MMMM (September)          | M (9)    | MM (09)    |
+| day       | d      | -            | -                         | d (3)    | dd (03)    |
+| weekday   | E      | EEE (Sun)    | EEEE (Sunday)             | -        | -          |
+| hour      | j      | -            | -                         | j (13)   | jj (13)    |
+| hour12    | h      | -            | -                         | h (1 PM) | hh (01 PM) |
+| hour24    | H      | -            | -                         | H (13)   | HH (13)    |
+| minute    | m      | -            | -                         | m (5)    | mm (05)    |
+| second    | s      | -            | -                         | s (9)    | ss (09)    |
+| timezone  | z      | -            | z (Pacific Standard Time) | -        | -          |
+| timezone  | Z      | Z (GMT-8:00) | -                         | -        | -          |
 
 ```ts
 import { Component } from '@angular/core';
@@ -3046,7 +3047,7 @@ export class DateComponent {
 }
 ```
 
-###### 非同步
+#### 非同步
 
 (1)
 ```ts
@@ -3085,7 +3086,7 @@ export class AsyncDateComponent {
 }
 ```
 
-###### 數值 (十進制)
+#### 數值 (十進制)
 ```ts
 import { Component } from '@angular/core';
 
@@ -3101,7 +3102,7 @@ export class NumberComponent {
 }
 ```
 
-###### 百分率
+#### 百分率
 ```ts
 import { Component } from '@angular/core';
 
@@ -3114,7 +3115,7 @@ export class PercentComponent {
 }
 ```
 
-###### 貨幣
+#### 貨幣
 ```ts
 import { Component } from '@angular/core';
 
@@ -3131,7 +3132,7 @@ export class CurrencyComponent {
 }
 ```
 
-###### JSON
+#### JSON
 ```ts
 import { Component } from '@angular/core';
 
@@ -3148,7 +3149,7 @@ export class JsonComponent {
 }
 ```
 
-###### 裁切
+#### 裁切
 ```ts
 import { Component } from '@angular/core';
 
@@ -3166,7 +3167,7 @@ export class SliceListComponent {
 }
 ```
 
-###### 替換
+#### 替換
 ```ts
 import { Component } from '@angular/core';
 
@@ -3183,7 +3184,7 @@ export class ReplaceComponent {
 }
 ```
 
-###### 選擇
+#### 選擇
 ```ts
 import { Component } from '@angular/core';
 
@@ -3199,7 +3200,7 @@ export class I18nSelectComponent {
 }
 ```
 
-###### 複數
+#### 複數
 ```ts
 import { Component } from '@angular/core';
 
@@ -3221,15 +3222,15 @@ export class I18nPluralComponent {
 }
 ```
 
-##### 自訂管道
+### 自訂管道
 
-###### 管道建構子
+#### 管道建構子
 ```ts
 name: string
 pure?: boolean
 ```
 
-###### 管道起點
+#### 管道起點
 ```ts
 // name.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
@@ -3259,7 +3260,7 @@ import { NamePipe } from './name.pipe';  // 導入所自訂管道
 export class AppComponent { }
 ```
 
-###### 字節管道
+#### 字節管道
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -3276,7 +3277,7 @@ export class LengthPipe implements PipeTransform {
 <p>Angular 2 的字節是: {{ 'Angular 2' | length }}</p>
 ```
 
-###### 延遲管道
+#### 延遲管道
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -3314,7 +3315,7 @@ export class DelayPipe implements PipeTransform {
 </p>
 ```
 
-### 動畫
+## 動畫
 ```ts
 import { Component, animate, state, style, transition, trigger } from '@angular/core';
 
@@ -3337,11 +3338,11 @@ export class NameComponent {
 }
 ```
 
-### 測試
+## 測試
 
-##### 靜態分析
+### 靜態分析
 
-###### Codelyzer
+#### Codelyzer
 ```bash
 $ npm install tslint codelyzer -D
 ```
@@ -3373,7 +3374,7 @@ $ npm install tslint codelyzer -D
 $ tslint src/**/*.ts  # 把它封裝在 package.json 的 scripts
 ```
 
-##### 單元測試
+### 單元測試
 ```js
 // test-main.js
 if (!Object.hasOwnProperty('name')) {
@@ -3584,16 +3585,16 @@ export function main() {
 class TestComponent { }
 ```
 
-##### 端對端測試
+### 端對端測試
 
-###### 安裝 Protractor
+#### 安裝 Protractor
 ```bash
 $ npm install protractor -D
 $ typings install dt~angular-protractor -G -S
 $ typings install dt~selenium-webdriver -G -S
 ```
 
-###### 配置 Protractor
+#### 配置 Protractor
 ```js
 // protractor.conf.js
 const tsNode = require('ts-node');
@@ -3628,7 +3629,7 @@ const config = {
 exports.config = config;
 ```
 
-###### 第一個測試
+#### 第一個測試
 ```ts
 // hello-e2e.component.ts
 import { Component } from '@angular/core';
@@ -3668,7 +3669,7 @@ $ webdriver-manager update
 $ protractor protractor.conf.js
 ```
 
-##### 持續整合
+### 持續整合
 ```bash
 # .travis.yml
 language: node_js
