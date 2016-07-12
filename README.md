@@ -2693,6 +2693,7 @@ export class Component {
 ```
 
 (2) Host
+http://blog.thoughtram.io/angular/2015/08/20/host-and-visibility-in-angular-2-dependency-injection.html
 ```ts
 
 ```
