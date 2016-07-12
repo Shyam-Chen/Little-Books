@@ -69,7 +69,8 @@
     * [ng-plural](#ng-plural)
     * [ng-template-outlet](#ng-template-outlet)
   * [Attribute](#attribute)
-  * HostBinding 與 HostListener
+  * [HostBinding](#hostbinding)
+  * HostListener
   * [自訂指令](#自訂指令)
     * [指令建構子](#指令建構子)
     * [指令起點](#指令起點)
@@ -2312,6 +2313,42 @@ export class AppComponent {
 }
 ```
 
+### HostBinding
+```ts
+import { Directive, HostBinding } from '@angular/core';
+
+@Directive({
+  selector: '[atColor]'
+})
+export class ColorDirective {
+  public useColor: boolean = true;
+
+  @HostBinding('class.at-color')
+  get color(): boolean {
+    return this.useColor;
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { ColorDirective } from './color.directive';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p atColor>Hello Angular 2</p>
+  `,
+  styles: [`
+    .at-color {
+      color: #F44336;
+    }
+  `],
+  directives: [ColorDirective]
+})
+export class AppComponent { }
+```
+
 ### 自訂指令
 
 #### 指令建構子
@@ -2345,7 +2382,9 @@ export class NameDirective { }
 ```ts
 import { Directive, ElementRef } from '@angular/core';
 
-@Directive({ selector: '[atColor]' })
+@Directive({
+  selector: '[atColor]'
+})
 export class AtColorDirective {
   constructor(element: ElementRef) {
     element.nativeElement.style.color = '#F44336';
@@ -2356,7 +2395,9 @@ export class AtColorDirective {
 
 import { Directive, ElementRef, Renderer } from '@angular/core';
 
-@Directive({ selector: '[atColor]' })
+@Directive({
+  selector: '[atColor]'
+})
 export class AtColorDirective {
   constructor(element: ElementRef, renderer: Renderer) {
     renderer.setElementStyle(element.nativeElement, 'color', '#F44336');
@@ -2387,22 +2428,6 @@ setElementClass(renderElement: any, className: string, isAdd: boolean)
 setElementStyle(renderElement: any, styleName: string, styleValue: string)  // 我們使用到的
 invokeElementMethod(renderElement: any, methodName: string, args: any[])
 setText(renderNode: any, text: string)
-```
-
-```ts
-import { Directive, HostBinding } from '@angular/core';
-
-@Directive({
-  selector: '[at-title]'
-})
-export class TitleDirective {
-  public useTitle: boolean = true;
-
-  @HostBinding('[class.title]')
-  get title {
-    return this.useTitle;
-  }
-}
 ```
 
 ```ts
