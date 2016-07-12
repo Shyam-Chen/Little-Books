@@ -7,6 +7,8 @@
 ### 中
 * https://zhongsp.gitbooks.io/typescript-handbook/content/
 
+***
+
 # TypeScript 速成班
 
 ### 目錄
