@@ -390,6 +390,13 @@ identity(123);  // 123
 identity('abc');  // 'abc'
 identity(true);  // true
 ```
+```ts
+class Thing<T> {
+  value: T;
+  left: Thing<T>;
+  right: Thing<T>;
+}
+```
 
 ### 型別斷言
 ```ts
