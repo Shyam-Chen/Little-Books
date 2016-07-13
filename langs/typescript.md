@@ -47,6 +47,7 @@ let age: number = 18;  // 十進制
 ```ts
 // 字串
 let myName: string = 'Hale';
+
 // 模板字串
 let sentence: string = `My name is ${myName}.`;  // My name is Hale.
 ```
@@ -54,7 +55,8 @@ let sentence: string = `My name is ${myName}.`;  // My name is Hale.
 // 陣列
 let list: number[] = [1, 2, 3];
 let list2: string[] = ['a', 'b', 'c'];
-// or
+
+// 或者
 let list3: Array<number> = [3, 2, 1];
 let list4: Array<string> = ['x', 'y', 'z'];
 ```
@@ -110,7 +112,8 @@ function foo(thing: number): void {
 let foo: any = 'abc';
 let bar = <string>foo;  // 語法: <>
 let baz: number = bar.length;  // 3
-// or
+
+// 或者
 let bar2 = foo as string;  // 語法: as
 let baz2: number = bar2.length;  // 3
 ```
@@ -157,15 +160,15 @@ import * as thing from 'thing-module';
 $ npm i typings -g
 ```
 ```bash
-$ npm i core-js -S
-$ typings i dt~core-js -G -S
+$ npm install core-js -S
+$ typings install dt~core-js -G -S
 ```
 ```bash
 # 自訂
 $ mkdir manual_typings
 ```
 ```bash
-$ npm i systemjs -S
+$ npm install systemjs -S
 ```
 ```ts
 // systemjs-builder.d.ts
@@ -304,7 +307,7 @@ class Bar extends Foo {
 ```ts
 // 修飾字元
 class Thing {
-  public foo: string;  // 是 foo: string
+  public foo: string;
   private bar: string;
   protected baz: string;
   constructor() {
@@ -324,7 +327,7 @@ new Name('Hale').name;  // Error: 'name' is private
 ```
 ```ts
 class Adder {
-  constructor(a: string) { }  // 是 public a: string
+  constructor(a: string) { }
 
   add = (b: string): string => {
     return this.a + b;
@@ -371,7 +374,7 @@ const ng: Ng[] = [new Angular(), new Material(), new Firebase()];
 
 ### 後設資料
 ```bash
-$ npm i core-js -S
+$ npm install core-js -S
 ```
 ```js
 // tsconfig.json
@@ -400,6 +403,17 @@ class Thing<T> {
   left: Thing<T>;
   right: Thing<T>;
 }
+```
+```ts
+class Thing<T, U> {
+  key: T;
+  value: U;
+}
+
+let thing = new Thing<string, boolean>();
+
+thing.key = 'foo';  // OK
+thing.value = true;  // OK
 ```
 
 ### 型別斷言
