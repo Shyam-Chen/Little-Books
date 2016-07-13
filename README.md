@@ -2254,6 +2254,7 @@ export class NgClassComponent { }
 ```
 
 #### ng-plural
+https://github.com/angular/angular/blob/master/modules/%40angular/common/src/directives/ng_plural.ts
 ```
 [ngPlural]
 ```
