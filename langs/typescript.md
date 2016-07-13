@@ -31,6 +31,10 @@
 
 ***
 
+```bash
+$ npm install ts-node -g
+```
+
 ### 型別
 ```ts
 // 布林值
