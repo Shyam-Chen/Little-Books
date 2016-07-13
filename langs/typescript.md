@@ -399,10 +399,14 @@ identity(true);  // true
 ```
 ```ts
 class Thing<T> {
-  value: T;
-  left: Thing<T>;
-  right: Thing<T>;
+  foo: Thing<T>;
+  bar: Thing<T>;
 }
+
+let nt = new Thing<number>();
+let st = new Thing<string>();
+
+nt.foo = new Thing<boolean>();
 ```
 ```ts
 class Thing<T, U> {
