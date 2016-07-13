@@ -137,9 +137,9 @@
   * [持續整合](#持續整合)
     * Travis CI
 * ---------- 附錄 ----------
-* 程式語言
-  * JS.Next
-  * [TypeScript 速成班](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/typescript-crash-course.md)
+* [程式語言](https://github.com/Shyam-Chen/Angular2-in-Action/tree/master/langs)
+  * [JS.Next](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/langs/js.next.md)
+  * [TypeScript](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/langs/typescript.md)
 * [函式庫](https://github.com/Shyam-Chen/Angular2-in-Action/tree/master/libs)
   * [Zone.js](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/libs/zone.js.md)
   * [RxJS](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/libs/rxjs.md)
