@@ -7,6 +7,7 @@
   * [開始使用](#開始使用)
   * [專案架構](#專案架構)
 * [模組](#模組)
+  * [模組建構子](#模組建構子)
 * [元件](#元件)
   * [初識元件](#初識元件)
     * [元件建構子](#元件建構子)
@@ -344,6 +345,7 @@ export class AppComponent { }
 * [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
 
 ## 模組
+可能是 RC.5
 ```ts
 import { AppModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -357,6 +359,11 @@ import { NameComponent } from './name.component';
 export class MainModule {
   constructor(public applicationRef: ApplicationRef) { }
 }
+```
+
+### 模組建構子
+```ts
+
 ```
 
 ## 元件
