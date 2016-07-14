@@ -2479,6 +2479,7 @@ export class HighlightDirective {
 <span [atHighlight]="color">滑鼠游標靠過來吧!</span>
 ```
 
+https://github.com/angular/angular/blob/master/modules/@angular/core/src/metadata/directives.ts
 ```ts
 import { Directive } from '@angular/core';
 
