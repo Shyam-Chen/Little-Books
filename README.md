@@ -35,6 +35,7 @@
   * [變化檢測](#變化檢測)
     * [OnPush](#onpush)
     * [Default](#default)
+    * Zones
   * [生命週期掛鉤](#生命週期掛鉤)
     * [OnInit](#oninit)
     * [OnDestroy](#ondestroy)
@@ -69,6 +70,8 @@
     * [ng-class](#ng-class)
     * [ng-plural](#ng-plural)
     * [ng-template-outlet](#ng-template-outlet)
+  * DOM 節點
+    * ElementRef
   * [自訂指令](#自訂指令)
     * [指令建構子](#指令建構子)
     * [指令起點](#指令起點)
@@ -84,8 +87,9 @@
   * 相依性注入
   * 層疊注入
   * 服務類型
-  * [Optional 與 Host](#optional-與-host)
-  * Self 與 SkipSelf
+  * 控制服務
+    * [Optional 與 Host](#optional-與-host)
+    * Self 與 SkipSelf
 * [通訊](#通訊)
   * [獲取資料](#獲取資料)
     * [啟動 HTTP](#啟動-http)
