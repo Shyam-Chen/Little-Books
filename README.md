@@ -2769,9 +2769,8 @@ export class SampleService {
   sampleMethod(): any {
     return this.http
       .get('./assets/data.json')
-      .map(res => res.json());  // 解析成 JSON
-
       // map 操作字元對原始發射的每一項資料應用一個所選擇的函式，然後回傳一個發射這些結果的值
+      .map(res => res.json());  // 解析成 JSON
   }
 }
 ```
@@ -2875,6 +2874,7 @@ export class SampleService {
     return this.http
       .get('./assets/data.json')
       .map(res => res.json())
+      // catch 操作字元攔截原始的錯誤通知，並將它替換為其它的資料項或資料序列，讓生成的 Observable 能夠正常終止或者不終止它
       .catch(err => Observable.throw(err));
   }
 }
