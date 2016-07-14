@@ -53,7 +53,7 @@
   * 驗證與狀態
   * 非同步驗證
 * [路由](#路由)
-  * [基本路由](#使用路由)
+  * [基本路由](#基本路由)
   * [巢狀路由](#巢狀路由)
   * 輔助路由
   * 非同步路由
@@ -2066,19 +2066,88 @@ OnActivate() { ... }
 ### 巢狀路由
 ```ts
 import { Component } from '@angular/core';
-import { OnActivate, RouteSegment, Router, RouteTree } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+
+@Component({
+  selector: 'app',
+  template: `
+    <nav>
+      <a [routerLink]="['/home']">Home</a>
+      <a [routerLink]="['/about']">About</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
+  directives: [ROUTER_DIRECTIVES]
+})
+export class AppComponent { }
+```
+```ts
+import { provideRouter, RouterConfig } from '@angular/router';
+
+import { HomeComponent } from './home.component';
+import { AboutComponent } from './about.component';
+import { LinkComponent } from './link.component';
+
+const routes: RouterConfig = [
+  { path: '', redirectTo: 'home', terminal: true },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'about/:id', component: LinkComponent }
+];
+
+export const APP_ROUTER_PROVIDERS = [
+  provideRouter(routes)
+];
+```
+```ts
+import { Component } from '@angular/core';
 
 @Component({
   template: `
-    
-  `,
+    <p>Home Page</p>
+  `
 })
-export class CrisisListComponent implements OnActivate {
-  private routeSegment: RouteSegment;
+export class HomeComponent { }
+```
+```ts
+import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
-  constructor(private router: Router) { }
+@Component({
+  template: `
+    <p>About Page</p>
+    <ul *ngFor="let id of links">
+      <li>
+        <a [routerLink]="[id]">Link {{ id }}</a>
+      </li>
+    </ul>
+  `,
+  directives: [ROUTER_DIRECTIVES]
+})
+export class AboutComponent {
+  public links: number[] = [1, 2, 3];
+}
+```
+```ts
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
-  routerOnActivate(curr: RouteSegment, prev: RouteSegment, currTree: RouteTree) { }
+import 'rxjs/add/operator/map';
+
+@Component({
+  template: `
+    <p>About Page - Link {{ id | async }}</p>
+  `
+})
+export class LinkComponent {
+  public id: Observable<string>;
+
+  constructor(activatedRoute: ActivatedRoute) {
+    this.id = activatedRoute
+      .params
+      .map(activatedRoute => activatedRoute.id);
+  }
 }
 ```
 
