@@ -2770,6 +2770,8 @@ export class SampleService {
     return this.http
       .get('./assets/data.json')
       .map(res => res.json());  // 解析成 JSON
+
+      // map 操作字元對原始發射的每一項資料應用一個所選擇的函式，然後回傳一個發射這些結果的值
   }
 }
 ```
