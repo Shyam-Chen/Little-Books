@@ -136,7 +136,11 @@
     * [配置 Protractor](#配置-protractor)
     * [第一個端對端測試](#第一個測試)
   * [持續整合](#持續整合)
-    * Travis CI
+    * [配置 Travis CI](#配置-travistci)
+    * [建立應用程式](#建立應用程式)
+    * [整合靜態分析](#整合靜態分析)
+    * [整合單元測試](#整合單元測試)
+    * [整合端對端測試](#整合端對端測試)
 * ---------- 附錄 ----------
 * [程式語言](https://github.com/Shyam-Chen/Angular2-in-Action/tree/master/langs)
   * [JS.Next](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/langs/js.next.md)
@@ -3836,6 +3840,8 @@ $ protractor protractor.conf.js
 ```
 
 ### 持續整合
+
+#### 配置 Travis CI
 ```bash
 # .travis.yml
 language: node_js
@@ -3867,11 +3873,44 @@ script:
   - npm run gulp -- e2e
 ```
 
-```js
-// karma.conf.js
+#### 整合靜態分析
+```ts
+[...]
 
+import * as tslint from 'gulp-tslint';
+
+[...]
+
+gulp.task('lint-typescript', () =>
+  gulp
+    .src(SCRIPTS_SRC)
+    .pipe(tslint())
+    .pipe(tslint.report('verbose'))
+);
+
+[...]
 ```
 
+#### 整合單元測試
+```js
+// karma.conf.js
+[...]
+
+const config = {
+  [...]
+};
+
+if (process.env.TRAVIS) {
+  config.browsers = ['Chrome_travis_ci'];
+  config.singleRun = true;
+}
+
+module.exports = (configuration) => {
+  configuration.set(config);
+};
+```
+
+#### 整合端對端測試
 ```js
 // protractor.conf.js
 [...]
