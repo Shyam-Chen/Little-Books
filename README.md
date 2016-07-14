@@ -2809,6 +2809,7 @@ export class AppComponent {
 
     this.sampleService
       .sampleMethod()
+      // 操作所發射的物件與通知
       .subscribe(
         data => this.messages = JSON.stringify(data),  // 資料處理
         err => console.log(err),  // 錯誤處理
