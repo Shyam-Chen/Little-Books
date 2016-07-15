@@ -86,8 +86,11 @@
     * [簡單的服務](#簡單的服務)
   * 相依性注入
     * [useClass](#useclass)
+    * useExisting
     * [useValue](#usevalue)
+    * multi
     * [useFactory](#usefactory)
+    * deps
   * 層疊注入
   * 服務類型
   * [控制服務](#控制服務)
