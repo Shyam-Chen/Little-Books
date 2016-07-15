@@ -85,6 +85,7 @@
     * [服務起點](#服務起點)
     * [簡單的服務](#簡單的服務)
   * 相依性注入
+    * [useClass](#useclass)
     * [useValue](#usevalue)
     * [useFactory](#usefactory)
   * 層疊注入
