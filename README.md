@@ -2783,7 +2783,7 @@ import { Component, provide, Inject } from '@angular/core';
     一個數值: {{ value }}
   `,
   viewProviders: [
-    { provide: 'NumberService', useValue: 9453 }}  // 注入一個值
+    { provide: 'NumberService', useValue: 9453 }  // 注入一個值
   ]
 })
 export class AppComponent {
