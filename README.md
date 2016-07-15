@@ -85,7 +85,8 @@
     * [服務起點](#服務起點)
     * [簡單的服務](#簡單的服務)
   * 相依性注入
-    * [Factory](#factory)
+    * [useValue](#usevalue)
+    * [useFactory](#usefactory)
   * 層疊注入
   * 服務類型
   * 控制服務
@@ -2772,7 +2773,29 @@ http://blog.thoughtram.io/angular/2015/08/20/host-and-visibility-in-angular-2-de
 
 ```
 
-#### Factory
+#### useValue
+```ts
+import { Component, provide, Inject } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    一個數值: {{ value }}
+  `,
+  viewProviders: [
+    { provide: 'NumberService', useValue: 9453 }}  // 注入一個值
+  ]
+})
+export class AppComponent {
+  public value: number;
+
+  constructor(@Inject('NumberService') numberService) {
+    this.value = numberService;
+  }
+}
+```
+
+#### useFactory
 ```ts
 import { Component, provide, Inject } from '@angular/core';
 
@@ -2782,14 +2805,14 @@ import { Component, provide, Inject } from '@angular/core';
     亂數值: {{ value }}
   `,
   viewProviders: [
-    { provide: 'RandomService', useFactory: () => { return Math.random(); }}
+    { provide: 'NumberService', useFactory: () => { return Math.random(); }}  // 注入返回的值
   ]
 })
 export class AppComponent {
   public value: number;
 
-  constructor(@Inject('RandomService') randomService) {
-    this.value = randomService;
+  constructor(@Inject('NumberService') numberService) {
+    this.value = numberService;
   }
 }
 ```
@@ -3162,21 +3185,6 @@ export class UppercaseLowercaseComponent {
 ```
 
 #### 日期
-| Component | Symbol | Short Form   | Long Form                 | Numeric  | 2-digit    |
-|-----------|:------:|--------------|---------------------------|----------|------------|
-| era       | G      | G (AD)       | GGGG (Anno Domini)        | -        | -          |
-| year      | y      | -            | -                         | y (2015) | yy (15)    |
-| month     | M      | MMM (Sep)    | MMMM (September)          | M (9)    | MM (09)    |
-| day       | d      | -            | -                         | d (3)    | dd (03)    |
-| weekday   | E      | EEE (Sun)    | EEEE (Sunday)             | -        | -          |
-| hour      | j      | -            | -                         | j (13)   | jj (13)    |
-| hour12    | h      | -            | -                         | h (1 PM) | hh (01 PM) |
-| hour24    | H      | -            | -                         | H (13)   | HH (13)    |
-| minute    | m      | -            | -                         | m (5)    | mm (05)    |
-| second    | s      | -            | -                         | s (9)    | ss (09)    |
-| timezone  | z      | -            | z (Pacific Standard Time) | -        | -          |
-| timezone  | Z      | Z (GMT-8:00) | -                         | -        | -          |
-
 ```ts
 import { Component } from '@angular/core';
 
@@ -3201,6 +3209,21 @@ export class DateComponent {
   public today: Date = new Date();
 }
 ```
+
+| Component | Symbol | Short Form   | Long Form                 | Numeric  | 2-digit    |
+|-----------|:------:|--------------|---------------------------|----------|------------|
+| era       | G      | G (AD)       | GGGG (Anno Domini)        | -        | -          |
+| year      | y      | -            | -                         | y (2015) | yy (15)    |
+| month     | M      | MMM (Sep)    | MMMM (September)          | M (9)    | MM (09)    |
+| day       | d      | -            | -                         | d (3)    | dd (03)    |
+| weekday   | E      | EEE (Sun)    | EEEE (Sunday)             | -        | -          |
+| hour      | j      | -            | -                         | j (13)   | jj (13)    |
+| hour12    | h      | -            | -                         | h (1 PM) | hh (01 PM) |
+| hour24    | H      | -            | -                         | H (13)   | HH (13)    |
+| minute    | m      | -            | -                         | m (5)    | mm (05)    |
+| second    | s      | -            | -                         | s (9)    | ss (09)    |
+| timezone  | z      | -            | z (Pacific Standard Time) | -        | -          |
+| timezone  | Z      | Z (GMT-8:00) | -                         | -        | -          |
 
 #### 非同步
 
