@@ -2773,6 +2773,42 @@ http://blog.thoughtram.io/angular/2015/08/20/host-and-visibility-in-angular-2-de
 
 ```
 
+#### useClass
+```ts
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class RedService {
+  public r100: string = '#FFCDD2';
+  public r300: string = '#E57373';
+  public r500: string = '#F44336';
+  public r700: string = '#D32F2F';
+  public r900: string = '#B71C1C';
+}
+```
+```ts
+import { Component, provide, Inject } from '@angular/core';
+
+import { RedService } from './red.service';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p>紅色 500: {{ color }}</p>
+  `,
+  viewProviders: [
+    { provide: 'ColorService', useClass: RedService }  // 將類別實體化
+  ]
+})
+export class AppComponent {
+  public color: string;
+
+  constructor(@Inject('ColorService') colorService) {
+    this.color = colorService.r500;
+  }
+}
+```
+
 #### useValue
 ```ts
 import { Component, provide, Inject } from '@angular/core';
@@ -2780,7 +2816,7 @@ import { Component, provide, Inject } from '@angular/core';
 @Component({
   selector: 'app',
   template: `
-    一個數值: {{ value }}
+    <p>一個數值: {{ value }}</p>
   `,
   viewProviders: [
     { provide: 'NumberService', useValue: 9453 }  // 注入一個值
@@ -2802,7 +2838,7 @@ import { Component, provide, Inject } from '@angular/core';
 @Component({
   selector: 'app',
   template: `
-    亂數值: {{ value }}
+    <p>亂數值: {{ value }}</p>
   `,
   viewProviders: [
     { provide: 'NumberService', useFactory: () => { return Math.random(); }}  // 注入返回的值
