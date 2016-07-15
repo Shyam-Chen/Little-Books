@@ -85,6 +85,7 @@
     * [服務起點](#服務起點)
     * [簡單的服務](#簡單的服務)
   * 相依性注入
+    * [Factory](#factory)
   * 層疊注入
   * 服務類型
   * 控制服務
@@ -2782,6 +2783,28 @@ export class Component {
 http://blog.thoughtram.io/angular/2015/08/20/host-and-visibility-in-angular-2-dependency-injection.html
 ```ts
 
+```
+
+#### Factory
+```ts
+import { Component, provide, Inject } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    亂數值: {{ value }}
+  `,
+  viewProviders: [
+    { provide: 'RandomService', useFactory: () => { return Math.random(); }}
+  ]
+})
+export class AppComponent {
+  public value: number;
+
+  constructor(@Inject('RandomService') randomService) {
+    this.value = randomService;
+  }
+}
 ```
 
 ```ts
