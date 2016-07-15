@@ -2659,7 +2659,7 @@ export class AppComponent {
 ```
 
 ```ts
-// 或者
+// 沒有相依性注入
 
 import { Component } from '@angular/core';
 
@@ -2672,11 +2672,13 @@ import { LanguagesService } from './languages.service';
 })
 export class AppComponent {
   constructor() {
-    this.languagesService = new LanguagesService();  // 沒有相依性注入
+    this.languagesService = new LanguagesService();  // 不要這麼做
     this.language = this.languagesService.ts;
   }
 }
+```
 
+```ts
 // 使用 Inject 修飾器
 
 import { Component, Inject } from '@angular/core';
@@ -2692,21 +2694,6 @@ export class AppComponent {
   constructor(@Inject(LanguagesService) languagesService) {
     this.language = languagesService.ts;
   }
-}
-
-// 直接寫在模板裡
-
-import { Component } from '@angular/core';
-
-import { LanguagesService } from './languages.service';
-
-@Component({
-  selector: 'app',
-  template: `<p>所決定的語言是: {{ languagesService.ts }}</p>`,
-  viewProviders: [LanguagesService]
-})
-export class AppComponent {
-  constructor(languagesService: LanguagesService) { }
 }
 ```
 
