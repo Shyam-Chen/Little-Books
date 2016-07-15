@@ -90,9 +90,9 @@
     * [useFactory](#usefactory)
   * 層疊注入
   * 服務類型
-  * 控制服務
+  * [控制服務](#控制服務)
     * [Optional 與 Host](#optional-與-host)
-    * Self 與 SkipSelf
+    * [Self 與 SkipSelf](#self-與-skipself)
 * [通訊](#通訊)
   * [獲取資料](#獲取資料)
     * [啟動 HTTP](#啟動-http)
@@ -2746,34 +2746,6 @@ export class AppComponent implements OnInit {
 }
 ```
 
-#### Optional 與 Host
-
-(1) Optional
-```ts
-import { Component, Optional } from '@angular/core';
-
-import { NameService } from './name.service';
-
-@Component({
-  selector: 'app',
-  template: '
-    <!-- ... -->
-  ',
-  viewProviders: [NameService]
-})
-export class Component {
-  constructor(@Optional() nameService: NameService) {  // 這個服務是可以選擇的
-    // ...
-  }
-}
-```
-
-(2) Host
-http://blog.thoughtram.io/angular/2015/08/20/host-and-visibility-in-angular-2-dependency-injection.html
-```ts
-
-```
-
 #### useClass
 ```ts
 import { Injectable } from '@angular/core';
@@ -2884,8 +2856,90 @@ export class AppComponent {
 { provide: ColorService, useFactory: () => { return x + y; }}
 ```
 
+### 控制服務
+
+#### Optional 與 Host
+
+(1) Optional
 ```ts
-import { Inject, Injectable, Injector, OpaqueToken, provide } from '@angular/core';
+import { Component, Optional } from '@angular/core';
+
+import { NameService } from './name.service';
+
+@Component({
+  selector: 'app',
+  template: '
+    <!-- ... -->
+  ',
+  viewProviders: [NameService]
+})
+export class AppComponent {
+  constructor(@Optional() nameService: NameService) {  // 這個服務是可以選擇的
+    // ...
+  }
+}
+```
+
+(2) Host
+```ts
+import { Component, Host } from '@angular/core';
+
+import { NameService } from './name.service';
+
+@Component({
+  selector: 'app',
+  template: '
+    <!-- ... -->
+  ',
+  viewProviders: [NameService]
+})
+export class AppComponent {
+  constructor(@Host() nameService: NameService) {  // 服務必須是 Host 上的注入器所提供的
+    // ...
+  }
+}
+```
+
+#### Self 與 SkipSelf
+
+(1) Self
+```ts
+import { Component, Self } from '@angular/core';
+
+import { NameService } from './name.service';
+
+@Component({
+  selector: 'app',
+  template: '
+    <!-- ... -->
+  ',
+  viewProviders: [NameService]
+})
+export class AppComponent {
+  constructor(@Self() nameService: NameService) {  // 只允許注入的服務是當前元件注入器所提供的
+    // ...
+  }
+}
+```
+
+(2) SkipSelf
+```ts
+import { Component, SkipSelf } from '@angular/core';
+
+import { NameService } from './name.service';
+
+@Component({
+  selector: 'app',
+  template: '
+    <!-- ... -->
+  ',
+  viewProviders: [NameService]
+})
+export class AppComponent {
+  constructor(@SkipSelf() nameService: NameService) {  // 只允許注入的服務是「非」當前元件注入器所提供的
+    // ...
+  }
+}
 ```
 
 ## 通訊
