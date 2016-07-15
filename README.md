@@ -88,7 +88,7 @@
     * [useClass](#useclass)
     * useExisting
     * [useValue](#usevalue)
-    * multi
+    * [multi](#multi)
     * [useFactory](#usefactory)
     * deps
   * 層疊注入
@@ -2796,6 +2796,9 @@ import { Component, provide, Inject } from '@angular/core';
   `,
   viewProviders: [
     { provide: 'NumberService', useValue: 9453 }  // 注入一個值
+
+    // 同一個服務後面會覆蓋前面
+    // { provide: 'NumberService', useValue: 9527 }
   ]
 })
 export class AppComponent {
@@ -2803,6 +2806,38 @@ export class AppComponent {
 
   constructor(@Inject('NumberService') numberService) {
     this.value = numberService;
+  }
+}
+```
+
+#### multi
+```ts
+import { Component, provide, Inject } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p>第一個數值: {{ value1 }}</p>
+    <p>第二個數值: {{ value2 }}</p>
+  `,
+  viewProviders: [
+    { provide: 'NumberService', useValue: 9453, multi: true },
+    { provide: 'NumberService', useValue: 9527, multi: true }
+
+    // 不能這樣
+    // { provide: 'NumberService', useValue: 9453 },
+    // { provide: 'NumberService', useValue: 9527, multi: true }
+  ]
+})
+export class AppComponent {
+  public value1: number;
+  public value2: number;
+
+  constructor(@Inject('NumberService') numberService) {
+    this.value1 = numberService[0];
+    this.value2 = numberService[1];
+
+    console.log(numberService);  // [9453, 9527]
   }
 }
 ```
@@ -2832,31 +2867,6 @@ export class AppComponent {
 ```ts
 { provide: ColorService, useClass: RedService }  // RedService 會與 ColorService 為 false
 { provide: ColorService, useExisting: RedService }  // RedService 會與 ColorService 為 true
-```
-
-```ts
-{ provide: ColorService, useValue: 'red' }
-
-// 這會被覆蓋
-{ provide: ColorService, useValue: 'red' }
-{ provide: ColorService, useValue: 'blue' }  // 後面會覆蓋前面
-
-// 如果是 API，通常會這麼做
-{ provide: 'API_URL', useValue: 'https://thing.api.com/v1' }
-```
-
-```ts
-// 可以
-{ provide: ColorService, useValue: 'red', multi: true }
-{ provide: ColorService, useValue: 'blue', multi: true }
-
-// 不可以
-{ provide: ColorService, useValue: 'red' }
-{ provide: ColorService, useValue: 'blue', multi: true }
-```
-
-```ts
-{ provide: ColorService, useFactory: () => { return x + y; }}
 ```
 
 ### 控制服務
