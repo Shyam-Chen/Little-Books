@@ -2,10 +2,10 @@
 
 ### 目錄
 * [第一個應用程式](#第一個應用程式)
-  * [設定初始化環境](#設定初始化環境)
-  * [簡單的配置](#簡單的配置)
+  * [設定環境](#設定環境)
   * [開始使用](#開始使用)
   * [專案架構](#專案架構)
+  * [既有的樣板](#既有的樣板)
 * [模組](#模組)
   * [模組建構子](#模組建構子)
 * [元件](#元件)
@@ -165,9 +165,7 @@
 
 ## 第一個應用程式
 
-### 設定初始化環境
-
-#### 簡單的配置
+### 設定環境
 ```bash
 # 建立名為 ng2-starter 的資料夾
 $ mkdir ng2-starter
@@ -180,8 +178,12 @@ $ cd ng2-starter
 {
   "name": "ng2-starter",
   "version": "1.0.0",
-  "scripts": { "start": "lite-server -c config.json" },
-  "devDependencies": { "lite-server": "^2.2.0" }
+  "scripts": {
+    "start": "lite-server -c config.json"
+  },
+  "devDependencies": {
+    "lite-server": "^2.2.0"
+  }
 }
 ```
 ```js
@@ -204,8 +206,8 @@ $ cd ng2-starter
     <title>Angular 2 in Action</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://npmcdn.com/core-js/client/shim.min.js"></script>
-    <script src="https://npmcdn.com/zone.js@0.6.12?main=browser"></script>
     <script src="https://npmcdn.com/systemjs@0.19.31/dist/system.src.js"></script>
+    <script src="https://npmcdn.com/zone.js@0.6.12?main=browser"></script>
     <script src="./system.config.js"></script>
     <script>
       System.import('app').catch(function(err){console.error(err);});
@@ -301,7 +303,7 @@ export class AppComponent { }
 $ npm start
 ```
 
-##### 開始使用
+### 開始使用
 ```ts
 //  src/app/new.component.ts
 import { Component } from '@angular/core';
@@ -330,32 +332,20 @@ import { NewComponent } from './new.component';  // 導入新建立的元件
 export class AppComponent { }
 ```
 
-##### 專案架構
+### 專案架構
 ```
 .
 ├── src
 │   ├── app
-│   │   ├── app.component.ts|html|css
+│   │   ├── app.component.ts
 │   │   └── main.ts
-│   ├── styles
-│   │   └── ...
-│   ├── assets
-│   │   ├── images
-│   │   │   └── ...
-│   │   └── fonts
-│   │       └── ...
 │   ├── index.html
 │   └── system.config.js
-├── gulpfile.ts
-├── karma.conf.js
-├── package.json
-├── protractor.conf.js
-├── tsconfig.json
-├── tslint.json
-└── typings.json
+├── config.json
+└── package.json
 ```
 
-既有的樣板
+### 既有的樣板
 * [使用 Angular CLI](https://github.com/angular/angular-cli)
 * [使用 Gulp](https://github.com/mgechev/angular2-seed)
 * [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
