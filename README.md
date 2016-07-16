@@ -397,7 +397,7 @@ directives?: Array<Type|any[]>  // 查看指令章節
 pipes?: Array<Type|any[]>  // 查看管道章節
 encapsulation?: ViewEncapsulation
 interpolation?: [string, string]
-precompile?: Array<Type|any[]>
+precompile?: Array<Type|any[]>  // 查看模組章節
 ```
 
 #### 元件起點
