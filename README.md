@@ -71,6 +71,7 @@
     * [ng-template-outlet](#ng-template-outlet)
   * DOM 節點
     * ElementRef
+    * Renderer
   * [自訂指令](#自訂指令)
     * [指令建構子](#指令建構子)
     * [指令起點](#指令起點)
