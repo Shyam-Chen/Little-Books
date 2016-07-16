@@ -81,10 +81,13 @@
     * [HostBinding](#hostbinding)
     * [HostListener](#hostlistener)
 * [服務](#服務)
-  * [注入器](#注入器)
+  * [可注入的服務](#可注入的服務)
     * [服務起點](#服務起點)
-    * [簡單的服務](#簡單的服務)
-  * 相依性注入
+    * [建立服務](#建立服務)
+    * [使用服務](#使用服務)
+    * [沒有相依性注入](#沒有相依性注入)
+    * [Inject 修飾器](#inject-修飾器)
+    * [再看一個](#再看一個)
   * [定義相依性](#定義相依性)
     * [useClass](#useclass)
     * [useExisting](#useexisting)
@@ -93,7 +96,6 @@
     * [useFactory](#usefactory)
     * [deps](#deps)
   * 層疊注入
-  * 服務類型
   * [控制服務](#控制服務)
     * [Optional 與 Host](#optional-與-host)
     * [Self 與 SkipSelf](#self-與-skipself)
@@ -2614,7 +2616,7 @@ export class AppComponent { }
 
 ## 服務
 
-### 注入器
+### 可注入的服務
 
 #### 服務起點
 ```ts
@@ -2627,7 +2629,7 @@ export class NameService {
 }
 ```
 
-#### 簡單的服務
+#### 建立服務
 ```ts
 // languages.service.ts
 import { Injectable } from '@angular/core';
@@ -2639,6 +2641,8 @@ export class LanguagesService {
   public ts: string = 'TypeScript';
 }
 ```
+
+#### 使用服務
 ```ts
 // app.component.ts
 import { Component } from '@angular/core';
@@ -2647,13 +2651,15 @@ import { LanguagesService } from './languages.service';  // 導入新建立的�
 
 @Component({
   selector: 'app',
-  template: `<p>所決定的語言是: {{ language }}</p>`,
+  template: `
+    <p>所決定的語言是: {{ language }}</p>
+  `,
   viewProviders: [  // 僅限於該元件的模板中使用
     LanguagesService  // 將新建立的服務註冊的元件中
   ]
 })
 export class AppComponent {
-  constructor(languagesService: LanguagesService) {  // 相依性注入
+  constructor(languagesService: LanguagesService) {  // 有相依性注入
     this.language = languagesService.ts;  // 使用服務
 
     // 使用服務裡的其它選項
@@ -2663,45 +2669,48 @@ export class AppComponent {
 }
 ```
 
+#### 沒有相依性注入
 ```ts
-// 沒有相依性注入
-
 import { Component } from '@angular/core';
 
 import { LanguagesService } from './languages.service';
 
 @Component({
   selector: 'app',
-  template: `<p>所決定的語言是: {{ language }}</p>`,
+  template: `
+    <p>所決定的語言是: {{ language }}</p>
+  `,
   viewProviders: [LanguagesService]
 })
 export class AppComponent {
   constructor() {
-    this.languagesService = new LanguagesService();  // 不要這麼做
+    this.languagesService = new LanguagesService();  // 沒有相依性注入
     this.language = this.languagesService.ts;
   }
 }
 ```
 
+#### Inject 修飾器
 ```ts
-// 使用 Inject 修飾器
-
 import { Component, Inject } from '@angular/core';
 
 import { LanguagesService } from './languages.service';
 
 @Component({
   selector: 'app',
-  template: `<p>所決定的語言是: {{ language }}</p>`,
+  template: `
+    <p>所決定的語言是: {{ language }}</p>
+  `,
   viewProviders: [LanguagesService]
 })
 export class AppComponent {
-  constructor(@Inject(LanguagesService) languagesService) {
+  constructor(@Inject(LanguagesService) languagesService) {  // 使用 Inject 修飾器
     this.language = languagesService.ts;
   }
 }
 ```
 
+#### 再看一個
 ```ts
 export interface List {
   label: string;
@@ -2719,11 +2728,14 @@ export class ListService {
     { label: 'CoffeeScript' },
     { label: 'TypeScript' }
   ];
-  getList() { return this.LIST; }
+
+  getList(): List[] {
+    return this.LIST;
+  }
 }
 ```
 ```ts
-import { Component, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 import { ListService } from './services/list';
 
