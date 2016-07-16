@@ -85,6 +85,7 @@
     * [服務起點](#服務起點)
     * [簡單的服務](#簡單的服務)
   * 相依性注入
+  * [定義相依性](#定義相依性)
     * [useClass](#useclass)
     * [useExisting](#useexisting)
     * [useValue](#usevalue)
@@ -2747,6 +2748,8 @@ export class AppComponent implements OnInit {
   }
 }
 ```
+
+### 定義相依性
 
 #### useClass
 ```ts
