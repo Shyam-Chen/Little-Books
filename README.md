@@ -35,7 +35,6 @@
   * [變化檢測](#變化檢測)
     * [OnPush](#onpush)
     * [Default](#default)
-    * Zones
   * [生命週期掛鉤](#生命週期掛鉤)
     * [OnInit](#oninit)
     * [OnDestroy](#ondestroy)
@@ -46,7 +45,7 @@
     * [啟動表單](#啟動表單)
     * [建立模型](#建立模型)
     * [建立模板](#建立模版)
-    * [控制表單](#控制表單)
+    * 控制表單
   * [表單方法](#表單方法)
     * ngModel
     * [ngControl 與 ngControlGroup](#ngcontrol-與-ngcontrolgroup)
@@ -60,7 +59,7 @@
   * 非同步路由
   * 路由參數
   * 路由資料
-  * [生命週期掛鉤](#生命週期掛鉤)
+  * 生命週期掛鉤
 * [指令](#指令)
   * [內建指令](#內建指令)
     * [ng-if](#ng-if)
@@ -1774,8 +1773,6 @@ export interface User {
 </form>
 ```
 
-#### 控制表單
-
 #### 表單方法
 ```ts
 // 指令
@@ -1792,8 +1789,6 @@ ControlArray()
 FormBuilder
 Validators
 ```
-
-#### ngModel
 
 #### ngControl 與 ngControlGroup
 ```ts
@@ -1861,101 +1856,6 @@ export class AppComponent {
     })
   });
 }
-```
-
-***
-
-```ts
-import { Component } from '@angular/core';
-import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
-
-@Component({
-  selector: 'at-form',
-  template: `
-    <form [ngFormModel]="group" (ngSubmit)="onSubmit()" novalidate>
-      <label for="email">郵箱:</label>
-      <input type="email" id="email" [ngFormControl]="email">
-
-      <br><br>
-
-      <label for="password">密碼:</label>
-      <input type="password" id="password" [ngFormControl]="password">
-
-      <br><br>
-
-      <button type="submit">註冊</button>
-    </form>
-
-    <pre>{{ formValue | json }}</pre>
-  `,
-  directives: [REACTIVE_FORM_DIRECTIVES]
-})
-export class FormComponent {
-  public email: Control;
-  public password: Control;
-  public group: ControlGroup;
-  public formValue: any;
-
-  constructor(formBuilder: FormBuilder) {
-    this.email = new Control();
-    this.password = new Control();
-
-    this.group = formBuilder.group({
-      email: this.email,
-      password: this.password
-    });
-  }
-
-  onSubmit(): void {
-    this.formValue = this.group.value;
-  }
-}
-```
-
-#### 簡單的驗證
-```ts
-import { Component } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/common';
-
-@Component({
-  selector: 'at-form',
-  template: `
-    <form #atForm="ngForm" novalidate>
-      <label for="email">郵箱:</label>
-      <input type="email" id="email" ngControl="email" #email="ngForm"
-        required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-      >
-      <span class="error-messages" *ngIf="email.dirty && !email.valid">
-        <span *ngIf="email.errors.required">* 這是必填欄位</span>
-        <span *ngIf="email.errors.pattern">* 這個格式不正確</span>
-      </span>
-
-      <br><br>
-
-      <label for="password">密碼:</label>
-      <input type="password" id="password" ngControl="password" #password="ngForm"
-        required minlength="6"
-      >
-      <span class="error-messages" *ngIf="password.dirty && !password.valid">
-        <span *ngIf="password.errors.required">* 這是必填欄位</span>
-        <span *ngIf="password.errors.minlength">* 密碼最少為 6 碼</span>
-      </span>
-
-      <br><br>
-
-      <button type="submit" [disabled]="!atForm.valid">註冊</button>
-
-    </form>
-  `,
-  styles: [`.error-messages { color: #F44336 }`],
-  directives: [FORM_DIRECTIVES]
-})
-export class FormComponent { }
-```
-
-#### 驗證與狀態
-```ts
-this.password = new Control('', Validators.minLength(6));
 ```
 
 ## 路由
@@ -2033,30 +1933,9 @@ import { Component } from '@angular/core';
 export class AboutComponent { }
 ```
 
-### 路由生命週期掛鉤
-```ts
-OnActivate() { ... }
-```
-
 ### 巢狀路由
 ```ts
-import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-
-@Component({
-  selector: 'app',
-  template: `
-    <nav>
-      <a [routerLink]="['/home']">Home</a>
-      <a [routerLink]="['/about']">About</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
-  directives: [ROUTER_DIRECTIVES]
-})
-export class AppComponent { }
-```
-```ts
+// src/app/app.routes.ts
 import { provideRouter, RouterConfig } from '@angular/router';
 
 import { HomeComponent } from './home.component';
@@ -2075,16 +1954,7 @@ export const APP_ROUTER_PROVIDERS = [
 ];
 ```
 ```ts
-import { Component } from '@angular/core';
-
-@Component({
-  template: `
-    <p>Home Page</p>
-  `
-})
-export class HomeComponent { }
-```
-```ts
+//  src/app/about.component.ts
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
@@ -2104,6 +1974,7 @@ export class AboutComponent {
 }
 ```
 ```ts
+//  src/app/link.component.ts
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -2131,18 +2002,16 @@ export class LinkComponent {
 ### 內建指令
 ```ts
 import { Component } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { CORE_DIRECTIVES } from '@angular/common';  // 導入內建指令
 
 @Component({
   selector: 'at-name',
   template: `
     <!-- ... -->
   `,
-  directives: [CORE_DIRECTIVES]
+  directives: [CORE_DIRECTIVES]  // 將內建指令註冊到元件裡
 })
 export class NameComponent { }
-
-// [註]: 也是可以不用 CORE_DIRECTIVES 就可以使用內建指令了，不過這是標準的行為
 ```
 
 #### ng-if
@@ -3285,8 +3154,6 @@ import { COMMON_PIPES } from '@angular/common';  // 導入內建管道
   pipes: [COMMON_PIPES]  // 將內建管道註冊到元件裡
 })
 export class NameComponent { }
-
-// [註]: 也是可以不用 COMMON_PIPES 就可以使用內建管道了，不過這是標準的行為
 ```
 
 #### 大小寫
