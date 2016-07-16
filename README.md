@@ -86,7 +86,7 @@
     * [簡單的服務](#簡單的服務)
   * 相依性注入
     * [useClass](#useclass)
-    * useExisting
+    * [useExisting](#useexisting)
     * [useValue](#usevalue)
     * [multi](#multi)
     * [useFactory](#usefactory)
@@ -2773,6 +2773,31 @@ import { RedService } from './red.service';
   `,
   viewProviders: [
     { provide: 'ColorService', useClass: RedService }  // 將類別實體化
+  ]
+})
+export class AppComponent {
+  public color: string;
+
+  constructor(@Inject('ColorService') colorService) {
+    this.color = colorService.r500;
+  }
+}
+```
+
+#### useExisting
+```ts
+import { Component, provide, Inject } from '@angular/core';
+
+import { RedService } from './red.service';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p>紅色 500: {{ color }}</p>
+  `,
+  viewProviders: [
+    RedService,
+    { provide: 'ColorService', useExisting: RedService }  // 注入已存在實體
   ]
 })
 export class AppComponent {
