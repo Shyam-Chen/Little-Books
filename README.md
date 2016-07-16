@@ -1966,8 +1966,8 @@ this.password = new Control('', Validators.minLength(6));
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 
-import { APP_ROUTER_PROVIDERS } from './app.routes';
 import { AppComponent } from './app.component';
+import { APP_ROUTER_PROVIDERS } from './app.routes';
 
 bootstrap(AppComponent, [
   APP_ROUTER_PROVIDERS,
@@ -1984,8 +1984,8 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   selector: 'app',
   template: `
     <nav>
-      <a [routerLink]="['/']">HOME</a>
-      <a [routerLink]="['/about']">ABOUT</a>
+      <a [routerLink]="['/home']">Home</a>
+      <a [routerLink]="['/about']">About</a>
     </nav>
     <router-outlet></router-outlet>
   `,
@@ -1997,12 +1997,13 @@ export class AppComponent { }
 // src/app/app.routes.ts
 import { provideRouter, RouterConfig } from '@angular/router';
 
-import { AboutRoutes } from './+about/index';
-import { HomeRoutes } from './+home/index';
+import { HomeComponent } from './home.component';
+import { AboutComponent } from './about.component';
 
 const routes: RouterConfig = [
-  ...HomeRoutes,
-  ...AboutRoutes
+  { path: '', redirectTo: 'home', terminal: true },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent }
 ];
 
 export const APP_ROUTER_PROVIDERS = [
@@ -2010,7 +2011,7 @@ export const APP_ROUTER_PROVIDERS = [
 ];
 ```
 ```ts
-// src/app/+home/home.component.ts
+// src/app/home.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -2021,23 +2022,7 @@ import { Component } from '@angular/core';
 export class HomeComponent { }
 ```
 ```ts
-// src/app/+home/home.routes.ts
-import { RouterConfig } from '@angular/router';
-
-import { HomeComponent } from './index';
-
-export const HomeRoutes: RouterConfig = [{
-  path: '',
-  component: HomeComponent
-}];
-```
-```ts
-// src/app/+home/index.ts
-export * from './home.component';
-export * from './home.routes';
-```
-```ts
-//  src/app/+about/about.component.ts
+//  src/app/about.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -2046,22 +2031,6 @@ import { Component } from '@angular/core';
   `
 })
 export class AboutComponent { }
-```
-```ts
-// src/app/+about/about.routes.ts
-import { RouterConfig } from '@angular/router';
-
-import { AboutComponent } from './index';
-
-export const AboutRoutes: RouterConfig = [{
-  path: 'about',
-  component: AboutComponent
-}];
-```
-```ts
-// src/app/+about/index.ts
-export * from './about.component';
-export * from './about.routes';
 ```
 
 ### 路由生命週期掛鉤
