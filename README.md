@@ -90,7 +90,7 @@
     * [useValue](#usevalue)
     * [multi](#multi)
     * [useFactory](#usefactory)
-    * deps
+    * [deps](#deps)
   * 層疊注入
   * 服務類型
   * [控制服務](#控制服務)
@@ -2773,6 +2773,7 @@ import { RedService } from './red.service';
   `,
   viewProviders: [
     { provide: 'ColorService', useClass: RedService }  // 將類別實體化
+    // ColorService === RedService 為 false
   ]
 })
 export class AppComponent {
@@ -2798,6 +2799,7 @@ import { RedService } from './red.service';
   viewProviders: [
     RedService,
     { provide: 'ColorService', useExisting: RedService }  // 注入已存在實體
+    // ColorService === RedService 為 ture
   ]
 })
 export class AppComponent {
@@ -2888,9 +2890,27 @@ export class AppComponent {
 }
 ```
 
+#### deps
 ```ts
-{ provide: ColorService, useClass: RedService }  // RedService 會與 ColorService 為 false
-{ provide: ColorService, useExisting: RedService }  // RedService 會與 ColorService 為 true
+import { Component, provide, Inject } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p>{{ messages }}</p>
+  `,
+  viewProviders: [
+    { provide: 'NumberService', useFactory: () => { return Math.random(); }},
+    { provide: 'StringService', useFactory: (value) => { return `亂數值: ${ value }`; }, deps: ['NumberService'] }
+  ]
+})
+export class AppComponent {
+  public messages: string;
+
+  constructor(@Inject('StringService') stringService) {
+    this.messages = stringService;
+  }
+}
 ```
 
 ### 控制服務
