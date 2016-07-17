@@ -212,6 +212,19 @@ export class Bar {
 export default thing;
 ```
 
+```ts
+// foo.ts
+export class Angular2 {
+  // ...
+}
+```
+```ts
+// bar.ts
+import { Angular2 as Ng2 } from './foo';  // 對導入的內容重新命名
+
+let ng2 = new Ng2();
+```
+
 ### 介面
 ```ts
 interface Foo {
