@@ -8,6 +8,7 @@
   * [既有的樣板](#既有的樣板)
 * [模組](#模組)
   * [模組建構子](#模組建構子)
+  * [模組起點](#模組起點)
 * [元件](#元件)
   * [初識元件](#初識元件)
     * [元件建構子](#元件建構子)
@@ -373,6 +374,18 @@ pipes: []
 providers: []
 precompile: []
 modules: []
+```
+
+### 模組起點
+```ts
+import { AppModule } from '@angular/core';
+
+@AppModule({
+  // ...
+})
+export class NameModule {
+  // ...
+}
 ```
 
 ## 元件
