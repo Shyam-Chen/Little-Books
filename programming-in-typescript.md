@@ -114,6 +114,26 @@ foo = 'abc';  // OK
 foo = 123;  // OK
 ```
 ```ts
+interface Some {
+  foo();
+  baz();
+}
+
+interface Thing {
+  bar();
+  baz();
+}
+
+function getSomeThing(): Some | Thing {
+  // ...
+}
+let st = getSomeThing();
+
+st.foo();  // Error
+st.bar();  // Error
+st.baz();  // OK
+```
+```ts
 // 型別別名
 type ThingType = string | number;
 let foo: ThingType;
