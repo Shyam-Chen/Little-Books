@@ -2,7 +2,7 @@
 
 ### 目錄
 * [型別](#型別)
-* [命名空間與模組](#命名空間與模組)
+* [命名空間](#命名空間)
 * [模組機制](#模組機制)
 * [介面](#介面)
 * [函式](#函式)
@@ -24,7 +24,7 @@
 $ npm install ts-node -g
 ```
 
-### 型別
+## 型別
 ```ts
 // 布林值
 let isDone: boolean = false;
@@ -123,7 +123,9 @@ foo = 123;  // OK
 foo = true;  // Error
 ```
 
-### 命名空間與模組
+## 命名空間
+
+(1)
 ```ts
 namespace Thing {
   export class Foo { }
@@ -134,60 +136,17 @@ let foo = new Thing.Foo();
 let bar = new Thing.Bar();
 ```
 
+(2)
 ```ts
-namespace Shapes {
-  export namespace Polygons {
-    export class Triangle { }
-    export class Square { }
+namespace Thing {
+  export namespace Foo {
+    export class Bar { }
+    export class Baz { }
   }
 }
 
-import polygons = Shapes.Polygons;
-let square = new polygons.Square();  // 等同於 let sq = new Shapes.Polygons.Square()
-```
-
-```ts
-// thing.d.ts
-declare module 'thing-module' {
-  export function foo(): void;
-}
-```
-```ts
-// module.ts
-/// <reference path="thing.d.ts" />
-import * as thing from 'thing-module';
-```
-##### 使用 Typings
-```
-$ npm i typings -g
-```
-```bash
-$ npm install core-js -S
-$ typings install dt~core-js -G -S
-```
-```bash
-# 自訂
-$ mkdir manual_typings
-```
-```bash
-$ npm install systemjs -S
-```
-```ts
-// systemjs-builder.d.ts
-declare module 'systemjs-builder' {
-  class Builder {
-    constructor(configObject?: any, baseUrl?: string, configPath?: string);
-    bundle(source: string, target: string, options?: any): Promise<any>;
-    buildStatic(source: string, target: string, options?: any): Promise<any>;
-  }
-
-  module Builder { }
-  export = Builder;
-}
-```
-```ts
-// module.ts
-import * as Builder from 'systemjs-builder';
+import foo = Thing.Foo;
+let baz = new foo.Baz();  // 等同於 let sq = new Thing.Foo.Baz()
 ```
 
 ### 模組機制
@@ -225,6 +184,51 @@ export class Angular2 {
 import { Angular2 as Ng2 } from './foo';  // 對導入的內容重新命名
 
 let ng2 = new Ng2();
+```
+
+```ts
+// thing.d.ts
+declare module 'thing-module' {
+  export function foo(): void;
+}
+```
+```ts
+// module.ts
+/// <reference path="thing.d.ts" />
+import * as thing from 'thing-module';
+```
+
+使用 Typings 定義模組
+```
+$ npm install typings -g
+```
+```bash
+$ npm install core-js -S
+$ typings install dt~core-js -G -S
+```
+```bash
+# 自訂
+$ mkdir manual_typings
+```
+```bash
+$ npm install systemjs -S
+```
+```ts
+// systemjs-builder.d.ts
+declare module 'systemjs-builder' {
+  class Builder {
+    constructor(configObject?: any, baseUrl?: string, configPath?: string);
+    bundle(source: string, target: string, options?: any): Promise<any>;
+    buildStatic(source: string, target: string, options?: any): Promise<any>;
+  }
+
+  module Builder { }
+  export = Builder;
+}
+```
+```ts
+// module.ts
+import * as Builder from 'systemjs-builder';
 ```
 
 ### 介面
