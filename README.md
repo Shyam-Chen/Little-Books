@@ -2181,9 +2181,49 @@ export class NgClassComponent { }
 ```
 
 #### ng-plural
-https://github.com/angular/angular/blob/master/modules/%40angular/common/src/directives/ng_plural.ts
+```ts
+import { Component, provide } from '@angular/core';
+import { NgLocalization } from '@angular/common';
+
+import { LocalizationService } from './localization.service';
+
+@Component({
+  selector: 'app',
+  template: `
+    <button (click)="onClick()">增加數量</button>
+    <p>數量: {{ value }}個</p>
+    <div [ngPlural]="value">
+      <template ngPluralCase="=0">沒有任何東西</template>
+      <template ngPluralCase="=1">已經放入一個東西</template>
+      <template ngPluralCase="=2">已經放入兩個東西</template>
+      <template ngPluralCase="many">已經放入了很多東西</template>
+      <template ngPluralCase="excess">已經超出負荷量了</template>
+    </div>
+  `,
+  providers: [
+    { provide: NgLocalization, useClass: LocalizationService }
+  ]
+})
+export class AppComponent {
+  public value: number = 0;
+
+  onClick(): void {
+    this.value += 1;
+  }
+}
 ```
-[ngPlural]
+```ts
+import { NgLocalization } from '@angular/common';
+
+export class LocalizationService extends NgLocalization {
+  getPluralCategory(value: number): string {
+    if (value <= 10) {
+      return 'many';
+    } else {
+      return 'excess';
+    }
+  }
+}
 ```
 
 #### ng-template-outlet
