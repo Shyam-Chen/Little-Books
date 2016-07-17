@@ -159,13 +159,6 @@
     * [整合靜態分析](#整合靜態分析)
     * [整合單元測試](#整合單元測試)
     * [整合端對端測試](#整合端對端測試)
-* ---------- 附錄 ----------
-* [程式語言](https://github.com/Shyam-Chen/Angular2-in-Action/tree/master/langs)
-  * [JS.Next](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/langs/js.next.md)
-  * [TypeScript](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/langs/typescript.md)
-* [函式庫](https://github.com/Shyam-Chen/Angular2-in-Action/tree/master/libs)
-  * [Zone.js](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/libs/zone.js.md)
-  * [RxJS](https://github.com/Shyam-Chen/Angular2-in-Action/blob/master/libs/rxjs.md)
 
 ***
 
