@@ -126,11 +126,24 @@ foo = true;  // Error
 ### 命名空間與模組
 ```ts
 namespace Thing {
-  export let prefix: string = 'ng-';
-  export interface Foo { }
-  export function bar() { }
-  export class Baz { }
+  export class Foo { }
+  export class Bar { }
 }
+
+let foo = new Thing.Foo();
+let bar = new Thing.Bar();
+```
+
+```ts
+namespace Shapes {
+  export namespace Polygons {
+    export class Triangle { }
+    export class Square { }
+  }
+}
+
+import polygons = Shapes.Polygons;
+let square = new polygons.Square();  // 等同於 let sq = new Shapes.Polygons.Square()
 ```
 
 ```ts
