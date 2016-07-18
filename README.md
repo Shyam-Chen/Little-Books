@@ -103,9 +103,9 @@
 * [通訊](#通訊)
   * [獲取資料](#獲取資料)
     * [啟動 HTTP](#啟動-http)
-    * [建立服務](#建立服務)
+    * [建立 Get 服務](#建立-get-服務)
     * [準備資料](#準備資料)
-    * [使用服務](#使用服務)
+    * [操作服務](#操作服務)
     * [倒退為 Promise](#倒退為-promise)
     * [捕獲錯誤](#捕獲錯誤)
   * 發送資料
@@ -2920,7 +2920,7 @@ import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
 export class AppComponent { }
 ```
 
-#### 建立服務
+#### 建立 Get 服務
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
@@ -2950,7 +2950,7 @@ export class SampleService {
 }
 ```
 
-#### 使用服務
+#### 操作服務
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
