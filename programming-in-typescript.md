@@ -1,6 +1,7 @@
 # TypeScript 程式設計
 
 ### 目錄
+* [入門](#入門)
 * [型別](#型別)
 * [命名空間](#命名空間)
 * [模組機制](#模組機制)
@@ -20,8 +21,16 @@
 
 ***
 
+## 入門
 ```bash
-$ npm install ts-node -g
+# 安裝 ts-node 與 typescript
+$ npm install ts-node typescript -g
+
+# 建立練習檔
+$ touch script.ts
+
+# 執行練習檔
+$ ts-node script
 ```
 
 ## 型別
