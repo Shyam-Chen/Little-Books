@@ -260,7 +260,9 @@ declare module 'systemjs-builder' {
 import * as Builder from 'systemjs-builder';
 ```
 
-### 介面
+## 介面
+
+(1)
 ```ts
 interface Foo {
   bar: number;
@@ -276,6 +278,8 @@ thing({ bar: 123 });  // OK
 thing({ baz: 'abc' });  // Error
 thing({ bar: 123, baz: 'abc' });  // OK
 ```
+
+(2)
 ```ts
 interface Thing {
   [index: number]: string;
@@ -284,6 +288,20 @@ interface Thing {
 let thing: Thing = ['a', 'b', 'c'];
 
 let foo: string = thing[1];  // 'b'
+```
+
+(3)
+```ts
+interface Square {
+  color?: string;
+  width?: number;
+}
+
+function createSquare(square: Square): { color: string; area: number } {
+  // ...
+}
+
+let cs = createSquare({ width: 100, opacity: 0.5 } as Square);
 ```
 
 ### 函式
