@@ -52,6 +52,8 @@
   * 模型驅動
     * [ngFormModel](#ngformmodel)
   * [FormBuilder](#formbuilder)
+    * 內建驗證
+    * 自訂驗證
   * 驗證與狀態
   * 非同步驗證
 * [路由](#路由)
