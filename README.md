@@ -44,12 +44,12 @@
 * [表單](#表單)
   * [建立表單](#建立表單)
     * [啟動表單](#啟動表單)
-    * [建立模型](#建立模型)
     * [建立模板](#建立模板)
-    * 控制表單
   * [表單方法](#表單方法)
+  * 模板驅動
     * ngModel
     * [ngControl 與 ngControlGroup](#ngcontrol-與-ngcontrolgroup)
+  * 模型驅動
     * [ngFormModel](#ngformmodel)
   * [FormBuilder](#formbuilder)
   * 驗證與狀態
