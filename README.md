@@ -1749,7 +1749,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app',
   template: `
-    <form #atForm="ngForm" novalidate>
+    <form>
       <!-- ... -->
     </form>
   `
@@ -1773,7 +1773,7 @@ export class User {
   </div>
   <div>
     <label for="email">郵箱:</label>
-    <input type="text" id="email" required>
+    <input type="email" id="email" required>
   </div>
   <button type="submit">送出</button>
 </form>
@@ -1865,6 +1865,51 @@ export class AppComponent {
       name: new Control('陳彥澄')
     })
   });
+}
+```
+
+#### FormBuilder
+```ts
+import { Component } from '@angular/core';
+import { REACTIVE_FORM_DIRECTIVES, FormBuilder, FormControl } from '@angular/forms';
+
+@Component({
+  selector: 'app',
+  template: `
+    <form [formGroup]="atForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">姓名:</label>
+        <input type="text" id="name" [formControl]="name">
+      </div>
+      <div>
+        <label for="email">郵箱:</label>
+        <input type="email" id="email" [formControl]="email">
+      </div>
+      <button type="submit">送出</button>
+    </form>
+    <p>{{ message1 }} {{ message2 }}</p>
+  `,
+  directives: [REACTIVE_FORM_DIRECTIVES]
+})
+export class AppComponent {
+  public atForm: FormGroup;
+  public name: FormControl;
+  public email: FormControl;
+
+  constructor(formBuilder: FormBuilder) {
+    this.name = new FormControl('陳彥澄');
+    this.email = new FormControl('chenyencheng@gmail.com');
+
+    this.atForm = formBuilder.group({
+      name: this.name,
+      email: this.email
+    });
+  }
+
+  onSubmit(): void {
+    this.message1 = this.atForm.value.name;
+    this.message2 = this.atForm.value.email;
+  }
 }
 ```
 
