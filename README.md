@@ -1733,45 +1733,34 @@ export class AppComponent {
 ```ts
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { provideForms } from '@angular/forms';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-bootstrap(AppComponent, [provideForms()]);
+bootstrap(AppComponent, [
+  disableDeprecatedForms(),
+  provideForms()
+]);
 ```
 ```ts
-// src/app/form.component.ts
+// src/app/app.component.ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-form',
+  selector: 'app',
   template: `
     <form #atForm="ngForm" novalidate>
       <!-- ... -->
     </form>
   `
 })
-export class FormComponent { }
-```
-```ts
-// src/app/app.component.ts
-import { Component } from '@angular/core';
-
-import { FormComponent } from './form.component';
-
-@Component({
-  selector: 'app',
-  template: `<at-form></at-form>`,
-  directives: [FormComponent]
-})
 export class AppComponent { }
 ```
 
 #### 建立模型
 ```ts
-export interface User {
-  name: string;
-  email: string;
+export class User {
+  constructor(public name: string, public email: string) { }
 }
 ```
 
@@ -1788,6 +1777,10 @@ export interface User {
   </div>
   <button type="submit">送出</button>
 </form>
+```
+
+#### 建立控制
+```ts
 ```
 
 #### 表單方法
