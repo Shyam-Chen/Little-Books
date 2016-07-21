@@ -51,6 +51,7 @@
     * ngModel
     * [ngControl 與 ngControlGroup](#ngcontrol-與-ngcontrolgroup)
     * [ngFormModel](#ngformmodel)
+  * [FormBuilder](#formbuilder)
   * 驗證與狀態
   * 非同步驗證
 * [路由](#路由)
