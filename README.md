@@ -112,6 +112,8 @@
     * [倒退為 Promise](#倒退為-promise)
     * [捕獲錯誤](#捕獲錯誤)
   * [發送資料](#發送資料)
+    * [建立 Post 服務](#建立-post-服務)
+    * [執行服務](#執行服務)
   * 刪除資料
   * 編輯資料
     * 加上路由
@@ -3002,7 +3004,7 @@ import { SampleService } from './sample.service';
 @Component({
   selector: 'app',
   template: `
-    <button (click)="onRequest()">點擊我</button>
+    <button (click)="onClick()">點擊我</button>
     <pre>{{ messages }}</pre>
   `,
   providers: [HTTP_PROVIDERS],
@@ -3011,7 +3013,7 @@ import { SampleService } from './sample.service';
 export class AppComponent {
   constructor(private sampleService: SampleService) { }
 
-  onRequest(): void {
+  onClick(): void {
     console.log('請求開始');
 
     this.sampleService
@@ -3089,6 +3091,8 @@ export class SampleService {
 ```
 
 ### 發送資料
+
+#### 建立 Post 服務
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
@@ -3103,7 +3107,7 @@ export class SampleService {
     description: 'Angular 2 實戰手冊'
   };
 
-  private dataUrl: string = '...';  // 要發送到哪的連結
+  private dataUrl: string = '...';  // 要把資料發送到哪個統一資源定位器
 
   constructor(private http: Http) { }
 
@@ -3118,6 +3122,8 @@ export class SampleService {
   };
 }
 ```
+
+#### 執行服務
 ```ts
 import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
@@ -3127,7 +3133,7 @@ import { SampleService } from './sample.service';
 @Component({
   selector: 'app',
   template: `
-    <button (click)="onPost()">點擊我</button>
+    <button (click)="onClick()">點擊我</button>
     <pre>{{ results }}</pre>
   `,
   providers: [HTTP_PROVIDERS],
@@ -3136,7 +3142,7 @@ import { SampleService } from './sample.service';
 export class AppComponent {
   constructor(private sampleService: SampleService) { }
   
-  onPost(): void {
+  onClick(): void {
     console.log('發送開始');
 
     this.sampleService
