@@ -111,7 +111,7 @@
     * [操作服務](#操作服務)
     * [倒退為 Promise](#倒退為-promise)
     * [捕獲錯誤](#捕獲錯誤)
-  * 發送資料
+  * [發送資料]
   * 刪除資料
   * 編輯資料
     * 加上路由
@@ -3088,6 +3088,68 @@ export class SampleService {
 }
 ```
 
+### 發送資料
+```ts
+// src/app/sample.service.ts
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
+
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class SampleService {
+  private dataJson: any = {
+    title: 'Angular2-in-Action',
+    description: 'Angular 2 實戰手冊'
+  };
+
+  private dataUrl: string = '...';  // 要發送到哪的連結
+
+  constructor(private http: Http) { }
+
+  sampleMethod(): any {
+    let body = JSON.stringify(this.dataJson);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http
+      .post(this.dataUrl, body, options)
+      .map(res => res.json());
+  };
+}
+```
+```ts
+import { Component } from '@angular/core';
+import { HTTP_PROVIDERS } from '@angular/http';
+
+import { SampleService } from './sample.service';
+
+@Component({
+  selector: 'app',
+  template: `
+    <button (click)="onPost()">點擊我</button>
+    <pre>{{ results }}</pre>
+  `,
+  providers: [HTTP_PROVIDERS],
+  viewProviders: [SampleService]
+})
+export class AppComponent {
+  constructor(private sampleService: SampleService) { }
+  
+  onPost(): void {
+    console.log('發送開始');
+
+    this.sampleService
+      .sampleMethod()
+      .subscribe(
+        data => this.results = JSON.stringify(data),
+        err => console.log(err),
+        () => console.log('發送完成')
+      );
+  }
+}
+```
+
 ***
 
 ```ts
@@ -3173,6 +3235,7 @@ import{ Http, Response, RequestOptions, Headers } from'@angular/http';
 ```ts
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+
 import 'rxjs/add/operator/map';
 
 @Injectable()
