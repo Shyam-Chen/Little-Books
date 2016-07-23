@@ -73,9 +73,9 @@
     * [ng-class](#ng-class)
     * [ng-plural](#ng-plural)
     * [ng-template-outlet](#ng-template-outlet)
-  * DOM 節點
+  * [DOM 節點](#dom-節點)
     * ElementRef
-    * Renderer
+    * [Renderer](#renderer)
   * [自訂指令](#自訂指令)
     * [指令建構子](#指令建構子)
     * [指令起點](#指令起點)
@@ -2301,6 +2301,33 @@ export class AppComponent {
 }
 ```
 
+### DOM 節點
+
+#### ElementRef
+
+#### Renderer
+```ts
+selectRootElement(selectorOrNode: string|any, debugInfo?: RenderDebugInfo) : any
+createElement(parentElement: any, name: string, debugInfo?: RenderDebugInfo) : any
+createViewRoot(hostElement: any) : any
+createTemplateAnchor(parentElement: any, debugInfo?: RenderDebugInfo) : any
+createText(parentElement: any, value: string, debugInfo?: RenderDebugInfo) : any
+projectNodes(parentElement: any, nodes: any[]) : void
+attachViewAfter(node: any, viewRootNodes: any[]) : void
+detachView(viewRootNodes: any[]) : void
+destroyView(hostElement: any, viewAllNodes: any[]) : void
+listen(renderElement: any, name: string, callback: Function) : Function
+listenGlobal(target: string, name: string, callback: Function) : Function
+setElementProperty(renderElement: any, propertyName: string, propertyValue: any) : void
+setElementAttribute(renderElement: any, attributeName: string, attributeValue: string) : void
+setBindingDebugInfo(renderElement: any, propertyName: string, propertyValue: string) : void
+setElementClass(renderElement: any, className: string, isAdd: boolean) : any
+setElementStyle(renderElement: any, styleName: string, styleValue: string) : any
+invokeElementMethod(renderElement: any, methodName: string, args?: any[]) : any
+setText(renderNode: any, text: string) : any
+animate(element: any, startingStyles: AnimationStyles, keyframes: AnimationKeyframe[], duration: number, delay: number, easing: string) : AnimationPlayer
+```
+
 ### 自訂指令
 
 #### 指令建構子
@@ -2360,28 +2387,7 @@ export class AtColorDirective {
 <p atColor>Hello Angular 2</p>
 ```
 
-更多的渲染器
-```ts
-selectRootElement(selectorOrNode: string | any, debugInfo: RenderDebugInfo) : any
-createElement(parentElement: any, name: string, debugInfo: RenderDebugInfo) : any
-createViewRoot(hostElement: any) : any
-createTemplateAnchor(parentElement: any, debugInfo: RenderDebugInfo) : any
-createText(parentElement: any, value: string, debugInfo: RenderDebugInfo) : any
-projectNodes(parentElement: any, nodes: any[]) : void
-attachViewAfter(node: any, viewRootNodes: any[]) : void
-detachView(viewRootNodes: any[]) : void
-destroyView(hostElement: any, viewAllNodes: any[]) : void
-listen(renderElement: any, name: string, callback: Function) : Function
-listenGlobal(target: string, name: string, callback: Function) : Function
-setElementProperty(renderElement: any, propertyName: string, propertyValue: any) : void
-setElementAttribute(renderElement: any, attributeName: string, attributeValue: string) : void
-setBindingDebugInfo(renderElement: any, propertyName: string, propertyValue: string) : void
-setElementClass(renderElement: any, className: string, isAdd: boolean)
-setElementStyle(renderElement: any, styleName: string, styleValue: string)  // 我們使用到的
-invokeElementMethod(renderElement: any, methodName: string, args: any[])
-setText(renderNode: any, text: string)
-```
-
+Highlight
 ```ts
 import { Directive, Input, ElementRef, HostListener } from '@angular/core';
 
@@ -2419,7 +2425,7 @@ export class HighlightDirective {
 <span [atHighlight]="color">滑鼠游標靠過來吧!</span>
 ```
 
-https://github.com/angular/angular/blob/master/modules/@angular/core/src/metadata/directives.ts
+exportAs
 ```ts
 import { Directive } from '@angular/core';
 
