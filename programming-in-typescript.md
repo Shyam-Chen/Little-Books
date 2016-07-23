@@ -88,7 +88,24 @@ let right: Thing2 = Thing2.Right;  // 7
 // 使用 const 宣告
 const enum Thing3 (
   // ...
+  // 還能使用一些一元或二元運算子
+  Foo = 1 >> 2,  // 0
+  Bar = 5 >> 1,  // 2
+  FooBar  = Foo | Bar
 )
+
+enum Thing4 {
+  Foo
+}
+let foo = Thing4.Foo;
+let thing4OfFoo = Thing4[Thing4.Foo];  // Foo
+
+// 定義宣告
+declare enum Thing5 {
+  Foo,
+  Bar,
+  Baz
+}
 ```
 ```ts
 // 任意值
@@ -121,8 +138,9 @@ let foo: string | number;
 
 foo = 'abc';  // OK
 foo = 123;  // OK
-```
-```ts
+
+// 使用介面
+// 介面用法可以參考介面章節
 interface Some {
   foo();
   baz();
