@@ -33,6 +33,18 @@ $ touch script.ts
 $ ts-node script
 ```
 
+## 變數宣告
+```ts
+let foo = 123;
+foo;  // 123
+foo = 321;
+foo;  // 321
+
+const bar = 123;
+bar;  // 123
+bar = 321;  // Error
+```
+
 ## 型別
 ```ts
 // 布林值
