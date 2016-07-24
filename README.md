@@ -106,6 +106,7 @@
 * [通訊](#通訊)
   * [獲取資料](#獲取資料)
     * [啟動 HTTP](#啟動-http)
+    * [基本的 Get](#基本的-get)
     * [建立 Get 服務](#建立-get-服務)
     * [準備資料](#準備資料)
     * [操作服務](#操作服務)
@@ -117,7 +118,7 @@
   * 刪除資料
   * 編輯資料
     * 加上路由
-  * 跨域請求
+  * [跨域請求](#跨域請求)
 * [管道](#管道)
   * [內建管道](#內建管道)
     * [大小寫](#大小寫)
@@ -2969,6 +2970,58 @@ import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
 export class AppComponent { }
 ```
 
+#### 基本的 Get
+
+(1)
+```ts
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { Http } from '@angular/http';
+
+@Component({
+  selector: 'get-data',
+  template: `
+    <pre>{{ messages }}</pre>
+  `
+})
+export class GetDataComponent {
+  constructor(private http: Http, private changeDetectorRef: ChangeDetectorRef) {
+    http
+      .get('./assets/data.json')
+      .subscribe((data) => {
+        this.messages = data._body;
+        changeDetectorRef.detectChanges();
+      });
+  }
+}
+```
+
+(2)
+```ts
+import { Component } from '@angular/core';
+import { Http, Response } from '@angular/http';
+
+@Component({
+  selector: 'on-request',
+  template: `
+    <button type="button" (click)="onRequest()">請求</button>
+    <pre>{{ messages | json }}</pre>
+  `
+})
+export class OnRequestComponent {
+  public messages: Object;
+
+  constructor(private http: Http) { }
+
+  onRequest() {
+    this.http
+      .request('./assets/data.json')  // 或者 .get('./assets/data.json')
+      .subscribe((res: Response) => {
+        this.messages = res.json();
+      });
+  }
+}
+```
+
 #### 建立 Get 服務
 ```ts
 // src/app/sample.service.ts
@@ -3184,92 +3237,10 @@ export class AppComponent {
 }
 ```
 
-***
-
+### 跨域請求
 ```ts
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { Http } from '@angular/http';
 
-@Component({
-  selector: 'get-data',
-  template: `
-    <pre>{{ messages }}</pre>
-  `
-})
-export class GetDataComponent {
-  constructor(private http: Http, private changeDetectorRef: ChangeDetectorRef) {
-    http
-      .get('./assets/data.json')
-      .subscribe((data) => {
-        this.messages = data._body;
-        changeDetectorRef.detectChanges();
-      });
-  }
-}
 ```
-
-```ts
-import { Component } from '@angular/core';
-import { Http, Response } from '@angular/http';
-
-@Component({
-  selector: 'on-request',
-  template: `
-    <button type="button" (click)="onRequest()">請求</button>
-    <pre>{{ messages | json }}</pre>
-  `
-})
-export class OnRequestComponent {
-  public messages: Object;
-
-  constructor(private http: Http) { }
-
-  onRequest() {
-    this.http
-      .request('./assets/data.json')  // 或者 .get('./assets/data.json')
-      .subscribe((res: Response) => {
-        this.messages = res.json();
-      });
-  }
-}
-```
-```ts
-import { Injectable } from '@angular/core';
-import { Http, Request, RequestMethod } from '@angular/http';
-
-@Injectable()
-export class OnRequestService {
-  constructor(private http: Http) { }
-
-  onRequest(url: string) {
-    return this.http
-      .request(new Request({
-        method: RequestMethod.Get,
-        url: url
-      }));
-  }
-}
-```
-
-```ts
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-
-import 'rxjs/add/operator/map';
-
-@Injectable()
-export class PostService {
-  constructor(private http: Http) { }
-
-  getPosts() {
-    return this.http
-      .get('./posts.json')
-      .map(res => res.json())
-      .map(res => res.posts);
-  }
-}
-```
-
 ```ts
 import { Injectable } from '@angular/core';
 import { Jsonp, URLSearchParams } from '@angular/http';
@@ -3277,45 +3248,23 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class WikipediaService {
+  private wikiUrl: string = 'http://en.wikipedia.org/w/api.php';
+
   constructor(private jsonp: Jsonp) { }
 
-  search(term: string) {
-    let wikiUrl = 'http://en.wikipedia.org/w/api.php';
-
+  search(term: string): any {
     let params = new URLSearchParams();
+
     params.set('search', term);
     params.set('action', 'opensearch');
     params.set('format', 'json');
     params.set('callback', 'JSONP_CALLBACK');
 
     return this.jsonp
-      .get(wikiUrl, { search: params })
-      .map(request => <string[]>request.json()[1]);
+      .get(this.wikiUrl, { search: params })
+      .map(req => <string[]>req.json()[1]);
   }
 }
-```
-
-```ts
-// 平行請求
-
-[...]
-
-import { Observable } from 'rxjs/Observable';
-
-import 'rxjs/add/operator/map';
-
-[...]
-
-Observable
-  .forkJoin(
-    this.http.get('./data-1.json').map((res: Response) => res.json()),
-    this.http.get('./data-2.json').map((res: Response) => res.json())
-  )
-  .subscribe(
-    // ...
-  )
-
-[...]
 ```
 
 ## 管道
