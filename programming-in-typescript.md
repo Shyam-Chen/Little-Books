@@ -631,7 +631,7 @@ const box: Box = { height: 5, width: 6, scale: 10 };
 
 ## 修飾器
 
-### 修飾屬性
+### 修飾類別
 ```ts
 const Foo = (value: any) => {
   return (target: any) => {
@@ -644,12 +644,18 @@ const Foo = (value: any) => {
 class Thing { }  // 這個類別會打印出 123
 ```
 
-### 修飾類別
+### 修飾屬性
 ```ts
-function thing(value: string) {  // 修飾器工廠
-  return target => {  // 修飾器
-    // 一些 target 和 value 的操作
+const Foo = (value: any) => {
+  return (target: any, key: any, descriptor: any) => {
+    console.log(value);
+    return console.log(target, key, descriptor);
   }
+}
+
+class Thing {
+  @Foo('bar')
+  baz() { }
 }
 ```
 
