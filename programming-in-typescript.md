@@ -356,7 +356,7 @@ function createSquare(square: Square): { color: string; area: number } {
 let cs = createSquare({ width: 100, opacity: 0.5 } as Square);
 ```
 
-### 函式
+## 函式
 ```ts
 // 設定函式型別
 function addition(a: number, b: number): number {
@@ -395,7 +395,7 @@ ng('Angular');  // Angular and Angular 2
 ng('Angular', 'Material');  // Angular and Material
 ```
 
-### 類別
+## 類別
 ```ts
 class Foo {
   bar: string;
@@ -445,12 +445,17 @@ new Name('Hale').name;  // Error: 'name' is private
 ```
 ```ts
 class Adder {
-  constructor(a: string) { }
-
-  add = (b: string): string => {
-    return this.a + b;
+  constructor(a: number) {
+    console.log(a);
+  }
+  add(b: number): number {
+    return b;
   }
 }
+
+let foo: Adder = new Adder(1);
+
+console.log(foo.add(2));
 ```
 ```ts
 // 將類別當作介面使用
