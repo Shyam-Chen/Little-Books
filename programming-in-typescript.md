@@ -629,26 +629,31 @@ interface Box {
 const box: Box = { height: 5, width: 6, scale: 10 };
 ```
 
-### 修飾器
-##### 修飾屬性
+## 修飾器
+
+### 修飾屬性
+```ts
+const Foo = (value: any) => {
+  return (target: any) => {
+    target.Foo = value;
+    console.log(value);
+  }
+}
+
+@Foo(123)
+class Thing { }  // 這個類別會打印出 123
+```
+
+### 修飾類別
 ```ts
 function thing(value: string) {  // 修飾器工廠
-  return function (target) {  // 修飾器
+  return target => {  // 修飾器
     // 一些 target 和 value 的操作
   }
 }
 ```
 
-##### 修飾類別
-```ts
-function thing(value: string) {  // 修飾器工廠
-  return (target) => {  // 修飾器
-    // 一些 target 和 value 的操作
-  }
-}
-```
-
-##### 修飾參數
+### 修飾參數
 ```ts
 function thing(target: any, key: string, index: number) {
   // 一些 target 和參數的操作
