@@ -2990,6 +2990,28 @@ export class SampleService {
 }
 ```
 
+```ts
+// 或者
+import { Injectable } from '@angular/core';
+import { Http, Request, RequestMethod } from '@angular/http';
+
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class SampleService {
+  constructor(private http: Http) { }
+  
+  sampleMethod(): any {
+    return this.http
+      .request(new Request({
+        method: RequestMethod.Get,
+        url: './data.json'
+      }))
+      .map(res => res.json());
+  }
+}
+```
+
 #### 準備資料
 ```js
 // src/assets/data.json
@@ -3119,7 +3141,7 @@ export class SampleService {
 
   sampleMethod(): any {
     let body = JSON.stringify(this.dataJson);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
     let options = new RequestOptions({ headers: headers });
 
     return this.http
@@ -3171,7 +3193,7 @@ import { Http } from '@angular/http';
 @Component({
   selector: 'get-data',
   template: `
-    <pre>{{ response }}</pre>
+    <pre>{{ messages }}</pre>
   `
 })
 export class GetDataComponent {
@@ -3179,7 +3201,7 @@ export class GetDataComponent {
     http
       .get('./assets/data.json')
       .subscribe((data) => {
-        this.response = data._body;
+        this.messages = data._body;
         changeDetectorRef.detectChanges();
       });
   }
@@ -3194,11 +3216,11 @@ import { Http, Response } from '@angular/http';
   selector: 'on-request',
   template: `
     <button type="button" (click)="onRequest()">請求</button>
-    <pre>{{ response | json }}</pre>
+    <pre>{{ messages | json }}</pre>
   `
 })
 export class OnRequestComponent {
-  public response: Object;
+  public messages: Object;
 
   constructor(private http: Http) { }
 
@@ -3206,7 +3228,7 @@ export class OnRequestComponent {
     this.http
       .request('./assets/data.json')  // 或者 .get('./assets/data.json')
       .subscribe((res: Response) => {
-        this.response = res.json();
+        this.messages = res.json();
       });
   }
 }
@@ -3227,21 +3249,6 @@ export class OnRequestService {
       }));
   }
 }
-```
-
-更多的方法
-```ts
-request(url: string | Request, options?: RequestOptionsArgs) : Observable<Response>
-get(url: string, options?: RequestOptionsArgs) : Observable<Response>
-post(url: string, body: string, options?: RequestOptionsArgs) : Observable<Response>
-put(url: string, body: string, options?: RequestOptionsArgs) : Observable<Response>
-delete(url: string, options?: RequestOptionsArgs) : Observable<Response>
-patch(url: string, body: string, options?: RequestOptionsArgs) : Observable<Response>
-head(url: string, options?: RequestOptionsArgs) : Observable<Response>
-```
-
-```ts
-import{ Http, Response, RequestOptions, Headers } from'@angular/http';
 ```
 
 ```ts
