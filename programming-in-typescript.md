@@ -18,7 +18,7 @@
 * [冪運算子](#冪運算子)
 * [混入](#混入)
 * [合併宣告](#合併宣告)
-* 非同步與等待
+* [非同步與等待](#非同步與等待)
 * [修飾器](#修飾器)
 
 ***
@@ -653,6 +653,26 @@ interface Box {
 }
 
 const box: Box = { height: 5, width: 6, scale: 10 };
+```
+
+## 非同步與等待
+```ts
+async function foo() {
+  const foo1 = () => 1 + 1;
+  const foo2 = () => 2 + 2;
+
+  let bar1 = await foo1();
+  let bar2 = await foo2();
+
+  console.log(bar1);
+  console.log(bar2);
+  console.log(bar1 + bar2);
+}
+
+foo();
+// 2
+// 4
+// 6
 ```
 
 ## 修飾器
