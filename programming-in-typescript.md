@@ -38,12 +38,30 @@ $ ts-node script
 ```ts
 let foo = 123;
 foo;  // 123
-foo = 444;
-foo;  // 444
+foo = 456;
+foo;  // 456
+```
 
+```ts
+let foo = 123;
+
+if (true) {
+  let foo = 456;
+}
+
+foo;  // 123
+```
+
+```ts
 const bar = 123;
 bar;  // 123
-bar = 444;  // Error
+bar = 456;  // Error
+```
+
+```ts
+const foo = { bar: 123 };
+foo.bar = 456;  // OK
+foo;  // { bar: 456 }
 ```
 
 ## 型別
