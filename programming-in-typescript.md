@@ -60,6 +60,7 @@ bar = 456;  // Error
 
 ```ts
 const foo = { bar: 123 };
+foo = { bar: 456 };  // Error
 foo.bar = 456;  // OK
 foo;  // { bar: 456 }
 ```
