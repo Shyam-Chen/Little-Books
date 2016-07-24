@@ -69,11 +69,12 @@ foo;  // { bar: 456 }
 ## 型別
 ```ts
 // 布林值
-let isDone: boolean = false;
+let foo: boolean = true;
+let bar: boolean = false;
 ```
 ```ts
 // 數值
-let age: number = 18;  // 十進制
+let foo: number = 18;  // 十進制
 ```
 ```ts
 // 字串
@@ -84,12 +85,12 @@ let sentence: string = `My name is ${myName}.`;  // My name is Hale.
 ```
 ```ts
 // 陣列
-let list: number[] = [1, 2, 3];
-let list2: string[] = ['a', 'b', 'c'];
+let foo: number[] = [1, 2, 3];
+let bar: string[] = ['a', 'b', 'c'];
 
 // 或者
-let list3: Array<number> = [3, 2, 1];
-let list4: Array<string> = ['x', 'y', 'z'];
+let foo: Array<number> = [3, 2, 1];
+let bar: Array<string> = ['x', 'y', 'z'];
 ```
 ```ts
 // 元組
