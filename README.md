@@ -145,7 +145,9 @@
   * 平行
 * [測試](#測試)
   * [靜態分析](#靜態分析)
-    * [使用 Codelyzer](#使用-codelyzer)
+    * 安裝 Codelyzer
+    * 配置 Codelyzer
+    * 理解規則
   * [單元測試](#單元測試)
     * 安裝 Karma
     * 配置 Karma
@@ -159,7 +161,9 @@
     * [安裝 Protractor](#安裝-protractor)
     * [配置 Protractor](#配置-protractor)
     * [第一個端對端測試](#第一個測試)
+    * 測試表單
     * 測試路由
+    * 測試通訊
   * [持續整合](#持續整合)
     * [配置 Travis CI](#配置-travis-ci)
     * [建立應用程式](#建立應用程式)
