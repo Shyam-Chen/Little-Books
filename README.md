@@ -73,6 +73,10 @@
     * [ng-class](#ng-class)
     * [ng-plural](#ng-plural)
     * [ng-template-outlet](#ng-template-outlet)
+  * 自訂模板
+    * TemplateRef
+    * ViewContainerRef
+    * ChangeDetectorRef
   * [DOM 節點](#dom-節點)
     * ElementRef
     * [Renderer](#renderer)
