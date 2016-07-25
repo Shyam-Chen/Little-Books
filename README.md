@@ -909,11 +909,28 @@ import { UseInputComponent } from './use-input.component';
 @Component({
   selector: 'app',
   template: `
+    <!-- 直接綁定到原字串上 -->
     <use-input version="2"></use-input>
   `,
   directives: [UseInputComponent]
 })
 export class AppComponent { }
+```
+
+```ts
+[...]
+
+@Component({
+  selector: 'app',
+  template: `
+    <!-- 在父的作用域內綁定到一個變數上 -->
+    <use-input [version]="value"></use-input>
+  `,
+  directives: [UseInputComponent]
+})
+export class AppComponent {
+  public value: number = 2;
+}
 ```
 
 (2) Input 修飾器
@@ -931,25 +948,7 @@ export class UseInputComponent {
 }
 ```
 
-綁定屬性
-```ts
-import { Component } from '@angular/core';
-
-import { UseInputComponent } from './use-input.component';
-
-@Component({
-  selector: 'app',
-  template: `
-    <use-input [version]="value"></use-input>
-  `,
-  directives: [UseInputComponent]
-})
-export class AppComponent {
-  public value: number = 2;
-}
-```
-
-自訂名稱
+(3) 自訂名稱
 ```ts
 import { Component, Input } from '@angular/core';
 
