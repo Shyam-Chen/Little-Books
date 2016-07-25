@@ -37,8 +37,10 @@ $ touch script.ts
 $ ts-node script
 ```
 
-(2)<br>
-直接在線上練習: https://jsbin.com/?js,console<br>
+(2)
+
+直接在線上練習: https://jsbin.com/?js,console
+
 [註]: 記得將 JavaScript 換成 TypeScript
 
 ## 變數宣告
