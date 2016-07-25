@@ -727,7 +727,15 @@ class Thing {
 
 ### 修飾參數
 ```ts
-function thing(target: any, key: string, index: number) {
-  // 一些 target 和參數的操作
+const Foo = (target: any, key: any, index: number) => {
+  console.log(key, index);
 }
+
+class Bar {
+  print(@Foo baz): void {
+    console.log(baz);
+  }
+}
+
+new Bar().print(123);
 ```
