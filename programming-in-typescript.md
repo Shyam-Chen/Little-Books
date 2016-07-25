@@ -24,6 +24,8 @@
 ***
 
 ## 入門
+
+(1)
 ```bash
 # 安裝 ts-node 與 typescript
 $ npm install ts-node typescript -g
@@ -34,6 +36,9 @@ $ touch script.ts
 # 執行練習檔
 $ ts-node script
 ```
+
+(2)
+https://jsbin.com/?js,console
 
 ## 變數宣告
 ```ts
@@ -67,24 +72,28 @@ foo;  // { bar: 456 }
 ```
 
 ## 型別
+
+### 布林值
 ```ts
-// 布林值
 let foo: boolean = true;
 let bar: boolean = false;
 ```
+
+### 數值
 ```ts
-// 數值
 let foo: number = 18;  // 十進制
 ```
+
+### 字串
 ```ts
-// 字串
 let myName: string = 'Hale';
 
 // 模板字串
 let sentence: string = `My name is ${myName}.`;  // My name is Hale.
 ```
+
+### 陣列
 ```ts
-// 陣列
 let foo: number[] = [1, 2, 3];
 let bar: string[] = ['a', 'b', 'c'];
 
@@ -92,13 +101,15 @@ let bar: string[] = ['a', 'b', 'c'];
 let foo: Array<number> = [3, 2, 1];
 let bar: Array<string> = ['x', 'y', 'z'];
 ```
+
+### 元組
 ```ts
-// 元組
 let foo: [number, string];  // 宣告一個元組型別
 foo = [123, 'abc'];  // 將 foo 初始化
 ```
+
+### 列舉
 ```ts
-// 列舉
 enum Thing {
   Foo, Bar, Baz
 };
@@ -141,14 +152,16 @@ declare enum Thing5 {
   Baz
 }
 ```
+
+### 任意值
 ```ts
-// 任意值
 let notSure: any = 123;
 notSure = 'abc';  // OK
 notSure = 'true';  // OK
 ```
+
+### 空值
 ```ts
-// 空值
 let unusable: void = undefined;
 let unusable2: void = null;
 
@@ -156,8 +169,9 @@ function foo(thing: number): void {
   this.thing = thing;
 }
 ```
+
+### 型別斷言
 ```ts
-// 型別斷言
 let foo: any = 'abc';
 let bar = <string>foo;  // 語法: <>
 let baz: number = bar.length;  // 3
@@ -166,8 +180,9 @@ let baz: number = bar.length;  // 3
 let bar2 = foo as string;  // 語法: as
 let baz2: number = bar2.length;  // 3
 ```
+
+### 型別併集
 ```ts
-// 型別併集
 let foo: string | number;
 
 foo = 'abc';  // OK
@@ -194,6 +209,8 @@ st.foo();  // Error
 st.bar();  // Error
 st.baz();  // OK
 ```
+
+### 型別別名
 ```ts
 // 型別別名
 type ThingType = string | number;
