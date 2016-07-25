@@ -73,17 +73,17 @@
     * [ng-class](#ng-class)
     * [ng-plural](#ng-plural)
     * [ng-template-outlet](#ng-template-outlet)
-  * 自訂模板
-    * TemplateRef
-    * ViewContainerRef
-    * ChangeDetectorRef
-  * [DOM 節點](#dom-節點)
-    * ElementRef
-    * [Renderer](#renderer)
   * [自訂指令](#自訂指令)
     * [指令建構子](#指令建構子)
     * [指令起點](#指令起點)
     * [簡單的指令](#簡單的指令)
+  * 建立屬性型指令
+    * ElementRef
+    * [Renderer](#renderer)
+  * 建立結構型指令
+    * TemplateRef
+    * ViewContainerRef
+    * ChangeDetectorRef
   * [修飾屬性](#修飾屬性)
     * [Attribute](#attribute)
     * [HostBinding](#hostbinding)
