@@ -338,7 +338,7 @@ import * as Builder from 'systemjs-builder';
 ```ts
 interface Foo {
   bar: number;
-  baz?: string;  // 可選屬性
+  baz?: string;  // 可選參數
 }
 
 function thing(foo: Foo) {
