@@ -376,6 +376,17 @@ function createSquare(square: Square): { color: string; area: number } {
 let cs = createSquare({ width: 100, opacity: 0.5 } as Square);
 ```
 
+(4)
+```ts
+interface Foo {
+  (bar: number): void;
+}
+
+const baz = (foo: Foo) => foo(123);
+
+baz((bar: number) => console.log(bar));  // 123
+```
+
 ## 函式
 ```ts
 // 設定函式型別
@@ -495,7 +506,7 @@ let point3d: Point3d = {
 };
 ```
 
-### 型別兼容性
+## 型別兼容性
 ```ts
 interface Foo {
   bar: string;
@@ -530,7 +541,7 @@ $ npm install core-js -S
 }
 ```
 
-### 泛型
+## 泛型
 ```ts
 function identity<T>(arg: T): T {
   return arg;
@@ -563,7 +574,7 @@ thing.key = 'foo';  // OK
 thing.value = true;  // OK
 ```
 
-### 型別斷言
+## 型別斷言
 ```ts
 interface Foo {
   bar: number;
@@ -633,12 +644,14 @@ interface IterationResult {
 }
 ```
 
-### 冪運算子
+## 冪運算子
 ```ts
 let x = 2 ** 5;  // Math.pow(2, 5)
+
+x;  // 32
 ```
 
-### 混入
+## 混入
 ```ts
 class Disposable {
   isDisposed: boolean;
@@ -660,7 +673,7 @@ class Activatable {
 class SmartObject implements Disposable, Activatable { }
 ```
 
-### 合併宣告
+## 合併宣告
 ```ts
 // 合併介面
 interface Box {
