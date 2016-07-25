@@ -2350,15 +2350,11 @@ queries?: {[key: string]: any}
 import { Directive } from '@angular/core';
 
 @Directive({
-  /**
-   * at-name
-   * [atName]
-   * .at-name
-   * input[type=name]
-   */
-  selector: '[atThing]'
+  // ...
 })
-export class NameDirective { }
+export class NameDirective {
+  // ...
+}
 ```
 
 #### 簡單的指令
@@ -2373,14 +2369,11 @@ export class AtColorDirective {
     element.nativeElement.style.color = '#F44336';
   }
 }
+```
 
+```ts
 // 使用渲染器
-
-import { Directive, ElementRef, Renderer } from '@angular/core';
-
-@Directive({
-  selector: '[atColor]'
-})
+[...]
 export class AtColorDirective {
   constructor(element: ElementRef, renderer: Renderer) {
     renderer.setElementStyle(element.nativeElement, 'color', '#F44336');
