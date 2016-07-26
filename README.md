@@ -2312,12 +2312,12 @@ export class AppComponent {
 #### 指令建構子
 ```ts
 selector?: string
-inputs?: string[]
-outputs?: string[]
+inputs?: string[]  // 查看元件章節
+outputs?: string[]  // 查看元件章節
 host?: {[key: string]: string}
-providers?: any[]
+providers?: any[]  // 查看服務章節
 exportAs?: string
-queries?: {[key: string]: any}
+queries?: {[key: string]: any}  // 查看元件章節
 ```
 
 #### 指令起點
