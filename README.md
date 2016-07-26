@@ -74,6 +74,7 @@
     * [指令建構子](#指令建構子)
     * [指令起點](#指令起點)
     * [簡單的指令](#簡單的指令)
+    * [exportAs](#exportas)
   * 自訂屬性型指令
     * ElementRef
     * [Renderer](#renderer)
@@ -2306,33 +2307,6 @@ export class AppComponent {
 }
 ```
 
-
-
-#### ElementRef
-
-#### Renderer
-```ts
-selectRootElement(selectorOrNode: string|any, debugInfo?: RenderDebugInfo) : any
-createElement(parentElement: any, name: string, debugInfo?: RenderDebugInfo) : any
-createViewRoot(hostElement: any) : any
-createTemplateAnchor(parentElement: any, debugInfo?: RenderDebugInfo) : any
-createText(parentElement: any, value: string, debugInfo?: RenderDebugInfo) : any
-projectNodes(parentElement: any, nodes: any[]) : void
-attachViewAfter(node: any, viewRootNodes: any[]) : void
-detachView(viewRootNodes: any[]) : void
-destroyView(hostElement: any, viewAllNodes: any[]) : void
-listen(renderElement: any, name: string, callback: Function) : Function
-listenGlobal(target: string, name: string, callback: Function) : Function
-setElementProperty(renderElement: any, propertyName: string, propertyValue: any) : void
-setElementAttribute(renderElement: any, attributeName: string, attributeValue: string) : void
-setBindingDebugInfo(renderElement: any, propertyName: string, propertyValue: string) : void
-setElementClass(renderElement: any, className: string, isAdd: boolean) : any
-setElementStyle(renderElement: any, styleName: string, styleValue: string) : any
-invokeElementMethod(renderElement: any, methodName: string, args?: any[]) : any
-setText(renderNode: any, text: string) : any
-animate(element: any, startingStyles: AnimationStyles, keyframes: AnimationKeyframe[], duration: number, delay: number, easing: string) : AnimationPlayer
-```
-
 ### 自訂指令
 
 #### 指令建構子
@@ -2385,7 +2359,6 @@ export class AtColorDirective {
 <p atColor>Hello Angular 2</p>
 ```
 
-Highlight
 ```ts
 import { Directive, Input, ElementRef, HostListener } from '@angular/core';
 
@@ -2423,7 +2396,7 @@ export class HighlightDirective {
 <span [atHighlight]="color">滑鼠游標靠過來吧!</span>
 ```
 
-exportAs
+#### exportAs
 ```ts
 import { Directive } from '@angular/core';
 
@@ -2445,6 +2418,41 @@ import { ThingDirective } from './thing.directive'
 })
 export class AppComponent { }
 ```
+
+### 自訂屬性型指令
+
+#### ElementRef
+
+#### Renderer
+```ts
+selectRootElement(selectorOrNode: string|any, debugInfo?: RenderDebugInfo) : any
+createElement(parentElement: any, name: string, debugInfo?: RenderDebugInfo) : any
+createViewRoot(hostElement: any) : any
+createTemplateAnchor(parentElement: any, debugInfo?: RenderDebugInfo) : any
+createText(parentElement: any, value: string, debugInfo?: RenderDebugInfo) : any
+projectNodes(parentElement: any, nodes: any[]) : void
+attachViewAfter(node: any, viewRootNodes: any[]) : void
+detachView(viewRootNodes: any[]) : void
+destroyView(hostElement: any, viewAllNodes: any[]) : void
+listen(renderElement: any, name: string, callback: Function) : Function
+listenGlobal(target: string, name: string, callback: Function) : Function
+setElementProperty(renderElement: any, propertyName: string, propertyValue: any) : void
+setElementAttribute(renderElement: any, attributeName: string, attributeValue: string) : void
+setBindingDebugInfo(renderElement: any, propertyName: string, propertyValue: string) : void
+setElementClass(renderElement: any, className: string, isAdd: boolean) : any
+setElementStyle(renderElement: any, styleName: string, styleValue: string) : any
+invokeElementMethod(renderElement: any, methodName: string, args?: any[]) : any
+setText(renderNode: any, text: string) : any
+animate(element: any, startingStyles: AnimationStyles, keyframes: AnimationKeyframe[], duration: number, delay: number, easing: string) : AnimationPlayer
+```
+
+### 自訂結構型指令
+
+#### TemplateRef
+
+#### ViewContainerRef
+
+#### ChangeDetectorRef
 
 ### 修飾屬性
 
