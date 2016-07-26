@@ -99,7 +99,7 @@
     * [multi](#multi)
     * [useFactory](#usefactory)
     * [deps](#deps)
-  * 層疊注入
+  * [層疊注入器](#層疊注入器)
   * [控制服務](#控制服務)
     * [Optional 與 Host](#optional-與-host)
     * [Self 與 SkipSelf](#self-與-skipself)
@@ -2855,6 +2855,90 @@ export class AppComponent {
 
   constructor(@Inject('StringService') stringService) {
     this.messages = stringService;
+  }
+}
+```
+
+### 層疊注入器
+```ts
+// src/app/random.service.ts
+import {Injectable} from '@angular/core';
+
+@Injectable()
+export class RandomService {
+  public value: number = Math.floor(Math.random() * 100 + 1);
+}
+```
+```ts
+// src/app/inheritor.component.ts
+import { Component } from '@angular/core';
+
+import { RandomService } from './random.service';
+
+@Component({
+  selector: 'at-inheritor',
+  template: `
+    <p>{{ message }}</p>
+  `
+})
+export class InheritorComponent {
+  public message: number;
+
+  constructor(randomService: RandomService) {
+    this.message = randomService.value;
+  }
+}
+```
+```ts
+// src/app/injector.component.ts
+import { Component } from '@angular/core';
+
+import { RandomService } from './random.service';
+
+@Component({
+  selector: 'at-injector',
+  template: `
+    <p>{{ message }}</p>
+  `,
+  viewProviders: [RandomService]
+})
+export class InjectorComponent {
+  public message: number;
+
+  constructor(randomService: RandomService) {
+    this.message = randomService.value;
+  }
+}
+```
+```ts
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+
+import { InheritorComponent } from './inheritor.component';
+import { InjectorComponent } from './injector.component';
+import { RandomService } from './random.service';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p>{{ message }}</p>
+    <at-inheritor></at-inheritor>
+    <at-inheritor></at-inheritor>
+    <at-injector></at-injector>
+    <at-injector></at-injector>
+    <at-injector></at-injector>
+  `,
+  directives: [
+    InheritorComponent,
+    InjectorComponent
+  ],
+  viewProviders: [RandomService]
+})
+export class AppComponent {
+  public message: number;
+
+  constructor(randomService: RandomService) {
+    this.message = randomService.value;
   }
 }
 ```
