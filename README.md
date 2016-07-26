@@ -91,7 +91,7 @@
     * [使用服務](#使用服務)
     * [沒有相依性注入](#沒有相依性注入)
     * [Inject 修飾器](#inject-修飾器)
-    * [再看一個](#再看一個)
+    * [完整的服務](#完整的服務)
   * [定義相依性](#定義相依性)
     * [useClass](#useclass)
     * [useExisting](#useexisting)
@@ -2641,7 +2641,7 @@ export class AppComponent {
 }
 ```
 
-#### 再看一個
+#### 完整的服務
 ```ts
 export interface List {
   label: string;
