@@ -75,13 +75,8 @@
     * [指令起點](#指令起點)
     * [簡單的指令](#簡單的指令)
     * [exportAs](#exportas)
-  * 自訂屬性型指令
-    * ElementRef
-    * [Renderer](#renderer)
-  * 自訂結構型指令
-    * TemplateRef
-    * ViewContainerRef
-    * ChangeDetectorRef
+    * 屬性型指令
+    * [結構型指令](#結構型指令)
   * [修飾屬性](#修飾屬性)
     * [Attribute](#attribute)
     * [HostBinding](#hostbinding)
@@ -2421,11 +2416,9 @@ import { ThingDirective } from './thing.directive'
 export class AppComponent { }
 ```
 
-### 自訂屬性型指令
+#### 屬性型指令
 
-#### ElementRef
-
-#### Renderer
+Renderer
 ```ts
 selectRootElement(selectorOrNode: string|any, debugInfo?: RenderDebugInfo) : any
 createElement(parentElement: any, name: string, debugInfo?: RenderDebugInfo) : any
@@ -2448,13 +2441,45 @@ setText(renderNode: any, text: string) : any
 animate(element: any, startingStyles: AnimationStyles, keyframes: AnimationKeyframe[], duration: number, delay: number, easing: string) : AnimationPlayer
 ```
 
-### 自訂結構型指令
+#### 結構型指令
+```ts
+import { Directive, TemplateRef, ViewContainerRef, Input } from '@angular/core';
 
-#### TemplateRef
+@Directive({
+  selector: '[delay]'
+})
+export class DelayDirective {
+  constructor(
+    private templateRef: TemplateRef<any>,
+    private viewContainerRef: ViewContainerRef
+  ) { }
 
-#### ViewContainerRef
+  @Input('delay')
+  set delayTime(time: number): void {
+    setTimeout(() => this.viewContainerRef.createEmbeddedView(this.templateRef), time);
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
 
-#### ChangeDetectorRef
+import { DelayDirective } from './delay.directive';
+
+@Component({
+  selector: 'app',
+  template: `
+    <template ngFor [ngForOf]="itemNumber" let-item>
+      <span *delay="333 * item">
+        {{ item }}
+      </span>
+    </template>
+  `,
+  directives: [DelayDirective]
+})
+export class AppComponent {
+  public itemNumber: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+}
+```
 
 ### 修飾屬性
 
