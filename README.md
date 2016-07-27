@@ -74,7 +74,7 @@
     * [指令建構子](#指令建構子)
     * [指令起點](#指令起點)
     * [簡單的指令](#簡單的指令)
-    * [exportAs](#exportas)
+    * [實體變數](#實體變數)
     * 屬性型指令
     * [結構型指令](#結構型指令)
   * [修飾屬性](#修飾屬性)
@@ -2393,7 +2393,7 @@ export class HighlightDirective {
 <span [atHighlight]="color">滑鼠游標靠過來吧!</span>
 ```
 
-#### exportAs
+#### 實體變數
 ```ts
 import { Directive } from '@angular/core';
 
