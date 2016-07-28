@@ -2393,23 +2393,32 @@ export class HighlightDirective {
 
 #### 實體變數
 ```ts
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
-  selector: 'at-thing',
-  exportAs: 'thing'
+  selector: '[atColor]',
+  exportAs: 'doColor'
 })
-export class ThingDirective { }
+export class ColorDirective {
+  constructor(private elementRef: ElementRef, private renderer: Renderer) { }
+
+  setColor(): void {
+    this.renderer.setElementStyle(this.elementRef.nativeElement, 'color', '#F44336');
+  }
+}
 ```
 ```ts
 import { Component } from '@angular/core';
 
-import { ThingDirective } from './thing.directive'
+import { ColorDirective } from './color.directive';
 
 @Component({
   selector: 'app',
-  template: `<at-thing #some="thing"></at-thing>`,
-  directives: [ThingDirective]
+  template: `
+    <button (click)="dc.setColor()">點擊我</button>
+    <p atColor #dc="doColor">Hello Angular 2</p>
+  `,
+  directives: [ColorDirective]
 })
 export class AppComponent { }
 ```
