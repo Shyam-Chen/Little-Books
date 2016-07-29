@@ -295,7 +295,7 @@ $ npm start
 
 ### 開始使用
 ```ts
-//  src/app/new.component.ts
+// src/app/new.component.ts
 import { Component } from '@angular/core';
 
 @Component({
