@@ -380,6 +380,7 @@ export class AppComponent { }
 ├── src
 │   ├── app
 │   │   ├── app.component.ts
+│   │   ├── new.component.ts
 │   │   └── main.ts
 │   ├── index.html
 │   └── system.config.js
