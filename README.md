@@ -4221,8 +4221,8 @@ exports.config = config;
 
 ```bash
 $ npm install express gulp-protractor -D
-$ typings install dt~express -D
-$ typings install dt~gulp-protractor -D
+$ typings install dt~express -G -D
+$ typings install dt~gulp-protractor -G -D
 ```
 
 建立 express-history-api-fallback.d.ts
