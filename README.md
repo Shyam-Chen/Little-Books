@@ -164,6 +164,7 @@ $ mkdir ng2-starter
 $ cd ng2-starter
 ```
 ```js
+// 建立名為 package.json 的檔案
 // package.json
 {
   "name": "ng2-starter",
@@ -177,6 +178,7 @@ $ cd ng2-starter
 }
 ```
 ```js
+// 建立名為 config.json 的檔案
 // config.json
 {
   "port": 3000,
@@ -187,6 +189,7 @@ $ cd ng2-starter
 }
 ```
 ```html
+<!-- 在 src 資料夾內，建立名為 index.html 的檔案 -->
 <!-- src/index.html -->
 <!doctype html>
 <html>
@@ -209,6 +212,7 @@ $ cd ng2-starter
 </html>
 ```
 ```js
+// 在 src 資料夾內，建立名為 system.config.js 的檔案
 // src/system.config.js
 (function(global) {
 
@@ -270,6 +274,7 @@ $ cd ng2-starter
 })(this);
 ```
 ```ts
+// 在 src/app 資料夾內，建立名為 main.ts 的檔案
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
 
@@ -278,6 +283,7 @@ import { AppComponent } from './app.component';
 bootstrap(AppComponent, []);
 ```
 ```ts
+// 在 src/app 資料夾內，建立名為 app.component.ts 的檔案
 // src/app/app.component.ts
 import { Component } from '@angular/core';
 
@@ -290,6 +296,10 @@ import { Component } from '@angular/core';
 export class AppComponent { }
 ```
 ```bash
+# 安裝相依性套件
+$ npm install
+
+# 啟動應用程式
 $ npm start
 ```
 
