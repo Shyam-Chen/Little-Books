@@ -128,11 +128,9 @@
   * 平行
 * [測試](#測試)
   * [靜態分析](#靜態分析)
-    * 安裝 Codelyzer
-    * 配置 Codelyzer
+    * [配置 Codelyzer](#配置-codelyzer)
     * 理解規則
   * [單元測試](#單元測試)
-    * 安裝 Karma
     * 配置 Karma
     * [第一個單元測試](#第一個單元測試)
     * 測試元件
@@ -141,7 +139,6 @@
     * 測試管道
     * 測試動畫
   * [端對端測試](#端對端測試)
-    * [安裝 Protractor](#安裝-protractor)
     * [配置 Protractor](#配置-protractor)
     * [第一個端對端測試](#第一個測試)
     * 測試表單
@@ -3722,7 +3719,7 @@ export class NameComponent {
 
 ### 靜態分析
 
-#### Codelyzer
+#### 配置 Codelyzer
 ```bash
 $ npm install tslint codelyzer -D
 ```
@@ -3997,14 +3994,12 @@ describe('HelloUnitComponent', () => {
 
 ### 端對端測試
 
-#### 安裝 Protractor
+#### 配置 Protractor
 ```bash
 $ npm install protractor -D
 $ typings install dt~angular-protractor -G -S
 $ typings install dt~selenium-webdriver -G -S
 ```
-
-#### 配置 Protractor
 ```js
 // protractor.conf.js
 const tsNode = require('ts-node');
@@ -4115,6 +4110,7 @@ script:
 
 #### 整合靜態分析
 ```ts
+// gulpfile.ts
 [...]
 
 import * as tslint from 'gulp-tslint';
@@ -4189,11 +4185,11 @@ declare module 'express-history-api-fallback' {
     dotfiles?: boolean;
   }
 
-  function fallback(index: string, options?: IOptions): RequestHandler;
+  function history(index: string, options?: IOptions): RequestHandler;
 
-  module fallback { }
+  module history { }
 
-  export = fallback;
+  export = history;
 }
 ```
 
@@ -4206,7 +4202,7 @@ import { resolve } from 'path';
 import { protractor, webdriver_update } from 'gulp-protractor';
 
 class Protractor {
-  server(port: number, dir: string) {
+  server(port: number, dir: string): any {
     let app = express();
     let root = resolve(process.cwd(), dir);
     app.use(express.static(root));
