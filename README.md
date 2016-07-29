@@ -370,7 +370,7 @@ import { NewComponent } from './new.component';  // 導入新建立的元件
     <p>第一個應用程式</p>
     <at-new></at-new>  <!-- 使用新建立的元件 -->
   `,
-  directives: [NewComponent]  // 將新建立的元件註冊到 app 元件中
+  directives: [NewComponent]  // 將新建立的元件註冊到 app 元件裡
 })
 export class AppComponent { }
 ```
