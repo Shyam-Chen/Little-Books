@@ -93,7 +93,7 @@
     * [useFactory](#usefactory)
     * [deps](#deps)
   * [層疊注入器](#層疊注入器)
-  * [控制服務](#控制服務)
+  * [控制相依性](#控制相依性)
     * [Optional 與 Host](#optional-與-host)
     * [Self 與 SkipSelf](#self-與-skipself)
 * [通訊](#通訊)
@@ -2957,7 +2957,7 @@ export class AppComponent {
 }
 ```
 
-### 控制服務
+### 控制相依性
 
 #### Optional 與 Host
 
