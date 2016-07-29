@@ -75,12 +75,8 @@
     * [指令起點](#指令起點)
     * [簡單的指令](#簡單的指令)
     * [實體變數](#實體變數)
-    * 屬性型指令
+    * [屬性型指令](#屬性型指令)
     * [結構型指令](#結構型指令)
-  * [修飾屬性](#修飾屬性)
-    * [Attribute](#attribute)
-    * [HostBinding](#hostbinding)
-    * [HostListener](#hostlistener)
 * [服務](#服務)
   * [可注入的服務](#可注入的服務)
     * [服務起點](#服務起點)
@@ -2425,27 +2421,102 @@ export class AppComponent { }
 
 #### 屬性型指令
 
-Renderer
+(1)
 ```ts
-selectRootElement(selectorOrNode: string|any, debugInfo?: RenderDebugInfo) : any
-createElement(parentElement: any, name: string, debugInfo?: RenderDebugInfo) : any
-createViewRoot(hostElement: any) : any
-createTemplateAnchor(parentElement: any, debugInfo?: RenderDebugInfo) : any
-createText(parentElement: any, value: string, debugInfo?: RenderDebugInfo) : any
-projectNodes(parentElement: any, nodes: any[]) : void
-attachViewAfter(node: any, viewRootNodes: any[]) : void
-detachView(viewRootNodes: any[]) : void
-destroyView(hostElement: any, viewAllNodes: any[]) : void
-listen(renderElement: any, name: string, callback: Function) : Function
-listenGlobal(target: string, name: string, callback: Function) : Function
-setElementProperty(renderElement: any, propertyName: string, propertyValue: any) : void
-setElementAttribute(renderElement: any, attributeName: string, attributeValue: string) : void
-setBindingDebugInfo(renderElement: any, propertyName: string, propertyValue: string) : void
-setElementClass(renderElement: any, className: string, isAdd: boolean) : any
-setElementStyle(renderElement: any, styleName: string, styleValue: string) : any
-invokeElementMethod(renderElement: any, methodName: string, args?: any[]) : any
-setText(renderNode: any, text: string) : any
-animate(element: any, startingStyles: AnimationStyles, keyframes: AnimationKeyframe[], duration: number, delay: number, easing: string) : AnimationPlayer
+import { Component, Attribute } from '@angular/core';
+
+@Component({
+  selector: 'at-attribute',
+  template: `
+    <p>Hello Angular 2</p>
+  `
+})
+export class AttributeComponent {
+  constructor(@Attribute('messages') messagesLog: string) {
+    console.log(messagesLog);
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { AttributeComponent } from './attribute.component';
+
+@Component({
+  selector: 'app',
+  template: `
+    <at-attribute messages="Hello Angular 2"></at-attribute>
+  `,
+  directives:[AttributeComponent]
+})
+export class AppComponent { }
+```
+
+(2)
+```ts
+import { Directive, HostBinding } from '@angular/core';
+
+@Directive({
+  selector: '[atColor]'
+})
+export class ColorDirective {
+  public useColor: boolean = true;
+
+  @HostBinding('class.at-color')
+  get color(): boolean {
+    return this.useColor;
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { ColorDirective } from './color.directive';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p atColor>Hello Angular 2</p>
+  `,
+  styles: [`
+    .at-color {
+      color: #F44336;
+    }
+  `],
+  directives: [ColorDirective]
+})
+export class AppComponent { }
+```
+
+(3)
+```ts
+import { Directive, HostListener, ElementRef, Renderer } from '@angular/core';
+
+@Directive({
+  selector: '[atClick]'
+})
+export class ClickDirective {
+  constructor(private element: ElementRef, private renderer: Renderer) { }
+
+  @HostListener('click', ['$event.target'])
+  onClick(): void {
+    this.renderer.setElementStyle(this.element.nativeElement, 'color', '#F44336');
+  }
+}
+```
+```ts
+import { Component } from '@angular/core';
+
+import { ClickDirective } from './click.directive';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p atClick>點擊我</p>
+  `,
+  directives: [ClickDirective]
+})
+export class AppComponent { }
 ```
 
 #### 結構型指令
@@ -2486,106 +2557,6 @@ import { DelayDirective } from './delay.directive';
 export class AppComponent {
   public itemNumber: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 }
-```
-
-### 修飾屬性
-
-#### Attribute
-```ts
-import { Component, Attribute } from '@angular/core';
-
-@Component({
-  selector: 'at-attribute',
-  template: `
-    <p>Hello Angular 2</p>
-  `
-})
-export class AttributeComponent {
-  constructor(@Attribute('messages') messagesLog: string) {
-    console.log(messagesLog);
-  }
-}
-```
-```ts
-import { Component } from '@angular/core';
-
-import { AttributeComponent } from './attribute.component';
-
-@Component({
-  selector: 'app',
-  template: `
-    <at-attribute messages="Hello Angular 2"></at-attribute>
-  `,
-  directives:[AttributeComponent]
-})
-export class AppComponent { }
-```
-
-#### HostBinding
-```ts
-import { Directive, HostBinding } from '@angular/core';
-
-@Directive({
-  selector: '[atColor]'
-})
-export class ColorDirective {
-  public useColor: boolean = true;
-
-  @HostBinding('class.at-color')
-  get color(): boolean {
-    return this.useColor;
-  }
-}
-```
-```ts
-import { Component } from '@angular/core';
-
-import { ColorDirective } from './color.directive';
-
-@Component({
-  selector: 'app',
-  template: `
-    <p atColor>Hello Angular 2</p>
-  `,
-  styles: [`
-    .at-color {
-      color: #F44336;
-    }
-  `],
-  directives: [ColorDirective]
-})
-export class AppComponent { }
-```
-
-#### HostListener
-```ts
-import { Directive, HostListener, ElementRef, Renderer } from '@angular/core';
-
-@Directive({
-  selector: '[atClick]'
-})
-export class ClickDirective {
-  constructor(private element: ElementRef, private renderer: Renderer) { }
-
-  @HostListener('click', ['$event.target'])
-  onClick(): void {
-    this.renderer.setElementStyle(this.element.nativeElement, 'color', '#F44336');
-  }
-}
-```
-```ts
-import { Component } from '@angular/core';
-
-import { ClickDirective } from './click.directive';
-
-@Component({
-  selector: 'app',
-  template: `
-    <p atClick>點擊我</p>
-  `,
-  directives: [ClickDirective]
-})
-export class AppComponent { }
 ```
 
 ## 服務
