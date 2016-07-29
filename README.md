@@ -165,6 +165,11 @@ $ cd ng2-starter
 ```
 ```js
 // 建立名為 package.json 的檔案
+/*
+ * ```bash
+ * $ touch package.json
+ * ```
+ */
 // package.json
 {
   "name": "ng2-starter",
@@ -179,6 +184,11 @@ $ cd ng2-starter
 ```
 ```js
 // 建立名為 config.json 的檔案
+/*
+ * ```bash
+ * $ touch config.json
+ * ```
+ */
 // config.json
 {
   "port": 3000,
@@ -190,6 +200,12 @@ $ cd ng2-starter
 ```
 ```html
 <!-- 在 src 資料夾內，建立名為 index.html 的檔案 -->
+<!--
+ * ```bash
+ * $ mkdir src
+ * $ touch src/index.html
+ * ```
+ -->
 <!-- src/index.html -->
 <!doctype html>
 <html>
@@ -213,6 +229,11 @@ $ cd ng2-starter
 ```
 ```js
 // 在 src 資料夾內，建立名為 system.config.js 的檔案
+/*
+ * ```bash
+ * $ touch src/system.config.js
+ * ```
+ */
 // src/system.config.js
 (function(global) {
 
@@ -275,6 +296,12 @@ $ cd ng2-starter
 ```
 ```ts
 // 在 src/app 資料夾內，建立名為 main.ts 的檔案
+/*
+ * ```bash
+ * $ mkdir src/app
+ * $ touch src/app/main.ts
+ * ```
+ */
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
 
@@ -284,6 +311,11 @@ bootstrap(AppComponent, []);
 ```
 ```ts
 // 在 src/app 資料夾內，建立名為 app.component.ts 的檔案
+/*
+ * ```bash
+ * $ touch src/app/app.component.ts
+ * ```
+ */
 // src/app/app.component.ts
 import { Component } from '@angular/core';
 
