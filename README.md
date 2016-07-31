@@ -99,8 +99,8 @@
   * [發送資料](#發送資料)
     * [建立 Post 服務](#建立-post-服務)
     * [執行服務](#執行服務)
-  * 編輯資料
-  * 刪除資料
+  * [編輯資料](#編輯資料)
+  * [刪除資料](#刪除資料)
   * [跨域請求](#跨域請求)
 * [管道](#管道)
   * [內建管道](#內建管道)
@@ -3369,6 +3369,68 @@ export class AppComponent {
         () => console.log('發送完成')
       );
   }
+}
+```
+
+### 編輯資料
+```ts
+// src/app/sample.service.ts
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
+
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class SampleService {
+  private dataJson: any = {
+    title: 'Angular2-in-Action',
+    description: 'Angular 2 實戰手冊'
+  };
+
+  private dataUrl: string = `${url}/${data.id}`;;
+
+  constructor(private http: Http) { }
+
+  sampleMethod(): any {
+    let body = JSON.stringify(this.dataJson);
+    let headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http
+      .put(this.dataUrl, body, options)
+      .map(res => res.json());
+  };
+}
+```
+
+### 刪除資料
+```ts
+// src/app/sample.service.ts
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
+
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class SampleService {
+  private dataJson: any = {
+    title: 'Angular2-in-Action',
+    description: 'Angular 2 實戰手冊'
+  };
+
+  private dataUrl: string = `${url}/${data.id}`;;
+
+  constructor(private http: Http) { }
+
+  sampleMethod(): any {
+    let body = JSON.stringify(this.dataJson);
+    let headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http
+      .delete(this.dataUrl, body, options)
+      .map(res => res.json());
+  };
 }
 ```
 
