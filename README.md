@@ -45,12 +45,12 @@
   * [建立表單](#建立表單)
     * [啟動表單](#啟動表單)
     * [建立模板](#建立模板)
-  * 模板驅動
-  * 模型驅動
+  * [模板驅動](#模板驅動)
+  * [模型驅動](#模型驅動)
 * [路由](#路由)
   * [基本路由](#基本路由)
   * [巢狀路由](#巢狀路由)
-  * 子路由
+  * [子路由](#子路由)
 * [指令](#指令)
   * [內建屬性型指令](#內建屬性型指令)
     * [ng-style](#ng-style)
@@ -1843,7 +1843,7 @@ FormBuilder
 Validators
 ```
 
-#### ngControl 與 ngControlGroup
+### 模板驅動
 ```ts
 import { Component } from '@angular/core';
 
@@ -1911,7 +1911,7 @@ export class AppComponent {
 }
 ```
 
-#### FormBuilder
+#### 模型驅動
 ```ts
 import { Component } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES, FormBuilder, FormControl } from '@angular/forms';
@@ -2093,6 +2093,24 @@ export class LinkComponent {
       .map(activatedRoute => activatedRoute.id);
   }
 }
+```
+
+### 子路由
+```ts
+[...]
+
+const routes: RouterConfig = [
+  { path: '', redirectTo: 'home', terminal: true },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'about/:id', component: LinkComponent, children: [
+    { path: '', redirectTo: 'overview', pathMatch: 'full' },
+    { path: 'overview', component: OverviewComponent },
+    { path: 'essential', component: EssentialComponent }
+  ]}
+];
+
+[...]
 ```
 
 ## 指令
