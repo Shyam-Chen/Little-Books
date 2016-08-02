@@ -1884,7 +1884,8 @@ export class AppComponent {
 }
 ```
 
-#### ngFormModel
+### 模型驅動
+
 ```ts
 import { Component } from '@angular/core';
 import { ControlGroup, Control } from '@angular/common';
@@ -1913,7 +1914,6 @@ export class AppComponent {
 }
 ```
 
-#### 模型驅動
 ```ts
 import { Component } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES, FormBuilder, FormControl } from '@angular/forms';
