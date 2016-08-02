@@ -42,9 +42,9 @@
     * [OnChanges](#onchanges)
     * [DoCheck](#docheck)
 * [表單](#表單)
-  * [建立表單](#建立表單)
+  * [基本表單](#基本表單)
     * [啟動表單](#啟動表單)
-    * [建立模板](#建立模板)
+    * [表單方法](#表單方法)
   * [模板驅動](#模板驅動)
   * [模型驅動](#模型驅動)
 * [路由](#路由)
@@ -1772,7 +1772,7 @@ export class AppComponent {
 
 ## 表單
 
-### 建立表單
+### 基本表單
 
 #### 啟動表單
 ```ts
@@ -1800,32 +1800,6 @@ import { Component } from '@angular/core';
   `
 })
 export class AppComponent { }
-```
-
-#### 建立模型
-```ts
-export class User {
-  constructor(public name: string, public email: string) { }
-}
-```
-
-#### 建立模板
-```ts
-<form #atForm="ngForm" novalidate>
-  <div>
-    <label for="name">姓名:</label>
-    <input type="text" id="name" required>
-  </div>
-  <div>
-    <label for="email">郵箱:</label>
-    <input type="email" id="email" required>
-  </div>
-  <button type="submit">送出</button>
-</form>
-```
-
-#### 建立控制
-```ts
 ```
 
 #### 表單方法
