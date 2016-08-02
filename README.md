@@ -351,7 +351,7 @@ $ npm install
 $ npm start
 ```
 
-完整的專案可以從這裡下載: [前往](https://github.com/Shyam-Chen/Angular2TS-Quick-Start)
+完整的專案可以從這裡下載：[前往](https://github.com/Shyam-Chen/Angular2TS-Quick-Start)
 
 ### 開始使用
 ```ts
