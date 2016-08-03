@@ -1,8 +1,6 @@
 ### 英
-* https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core
+* [RxJS 官方 API 核心](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core)
 
 ### 中
-* https://mcxiaoke.gitbooks.io/rxdocs/content/
-* http://blog.techbridge.cc/2016/05/28/reactive-programming-intro-by-rxjs/
-* http://www.oschina.net/translate/rxjs-streams
-* https://gist.github.com/DrakeLeung/ecbcedab8534d4486a888ef777a76140
+* [圖解 Rx](https://mcxiaoke.gitbooks.io/rxdocs/content/)
+* [RxJS Operators 實戰](https://gist.github.com/DrakeLeung/ecbcedab8534d4486a888ef777a76140)
