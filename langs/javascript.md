@@ -1,4 +1,5 @@
 ### 英
+* [JavaScript 精解](http://eloquentjavascript.net/index.html)
 * [JavaScript 深入指南 (ES5)](http://speakingjs.com/)
 * [探索 JS.Next (ES2015)](http://exploringjs.com/)
 * [JS.Next 修飾器 (ES2016)](https://github.com/wycats/javascript-decorators)
