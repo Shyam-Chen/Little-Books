@@ -1,5 +1,5 @@
 ### 英
-* [Zone.js 定義模組](https://github.com/angular/zone.js/blob/master/dist/zone.js.d.ts)
+* [Zone.js 的定義模組](https://github.com/angular/zone.js/blob/master/dist/zone.js.d.ts)
 
 ### 中
 * [Zone.js 簡介 (文章)](http://www.cnblogs.com/whitewolf/p/zone-js.html)
