@@ -708,6 +708,23 @@ foo();
 // 6
 ```
 
+```ts
+async function foo(x: number) {  // 1
+  let bar = await Promise
+    .resolve(x)  // 1
+    .then(x => x * 2)  // 1 * 2 = 2
+    .then(x => x + 3)  // 2 + 3 = 5
+    .then(x => x / 4);  // 5 / 4 = 1.25
+  return bar;
+}
+
+foo(1)
+  .then(
+    x => console.log(x),
+    err => console.log(err)
+  );
+```
+
 ## 修飾器
 
 ### 修飾類別
