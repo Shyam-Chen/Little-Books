@@ -161,12 +161,10 @@
     * Material
   * 後端即服務
     * Firebase
-  * 行動應用
-    * Ionic
-    * Cordova
+  * 混合型行動應用
+    * Ionic 與 Cordova
   * 伺服器渲染
-    * Universal
-    * Express
+    * Universal 與 Express
 
 ***
 
