@@ -2440,22 +2440,12 @@ export class NameDirective {
 
 #### 簡單的指令
 ```ts
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
   selector: '[atColor]'
 })
-export class AtColorDirective {
-  constructor(element: ElementRef) {
-    element.nativeElement.style.color = '#F44336';
-  }
-}
-```
-
-```ts
-// 使用渲染器
-[...]
-export class AtColorDirective {
+export class ColorDirective {
   constructor(element: ElementRef, renderer: Renderer) {
     renderer.setElementStyle(element.nativeElement, 'color', '#F44336');
   }
