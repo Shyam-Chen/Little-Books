@@ -2451,8 +2451,19 @@ export class ColorDirective {
   }
 }
 ```
-```html
-<p atColor>Hello Angular 2</p>
+```ts
+import { Component } from '@angular/core';
+
+import { ColorDirective } from './color.directive';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p atColor>Hello Angular 2</p>
+  `,
+  directives: [ColorDirective]
+})
+export class AppComponent { }
 ```
 
 ```ts
