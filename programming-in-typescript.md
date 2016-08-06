@@ -24,8 +24,6 @@
 ***
 
 ## 入門
-
-(1)
 ```bash
 # 安裝 ts-node 與 typescript
 $ npm install ts-node typescript -g
@@ -36,12 +34,6 @@ $ touch script.ts
 # 執行練習檔
 $ ts-node script
 ```
-
-(2)
-
-直接在線上練習: https://jsbin.com/?js,console
-
-[註]: 記得將 JavaScript 換成 TypeScript
 
 ## 變數宣告
 ```ts
