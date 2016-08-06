@@ -360,8 +360,6 @@ $ npm install
 $ npm start
 ```
 
-完整的專案可以從這裡下載：[前往](https://github.com/Shyam-Chen/Angular2TS-Quick-Start)
-
 ### 開始使用
 ```ts
 // src/app/new.component.ts
@@ -673,7 +671,7 @@ import { Component } from '@angular/core';
 export class ClickMeComponent {
   public message: string = '我是點擊「前」的訊息';
 
-  onClick(): void {
+  public onClick(): void {
     this.message = '我是點擊「後」的訊息';
   }
 }
@@ -693,7 +691,7 @@ export class ToggleMeComponent {
   public message: string = '你好';
   public toggle: boolean = true;
 
-  onToggle(): void {
+  public onToggle(): void {
     this.toggle = !this.toggle;
     this.toggle ? this.message = '你好' : this.message = '再見';
   }
@@ -829,7 +827,7 @@ import { Component } from '@angular/core';
 export class LocalVariableComponent {
   public messages: string = '';
 
-  onKeyup(value: string): void {
+  public onKeyup(value: string): void {
     this.messages += `${ value } | `;
   }
 }
@@ -856,7 +854,7 @@ import { Component } from '@angular/core';
 export class AddItemComponent {
   public list: string[] = ['Angular', 'Material', 'Firebase'];
 
-  addItem(newItem: string): void {
+  public addItem(newItem: string): void {
     if (newItem) {
       this.list.push(newItem);
     }
