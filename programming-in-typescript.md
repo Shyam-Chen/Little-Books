@@ -406,8 +406,11 @@ const addition = function(a: number, b: number): number {
 addition(1, 1);  // 2
 addition('1', '1');  // Error
 ```
+
+### 可選參數
+
+(1)
 ```ts
-// 可選參數
 const ng = function(a: string, b: string, c?: string): string {
   return `${a} ${b} ${c}`;
 };
@@ -416,8 +419,23 @@ ng('Angular', 'Material', 'Firebase');  // Angular Material Firebase
 ng('Angular', 'Material');  // Angular Material undefined
 ng('Angular');  // Error
 ```
+
+(2)
 ```ts
-// 預設參數
+const ng = function(a: string, b: string, c?: string): string {
+  if (c !== undefined) {
+    return `${a} ${b} ${c}`;
+  }
+  return `${a} ${b}`;
+};
+
+ng('Angular', 'Material', 'Firebase');  // Angular Material Firebase
+ng('Angular', 'Material');  // Angular Material
+ng('Angular');  // Error
+```
+
+### 預設參數
+```ts
 const ng = function(a: string, b: string = 'Angular 2'): string {
   return `${a} and ${b}`;
 };
