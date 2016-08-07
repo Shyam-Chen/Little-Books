@@ -700,39 +700,22 @@ const box: Box = { height: 5, width: 6, scale: 10 };
 
 ## 非同步與等待
 ```ts
-async function foo() {
-  const foo1 = () => 1 + 1;
-  const foo2 = () => 2 + 2;
-
-  let bar1 = await foo1();
-  let bar2 = await foo2();
-
-  console.log(bar1);
-  console.log(bar2);
-  console.log(bar1 + bar2);
-}
-
-foo();
-// 2
-// 4
-// 6
-```
-
-```ts
-async function foo(x: number) {  // 1
+async function foo(x) {  // 10
   let bar = await Promise
-    .resolve(x)  // 1
-    .then(x => x * 2)  // 1 * 2 = 2
-    .then(x => x + 3)  // 2 + 3 = 5
-    .then(x => x / 4);  // 5 / 4 = 1.25
+    .resolve(x)
+    .then(x => x + 2)  // 10 + 2 = 12
+    .then(x => x - 3)  // 12 - 3 = 9
+    .then(x => x * 4)  // 9 * 4 = 36
+    .then(x => x / 5);  // 36 / 5 = 0
   return bar;
 }
 
-foo(1)
+foo(10)
   .then(
     x => console.log(x),
     err => console.log(err)
   );
+// 7.2
 ```
 
 ## 修飾器
