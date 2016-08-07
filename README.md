@@ -644,7 +644,7 @@ import { Component } from '@angular/core';
     <input type="text" [(ngModel)]="name" placeholder="輸入你的名字">
     <p>{{ name }}</p>
 
-    <!-- [註]: ngModel 指令可以查看表單章節 -->
+    <!-- [註]: 了解更多的 ngModel 指令可以查看表單章節 -->
   `
 })
 export class TwoWayBindingComponent {
@@ -1378,86 +1378,6 @@ import { Component } from '@angular/core';
 export class NameComponent {
   // ...
 }
-```
-
-#### Query 與 ViewQuery
-
-(1) Query 建構子
-```ts
-import { Component, ViewChildren } from '@angular/core';
-
-@Component({
-  selector: 'app',
-  template: `
-    <!-- ... -->
-  `,
-  queries: {
-    childComponents: new ViewChildren(ChildComponent)
-  }
-})
-export class Component {
-  // ...
-}
-```
-
-(2) Query 修飾器
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'at-child',
-  template: `
-    <p>這是「子」元件 - 1</p>
-  `
-})
-export class ChildComponent {
-  public messages: string = '這是「子」元件 - 2';
-}
-```
-```ts
-import { Component, Query, QueryList, ElementRef } from '@angular/core';
-
-@Component({
-  selector: 'at-parent',
-  template: `
-    <!-- ... -->
-  `
-})
-export class ParentComponent {
-  constructor(
-    @Query('messages') elementRefQuery: QueryList<ElementRef>,
-    @Query(ChildComponent) childComponentQuery: QueryList<ElementRef>,
-    @Query('thing', { descendants: true }) childComponentThing: QueryList<ElementRef>
-  ) { }
-  // ...
-}
-```
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app',
-  template: `
-    <at-parent>
-      <p #messages>{{ messages }}</p>
-      <at-child>
-        <p #thing>{{ thing }}</p>
-      </at-child>
-    </at-parent>
-  `,
-  directives: [
-    ParentComponent,
-    ChildComponent
-  ]
-})
-export class AppComponent {
-  public messages: string = '';
-}
-```
-
-(3) ViewQuery 修飾器
-```ts
-// 匹配的條件是從 ViewChildren
 ```
 
 ### 隔離樣式
