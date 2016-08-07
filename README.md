@@ -1171,7 +1171,7 @@ import { ChildComponent } from './child.component';
   `
 })
 export class ParentComponent {
-  @ContentChildren(ChildComponent) childComponents: QueryList<ChildComponent>;
+  @ContentChildren(ChildComponent) public childComponents: QueryList<ChildComponent>;
   public name: string = '這是「父」元件 - 2';
 }
 ```
@@ -1211,14 +1211,14 @@ export class ParentComponent implements AfterContentInit, AfterContentChecked {
   [...]
 
   // 使用 AfterContentInit
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     console.log('AfterContentInit 開始');
     console.log(this.childComponents);
     console.log('AfterContentInit 結束');
   }
 
   // 使用 AfterContentChecked
-  ngAfterContentChecked() {
+  ngAfterContentChecked(): void {
     console.log('AfterContentChecked 開始');
     console.log(this.childComponents);
     console.log('AfterContentChecked 結束');
@@ -1253,7 +1253,7 @@ import { Component } from '@angular/core';
   `
 })
 export class ChildComponent {
-  onLog(): void {
+  public onLog(): void {
     console.log('一個日誌');
   }
 }
@@ -1272,9 +1272,9 @@ import { ChildComponent } from './child.component';
   directives: [ChildComponent]
 })
 export class ParentComponent implements AfterViewInit {
-  @ViewChild(ChildComponent) childComponent: ChildComponent;
+  @ViewChild(ChildComponent) public childComponent: ChildComponent;
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     this.childComponent.onLog();
   }
 }
@@ -1309,9 +1309,9 @@ import { ChildComponent } from './child.component';
   directives: [ChildComponent]
 })
 export class ParentComponent implements AfterViewInit {
-  @ViewChild('child') childComponent: ChildComponent;
+  @ViewChild('child') public childComponent: ChildComponent;
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     this.childComponent.onLog();
   }
 }
@@ -1334,7 +1334,7 @@ import { ChildComponent } from './child.component';
   directives: [ChildComponent]
 })
 export class ParentComponent {
-  @ViewChildren(ChildComponent) childComponents: QueryList<ChildComponent>;
+  @ViewChildren(ChildComponent) public childComponents: QueryList<ChildComponent>;
 }
 ```
 
@@ -1351,14 +1351,14 @@ export class ParentComponent implements AfterViewInit, AfterViewChecked {
   [...]
 
   // 使用 AfterViewInit
-  ngAfterViewInit() {
+  public ngAfterViewInit(): void {
     console.log('AfterViewInit 開始');
     console.log(this.childComponents);
     console.log('AfterViewInit 結束');
   }
 
   // 使用 AfterViewChecked
-  ngAfterViewChecked() {
+  public ngAfterViewChecked(): void {
     console.log('AfterViewChecked 開始');
     console.log(this.childComponents);
     console.log('AfterViewChecked 結束');
@@ -1510,7 +1510,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChangeDetectionComponent {
-  @Input() onePiece: string;
+  @Input() public onePiece: string;
 }
 ```
 ```ts
@@ -1536,11 +1536,11 @@ import { OnePiece } from './one-piece.model';
 export class AppComponent {
   public onePiece: OnePiece = new OnePiece('魯夫');
 
-  changeProperty(): void {
+  public changeProperty(): void {
     this.onePiece.name = '薩波';
   }
 
-  changeObject(): void {
+  public changeObject(): void {
     this.onePiece = new OnePiece('艾斯');
   }
 }
@@ -1558,7 +1558,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.Default  // 改成 Default，就能改變屬性
 })
 export class ChangeDetectionComponent {
-  @Input() onePiece: string;
+  @Input() public onePiece: string;
 }
 ```
 
@@ -1575,7 +1575,7 @@ import { Component, OnInit } from '@angular/core';
   `
 })
 export class AppComponent implements OnInit {
-  ngOnInit(): void {
+  public ngOnInit(): void {
     console.log('Hello Angular 2');
   }
 }
@@ -1592,11 +1592,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   `
 })
 export class LifecycleComponent implements OnInit, OnDestroy {
-  ngOnInit(): void {
+  public ngOnInit(): void {
     console.log('On init');
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     console.log('On destroy');
   }
 }
@@ -1617,7 +1617,7 @@ import { LifecycleComponent } from './lifecycle.component';
 export class AppComponent {
   public display: boolean = true;
 
-  onToggle(): void {
+  public onToggle(): void {
     this.display = !this.display;
   }
 }
@@ -1702,6 +1702,8 @@ export class AppComponent {
   }
 }
 ```
+
+這些生命週期掛鉤也可以使用在指令
 
 ## 表單
 
