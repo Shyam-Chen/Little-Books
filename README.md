@@ -46,11 +46,11 @@
     * [啟動表單](#啟動表單)
     * [表單方法](#表單方法)
   * [模板驅動](#模板驅動)
-    * 基本模板驅動
+    * [基本模板驅動](#基本模板驅動)
     * 驗證綁定
   * [模型驅動](#模型驅動)
-    * 基本模型驅動
-    * 驗證表單
+    * [基本模型驅動](#基本模型驅動)
+    * [驗證表單](#驗證表單)
     * 自訂驗證
 * [路由](#路由)
   * [基本路由](#基本路由)
@@ -1833,6 +1833,8 @@ Validators
 ```
 
 ### 模板驅動
+
+#### 基本模板驅動
 ```ts
 import { Component } from '@angular/core';
 
@@ -1873,6 +1875,9 @@ export class AppComponent {
 
 ### 模型驅動
 
+#### 基本模型驅動
+
+(1)
 ```ts
 import { Component } from '@angular/core';
 import { ControlGroup, Control } from '@angular/common';
@@ -1901,6 +1906,7 @@ export class AppComponent {
 }
 ```
 
+(2)
 ```ts
 import { Component } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES, FormBuilder, FormControl } from '@angular/forms';
@@ -1938,13 +1944,14 @@ export class AppComponent {
     });
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     this.message1 = this.atForm.value.name;
     this.message2 = this.atForm.value.email;
   }
 }
 ```
 
+#### 驗證表單
 ```ts
 import { Component } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES, FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -2003,7 +2010,7 @@ export class AppComponent {
     });
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     this.message1 = this.atForm.value.name;
     this.message2 = this.atForm.value.email;
   }
