@@ -36,6 +36,8 @@ $ ts-node script
 ```
 
 ## 變數宣告
+
+### 一般賦值
 ```ts
 let foo = 123;
 foo;  // 123
@@ -53,6 +55,7 @@ if (true) {
 foo;  // 123
 ```
 
+### 單一賦值
 ```ts
 const bar = 123;
 bar;  // 123
@@ -64,6 +67,18 @@ const foo = { bar: 123 };
 foo = { bar: 456 };  // Error
 foo.bar = 456;  // OK
 foo;  // { bar: 456 }
+```
+
+### 分割代入
+```ts
+let [foo, bar] = [123, 456];
+foo;  // 123
+bar;  // 456
+```
+
+```ts
+let [foo = 1] = [];
+foo;  // 1
 ```
 
 ## 型別
