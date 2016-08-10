@@ -427,36 +427,23 @@ export class AppComponent { }
 * [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
 
 ## 模組
-RC.5
-```ts
-import { AppModule, ApplicationRef } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { NameComponent } from './name.component';
-
-@AppModule({
-  modules: [BrowserModule],
-  precompile: [NameComponent]
-})
-export class MainModule {
-  constructor(public applicationRef: ApplicationRef) { }
-}
-```
 
 ### 模組建構子
 ```ts
-directives: []
-pipes: []
-providers: []
-precompile: []
-modules: []
+providers : any[]
+declarations : Array<Type|any[]>
+imports : Array<Type|ModuleWithProviders|any[]>
+exports : Array<Type|any[]>
+entryComponents : Array<Type|any[]>
+bootstrap : Array<Type|any[]>
+schemas : Array<SchemaMetadata|any[]>
 ```
 
 ### 模組起點
 ```ts
-import { AppModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
-@AppModule({
+@NgModule({
   // ...
 })
 export class NameModule {
@@ -489,7 +476,6 @@ directives?: Array<Type|any[]>  // 查看指令章節
 pipes?: Array<Type|any[]>  // 查看管道章節
 encapsulation?: ViewEncapsulation
 interpolation?: [string, string]
-precompile?: Array<Type|any[]>  // 查看模組章節
 ```
 
 #### 元件起點
