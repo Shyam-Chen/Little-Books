@@ -497,7 +497,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-new',  // 加入前綴 app，表示是在 AppModule 底下的
   template: `
-    <p new>這是新建立的元件</p>
+    <p new>這是新建立的元件</p>  <!-- p 標籤裡的 new 屬性是 NewDirective 所建立的 -->
   `
 })
 export class NewComponent { }
@@ -555,7 +555,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app',
   template: `
-    <p>Hello Angular 2</p>
+    <p>第一個應用程式</p>
     <app-new></app-new>  <!-- 使用 NewModule 導出的 NewComponent -->
   `
 })
