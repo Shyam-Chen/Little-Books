@@ -148,7 +148,7 @@ const foo = () => {
   console.log(1);
 
   const bar = new Promise((resolve, reject) => {
-    setTimeout(resolve, 0, 2);
+    setTimeout(() => resolve(console.log(2)), 0);
   });
 
   console.log(3);
@@ -158,10 +158,7 @@ const foo = () => {
 
 foo()
   .then(
-    x => {
-      console.log(x);
-      console.log(4);
-    },
+    () => console.log(4),
     err => console.log(err)
   );
 // 1
