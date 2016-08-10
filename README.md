@@ -404,7 +404,7 @@ $ npm start
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-new',  // 加入前綴 at (看自己專案要用什麼前綴，這裡是使用 Angular 和 TypeScript 的字首)
+  selector: 'new',
   template: `
     <p>這是新建立的元件</p>
   `
@@ -412,18 +412,33 @@ import { Component } from '@angular/core';
 export class NewComponent { }
 ```
 ```ts
+// src/app/app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+import { NewComponent } from './new.component';  // 導入新建立的元件
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [
+    AppComponent,
+    NewComponent  // 將新建立的元件註冊到 app 模組裡
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
-
-import { NewComponent } from './new.component';  // 導入新建立的元件
 
 @Component({
   selector: 'app',
   template: `
     <p>第一個應用程式</p>
-    <at-new></at-new>  <!-- 使用新建立的元件 -->
-  `,
-  directives: [NewComponent]  // 將新建立的元件註冊到 app 元件裡
+    <new></new>  <!-- 使用新建立的元件 -->
+  `
 })
 export class AppComponent { }
 ```
