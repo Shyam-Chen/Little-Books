@@ -236,7 +236,7 @@ $ cd ng2-starter
     <title>Angular 2 實戰手冊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://npmcdn.com/core-js/client/shim.min.js"></script>
-    <script src="https://npmcdn.com/systemjs@0.19.31/dist/system.src.js"></script>
+    <script src="https://npmcdn.com/systemjs@0.19.36/dist/system.src.js"></script>
     <script src="https://npmcdn.com/zone.js@0.6.12?main=browser"></script>
     <script src="./system.config.js"></script>
     <script>
@@ -259,18 +259,18 @@ $ cd ng2-starter
 
 // src/system.config.ts
 const ngVer: string = '@2.0.0-rc.5';
-const routerVer: string = '@3.0.0-rc.1';
 const formsVer: string = '@0.3.0';
+const routerVer: string = '@3.0.0-rc.1';
 
 const map: any = {
   'app': 'app',
   '@angular': 'https://npmcdn.com/@angular',
-  '@angular/router': `https://npmcdn.com/@angular/router${routerVer}`,
   '@angular/forms': `https://npmcdn.com/@angular/forms${formsVer}`,
+  '@angular/router': `https://npmcdn.com/@angular/router${routerVer}`,
   'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
   'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
   'ts': 'https://npmcdn.com/plugin-typescript@4.0.12/lib/plugin.js',
-  'typescript': 'https://npmcdn.com/typescript@1.9.0-dev.20160409/lib/typescript.js'
+  'typescript': 'https://npmcdn.com/typescript@1.8.10/lib/typescript.js'
 };
 
 const packages: any = {
@@ -434,11 +434,12 @@ export class AppComponent { }
 ├── src
 │   ├── app
 │   │   ├── app.component.ts
-│   │   ├── new.component.ts
-│   │   └── main.ts
+│   │   ├── app.module.ts
+│   │   ├── main.ts
+│   │   └── new.component.ts
 │   ├── index.html
-│   └── system.config.js
-├── config.json
+│   └── system.config.ts
+├── bsconfig.json
 └── package.json
 ```
 
