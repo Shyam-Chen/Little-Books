@@ -9,7 +9,10 @@
 * [模組](#模組)
   * [模組建構子](#模組建構子)
   * [模組起點](#模組起點)
-  * [建立模組化](#建立模組化)
+  * [建立模組](#建立模組)
+    * [基本模組](#基本模組)
+    * 延遲載入模組
+    * 共享模組
 * [元件](#元件)
   * [基本元件](#基本元件)
     * [元件建構子](#元件建構子)
@@ -489,7 +492,11 @@ export class NameModule {
 }
 ```
 
-### 建立模組化
+### 建立模組
+
+#### 基本模組
+
+(1)
 ```ts
 // src/app/new/new.component.ts
 import { Component } from '@angular/core';
@@ -563,6 +570,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent { }
 ```
+
+(2)
+```ts
+
+```
+
+#### 延遲載入模組
+
+#### 共享模組
 
 ## 元件
 
