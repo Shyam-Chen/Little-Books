@@ -491,7 +491,7 @@ export class NameModule {
 
 ### 建立模組化
 ```ts
-// src/new/new.component.ts
+// src/app/new/new.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -503,7 +503,7 @@ import { Component } from '@angular/core';
 export class NewComponent { }
 ```
 ```ts
-// src/new/new.directive.ts
+// src/app/new/new.directive.ts
 import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
@@ -516,7 +516,7 @@ export class NewDirective {
 }
 ```
 ```ts
-// src/new/new.module.ts
+// src/app/new/new.module.ts
 import { NgModule } from '@angular/core';
 
 import { NewComponent } from './new.component';
@@ -532,6 +532,7 @@ import { NewDirective } from './new.directive';
 export class NewModule { }
 ```
 ```ts
+// src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -550,6 +551,7 @@ import { NewModule } from './new/new.module';  // 導入 NewModule
 export class AppModule { }
 ```
 ```ts
+// src/app/app.component.ts
 import { Component } from '@angular/core';
 
 @Component({
