@@ -258,9 +258,9 @@ $ cd ng2-starter
  */
 
 // src/system.config.ts
-const ngVer: string = '@2.0.0-rc.4';
-const routerVer: string = '@3.0.0-beta.2';
-const formsVer: string = '@0.2.0';
+const ngVer: string = '@2.0.0-rc.5';
+const routerVer: string = '@3.0.0-rc.1';
+const formsVer: string = '@0.3.0';
 
 const map: any = {
   'app': 'app',
@@ -269,7 +269,7 @@ const map: any = {
   '@angular/forms': `https://npmcdn.com/@angular/forms${formsVer}`,
   'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
   'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
-  'ts': 'https://npmcdn.com/plugin-typescript@4.0.10/lib/plugin.js',
+  'ts': 'https://npmcdn.com/plugin-typescript@4.0.12/lib/plugin.js',
   'typescript': 'https://npmcdn.com/typescript@1.9.0-dev.20160409/lib/typescript.js'
 };
 
@@ -344,11 +344,32 @@ const config: any = {
  */
 
 // src/app/main.ts
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+```
+```ts
+/*
+ * ```bash
+ * # 在 src/app 資料夾內，建立名為 app.module.ts 的檔案
+ * $ touch src/app/app.module.ts
+ * ```
+ */
+
+// src/app/app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
-bootstrap(AppComponent, []);
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 ```ts
 /*
