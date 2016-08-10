@@ -5,7 +5,6 @@
   * [設定環境](#設定環境)
   * [開始使用](#開始使用)
   * [專案架構](#專案架構)
-  * [既有的樣板](#既有的樣板)
 * [模組](#模組)
   * [模組建構子](#模組建構子)
   * [模組起點](#模組起點)
@@ -461,11 +460,6 @@ export class AppComponent { }
 ├── bsconfig.json
 └── package.json
 ```
-
-### 既有的樣板
-* [使用 Angular CLI](https://github.com/angular/angular-cli)
-* [使用 Gulp](https://github.com/mgechev/angular2-seed)
-* [使用 Webpack](https://github.com/AngularClass/angular2-webpack-starter)
 
 ## 模組
 
