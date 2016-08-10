@@ -9,6 +9,7 @@
 * [模組](#模組)
   * [模組建構子](#模組建構子)
   * [模組起點](#模組起點)
+  * [建立模組化](#建立模組化)
 * [元件](#元件)
   * [基本元件](#基本元件)
     * [元件建構子](#元件建構子)
@@ -486,6 +487,79 @@ import { NgModule } from '@angular/core';
 export class NameModule {
   // ...
 }
+```
+
+### 建立模組化
+```ts
+// src/new/new.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-new',  // 加入前綴 app，表示是在 AppModule 底下的
+  template: `
+    <p new>這是新建立的元件</p>
+  `
+})
+export class NewComponent { }
+```
+```ts
+// src/new/new.directive.ts
+import { Directive, ElementRef, Renderer } from '@angular/core';
+
+@Directive({
+  selector: '[new]'
+})
+export class NewDirective {
+  constructor(element: ElementRef, renderer: Renderer) {
+    renderer.setElementStyle(element.nativeElement, 'color', '#F44336');
+  }
+}
+```
+```ts
+// src/new/new.module.ts
+import { NgModule } from '@angular/core';
+
+import { NewComponent } from './new.component';
+import { NewDirective } from './new.directive';
+
+@NgModule({
+  declarations: [  // 該 NewModule 模組底下的元件、指令或管道
+    NewComponent,
+    NewDirective
+  ],
+  exports: [NewComponent]  // 導出 NewComponent 給 AppModule 模組使用
+})
+export class NewModule { }
+```
+```ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+
+import { NewModule } from './new/new.module';  // 導入 NewModule
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    NewModule  // 將 NewModule 註冊到 AppModule 裡
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p>Hello Angular 2</p>
+    <app-new></app-new>  <!-- 使用 NewModule 導出的 NewComponent -->
+  `
+})
+export class AppComponent { }
 ```
 
 ## 元件
