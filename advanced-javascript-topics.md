@@ -1,4 +1,4 @@
-# JavaScript Banana
+# JavaScript 進階的主題
 
 ## Concurrency
 ```js
