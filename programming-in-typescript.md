@@ -555,6 +555,29 @@ let point3d: Point3d = {
   z: 180
 };
 ```
+```ts
+class Foo {
+  constructor(public x = 0) { }
+
+  public getFooX(): number {
+    return this.x;
+  }
+}
+
+class Bar {
+  constructor(public x = 0) { }
+
+  public get barX(): number {
+    return this.x;
+  }
+}
+
+const foo = new Foo(123);
+foo.getFooX();  // 123
+
+const bar = new Bar(123);
+bar.barX;  // 123
+```
 
 ## 型別兼容性
 ```ts
