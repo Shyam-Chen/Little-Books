@@ -672,8 +672,25 @@ interface IterationResult {
 ## 冪運算子
 ```ts
 let x = 2 ** 5;  // Math.pow(2, 5)
-
 x;  // 32
+```
+
+```ts
+let x = 2 * 5 ** 2;
+x;  // 2 * 25 = 50
+```
+
+```ts
+let x = -(2 ** 3);
+x;  // -8
+
+// 或者
+let y = (-2) ** 3;
+y;  // -8
+
+// 錯誤
+let z = -2 ** 3;
+z;  // Error
 ```
 
 ## 混入
