@@ -1,4 +1,4 @@
-# JavaScript 進階的主題
+# JavaScript 進階主題
 
 ## Concurrency
 ```js
