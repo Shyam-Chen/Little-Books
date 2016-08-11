@@ -490,7 +490,7 @@ export class NameModule {
 
 #### 基本模組
 
-(1)
+(1) 模組概念
 ```ts
 // src/app/new/new.component.ts
 import { Component } from '@angular/core';
@@ -565,9 +565,24 @@ import { Component } from '@angular/core';
 export class AppComponent { }
 ```
 
-(2)
+(2) 實作模組
 ```ts
-
+// src/app/color/red.directive.ts
+```
+```ts
+// src/app/color/green.directive.ts
+```
+```ts
+// src/app/color/blue.directive.ts
+```
+```ts
+// src/app/color/color.module.ts
+```
+```ts
+// src/app/app.module.ts
+```
+```ts
+// src/app/app.component.ts
 ```
 
 #### 延遲載入模組
