@@ -426,7 +426,7 @@ import { NewComponent } from './new.component';  // 導入新建立的元件
   imports: [BrowserModule],
   declarations: [
     AppComponent,
-    NewComponent  // 將新建立的元件註冊到 app 模組裡
+    NewComponent  // 將新建立的元件註冊到 AppModule 裡
   ],
   bootstrap: [AppComponent]
 })
@@ -512,7 +512,7 @@ import { Directive, ElementRef, Renderer } from '@angular/core';
 })
 export class NewDirective {
   constructor(element: ElementRef, renderer: Renderer) {
-    renderer.setElementStyle(element.nativeElement, 'color', '#F44336');
+    renderer.setElementStyle(element.nativeElement, 'color', '#F44336');  // DOM 操作: 將字體顏色設定為紅色
   }
 }
 ```
