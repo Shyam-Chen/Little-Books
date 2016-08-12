@@ -511,7 +511,7 @@ import { Directive, ElementRef, Renderer } from '@angular/core';
   selector: '[new]'
 })
 export class NewDirective {
-  constructor(element: ElementRef, renderer: Renderer) {
+  constructor(public element: ElementRef, public renderer: Renderer) {
     renderer.setElementStyle(element.nativeElement, 'color', '#F44336');  // DOM 操作: 將字體顏色設定為紅色
   }
 }
