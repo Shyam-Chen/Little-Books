@@ -664,6 +664,35 @@ export class AppComponent { }
 #### 延遲載入模組
 
 #### 共享模組
+存放專案中屬於共用的程式碼
+```ts
+// src/app/shared/shared.module.ts
+import { NgModule } from '@angular/core';
+
+@NgModule({
+  // ...
+})
+export class SharedModule { }
+```
+```ts
+// src/app/app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+
+import { SharedModule } from './shared/shared.module';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    SharedModule
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
 ## 元件
 
