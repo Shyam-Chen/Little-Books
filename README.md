@@ -568,21 +568,97 @@ export class AppComponent { }
 (2) 實作模組
 ```ts
 // src/app/color/red.directive.ts
+import { Directive, ElementRef, Renderer } from '@angular/core';
+
+@Directive({
+  selector: '[color-red]'
+})
+export class RedDirective {
+  constructor(private element: ElementRef, private renderer: Renderer) {
+    renderer.setElementStyle(element.nativeElement, 'color', '#F44336');
+  }
+}
 ```
 ```ts
 // src/app/color/green.directive.ts
+import { Directive, ElementRef, Renderer } from '@angular/core';
+
+@Directive({
+  selector: '[color-green]'
+})
+export class GreenDirective {
+  constructor(private element: ElementRef, private renderer: Renderer) {
+    renderer.setElementStyle(element.nativeElement, 'color', '#4CAF50');
+  }
+}
 ```
 ```ts
 // src/app/color/blue.directive.ts
+import { Directive, ElementRef, Renderer } from '@angular/core';
+
+@Directive({
+  selector: '[color-blue]'
+})
+export class BlueDirective {
+  constructor(private element: ElementRef, private renderer: Renderer) {
+    renderer.setElementStyle(element.nativeElement, 'color', '#2196F3');
+  }
+}
 ```
 ```ts
 // src/app/color/color.module.ts
+import { NgModule } from '@angular/core';
+
+import { RedDirective } from './red.directive';
+import { GreenDirective } from './green.directive';
+import { BlueDirective } from './blue.directive';
+
+@NgModule({
+  declarations: [
+    RedDirective,
+    GreenDirective,
+    BlueDirective
+  ],
+  exports: [
+    RedDirective,
+    GreenDirective,
+    BlueDirective
+  ]
+})
+export class ColorModule { }
 ```
 ```ts
 // src/app/app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+
+import { ColorModule } from './color/color.module';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    ColorModule
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 ```ts
 // src/app/app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <p color-red>紅色字體</p>
+    <p color-green>綠色字體</p>
+    <p color-blue>藍色字體</p>
+  `
+})
+export class AppComponent { }
 ```
 
 #### 延遲載入模組
