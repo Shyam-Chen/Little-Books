@@ -565,7 +565,7 @@ import { Component } from '@angular/core';
 export class AppComponent { }
 ```
 
-(2) 實作模組
+(2) 功能模組
 ```ts
 // src/app/color/red.directive.ts
 import { Directive, ElementRef, Renderer } from '@angular/core';
@@ -667,7 +667,7 @@ export class AppComponent { }
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', loadChildren: './app/home/home.module' },
   { path: 'about', loadChildren: './app/about/about.module' }
 ];
@@ -678,9 +678,9 @@ export const routing = RouterModule.forRoot(routes);
 // src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
-
 import { routing } from './app.routing';
 
 @NgModule({
@@ -689,27 +689,101 @@ import { routing } from './app.routing';
     routing
   ],
   declarations: [AppComponent],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '' },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
 ```ts
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app',
+  template: `
+    <nav>
+      <a routerLink="home" routerLinkActive="active">Home</a>
+      <a routerLink="about" routerLinkActive="active">About</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `
+})
+export class AppComponent { }
+```
+```ts
 // src/app/home/home.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  template: `
+    <h3>Home Page</h3>
+  `
+})
+export class HomeComponent { }
 ```
 ```ts
 // src/app/home/home.routing.ts
+import { Routes, RouterModule } from '@angular/router';
+
+import { HomeComponent } from './home.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent }
+];
+
+export const routing = RouterModule.forChild(routes);
 ```
 ```ts
 // src/app/home/home.module.ts
+import { NgModule } from '@angular/core';
+
+import { HomeComponent } from './home.component';
+import { routing } from './home.routing';
+
+@NgModule({
+  imports: [routing],
+  declarations: [HomeComponent]
+})
+export default class HomeModule { }
 ```
 ```ts
 // src/app/about/about.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  template: `
+    <h3>About Page</h3>
+  `
+})
+export class AboutComponent { }
 ```
 ```ts
 // src/app/about/about.routing.ts
+import { Routes, RouterModule } from '@angular/router';
+
+import { AboutComponent } from './about.component';
+
+const routes: Routes = [
+  { path: '', component: AboutComponent }
+];
+
+export const routing = RouterModule.forChild(routes);
 ```
 ```ts
 // src/app/about/about.module.ts
+import { NgModule } from '@angular/core';
+
+import { AboutComponent } from './about.component';
+import { routing } from './about.routing';
+
+@NgModule({
+  imports: [routing],
+  declarations: [AboutComponent]
+})
+export default class AboutModule { }
 ```
 
 #### 共享模組
