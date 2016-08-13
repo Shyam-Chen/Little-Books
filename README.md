@@ -693,6 +693,24 @@ import { routing } from './app.routing';
 })
 export class AppModule { }
 ```
+```ts
+// src/app/home/home.component.ts
+```
+```ts
+// src/app/home/home.routing.ts
+```
+```ts
+// src/app/home/home.module.ts
+```
+```ts
+// src/app/about/about.component.ts
+```
+```ts
+// src/app/about/about.routing.ts
+```
+```ts
+// src/app/about/about.module.ts
+```
 
 #### 共享模組
 存放專案中屬於共用的程式碼
