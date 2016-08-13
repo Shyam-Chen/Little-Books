@@ -10,7 +10,7 @@
   * [模組起點](#模組起點)
   * [建立模組](#建立模組)
     * [基本模組](#基本模組)
-    * 延遲載入模組
+    * [延遲載入模組](#延遲載入模組)
     * [共享模組](#共享模組)
 * [元件](#元件)
   * [基本元件](#基本元件)
@@ -662,6 +662,37 @@ export class AppComponent { }
 ```
 
 #### 延遲載入模組
+```ts
+// src/app/app.routing.ts
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', loadChildren: './app/home/home.module' },
+  { path: 'about', loadChildren: './app/about/about.module' }
+];
+
+export const routing = RouterModule.forRoot(routes);
+```
+```ts
+// src/app/app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+
+import { routing } from './app.routing';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    routing
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
 #### 共享模組
 存放專案中屬於共用的程式碼
