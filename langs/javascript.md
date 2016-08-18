@@ -6,9 +6,9 @@
 * [JS.Next 修飾器 (ES7)](https://github.com/wycats/javascript-decorators)
 
 ### 中
-* [BOM 入門](http://javascript.ruanyifeng.com/bom/engine.html)
-* [DOM 入門](http://javascript.ruanyifeng.com/dom/node.html)
-* [HTML API 入門](http://javascript.ruanyifeng.com/htmlapi/elements.html)
-* [Node.js 入門](http://javascript.ruanyifeng.com/nodejs/basic.html)
-* [JS.Next 入門 (ES6, ES7)](http://es6.ruanyifeng.com/)
+* [BOM 標準入門](http://javascript.ruanyifeng.com/bom/engine.html)
+* [DOM 標準入門](http://javascript.ruanyifeng.com/dom/node.html)
+* [HTML API 標準入門](http://javascript.ruanyifeng.com/htmlapi/elements.html)
+* [Node.js 標準入門](http://javascript.ruanyifeng.com/nodejs/basic.html)
+* [JS.Next 標準入門 (ES6, ES7)](http://es6.ruanyifeng.com/)
 * [JavaScript 小知識](http://www.jstips.co/zh_TW/)
