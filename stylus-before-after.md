@@ -91,6 +91,46 @@ BAR = #F44336
 }
 ```
 
+6.
+```styl
+.foo
+  width: 150px
+  height: 100px
+  margin-left: -(@width / 2)
+  margin-top: -(@height / 2)
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  width: 150px;
+  height: 100px;
+  margin-left: -75px;
+  margin-top: -50px;
+}
+```
+
+7.
+```styl
+bar()
+  color #F44336
+
+.foo
+  bar()
+```
+```styl
+bar(x)
+  color x
+
+.foo
+  bar(#F44336)
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  color: #f44336;
+}
+```
+
 ***
 
 ```styl
