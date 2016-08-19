@@ -34,7 +34,7 @@
 ```styl
 .foo
   border 1px solid #eee
-  .bar
+  > .bar
     color #F44336
 ```
 :point_up: 編譯前後 :point_down:
@@ -42,8 +42,26 @@
 .foo {
   border: 1px solid #eee;
 }
-.foo .bar {
+.foo > .bar {
   color: #f44336;
+}
+```
+
+4.
+```styl
+.foo
+  &-a
+    color #F44336
+  &-b
+    color #E91E63
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo-a {
+  color: #f44336;
+}
+.foo-b {
+  color: #e91e63;
 }
 ```
 
