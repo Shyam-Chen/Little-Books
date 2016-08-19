@@ -44,3 +44,40 @@ div#foo
 ```html
 <div id="foo"></div>
 ```
+
+6.
+```pug
+.foo
+```
+:point_up: 編譯前後 :point_down:
+```html
+<div class="foo"></div>
+```
+
+7.
+```pug
+#foo.bar
+```
+:point_up: 編譯前後 :point_down:
+```html
+<div id="foo" class="bar"></div>
+```
+
+8.
+```pug
+p Hello
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>Hello</p>
+```
+
+***
+
+```pug
+
+```
+:point_up: 編譯前後 :point_down:
+```html
+
+```
