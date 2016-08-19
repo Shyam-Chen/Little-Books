@@ -65,6 +65,32 @@
 }
 ```
 
+5.
+```styl
+bar = #F44336
+
+.foo
+  color bar
+```
+```styl
+$bar = #F44336
+
+.foo
+  color $bar
+```
+```styl
+BAR = #F44336
+
+.foo
+  color BAR
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  color: #f44336;
+}
+```
+
 ***
 
 ```styl
