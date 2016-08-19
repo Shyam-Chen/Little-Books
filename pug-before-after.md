@@ -65,11 +65,52 @@ div#foo
 
 8.
 ```pug
-p Hello
+p foo
 ```
 :point_up: 編譯前後 :point_down:
 ```html
-<p>Hello</p>
+<p>foo</p>
+```
+
+9.
+```pug
+p
+  | foo
+  | bar
+  | baz
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>
+  foo
+  bar
+  baz
+</p>
+```
+
+10.
+```pug
+p.
+  foo
+  bar
+  baz
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>
+  foo
+  bar
+  baz
+</p>
+```
+
+11.
+```pug
+// foo
+```
+:point_up: 編譯前後 :point_down:
+```html
+<!-- foo-->
 ```
 
 ***
