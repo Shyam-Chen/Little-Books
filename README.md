@@ -54,7 +54,7 @@
   * [模型驅動](#模型驅動)
     * [基本模型驅動](#基本模型驅動)
     * [驗證表單](#驗證表單)
-    * 自訂驗證
+    * [自訂驗證](#自訂驗證)
 * [路由](#路由)
   * [基本路由](#基本路由)
   * [巢狀路由](#巢狀路由)
@@ -2301,6 +2301,43 @@ export class AppComponent {
     this.message1 = this.atForm.value.name;
     this.message2 = this.atForm.value.email;
   }
+}
+```
+
+#### 自訂驗證
+```ts
+[...]
+
+@Component({
+  [...]
+})
+export class AppComponent {
+  [...]
+
+  constructor(formBuilder: FormBuilder) {
+    this.name = new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(4)
+    ]);
+    this.email = new FormControl('', [
+      Validators.required,
+      // Validators.pattern('...'),
+      this.customValidation
+    ]);
+
+    this.atForm = formBuilder.group({
+      name: this.name,
+      email: this.email
+    });
+  }
+  
+  public customValidation(): any {
+    // ...
+    return // ...
+  }
+
+  [...]
 }
 ```
 
