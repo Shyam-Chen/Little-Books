@@ -159,9 +159,9 @@
   * XSS
 * 擴展
   * 使用者介面
-    * Material
+    * Material Design
   * 後端即服務
-    * Firebase
+    * Firebase Services
   * 混合型行動應用
     * Ionic 與 Cordova
   * 伺服器渲染
