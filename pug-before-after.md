@@ -316,7 +316,7 @@ each item in list
 ```
 
 ```pug
-//- layout.jade
+//- layout.pug
 doctype html
 html
   head
@@ -326,8 +326,8 @@ html
     block content
 ```
 ```pug
-//- index.jade
-extends ./layout.jade
+//- index.pug
+extends ./layout.pug
 
 block title
   title 首頁
