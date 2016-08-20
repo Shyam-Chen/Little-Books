@@ -166,6 +166,91 @@ p #{foo}
 <p>foo</p>
 ```
 
+16.
+```pug
+<!--[if IE]>
+p Get Chrome
+<![endif]-->
+```
+:point_up: 編譯前後 :point_down:
+```html
+<!--[if IE]>
+<p>Get Chrome</p><![endif]-->
+```
+
+17.
+```pug
+ul
+  li
+    a(href='#') foo
+  li
+    a(href='#') bar
+  li
+    a(href='#') baz
+```
+```pug
+ul
+  li: a(href='#') foo
+  li: a(href='#') bar
+  li: a(href='#') baz
+```
+:point_up: 編譯前後 :point_down:
+```html
+<ul>
+  <li><a href="#">foo</a></li>
+  <li><a href="#">bar</a></li>
+  <li><a href="#">baz</a></li>
+</ul>
+```
+
+18.
+```pug
+- let x = 0
+case x
+  when 0
+    p foo
+  when 1
+    p bar
+  default
+    p baz
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>foo</p>
+```
+
+19.
+```pug
+a(href='/foo', title='foo') Foo
+```
+```pug
+a(href='/foo' title='foo') Foo
+```
+```pug
+a(
+  href='/foo'
+  title='foo'
+) Foo
+```
+:point_up: 編譯前後 :point_down:
+```html
+<a href="/foo" title="foo">Foo</a>
+```
+
+20.
+```pug
+p.
+  <div class="foo">
+  .bar
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>
+  <div class="foo">
+  .bar
+</p>
+```
+
 ***
 
 ```pug
