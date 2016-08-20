@@ -315,6 +315,39 @@ each item in list
 <div class="foo"><p>foo</p></div>
 ```
 
+```pug
+//- layout.jade
+doctype html
+html
+  head
+    block title
+      title 預設標題
+  body
+    block content
+```
+```pug
+//- index.jade
+extends ./layout.jade
+
+block title
+  title 首頁
+
+block content
+  h1 首頁
+```
+:point_up: 編譯前後 :point_down:
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>首頁</title>
+  </head>
+  <body>
+    <h1>首頁</h1>
+  </body>
+</html>
+```
+
 ***
 
 ```pug
