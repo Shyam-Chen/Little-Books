@@ -107,10 +107,63 @@ p.
 11.
 ```pug
 // foo
+//- bar
+//
+  baz
+//
+  foo
+  bar
+  baz
 ```
 :point_up: 編譯前後 :point_down:
 ```html
 <!-- foo-->
+<!--baz
+-->
+<!--
+foo
+bar
+baz
+-->
+```
+
+12.
+```pug
+p \#{foo}
+p \!{bar}
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>#{foo}</p>
+<p>!{bar}</p>
+```
+
+13.
+```pug
+- let foo = 'foo'
+p #{foo}
+```
+```pug
+- const foo = 'foo'
+p #{foo}
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>foo</p>
+```
+
+15.
+```pug
+- let foo = '<p>foo</p>'
+!{foo}
+```
+```pug
+- const foo = '<p>foo</p>'
+!{foo}
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>foo</p>
 ```
 
 ***
