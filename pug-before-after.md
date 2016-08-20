@@ -251,6 +251,70 @@ p.
 </p>
 ```
 
+```pug
+- let x = true
+p(class=x ? 'foo' : 'bar')
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p class="foo"></p>
+```
+
+```pug
+p(style={ color: 'red', 'background-color': 'green' })
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p style="color:red;background-color:green"></p>
+```
+
+```pug
+p(data-foo='foo')&attributes({ 'data-bar': 'bar' })
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p data-foo="foo" data-bar="bar"></p>
+```
+
+```pug
+- for (let x = 0; x < 3; x++)
+  p #{x + 1}. item
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>1. item</p>
+<p>2. item</p>
+<p>3. item</p>
+```
+
+```pug
+- const list = ['foo', 'bar', 'baz']
+each item in list
+  p= item
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>foo</p>
+<p>bar</p>
+<p>baz</p>
+```
+
+```pug
+.foo= '<p>foo</p>'
+```
+:point_up: 編譯前後 :point_down:
+```html
+<div class="foo">&lt;p&gt;foo&lt;/p&gt;</div>
+```
+
+```pug
+.foo!= '<p>foo</p>'
+```
+:point_up: 編譯前後 :point_down:
+```html
+<div class="foo"><p>foo</p></div>
+```
+
 ***
 
 ```pug
