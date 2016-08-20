@@ -6,6 +6,7 @@
 * [JS.Next 修飾器](https://github.com/wycats/javascript-decorators)
 
 ### 中
+* [JavaScript 標準入門](http://javascript.ruanyifeng.com/)
 * [BOM 標準入門](http://javascript.ruanyifeng.com/bom/engine.html)
 * [DOM 標準入門](http://javascript.ruanyifeng.com/dom/node.html)
 * [HTML API 標準入門](http://javascript.ruanyifeng.com/htmlapi/elements.html)
