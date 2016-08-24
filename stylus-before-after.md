@@ -1,6 +1,5 @@
 # Stylus 前後
 
-1.
 ```styl
 .foo
   color #F44336
@@ -12,7 +11,8 @@
 }
 ```
 
-2.
+***
+
 ```styl
 .foo, .bar
   color #F44336
@@ -30,7 +30,8 @@
 }
 ```
 
-3.
+***
+
 ```styl
 .foo
   border 1px solid #eee
@@ -47,7 +48,8 @@
 }
 ```
 
-4.
+***
+
 ```styl
 .foo
   &-a
@@ -65,7 +67,8 @@
 }
 ```
 
-5.
+***
+
 ```styl
 bar = #F44336
 
@@ -91,7 +94,8 @@ BAR = #F44336
 }
 ```
 
-6.
+***
+
 ```styl
 .foo
   width: 150px
@@ -109,7 +113,8 @@ BAR = #F44336
 }
 ```
 
-7.
+***
+
 ```styl
 bar()
   color #F44336
