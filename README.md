@@ -2300,7 +2300,7 @@ export class AppComponent {
     ]);
     this.email = new FormControl('', [
       Validators.required,
-      // Validators.pattern('...')
+      Validators.pattern('[a-zA-Z0-9_]+@[a-zA-Z0-9._]+')
     ]);
 
     this.atForm = formBuilder.group({
@@ -2334,7 +2334,7 @@ export class AppComponent {
     ]);
     this.email = new FormControl('', [
       Validators.required,
-      // Validators.pattern('...'),
+      Validators.pattern('[a-zA-Z0-9_]+@[a-zA-Z0-9._]+'),
       this.customValidation
     ]);
 
