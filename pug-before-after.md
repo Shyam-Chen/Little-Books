@@ -11,21 +11,24 @@ doctype html
 ***
 
 ```pug
-html
+div
 ```
 :point_up: 編譯前後 :point_down:
 ```html
-<html></html>
+<div></div>
 ```
 
 ***
 
 ```pug
-p
+div
+  div
 ```
 :point_up: 編譯前後 :point_down:
 ```html
-<p></p>
+<div>
+  <div></div>
+</div>
 ```
 
 ***
