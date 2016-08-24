@@ -1,6 +1,5 @@
 # Pug 前後
 
-1.
 ```pug
 doctype html
 ```
@@ -9,7 +8,8 @@ doctype html
 <!DOCTYPE html>
 ```
 
-2.
+***
+
 ```pug
 html
 ```
@@ -18,7 +18,8 @@ html
 <html></html>
 ```
 
-3.
+***
+
 ```pug
 p
 ```
@@ -27,7 +28,8 @@ p
 <p></p>
 ```
 
-4.
+***
+
 ```pug
 div#foo
 ```
@@ -36,7 +38,8 @@ div#foo
 <div id="foo"></div>
 ```
 
-5.
+***
+
 ```pug
 #foo
 ```
@@ -45,7 +48,8 @@ div#foo
 <div id="foo"></div>
 ```
 
-6.
+***
+
 ```pug
 .foo
 ```
@@ -54,7 +58,8 @@ div#foo
 <div class="foo"></div>
 ```
 
-7.
+***
+
 ```pug
 #foo.bar
 ```
@@ -63,7 +68,8 @@ div#foo
 <div id="foo" class="bar"></div>
 ```
 
-8.
+***
+
 ```pug
 p foo
 ```
@@ -72,7 +78,8 @@ p foo
 <p>foo</p>
 ```
 
-9.
+***
+
 ```pug
 p
   | foo
@@ -88,7 +95,8 @@ p
 </p>
 ```
 
-10.
+***
+
 ```pug
 p.
   foo
@@ -104,7 +112,8 @@ p.
 </p>
 ```
 
-11.
+***
+
 ```pug
 // foo
 //- bar
@@ -127,7 +136,8 @@ baz
 -->
 ```
 
-12.
+***
+
 ```pug
 p \#{foo}
 p \!{bar}
@@ -138,7 +148,8 @@ p \!{bar}
 <p>!{bar}</p>
 ```
 
-13.
+***
+
 ```pug
 - let foo = 'foo'
 p #{foo}
@@ -152,7 +163,8 @@ p #{foo}
 <p>foo</p>
 ```
 
-15.
+***
+
 ```pug
 - let foo = '<p>foo</p>'
 !{foo}
@@ -166,7 +178,8 @@ p #{foo}
 <p>foo</p>
 ```
 
-16.
+***
+
 ```pug
 <!--[if IE]>
 p Get Chrome
@@ -178,7 +191,8 @@ p Get Chrome
 <p>Get Chrome</p><![endif]-->
 ```
 
-17.
+***
+
 ```pug
 ul
   li
@@ -203,7 +217,8 @@ ul
 </ul>
 ```
 
-18.
+***
+
 ```pug
 - let x = 0
 case x
@@ -219,7 +234,8 @@ case x
 <p>foo</p>
 ```
 
-19.
+***
+
 ```pug
 a(href='/foo', title='foo') Foo
 ```
@@ -237,7 +253,8 @@ a(
 <a href="/foo" title="foo">Foo</a>
 ```
 
-20.
+***
+
 ```pug
 p.
   <div class="foo">
@@ -251,6 +268,8 @@ p.
 </p>
 ```
 
+***
+
 ```pug
 - let x = true
 p(class=x ? 'foo' : 'bar')
@@ -260,6 +279,8 @@ p(class=x ? 'foo' : 'bar')
 <p class="foo"></p>
 ```
 
+***
+
 ```pug
 p(style={ color: 'red', 'background-color': 'green' })
 ```
@@ -268,6 +289,8 @@ p(style={ color: 'red', 'background-color': 'green' })
 <p style="color:red;background-color:green"></p>
 ```
 
+***
+
 ```pug
 p(data-foo='foo')&attributes({ 'data-bar': 'bar' })
 ```
@@ -275,6 +298,8 @@ p(data-foo='foo')&attributes({ 'data-bar': 'bar' })
 ```html
 <p data-foo="foo" data-bar="bar"></p>
 ```
+
+***
 
 ```pug
 - for (let x = 0; x < 3; x++)
@@ -286,6 +311,8 @@ p(data-foo='foo')&attributes({ 'data-bar': 'bar' })
 <p>2. item</p>
 <p>3. item</p>
 ```
+
+***
 
 ```pug
 - const list = ['foo', 'bar', 'baz']
@@ -299,6 +326,8 @@ each item in list
 <p>baz</p>
 ```
 
+***
+
 ```pug
 .foo= '<p>foo</p>'
 ```
@@ -307,6 +336,8 @@ each item in list
 <div class="foo">&lt;p&gt;foo&lt;/p&gt;</div>
 ```
 
+***
+
 ```pug
 .foo!= '<p>foo</p>'
 ```
@@ -314,6 +345,8 @@ each item in list
 ```html
 <div class="foo"><p>foo</p></div>
 ```
+
+***
 
 ```pug
 //- layout.pug
