@@ -155,9 +155,14 @@
     * 測試表單
     * 測試路由
     * 測試通訊
+* 安全
+ * 跨站指令碼
+ * 跨站請求偽造
 * 擴展
   * 模組整合工具
     * Webpack Module Bundler
+  * 命令列工具
+    * Angular CLI
   * 使用者介面
     * Material Design
   * 後端即服務
