@@ -170,7 +170,7 @@
   * 混合型行動應用
     * Ionic 與 Cordova
   * 伺服器渲染
-    * Universal 與 Express
+    * Express 與 Universal
 
 ***
 
