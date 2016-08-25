@@ -70,6 +70,37 @@
 ***
 
 ```styl
+.foo
+  position fixed
+  &-bar
+    color #F44336
+    ~ .foo-baz
+      color #E91E63
+```
+```styl
+.foo
+  position fixed
+  &-bar
+    color #F44336
+    & ~ ^[0]-baz
+      color #E91E63
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  position: fixed;
+}
+.foo-bar {
+  color: #f44336;
+}
+.foo-bar ~ .foo-baz {
+  color: #e91e63;
+}
+```
+
+***
+
+```styl
 bar = #F44336
 
 .foo
