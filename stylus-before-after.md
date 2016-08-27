@@ -281,6 +281,13 @@ colors = #F44336 #E91E63
 .foo
   color colors[0]
 ```
+```styl
+colors()
+  #F44336 #E91E63
+
+.foo
+  color colors[0]
+```
 :point_up: 編譯前後 :point_down:
 ```css
 .foo {
