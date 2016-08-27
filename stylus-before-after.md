@@ -276,21 +276,34 @@ if overload-padding = true
 ***
 
 ```styl
+colors = #F44336 #E91E63
 
+.foo
+  color colors[0]
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo {
+  color: #f44336;
+}
 ```
 
 ***
 
 ```styl
+add(x, y)
+  unit(x + y, px)
 
+plus = add
+
+.foo
+  width plus(1, 2)
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo {
+  width: 3px;
+}
 ```
 
 ***
