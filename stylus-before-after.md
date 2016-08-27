@@ -213,6 +213,20 @@ $some-selectors = '.foo, .bar, .baz'
 ***
 
 ```styl
+// foo
+.foo
+  color #f44336  // red-500
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  color: #f44336;
+}
+```
+
+***
+
+```styl
 
 ```
 :point_up: 編譯前後 :point_down:
