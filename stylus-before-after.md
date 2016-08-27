@@ -259,11 +259,18 @@ foo =
 ***
 
 ```styl
+if overload-padding = true
+  padding(x)
+    margin x
 
+.foo
+  padding 5px
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo {
+  margin: 5px;
+}
 ```
 
 ***
