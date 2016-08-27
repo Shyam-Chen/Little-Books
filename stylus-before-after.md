@@ -196,6 +196,23 @@ position()
 ***
 
 ```styl
+$some-selectors = '.foo, .bar, .baz'
+
+{$some-selectors}
+  color: #F44336
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo,
+.bar,
+.baz {
+  color: #f44336;
+}
+```
+
+***
+
+```styl
 
 ```
 :point_up: 編譯前後 :point_down:
