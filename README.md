@@ -2083,6 +2083,24 @@ export class AppComponent {
 
 #### 啟動表單
 ```ts
+// src/app/app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';  // 導入 ReactiveFormsModule
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule  // 將 ReactiveFormsModule 註冊到 AppModule 裡
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+```ts
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
