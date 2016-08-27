@@ -170,6 +170,32 @@ bar(x)
 ***
 
 ```styl
+position()
+  position arguments
+  z-index 1 unless @z-index
+
+.foo
+  position absolute
+  z-index 2
+
+.bar
+  position absolute
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  position: absolute;
+  z-index: 2;
+}
+.bar {
+  position: absolute;
+  z-index: 1;
+}
+```
+
+***
+
+```styl
 
 ```
 :point_up: 編譯前後 :point_down:
