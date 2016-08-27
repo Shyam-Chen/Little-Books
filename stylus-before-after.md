@@ -316,11 +316,21 @@ plus = add
 ***
 
 ```styl
-
+.widget
+  padding 10px
+  @media screen and (min-width: 600px)
+    padding 20px
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.widget {
+  padding: 10px;
+}
+@media screen and (min-width: 600px) {
+  .widget {
+    padding: 20px;
+  }
+}
 ```
 
 ***
