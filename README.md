@@ -2101,18 +2101,6 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 ```ts
-// src/app/main.ts
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
-
-import { AppComponent } from './app.component';
-
-bootstrap(AppComponent, [
-  disableDeprecatedForms(),
-  provideForms()
-]);
-```
-```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
 
