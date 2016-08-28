@@ -204,6 +204,16 @@ function foo(thing: number): void {
   this.thing = thing;
 }
 ```
+```ts
+let foo: string;
+foo;  // Error
+
+let bar: string | null;
+bar;  // Error
+
+let baz: string | undefined;
+baz;  // OK
+```
 
 ### 型別斷言
 ```ts
