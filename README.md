@@ -3787,7 +3787,7 @@ import { SampleService } from './sample.service';
 export class AppComponent {
   constructor(private sampleService: SampleService) { }
   
-  onClick(): void {
+  private onClick(): void {
     console.log('發送開始');
 
     this.sampleService
@@ -3811,6 +3811,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SampleService {
+  private url: string = '...';
   private dataUrl: string = `${url}/${data.id}`;  // ...
 
   constructor(private http: Http) { }
@@ -3837,6 +3838,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SampleService {
+  private url: string = '...';
   private dataUrl: string = `${url}/${data.id}`;  // ...
 
   constructor(private http: Http) { }
