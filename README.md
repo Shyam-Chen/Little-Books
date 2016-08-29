@@ -3811,12 +3811,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SampleService {
-  private dataJson: any = {
-    title: 'Angular2-in-Action',
-    description: 'Angular 2 實戰手冊'
-  };
-
-  private dataUrl: string = `${url}/${data.id}`;;
+  private dataUrl: string = `${url}/${data.id}`;  // ...
 
   constructor(private http: Http) { }
 
@@ -3842,12 +3837,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SampleService {
-  private dataJson: any = {
-    title: 'Angular2-in-Action',
-    description: 'Angular 2 實戰手冊'
-  };
-
-  private dataUrl: string = `${url}/${data.id}`;;
+  private dataUrl: string = `${url}/${data.id}`;  // ...
 
   constructor(private http: Http) { }
 
