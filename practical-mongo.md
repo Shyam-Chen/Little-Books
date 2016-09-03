@@ -49,5 +49,15 @@ $ mongo
 
 ```bash
 #
-> db.<集合名稱>.
+> db.<集合名稱>.insert()
+
+#
+> db.<集合名稱>.insertOne()
+
+#
+> db.<集合名稱>.insertMany()
+```
+
+```bash
+
 ```
