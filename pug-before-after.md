@@ -1,4 +1,4 @@
-# Pug 前後
+# Pug 前後對照
 
 ```pug
 doctype html
