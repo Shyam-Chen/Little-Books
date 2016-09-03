@@ -1,4 +1,4 @@
-# Stylus 前後
+# Stylus 前後對照
 
 ```styl
 .foo
