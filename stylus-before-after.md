@@ -336,21 +336,42 @@ plus = add
 ***
 
 ```styl
+foo()
+  .bar
+    {block}
 
++foo()
+  color #F44336
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.bar {
+  color: #f44336;
+}
 ```
 
 ***
 
 ```styl
+a()
+  display inline
 
+b()
+  a()
+  > .bar
+    color #F44336
+
+.foo
+  b()
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo {
+  display: inline;
+}
+.foo > .bar {
+  color: #f44336;
+}
 ```
 
 ***
