@@ -54,6 +54,14 @@ const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Listening on: http://localhost:${server.address().port}.`);
 });
 ```
+```js
+// package.json
+[...]
+  "scripts": {
+    "start": "tsc && node src/app.js",
+  },
+[...]
+```
 ```bash
-$ tsc && node src/app.js
+$ npm start
 ```
