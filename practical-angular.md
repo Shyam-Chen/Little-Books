@@ -182,11 +182,11 @@
 
 ### 設定環境
 ```bash
-# 建立名為 ng2-starter 的資料夾
-$ mkdir ng2-starter
+# 建立名為 angular-starter 的資料夾
+$ mkdir angular-starter
 
-# 切到名為 ng2-starter 的資料夾
-$ cd ng2-starter
+# 切換到 angular-starter 資料夾
+$ cd angular-starter
 ```
 ```js
 /*
@@ -198,7 +198,7 @@ $ cd ng2-starter
 
 // package.json
 {
-  "name": "ng2-starter",
+  "name": "angular-starter",
   "version": "1.0.0",
   "scripts": {
     "start": "tsc src/system.config.ts && lite-server -c bsconfig.json"
@@ -243,7 +243,7 @@ $ cd ng2-starter
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Angular 2 實戰手冊</title>
+    <title>Angular Starter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://npmcdn.com/core-js/client/shim.min.js"></script>
     <script src="https://npmcdn.com/systemjs@0.19.36/dist/system.src.js"></script>
@@ -280,7 +280,7 @@ const map: any = {
   'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
   'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
   'ts': 'https://npmcdn.com/plugin-typescript@4.0.12/lib/plugin.js',
-  'typescript': 'https://npmcdn.com/typescript@1.8.10/lib/typescript.js'
+  'typescript': 'https://npmcdn.com/typescript@2.0.2/lib/typescript.js'
 };
 
 const packages: any = {
