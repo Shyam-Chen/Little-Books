@@ -13,7 +13,7 @@
 ### 資源
 
 #### 程式語言
-* [JavaScript](https://github.com/Shyam-Chen/Technical-Manual/blob/master/langs/javascript.md)
+* [JavaScript (ECMAScript、HTML5 和 Node.js)](https://github.com/Shyam-Chen/Technical-Manual/blob/master/langs/javascript.md)
 * [TypeScript](https://github.com/Shyam-Chen/Technical-Manual/blob/master/langs/typescript.md)
 
 #### 函式庫
