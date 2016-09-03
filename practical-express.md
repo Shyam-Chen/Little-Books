@@ -58,7 +58,7 @@ const server = app.listen(process.env.PORT || 3000, () => {
 // package.json
 [...]
   "scripts": {
-    "start": "tsc && node src/app.js",
+    "start": "tsc && node src/app.js"
   },
 [...]
 ```
