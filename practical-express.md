@@ -6,7 +6,7 @@
 
 ```bash
 # 建立名為 express-starter 的資料夾
-$ touch express-starter
+$ mkdir express-starter
 
 # 切換到 express-starter 資料夾
 $ cd express-starter
