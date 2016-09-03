@@ -27,5 +27,19 @@ $ mongo
 ```
 
 ```bash
-> 
+# 
+> show collections
+```
+
+```bash
+#
+> use <資料庫名稱>
+```
+
+```bash
+#
+> db.<集合名稱>.find()
+
+#
+> db.<集合名稱>.findOne()
 ```
