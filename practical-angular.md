@@ -3752,11 +3752,11 @@ export class SampleService {
     description: 'Angular 2 實戰手冊'
   };
 
-  private dataUrl: string = '...';  // 要把資料發送到哪個統一資源定位器
+  private dataUrl: string = 'http://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: Http) { }
 
-  sampleMethod(): any {
+  private sampleMethod(): any {
     let body = JSON.stringify(this.dataJson);
     let headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
     let options = new RequestOptions({ headers: headers });
@@ -3803,54 +3803,49 @@ export class AppComponent {
 
 ### 編輯資料
 ```ts
-// src/app/sample.service.ts
+// src/app/rest.service.ts
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class SampleService {
-  private url: string = '...';
-  private dataUrl: string = `${url}/${data.id}`;  // ...
+export class RestService {
+  private headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
+  private options = new RequestOptions({ headers: this.headers });
 
   constructor(private http: Http) { }
 
-  sampleMethod(): any {
-    let body = JSON.stringify(this.dataJson);
-    let headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
-    let options = new RequestOptions({ headers: headers });
+  private editMethod(data): any {
+    let url = `/v1/api/${data._id}`;  // _id 是 MongoDB 的識別碼
+    let body = JSON.stringify(data);
 
     return this.http
-      .put(this.dataUrl, body, options)
-      .map(res => res.json());
+      .put(url, body, this.options);
   };
 }
 ```
 
 ### 刪除資料
 ```ts
-// src/app/sample.service.ts
+// src/app/rest.service.ts
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class SampleService {
-  private url: string = '...';
-  private dataUrl: string = `${url}/${data.id}`;  // ...
+export class RestService {
+  private headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
+  private options = new RequestOptions({ headers: this.headers });
 
   constructor(private http: Http) { }
 
-  sampleMethod(): any {
-    let body = JSON.stringify(this.dataJson);
-    let headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
-    let options = new RequestOptions({ headers: headers });
+  private editMethod(data): any {
+    let url = `/v1/api/${data._id}`;
 
     return this.http
-      .delete(this.dataUrl, body, options)
-      .map(res => res.json());
+      .delete(url, this.options);
   };
 }
 ```
