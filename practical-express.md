@@ -5,13 +5,25 @@
 ***
 
 ```bash
+# 建立名為 express-starter 的資料夾
+$ touch express-starter
+
+# 切換到 express-starter 資料夾
+$ cd express-starter
+```
+```bash
+# 初始化
 $ npm init -y
 ```
 ```bash
+# 安裝 Express 和 TypeScript
 $ npm i express@5.0.0-alpha.2 typescript@2.0.2 -S
+
+# 安裝 Node.js 和 Express 的模組定義
 $ npm i @types/node @types/express -D
 ```
 ```bash
+# 建立名為 tsconfig.json 的檔案
 $ touch tsconfig.json
 ```
 ```js
