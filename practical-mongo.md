@@ -38,6 +38,17 @@ $ mongo
 
 ```bash
 #
+> db.<集合名稱>.insert()
+
+#
+> db.<集合名稱>.insertOne()
+
+#
+> db.<集合名稱>.insertMany()
+```
+
+```bash
+#
 > db.<集合名稱>.find()
 
 #
@@ -49,15 +60,25 @@ $ mongo
 
 ```bash
 #
-> db.<集合名稱>.insert()
+> db.<集合名稱>.update()
 
 #
-> db.<集合名稱>.insertOne()
+> db.<集合名稱>.updateOne()
 
 #
-> db.<集合名稱>.insertMany()
+> db.<集合名稱>.updateMany()
+
+#
+> db.<集合名稱>.replaceOne()
 ```
 
 ```bash
+#
+> db.<集合名稱>.remove()
 
+#
+> db.<集合名稱>.deleteOne()
+
+#
+> db.<集合名稱>.deleteMany()
 ```
