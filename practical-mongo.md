@@ -41,5 +41,13 @@ $ mongo
 > db.<集合名稱>.find()
 
 #
-> db.<集合名稱>.findOne()
+> db.<集合名稱>.find({ key: value })
+
+#
+> db.<集合名稱>.find().pretty()
+```
+
+```bash
+#
+> db.<集合名稱>.
 ```
