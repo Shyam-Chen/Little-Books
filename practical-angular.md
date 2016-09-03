@@ -160,17 +160,21 @@
  * 跨站請求偽造
 * 擴展
   * 模組整合工具
-    * Webpack Module Bundler
+    * Webpack
   * 命令列工具
     * Angular CLI
   * 使用者介面
-    * Material Design
+    * Material
   * 後端即服務
-    * Firebase Services
-  * 混合型行動應用
-    * Ionic 與 Cordova
+    * Firebase
+  * 行動應用
+    * Ionic
+    * NativeScript
+    * React Native
+  * 桌面應用
+    * Electron
   * 伺服器渲染
-    * Express 與 Universal
+    * Universal
 
 ***
 
