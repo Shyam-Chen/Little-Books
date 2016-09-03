@@ -41,7 +41,7 @@ $ mongo
 > db.<集合名稱>.find()
 
 #
-> db.<集合名稱>.find({ key: value })
+> db.<集合名稱>.find({ <鍵>: <值> })
 
 #
 > db.<集合名稱>.find().pretty()
