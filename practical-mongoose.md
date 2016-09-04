@@ -59,3 +59,14 @@ const User = mongoose.model('User', userSchema);
 const account = new User({ name: '陳彥澄' });
 console.log(account.name);  // 陳彥澄
 ```
+
+綱要中允許的資料型別：
+* String
+* Number
+* Date
+* Boolean
+* Buffer
+* ObjectId
+* Mixed
+* Array
+
