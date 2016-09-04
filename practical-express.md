@@ -8,8 +8,6 @@
 * 路由
 * 用戶憑證
 * REST API 服務
-* Mongo 資料永久儲存
- * Mongoose
 * 即時應用程式
  * Socket.io
 * 測試
