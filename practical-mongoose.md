@@ -59,6 +59,12 @@ console.log(account.name);  // 陳彥澄
 account.save();  // 將資料存儲至資料庫裡
 ```
 
+```ts
+User.find((err: any, users: any) => {
+  console.log(users);  // [ { _id: 57cbd9b75132e81c9ce56077, name: '陳彥澄', __v: 0 } ]
+});
+```
+
 綱要中允許的資料型別：
 * String
 * Number
