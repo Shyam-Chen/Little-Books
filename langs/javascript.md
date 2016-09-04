@@ -1,11 +1,11 @@
-### 英
+## 英
 * [JavaScript 精解](http://eloquentjavascript.net/index.html)
 * [JavaScript 深入指南](http://speakingjs.com/)
 * [探索 JS.Next](http://exploringjs.com/)
 * [深入理解 JS.Next](https://leanpub.com/understandinges6/read)
 * [JS.Next 修飾器](https://github.com/wycats/javascript-decorators)
 
-### 中
+## 中
 
 ### 主核心
 * [JavaScript 標準入門](http://javascript.ruanyifeng.com/)
