@@ -14,7 +14,6 @@
 
 #### 程式語言
 * [JavaScript](https://github.com/Shyam-Chen/Technical-Manual/blob/master/langs/javascript.md)
-* [TypeScript](https://github.com/Shyam-Chen/Technical-Manual/blob/master/langs/typescript.md)
 
 #### 函式庫
 * [Zone.js](https://github.com/Shyam-Chen/Technical-Manual/blob/master/libs/zone.js.md)
