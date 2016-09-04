@@ -422,7 +422,7 @@ invoke(a, b, fn)
 
 ```styl
 get(hash, key)
-  return pair[1] if pair[0] === key for pair in hash
+  return pair[1] if pair[0] == key for pair in hash
 
 hash = (one 1) (two 2) (three 3)
 
