@@ -14,7 +14,7 @@
  * Mocha 和 Chai
 * 安全
 * 佈署
- * Heroku 和 MLab
+ * Heroku
  * Google Compute Engine
 
 ***
