@@ -445,11 +445,19 @@ hash = (one 1) (two 2) (three 3)
 ***
 
 ```styl
+x = true
 
+.foo
+  color #F44336
+  if x == !0  // !0 => true
+    width 1px
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo {
+  color: #f44336;
+  width: 1px;
+}
 ```
 
 ***
