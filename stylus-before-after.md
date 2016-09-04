@@ -377,31 +377,69 @@ b()
 ***
 
 ```styl
+subtract(a, b)
+  a - b
 
+.foo
+  width subtract(b: 10, a: 25)
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo {
+  width: 15;
+}
 ```
 
 ***
 
 ```styl
+add(a, b)
+  a + b
 
+sub(a, b)
+  a - b
+
+invoke(a, b, fn)
+  fn(a, b)
+
+.foo
+  width invoke(5, 10, add)
+
+.bar
+  width invoke(5, 10, sub)
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo {
+  width: 15;
+}
+.bar {
+  width: -5;
+}
 ```
 
 ***
 
 ```styl
+get(hash, key)
+  return pair[1] if pair[0] === key for pair in hash
 
+hash = (one 1) (two 2) (three 3)
+
+.foo
+  width get(hash, three)
+
+.bar
+  width get(hash, one)
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo {
+  width: 3;
+}
+.bar {
+  width: 1;
+}
 ```
 
 ***
