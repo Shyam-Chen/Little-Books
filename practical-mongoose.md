@@ -35,3 +35,27 @@ const mongodbUri: string = 'mongodb://user:pass@host:port/db';
 
 mongoose.connect(mongodbUri, options);
 ```
+
+```ts
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  // ...
+});
+```
+
+```ts
+const Schema = mongoose.Schema;
+
+const userSchema = Schema({
+  name: String
+});
+
+const User = mongoose.model('User', userSchema);
+```
+
+```ts
+const account = new User({ name: '陳彥澄' });
+console.log(account.name);  // 陳彥澄
+```
