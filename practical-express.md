@@ -111,3 +111,11 @@ app.use((req, res) => {
 
 http.createServer(app).listen(3000);  // 啟動伺服器
 ```
+
+```ts
+// 日誌紀錄中介軟體
+app.use((req, res, next) => {
+  console.log(`In comes a ${request.method} to ${req.url}`);
+  next();
+});
+```
