@@ -26,7 +26,7 @@ import * as mongoose from 'mongoose';
 // 本地
 mongoose.connect('mongodb://localhost/test')
 
-// 雲端
+// mLab
 const options: any = {
   server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
   replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } }
