@@ -6,12 +6,20 @@
 * [JS.Next 修飾器](https://github.com/wycats/javascript-decorators)
 
 ### 中
+
+### 主核心
 * [JavaScript 標準入門](http://javascript.ruanyifeng.com/)
+* [JS.Next 標準入門](http://es6.ruanyifeng.com/)
+* [JavaScript 小知識](http://www.jstips.co/zh_TW/)
+
+### 瀏覽器
 * [BOM 標準入門](http://javascript.ruanyifeng.com/bom/engine.html)
 * [DOM 標準入門](http://javascript.ruanyifeng.com/dom/node.html)
 * [HTML API 標準入門](http://javascript.ruanyifeng.com/htmlapi/elements.html)
+
+### 伺服器
 * [Node.js 標準入門](http://javascript.ruanyifeng.com/nodejs/basic.html)
-* [JS.Next 標準入門](http://es6.ruanyifeng.com/)
-* [JavaScript 小知識](http://www.jstips.co/zh_TW/)
+
+### 資料庫
 * [MongoDB 課程 - 基礎篇](http://tw.gitbook.net/mongodb/mongodb_quick_guide.html)
 * [MongoDB 課程 - 進階篇](http://tw.gitbook.net/mongodb/mongodb_relationships.html)
