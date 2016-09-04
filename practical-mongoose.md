@@ -70,3 +70,10 @@ console.log(account.name);  // 陳彥澄
 * Mixed
 * Array
 
+```ts
+const userSchema = Schema({
+  name: { type: String, unique:true },
+  email: { type: String, unique:true },
+  createdOn: { type: Date, 'default': Date.now }
+});
+```
