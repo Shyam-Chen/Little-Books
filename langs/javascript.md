@@ -13,3 +13,5 @@
 * [Node.js 標準入門](http://javascript.ruanyifeng.com/nodejs/basic.html)
 * [JS.Next 標準入門](http://es6.ruanyifeng.com/)
 * [JavaScript 小知識](http://www.jstips.co/zh_TW/)
+* [MongoDB 課程 - 基礎篇](http://tw.gitbook.net/mongodb/mongodb_quick_guide.html)
+* [MongoDB 課程 - 進階篇](http://tw.gitbook.net/mongodb/mongodb_relationships.html)
