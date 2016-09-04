@@ -129,3 +129,7 @@ res.redirect('/hello');
 // 寄送檔案
 res.sendFile('/path/to/xxx.png');
 ```
+
+```bash
+$ npm i morgan body-parser pug -S
+```
