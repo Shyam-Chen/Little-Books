@@ -119,3 +119,13 @@ app.use((req, res, next) => {
   next();
 });
 ```
+
+```ts
+// 重新導向
+res.redirect('/hello');
+```
+
+```ts
+// 寄送檔案
+res.sendFile('/path/to/xxx.png');
+```
