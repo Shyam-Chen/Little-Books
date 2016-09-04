@@ -9,10 +9,15 @@
 * 用戶憑證
 * REST API 服務
 * Mongo 資料永久儲存
+ * Mongoose
 * 即時應用程式
+ * Socket.io
 * 測試
+ * Mocha 和 Chai
 * 安全
 * 佈署
+ * Heroku 和 MLab
+ * Google Compute Engine
 
 ***
 
