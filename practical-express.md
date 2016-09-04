@@ -19,6 +19,8 @@
 
 ***
 
+## 第一個應用程式
+
 ```bash
 # 建立名為 express-starter 的資料夾
 $ mkdir express-starter
@@ -91,4 +93,21 @@ const server = app.listen(process.env.PORT || 3000, () => {
 ```
 ```bash
 $ npm start
+```
+
+## Express 基礎
+
+```ts
+import * as express from 'express';  // 導入 Express 模組，就像導入其它模組一樣
+import * as http from 'http';
+
+const app = express();  // 呼叫 express 函式建立一個 Express 應用程式
+
+// 中介軟體
+app.use((req, res) => {
+  console.log(`In comes a request to: ${req.url}`);
+  res.end('Hello, Express!');
+});
+
+http.createServer(app).listen(3000);  // 啟動伺服器
 ```
