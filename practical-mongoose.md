@@ -46,18 +46,17 @@ db.once('open', () => {
 ```
 
 ```ts
-const Schema = mongoose.Schema;
-
-const userSchema = Schema({
+const userSchema = mongoose.Schema({  // 建立綱要
   name: String
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);  // 建立模型
 ```
 
 ```ts
-const account = new User({ name: '陳彥澄' });
+const account = new User({ name: '陳彥澄' });  // 實體化
 console.log(account.name);  // 陳彥澄
+account.save();  // 將資料存儲至資料庫裡
 ```
 
 綱要中允許的資料型別：
