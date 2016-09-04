@@ -1,11 +1,7 @@
-# Mongo 項目實踐
+# Mongoose 項目實踐
 
 ### 目錄
 * Mongo Shell
-* 聚集分析
-* 複製集
-* 分片集
-* GridFS
 
 ***
 
