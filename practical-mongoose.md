@@ -12,3 +12,26 @@
 * 重用程式碼
 
 ***
+
+```bash
+$ npm i mongoose -S
+$ npm i @types/mongoose -D
+```
+
+```ts
+import * as mongoose from 'mongoose';
+```
+
+```ts
+// 本地
+mongoose.connect('mongodb://localhost/test')
+
+// 雲端
+const options: any = {
+  server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+  replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } }
+}; 
+const mongodbUri: string = 'mongodb://user:pass@host:port/db';
+
+mongoose.connect(mongodbUri, options);
+```
