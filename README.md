@@ -17,4 +17,5 @@
 
 #### 函式庫
 * [Zone.js](https://github.com/Shyam-Chen/Technical-Manual/blob/master/libs/zone.js.md)
+* [Lodash](https://github.com/Shyam-Chen/Technical-Manual/blob/master/libs/lodash.md)
 * [RxJS](https://github.com/Shyam-Chen/Technical-Manual/blob/master/libs/rxjs.md)
