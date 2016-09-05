@@ -156,23 +156,21 @@
     * 測試路由
     * 測試通訊
 * 安全
- * 跨站指令碼
- * 跨站請求偽造
-* 擴展
-  * 模組整合工具
+  * 信任安全值
+  * 跨站指令碼
+  * 跨站請求偽造
+* 工具
+  * 模組整合
     * Webpack
-  * 命令列工具
+  * 自動化建置
+    * Gulp
+  * 命令列
     * Angular CLI
-  * 使用者介面
+* 擴展
+  * 原質化設計
     * Material
   * 後端即服務
     * Firebase
-  * 行動應用
-    * Ionic
-    * NativeScript
-    * React Native
-  * 桌面應用
-    * Electron
   * 伺服器渲染
     * Universal
 
