@@ -2,20 +2,20 @@
 
 ### 目錄
 * 第一個應用程式
-* Express 基礎
+* 基礎入門
 * 中介軟體
 * Pug 模板引擎
 * 路由
 * 用戶憑證
 * REST API 服務
 * 即時應用程式
- * Socket.io
+  * Socket.io
 * 測試
- * Mocha 和 Chai
+  * Mocha 和 Chai
 * 安全
 * 佈署
- * Heroku
- * Google Compute Engine
+  * Heroku
+  * Google Compute Engine
 
 ***
 
