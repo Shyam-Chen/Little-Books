@@ -203,7 +203,7 @@ $ cd angular-starter
   },
   "devDependencies": {
     "lite-server": "^2.2.2",
-    "typescript": "^1.8.10"
+    "typescript": "^2.0.2"
   }
 }
 ```
@@ -243,9 +243,9 @@ $ cd angular-starter
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Angular Starter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://npmcdn.com/core-js/client/shim.min.js"></script>
-    <script src="https://npmcdn.com/systemjs@0.19.36/dist/system.src.js"></script>
-    <script src="https://npmcdn.com/zone.js@0.6.12?main=browser"></script>
+    <script src="https://unpkg.com/core-js/client/shim.min.js"></script>
+    <script src="https://unpkg.com/systemjs@0.19.36/dist/system.src.js"></script>
+    <script src="https://unpkg.com/zone.js@0.6.17?main=browser"></script>
     <script src="./system.config.js"></script>
     <script>
       System.config(config);
@@ -266,78 +266,47 @@ $ cd angular-starter
  */
 
 // src/system.config.ts
-const ngVer: string = '@2.0.0-rc.5';
-const formsVer: string = '@0.3.0';
-const routerVer: string = '@3.0.0-rc.1';
-
-const map: any = {
-  'app': 'app',
-  '@angular': 'https://npmcdn.com/@angular',
-  '@angular/forms': `https://npmcdn.com/@angular/forms${formsVer}`,
-  '@angular/router': `https://npmcdn.com/@angular/router${routerVer}`,
-  'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
-  'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
-  'ts': 'https://npmcdn.com/plugin-typescript@4.0.12/lib/plugin.js',
-  'typescript': 'https://npmcdn.com/typescript@2.0.2/lib/typescript.js'
-};
-
-const packages: any = {
-  'app': {
-    main: 'main.ts',
-    defaultExtension: 'ts'
-  },
-  'rxjs': {
-    defaultExtension: 'js'
-  },
-  'angular2-in-memory-web-api': {
-    main: 'index.js',
-    defaultExtension: 'js'
-  }
-};
-
-const ngPackageNames: string[] = [
-  'common',
-  'compiler',
-  'core',
-  'http',
-  'platform-browser',
-  'platform-browser-dynamic',
-  'upgrade'
-];
-
-ngPackageNames.forEach((pkgName: any) => {
-  map[`@angular/${pkgName}`] = `https://npmcdn.com/@angular/${pkgName}${ngVer}`;
-});
-
-ngPackageNames.forEach((pkgName: any) => {
-  packages[`@angular/${pkgName}`] = {
-    main: `/bundles/${pkgName}.umd.js`,
-    defaultExtension: 'js'
-  };
-});
-
-packages['@angular/router'] = {
-  main: 'index.js',
-  defaultExtension: 'js'
-};
-
-packages['@angular/forms'] = {
-  main: 'index.js',
-  defaultExtension: 'js'
-};
-
 const config: any = {
   transpiler: 'ts',
   typescriptOptions: {
-    tsconfig: false
+    tsconfig: true
   },
   meta: {
     'typescript': {
-      'exports': 'ts'
+      "exports": "ts"
     }
   },
-  map: map,
-  packages: packages
+  paths: {
+    'npm:': 'https://unpkg.com/'
+  },
+  map: {
+    app: 'app',
+    '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
+    '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
+    '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
+    '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
+    '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+    '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
+    '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
+    '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+    'rxjs': 'npm:rxjs',
+    'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
+    'ts': 'npm:plugin-typescript@4.0.10/lib/plugin.js',
+    'typescript': 'npm:typescript@2.0.2/lib/typescript.js'
+  },
+  packages: {
+    app: {
+      main: './main.ts',
+      defaultExtension: 'ts'
+    },
+    rxjs: {
+      defaultExtension: 'js'
+    },
+    'angular2-in-memory-web-api': {
+      main: './index.js',
+      defaultExtension: 'js'
+    }
+  }
 };
 ```
 ```ts
