@@ -27,7 +27,7 @@
 ## 入門
 ```bash
 # 安裝 ts-node 與 typescript
-$ npm install ts-node typescript -g
+$ npm install ts-node typescript@2 -g
 
 # 建立練習檔
 $ touch script.ts
