@@ -144,3 +144,47 @@ app.options()
 ```bash
 $ npm i morgan body-parser pug -S
 ```
+
+```ts
+// 基本
+const authAdmin = (req, res, next) => {
+  // ...
+  return next();
+};
+const getUsers = (req, res, next) => {
+  // ...
+  return next();
+};
+const renderUsers = (req, res) => {
+  // ...
+  res.end();
+};
+
+const admin = [authAdmin, getUsers, renderUsers];
+app.get('/admin', admin);
+```
+```ts
+// 進階
+namespace Admin {
+  export class Admin {
+    private authAdmin(req, res, next) {
+      // ...
+      return next();
+    }
+    private getUsers(req, res, next) {
+      // ...
+      return next();
+    }
+    private renderUsers(req, res, next) {
+      // ...
+      res.end();
+    }
+  }
+}
+
+// ...
+```
+```ts
+// +型別
+// ...
+```
