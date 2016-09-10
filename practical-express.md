@@ -130,6 +130,17 @@ res.redirect('/hello');
 res.sendFile('/path/to/xxx.png');
 ```
 
+```ts
+// app.VERB()
+app.get()
+app.head()
+app.post()
+app.put()
+app.patch()
+app.delete()
+app.options()
+```
+
 ```bash
 $ npm i morgan body-parser pug -S
 ```
