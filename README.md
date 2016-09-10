@@ -1,4 +1,4 @@
-# 技術手冊
+# JavaScript GO
 
 ### 目錄
 * [Angular 項目實踐](https://github.com/Shyam-Chen/Technical-Manual/blob/master/practical-angular.md)
