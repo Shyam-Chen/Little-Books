@@ -44,13 +44,13 @@ mongoose.connect(mongodbUri, options);
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  // ...
-});
+db.once('open', () => console.log('Connection Succeeded.'));
 ```
 
 ```ts
-const userSchema = mongoose.Schema({  // 建立綱要
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({  // 建立綱要
   name: String
 });
 
@@ -65,6 +65,7 @@ account.save();  // 將資料存儲至資料庫裡
 
 ```ts
 User.find((err: any, users: any) => {
+  if (err) throw err;
   console.log(users);  // [ { _id: 57cbd9b75132e81c9ce56077, name: '陳彥澄', __v: 0 } ]
 });
 ```
@@ -80,7 +81,7 @@ User.find((err: any, users: any) => {
 * Array
 
 ```ts
-const userSchema = Schema({
+const userSchema = new Schema({
   name: { type: String, unique:true },
   email: { type: String, unique:true },
   createdOn: { type: Date, 'default': Date.now }
