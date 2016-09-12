@@ -7,6 +7,7 @@
 * Pug 模板引擎
 * 路由和參數
 * 用戶憑證
+  * Passport
 * REST API 服務
 * 即時應用程式
   * Socket.io
@@ -16,6 +17,9 @@
 * 佈署
   * Heroku
   * Google Compute Engine
+  * Nginx
+  * Varnish
+  * PM2
 
 ***
 
