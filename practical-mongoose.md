@@ -87,3 +87,7 @@ const userSchema = new Schema({
   createdOn: { type: Date, 'default': Date.now }
 });
 ```
+
+```bash
+$ npm i mocha-mongoose -S
+```
