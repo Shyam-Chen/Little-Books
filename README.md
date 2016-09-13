@@ -12,7 +12,7 @@
 
 ### 資源
 
-#### ECMAScript
+#### 主核心 - ECMAScript
 * [JavaScript 精解 (英)](http://eloquentjavascript.net/index.html)
 * [JavaScript 深入指南 (英)](http://speakingjs.com/)
 * [探索 JS.Next (英)](http://exploringjs.com/)
@@ -22,15 +22,15 @@
 * [JS.Next 標準入門](http://es6.ruanyifeng.com/)
 * [JavaScript 小知識](http://www.jstips.co/zh_TW/)
 
-#### HTML5
+#### 瀏覽器 - HTML5
 * [HTML5 參考 (英)](https://platform.html5.org/)
 * [HTML5 進階程式設計 (英)](http://apress.jensimmons.com/v5/pro-html5-programming/info.html)
 * [BOM 標準入門](http://javascript.ruanyifeng.com/bom/engine.html)
 * [DOM 標準入門](http://javascript.ruanyifeng.com/dom/node.html)
 * [HTML API 標準入門](http://javascript.ruanyifeng.com/htmlapi/elements.html)
 
-#### Node.js
+#### 伺服器 - Node.js
 * [Node.js 標準入門](http://javascript.ruanyifeng.com/nodejs/basic.html)
 
-#### MongoDB
+#### 資料庫 - MongoDB
 * [MongoDB 從入門到進階](http://tw.gitbook.net/mongodb/mongodb_quick_guide.html)
