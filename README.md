@@ -24,6 +24,7 @@
 
 #### HTML5
 * [HTML5 參考 (英)](https://platform.html5.org/)
+* [HTML5 進階程式設計 (英)](http://apress.jensimmons.com/v5/pro-html5-programming/info.html)
 * [BOM 標準入門](http://javascript.ruanyifeng.com/bom/engine.html)
 * [DOM 標準入門](http://javascript.ruanyifeng.com/dom/node.html)
 * [HTML API 標準入門](http://javascript.ruanyifeng.com/htmlapi/elements.html)
