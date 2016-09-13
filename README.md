@@ -33,5 +33,4 @@
 * [Node.js 標準入門](http://javascript.ruanyifeng.com/nodejs/basic.html)
 
 #### MongoDB
-* [MongoDB 課程 - 基礎篇](http://tw.gitbook.net/mongodb/mongodb_quick_guide.html)
-* [MongoDB 課程 - 進階篇](http://tw.gitbook.net/mongodb/mongodb_relationships.html)
+* [MongoDB 從入門到進階](http://tw.gitbook.net/mongodb/mongodb_quick_guide.html)
