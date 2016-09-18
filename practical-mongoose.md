@@ -31,11 +31,11 @@ import * as mongoose from 'mongoose';
 mongoose.connect('mongodb://localhost/test')
 
 // mLab
+const mongodbUri: string = 'mongodb://user:pass@host:port/db';
 const options: any = {
   server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
   replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } }
 }; 
-const mongodbUri: string = 'mongodb://user:pass@host:port/db';
 
 mongoose.connect(mongodbUri, options);
 ```
