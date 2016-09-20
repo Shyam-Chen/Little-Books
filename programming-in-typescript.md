@@ -1,7 +1,7 @@
 # TypeScript 程式設計
 
 ### 目錄
-* [入門](#入門)
+* [快速入門](#快速入門)
 * [變數宣告](#變數宣告)
 * [分割代入](#分割代入)
 * [型別](#型別)
@@ -24,16 +24,29 @@
 
 ***
 
-## 入門
+## 快速入門
 ```bash
 # 安裝 ts-node 與 typescript
-$ npm install ts-node typescript@2 -g
+$ npm i ts-node typescript@2 -g
 
 # 建立練習檔
 $ touch script.ts
+```
 
+```ts
+// script.ts
+var ht = 'Hello TypeScript';
+console.log(ht);
+```
+
+```bash
 # 執行練習檔
 $ ts-node script
+```
+
+```bash
+# 輸出
+Hello TypeScript
 ```
 
 ## 變數宣告
