@@ -288,8 +288,11 @@ namespace Thing {
   }
 }
 
+let baz = new Thing.Foo.Baz()
+
+// 等同於
 import foo = Thing.Foo;
-let baz = new foo.Baz();  // 等同於 let sq = new Thing.Foo.Baz()
+let baz = new foo.Baz();  
 ```
 
 ### 模組機制
