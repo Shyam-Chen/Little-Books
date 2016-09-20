@@ -182,9 +182,7 @@ let right: Thing2 = Thing2.Right;  // 7
 const enum Thing3 (
   // ...
   // 還能使用一些一元或二元運算子
-  Foo = 1 >> 2,  // 0
-  Bar = 5 >> 1,  // 2
-  FooBar  = Foo | Bar
+  Foo = 60 >> 2  // 0011-1100 -> 0000-1111, 15
 )
 
 enum Thing4 {
