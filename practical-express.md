@@ -8,13 +8,19 @@
  * Pug
 * 路由和參數
 * 用戶憑證
-  * Passport
+  * 本地
+  * Facebook
+  * Twitter
+  * Google
 * REST API 服務
 * 即時應用程式
   * Socket.io
+* 金流串接
+  * PayPal
 * 測試
   * Mocha 和 Chai
 * 安全
+* 上線準備
 * 佈署
   * Heroku
   * Google Compute Engine
