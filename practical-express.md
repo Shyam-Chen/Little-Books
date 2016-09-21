@@ -12,6 +12,7 @@
   * Facebook
   * Twitter
   * Google
+  * JWT
 * REST API 服務
 * 即時應用程式
   * Socket.io
