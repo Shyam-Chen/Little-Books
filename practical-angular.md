@@ -1362,8 +1362,8 @@ import { Component, Input } from '@angular/core';
   `
 })
 export class StudentProfilesComponent {
-  @Input() schoolName: string;
-  @Input('student-id') id: string;
+  @Input() public schoolName: string;
+  @Input('student-id') public id: string;
 }
 ```
 ```html
@@ -1383,10 +1383,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   outputs: ['countChange']
 })
 export class CounterComponent {
-  @Input() count: number;
+  @Input() public count: number;
   public countChange: EventEmitter<number> = new EventEmitter<number>();
 
-  onClick(): void {
+  public onClick(): void {
     this.countChange.emit(this.count++);
   }
 }
@@ -1404,7 +1404,7 @@ import { CounterComponent } from './counter.component';
   directives: [CounterComponent]
 })
 export class AppComponent {
-  onChange(event): number {
+  public onChange(event): number {
     return event;
   }
 }
@@ -1422,10 +1422,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   `
 })
 export class CounterComponent {
-  @Input() count: number;
-  @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
+  @Input() public count: number;
+  @Output() public countChange: EventEmitter<number> = new EventEmitter<number>();
 
-  onClick(): void {
+  public onClick(): void {
     this.countChange.emit(this.count++);
   }
 }
@@ -1560,14 +1560,14 @@ export class ParentComponent implements AfterContentInit, AfterContentChecked {
   [...]
 
   // 使用 AfterContentInit
-  ngAfterContentInit(): void {
+  ngAfterContentInit() {
     console.log('AfterContentInit 開始');
     console.log(this.childComponents);
     console.log('AfterContentInit 結束');
   }
 
   // 使用 AfterContentChecked
-  ngAfterContentChecked(): void {
+  ngAfterContentChecked() {
     console.log('AfterContentChecked 開始');
     console.log(this.childComponents);
     console.log('AfterContentChecked 結束');
@@ -1623,7 +1623,7 @@ import { ChildComponent } from './child.component';
 export class ParentComponent implements AfterViewInit {
   @ViewChild(ChildComponent) public childComponent: ChildComponent;
 
-  public ngAfterViewInit(): void {
+  public ngAfterViewInit() {
     this.childComponent.onLog();
   }
 }
@@ -1660,7 +1660,7 @@ import { ChildComponent } from './child.component';
 export class ParentComponent implements AfterViewInit {
   @ViewChild('child') public childComponent: ChildComponent;
 
-  public ngAfterViewInit(): void {
+  public ngAfterViewInit() {
     this.childComponent.onLog();
   }
 }
@@ -1700,14 +1700,14 @@ export class ParentComponent implements AfterViewInit, AfterViewChecked {
   [...]
 
   // 使用 AfterViewInit
-  public ngAfterViewInit(): void {
+  public ngAfterViewInit() {
     console.log('AfterViewInit 開始');
     console.log(this.childComponents);
     console.log('AfterViewInit 結束');
   }
 
   // 使用 AfterViewChecked
-  public ngAfterViewChecked(): void {
+  public ngAfterViewChecked() {
     console.log('AfterViewChecked 開始');
     console.log(this.childComponents);
     console.log('AfterViewChecked 結束');
@@ -1924,7 +1924,7 @@ import { Component, OnInit } from '@angular/core';
   `
 })
 export class AppComponent implements OnInit {
-  public ngOnInit(): void {
+  public ngOnInit() {
     console.log('Hello Angular 2');
   }
 }
@@ -1941,11 +1941,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   `
 })
 export class LifecycleComponent implements OnInit, OnDestroy {
-  public ngOnInit(): void {
+  public ngOnInit() {
     console.log('On init');
   }
 
-  public ngOnDestroy(): void {
+  public ngOnDestroy() {
     console.log('On destroy');
   }
 }
@@ -1983,9 +1983,9 @@ import { Component, OnChanges, Input } from '@angular/core';
   `
 })
 export class LifecycleComponent implements OnChanges {
-  @Input() messages: string;
+  @Input() public messages: string;
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges) {
     console.log('Changes:', changes['messages'].currentValue);
   }
 }
@@ -2023,9 +2023,9 @@ import { Component, DoCheck, Input } from '@angular/core';
   `
 })
 export class LifecycleComponent implements DoCheck {
-  @Input() count: number;
+  @Input() public count: number;
 
-  ngDoCheck(): void {
+  public ngDoCheck() {
     console.log('Do Check');
   }
 }
@@ -2046,7 +2046,7 @@ import { LifecycleComponent } from './lifecycle.component';
 export class AppComponent {
   public count: number = 0;
 
-  onClick(): void {
+  public onClick(): void {
     this.count++;
   }
 }
