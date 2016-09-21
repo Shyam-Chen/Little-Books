@@ -541,7 +541,7 @@ class Thing {
 ```ts
 class Name {
   private name: string;
-  constructor(private theName: 'string') {
+  constructor(private theName: string) {
     this.name = theName;
   }
 }
@@ -785,6 +785,18 @@ class Activatable {
 }
 
 class SmartObject implements Disposable, Activatable { }
+```
+
+```ts
+interface IFoo {
+  add(): number;
+}
+
+class Foo implements IFoo {
+  add() {
+    return // ...
+  }
+}
 ```
 
 ## 合併宣告
