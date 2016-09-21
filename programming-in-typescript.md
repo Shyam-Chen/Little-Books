@@ -443,6 +443,24 @@ const baz = (foo: Foo) => foo(123);
 baz((bar: number) => console.log(bar));  // 123
 ```
 
+(5)
+```ts
+interface Foo {
+  (x: number, y: number): boolean;
+}
+
+const foo: Foo = (x, y) => {
+  let result = x + y;
+  if (result >= 0) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+foo(2, -4);  // true
+```
+
 ## 函式
 ```ts
 // 設定函式型別
