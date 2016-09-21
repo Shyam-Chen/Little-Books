@@ -17,6 +17,7 @@
   * Socket.io
 * 金流串接
   * PayPal
+* 電子郵件
 * 訊息佇列
   * ZeroMQ
 * 測試
