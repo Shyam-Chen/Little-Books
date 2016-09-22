@@ -146,12 +146,12 @@ baz
 ***
 
 ```pug
-p \#{foo}
+p \${foo}
 p \!{bar}
 ```
 :point_up: 編譯前後 :point_down:
 ```html
-<p>#{foo}</p>
+<p>${foo}</p>
 <p>!{bar}</p>
 ```
 
@@ -159,11 +159,11 @@ p \!{bar}
 
 ```pug
 - let foo = 'foo'
-p #{foo}
+p ${foo}
 ```
 ```pug
 - const foo = 'foo'
-p #{foo}
+p ${foo}
 ```
 :point_up: 編譯前後 :point_down:
 ```html
@@ -310,7 +310,7 @@ p(data-foo='foo')&attributes({ 'data-bar': 'bar' })
 
 ```pug
 - for (let x = 0; x < 3; x++)
-  p #{x + 1}. item
+  p ${x + 1}. item
 ```
 :point_up: 編譯前後 :point_down:
 ```html
