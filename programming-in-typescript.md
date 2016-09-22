@@ -208,10 +208,10 @@ notSure = 'true';  // OK
 
 ### 空值
 ```ts
-let unusable: void = undefined;
-let unusable2: void = null;
+let foo: void = undefined;
+let bar: void = null;
 
-function foo(thing: number): void {
+function baz(thing: number): void {
   this.thing = thing;
 }
 ```
