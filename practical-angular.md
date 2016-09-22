@@ -173,8 +173,6 @@
     * Material
   * 後端即服務
     * Firebase
-  * 伺服器渲染
-    * Universal
   * 行動應用
     * Ionic
   * 桌面應用
