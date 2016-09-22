@@ -25,6 +25,9 @@
   * Mocha 和 Chai
 * 安全
 * 上線準備
+  * 日誌
+    * Winston
+    * Papertrail
 * 佈署
   * Heroku
   * Google Compute Engine
