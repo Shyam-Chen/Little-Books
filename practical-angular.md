@@ -161,9 +161,9 @@
   * 信任安全值
   * 跨站指令碼
   * 跨站請求偽造
-* 工具
-  * 模組整合
-    * Webpack
+* [工具](#工具)
+  * [模組整合](#模組整合)
+    * [Webpack](#Webpack)
   * 自動化建置
     * Gulp
   * 命令列
@@ -4582,4 +4582,122 @@ describe('HelloE2EComponent', () => {
 ```bash
 $ webdriver-manager update
 $ protractor protractor.conf.js
+```
+
+## 工具
+
+### 模組整合
+
+#### Webpack
+```bash
+npm i webpack @types/webpack -D
+```
+```ts
+// webpack.common.ts
+import * as webpack from 'webpack';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+
+export const commonConfig = {
+  entry: {
+    'polyfills': './src/polyfills.ts',
+    'vendor': './src/vendor.ts',
+    'app': './src/main.ts'
+  },
+  resolve: {
+    extensions: ['', '.js', '.ts']
+  },
+  module: {
+    loaders: [{
+      test: /\.ts$/,
+      loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+    }, {
+      test: /\.html/,
+      loader: 'html'
+    }, {
+      test: /\.css$/,
+      exclude: '.src/app',
+      loader: 'style'
+    }, {
+      test: /\.css$/,
+      include: '.src/app',
+      loader: 'raw'
+    }]
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['app', 'vendor', 'polyfills']
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    })
+  ]
+};
+```
+```ts
+// webpack.dev.ts
+import * as webpackMerge from 'webpack-merge';
+import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
+import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+
+import { commonConfig } from './webpack.common';
+
+export = webpackMerge(commonConfig, {
+  debug: true,
+  devtool: 'cheap-module-eval-source-map',
+  output: {
+    path: './public',
+    publicPath: 'http://localhost:3001/',
+    filename: '[name].js',
+    chunkFilename: '[id].chunk.js'
+  },
+  plugins: [
+    new ExtractTextPlugin('[name].css'),
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      proxy: 'http://localhost:3001/'
+    }, {
+      reload: false
+    })
+  ],
+  devServer: {
+    historyApiFallback: true,
+    stats: 'minimal'
+  }
+});
+```
+```ts
+// webpack.prod.ts
+import * as webpack from 'webpack';
+import * as webpackMerge from 'webpack-merge';
+import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
+
+import { commonConfig } from './webpack.common';
+
+export = webpackMerge(commonConfig, {
+  output: {
+    path: './public',
+    publicPath: '/',
+    filename: '[name].[hash].js',
+    chunkFilename: '[id].[hash].chunk.js'
+  },
+  htmlLoader: {
+    minimize: false  // workaround for ng2
+  },
+  plugins: [
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: {
+        keep_fnames: true
+      }
+    }),
+    new ExtractTextPlugin('[name].[hash].css'),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'ENV': JSON.stringify('production')
+      }
+    })
+  ]
+});
 ```
