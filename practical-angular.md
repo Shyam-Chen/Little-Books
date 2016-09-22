@@ -163,11 +163,11 @@
   * 跨站請求偽造
 * [工具](#工具)
   * [模組整合](#模組整合)
-    * [Webpack](#Webpack)
-  * 自動化建置
-    * Gulp
-  * 命令列
-    * Angular CLI
+    * [Webpack](#webpack)
+  * [自動化建置](#自動化建置)
+    * [Gulp](#gulp)
+  * [命令列](#命令列)
+    * [Angular CLI](#angular-cli)
 * 擴展
   * 原質化設計
     * Material
@@ -4590,7 +4590,7 @@ $ protractor protractor.conf.js
 
 #### Webpack
 ```bash
-npm i webpack @types/webpack -D
+$ npm i webpack @types/webpack -D
 ```
 ```ts
 // webpack.common.ts
@@ -4700,4 +4700,26 @@ export = webpackMerge(commonConfig, {
     })
   ]
 });
+```
+
+### 自動化建置
+
+#### Gulp
+```bash
+$ npm i ts-node typescript gulp @types/gulp -D
+```
+```ts
+// gulpfile.ts
+```
+
+### 命令列
+
+#### Angular CLI
+```bash
+$ npm i angular-cli -g
+
+# 建立名為 angular-starter 的專案
+$ ng new angular-starter
+$ cd angular-starter
+$ ng serve
 ```
