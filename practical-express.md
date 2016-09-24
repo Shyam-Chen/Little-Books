@@ -24,19 +24,18 @@
 * 單元測試
   * Mocha 和 Chai
 * 安全
-* 日誌和監控
-  * Winston
-  * Papertrail
 * 佈署
   * 平台即服務
     * Heroku
   * 基礎設施即服務  
     * Google Compute Engine
-  * 靜態資源
+  * 日誌和監控
+    * Winston
+    * Papertrail
+  * 靜態資源和快取
     * Nginx
-  * 快取
     * Varnish
-  * 應用程式持續運行
+  * 持續運行
     * PM2
 
 ***
