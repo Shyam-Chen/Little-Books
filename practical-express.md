@@ -18,22 +18,26 @@
   * Socket.io
 * 金流串接
   * PayPal
-* 電子郵件
+* 電子郵件發寄送
 * 訊息佇列
   * ZeroMQ
-* 測試
+* 單元測試
   * Mocha 和 Chai
 * 安全
-* 上線準備
-  * 日誌
-    * Winston
-    * Papertrail
+* 日誌和監控
+  * Winston
+  * Papertrail
 * 佈署
-  * Heroku
-  * Google Compute Engine
-  * Nginx
-  * Varnish
-  * PM2
+  * 平台即服務
+    * Heroku
+  * 基礎設施即服務  
+    * Google Compute Engine
+  * 靜態資源
+    * Nginx
+  * 快取
+    * Varnish
+  * 應用程式持續運行
+    * PM2
 
 ***
 
