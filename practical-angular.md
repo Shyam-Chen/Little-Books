@@ -98,6 +98,8 @@
   * [控制相依性](#控制相依性)
     * [Optional 與 Host](#optional-與-host)
     * [Self 與 SkipSelf](#self-與-skipself)
+  * 內建服務
+    * 標題服務
 * [通訊](#通訊)
   * [獲取資料](#獲取資料)
     * [啟動 HTTP](#啟動-http)
@@ -138,7 +140,6 @@
   * 時間軸
   * 影格
   * 平行
-* 雜項
 * [測試](#測試)
   * [靜態分析](#靜態分析)
     * [配置 Codelyzer](#配置-codelyzer)
