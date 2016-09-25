@@ -168,15 +168,15 @@
     * [Gulp](#gulp)
   * [命令列](#命令列)
     * [Angular CLI](#angular-cli)
-* 擴展
-  * 原質化設計
-    * Material
-  * 後端即服務
-    * Firebase
-  * 行動應用
-    * Ionic
-  * 桌面應用
-    * Electron
+* [擴展]
+  * [原質化設計]
+    * [Material](#material)
+  * [後端即服務]
+    * [Firebase](#firebase)
+  * [行動應用]
+    * [Ionic](#ionic)
+  * [桌面應用]
+    * [Electron](#electron)
 * 最佳實踐
 
 ***
@@ -4721,3 +4721,23 @@ $ ng new angular-starter
 $ cd angular-starter
 $ ng serve
 ```
+
+## 擴展
+
+### 原質化設計
+
+https://material.angular.io/
+
+### 後端即服務
+
+https://firebase.google.com/
+
+Firebase 在 Web 的服務上可以提供開發者開發認證、資料庫、存儲和主機的應用程式
+
+### 行動應用
+
+http://ionicframework.com/
+
+### 桌面應用
+
+http://electron.atom.io/
