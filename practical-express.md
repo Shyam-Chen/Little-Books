@@ -12,15 +12,16 @@
   * Facebook
   * Twitter
   * Google
-  * JWT
+  * JSON Web Token
 * REST API 服務
 * 即時應用程式
   * Socket.io
-* 金流串接
-  * PayPal
+* 網路爬蟲
 * 電子郵件發寄送
 * 訊息佇列
   * ZeroMQ
+* 金流串接
+  * PayPal
 * 單元測試
   * Mocha 和 Chai
 * 安全
