@@ -29,11 +29,9 @@
     * Heroku
   * 基礎設施即服務  
     * Google Compute Engine
-  * 日誌和監控
-    * Winston
-    * Papertrail
-  * 靜態資源和快取
+  * 靜態資源
     * Nginx
+  * 快取
     * Varnish
   * 持續運行
     * PM2
