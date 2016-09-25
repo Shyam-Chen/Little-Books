@@ -17,7 +17,10 @@
 * 即時應用程式
   * Socket.io
 * 網路爬蟲
+  * Request
+  * Request Promise
 * 電子郵件發寄送
+  * Nodemailer
 * 訊息佇列
   * ZeroMQ
 * 金流串接
