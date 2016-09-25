@@ -2,6 +2,9 @@
 
 ### 目錄
 * 基礎入門
+  * 本地資料庫
+  * 雲端資料庫
+    * MLab
 * 綱要和模型
 * 增刪改查
 * 圖像使用介面
@@ -29,7 +32,7 @@ import * as mongoose from 'mongoose';
 // 本地
 mongoose.connect('mongodb://localhost/test')
 
-// mLab
+// MLab
 const mongodbUri: string = 'mongodb://user:pass@host:port/db';
 const options: any = {
   server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
