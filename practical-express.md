@@ -25,6 +25,9 @@
   * ZeroMQ
 * 金流串接
   * PayPal
+    * REST API
+    * 快速結帳
+    * 自適應付款
 * 單元測試
   * Mocha 和 Chai
 * 安全
