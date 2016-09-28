@@ -7,14 +7,14 @@
 * 模板引擎
   * Pug
 * 路由和參數
-* 用戶憑證
+~~* 用戶憑證
   * 本地
   * Facebook
   * Twitter
   * Google
-  * JSON Web Token
+  * JSON Web Token~~
 * REST API 服務
-* 即時應用程式
+~~* 即時應用程式
   * Socket.io
 * 網路爬蟲
   * Request
@@ -27,7 +27,7 @@
   * PayPal
     * REST API
     * 快速結帳
-    * 自適應付款
+    * 自適應付款~~
 * 單元測試
   * Mocha 和 Chai
 * 安全
