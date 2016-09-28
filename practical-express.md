@@ -7,27 +7,7 @@
 * 模板引擎
   * Pug
 * 路由和參數
-~~* 用戶憑證
-  * 本地
-  * Facebook
-  * Twitter
-  * Google
-  * JSON Web Token~~
-* REST API 服務
-~~* 即時應用程式
-  * Socket.io
-* 網路爬蟲
-  * Request
-  * Request Promise
-* 電子郵件發寄送
-  * Nodemailer
-* 訊息佇列
-  * ZeroMQ
-* 金流串接
-  * PayPal
-    * REST API
-    * 快速結帳
-    * 自適應付款~~
+* 建置 APIs
 * 單元測試
   * Mocha 和 Chai
 * 安全
@@ -42,6 +22,7 @@
     * Varnish
   * 持續運行
     * PM2
+* 最佳實踐
 
 ***
 
