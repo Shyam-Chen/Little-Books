@@ -258,7 +258,6 @@ $ cd angular-starter
     <script src="https://unpkg.com/zone.js@0.6.17?main=browser"></script>
     <script src="./system.config.js"></script>
     <script>
-      System.config(config);
       System.import('app').catch(function(err){console.error(err);});
     </script>
   </head>
@@ -276,6 +275,8 @@ $ cd angular-starter
  */
 
 // src/system.config.ts
+declare const System: any;
+
 const config: any = {
   transpiler: 'ts',
   typescriptOptions: {
@@ -318,6 +319,8 @@ const config: any = {
     }
   }
 };
+
+System.config(config);
 ```
 ```ts
 /*
