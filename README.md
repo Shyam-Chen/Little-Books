@@ -14,6 +14,7 @@
 const foo = x => {  // 6
   return x + 1;  // 6 + 1 = 7
 };
+// or: const foo = x => x + 1;
 
 const bar = y => {  // 3
   let z = 2;
