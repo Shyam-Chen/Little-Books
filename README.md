@@ -86,6 +86,9 @@ const foo = x => {
   return x <= 1 ? x : foo(x - 1) + foo(x - 2);
 };
 
+console.log(foo(3));  // 1 + 1 = 2
+console.log(foo(4));  // 1 + 2 = 3
+console.log(foo(5));  // 2 + 3 = 5
 console.log(foo(6));  // 3 + 5 = 8
 ```
 
