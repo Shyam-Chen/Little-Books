@@ -16,12 +16,12 @@
     * Heroku
   * 基礎設施即服務  
     * Google Compute Engine
+  * 持續運行
+    * PM2
   * 靜態資源
     * Nginx
   * 快取
     * Varnish
-  * 持續運行
-    * PM2
 * 最佳實踐
 
 ***
