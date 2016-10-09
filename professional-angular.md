@@ -3498,6 +3498,44 @@ export class AppComponent {
 }
 ```
 
+### 內建服務
+
+#### 標題服務
+```ts
+// src/app/app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule, Title }  from '@angular/platform-browser';  // 導入 Title 服務
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [AppComponent],
+  providers: [Title],  // 註冊到 AppModule 裡
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+```ts
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+import { Title }     from '@angular/platform-browser';
+
+@Component({
+  selector: 'app',
+  template: `
+    <button (click)="setTitle('Angular Love')">Angular Love</button>
+  `
+})
+export class AppComponent {
+  constructor(private title: Title) { }
+ 
+  public setTitle(newTitle: string): void {
+    this.title.setTitle(newTitle);
+  }
+}
+```
+
 ## 通訊
 
 ### 獲取資料
