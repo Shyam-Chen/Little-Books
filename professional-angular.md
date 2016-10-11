@@ -185,6 +185,7 @@
   * 預先抓取資源
   * 延遲載入資源
 * RxJS
+  * Observables
 * Ngrx
 
 ***
