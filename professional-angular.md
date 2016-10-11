@@ -144,7 +144,7 @@
     * [配置 Codelyzer](#配置-codelyzer)
     * 理解規則
   * 測試入門
-    * Jasmine 基礎
+    * Jasmine 基礎
   * [單元測試](#單元測試)
     * 配置 Karma
     * [第一個單元測試](#第一個單元測試)
