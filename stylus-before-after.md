@@ -539,11 +539,25 @@ $foo
 ***
 
 ```styl
+.foo
+  padding .5rem 1rem
+  border 1px solid #EEEEEE
+  > .bar
+    color #F44336
 
+.baz
+  @extends .foo > .bar
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo {
+  padding: 0.5rem 1rem;
+  border: 1px solid #eee;
+}
+.foo > .bar,
+.baz {
+  color: #f44336;
+}
 ```
 
 ***
