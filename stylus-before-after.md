@@ -469,31 +469,72 @@ x = true
 ***
 
 ```styl
+.foo
+  padding .5rem 1rem
+  border 1px solid #EEEEEE
 
+.bar
+  @extend .foo
+  color #F44336
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo,
+.bar {
+  padding: 0.5rem 1rem;
+  border: 1px solid #eee;
+}
+.bar {
+  color: #f44336;
+}
 ```
 
 ***
 
 ```styl
+.foo
+  padding .5rem 1rem
+  border 1px solid #EEEEEE
 
+.bar
+  color #F44336
+
+.baz
+  @extend .foo, .bar
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo,
+.baz {
+  padding: 0.5rem 1rem;
+  border: 1px solid #eee;
+}
+.bar,
+.baz {
+  color: #f44336;
+}
 ```
 
 ***
 
 ```styl
+$foo
+  padding .5rem 1rem
+  border 1px solid #EEEEEE
 
+.bar
+  @extends $foo
+
+.baz
+  @extends $foo
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.bar,
+.baz {
+  padding: 0.5rem 1rem;
+  border: 1px solid #eee;
+}
 ```
 
 ***
