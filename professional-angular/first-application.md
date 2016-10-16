@@ -1,5 +1,8 @@
 ## 第一個應用程式
 
+### Angular 簡介
+Angular 是一個強大的框架，只要使用此框架就能開發出強大的 Web/Mobile 應用程式，當然不只這樣
+
 ### 設定環境
 ```bash
 # 建立名為 angular-starter 的資料夾
