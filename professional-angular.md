@@ -8,9 +8,10 @@
 * [模組](#模組)
   * [模組建構子](#模組建構子)
   * [模組起點](#模組起點)
-  * 模組綱要
   * [建立模組](#建立模組)
     * [基本模組](#基本模組)
+    * 模組綱要
+    * 模組元件
     * [延遲載入模組](#延遲載入模組)
     * [共享模組](#共享模組)
 * [元件](#元件)
@@ -467,6 +468,7 @@ exports : Array<Type|any[]>
 entryComponents : Array<Type|any[]>
 bootstrap : Array<Type|any[]>
 schemas : Array<SchemaMetadata|any[]>
+id : string
 ```
 
 ### 模組起點
