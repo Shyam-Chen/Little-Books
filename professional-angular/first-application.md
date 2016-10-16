@@ -8,14 +8,12 @@ $ mkdir angular-starter
 # 切換到 angular-starter 資料夾
 $ cd angular-starter
 ```
-```js
-/*
- * ```bash
- * # 建立名為 package.json 的檔案
- * $ touch package.json
- * ```
- */
 
+```bash
+# 建立名為 package.json 的檔案
+$ touch package.json  # 也可以直接執行 $ npm init -y 建立此檔案
+```
+```js
 // package.json
 {
   "name": "angular-starter",
@@ -29,14 +27,12 @@ $ cd angular-starter
   }
 }
 ```
-```js
-/*
- * ```bash
- * # 建立名為 bsconfig.json 的檔案
- * $ touch bsconfig.json
- * ```
- */
 
+```bash
+# 建立名為 bsconfig.json 的檔案
+$ touch bsconfig.json  # 這是 lite-server 的組態檔案
+```
+```js
 // bsconfig.json
 {
   "port": 3000,
@@ -46,17 +42,15 @@ $ cd angular-starter
   }
 }
 ```
-```html
-<!--
- * ```bash
- * # 建立名為 src 的資料夾
- * $ mkdir src
- *
- * # 在 src 資料夾內，建立名為 index.html 的檔案
- * $ touch src/index.html
- * ```
- -->
 
+```bash
+# 建立名為 src 的資料夾
+$ mkdir src
+
+# 在 src 資料夾內，建立名為 index.html 的檔案
+$ touch src/index.html
+```
+```html
 <!-- src/index.html -->
 <!doctype html>
 <html>
@@ -66,8 +60,8 @@ $ cd angular-starter
     <title>Angular Starter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://unpkg.com/core-js/client/shim.min.js"></script>
-    <script src="https://unpkg.com/systemjs@0.19.36/dist/system.src.js"></script>
-    <script src="https://unpkg.com/zone.js@0.6.17?main=browser"></script>
+    <script src="https://unpkg.com/systemjs@0.19.39/dist/system.src.js"></script>
+    <script src="https://unpkg.com/zone.js@0.6.25?main=browser"></script>
     <script src="./system.config.js"></script>
     <script>
       System.import('app').catch(function(err){console.error(err);});
@@ -78,14 +72,12 @@ $ cd angular-starter
   </body>
 </html>
 ```
-```js
-/*
- * ```bash
- * # 在 src 資料夾內，建立名為 system.config.ts 的檔案
- * $ touch src/system.config.ts
- * ```
- */
 
+```bash
+# 在 src 資料夾內，建立名為 system.config.ts 的檔案
+$ touch src/system.config.ts
+```
+```js
 // src/system.config.ts
 declare const System: any;
 
@@ -96,7 +88,7 @@ const config: any = {
   },
   meta: {
     'typescript': {
-      "exports": "ts"
+      'xports' 's'
     }
   },
   paths: {
@@ -134,17 +126,15 @@ const config: any = {
 
 System.config(config);
 ```
-```ts
-/*
- * ```bash
- * # 在 src 資料夾內，建立名為 app 的資料夾
- * $ mkdir src/app
- *
- * # 在 src/app 資料夾內，建立名為 main.ts 的檔案
- * $ touch src/app/main.ts
- * ```
- */
 
+```bash
+# 在 src 資料夾內，建立名為 app 的資料夾
+$ mkdir src/app
+
+# 在 src/app 資料夾內，建立名為 main.ts 的檔案
+$ touch src/app/main.ts
+```
+```ts
 // src/app/main.ts
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
@@ -152,14 +142,12 @@ import { AppModule } from './app.module';
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
-```ts
-/*
- * ```bash
- * # 在 src/app 資料夾內，建立名為 app.module.ts 的檔案
- * $ touch src/app/app.module.ts
- * ```
- */
 
+```bash
+# 在 src/app 資料夾內，建立名為 app.module.ts 的檔案
+$ touch src/app/app.module.ts
+```
+```ts
 // src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -173,14 +161,12 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { }
 ```
-```ts
-/*
- * ```bash
- * # 在 src/app 資料夾內，建立名為 app.component.ts 的檔案
- * $ touch src/app/app.component.ts
- * ```
- */
 
+```bash
+# 在 src/app 資料夾內，建立名為 app.component.ts 的檔案
+$ touch src/app/app.component.ts
+```
+```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
 
@@ -192,6 +178,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent { }
 ```
+
 ```bash
 # 安裝相依性套件
 $ npm install
@@ -245,7 +232,7 @@ import { Component } from '@angular/core';
 export class AppComponent { }
 ```
 
-### 專案架構
+### 整體的架構
 ```
 .
 ├── src
