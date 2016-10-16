@@ -2,9 +2,12 @@
 
 ### 靜態分析
 
+#### Codelyzer 簡介
+Codelyzer 是 TSLint 的自訂規則部分，用來解析 Angular TypeScript  的專案
+
 #### 配置 Codelyzer
 ```bash
-$ npm install tslint codelyzer -D
+$ npm i tslint codelyzer -D
 ```
 ```js
 // tslint.json
@@ -18,20 +21,29 @@ $ npm install tslint codelyzer -D
     "component-selector-name": [true, "kebab-case"],
     "directive-selector-type": [true, "attribute"],
     "component-selector-type": [true, "element"],
+    "directive-selector-prefix": [true, "at"],  // 前綴是使用 Angular 和 TypeScript 的字首
+    "component-selector-prefix": [true, "at"],  // 前綴是使用 Angular 和 TypeScript 的字首
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
+    "no-attribute-parameter-decorator": true,
     "no-input-rename": true,
     "no-output-rename": true,
+    "no-forward-ref": true,
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
+    "pipe-naming": [true, "camelCase", "at"],  // 前綴是使用 Angular 和 TypeScript 的字首
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "import-destructuring-spacing": true,
+    "templates-use-public": true,
+    "no-access-missing-member": true,
+    "invoke-injectable": true
   }
 }
 ```
 ```bash
-$ tslint src/**/*.ts  # 把它封裝在 package.json 的 scripts
+$ tslint src/**/*.ts
 ```
 
 ### 單元測試
