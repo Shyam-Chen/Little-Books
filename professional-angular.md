@@ -5,15 +5,15 @@
   * [設定環境](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-app.md#設定環境)
   * [開始使用](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-app.md#開始使用)
   * [專案架構](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-app.md#專案架構)
-* [模組](#模組)
-  * [模組建構子](#模組建構子)
-  * [模組起點](#模組起點)
-  * [建立模組](#建立模組)
-    * [基本模組](#基本模組)
+* [模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#模組)
+  * [模組建構子](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#模組建構子)
+  * [模組起點](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#模組起點)
+  * [建立模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#建立模組)
+    * [基本模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#基本模組)
+    * [共享模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#共享模組)
     * 模組綱要
-    * 模組元件
-    * [延遲載入模組](#延遲載入模組)
-    * [共享模組](#共享模組)
+    * 模組元件進入點
+    * [延遲載入模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#延遲載入模組)
 * [元件](#元件)
   * [基本元件](#基本元件)
     * [元件建構子](#元件建構子)
