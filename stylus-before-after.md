@@ -5,9 +5,24 @@
 
 ***
 
+## 基礎入門
+
 ```styl
 .foo
   color #F44336
+```
+```styl
+.foo
+  color: #F44336
+```
+```styl
+.foo
+  color: #F44336;
+```
+```styl
+.foo {
+  color: #F44336;
+}
 ```
 :point_up: 編譯前後 :point_down:
 ```css
