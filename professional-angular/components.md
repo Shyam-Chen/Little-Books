@@ -135,7 +135,7 @@ import { Component } from '@angular/core';
 export class NameComponent { }
 ```
 
-### 檢視
+### 檢視層
 
 #### 渲染模板
 ```ts
