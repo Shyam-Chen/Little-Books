@@ -55,18 +55,18 @@
   * 並行動畫
 * [測試](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/testing.md)
   * 測試原則
-  * 靜態分析
+  * [靜態分析](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/testing.md#靜態分析)
   * 測試入門
-  * 單元測試
-  * 端對端測試
+  * [單元測試](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/testing.md#單元測試)
+  * [端對端測試](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/testing.md#端對端測試)
 * [安全](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/security.md)
   * 信任安全值
   * 跨站指令碼
   * 跨站請求偽造
 * [工具](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/tools.md)
-  * 模組整合
-  * 自動化建置
-  * 除錯和剖析
+  * [模組整合](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/tools.md#模組整合)
+  * [自動化建置](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/tools.md#自動化建置)
+  * [除錯和剖析](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/tools.md#除錯和剖析)
 * [最佳實踐](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/best-practices.md)
   * 提前時間編譯
   * 樹搖優化
