@@ -11,8 +11,8 @@
   * [共享模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#共享模組)
   * [延遲載入模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#共享模組)
 * [元件](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/components.md)
-  * 基本應用
-  * 檢視
+  * [基本應用](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/components.md#基本應用)
+  * 檢視層
   * 內容投射
   * 相互溝通
   * 隔離樣式
