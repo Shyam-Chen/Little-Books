@@ -2,14 +2,14 @@
 
 ### 目錄
 * [第一個應用程式](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-application.md)
-  * [Angular 簡介](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-application.md#angular-簡介)
-  * [設定環境](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-application.md#設定環境)
-  * [開始使用](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-application.md#開始使用)
-  * [整體的架構](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-application.md#整體的架構)
+  * [Angular 簡介](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-application.md#angular-簡介)
+  * [設定環境](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-application.md#設定環境)
+  * [開始使用](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-application.md#開始使用)
+  * [整體的架構](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/first-application.md#整體的架構)
 * [模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md)
-  * [基本應用](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#基本應用)
-  * [共享模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#共享模組)
-  * [延遲載入模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#共享模組)
+  * [基本應用](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#基本應用)
+  * [共享模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#共享模組)
+  * [延遲載入模組](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/modules.md#共享模組)
 * [元件](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/components.md)
   * 基本應用
   * 檢視
@@ -82,7 +82,7 @@
   * Effects
   * Router store
 * [下一步](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md)
-  * [原質化設計](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#原質化設計)
-  * [後端即服務](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#後端即服務)
-  * [行動應用程式](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#行動應用程式)
-  * [其它](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#其它)
+  * [原質化設計](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#原質化設計)
+  * [後端即服務](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#後端即服務)
+  * [行動應用程式](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#行動應用程式)
+  * [其它](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#其它)
