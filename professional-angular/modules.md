@@ -1,18 +1,9 @@
 ## 模組
 
-### 模組建構子
-```ts
-providers : any[]
-declarations : Array<Type|any[]>
-imports : Array<Type|ModuleWithProviders|any[]>
-exports : Array<Type|any[]>
-entryComponents : Array<Type|any[]>
-bootstrap : Array<Type|any[]>
-schemas : Array<SchemaMetadata|any[]>
-id : string
-```
+### 基本應用
 
-### 模組起點
+先來知道一下模組的構造，底下這段就是模組的起始點。
+
 ```ts
 import { NgModule } from '@angular/core';
 
@@ -24,9 +15,18 @@ export class NameModule {
 }
 ```
 
-### 建立模組
+在模組的構造中，底下列出可使用的選項。
 
-#### 基本模組
+```ts
+providers : any[]
+declarations : Array<Type|any[]>
+imports : Array<Type|ModuleWithProviders|any[]>
+exports : Array<Type|any[]>
+entryComponents : Array<Type|any[]>
+bootstrap : Array<Type|any[]>
+schemas : Array<SchemaMetadata|any[]>
+id : string
+```
 
 (1) 模組概念
 ```ts
