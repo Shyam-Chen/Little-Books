@@ -14,6 +14,8 @@
 
 ### 其它
 
+除了 Firebase，也能使用 Meteor 來做一個全端開發的選項，不過 Meteor 是個框架。
+
 在行動開發的部分，除了 Ionic，也有 NativeScript 和 React Native 能與 Angular 的開發，筆者會選擇 Ionic 的原因，最主要是因為 Ionic 的開發就是 Web View。
 
 除此之外，也能透過 [Electron](http://electron.atom.io/) 來開發桌面的應用程式。
