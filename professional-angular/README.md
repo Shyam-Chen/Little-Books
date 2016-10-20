@@ -48,7 +48,7 @@
   * 內建管道
   * 自訂管道
 * [動畫](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/animations.md)
-  * 基本應用
+  * [基本應用](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/animations.md#基本應用)
   * 動畫狀態
   * 動畫時間軸
   * 動畫影格
