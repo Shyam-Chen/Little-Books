@@ -75,6 +75,7 @@
   * 預先抓取資源
   * 延遲載入資源
   * 伺服端渲染
+* [國際化](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/internationalization.md)
 * [RxJS](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/ngrx.md)
   * Observables
 * [Ngrx](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/ngrx.md)
