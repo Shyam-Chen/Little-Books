@@ -1,6 +1,6 @@
 ## 通訊
 
-### 獲取資料
+### Get
 
 #### 啟動 HTTP
 ```ts
@@ -19,7 +19,7 @@ import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
 export class AppComponent { }
 ```
 
-#### 基本的 Get
+#### 基本應用
 
 (1)
 ```ts
@@ -71,7 +71,7 @@ export class OnRequestComponent {
 }
 ```
 
-#### 建立 Get 服務
+#### 建立服務
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
@@ -220,9 +220,9 @@ export class SampleService {
 }
 ```
 
-### 發送資料
+### Post
 
-#### 建立 Post 服務
+#### 建立服務
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
@@ -286,7 +286,7 @@ export class AppComponent {
 }
 ```
 
-### 編輯資料
+### Put
 ```ts
 // src/app/rest.service.ts
 import { Injectable } from '@angular/core';
@@ -311,7 +311,7 @@ export class RestService {
 }
 ```
 
-### 刪除資料
+### Delete
 ```ts
 // src/app/rest.service.ts
 import { Injectable } from '@angular/core';
@@ -335,7 +335,7 @@ export class RestService {
 }
 ```
 
-### 跨域請求
+### JSONP
 ```ts
 
 ```
