@@ -82,7 +82,7 @@
   * Effects
   * Router store
 * [下一步](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md)
-  * 原質化設計
-  * 後端即服務
-  * 行動應用程式
-  * 其它
+  * [原質化設計](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#原質化設計)
+  * [後端即服務](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#後端即服務)
+  * [行動應用程式](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#行動應用程式)
+  * [其它](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#其它)
