@@ -1,6 +1,6 @@
 ## 路由
 
-### 基本路由
+### 基本應用
 ```ts
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';
@@ -72,6 +72,8 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent { }
 ```
+
+### 路由參數
 
 ### 巢狀路由
 ```ts
@@ -154,3 +156,5 @@ const routes: RouterConfig = [
 
 [...]
 ```
+
+### 路由守衛
