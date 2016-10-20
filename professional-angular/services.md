@@ -145,7 +145,7 @@ export class AppComponent implements OnInit {
 }
 ```
 
-### 定義相依性
+### 服務的相依性
 
 #### useClass
 ```ts
