@@ -1,4 +1,9 @@
 ## 動畫
+
+### 基本應用
+
+底下是動畫主要基本使用構造。
+
 ```ts
 import { Component, animate, state, style, transition, trigger } from '@angular/core';
 
@@ -21,7 +26,8 @@ export class NameComponent {
 }
 ```
 
-淡入淡出
+實作一個簡單的淡入淡出。
+
 ```ts
 // fader.component.ts
 import { Component, Input, OnChanges, animate, state, style, transition, trigger } from '@angular/core';
