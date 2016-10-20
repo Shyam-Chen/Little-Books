@@ -75,14 +75,14 @@
   * 預先抓取資源
   * 延遲載入資源
   * 伺服端渲染
-* [國際化](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/internationalization.md)
-* [分析](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/analytics.md)
 * [RxJS](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/ngrx.md)
   * Observables
 * [Ngrx](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/ngrx.md)
   * Store
   * Effects
   * Router store
+* [國際化](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/internationalization.md)
+* [分析](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/analytics.md)
 * [下一步](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md)
   * [原質化設計](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#原質化設計)
   * [後端即服務](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#後端即服務)
