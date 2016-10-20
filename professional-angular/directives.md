@@ -1,6 +1,5 @@
 ## 指令
 
-### 內建屬性型指令
 ```ts
 import { Component } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common';  // 導入內建指令
@@ -14,6 +13,47 @@ import { CORE_DIRECTIVES } from '@angular/common';  // 導入內建指令
 })
 export class NameComponent { }
 ```
+
+### 內建屬性型指令
+
+#### ng-style
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'ng-style',
+  template: `
+    <p 
+      [ngStyle]="{
+        'background-color': '#F44336',
+        'color': '#FFFFFF'
+      }"
+    >
+    我的背景是紅的，而字體是白的</p>
+  `
+})
+export class NgStyleComponent { }
+```
+
+#### ng-class
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'ng-class',
+  template: `
+    <p [ngClass]="{ 'at-color': true }">字體是紅的</p>
+    <p [ngClass]="{ 'at-color': false, 'at-background': true }">背景是紅的</p>
+  `,
+  styles: [`
+    .at-color { color: #F44336 }
+    .at-background { background-color: #F44336 }
+  `]
+})
+export class NgClassComponent { }
+```
+
+### 內建結構型指令
 
 #### ng-if
 ```ts
@@ -135,43 +175,6 @@ export class EditComponent {
     this.edited = false;
   }
 }
-```
-
-#### ng-style
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'ng-style',
-  template: `
-    <p 
-      [ngStyle]="{
-        'background-color': '#F44336',
-        'color': '#FFFFFF'
-      }"
-    >
-    我的背景是紅的，而字體是白的</p>
-  `
-})
-export class NgStyleComponent { }
-```
-
-#### ng-class
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'ng-class',
-  template: `
-    <p [ngClass]="{ 'at-color': true }">字體是紅的</p>
-    <p [ngClass]="{ 'at-color': false, 'at-background': true }">背景是紅的</p>
-  `,
-  styles: [`
-    .at-color { color: #F44336 }
-    .at-background { background-color: #F44336 }
-  `]
-})
-export class NgClassComponent { }
 ```
 
 #### ng-plural
