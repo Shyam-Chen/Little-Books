@@ -23,8 +23,9 @@ $ npm i gulp-tslint @types/gulp-tslint -D
 
 ```ts
 // gulpfile.ts
+import * as gulp from 'gulp';
 import * as tslint from 'gulp-tslint';
-[...]
+
 gulp.task('tslint', () => {
   gulp
     .src(SCRIPTS_SRC)
