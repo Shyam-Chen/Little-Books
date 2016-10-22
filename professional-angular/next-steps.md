@@ -1,6 +1,6 @@
 ## 下一步
 
-### 原質化設計
+### 響應式網頁應用程式
 
 [Material](https://material.angular.io/) 在這裡筆者指的是 Angular Material，它是 [Material Design](https://material.google.com/) 的實現，是個 UI 元件的函式庫。
 
@@ -10,7 +10,13 @@ Material Design 中文意思是「原質化設計」，不僅擁有極佳的視�
 $ npm i @angular2-material/core -S
 ```
 
-### 後端即服務
+### 混合型行動應用程式
+
+[Ionic](http://ionicframework.com/)
+
+除了 Ionic，也有 NativeScript 和 React Native 能與 Angular 一起開發，筆者會選擇 Ionic 的原因，最主要是因為 Ionic 的開發就是 Web View。
+
+### 後端雲端服務平台
 
 [Firebase](https://firebase.google.com/) 是一個 BaaS (Backend as a Service)，主要專為行動應用程式開發者提供整合後端的雲端服務，而在網頁的服務上可以提供網頁開發者開發認證、即時資料庫、存儲和主機的項目，除了這些服務之外，還能使用到 Google Cloud Platform (GCE) 的服務。
 
@@ -23,10 +29,6 @@ $ npm i firebase angularfire -S
 $ npm i firebase-tools -g
 ```
 
-### 跨平台應用程式
-
-[Ionic](http://ionicframework.com/)
-
-除了 Ionic，也有 NativeScript 和 React Native 能與 Angular 一起開發，筆者會選擇 Ionic 的原因，最主要是因為 Ionic 的開發就是 Web View。
+### 結論
 
 除此之外，也能透過 [Electron](http://electron.atom.io/) 來開發桌面的應用程式。
