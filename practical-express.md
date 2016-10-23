@@ -14,13 +14,11 @@
 * 佈署
   * 平台即服務
     * Heroku
-  * 基礎設施即服務  
-    * Google Compute Engine
   * 持續運行
     * PM2
   * 靜態資源
     * Nginx
-  * 快取
+  * 快取工具
     * Varnish
 * 最佳實踐
 
