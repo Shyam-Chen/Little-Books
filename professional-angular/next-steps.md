@@ -14,6 +14,20 @@ $ npm i @angular2-material/core -S
 
 [Ionic](http://ionicframework.com/) 是建構在 Angular 和 Cordova 之上的，乍看之下，Ionic 確實是混合型的，不過 Ionic 團隊讓此框架與原生擁有極高的相似度
 
+```bash
+$ npm i ionic cordova -g
+```
+
+```bash
+# 建立 Ionic 的空白專案
+$ ionic start <PROJECT_NAME> blank --v2
+```
+
+```bash
+# 執行應用程式
+$ ionic serve
+```
+
 ### 後端雲端服務平台
 
 [Firebase](https://firebase.google.com/) 是一個 BaaS (Backend as a Service)，主要專為行動應用程式開發者提供整合後端的雲端服務，而在網頁的服務上可以提供網頁開發者開發認證、即時資料庫、存儲和主機的項目，除了這些服務之外，還能使用到 Google Cloud Platform (GCE) 的服務。
