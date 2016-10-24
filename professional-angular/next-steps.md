@@ -12,7 +12,7 @@ $ npm i @angular2-material/core -S
 
 ### 混合型行動應用程式
 
-[Ionic](http://ionicframework.com/)
+[Ionic](http://ionicframework.com/) 是建構在 Angular 和 Cordova 之上的，乍看之下，Ionic 確實是混合型的，不過 Ionic 團隊讓此框架與原生擁有極高的相似度
 
 ### 後端雲端服務平台
 
