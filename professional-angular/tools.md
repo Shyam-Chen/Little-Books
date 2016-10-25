@@ -16,7 +16,7 @@ $ npm install rollup -g
 export default {
   entry: 'src/scripts/main.ts',
   dest: 'dist/main.js',
-  format: 'iife'
+  format: 'iife'  // 'amd', 'cjs', 'es', 'iife', 'umd'
 };
 ```
 
