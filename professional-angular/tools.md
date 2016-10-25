@@ -2,7 +2,14 @@
 
 ### 模組整合
 
-#### Rollup
+[Rollup](http://rollupjs.org/) 是 JavaScript 下一代的模組整合工具，類似於 Browserify 和 Webpack。
+
+`rollup-plugin-node-resolve`
+`rollup-plugin-commonjs`
+
+```js
+
+```
 
 ### 自動化建置
 
