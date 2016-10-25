@@ -356,37 +356,15 @@ declare module 'thing-module' {
 import * as thing from 'thing-module';
 ```
 
-使用 Typings 定義模組
-```
-$ npm install typings -g
-```
-```bash
-$ npm install core-js -S
-$ typings install dt~core-js -G -S
-```
-```bash
-# 自訂
-$ mkdir manual_typings
-```
-```bash
-$ npm install systemjs -S
-```
-```ts
-// systemjs-builder.d.ts
-declare module 'systemjs-builder' {
-  class Builder {
-    constructor(configObject?: any, baseUrl?: string, configPath?: string);
-    bundle(source: string, target: string, options?: any): Promise<any>;
-    buildStatic(source: string, target: string, options?: any): Promise<any>;
-  }
+透過 Types 安裝模組定義
 
-  module Builder { }
-  export = Builder;
-}
+```bash
+$ npm i @types/node -D
 ```
+
 ```ts
-// module.ts
-import * as Builder from 'systemjs-builder';
+// script.ts
+import { join } from 'path';  // OK
 ```
 
 ## 介面
