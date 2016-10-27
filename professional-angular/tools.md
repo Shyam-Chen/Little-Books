@@ -4,8 +4,19 @@
 
 [Rollup](http://rollupjs.org/) 是 JavaScript 下一代的模組整合工具，類似於 Browserify 和 Webpack。
 
+```js
+// src/main.js
+```
+
+```js
+// src/foo.js
+```
+```js
+// src/bar.js
+```
+
 ```bash
-$ npm install rollup -g
+$ npm i rollup -g
 ```
 
 ```js
@@ -27,7 +38,7 @@ $ npm i rollup-plugin-typescript -D
 
 ```js
 // rollup.config.js
-import typescript from 'rollup-plugin-typescript';
+import * as typescript from 'rollup-plugin-typescript';
 
 export default {
   entry: 'src/main.ts',
@@ -49,9 +60,9 @@ $ npm i rollup-plugin-node-resolve rollup-plugin-commonjs -D
 
 ```js
 // rollup.config.js
-import typescript from 'rollup-plugin-typescript';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import * as typescript from 'rollup-plugin-typescript';
+import * as resolve from 'rollup-plugin-node-resolve';
+import * as commonjs from 'rollup-plugin-commonjs';
 
 export default {
   entry: 'src/main.ts',
@@ -73,30 +84,28 @@ $ rollup -c
 
 #### Gulp
 ```bash
-$ npm i ts-node typescript gulp @types/gulp -D
-$ touch gulpfile.ts
+$ npm i gulp -g
 ```
 
 ```ts
-// gulpfile.ts
+// gulpfile.js
 import * as gulp from 'gulp';
 ```
 
 ```bash
-$ npm i gulp-tslint @types/gulp-tslint -D
+$ npm i gulp-tslint -D
 ```
 
 ```ts
-// gulpfile.ts
+// gulpfile.js
 import * as gulp from 'gulp';
 import * as tslint from 'gulp-tslint';
 
-gulp.task('tslint', () => {
-  gulp
-    .src(<SCRIPTS_SRC>)
+gulp.task('tslint', () =>
+  gulp.src('./src/**/*.ts')
     .pipe(tslint({ configuration: 'tslint.json' }))
-    .pipe(tslint.report());
-});
+    .pipe(tslint.report())
+);
 ```
 
 ```bash
@@ -106,9 +115,12 @@ $ gulp tslint
 將 Rollup 與 Gulp 整合使用
 
 ```bash
-$ npm i rollup -D
+$ npm i rollup rollup-stream -D
 ```
 
+```
+
+```
 
 ### 除錯和剖析
 
