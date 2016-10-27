@@ -50,6 +50,8 @@ $ npm i tslint codelyzer -D
 $ tslint src/**/*.ts
 ```
 
+#### 風格指南
+
 ### 單元測試
 ```js
 // test-main.js
