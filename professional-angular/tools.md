@@ -21,6 +21,54 @@ export default {
 $ rollup -c
 ```
 
+```bash
+$ npm i rollup-plugin-typescript -D
+```
+
+```js
+// rollup.config.js
+import typescript from 'rollup-plugin-typescript';
+
+export default {
+  entry: 'src/main.ts',
+  dest: 'dist/main.js',
+  format: 'iife',
+  plugins: [
+    typescript()
+  ]
+};
+```
+
+```bash
+$ rollup -c
+```
+
+```bash
+$ npm i rollup-plugin-node-resolve rollup-plugin-commonjs -D
+```
+
+```js
+// rollup.config.js
+import typescript from 'rollup-plugin-typescript';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+
+export default {
+  entry: 'src/main.ts',
+  dest: 'dist/main.js',
+  format: 'iife',
+  plugins: [
+    typescript(),
+    resolve({ jsnext: true, browser: true }),
+    commonjs()
+  ]
+};
+```
+
+```bash
+$ rollup -c
+```
+
 ### 自動化建置
 
 #### Gulp
