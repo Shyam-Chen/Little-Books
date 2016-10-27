@@ -8,16 +8,17 @@
 $ npm install rollup -g
 ```
 
-`rollup-plugin-node-resolve`
-`rollup-plugin-commonjs`
-
 ```js
 // rollup.config.js
 export default {
-  entry: 'src/scripts/main.ts',
+  entry: 'src/main.js',
   dest: 'dist/main.js',
   format: 'iife'  // 'amd', 'cjs', 'es', 'iife', 'umd'
 };
+```
+
+```bash
+$ rollup -c
 ```
 
 ### 自動化建置
