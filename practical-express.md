@@ -18,7 +18,7 @@
     * PM2
   * 靜態資源
     * Nginx
-  * 快取工具
+  * 進行快取
     * Varnish
 * 最佳實踐
 
@@ -39,7 +39,7 @@ $ npm init -y
 ```
 ```bash
 # 安裝 Express 和 TypeScript
-$ npm i express@5.0.0-alpha.2 typescript@2.0.2 -S
+$ npm i express@5.0.0-alpha.2 typescript@2 -S
 
 # 安裝 Node.js 和 Express 的模組定義
 $ npm i @types/node @types/express -D
@@ -171,7 +171,7 @@ app.get('/admin', admin);
 ```ts
 // 進階
 namespace Admin {
-  export class Admin {
+  export class Admin {  // 使用命名空間似乎多餘了
     private authAdmin(req, res, next) {
       // ...
       return next();
