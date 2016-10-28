@@ -11,10 +11,18 @@
 
 ***
 
+## 基礎入門
+
+### Mongoose 簡介
+
+Mongoose 是 Node.js 的物件模型模組，看起就像一個 ORM
+
 ```bash
 $ npm i mongoose -S
 $ npm i @types/core-js @types/mongoose -D
 ```
+
+### 雲端資料庫 mLab
 
 ```ts
 // 導入 Mongoose 模組
