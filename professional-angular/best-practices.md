@@ -56,6 +56,7 @@ export default {
   entry: join(__dirname, 'src', 'main.ts'),
   dest: join(__dirname, 'app.js'),
   format: 'iife',
+  treeshake: true,  // 選項: true, false，比較有無樹搖優化的前後差別
   plugins: [
     typescript(),
     resolve({ jsnext: true, browser: true }),
