@@ -69,7 +69,7 @@
   * [除錯和剖析](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/tools.md#除錯和剖析)
 * [最佳實踐](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/best-practices.md)
   * 提前時間編譯
-  * 樹搖優化
+  * [樹搖優化](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/best-practices.md#樹搖優化)
   * 壓縮
   * 快取
   * 預先抓取資源
