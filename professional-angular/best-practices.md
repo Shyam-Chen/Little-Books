@@ -8,12 +8,24 @@ Tree-shaking (樹搖優化) 的目的是要將未使用到的程式碼從打捆�
 
 底下範例將帶領讀者使用 Rollup 進行樹搖優化的動作。
 
-首先在全域下安裝 Rollup。
 ```bash
-$ npm i rollup -g
-```
+// rollup.config.js
+import { join } from 'path';
 
-建立 `rollup.config.js` 檔案
-```bash
-$ touch rollup.config.js
+import typescript from 'rollup-plugin-typescript';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import uglify from 'rollup-plugin-uglify';
+
+export default {
+  entry: join(__dirname, 'src', 'main.ts'),
+  dest: join(__dirname, 'dist', 'app.js'),
+  format: 'iife',
+  plugins: [
+    typescript(),
+    resolve({ jsnext: true, browser: true }),
+    commonjs(),
+    uglify()
+  ]
+};
 ```
