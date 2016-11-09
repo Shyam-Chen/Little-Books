@@ -82,7 +82,8 @@
   * Effects
   * Router store
 * [國際化](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/internationalization.md)
-* [分析](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/analytics.md)
+* [流量分析](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/web-analytics.md)
+* [資料視覺化](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/data-visualization.md)
 * [下一步](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md)
   * [響應式網頁應用程式](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#響應式網頁應用程式)
   * [混合型行動應用程式](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#混合型行動應用程式)
