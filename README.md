@@ -180,7 +180,7 @@ foo()
 ```
 
 ```js
-async function foo(x) {  // 10
+const foo = async (x) => {  // 10
   let bar = await Promise
     .resolve(x)
     .then(x => x + 2)  // 10 + 2 = 12
@@ -199,13 +199,13 @@ foo(10)
 ```
 
 ```js
-async function foo(x) {  
+const foo = async (x) => {  
   return new Promise((resolve, reject) => {
     setTimeout(() => resolve(console.log(2)), x);
   });
 }
 
-async function bar() {
+const bar = async () => {
   console.log(1);
   await foo(1000);
   setTimeout(() => console.log(3), 1000);
