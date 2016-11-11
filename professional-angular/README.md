@@ -81,6 +81,7 @@
   * Store
   * Effects
   * Router store
+* Lodash
 * [國際化](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/internationalization.md)
 * [流量分析](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/web-analytics.md)
 * [資料視覺化](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/data-visualization.md)
