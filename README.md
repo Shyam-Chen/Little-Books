@@ -1,8 +1,11 @@
-# JavaScript GO
+# Learning Angular
 
-### 目錄
-* [Angular 權威指南](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/README.md)
+> Angular 2 學習手冊 ([前往](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/README.md))
+
+***
+
 * [TypeScript 程式設計](https://github.com/Shyam-Chen/Technical-Manual/blob/master/programming-in-typescript.md)
+
 * [Pug 項目實踐](https://github.com/Shyam-Chen/Technical-Manual/blob/master/practical-pug.md)
 * [Stylus 項目實踐](https://github.com/Shyam-Chen/Technical-Manual/blob/master/practical-stylus.md)
 
