@@ -4,14 +4,16 @@
 
 ***
 
-* [TypeScript 程式設計](https://github.com/Shyam-Chen/Technical-Manual/blob/master/programming-in-typescript.md)
-
-* [Pug 項目實踐](https://github.com/Shyam-Chen/Technical-Manual/blob/master/practical-pug.md)
-* [Stylus 項目實踐](https://github.com/Shyam-Chen/Technical-Manual/blob/master/practical-stylus.md)
+### Little Books
+* [Pug Template Engine](https://github.com/Shyam-Chen/Technical-Manual/blob/master/practical-pug.md)
+* [Stylus CSS Preprocessor](https://github.com/Shyam-Chen/Technical-Manual/blob/master/practical-stylus.md)
+* [Programming in TypeScript](https://github.com/Shyam-Chen/Technical-Manual/blob/master/programming-in-typescript.md)
 
 ***
 
-### 函式型程式設計
+### CSS Block Element Modifier
+
+### JavaScript Functional Programming
 
 ```js
 const foo = x => {  // 6
