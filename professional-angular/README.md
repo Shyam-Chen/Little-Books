@@ -79,8 +79,8 @@
   * RxJS
   * Ngrx
   * Lodash
-  * [UI 元件](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#響應式網頁應用程式)
-  * [行動應用](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#混合型行動應用程式
+  * [UI 元件](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#響應式網頁應用程式)
+  * [行動應用](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#混合型行動應用程式)
   * [後端即服務](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#後端雲端服務平台)
   * 國際化
   * 流量分析
