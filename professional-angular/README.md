@@ -75,18 +75,14 @@
   * 預先抓取資源
   * 延遲載入資源
   * 伺服端渲染
-* [RxJS](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/ngrx.md)
-  * Observables
-* [Ngrx](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/ngrx.md)
-  * Store
-  * Effects
-  * Router store
-* Lodash
-* [國際化](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/internationalization.md)
-* [流量分析](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/web-analytics.md)
-* [資料視覺化](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/data-visualization.md)
 * [下一步](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md)
+  * RxJS
+  * Ngrx
   * [響應式網頁應用程式](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#響應式網頁應用程式)
   * [混合型行動應用程式](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#混合型行動應用程式)
   * [後端雲端服務平台](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#後端雲端服務平台)
+  * 國際化
+  * 流量分析
+  * 資料視覺化
+  * Lodash
   * [結論](https://github.com/Shyam-Chen/JavaScript-GO/blob/master/professional-angular/next-steps.md#結論)
