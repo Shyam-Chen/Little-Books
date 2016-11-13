@@ -5,6 +5,6 @@
 ***
 
 ### Little Books
-* [Pug Template Engine](https://github.com/Shyam-Chen/Technical-Manual/blob/master/practical-pug.md)
-* [Stylus CSS Preprocessor](https://github.com/Shyam-Chen/Technical-Manual/blob/master/practical-stylus.md)
-* [Programming in TypeScript](https://github.com/Shyam-Chen/Technical-Manual/blob/master/programming-in-typescript.md)
+* [Pug Template Engine](https://github.com/Shyam-Chen/Learning-Angular/blob/master/Pug-Template-Engine.md)
+* [Stylus CSS Preprocessor](https://github.com/Shyam-Chen/Learning-Angular/blob/master/Stylus-CSS-Preprocessor.md)
+* [Programming in TypeScript](https://github.com/Shyam-Chen/Learning-Angular/blob/master/Programming-in-TypeScript.md)
