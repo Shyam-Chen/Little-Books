@@ -80,6 +80,7 @@
   * [後端即服務](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#後端雲端服務平台)
   * RxJS
   * Ngrx
+  * Immutable
   * Lodash
   * 國際化
   * 流量分析
