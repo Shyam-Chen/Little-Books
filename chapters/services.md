@@ -408,9 +408,9 @@ import { NameService } from './name.service';
 
 @Component({
   selector: 'app',
-  template: '
+  template: `
     <!-- ... -->
-  ',
+  `,
   viewProviders: [NameService]
 })
 export class AppComponent {
@@ -428,9 +428,9 @@ import { NameService } from './name.service';
 
 @Component({
   selector: 'app',
-  template: '
+  template: `
     <!-- ... -->
-  ',
+  `,
   viewProviders: [NameService]
 })
 export class AppComponent {
@@ -450,9 +450,9 @@ import { NameService } from './name.service';
 
 @Component({
   selector: 'app',
-  template: '
+  template: `
     <!-- ... -->
-  ',
+  `,
   viewProviders: [NameService]
 })
 export class AppComponent {
@@ -470,9 +470,9 @@ import { NameService } from './name.service';
 
 @Component({
   selector: 'app',
-  template: '
+  template: `
     <!-- ... -->
-  ',
+  `,
   viewProviders: [NameService]
 })
 export class AppComponent {
