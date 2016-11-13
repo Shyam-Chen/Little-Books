@@ -39,6 +39,14 @@ $ npm i firebase angularfire -S
 $ npm i firebase-tools -g
 ```
 
+### 國際化
+
+### 流量分析
+
+傳統的 Google Analytics 不利於 Single-page application (SPA)，不過我們可以使用 Angulartics 來解這個問題。
+
+### 資料視覺化
+
 ### 結論
 
 在行動開發的部分，除了 Ionic之外，也有像是 NativeScript 和 React Native，它們也能透過 Angular 一起應用，筆者會推薦 Ionic 的原因，最主要是因為 Ionic 的開發就是 Web View，不像 NativeScript 和 React Native 屬於原生型的。
