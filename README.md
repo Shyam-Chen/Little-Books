@@ -83,9 +83,9 @@
   * Immutable
   * Lodash
   * 國際化
-  * [流量分析](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#流量分析)
+  * [流量分析](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#流量分析)
   * 資料視覺化
-  * [行動應用](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#行動應用)
+  * [行動應用](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#行動應用)
   * 桌面應用
   * [結論](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#結論)
 
