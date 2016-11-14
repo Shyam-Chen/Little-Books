@@ -76,16 +76,17 @@
   * 延遲載入資源
   * 伺服端渲染
 * [下一步](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md)
-  * [原質化設計](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#響應式網頁應用程式)
-  * [後端即服務](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#後端雲端服務平台)
+  * [原質化設計](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#原質化設計)
+  * [後端即服務](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#後端即服務)
   * RxJS
-  * Ngrx
+  * NgRx
   * Immutable
   * Lodash
   * 國際化
-  * 流量分析
+  * [流量分析](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#流量分析)
   * 資料視覺化
-  * 跨平台應用
+  * [行動應用](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#行動應用)
+  * 桌面應用
   * [結論](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#結論)
 
 ***
