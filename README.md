@@ -38,6 +38,7 @@
   * [層疊注入器](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/services.md#層疊注入器)
   * [控制相依性](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/services.md#控制相依性)
   * [內建服務](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/services.md#內建服務)
+* Observables
 * [HTTP](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/http.md)
   * [Get](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/http.md#get)
   * [Post](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/http.md#post)
@@ -82,6 +83,7 @@
   * RxJS
   * NgRx
   * Immutable
+  * Redux
   * 國際化
   * [流量分析](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#流量分析)
   * 資料視覺化
