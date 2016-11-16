@@ -52,6 +52,16 @@ $ tslint src/**/*.ts
 
 #### 風格指南
 
+### 測試入門
+
+```js
+describe('測試入門', () => {
+  it('`true` 等於 `true`', () => {
+    expect(true).toBe(true);
+  });
+});
+```
+
 ### 單元測試
 ```js
 // test-main.js
