@@ -81,7 +81,6 @@
   * RxJS
   * NgRx
   * Immutable
-  * Lodash
   * 國際化
   * [流量分析](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/next-steps.md#流量分析)
   * 資料視覺化
