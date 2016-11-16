@@ -64,6 +64,7 @@
   * 跨站指令碼
   * 跨站請求偽造
 * [工具](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/tools.md)
+  * Angular CLI
   * [模組整合](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/tools.md#模組整合)
   * [自動化建置](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/tools.md#自動化建置)
   * [除錯和剖析](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/tools.md#除錯和剖析)
