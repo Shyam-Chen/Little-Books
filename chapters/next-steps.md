@@ -55,6 +55,18 @@ $ npm i nativescript -g
 $ tns
 ```
 
+```bash
+# Windows
+$ @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://www.nativescript.org/setup/win'))"
+
+# Mac
+$ ruby -e "$(curl -fsSL https://www.nativescript.org/setup/mac)"
+```
+
+```bash
+$ tns doctor
+```
+
 [Ionic](http://ionicframework.com/) 是建構在 Angular 和 Cordova 之上的，乍看之下，Ionic 確實是混合型的，不過 Ionic 團隊讓此框架與原生擁有極高的相似度，所以 Ionic 也是原生型的行動應用。
 
 而 Cordova 跟 NativeScript 一樣，能讓 Web 開發者使用 HTML/CSS/JS 來開發手機應用，不同之處，Cordova 是將直接 HTML/CSS/JS 封裝成手機的應用，所以在 iOS 和 Android 上看的話，畫面是長一樣的，這屬於混合型的行動應用。
