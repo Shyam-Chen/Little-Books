@@ -401,12 +401,28 @@ subtract(a, b)
   a - b
 
 .foo
-  width subtract(b: 10, a: 25)
+  width subtract(a: 25, b: 10)
 ```
 :point_up: 編譯前後 :point_down:
 ```css
 .foo {
   width: 15;
+}
+```
+
+***
+
+```styl
+subtract(a = 2, b)
+  a - b
+
+.foo
+  width subtract(b: 10)
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  width: -8;
 }
 ```
 
@@ -444,7 +460,7 @@ invoke(a, b, fn)
 get(hash, key)
   return pair[1] if pair[0] == key for pair in hash
 
-hash = (one 1) (two 2) (three 3)
+hash = (one 1)(two 2)(three 3)
 
 .foo
   width get(hash, three)
