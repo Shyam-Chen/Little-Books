@@ -10,6 +10,12 @@ Material Design 中文意思是「原質化設計」，不僅擁有極佳的視�
 $ npm i @angular2-material/core -S
 ```
 
+`@angular2-material/<COMPONENT_NAME>`
+
+```bash
+$ @angular2-material/button -S
+```
+
 ### 後端即服務
 
 [Firebase](https://firebase.google.com/) 是一個 BaaS (Backend as a Service)，主要專為行動應用程式開發者提供整合後端的雲端服務，而在網頁的服務上可以提供網頁開發者開發雲端訊息、認證 (包含第三方的)、即時資料庫 (NoSQL 的)、存儲和主機的項目，除了這些服務之外，還能使用到 Google Cloud Platform (GCE) 的服務。
@@ -17,13 +23,26 @@ $ npm i @angular2-material/core -S
 ```bash
 $ npm i firebase angularfire -S
 ```
+
 ```bash
 $ npm i firebase-tools -g
 ```
 
 ### RxJS
 
+```bash
+$ npm i @reactivex/rxjs -S
+```
+
 ### NgRx
+
+```bash
+$ npm i @ngrx/core -S
+```
+
+```bash
+$ npm i @ngrx/store @ngrx/effects -S
+```
 
 ### Immutable
 
