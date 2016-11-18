@@ -31,7 +31,19 @@ $ npm i firebase-tools -g
 
 ### 國際化
 
+```bash
+$ npm i @angular/compiler-cli @angular/platform-server -S
+```
 
+```js
+// package.json
+[...]
+"scripts": {
+  "i18n": "ng-xi18n", 
+  // ...
+}
+[...]
+```
 
 ### 流量分析
 
@@ -53,7 +65,7 @@ Highcharts 不僅僅只有一般圖表，還提供股市和地圖的進階的圖
 
 先來介紹一下 Cordova，Cordova 跟 NativeScript 一樣，能讓 Web 開發者使用 HTML/CSS/JS 來開發手機應用，不同之處，Cordova 是將直接 HTML/CSS/JS 封裝成手機的應用，所以在 iOS 和 Android 上看的話，畫面是長一樣的，這屬於混合型的行動應用，不過 Cordova 的入門門檻又比 NativeScript 更為簡單，因為在開發的時候，就是 Web View。
 
-乍看之下，Ionic 確實是混合型的，不過 Ionic 團隊讓此框架與原生擁有極高的相似度，所以 Ionic 也是原生型的行動應用。
+乍看之下，Ionic 確實是混合型的，不過 Ionic 團隊讓此框架與原生擁有極高的相似度，所以 Ionic 也可以說是原生型的行動應用。
 
 ```bash
 $ npm i ionic cordova -g
