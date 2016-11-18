@@ -93,6 +93,7 @@ $ npm i ionic cordova -g
 ```bash
 # 建立 Ionic 的空白專案
 $ ionic start <PROJECT_NAME> blank --v2
+$ cd <PROJECT_NAME>
 ```
 
 ```bash
