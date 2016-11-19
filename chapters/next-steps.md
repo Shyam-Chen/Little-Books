@@ -51,6 +51,10 @@ $ npm i @ngrx/store @ngrx/effects -S
 ### 國際化
 
 ```bash
+$ npm i intl -S
+```
+
+```bash
 $ npm i @angular/compiler-cli @angular/platform-server -S
 ```
 
@@ -104,5 +108,3 @@ $ ionic serve
 ### 桌面應用
 
 [Electron](http://electron.atom.io/)
-
-### 結論
