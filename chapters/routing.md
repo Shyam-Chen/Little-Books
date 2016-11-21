@@ -73,9 +73,25 @@ import { Component } from '@angular/core';
 export class AboutComponent { }
 ```
 
-### 路由參數
-
 ### 巢狀路由
+```ts
+[...]
+
+const routes: RouterConfig = [
+  { path: '', redirectTo: 'home', terminal: true },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'about/:id', component: LinkComponent, children: [
+    { path: '', redirectTo: 'overview', pathMatch: 'full' },
+    { path: 'overview', component: OverviewComponent },
+    { path: 'essential', component: EssentialComponent }
+  ]}
+];
+
+[...]
+```
+
+### URL 參數
 ```ts
 // src/app/app.routes.ts
 import { provideRouter, RouterConfig } from '@angular/router';
@@ -139,22 +155,6 @@ export class LinkComponent {
 }
 ```
 
-### 子路由
-```ts
-[...]
+### 前後關係
 
-const routes: RouterConfig = [
-  { path: '', redirectTo: 'home', terminal: true },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'about/:id', component: LinkComponent, children: [
-    { path: '', redirectTo: 'overview', pathMatch: 'full' },
-    { path: 'overview', component: OverviewComponent },
-    { path: 'essential', component: EssentialComponent }
-  ]}
-];
-
-[...]
-```
-
-### 路由守衛
+### 非同步路由
