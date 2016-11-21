@@ -24,10 +24,10 @@
   * [模型驅動](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/forms.md#模型驅動)
 * [路由](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/routing.md)
   * [基本應用](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/routing.md#基本應用)
-  * 路由參數
-  * [巢狀路由](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/routing.md#巢狀路由)
-  * [子路由](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/routing.md#子路由)
-  * 路由守衛
+  * [巢狀路由](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/routing.md#巢狀)
+  * [URL 參數]()
+  * [前後關係](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/routing.md#子路由)
+  * [非同步路由]()
 * [指令](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/directives.md)
   * [內建屬性型指令](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/directives.md#內建屬性型指令)
   * [內建結構型指令](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/directives.md#內建結構型指令)
