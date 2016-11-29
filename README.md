@@ -38,7 +38,7 @@
   * [層疊注入器](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/services.md#層疊注入器)
   * [控制相依性](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/services.md#控制相依性)
   * [內建服務](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/services.md#內建服務)
-* Observables
+* [Observables](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/observables.md)
   * 服務
   * 元件檢視層
 * [HTTP](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/http.md)
