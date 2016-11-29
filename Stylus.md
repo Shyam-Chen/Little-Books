@@ -1,4 +1,4 @@
-# Stylus CSS 前置處理器
+# Stylus
 
 
 `_variables.styl`
