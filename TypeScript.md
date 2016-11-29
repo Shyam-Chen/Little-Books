@@ -1,4 +1,4 @@
-# TypeScript 程式設計
+# TypeScript
 
 ### 目錄
 * [快速入門](#快速入門)
