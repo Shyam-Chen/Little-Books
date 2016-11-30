@@ -1,4 +1,4 @@
-# Angular 2 學習手冊
+# Angular 學習手冊
 
 ### 目錄
 * [第一個應用程式](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/first-application.md)
@@ -86,7 +86,6 @@
 ### 小書
 * [Express - Node 框架](https://github.com/Shyam-Chen/Learning-Angular/blob/master/Express.md)
 * [Ionic - 行動框架](https://github.com/Shyam-Chen/Learning-Angular/blob/master/Ionic.md)
-* ------------------------------
 * [Pug - 模板引擎](https://github.com/Shyam-Chen/Learning-Angular/blob/master/Pug.md)
 * [Stylus - CSS 前置處理器](https://github.com/Shyam-Chen/Learning-Angular/blob/master/Stylus.md)
 * [TypeScript - JS 超集](https://github.com/Shyam-Chen/Learning-Angular/blob/master/TypeScript.md)
