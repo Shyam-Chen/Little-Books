@@ -24,16 +24,17 @@ import { Observable } from 'rxjs/Observable';
   `
 })
 export class AppComponent {
-  private data: Observable<Array<number>>;
-  private values: number[] = [];
+  private data: Observable<Array<string>>;
+  private values: string[] = [];
   private finished: string;
 
   init() {
     this.data = new Observable(observer => {
-      setTimeout(() => observer.next(1), 0);
-      setTimeout(() => observer.next(2), 1000);
-      setTimeout(() => observer.next(3), 2000);
-      setTimeout(() => observer.complete(), 3000);
+      setTimeout(() => observer.next('開始'), 0);
+      setTimeout(() => observer.next('第一個'), 1000);
+      setTimeout(() => observer.next('第二個'), 2000);
+      setTimeout(() => observer.next('第三個'), 3000);
+      setTimeout(() => observer.complete(), 4000);
     });
 
     let subscription = this.data.subscribe(
@@ -43,23 +44,4 @@ export class AppComponent {
     );
   }
 }
-```
-
-```js
-const foo = async (x) => {  
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(console.log(2)), x);
-  });
-}
-
-const bar = async () => {
-  console.log(1);
-  await foo(1000);
-  setTimeout(() => console.log(3), 1000);
-}
-
-bar();
-// 1
-// 2 (一秒後出現)
-// 3 (兩秒後出現)
 ```
