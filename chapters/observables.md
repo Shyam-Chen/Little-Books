@@ -16,29 +16,29 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-	selector: 'root-app',
-	template: `
-    <button (click)="init()">初始化</button>
-	  <div *ngFor="let value of values">{{ value }}</div>
-	  <div>{{ finished }}</div>
-	`
+  selector: 'root-app',
+  template: `
+   <button (click)="init()">初始化</button>
+   <div *ngFor="let value of values">{{ value }}</div>
+   <div>{{ finished }}</div>
+  `
 })
 export class AppComponent {
-  private data: Observable<Array<string>>;
-  private values: string[] = [];
+  private data: Observable<Array<number>>;
+  private values: number[] = [];
   private finished: string;
 
   init() {
     this.data = new Observable(observer => {
-      setTimeout(() => observer.next('1'), 0);
-      setTimeout(() => observer.next('2'), 1000);
-      setTimeout(() => observer.next('3'), 2000);
+      setTimeout(() => observer.next(1), 0);
+      setTimeout(() => observer.next(2), 1000);
+      setTimeout(() => observer.next(3), 2000);
       setTimeout(() => observer.complete(), 3000);
     });
 
     let subscription = this.data.subscribe(
       value => this.values.push(value),
-      () => new Error('初始化'),
+      () => new Error('初始化失敗'),
       () => this.finished = '完成'
     );
   }
@@ -60,6 +60,6 @@ const bar = async () => {
 
 bar();
 // 1
-// 2 (print after 1 second)
-// 3 (print after 2 seconds)
+// 2 (一秒後出現)
+// 3 (兩秒後出現)
 ```
