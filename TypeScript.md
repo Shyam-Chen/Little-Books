@@ -20,6 +20,7 @@
 * [冪運算子](#冪運算子)
 * [混入](#混入)
 * [合併宣告](#合併宣告)
+* [承諾](#承諾)
 * [產生器](#產生器)
 * [非同步與等待](#非同步與等待)
 * [修飾器](#修飾器)
@@ -811,6 +812,47 @@ interface Box {
 }
 
 const box: Box = { height: 5, width: 6, scale: 10 };
+```
+
+## 承諾
+```ts
+const foo = () => {
+  console.log(1);
+
+  const bar = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(console.log(2)), 0);
+  });
+
+  console.log(3);
+
+  return bar;
+};
+
+foo().then(() => console.log(4));
+// 1
+// 3
+// 2
+// 4
+```
+
+```ts
+Promise.all([
+    p1(), p2()
+  ])
+  .then((data) => {
+    console.log(data[0]);  // p1 結果
+    console.log(data[1]);  // p2 結果
+  });
+```
+
+```ts
+Promise.race([
+    p1(),  // 假設 p1 為主體
+    p2()  // p2 不一定要執行，通常是 p1 的超時處理
+  ])
+  .then(() => {
+    // ...
+  });
 ```
 
 ## 產生器
