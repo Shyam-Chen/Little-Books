@@ -842,6 +842,25 @@ async function foo(x) {  // 10
 foo(10).then(x => console.log(x));  // 7.2
 ```
 
+```ts
+async function foo(x) {  
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(console.log(2)), x);
+  });
+}
+
+async function bar() {
+  console.log(1);
+  await foo(1000);  // 等待了一秒
+  setTimeout(() => console.log(3), 1000);  //  等待了一秒，加自己的一秒
+}
+
+bar();
+// 1
+// 2 (一秒後打印)
+// 3 (兩秒後打印)
+```
+
 ## 修飾器
 
 ### 修飾類別
