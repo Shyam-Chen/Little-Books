@@ -6,7 +6,7 @@
 
 ### 基本應用
 
-首先載入 `Observable`
+首先透過 `RxJS` 載入 `Observable`
 ```ts
 import { Observable } from 'rxjs/Observable';
 ```
@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'root-app',
+  selector: 'app-root',
   template: `
    <button (click)="init()">初始化</button>
    <div *ngFor="let value of values">{{ value }}</div>
