@@ -1,6 +1,6 @@
 ## Observables
 
-Observables 是一個新的型別，在未來的 ES 標準中出現是有可能的。
+[Observables](https://github.com/tc39/proposal-observable) 是一個未來 ECMAScript 的新型別。
 
 這種概念是從一個串流的 `subscribe` 事件方式傳入一個 Generator (產生器)，不過重要的部分是 Iterator (迭代器)。
 
