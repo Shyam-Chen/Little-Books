@@ -4,7 +4,7 @@
 
 這種概念是從一個串流的 `subscribe` 事件方式傳入一個 Generator (產生器)，不過重要的部分是 Iterator (迭代器)。
 
-除了 Generator 其他非同步設計的主題有 Promises 和 async/await。
+除了 Generators 其他非同步設計的主題有 Promises 和 async/await。
 
 在後續章節會示範降級到 Promises，而 async/await 可以參考筆者的 TypeScript 小書。
 
