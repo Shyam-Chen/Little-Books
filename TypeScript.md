@@ -20,6 +20,7 @@
 * [冪運算子](#冪運算子)
 * [混入](#混入)
 * [合併宣告](#合併宣告)
+* [產生器](#產生器)
 * [非同步與等待](#非同步與等待)
 * [修飾器](#修飾器)
 * [靜態分析](#靜態分析)
@@ -812,6 +813,20 @@ interface Box {
 const box: Box = { height: 5, width: 6, scale: 10 };
 ```
 
+## 產生器
+```ts
+function *foo(x) {
+  let y = x * (yield);
+  return y;
+};
+
+let bar = foo(2);
+bar.next();
+
+let baz = bar.next(3);
+baz.value;  // 2 * 3 = 6
+```
+
 ## 非同步與等待
 ```ts
 async function foo(x) {  // 10
@@ -824,12 +839,7 @@ async function foo(x) {  // 10
   return bar;
 }
 
-foo(10)
-  .then(
-    x => console.log(x),
-    err => console.log(err)
-  );
-// 7.2
+foo(10).then(x => console.log(x));  // 7.2
 ```
 
 ## 修飾器
