@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <!-- ... -->
   `,
@@ -102,7 +102,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SampleService {
   constructor(private http: Http) { }
-  
+
   sampleMethod(): any {
     return this.http
       .request(new Request({
@@ -271,7 +271,7 @@ import { SampleService } from './sample.service';
 })
 export class AppComponent {
   constructor(private sampleService: SampleService) { }
-  
+
   private onClick(): void {
     console.log('發送開始');
 

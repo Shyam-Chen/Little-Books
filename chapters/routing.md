@@ -1,6 +1,7 @@
 ## 路由
 
 ### 基本應用
+
 ```ts
 // src/app/main.ts
 import { bootstrap } from '@angular/platform-browser-dynamic';

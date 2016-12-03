@@ -7,9 +7,11 @@
 ### 靜態分析
 
 #### Codelyzer 簡介
+
 Codelyzer 是 TSLint 的自訂規則部分，用來解析 Angular TypeScript  的專案。
 
 #### 配置 Codelyzer
+
 ```bash
 $ npm i tslint codelyzer -D
 ```

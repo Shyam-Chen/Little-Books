@@ -1,13 +1,17 @@
 ## 管道
 
+管道可以讓我們在模板中轉換顯示內容。
+
 ### 內建管道
+
+要使用管道必須要先載入它
 
 ```ts
 import { Component } from '@angular/core';
 import { COMMON_PIPES } from '@angular/common';  // 導入內建管道
 
 @Component({
-  selector: 'at-name',
+  selector: 'ap-name',
   template: `
     <!-- ... -->
   `,
@@ -17,16 +21,19 @@ export class NameComponent { }
 ```
 
 #### 大小寫
+
 ```ts
 import { Component } from '@angular/core';
+import { COMMON_PIPES } from '@angular/common';
 
 @Component({
-  selector: 'at-uppercase-lowercase',
+  selector: 'ap-uppercase-lowercase',
   template: `
     <p>{{ messages | uppercase }}</p>
     <p>{{ messages | lowercase }}</p>
     <p>{{ messages | uppercase | lowercase }}</p>  <!-- 先 uppercase 再來 lowercase -->
-  `
+  `,
+  pipes: [COMMON_PIPES]
 })
 export class UppercaseLowercaseComponent {
   public messages: string = 'Angular';
@@ -38,7 +45,7 @@ export class UppercaseLowercaseComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-date',
+  selector: 'ap-date',
   template: `
     <p>{{ today | date }}</p>
     <p>{{ today | date: 'medium' }}</p>
@@ -81,7 +88,7 @@ export class DateComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-async',
+  selector: 'ap-async',
   template: `<p>{{ messages | async }}</p>`
 })
 export class AsyncComponent {
@@ -100,7 +107,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
-  selector: 'at-async-date',
+  selector: 'ap-async-date',
   template: `<p>{{ timeNow | async | date: 'medium' }}</p>`
 })
 export class AsyncDateComponent {
@@ -118,10 +125,10 @@ export class AsyncDateComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-number',
+  selector: 'ap-number',
   template: `
     <!-- number: 整數位數.小數最小位數-小數最大位數 -->
-    <p>{{ pi | number: '1.2-5' }}</p> 
+    <p>{{ pi | number: '1.2-5' }}</p>
   `
 })
 export class NumberComponent {
@@ -134,7 +141,7 @@ export class NumberComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-percent',
+  selector: 'ap-percent',
   template: `<p>{{ proficiency | percent: '1.2-2' }}</p>`
 })
 export class PercentComponent {
@@ -147,7 +154,7 @@ export class PercentComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-currency',
+  selector: 'ap-currency',
   template: `
     <!-- currency: 貨幣代號: 是否顯示金錢符號: 位數資訊 -->
     <p>{{ price | currency: 'USD': false }}</p>
@@ -164,7 +171,7 @@ export class CurrencyComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-json',
+  selector: 'ap-json',
   template: `<pre>{{ languages | json }}</pre>`
 })
 export class JsonComponent {
@@ -199,7 +206,7 @@ export class SliceListComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-replace',
+  selector: 'ap-replace',
   template: `
     <p>{{ 'Angular 2' | replace: ' ':'_' }}</p>
     <p>{{ 'Angular 2' | replace: 'Angular ':'ng' }}</p>
@@ -216,7 +223,7 @@ export class ReplaceComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-i18nSelect',
+  selector: 'ap-i18nSelect',
   template: `
     <p>{{ gender | i18nSelect: chinese }}</p>
   `
@@ -232,7 +239,7 @@ export class I18nSelectComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-i18nPlural',
+  selector: 'ap-i18nPlural',
   template: `
     <p>姓名: {{ messages[0] }}</p>
     <p>年齡: {{ messages[1] }} 歲</p>
@@ -321,7 +328,7 @@ export class DelayPipe implements PipeTransform {
       this.fetchPromise = new Promise((resolve, reject) => {
         setTimeout(() => resolve(value), seconds * 1000);
       });
-      
+
       this.fetchPromise.then((val: any) => this.fetchedValue = val);
     }
     return this.fetchedValue;

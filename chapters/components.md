@@ -115,7 +115,7 @@ import { Component } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'at-name',
+  selector: 'module-identification',
   templateUrl: 'name.component.html',
   styleUrls: ['name.component.css']
 })
@@ -123,12 +123,11 @@ export class NameComponent { }
 ```
 
 ```ts
-// name.component.ts
 import { Component } from '@angular/core';
 
 @Component({
-  // moduleId: module.id,  如果沒有使用它
-  selector: 'at-name',
+  // moduleId: module.id,  // 如果沒有使用它
+  selector: 'module-identification',
   templateUrl: './app/name.component.html',  // 模板路徑會變得很長
   styleUrls: ['./app/name.component.css']  // 樣式路徑也會變得很長
 })
@@ -168,12 +167,14 @@ export class RenderingTemplatesComponent {
 }
 ```
 
-如果你不喜歡 Angular 預設，也是可以自訂插值的符號
+如果不喜歡 Angular 預設的插植，我們也可以自訂插值的符號。
+
+我們改成三個大括號，如底下範例：
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'custom-interpolation',
   template: `
     <p>{{{ messages }}}</p>
   `,

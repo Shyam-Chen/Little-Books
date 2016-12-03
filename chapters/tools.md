@@ -80,6 +80,14 @@ export default {
 $ rollup -c
 ```
 
+```bash
+$ npm i rollup-watch -g
+```
+
+```bash
+$ rollup -c --watch
+```
+
 ### 自動化建置
 
 #### Gulp
