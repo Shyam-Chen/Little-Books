@@ -2,6 +2,10 @@
 
 ### 基本應用
 
+Angular 的元件底成是在 [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components) 之上的。
+
+Web Component 帶來許多的優點，更好的封裝，解決了 CSS 的樣式的衝突，如果沒有使用 Web Component，就只能透過 CSS Modules 來解決 CSS 樣式的衝突。
+
 #### 元件建構子
 ```ts
 selector?: string
