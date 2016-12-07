@@ -1,8 +1,11 @@
 # Stylus
 
-
 `_variables.styl`
+
+`_mixins.styl`
+
 `_functions.styl`
+
 `main.styl`
 
 Stylus CSS Modules with Rollup
