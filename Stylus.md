@@ -16,18 +16,29 @@ Stylus CSS Modules with Rollup.
 
 ## 基礎入門
 
+Stylus 可以讓我們把大括號 `{}` 省略
+
 ```styl
 .foo
-  color #F44336
+  color: #F44336;
 ```
+
+也可以把分號 `;` 省略
+
 ```styl
 .foo
   color: #F44336
 ```
+
+還可以把冒號 `:` 省略
+
 ```styl
 .foo
-  color: #F44336;
+  color #F44336
 ```
+
+其實也可以寫原本的 CSS
+
 ```styl
 .foo {
   color: #F44336;
@@ -42,24 +53,32 @@ Stylus CSS Modules with Rollup.
 
 ***
 
+變數的使用
+
 ```styl
-.foo, .bar
-  color #F44336
-```
-```styl
+bar = #F44336
+
 .foo
-.bar
-  color #F44336
+  color bar
+```
+
+不過建議前面加個金錢符號 `$`
+```styl
+$bar = #F44336
+
+.foo
+  color $bar
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-.foo,
-.bar {
+.foo {
   color: #f44336;
 }
 ```
 
 ***
+
+巢狀的使用
 
 ```styl
 .foo
@@ -130,38 +149,11 @@ Stylus CSS Modules with Rollup.
 ***
 
 ```styl
-bar = #F44336
-
 .foo
-  color bar
-```
-```styl
-$bar = #F44336
-
-.foo
-  color $bar
-```
-```styl
-BAR = #F44336
-
-.foo
-  color BAR
-```
-:point_up: 編譯前後 :point_down:
-```css
-.foo {
-  color: #f44336;
-}
-```
-
-***
-
-```styl
-.foo
-  width: 150px
-  height: 100px
-  margin-left: -(@width / 2)
-  margin-top: -(@height / 2)
+  width 150px
+  height 100px
+  margin-left -(@width / 2)
+  margin-top -(@height / 2)
 ```
 :point_up: 編譯前後 :point_down:
 ```css
