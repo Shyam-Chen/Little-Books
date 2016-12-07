@@ -1,8 +1,13 @@
 # Pug
 
 ### 目錄
+* [簡寫](#簡寫)
+* [註解](#註解)
+* [繼承](#繼承)
 
 ***
+
+## 簡寫
 
 ```pug
 doctype html
@@ -121,6 +126,8 @@ p.
 
 ***
 
+## 註解
+
 ```pug
 // foo
 //- bar
@@ -183,19 +190,6 @@ p ${foo}
 :point_up: 編譯前後 :point_down:
 ```html
 <p>foo</p>
-```
-
-***
-
-```pug
-<!--[if IE]>
-p Get Chrome
-<![endif]-->
-```
-:point_up: 編譯前後 :point_down:
-```html
-<!--[if IE]>
-<p>Get Chrome</p><![endif]-->
 ```
 
 ***
@@ -354,6 +348,8 @@ each item in list
 ```
 
 ***
+
+## 繼承
 
 ```pug
 //- layout.pug
