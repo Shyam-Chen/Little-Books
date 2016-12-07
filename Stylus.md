@@ -26,6 +26,7 @@ Stylus CSS Modules with Rollup.
 * [媒體查詢](#媒體查詢)
 * [函式](#函式)
 * [繼承](#繼承)
+* [迭代器](#迭代器)
 
 ***
 
@@ -343,6 +344,19 @@ $foo =
 .bar
   {$foo}
 ```
+
+使用 `@block` 規則
+
+這時候大括號 `{}` 是必要的
+
+```styl
+$foo = @block {
+  color #F44336
+  &:hover {
+    padding 0
+  }
+}
+```
 :point_up: 編譯前後 :point_down:
 ```css
 .bar {
@@ -394,6 +408,18 @@ x = true
 
 ```styl
 $colors = #F44336, #E91E63
+
+.foo
+  color $colors[0]
+```
+
+建議把逗號 `,` 省略。
+
+為什麼要省略逗號?
+> 因為配合迭代器的使用，使用逗號會讓迭代器無法正常執行
+
+```styl
+$colors = #F44336 #E91E63
 
 .foo
   color $colors[0]
@@ -703,52 +729,109 @@ $foo
 
 ***
 
-```styl
+## 迭代器
 
+迭代值
+
+```styl
+.foo
+  for value in A B C
+    FOO value
 ```
 :point_up: 編譯前後 :point_down:
 ```css
+.foo {
+  FOO: A;
+  FOO: B;
+  FOO: C;
+}
+```
 
+***
+
+加入鍵
+
+```styl
+.foo
+  for value, key in A B C
+    FOO key value
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  FOO: 0 A;
+  FOO: 1 B;
+  FOO: 2 C;
+}
+```
+
+***
+
+數值循環
+
+```styl
+.foo
+  for value in 1..7
+    FOO value
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  FOO: 1;
+  FOO: 2;
+  FOO: 3;
+  FOO: 4;
+  FOO: 5;
+  FOO: 6;
+  FOO: 7;
+}
 ```
 
 ***
 
 ```styl
+// 變數
+$color = #3F51B5
+$value = 0px 0px $color
+$length = 10
 
+// 函式
+shadow-value($color)
+  for $i in 1..$length
+    $value = $value, unit($i, px) unit($i, px) $color
+  return $value
+
+// 混入
+long-shadow($color)
+  text-shadow shadow-value($color)
+
+.foo
+  long-shadow(darken($color, 10%))
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
+.foo {
+  text-shadow: 0px 0px #3f51b5, 1px 1px #3949a3, 2px 2px #3949a3, 3px 3px #3949a3, 4px 4px #3949a3, 5px 5px #3949a3, 6px 6px #3949a3, 7px 7px #3949a3, 8px 8px #3949a3, 9px 9px #3949a3, 10px 10px #3949a3;
+}
 ```
 
 ***
 
-```styl
+## 轉義
 
+```styl
+.foo
+  padding 1rem / 2
+  padding (1rem / 2)
+  padding unit(1 / 2, rem)
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
+.foo {
+  padding: 1rem/2;
+  padding: 0.5rem;
+  padding: 0.5rem;
+}
 ```
 
 ***
