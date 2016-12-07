@@ -8,7 +8,7 @@
 
 `main.styl`
 
-Rucksack (CSS superpowers) with PostStylue.
+Rucksack (CSS superpowers) with PostStylus.
 
 Stylus CSS Modules with Rollup.
 
@@ -219,6 +219,30 @@ width(x)
   width: 10rem;
 }
 ```
+
+***
+
+```styl
+flex(x)
+  -webkit-box-flex x
+  -webkit-flex x
+  -ms-flex x
+  flex x
+
+.foo
+  flex 1
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+```
+
+不過我們能透過 `PostStylus` 使用 `Rucksack` 來幫我們加入前綴。
 
 ## 屬性查找
 
