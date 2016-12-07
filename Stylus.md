@@ -776,8 +776,6 @@ $foo
 }
 ```
 
-***
-
 ## 迭代器
 
 迭代值
@@ -881,106 +879,6 @@ long-shadow($color)
   padding: 0.5rem;
   padding: 0.5rem;
 }
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
 ```
 
 ***
