@@ -12,9 +12,12 @@ Rucksack (CSS superpowers) with PostStylue.
 
 Stylus CSS Modules with Rollup.
 
+### 目錄
+* 極致簡寫
+
 ***
 
-## 基礎入門
+### 簡寫
 
 Stylus 可以讓我們把大括號 `{}` 省略
 
@@ -44,7 +47,9 @@ Stylus 可以讓我們把大括號 `{}` 省略
   color: #F44336;
 }
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   color: #f44336;
@@ -53,7 +58,7 @@ Stylus 可以讓我們把大括號 `{}` 省略
 
 ***
 
-變數的使用
+### 變數
 
 ```styl
 bar = #F44336
@@ -63,13 +68,16 @@ bar = #F44336
 ```
 
 不過建議前面加個金錢符號 `$`
+
 ```styl
 $bar = #F44336
 
 .foo
   color $bar
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   color: #f44336;
@@ -78,7 +86,7 @@ $bar = #F44336
 
 ***
 
-巢狀的使用
+### 巢狀
 
 ```styl
 .foo
@@ -125,6 +133,7 @@ $bar = #F44336
     ~ .foo-baz
       color #E91E63
 ```
+
 ```styl
 .foo
   position fixed
@@ -148,24 +157,7 @@ $bar = #F44336
 
 ***
 
-```styl
-.foo
-  width 150px
-  height 100px
-  margin-left -(@width / 2)
-  margin-top -(@height / 2)
-```
-:point_up: 編譯前後 :point_down:
-```css
-.foo {
-  width: 150px;
-  height: 100px;
-  margin-left: -75px;
-  margin-top: -50px;
-}
-```
-
-***
+### 混入
 
 ```styl
 bar()
@@ -190,31 +182,77 @@ bar(x)
 
 ***
 
+### 屬性查找
+
 ```styl
-position()
-  position arguments
-  z-index 1 unless @z-index
-
 .foo
-  position absolute
-  z-index 2
-
-.bar
-  position absolute
+  width 150px
+  height 100px
+  margin-left -(@width / 2)
+  margin-top -(@height / 2)
 ```
 :point_up: 編譯前後 :point_down:
 ```css
 .foo {
-  position: absolute;
-  z-index: 2;
-}
-.bar {
-  position: absolute;
-  z-index: 1;
+  width: 150px;
+  height: 100px;
+  margin-left: -75px;
+  margin-top: -50px;
 }
 ```
 
 ***
+
+```styl
+.foo
+  color #F44336
+  .bar
+    color #E91E63
+    .baz
+      background @color
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  color: #f44336;
+}
+.foo .bar {
+  color: #e91e63;
+}
+.foo .bar .baz {
+  background: #e91e63;
+}
+```
+
+***
+
+```styl
+width()
+  width arguments
+  height 10rem unless @height
+
+.foo
+  width 30rem
+  height 20rem
+
+.bar
+  width 30rem
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  width: 30rem;
+  height: 20rem;
+}
+.bar {
+  width: 30rem;
+  height: 10rem;
+}
+```
+
+***
+
+### 自訂選擇器
 
 ```styl
 $some-selectors = '.foo, .bar, .baz'
@@ -233,8 +271,12 @@ $some-selectors = '.foo, .bar, .baz'
 
 ***
 
+### 註解
+
 ```styl
-// foo
+/*
+ * foo.styl
+ */
 .foo
   color #f44336  // red-500
 ```
