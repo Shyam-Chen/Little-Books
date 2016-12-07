@@ -8,7 +8,9 @@
 
 `main.styl`
 
-Stylus CSS Modules with Rollup
+Rucksack (CSS superpowers) with PostStylue.
+
+Stylus CSS Modules with Rollup.
 
 ***
 
