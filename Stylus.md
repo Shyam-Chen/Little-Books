@@ -405,6 +405,9 @@ $foo = @block {
     padding 0
   }
 }
+
+.bar
+  {$foo}
 ```
 :point_up: 編譯前後 :point_down:
 ```css
