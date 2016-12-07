@@ -1,5 +1,7 @@
 # Angular 學習手冊
 
+> 學習如何使用 Angular 建置下一代的應用程式。
+
 ### 目錄
 * [第一個應用程式](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/first-application.md)
   * [Angular 簡介](https://github.com/Shyam-Chen/Learning-Angular/blob/master/chapters/first-application.md#angular-簡介)
