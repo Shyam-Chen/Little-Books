@@ -13,11 +13,23 @@ Rucksack (CSS superpowers) with PostStylue.
 Stylus CSS Modules with Rollup.
 
 ### 目錄
-* 極致簡寫
+* [簡寫](#簡寫)
+* [變數](#變數)
+* [巢狀](#巢狀)
+* [混入](#混入)
+* [屬性查找](#屬性查找)
+* [自訂選擇器](#自訂選擇器)
+* [註解](#註解)
+* [物件](#物件)
+* [條件式](#條件式)
+* [陣列](#陣列)
+* [媒體查詢](#媒體查詢)
+* [函式](#函式)
+* [繼承](#繼承)
 
 ***
 
-### 簡寫
+## 簡寫
 
 Stylus 可以讓我們把大括號 `{}` 省略
 
@@ -58,7 +70,7 @@ Stylus 可以讓我們把大括號 `{}` 省略
 
 ***
 
-### 變數
+## 變數
 
 ```styl
 bar = #F44336
@@ -86,7 +98,7 @@ $bar = #F44336
 
 ***
 
-### 巢狀
+## 巢狀
 
 ```styl
 .foo
@@ -157,7 +169,7 @@ $bar = #F44336
 
 ***
 
-### 混入
+## 混入
 
 ```styl
 bar()
@@ -182,7 +194,7 @@ bar(x)
 
 ***
 
-### 屬性查找
+## 屬性查找
 
 ```styl
 .foo
@@ -252,7 +264,7 @@ width()
 
 ***
 
-### 自訂選擇器
+## 自訂選擇器
 
 ```styl
 $some-selectors = '.foo, .bar, .baz'
@@ -271,26 +283,47 @@ $some-selectors = '.foo, .bar, .baz'
 
 ***
 
-### 註解
+## 註解
 
 ```styl
-/*
- * foo.styl
+/*!
+ * 多行註解
  */
 .foo
-  color #f44336  // red-500
+  color #f44336  // 單行註解
+
+/*
+ * 多行註解
+ */
 ```
 :point_up: 編譯前後 :point_down:
 ```css
+/*
+ * foo.styl
+ */
 .foo {
   color: #f44336;
 }
+/*
+ * [附註]: Red-500 是 Material Design 的顏色定義
+ */
+```
+
+啟用壓縮
+
+```css
+/*
+ * foo.styl
+ */
+.foo{color:#f44336}
 ```
 
 ***
 
+## 物件
+
 ```styl
-foo = {
+$foo = {
   color: #F44336,
   '&:hover': {
     padding: 0
@@ -298,16 +331,17 @@ foo = {
 }
 
 .bar
-  {foo}
+  {$foo}
 ```
+
 ```styl
-foo =
-  color: #F44336
+$foo =
+  color #F44336
   &:hover
-    padding: 0
+    padding 0
 
 .bar
-  {foo}
+  {$foo}
 ```
 :point_up: 編譯前後 :point_down:
 ```css
@@ -320,6 +354,8 @@ foo =
 ```
 
 ***
+
+## 條件式
 
 ```styl
 if overload-padding = true
@@ -339,17 +375,28 @@ if overload-padding = true
 ***
 
 ```styl
-colors = #F44336 #E91E63
+x = true
 
 .foo
-  color colors[0]
+  color #F44336
+  if x == !0  // !0 => true
+    width 1px
 ```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  color: #f44336;
+  width: 1px;
+}
+```
+
+## 陣列
+
 ```styl
-colors()
-  #F44336 #E91E63
+$colors = #F44336, #E91E63
 
 .foo
-  color colors[0]
+  color $colors[0]
 ```
 :point_up: 編譯前後 :point_down:
 ```css
@@ -360,23 +407,7 @@ colors()
 
 ***
 
-```styl
-add(x, y)
-  unit(x + y, px)
-
-plus = add
-
-.foo
-  width plus(1, 2)
-```
-:point_up: 編譯前後 :point_down:
-```css
-.foo {
-  width: 3px;
-}
-```
-
-***
+## 媒體查詢
 
 ```styl
 .widget
@@ -393,6 +424,26 @@ plus = add
   .widget {
     padding: 20px;
   }
+}
+```
+
+***
+
+## 函式
+
+```styl
+add(x, y)
+  unit(x + y, px)
+
+plus = add
+
+.foo
+  width plus(1, 2)
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  width: 3px;
 }
 ```
 
@@ -523,23 +574,7 @@ hash = (one 1)(two 2)(three 3)
 
 ***
 
-```styl
-x = true
-
-.foo
-  color #F44336
-  if x == !0  // !0 => true
-    width 1px
-```
-:point_up: 編譯前後 :point_down:
-```css
-.foo {
-  color: #f44336;
-  width: 1px;
-}
-```
-
-***
+## 繼承
 
 ```styl
 .foo
@@ -596,10 +631,10 @@ $foo
   border 1px solid #EEEEEE
 
 .bar
-  @extends $foo
+  @extends $foo  // 注意有加 `s`
 
 .baz
-  @extends $foo
+  @extends $foo  // 注意有加 `s`
 ```
 :point_up: 編譯前後 :point_down:
 ```css
