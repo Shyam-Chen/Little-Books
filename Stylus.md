@@ -27,6 +27,7 @@ Stylus CSS Modules with Rollup.
 * [函式](#函式)
 * [繼承](#繼承)
 * [迭代器](#迭代器)
+* [轉義](#轉義)
 
 ***
 
@@ -194,6 +195,30 @@ bar(x)
 ```
 
 ***
+
+代理屬性
+
+```styl
+width(x)
+  width x
+
+.foo
+  width(10rem)
+```
+
+```styl
+width(x)
+  width x
+
+.foo
+  width 10rem
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  width: 10rem;
+}
+```
 
 ## 屬性查找
 
