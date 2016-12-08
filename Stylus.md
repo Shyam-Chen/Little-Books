@@ -14,7 +14,6 @@
 * [媒體查詢](#媒體查詢)
 * [運算子](#運算子)
 * [函式](#函式)
-* [內建函式](#內建函式)
 * [繼承](#繼承)
 * [迭代器](#迭代器)
 * [轉義](#轉義)
@@ -560,7 +559,7 @@ $colors = #F44336 #E91E63
 
 ```styl
 $colors = #F44336 #E91E63
-push($colors, #9C27B0)
+push($colors, #9C27B0)  // 現在 [#F44336, #E91E63, #9C27B0]
 
 .foo
   color $colors[2]
@@ -749,9 +748,9 @@ invoke(a, b, fn)
 
 ```styl
 get(hash, key)
-  return pair[1] if pair[0] == key for pair in hash
+  return pair[1] if pair[0] is key for pair in hash
 
-hash = (one 1)(two 2)(three 3)
+hash = (one 1) (two 2) (three 3)
 
 .foo
   width get(hash, three)
@@ -769,9 +768,29 @@ hash = (one 1)(two 2)(three 3)
 }
 ```
 
-## 內建函式
+***
 
-顏色
+剩餘參數
+
+```styl
+text-shadow(x...)
+  text-shadow x
+  font-size 1.75rem
+
+.foo
+  text-shadow 1px 1px #bbb, 2px 2px #ddd
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  text-shadow: 1px 1px #bbb, 2px 2px #ddd;
+  font-size: 1.75rem;
+}
+```
+
+***
+
+顏色的函式
 
 ```styl
 red()
