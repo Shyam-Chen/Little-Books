@@ -12,7 +12,9 @@
 * [條件式](#條件式)
 * [陣列](#陣列)
 * [媒體查詢](#媒體查詢)
+* [運算子](#運算子)
 * [函式](#函式)
+* [內建函式](#內建函式)
 * [繼承](#繼承)
 * [迭代器](#迭代器)
 * [轉義](#轉義)
@@ -517,7 +519,7 @@ $x = true
 
 .foo
   color #F44336
-  if $x == !0  // !0 => true
+  if $x is !0
     width 1px
 ```
 :point_up: 編譯前後 :point_down:
@@ -552,6 +554,31 @@ $colors = #F44336 #E91E63
 }
 ```
 
+***
+
+陣列方法
+
+```styl
+$colors = #F44336 #E91E63
+push($colors, #9C27B0)
+
+.foo
+  color $colors[2]
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  color: #9c27b0;
+}
+```
+
+```styl
+pop()
+shift()
+unshift()
+index()
+```
+
 ## 媒體查詢
 
 ```styl
@@ -579,6 +606,22 @@ $colors = #F44336 #E91E63
     padding: 20px;
   }
 }
+```
+
+## 運算子
+
+```styl
+!0  // true
+```
+
+範圍
+
+```styl
+1..5  // 1 2 3 4 5
+
+1...5  // 1 2 3 4
+
+5..1  // 5 4 3 2 1
 ```
 
 ## 函式
@@ -724,6 +767,24 @@ hash = (one 1)(two 2)(three 3)
 .bar {
   width: 1;
 }
+```
+
+## 內建函式
+
+顏色
+
+```styl
+red()
+green()
+blue()
+alpha()
+
+hue()
+saturation()
+lightness()
+
+dark()
+light()
 ```
 
 ## 繼承
