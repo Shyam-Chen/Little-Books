@@ -1,17 +1,5 @@
 # Stylus
 
-`_variables.styl`
-
-`_mixins.styl`
-
-`_functions.styl`
-
-`main.styl`
-
-Rucksack (CSS superpowers) with PostStylus.
-
-Stylus CSS Modules with Rollup.
-
 ### 目錄
 * [簡寫](#簡寫)
 * [變數](#變數)
@@ -102,10 +90,48 @@ $bar = #F44336
 
 ## 巢狀
 
+選擇器的使用
+
 ```styl
 .foo
   border 1px solid #eee
+  .bar
+    color #F44336
+```
+
+使用 And 符號 `&`
+
+```
+.foo
+  border 1px solid #eee
+  & .bar
+    color #F44336
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  border: 1px solid #eee;
+}
+.foo .bar {
+  color: #f44336;
+}
+```
+
+***
+
+使用其它選擇器
+
+```
+.foo
+  border 1px solid #eee
   > .bar
+    color #F44336
+```
+
+```
+.foo
+  border 1px solid #eee
+  & > .bar
     color #F44336
 ```
 :point_up: 編譯前後 :point_down:
@@ -119,6 +145,28 @@ $bar = #F44336
 ```
 
 ***
+
+把 And 符號 `&` 用在後面
+
+```styl
+a
+  border 1px solid #eee
+  .foo &
+    color #F44336
+```
+:point_up: 編譯前後 :point_down:
+```css
+a {
+  border: 1px solid #eee;
+}
+.foo a {
+  color: #f44336;
+}
+```
+
+***
+
+像是一些 CSS 的架構 OOCSS、SMACSS 和 BEM 就會需要這麼做了
 
 ```styl
 .foo
@@ -138,6 +186,29 @@ $bar = #F44336
 ```
 
 ***
+
+換成 CSS Modules，CSS Modules 和前面提到的三個不同，它已經有自己的區域了
+
+```styl
+.foo
+  &A
+    color #F44336
+  &B
+    color #E91E63
+```
+:point_up: 編譯前後 :point_down:
+```css
+.fooA {
+  color: #f44336;
+}
+.fooB {
+  color: #e91e63;
+}
+```
+
+***
+
+更深層的巢狀
 
 ```styl
 .foo
@@ -169,8 +240,6 @@ $bar = #F44336
 }
 ```
 
-***
-
 ## 混入
 
 ```styl
@@ -180,6 +249,9 @@ bar()
 .foo
   bar()
 ```
+
+設定引數
+
 ```styl
 bar(x)
   color x
@@ -206,6 +278,8 @@ width(x)
   width(10rem)
 ```
 
+括號 `()` 省略就和原本屬性名稱一樣了
+
 ```styl
 width(x)
   width x
@@ -221,6 +295,10 @@ width(x)
 ```
 
 ***
+
+處理瀏覽器前綴
+
+不過我們能透過 `PostStylus` 使用 `Rucksack` 啟用 `Autoprefixer` 來幫助我們加入前綴。
 
 ```styl
 flex(x)
@@ -242,9 +320,9 @@ flex(x)
 }
 ```
 
-不過我們能透過 `PostStylus` 使用 `Rucksack` 來幫我們加入前綴。
-
 ## 屬性查找
+
+`@` 即 `this`
 
 ```styl
 .foo
@@ -384,6 +462,8 @@ $foo = {
   {$foo}
 ```
 
+省略大括號 `{}`、冒號 `:` 和逗號 `,`，這樣就像巢狀的用法
+
 ```styl
 $foo =
   color #F44336
@@ -441,11 +521,11 @@ if overload-padding = true
 ***
 
 ```styl
-x = true
+$x = true
 
 .foo
   color #F44336
-  if x == !0  // !0 => true
+  if $x == !0  // !0 => true
     width 1px
 ```
 :point_up: 編譯前後 :point_down:
@@ -465,10 +545,7 @@ $colors = #F44336, #E91E63
   color $colors[0]
 ```
 
-建議把逗號 `,` 省略。
-
-為什麼要省略逗號?
-> 因為配合迭代器的使用，使用逗號會讓迭代器無法正常執行
+把逗號 `,` 省略
 
 ```styl
 $colors = #F44336 #E91E63
@@ -490,7 +567,16 @@ $colors = #F44336 #E91E63
 ```styl
 .widget
   padding 10px
-  @media screen and (min-width: 600px)
+  @media screen and (min-width 600px)
+    padding 20px
+```
+
+把 `and` 換成 `&&`
+
+```styl
+.widget
+  padding 10px
+  @media screen && (min-width 600px)
     padding 20px
 ```
 :point_up: 編譯前後 :point_down:
@@ -513,10 +599,10 @@ $colors = #F44336 #E91E63
 add(x, y)
   unit(x + y, px)
 
-plus = add
+$plus = add
 
 .foo
-  width plus(1, 2)
+  width $plus(1, 2)
 ```
 :point_up: 編譯前後 :point_down:
 ```css
@@ -583,6 +669,8 @@ subtract(a, b)
 ```
 
 ***
+
+為引數加上預設參數
 
 ```styl
 subtract(a = 2, b)
@@ -654,6 +742,8 @@ hash = (one 1)(two 2)(three 3)
 
 ## 繼承
 
+繼承類別
+
 ```styl
 .foo
   padding .5rem 1rem
@@ -677,6 +767,10 @@ hash = (one 1)(two 2)(three 3)
 
 ***
 
+繼承多個類別
+
+`@extend` 和 `@extenda` 是相同的
+
 ```styl
 .foo
   padding .5rem 1rem
@@ -686,7 +780,7 @@ hash = (one 1)(two 2)(three 3)
   color #F44336
 
 .baz
-  @extend .foo, .bar
+  @extends .foo, .bar
 ```
 :point_up: 編譯前後 :point_down:
 ```css
@@ -709,10 +803,10 @@ $foo
   border 1px solid #EEEEEE
 
 .bar
-  @extends $foo  // 注意有加 `s`
+  @extends $foo
 
 .baz
-  @extends $foo  // 注意有加 `s`
+  @extends $foo
 ```
 :point_up: 編譯前後 :point_down:
 ```css
@@ -755,11 +849,11 @@ $foo
   border 1px solid #EEEEEE
 
 .bar
-  @extends .foo
+  @extend .foo
   color #F44336
 
 .baz
-  @extends .bar
+  @extend .bar
   background #F44336
 ```
 :point_up: 編譯前後 :point_down:
@@ -839,6 +933,8 @@ $foo
 
 ***
 
+迭代器不會用於 CSS 的屬性，大多會放在函式裡，迭代某個數值
+
 ```styl
 // 變數
 $color = #3F51B5
@@ -882,14 +978,4 @@ long-shadow($color)
   padding: 0.5rem;
   padding: 0.5rem;
 }
-```
-
-***
-
-```styl
-
-```
-:point_up: 編譯前後 :point_down:
-```css
-
 ```
