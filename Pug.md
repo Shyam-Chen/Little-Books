@@ -4,6 +4,10 @@
 * [簡寫](#簡寫)
 * [註解](#註解)
 * [繼承](#繼承)
+* [包含](#包含)
+* [混入](#混入)
+* [條件式](#條件式)
+* [迭代器](#迭代器)
 
 ***
 
@@ -221,23 +225,6 @@ ul
 ***
 
 ```pug
-- let x = 0
-case x
-  when 0
-    p foo
-  when 1
-    p bar
-  default
-    p baz
-```
-:point_up: 編譯前後 :point_down:
-```html
-<p>foo</p>
-```
-
-***
-
-```pug
 a(href='/foo', title='foo') Foo
 ```
 ```pug
@@ -272,17 +259,6 @@ p.
 ***
 
 ```pug
-- let x = true
-p(class=x ? 'foo' : 'bar')
-```
-:point_up: 編譯前後 :point_down:
-```html
-<p class="foo"></p>
-```
-
-***
-
-```pug
 p(style={ color: 'red', 'background-color': 'green' })
 ```
 :point_up: 編譯前後 :point_down:
@@ -292,39 +268,14 @@ p(style={ color: 'red', 'background-color': 'green' })
 
 ***
 
+這不安全
+
 ```pug
 p(data-foo='foo')&attributes({ 'data-bar': 'bar' })
 ```
 :point_up: 編譯前後 :point_down:
 ```html
 <p data-foo="foo" data-bar="bar"></p>
-```
-
-***
-
-```pug
-- for (let x = 0; x < 3; x++)
-  p ${x + 1}. item
-```
-:point_up: 編譯前後 :point_down:
-```html
-<p>1. item</p>
-<p>2. item</p>
-<p>3. item</p>
-```
-
-***
-
-```pug
-- const list = ['foo', 'bar', 'baz']
-each item in list
-  p= item
-```
-:point_up: 編譯前後 :point_down:
-```html
-<p>foo</p>
-<p>bar</p>
-<p>baz</p>
 ```
 
 ***
@@ -386,10 +337,61 @@ block content
 
 ***
 
-```pug
+## 包含
 
+## 混入
+
+## 條件式
+
+```pug
+- let x = true
+p(class=x ? 'foo' : 'bar')
 ```
 :point_up: 編譯前後 :point_down:
 ```html
+<p class="foo"></p>
+```
 
+***
+
+```pug
+- let x = 0
+case x
+  when 0
+    p foo
+  when 1
+    p bar
+  default
+    p baz
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>foo</p>
+```
+
+## 迭代器
+
+```pug
+- for (let x = 0; x < 3; x++)
+  p ${x + 1}. item
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>1. item</p>
+<p>2. item</p>
+<p>3. item</p>
+```
+
+***
+
+```pug
+- const list = ['foo', 'bar', 'baz']
+each item in list
+  p= item
+```
+:point_up: 編譯前後 :point_down:
+```html
+<p>foo</p>
+<p>bar</p>
+<p>baz</p>
 ```
