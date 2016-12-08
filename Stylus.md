@@ -98,7 +98,7 @@ $bar = #F44336
 
 使用 And 符號 `&`
 
-```
+```styl
 .foo
   border 1px solid #eee
   & .bar
@@ -118,14 +118,14 @@ $bar = #F44336
 
 使用其它選擇器
 
-```
+```styl
 .foo
   border 1px solid #eee
   > .bar
     color #F44336
 ```
 
-```
+```styl
 .foo
   border 1px solid #eee
   & > .bar
@@ -977,28 +977,6 @@ $foo
 
 ***
 
-數值循環
-
-```styl
-.foo
-  for value in 1..7
-    FOO value
-```
-:point_up: 編譯前後 :point_down:
-```css
-.foo {
-  FOO: 1;
-  FOO: 2;
-  FOO: 3;
-  FOO: 4;
-  FOO: 5;
-  FOO: 6;
-  FOO: 7;
-}
-```
-
-***
-
 迭代器不會用於 CSS 的屬性，大多會放在函式裡，迭代某個數值
 
 ```styl
@@ -1009,8 +987,10 @@ $length = 10
 
 // 函式
 shadow-value($color)
+  // 迭代器
   for $i in 1..$length
     $value = $value, unit($i, px) unit($i, px) $color
+
   return $value
 
 // 混入
