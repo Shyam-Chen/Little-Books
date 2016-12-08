@@ -1058,6 +1058,8 @@ table tr:nth-child(5) {
 
 ## 比較
 
+在這裡比較最為常用的變數與巢狀
+
 CSS.Next
 
 ```css
