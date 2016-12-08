@@ -6,7 +6,7 @@
 * [巢狀](#巢狀)
 * [混入](#混入)
 * [屬性查找](#屬性查找)
-* [自訂選擇器](#自訂選擇器)
+* [插值](#插值)
 * [註解](#註解)
 * [物件](#物件)
 * [條件式](#條件式)
@@ -58,8 +58,6 @@ Stylus 可以讓我們把大括號 `{}` 省略
 }
 ```
 
-***
-
 ## 變數
 
 ```styl
@@ -85,8 +83,6 @@ $bar = #F44336
   color: #f44336;
 }
 ```
-
-***
 
 ## 巢狀
 
@@ -390,9 +386,9 @@ width()
 }
 ```
 
-***
+## 插值
 
-## 自訂選擇器
+自訂選擇器名
 
 ```styl
 $some-selectors = '.foo, .bar, .baz'
@@ -409,7 +405,7 @@ $some-selectors = '.foo, .bar, .baz'
 }
 ```
 
-***
+後面還會有其它插值使用的地方
 
 ## 註解
 
@@ -445,8 +441,6 @@ $some-selectors = '.foo, .bar, .baz'
  */
 .foo{color:#f44336}
 ```
-
-***
 
 ## 物件
 
@@ -498,8 +492,6 @@ $foo = @block {
   padding: 0;
 }
 ```
-
-***
 
 ## 條件式
 
@@ -560,8 +552,6 @@ $colors = #F44336 #E91E63
 }
 ```
 
-***
-
 ## 媒體查詢
 
 ```styl
@@ -590,8 +580,6 @@ $colors = #F44336 #E91E63
   }
 }
 ```
-
-***
 
 ## 函式
 
@@ -737,8 +725,6 @@ hash = (one 1)(two 2)(three 3)
   width: 1;
 }
 ```
-
-***
 
 ## 繼承
 
@@ -958,6 +944,33 @@ long-shadow($color)
 ```css
 .foo {
   text-shadow: 0px 0px #3f51b5, 1px 1px #3949a3, 2px 2px #3949a3, 3px 3px #3949a3, 4px 4px #3949a3, 5px 5px #3949a3, 6px 6px #3949a3, 7px 7px #3949a3, 8px 8px #3949a3, 9px 9px #3949a3, 10px 10px #3949a3;
+}
+```
+
+使用插值
+
+```styl
+table
+  for $row in 1..5
+    tr:nth-child({$row})
+      height 10px * $row
+```
+:point_up: 編譯前後 :point_down:
+```css
+table tr:nth-child(1) {
+  height: 10px;
+}
+table tr:nth-child(2) {
+  height: 20px;
+}
+table tr:nth-child(3) {
+  height: 30px;
+}
+table tr:nth-child(4) {
+  height: 40px;
+}
+table tr:nth-child(5) {
+  height: 50px;
 }
 ```
 
