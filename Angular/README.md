@@ -94,3 +94,5 @@
   * `@ngrx/store-devtools`
   * `@ngrx/effects`
   * `@ngrx/router-store`
+* Internationalization
+* Visualization
