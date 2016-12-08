@@ -33,11 +33,11 @@
   * [內建結構型指令](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/directives.md#內建結構型指令)
   * [自訂指令](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/directives.md#自訂指令)
 * [相依性注入](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md)
-  * [可注入的服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/services.md#可注入的服務)
-  * [服務的相依性](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/services.md#服務的相依性)
-  * [層疊注入器](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/services.md#層疊注入器)
-  * [控制相依性](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/services.md#控制相依性)
-  * [內建服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/services.md#內建服務)
+  * [可注入的服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#可注入的服務)
+  * [服務的相依性](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#服務的相依性)
+  * [層疊注入器](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#層疊注入器)
+  * [控制相依性](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#控制相依性)
+  * [內建服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#內建服務)
 * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
   * [基本應用](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md#基本應用)
   * 服務
@@ -68,7 +68,6 @@
   * 跨站指令碼
   * 跨站請求偽造
 * [工具](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/tools.md)
-  * Angular CLI
   * [模組整合](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/tools.md#模組整合)
   * [自動化建置](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/tools.md#自動化建置)
   * [除錯和剖析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/tools.md#除錯和剖析)
@@ -80,3 +79,18 @@
   * 預先抓取資源
   * 延遲載入資源
   * 伺服端渲染
+
+***
+
+### 番外篇
+* Material
+* Firebase
+  * Authentication
+  * Realtime Database
+  * Storage
+  * Cloud Messaging
+* NgRx
+  * `@ngrx/core` 和 `@ngrx/store`
+  * `@ngrx/store-devtools`
+  * `@ngrx/effects`
+  * `@ngrx/router-store`

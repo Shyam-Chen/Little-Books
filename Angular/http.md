@@ -150,7 +150,7 @@ export class AppComponent {
       .sampleMethod()
       // 操作所發射的物件與通知
       .subscribe(
-        data => this.messages = JSON.stringify(data),  // 資料處理
+        data => this.messages = JSON.stringify(data),  // 成功處理
         err => console.log(err),  // 錯誤處理
         () => console.log('請求結束')  // 完成處理
       );

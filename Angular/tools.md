@@ -24,7 +24,8 @@ $ npm i rollup -g
 export default {
   entry: 'src/main.js',
   dest: 'dist/main.js',
-  format: 'iife'  // 'amd', 'cjs', 'es', 'iife', 'umd'
+  // 可使用的選項：'amd'、'cjs'、'es'、'iife' 和 'umd'，預設是 'es'
+  format: 'iife'  // iife 即 <script> 的意思
 };
 ```
 
@@ -97,7 +98,7 @@ $ npm i gulp -g
 
 ```ts
 // gulpfile.js
-import * as gulp from 'gulp';
+const gulp = require('gulp');
 ```
 
 ```bash
@@ -106,8 +107,8 @@ $ npm i gulp-tslint -D
 
 ```ts
 // gulpfile.js
-import * as gulp from 'gulp';
-import * as tslint from 'gulp-tslint';
+const gulp = require('gulp');
+const tslint = require('gulp-tslint');
 
 gulp.task('tslint', () =>
   gulp.src('./src/**/*.ts')
@@ -124,10 +125,6 @@ $ gulp tslint
 
 ```bash
 $ npm i rollup rollup-stream -D
-```
-
-```
-
 ```
 
 ### 除錯和剖析

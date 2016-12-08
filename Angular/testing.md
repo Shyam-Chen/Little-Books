@@ -8,7 +8,7 @@
 
 #### Codelyzer 簡介
 
-Codelyzer 是 TSLint 的自訂規則部分，用來解析 Angular TypeScript  的專案。
+Codelyzer 是從 TSLint 的自訂規則部分延伸出來的，是用來解析 Angular 專案的。
 
 #### 配置 Codelyzer
 
@@ -23,12 +23,8 @@ $ npm i tslint codelyzer -D
     // 一些 TSLint 的規則在這裡
 
     // Codelyzer 的規則
-    "directive-selector-name": [true, "camelCase"],
-    "component-selector-name": [true, "kebab-case"],
-    "directive-selector-type": [true, "attribute"],
-    "component-selector-type": [true, "element"],
-    "directive-selector-prefix": [true, "at"],  // 前綴是使用 Angular 和 TypeScript 的字首
-    "component-selector-prefix": [true, "at"],  // 前綴是使用 Angular 和 TypeScript 的字首
+    "directive-selector": [true, "attribute", "ap", "camelCase"],  // 前綴是使用 Angular 和 Playground 的字首
+    "component-selector": [true, "element", "ap", "kebab-case"],  // 前綴是使用 Angular 和 Playground 的字首
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
@@ -38,7 +34,7 @@ $ npm i tslint codelyzer -D
     "no-forward-ref": true,
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
-    "pipe-naming": [true, "camelCase", "at"],  // 前綴是使用 Angular 和 TypeScript 的字首
+    "pipe-naming": [true, "camelCase", "ap"],  // 前綴是使用 Angular 和 Playground 的字首
     "component-class-suffix": true,
     "directive-class-suffix": true,
     "import-destructuring-spacing": true,
@@ -52,8 +48,6 @@ $ npm i tslint codelyzer -D
 $ tslint src/**/*.ts
 ```
 
-#### 風格指南
-
 ### 測試入門
 
 ```js
@@ -65,217 +59,7 @@ describe('測試入門', () => {
 ```
 
 ### 單元測試
-```js
-// test-main.js
-if (!Object.hasOwnProperty('name')) {
-  Object.defineProperty(Function.prototype, 'name', {
-    get: function() {
-      var matches = this.toString().match(/^\s*function\s*(\S*)\s*\(/);
-      var name = matches && matches.length > 1 ? matches[1] : "";
-      Object.defineProperty(this, 'name', {value: name});
-      return name;
-    }
-  });
-}
 
-Error.stackTraceLimit = Infinity;
-
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
-
-__karma__.loaded = function() {};
-
-System.config({
-  baseURL: '/base'
-});
-
-System.config({
-  defaultJSExtensions: true,
-  map: {
-    'rxjs': 'node_modules/rxjs',
-    '@angular': 'node_modules/@angular'
-  },
-  packages: {
-    '@angular/common': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/compiler': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/core': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/forms': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/http': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/platform-browser': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/platform-browser-dynamic': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    '@angular/router': {
-      main: 'index.js',
-      defaultExtension: 'js'
-    },
-    'rxjs': {
-      defaultExtension: 'js'
-    }
-  }
-});
-
-Promise
-  .all([
-    System.import('@angular/core/testing'),
-    System.import('@angular/platform-browser-dynamic/testing')
-  ])
-  .then(function (providers) {
-    var testing = providers[0];
-    var testingBrowser = providers[1];
-
-    testing.setBaseTestProviders(
-      testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-      testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
-    );
-  })
-  .then(function() {
-    return Promise.all(
-      Object
-        .keys(window.__karma__.files)
-        .filter(onlySpecFiles)
-        .map(file2moduleName)
-        .map(function(path) {
-          return System.import(path).then(function(module) {
-            if (module.hasOwnProperty('main')) {
-              module.main();
-            } else {
-              throw new Error('Module ' + path + ' does not implement main() method.');
-            }
-          });
-        })
-    );
-  })
-  .then(
-    function() {
-      __karma__.start();
-    },
-    function(error) {
-      console.error(error.stack || error);
-      __karma__.start();
-    }
-  );
-
-function onlySpecFiles(path) {
-  var patternMatched = __karma__.config.files ? path.match(new RegExp(__karma__.config.files)) : true;
-  return patternMatched && /[\.|_]spec\.js$/.test(path);
-}
-
-function file2moduleName(filePath) {
-  return filePath
-    .replace(/\\/g, '/')
-    .replace(/^\/base\//, '')
-    .replace(/\.js$/, '');
-}
-```
-```js
-// karma.conf.js
-module.exports = function(config) {
-  config.set({
-
-    basePath: '',
-
-    frameworks: ['jasmine'],
-
-    files: [
-      // Polyfills.
-      'node_modules/core-js/client/shim.min.js',
-
-      // System.js for module loading
-      'node_modules/systemjs/dist/system-polyfills.js',
-      'node_modules/systemjs/dist/system.src.js',
-
-      // Zone.js dependencies
-      'node_modules/zone.js/dist/zone.js',
-      'node_modules/zone.js/dist/jasmine-patch.js',
-      'node_modules/zone.js/dist/async-test.js',
-      'node_modules/zone.js/dist/fake-async-test.js',
-
-      // RxJs.
-      { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
-      { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
-
-      { pattern: 'test-main.js', included: true, watched: true },
-
-      // paths loaded via module imports
-      // Angular itself
-      { pattern: 'node_modules/@angular/**/*.js', included: false, watched: true },
-      { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: true },
-
-      { pattern: 'dist/**/*.js', included: false, watched: true },
-
-      // paths loaded via Angular's component compiler
-      // (these paths need to be rewritten, see proxies section)
-      { pattern: 'dist/**/*.html', included: false, watched: true },
-      { pattern: 'dist/**/*.css', included: false, watched: true },
-
-      // paths to support debugging with source maps in dev tools
-      { pattern: 'src/**/*.ts', included: false, watched: false },
-      { pattern: 'dist/**/*.js.map', included: false, watched: false }
-    ],
-
-    // proxied base paths
-    proxies: {
-      // required for component assests fetched by Angular's compiler
-      "/app/": "/base/dist/app/"
-    },
-
-    reporters: ['mocha'],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
-  })
-}
-```
-```ts
-import { TestComponentBuilder } from '@angular/core/testing';
-import { Component } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
-export function main() {
-  describe('AppComponent', () => {
-    it('should build without a problem',
-      async(inject([TestComponentBuilder], (testComponentBuilder: TestComponentBuilder) => {
-        testComponentBuilder
-          .createAsync(TestComponent)
-          .then( () => {
-            // ...
-          });
-      })));
-  });
-}
-
-@Component({
-  selector: 'test-component',
-  template: '<app></app>',
-  directives: [AppComponent]
-})
-class TestComponent { }
-```
-
-#### 第一個單元測試
 ```ts
 import { Component } from '@angular/core';
 
@@ -321,7 +105,6 @@ const jasmineSpecReporter = require('jasmine-spec-reporter');
 const config = {
   directConnect: true,
   specs: ['./src/**/*.e2e-spec.ts'],
-  exclude: [],
   capabilities: {
     browserName: 'chrome'
   },
@@ -332,7 +115,6 @@ const config = {
   onPrepare() {
     let SpecReporter = jasmineSpecReporter;
     jasmine.getEnv().addReporter(new SpecReporter({ displayStacktrace: true }));
-
     browser.ignoreSynchronization = false;
   },
   framework: 'jasmine',
@@ -360,7 +142,7 @@ import { Component } from '@angular/core';
   `
 })
 export class HelloE2EComponent {
-  public message: string = '';
+  public message: string;
 
   onClick(): void {
     this.message = 'Hello E2E';
@@ -371,8 +153,8 @@ export class HelloE2EComponent {
 // hello-e2e.component.e2e-spec.ts
 describe('HelloE2EComponent', () => {
 
-  beforeEach(() => {
-    browser.get('/');
+  beforeEach(async () => {
+    return await browser.get('/');
   });
 
   it('should have a content', () => {
@@ -382,7 +164,8 @@ describe('HelloE2EComponent', () => {
 
 });
 ```
+
 ```bash
-$ webdriver-manager update
+$ webdriver-manager update  # 這個只要在安裝完後，執行一次就好
 $ protractor protractor.conf.js
 ```
