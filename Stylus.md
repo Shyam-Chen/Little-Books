@@ -17,6 +17,7 @@
 * [繼承](#繼承)
 * [迭代器](#迭代器)
 * [轉義](#轉義)
+* [比較](#比較)
 
 ***
 
@@ -1050,5 +1051,89 @@ table tr:nth-child(5) {
   padding: 1rem/2;
   padding: 0.5rem;
   padding: 0.5rem;
+}
+```
+
+***
+
+## 比較
+
+CSS.Next
+
+```css
+:root {
+  --red-500: #F44336;
+  --pink-500: #E91E63;
+}
+
+.foo {
+  color: var(--red-500);
+  & .bar {
+    background: var(--pink-500);
+  }
+}
+```
+
+Sass
+
+```sass
+$red-500: #F44336
+$pink-500: #E91E63
+
+.foo
+  color: $red-500
+  .bar
+    background: $pink-500
+```
+
+SCSS
+
+```scss
+$red-500: #F44336;
+$pink-500: #E91E63;
+
+.foo {
+  color: $red-500;
+  .bar {
+    background: $pink-500;
+  }
+}
+```
+
+Less
+
+```less
+@red-500: #F44336;
+@pink-500: #E91E63;
+
+.foo {
+  color: @red-500;
+  .bar {
+    background: @pink-500;
+  }
+}
+```
+
+Stylus
+
+```styl
+$red-500 = #F44336
+$pink-500 = #E91E63
+
+.foo
+  color $red-500
+  .bar
+    background $pink-500
+
+// or
+
+$red-500 = #F44336;
+$pink-500 = #E91E63;
+
+.foo {
+  color: $red-500;
+  .bar {
+    background: $pink-500;
+  }
 }
 ```
