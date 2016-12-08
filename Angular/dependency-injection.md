@@ -161,7 +161,7 @@ export class RedService {
 }
 ```
 ```ts
-import { Component, provide, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 import { RedService } from './red.service';
 
@@ -186,7 +186,7 @@ export class AppComponent {
 
 #### useExisting
 ```ts
-import { Component, provide, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 import { RedService } from './red.service';
 
@@ -212,7 +212,7 @@ export class AppComponent {
 
 #### useValue
 ```ts
-import { Component, provide, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app',
@@ -236,8 +236,11 @@ export class AppComponent {
 ```
 
 #### multi
+
+`multi` 只能用在 `useValue` 上
+
 ```ts
-import { Component, provide, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app',
@@ -269,7 +272,7 @@ export class AppComponent {
 
 #### useFactory
 ```ts
-import { Component, provide, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app',
@@ -291,7 +294,7 @@ export class AppComponent {
 
 #### deps
 ```ts
-import { Component, provide, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app',
@@ -315,7 +318,7 @@ export class AppComponent {
 ### 層疊注入器
 ```ts
 // src/app/random.service.ts
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class RandomService {
@@ -375,8 +378,10 @@ import { RandomService } from './random.service';
   selector: 'app',
   template: `
     <p>{{ message }}</p>
+
     <at-inheritor></at-inheritor>
     <at-inheritor></at-inheritor>
+
     <at-injector></at-injector>
     <at-injector></at-injector>
     <at-injector></at-injector>
@@ -513,7 +518,7 @@ import { Title }     from '@angular/platform-browser';
 })
 export class AppComponent {
   constructor(private title: Title) { }
- 
+
   public setTitle(newTitle: string): void {
     this.title.setTitle(newTitle);
   }
