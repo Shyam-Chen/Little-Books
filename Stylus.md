@@ -845,6 +845,8 @@ light()
 
 `@extend` 和 `@extends` 是相同的
 
+在這裡加個 `s` 單純表示這是繼承多個
+
 ```styl
 .foo
   padding .5rem 1rem
@@ -871,6 +873,10 @@ light()
 
 ***
 
+雖然這個長的很像變數，但是為什麼要加金錢符號 `$`，如果不加 Stylus 會把它當成標籤
+
+不過話說回來這跟混入有什麼差別
+
 ```styl
 $foo
   padding .5rem 1rem
@@ -885,6 +891,19 @@ $foo
 :point_up: 編譯前後 :point_down:
 ```css
 .bar,
+.baz {
+  padding: 0.5rem 1rem;
+  border: 1px solid #eee;
+}
+```
+
+如果是混入，編譯後會分開，不過我們是可以透過 `cssnano` 合併相同的樣式，所以最後結果都是跟上面一樣
+
+```css
+.bar {
+  padding: 0.5rem 1rem;
+  border: 1px solid #eee;
+}
 .baz {
   padding: 0.5rem 1rem;
   border: 1px solid #eee;
