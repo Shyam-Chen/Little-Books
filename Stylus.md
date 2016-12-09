@@ -61,6 +61,33 @@ Stylus 可以讓我們把大括號 `{}` 省略
 }
 ```
 
+***
+
+群組
+
+```styl
+.foo,
+.bar
+  color #F44336
+```
+
+把逗號 ',' 省略
+
+```styl
+.foo
+.bar
+  color #F44336
+```
+
+:point_up: 編譯前後 :point_down:
+
+```css
+.foo,
+.bar {
+  color: #f44336;
+}
+```
+
 ## 變數
 
 ```styl
@@ -319,7 +346,7 @@ width(x)
 
 處理瀏覽器前綴
 
-不過我們能透過 `PostStylus` 使用 `Rucksack` 啟用 `Autoprefixer` 來幫助我們加入前綴。
+不過我們能透過 `PostStylus` 使用 `Rucksack` 啟用 `Autoprefixer` 來幫助我們加入前綴
 
 ```styl
 flex(x)
