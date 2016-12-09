@@ -1034,30 +1034,36 @@ long-shadow($color)
 }
 ```
 
-使用插值
+透過插值表示法對虛擬類別做迭代
 
 ```styl
-table
-  for $row in 1..5
-    tr:nth-child({$row})
-      height 10px * $row
+$color = #3F51B5
+
+li
+  padding .5rem
+  for $i in 1..5
+    &:nth-child({$i})
+      background alpha($color, .1 * $i)
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-table tr:nth-child(1) {
-  height: 10px;
+li {
+  padding: 0.5rem;
 }
-table tr:nth-child(2) {
-  height: 20px;
+li:nth-child(1) {
+  background: rgba(63,81,181,0.1);
 }
-table tr:nth-child(3) {
-  height: 30px;
+li:nth-child(2) {
+  background: rgba(63,81,181,0.2);
 }
-table tr:nth-child(4) {
-  height: 40px;
+li:nth-child(3) {
+  background: rgba(63,81,181,0.3);
 }
-table tr:nth-child(5) {
-  height: 50px;
+li:nth-child(4) {
+  background: rgba(63,81,181,0.4);
+}
+li:nth-child(5) {
+  background: rgba(63,81,181,0.5);
 }
 ```
 
