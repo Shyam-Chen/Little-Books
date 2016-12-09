@@ -6,7 +6,7 @@
 * [巢狀](#巢狀)
 * [混入](#混入)
 * [屬性查找](#屬性查找)
-* [字串](#字串)
+* [插值](#插值)
 * [註解](#註解)
 * [物件](#物件)
 * [條件式](#條件式)
@@ -106,7 +106,9 @@ $bar = #F44336
   & .bar
     color #F44336
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   border: 1px solid #eee;
@@ -133,7 +135,9 @@ $bar = #F44336
   & > .bar
     color #F44336
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   border: 1px solid #eee;
@@ -153,7 +157,9 @@ a
   .foo &
     color #F44336
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 a {
   border: 1px solid #eee;
@@ -178,7 +184,9 @@ a {
   &-baz
     color #E91E63
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo-bar {
   color: #f44336;
@@ -190,7 +198,7 @@ a {
 
 ***
 
-換成 CSS Modules，CSS Modules 和前面提到的三個不同，它已經有自己的區域了，不過在使用的命名會使用駝峰式的
+換成 CSS Modules，CSS Modules 和前面提到的三個不同，它已經有自己的區域了，不過在使用的命名方式是用駝峰式
 
 ```styl
 .foo
@@ -199,7 +207,9 @@ a {
   &Baz
     color #E91E63
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .fooBar {
   color: #f44336;
@@ -222,6 +232,8 @@ a {
       color #E91E63
 ```
 
+使用 `^[num]` 直接指定
+
 ```styl
 .foo
   position fixed
@@ -230,7 +242,9 @@ a {
     & ~ ^[0]-baz
       color #E91E63
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   position: fixed;
@@ -262,7 +276,9 @@ bar(x)
 .foo
   bar(#F44336)
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   color: #f44336;
@@ -290,7 +306,9 @@ width(x)
 .foo
   width 10rem
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   width: 10rem;
@@ -313,7 +331,9 @@ flex(x)
 .foo
   flex 1
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   -webkit-box-flex: 1;
@@ -327,7 +347,7 @@ flex(x)
 
 `@` 即 `this`
 
-不過有些風格指南，建議屬性是按照字母從 `a` ~ `z` 的
+不過有些風格指南，屬性是按照字母從 `a` ~ `z` 的或者按照屬性的模組做排序，這多多少少會影響到 At 符號 `@` 的使用
 
 ```styl
 .foo
@@ -356,7 +376,9 @@ flex(x)
     .baz
       background @color
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   color: #f44336;
@@ -383,7 +405,9 @@ width()
 .bar
   width 30rem
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   width: 30rem;
@@ -395,9 +419,11 @@ width()
 }
 ```
 
-## 字串
+## 插值
 
-Stylus 是使用大括號 `{}` 來做插值的表示
+Stylus 是使用大括號 `{ }` 來做插值的表示
+
+如果碰過其它的框架或模板引擎也都會有插值的表示，例如: `{{ }}`、`<% %>`...
 
 ```styl
 $foo = '.foo'
@@ -409,7 +435,9 @@ $bar = 'color'
 .bar
   {$bar} #F44336
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   color: #f44336;
@@ -432,7 +460,9 @@ $bar = 'color'
  * 多行註解
  */
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 /*
  * foo.styl
@@ -495,7 +525,9 @@ $foo = @block {
 .bar
   {$foo}
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .bar {
   color: #f44336;
@@ -515,7 +547,9 @@ if overload-padding = true
 .foo
   padding 5px
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   margin: 5px;
@@ -532,7 +566,9 @@ $x = true
   if $x is !0
     width 1px
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   color: #f44336;
@@ -557,10 +593,27 @@ $colors = #F44336 #E91E63
 .foo
   color $colors[0]
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   color: #f44336;
+}
+```
+
+***
+
+```styl
+$foo = 'color' 'background'
+
+.bar
+  {$foo[1]} #F44336
+```
+:point_up: 編譯前後 :point_down:
+```css
+.bar {
+  background: #f44336;
 }
 ```
 
@@ -570,7 +623,7 @@ $colors = #F44336 #E91E63
 
 ```styl
 $colors = #F44336 #E91E63
-push($colors, #9C27B0)  // 現在 [#F44336, #E91E63, #9C27B0]
+push($colors, #9C27B0)  // 現在是 [#F44336, #E91E63, #9C27B0]
 
 .foo
   color $colors[2]
@@ -583,6 +636,7 @@ push($colors, #9C27B0)  // 現在 [#F44336, #E91E63, #9C27B0]
 ```
 
 ```styl
+// TODO
 pop()
 shift()
 unshift()
@@ -606,7 +660,9 @@ index()
   @media screen && (min-width 600px)
     padding 20px
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .widget {
   padding: 10px;
@@ -623,6 +679,8 @@ index()
 ```styl
 !0  // true
 ```
+
+***
 
 範圍
 
@@ -645,7 +703,9 @@ $plus = add
 .foo
   width $plus(1, 2)
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   width: 3px;
@@ -653,6 +713,8 @@ $plus = add
 ```
 
 ***
+
+使用區塊 `block`
 
 ```styl
 foo()
@@ -662,7 +724,9 @@ foo()
 +foo()
   color #F44336
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .bar {
   color: #f44336;
@@ -683,7 +747,9 @@ b()
 .foo
   b()
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   display: inline;
@@ -702,7 +768,9 @@ subtract(a, b)
 .foo
   width subtract(a: 25, b: 10)
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   width: 15;
@@ -720,7 +788,9 @@ subtract(a = 2, b)
 .foo
   width subtract(b: 10)
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   width: -8;
@@ -745,7 +815,9 @@ invoke(a, b, fn)
 .bar
   width invoke(5, 10, sub)
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   width: 15;
@@ -769,7 +841,9 @@ hash = (one 1) (two 2) (three 3)
 .bar
   width get(hash, one)
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   width: 3;
@@ -791,7 +865,9 @@ text-shadow(x...)
 .foo
   text-shadow 1px 1px #bbb, 2px 2px #ddd
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   text-shadow: 1px 1px #bbb, 2px 2px #ddd;
@@ -804,6 +880,7 @@ text-shadow(x...)
 顏色的函式
 
 ```styl
+// TODO
 red()
 green()
 blue()
@@ -830,7 +907,9 @@ light()
   @extend .foo
   color #F44336
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo,
 .bar {
@@ -861,7 +940,9 @@ light()
 .baz
   @extends .foo, .bar
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo,
 .baz {
@@ -891,7 +972,9 @@ $foo
 .baz
   @extends $foo
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .bar,
 .baz {
@@ -925,7 +1008,9 @@ $foo
 .baz
   @extend .foo > .bar
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   padding: 0.5rem 1rem;
@@ -952,7 +1037,9 @@ $foo
   @extend .bar
   background #F44336
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo,
 .bar,
@@ -976,14 +1063,16 @@ $foo
 ```styl
 .foo
   for value in A B C
-    FOO value
+    PROPERTY value
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
-  FOO: A;
-  FOO: B;
-  FOO: C;
+  PROPERTY: A;
+  PROPERTY: B;
+  PROPERTY: C;
 }
 ```
 
@@ -994,14 +1083,16 @@ $foo
 ```styl
 .foo
   for value, key in A B C
-    FOO key value
+    PROPERTY key value
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
-  FOO: 0 A;
-  FOO: 1 B;
-  FOO: 2 C;
+  PROPERTY: 0 A;
+  PROPERTY: 1 B;
+  PROPERTY: 2 C;
 }
 ```
 
@@ -1030,7 +1121,9 @@ long-shadow($color)
 .foo
   long-shadow(darken($color, 10%))
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   text-shadow: 0px 0px #3f51b5, 1px 1px #3949a3, 2px 2px #3949a3, 3px 3px #3949a3, 4px 4px #3949a3, 5px 5px #3949a3, 6px 6px #3949a3, 7px 7px #3949a3, 8px 8px #3949a3, 9px 9px #3949a3, 10px 10px #3949a3;
@@ -1050,7 +1143,9 @@ li
     &:nth-child({$i})
       background alpha($color, .1 * $i)
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 li {
   padding: 0.5rem;
@@ -1082,7 +1177,9 @@ li:nth-child(5) {
   padding (1rem / 2)
   padding unit(1 / 2, rem)
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   padding: 1rem/2;
@@ -1099,7 +1196,9 @@ li:nth-child(5) {
 .foo
   color calc(#F44336 \+ #111)  // `calc()` 是未來的 CSS
 ```
+
 :point_up: 編譯前後 :point_down:
+
 ```css
 .foo {
   color: calc(#f44336 + #111);
