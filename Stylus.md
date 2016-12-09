@@ -18,6 +18,7 @@
 * [迭代器](#迭代器)
 * [轉義](#轉義)
 * [比較](#比較)
+* [靜態分析](#靜態分析)
 
 ***
 
@@ -321,6 +322,8 @@ flex(x)
 ## 屬性查找
 
 `@` 即 `this`
+
+不過有些風格指南，建議屬性是按照字母從 `a` ~ `z` 的
 
 ```styl
 .foo
@@ -701,7 +704,7 @@ subtract(a, b)
 
 ***
 
-為引數加上預設參數
+加上預設參數
 
 ```styl
 subtract(a = 2, b)
@@ -836,7 +839,7 @@ light()
 
 繼承多個類別
 
-`@extend` 和 `@extenda` 是相同的
+`@extend` 和 `@extends` 是相同的
 
 ```styl
 .foo
@@ -1150,5 +1153,46 @@ $pink-500 = #E91E63;
   .bar {
     background: $pink-500;
   }
+}
+```
+
+## 靜態分析
+
+```js
+// .stylintrc
+{
+  "blocks": false,
+  "brackets": "never",
+  "colons": "never",
+  "colors": "always",
+  "commaSpace": "always",
+  "commentSpace": "always",
+  "cssLiteral": "never",
+  "depthLimit": false,
+  "duplicates": true,
+  "efficient": "always",
+  "extendPref": false,
+  "globalDupe": false,
+  "indentPref": false,
+  "leadingZero": "never",
+  "maxErrors": false,
+  "maxWarnings": false,
+  "mixed": false,
+  "namingConvention": false,
+  "namingConventionStrict": false,
+  "none": "never",
+  "noImportant": true,
+  "parenSpace": false,
+  "placeholders": "always",
+  "prefixVarsWithDollar": "always",
+  "quotePref": false,
+  "semicolons": "never",
+  "sortOrder": "false",
+  "stackedProperties": "never",
+  "trailingWhitespace": "never",
+  "universal": false,
+  "valid": false,
+  "zeroUnits": "never",
+  "zIndexNormalize": false
 }
 ```
