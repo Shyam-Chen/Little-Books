@@ -167,40 +167,44 @@ a {
 
 像是一些 CSS 的架構 OOCSS、SMACSS 和 BEM 就會需要這麼做了
 
+這些架構的共同點都是會有區塊的
+
+這裡的 `.foo` 就是一個區塊
+
 ```styl
 .foo
-  &-a
+  &-bar
     color #F44336
-  &-b
+  &-baz
     color #E91E63
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-.foo-a {
+.foo-bar {
   color: #f44336;
 }
-.foo-b {
+.foo-baz {
   color: #e91e63;
 }
 ```
 
 ***
 
-換成 CSS Modules，CSS Modules 和前面提到的三個不同，它已經有自己的區域了
+換成 CSS Modules，CSS Modules 和前面提到的三個不同，它已經有自己的區域了，不過在使用的命名會使用駝峰式的
 
 ```styl
 .foo
-  &A
+  &Bar
     color #F44336
-  &B
+  &Baz
     color #E91E63
 ```
 :point_up: 編譯前後 :point_down:
 ```css
-.fooA {
+.fooBar {
   color: #f44336;
 }
-.fooB {
+.fooBaz {
   color: #e91e63;
 }
 ```
