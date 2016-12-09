@@ -1060,7 +1060,7 @@ table tr:nth-child(5) {
 
 在這裡比較最為常用的**變數**與**巢狀**
 
-cssnext (以 `.css` 為副檔名)
+cssnext (以 `.css` 為副檔名，注意這個是**規範**)
 
 ```css
 :root {
