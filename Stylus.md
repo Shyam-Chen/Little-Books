@@ -920,7 +920,7 @@ $foo
     color #F44336
 
 .baz
-  @extends .foo > .bar
+  @extend .foo > .bar
 ```
 :point_up: 編譯前後 :point_down:
 ```css
@@ -1004,7 +1004,7 @@ $foo
 
 ***
 
-迭代器不會用於 CSS 的屬性，大多會放在函式裡，迭代某個數值
+迭代器不會用於同個樣式的同屬性，大多會放在函式裡，迭代某個數值
 
 ```styl
 // 變數
@@ -1065,6 +1065,8 @@ table tr:nth-child(5) {
 
 ## 轉義
 
+如果要連單位一起做運算，記得加個括號 `()`，不然就會被轉義了
+
 ```styl
 .foo
   padding 1rem / 2
@@ -1082,11 +1084,26 @@ table tr:nth-child(5) {
 
 ***
 
+如果真的想要轉義可以使用反斜線 `\` 表示
+
+```styl
+.foo
+  color calc(#F44336 \+ #111)  // `calc()` 是未來的 CSS
+```
+:point_up: 編譯前後 :point_down:
+```css
+.foo {
+  color: calc(#f44336 + #111);
+}
+```
+
+***
+
 ## 比較
 
 在這裡比較最為常用的**變數**與**巢狀**
 
-cssnext (以 `.css` 為副檔名，注意這個是**規範**)
+CSS (以 `.css` 為副檔名)
 
 ```css
 :root {
