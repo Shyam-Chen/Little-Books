@@ -1058,9 +1058,9 @@ table tr:nth-child(5) {
 
 ## 比較
 
-在這裡比較最為常用的變數與巢狀
+在這裡比較最為常用的**變數**與**巢狀**
 
-CSS.Next
+cssnext (以 `.css` 為副檔名)
 
 ```css
 :root {
@@ -1076,7 +1076,20 @@ CSS.Next
 }
 ```
 
-Sass
+SugarSS (以 `.sss` 為副檔名)
+
+```sss
+:root
+  --red-500: #F44336
+  --pink-500: #E91E63
+
+.foo
+  color: var(--red-500)
+  & .bar
+    background: var(--pink-500)
+```
+
+Sass (以 `.sass` 為副檔名)
 
 ```sass
 $red-500: #F44336
@@ -1088,7 +1101,7 @@ $pink-500: #E91E63
     background: $pink-500
 ```
 
-SCSS
+SCSS (以 `.scss` 為副檔名)
 
 ```scss
 $red-500: #F44336;
@@ -1102,7 +1115,7 @@ $pink-500: #E91E63;
 }
 ```
 
-Less
+Less (以 `.less` 為副檔名)
 
 ```less
 @red-500: #F44336;
@@ -1116,7 +1129,7 @@ Less
 }
 ```
 
-Stylus
+Stylus (以 `.styl` 為副檔名)
 
 ```styl
 $red-500 = #F44336
