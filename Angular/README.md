@@ -84,15 +84,19 @@
 
 ### 番外篇
 * Material
+  * Layout Management
+  * Themes
+  * Accessibility
+  * Design Patterns
 * Firebase
   * Authentication
   * Realtime Database
   * Storage
   * Cloud Messaging
 * NgRx
-  * `@ngrx/core` 和 `@ngrx/store`
-  * `@ngrx/store-devtools`
-  * `@ngrx/effects`
-  * `@ngrx/router-store`
+  * Store
+  * Dev Tools
+  * Effects
+  * Router
 * Internationalization
 * Visualization

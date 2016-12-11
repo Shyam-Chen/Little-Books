@@ -9,4 +9,4 @@
 * [Stylus - CSS 前置處理器](https://github.com/Shyam-Chen/Little-Books/blob/master/Stylus.md)
 * [TypeScript - JS 超集](https://github.com/Shyam-Chen/Little-Books/blob/master/TypeScript.md)
 
-底層技術: HTML/CSS/JS
+底層技術：HTML、CSS 和 JS
