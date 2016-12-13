@@ -100,5 +100,10 @@
   * Realtime Database
   * Storage
   * Cloud Messaging
-* Internationalization
+* Globalization
+  * Translate and Intl
+  * Localize Router
 * Data Visualization
+  * Line and Bar
+  * Pie and Doughnut
+  * Radar and Polar Area
