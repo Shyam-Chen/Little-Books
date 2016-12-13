@@ -83,20 +83,17 @@
 ***
 
 ### 番外篇
-* Material
-  * Layout Management
-  * Themes
-  * Accessibility
-  * Design Patterns
+* RxJS
+  * [Single]()
+* NgRx
+  * Store
+  * Effects
+  * Dev Tools
+* Material  
 * Firebase
   * Authentication
   * Realtime Database
   * Storage
   * Cloud Messaging
-* NgRx
-  * Store
-  * Dev Tools
-  * Effects
-  * Router
 * Internationalization
 * Visualization

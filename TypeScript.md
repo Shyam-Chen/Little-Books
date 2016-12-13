@@ -20,7 +20,7 @@
 * [混入](#混入)
 * [合併宣告](#合併宣告)
 * [承諾](#承諾)
-* [產生器](#產生器)
+* [迭代器與產生器](#迭代器與產生器)
 * [非同步與等待](#非同步與等待)
 * [修飾器](#修飾器)
 
@@ -813,6 +813,7 @@ const box: Box = { height: 5, width: 6, scale: 10 };
 ```
 
 ## 承諾
+
 ```ts
 const foo = () => {
   console.log(1);
@@ -833,6 +834,8 @@ foo().then(() => console.log(4));
 // 4
 ```
 
+平行
+
 ```ts
 Promise.all([
     p1(), p2()
@@ -842,6 +845,8 @@ Promise.all([
     console.log(data[1]);  // p2 結果
   });
 ```
+
+平行且競賽
 
 ```ts
 Promise.race([
@@ -853,7 +858,8 @@ Promise.race([
   });
 ```
 
-## 產生器
+## 迭代器與產生器
+
 ```ts
 function *foo(x) {
   let y = x * (yield);
