@@ -84,16 +84,21 @@
 
 ### 番外篇
 * RxJS
-  * [Single]()
+  * Subject
+  * Scheduler
+  * Operators
 * NgRx
   * Store
   * Effects
   * Dev Tools
-* Material  
+* Material
+  * Layout
+  * Elements
+  * Themes
 * Firebase
   * Authentication
   * Realtime Database
   * Storage
   * Cloud Messaging
 * Internationalization
-* Visualization
+* Data Visualization
