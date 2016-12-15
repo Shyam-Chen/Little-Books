@@ -18,7 +18,7 @@
 * [迭代器](#迭代器)
 * [轉義](#轉義)
 * [比較](#比較)
-* [靜態分析](#靜態分析)
+* [風格指南](#風格指南)
 
 ***
 
@@ -741,7 +741,7 @@ $plus = add
 
 ***
 
-使用區塊 `block`
+使用 `block`
 
 ```styl
 foo()
@@ -1331,7 +1331,7 @@ $pink-500 = #E91E63;
 }
 ```
 
-## 靜態分析
+## 風格指南
 
 ```js
 // .stylintrc
@@ -1346,13 +1346,16 @@ $pink-500 = #E91E63;
   "depthLimit": false,
   "duplicates": true,
   "efficient": "always",
+  "exclude": [],
   "extendPref": false,
   "globalDupe": false,
+  "groupOutputByFile": true,
   "indentPref": false,
   "leadingZero": "never",
   "maxErrors": false,
   "maxWarnings": false,
   "mixed": false,
+  "mixins": [],
   "namingConvention": false,
   "namingConventionStrict": false,
   "none": "never",
@@ -1361,6 +1364,12 @@ $pink-500 = #E91E63;
   "placeholders": "always",
   "prefixVarsWithDollar": "always",
   "quotePref": false,
+  "reporterOptions": {
+    "columns": ["lineData", "severity", "description", "rule"],
+    "columnSplitter": "  ",
+    "showHeaders": false,
+    "truncate": true
+  },
   "semicolons": "never",
   "sortOrder": "false",
   "stackedProperties": "never",
