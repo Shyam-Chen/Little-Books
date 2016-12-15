@@ -38,10 +38,6 @@
   * [層疊注入器](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#層疊注入器)
   * [控制相依性](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#控制相依性)
   * [內建服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#內建服務)
-* [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
-  * [基本應用](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md#基本應用)
-  * 服務
-  * 元件檢視層
 * [HTTP](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/http.md)
   * [Get](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/http.md#get)
   * [Post](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/http.md#post)
@@ -76,14 +72,16 @@
   * [樹搖優化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/best-practices.md#樹搖優化)
   * 壓縮
   * 快取
-  * 預先抓取資源
-  * 延遲載入資源
+  * 預先抓取
+  * 延遲載入
   * 伺服端渲染
 
 ***
 
 ### 番外篇
-* RxJS
+* Lodash
+* ReactiveX
+  * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/ReactiveX/observables.md)
   * Subject
   * Scheduler
   * Operators
