@@ -2,7 +2,7 @@
 
 ### 目錄
 * [第一個應用程式](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md)
-  * [Angular 簡介](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md#angular-簡介)
+  * [簡介](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md#angular-簡介)
   * [設定環境](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md#設定環境)
   * [開始使用](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md#開始使用)
   * [整體的架構](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md#整體的架構)
@@ -78,8 +78,8 @@
 
 ***
 
-### 番外篇
-* Lodash
+### 番外
+* ---------- **進階** ----------
 * ReactiveX
   * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/ReactiveX/observables.md)
   * Subject
@@ -89,15 +89,18 @@
   * Store
   * Effects
   * Dev Tools
+* ---------- **UI 元件** ----------  
 * Material
   * Layout
   * Elements
   * Themes
+* ---------- **後端服務** ----------  
 * Firebase
   * Authentication
   * Realtime Database
   * Storage
   * Cloud Messaging
+* ---------- **依需求** ----------  
 * Globalization
   * Translate and Intl
   * Localize Router
@@ -105,3 +108,6 @@
   * Line and Bar
   * Pie and Doughnut
   * Radar and Polar Area
+* ---------- **輔助性** ----------
+* Lodash
+* Analytics

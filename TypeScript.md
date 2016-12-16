@@ -29,7 +29,7 @@
 ## 快速入門
 ```bash
 # 安裝 ts-node 與 typescript
-$ npm i ts-node typescript@2 -g
+$ npm i ts-node typescript -g
 
 # 建立練習檔
 $ touch script.ts

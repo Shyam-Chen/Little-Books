@@ -1128,20 +1128,15 @@ $foo
 迭代器不會用於同個樣式的同屬性，大多會放在函式裡，迭代某個值
 
 ```styl
-// 變數
 $color = #3F51B5
 $value = 0px 0px $color
 $length = 10
 
-// 函式
 shadow-value($color)
-  // 迭代器
   for $i in 1..$length
     $value = $value, unit($i, px) unit($i, px) $color
-
   return $value
 
-// 混入
 long-shadow($color)
   text-shadow shadow-value($color)
 
