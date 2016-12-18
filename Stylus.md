@@ -1191,6 +1191,23 @@ li:nth-child(5) {
 
 ## 轉義
 
+使用反斜線 `\` 表示
+
+```styl
+q
+  quotes "\00ab" "\00bb" "\2039" "\203A"
+```
+
+:point_up: 編譯前後 :point_down:
+
+```css
+q {
+  quotes: "\00ab" "\00bb" "\2039" "\203A";
+}
+```
+
+***
+
 如果要連單位一起做運算，記得加個括號 `()`，不然就會被轉義了
 
 ```styl
@@ -1209,30 +1226,6 @@ li:nth-child(5) {
   padding: 0.5rem;
 }
 ```
-
-***
-
-如果真的想要轉義可以使用反斜線 `\` 表示
-
-```styl
-.foo
-  color calc(#F44336 \+ #111)
-```
-
-```styl
-.foo
-  color calc(#F44336 + #111)
-```
-
-:point_up: 編譯前後 :point_down:
-
-```css
-.foo {
-  color: calc(#f44336 + #111);
-}
-```
-
-***
 
 ## 比較
 
