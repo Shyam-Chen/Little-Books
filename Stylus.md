@@ -1338,7 +1338,7 @@ $pink-500 = #E91E63;
 
 .foo
   color var(--red-500)
-  .bar
+  & .bar
     background var(--pink-500)
 ```
 
