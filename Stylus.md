@@ -1216,7 +1216,12 @@ li:nth-child(5) {
 
 ```styl
 .foo
-  color calc(#F44336 \+ #111)  // `calc()` 是未來的 CSS
+  color calc(#F44336 \+ #111)
+```
+
+```styl
+.foo
+  color calc(#F44336 + #111)
 ```
 
 :point_up: 編譯前後 :point_down:
@@ -1313,7 +1318,7 @@ $pink-500 = #E91E63
   .bar
     background $pink-500
 
-// or
+// 或者
 
 $red-500 = #F44336;
 $pink-500 = #E91E63;
@@ -1324,6 +1329,17 @@ $pink-500 = #E91E63;
     background: $pink-500;
   }
 }
+
+// 或者
+
+:root
+  --red-500 #F44336
+  --pink-500 #E91E63
+
+.foo
+  color var(--red-500)
+  .bar
+    background var(--pink-500)
 ```
 
 ## 風格指南
