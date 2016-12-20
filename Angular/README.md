@@ -89,12 +89,14 @@
   * Store
   * Effects
   * Dev Tools
-* ---------- **UI 元件** ----------  
+* ---------- **響應式網頁應用** ----------  
 * Material
   * Layout
   * Elements
   * Themes
-* ---------- **後端服務** ----------  
+* ---------- **原生行動應用** ----------  
+* NativeScript
+* ---------- **後端雲端服務** ----------  
 * Firebase
   * Authentication
   * Realtime Database
@@ -102,11 +104,6 @@
   * Cloud Messaging
 * ---------- **依需求** ----------  
 * Globalization
-  * Translate and Intl
-  * Localize Router
 * Data Visualization
-  * Line and Bar
-  * Pie and Doughnut
-  * Radar and Polar Area
 * Lodash
 * Analytics
