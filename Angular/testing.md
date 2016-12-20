@@ -1,5 +1,7 @@
 ## 測試
 
+### 測試原則
+
 要編寫出可靠度極高的程式碼是非常困難的事情。不管怎樣，只要有 Bug 的出現，即便是小型應用程式也會變得相當複雜。
 
 測試驅動開發 (TDD)，TDD 的週期，主要是「失敗」、「通過」和「重構」
@@ -50,15 +52,38 @@ $ tslint src/**/*.ts
 
 ### 測試入門
 
+BDD
+
+官方推薦的測試框架是 Jasmine
+
+`describe`
+`it`
+
 ```js
-describe('測試入門', () => {
-  it('`true` 等於 `true`', () => {
-    expect(true).toBe(true);
+describe('...', () => {
+  it('...', () => {
+    // ...
   });
 });
 ```
 
+斷言
+
+```js
+expect(true).toBe(true);
+```
+
+間諜
+
+```js
+spyOn(foo, 'bar')
+```
+
 ### 單元測試
+
+```bash
+$ npm i karma -D
+```
 
 ```ts
 import { Component } from '@angular/core';
@@ -93,9 +118,7 @@ describe('HelloUnitComponent', () => {
 
 #### 配置 Protractor
 ```bash
-$ npm install protractor -D
-$ typings install dt~angular-protractor -G -S
-$ typings install dt~selenium-webdriver -G -S
+$ npm i protractor -D
 ```
 ```js
 // protractor.conf.js
