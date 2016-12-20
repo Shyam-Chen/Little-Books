@@ -89,20 +89,18 @@
   * Store
   * Effects
   * Dev Tools
-* ---------- **響應式網頁應用** ----------  
+* ---------- **應用** ----------  
 * Material
   * Layout
   * Elements
   * Themes
-* ---------- **原生行動應用** ----------  
 * NativeScript
-* ---------- **後端雲端服務** ----------  
 * Firebase
   * Authentication
   * Realtime Database
   * Storage
   * Cloud Messaging
-* ---------- **依需求** ----------  
+* ---------- **需求** ----------  
 * Globalization
 * Data Visualization
 * Lodash
