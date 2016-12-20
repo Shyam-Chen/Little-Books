@@ -108,6 +108,5 @@
   * Line and Bar
   * Pie and Doughnut
   * Radar and Polar Area
-* ---------- **輔助性** ----------
 * Lodash
 * Analytics
