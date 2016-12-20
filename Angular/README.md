@@ -100,7 +100,7 @@
   * Realtime Database
   * Storage
   * Cloud Messaging
-* ---------- **需求** ----------  
+* ---------- **可選** ----------  
 * Globalization
 * Data Visualization
 * Lodash
