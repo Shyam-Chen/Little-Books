@@ -101,7 +101,7 @@
   * Storage
   * Cloud Messaging
 * ---------- **可選** ----------  
-* Globalization
+* [Globalization](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/globalization.md)
 * Data Visualization
 * Lodash
 * Analytics
