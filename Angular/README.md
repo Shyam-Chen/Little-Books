@@ -82,13 +82,13 @@
 * ---------- **進階** ----------
 * ReactiveX
   * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/ReactiveX/observables.md)
-  * Subject
-  * Scheduler
+  * Subject and ReplaySubject
+  * AsyncSubject and BehaviorSubject
+  * Schedulers
   * Operators
 * NgRx
   * Store
   * Effects
-  * Dev Tools
 * ---------- **應用** ----------  
 * Material
   * Layout
@@ -105,3 +105,5 @@
 * Data Visualization
 * Lodash
 * Analytics
+* JSON Web Token
+* Message Queue
