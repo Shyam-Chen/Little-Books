@@ -105,5 +105,4 @@
 * Data Visualization
 * Lodash
 * Analytics
-* JSON Web Token
-* Message Queue
+* ...

@@ -29,3 +29,13 @@
 `http://localhost:3000/zh/`
 
 `http://localhost:3000/zh/about`
+
+加上地區
+
+`http://localhost:3000/en-US/`
+
+`http://localhost:3000/en-US/about`
+
+`http://localhost:3000/zh-TW/`
+
+`http://localhost:3000/zh-TW/about`
