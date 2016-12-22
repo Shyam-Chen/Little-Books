@@ -16,17 +16,17 @@ Tree-shaking (樹搖優化) 的目的是要將未使用到的程式碼從打捆�
   },
   [...]
   "dependencies": {
-    "@angular/common": "~2.1.1",
-    "@angular/compiler": "~2.1.1",
-    "@angular/core": "~2.1.1",
-    "@angular/forms": "~2.1.1",
-    "@angular/http": "~2.1.1",
-    "@angular/platform-browser": "~2.1.1",
-    "@angular/platform-browser-dynamic": "~2.1.1",
-    "@angular/router": "~3.1.1",
-    "core-js": "^2.4.1",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.25"
+    "@angular/common": "2.1.1",
+    "@angular/compiler": "2.1.1",
+    "@angular/core": "2.1.1",
+    "@angular/forms": "2.1.1",
+    "@angular/http": "2.1.1",
+    "@angular/platform-browser": "2.1.1",
+    "@angular/platform-browser-dynamic": "2.1.1",
+    "@angular/router": "3.1.1",
+    "@reactivex/rxjs": "5.0.1",
+    "core-js": "2.4.1",
+    "zone.js": "0.6.25"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
@@ -56,11 +56,11 @@ export default {
   entry: join(__dirname, 'src', 'main.ts'),
   dest: join(__dirname, 'app.js'),
   format: 'iife',
-  treeshake: true,  // 選項: true, false，比較有無樹搖優化的前後差別
+  treeshake: true,  // 可用選項: true, false，預設是 true
   plugins: [
     typescript(),
     resolve({ jsnext: true, browser: true }),
-    commonjs(),
+    commonjs({ include: ['node_modules/@reactivex/rxjs/dist/es6/**'] }),
     uglify()
   ]
 };
@@ -92,10 +92,10 @@ export default {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rollup</title>
+    <title>Tree-shaking</title>
   </head>
 <body>
-  <app>Loading...</app>
+  <app-root>Loading...</app-root>
   <script src="app.js"></script>
 </body>
 </html>
@@ -149,7 +149,7 @@ export class AppModule { }
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <h3>Hello World</h3>
   `
@@ -158,4 +158,12 @@ export class AppComponent { }
 ```
 ```bash
 $ npm start
+```
+
+### 壓縮
+
+壓縮程式碼
+
+```bash
+$ 
 ```

@@ -70,7 +70,7 @@
 * [最佳實踐](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/best-practices.md)
   * 提前時間編譯
   * [樹搖優化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/best-practices.md#樹搖優化)
-  * 壓縮
+  * [壓縮](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/best-practices.md#壓縮)
   * 快取
   * 預先抓取
   * 延遲載入

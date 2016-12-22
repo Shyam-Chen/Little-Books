@@ -50,7 +50,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'use-template',
   template: `
-    <p>Hello Angular 2</p>
+    <p>Hello Angular</p>
   `
 })
 export class UseTemplateComponent { }
@@ -68,7 +68,7 @@ export class UseTemplateComponent { }
 ```
 ```html
 <!-- use-template.component.html -->
-<p>Hello Angular 2</p>
+<p>Hello Angular</p>
 ```
 
 #### 使用樣式
@@ -80,7 +80,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'use-styles',
   template: `
-    <p class="at-color">Hello Angular 2</p>
+    <p class="at-color">Hello Angular</p>
   `,
   styles: [`
     .at-color {
@@ -104,7 +104,7 @@ export class UseStylesComponent { }
 ```
 ```html
 <!-- use-styles.component.html -->
-<p class="at-color">Hello Angular 2</p>
+<p class="at-color">Hello Angular</p>
 ```
 ```css
 /* use-styles.component.css */
@@ -159,14 +159,14 @@ import { Component } from '@angular/core';
   `
 })
 export class RenderingTemplatesComponent {
-  public message: string = 'Hello Angular 2';
+  public message: string = 'Hello Angular';
   public name: string;
   public optional: void = undefined;
   public link: string = 'https://angular.io/';
   public image: string = '../assets/images/angular.png';
 
   constructor() {
-    this.name = '陳彥澄';
+    this.name = '陳彥澄';  // 這個比較正確
   }
 }
 ```
@@ -185,7 +185,7 @@ import { Component } from '@angular/core';
   interpolation: ['{{{', '}}}']
 })
 export class AppComponent {
-  public messages: string = 'Hello Angular 2';
+  public messages: string = 'Hello Angular';
 }
 ```
 
@@ -262,13 +262,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'binding-properties',
   template: `
-    <a [href]="url">Angular 2 官網</a>
+    <a [href]="url">Angular 官網</a>
 
     <!-- 也可以這樣 -->
-    <a bind-href="url">Angular 2 官網</a>
+    <a bind-href="url">Angular 官網</a>
 
     <!-- 都等同於 -->
-    <a href="{{ url }}">Angular 2 官網</a>
+    <a href="{{ url }}">Angular 官網</a>
   `
 })
 export class BindingPropertiesComponent {
@@ -290,7 +290,7 @@ import { Component } from '@angular/core';
   `
 })
 export class BindingPropertiesComponent {
-  public messages: string = 'Hello Angular 2';
+  public messages: string = 'Hello Angular';
 }
 ```
 
@@ -307,7 +307,7 @@ import { Component } from '@angular/core';
       [style.padding.rem]="'1'"
       [style.width]="'6.5rem'"
     >
-    Hello Angular 2</p>
+    Hello Angular</p>
   `
 })
 export class BindingPropertiesComponent { }
@@ -320,7 +320,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'binding-properties',
   template: `
-    <p [class.at-color]="true">Hello Angular 2</p>
+    <p [class.at-color]="true">Hello Angular</p>
   `,
   styles: [`
     .at-color {
@@ -440,7 +440,7 @@ import { ContentProjectionComponent } from './content-projection.component';
 @Component({
   selector: 'app',
   template: `
-    <content-projection>Hi, Angular 2</content-projection>
+    <content-projection>Hi, Angular</content-projection>
   `,
   directives: [ContentProjectionComponent]
 })
@@ -960,7 +960,7 @@ import { EmulatedComponent } from './encapsulation-emulated.component';
 @Component({
   selector: 'app',
   template: `
-    <div class="pink-500">Hello Angular 2</div>
+    <div class="pink-500">Hello Angular</div>
     <encapsulation-emulated></encapsulation-emulated>
   `,
   styles: [`
@@ -996,7 +996,7 @@ import { NativeComponent } from './encapsulation-native.component';
 @Component({
   selector: 'app',
   template: `
-    <div class="pink-500">Hello Angular 2</div>
+    <div class="pink-500">Hello Angular</div>
     <encapsulation-native></encapsulation-native>
   `,
   styles: [`
@@ -1038,7 +1038,7 @@ import { NoneComponent } from './encapsulation-none.component';
 @Component({
   selector: 'app',
   template: `
-    <div class="pink-500">Hello Angular 2</div>
+    <div class="pink-500">Hello Angular</div>
     <encapsulation-none></encapsulation-none>
   `,
   styles: [`
@@ -1126,12 +1126,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app',
   template: `
-    <p>Hello Angular 2</p>
+    <p>Hello Angular</p>
   `
 })
 export class AppComponent implements OnInit {
   public ngOnInit() {
-    console.log('Hello Angular 2');
+    console.log('Hello Angular');
   }
 }
 ```
@@ -1143,7 +1143,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 @Component({
   selector: 'at-lifecycle',
   template: `
-    <p>Hello Angular 2</p>
+    <p>Hello Angular</p>
   `
 })
 export class LifecycleComponent implements OnInit, OnDestroy {
@@ -1210,10 +1210,10 @@ import { LifecycleComponent } from './lifecycle.component';
   directives: [LifecycleComponent]
 })
 export class AppComponent {
-  public messages: string = 'Hello Angular 2';
+  public messages: string = 'Hello Angular';
 
   onClick(): void {
-    this.messages = 'Goodbye Angular 2';
+    this.messages = 'Goodbye Angular';
   }
 }
 ```
