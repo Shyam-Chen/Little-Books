@@ -89,17 +89,6 @@
 * NgRx
   * Store
   * Effects
-* ---------- **應用** ----------  
-* Material
-  * Layout
-  * Elements
-  * Themes
-* NativeScript
-* Firebase
-  * Authentication
-  * Realtime Database
-  * Storage
-  * Cloud Messaging
 * ---------- **可選** ----------  
 * [Globalization](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/globalization.md)
 * Data Visualization
