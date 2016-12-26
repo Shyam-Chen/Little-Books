@@ -858,19 +858,41 @@ Promise.race([
   });
 ```
 
-## 迭代器與產生器
+錯誤處理
 
 ```ts
+```
+
+## 迭代器與產生器
+
+使用星號 `*` 宣告函式為產生器
+
+`function* name() { ... }`
+
+```ts
+/*
+ * 為什麼在這裡星號是放在後面？
+ *  - 因為未來搭配箭頭函式會是這樣 `*()`
+ *    如: const foo = *() => { ... };
+ */
 function *foo(x) {
-  let y = x * (yield);
+  let y = x * (yield);  // 在這裡暫停
   return y;
 };
 
-let bar = foo(2);
-bar.next();
+let it = foo(2);  // 通常會已使用 `it` 來控制產生器
+it.next();  // 執行 foo 函式，但會停在 yield 的地方
 
-let baz = bar.next(3);
-baz.value;  // 2 * 3 = 6
+let result = it.next(3);  // 執行 foo 函式，這次會從暫停的地方開始
+result.value;  // 2 * 3 = 6
+```
+
+如果想要平行執行多個承諾，又要讓多個承諾都解析完後，執行其它任務時，該怎麼做？
+
+這時就必須搭配產生器的使用
+
+```ts
+
 ```
 
 ## 非同步與等待
