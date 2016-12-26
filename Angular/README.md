@@ -82,16 +82,17 @@
 * ---------- **進階** ----------
 * ReactiveX
   * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/ReactiveX/observables.md)
-  * Subject and ReplaySubject
-  * AsyncSubject and BehaviorSubject
-  * Schedulers
   * Operators
 * NgRx
   * Store
   * Effects
 * ---------- **可選** ----------  
-* [Globalization](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/globalization.md)
+* [Internationalization](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/internationalization.md)
+* [Localization](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/localization.md)
 * Data Visualization
+* Subjects - ReactiveX
+* Schedulers - ReactiveX
+* ... - NgRx
 * Lodash
 * Analytics
 * ...
