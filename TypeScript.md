@@ -12,6 +12,7 @@
 * [類別](#類別)
 * [型別兼容性](#型別兼容性)
 * [通用型別](#通用型別)
+* [型別查找]
 * [後設資料](#後設資料)
 * [泛型](#泛型)
 * [型別斷言](#型別斷言)
@@ -23,6 +24,7 @@
 * [迭代器與產生器](#迭代器與產生器)
 * [非同步與等待](#非同步與等待)
 * [修飾器](#修飾器)
+* [風格指南](#風格指南)
 
 ***
 
@@ -725,18 +727,8 @@ foo;  // { bar: 123, baz: 'abc' }
 
 ### 象徵
 ```ts
-interface Iterable {
-  [Symbol.iterator](): Iterator;
-}
-
-interface Iterator {
-  next(value?: any): IterationResult;
-}
-
-interface IterationResult {
-  value: any;
-  done: boolean;
-}
+let s1 = Symbol();
+let s2 = Symbol('TS');
 ```
 
 ## 冪運算子
@@ -972,4 +964,85 @@ class Bar {
 }
 
 new Bar().print(123);
+```
+
+## 風格指南
+
+```js
+// tslint.json
+{
+  "rules": {
+    "class-name": true,
+    "comment-format": [true, "check-space"],
+    "curly": true,
+    "eofline": true,
+    "forin": true,
+    "indent": [true, "spaces"],
+    "label-position": true,
+    "label-undefined": true,
+    "max-line-length": [true, 140],
+    "member-access": false,
+    "member-ordering": [true,
+      "public-before-private",
+      "static-before-instance",
+      "variables-before-functions"
+    ],
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-console": [true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-key": true,
+    "no-duplicate-variable": true,
+    "no-empty": true,
+    "no-eval": true,
+    "no-inferrable-types": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": true,
+    "no-switch-case-fall-through": true,
+    "no-trailing-whitespace": true,
+    "no-unused-expression": true,
+    "no-unused-variable": true,
+    "no-unreachable": true,
+    "no-use-before-declare": true,
+    "no-var-keyword": true,
+    "object-literal-sort-keys": false,
+    "one-line": [true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-finally",
+      "check-whitespace"
+    ],
+    "quotemark": [true, "single", "avoid-escape"],
+    "radix": true,
+    "semicolon": [true, "always"],
+    "trailing-comma": [true, {
+      "singleline": "never",
+      "multiline": "never"
+    }],
+    "triple-equals": [true, "allow-null-check"],
+    "typedef-whitespace": [true, {
+      "call-signature": "nospace",
+      "index-signature": "nospace",
+      "parameter": "nospace",
+      "property-declaration": "nospace",
+      "variable-declaration": "nospace"
+    }],
+    "variable-name": false,
+    "whitespace": [true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ]
+  }
+}
 ```
