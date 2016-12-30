@@ -79,20 +79,24 @@
 ***
 
 ### 番外
-* ---------- **進階** ----------
+* ---------- **增強** ----------
+* Lodash
 * ReactiveX
   * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/ReactiveX/observables.md)
   * Operators
+  * Subjects
+  * Schedulers
 * NgRx
   * Store
-  * Effects
-* ---------- **可選** ----------  
-* [Internationalization](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/internationalization.md)
-* [Localization](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/localization.md)
-* Data Visualization
-* Subjects - ReactiveX
-* Schedulers - ReactiveX
-* ... - NgRx
-* Lodash
-* Analytics
+  * Effects
+* ---------- **應用** ----------
+* Material
+* Firebase
+* Cordova
+* Electron
+* ---------- **擴展** ----------
+* [國際化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/internationalization.md)
+* [本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/localization.md)
+* 資料視覺化
+* 流量分析
 * ...
