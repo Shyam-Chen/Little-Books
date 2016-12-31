@@ -81,7 +81,7 @@
 ### 番外
 * ---------- **增強** ----------
 * Lodash - 實用的函式
-* ReactiveX - 反應式的擴展
+* ReactiveX - 反應式的函式
   * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
   * Operators
   * Subjects
