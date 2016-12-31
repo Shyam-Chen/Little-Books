@@ -80,23 +80,23 @@
 
 ### 番外
 * ---------- **增強** ----------
-* Lodash
-* ReactiveX
-  * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/ReactiveX/observables.md)
+* Lodash - 實用的函式
+* ReactiveX - 反應式的擴展
+  * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
   * Operators
   * Subjects
   * Schedulers
-* NgRx
+* NgRx - 狀態容器
   * Store
   * Effects
 * ---------- **應用** ----------
-* Material
-* Firebase
-* Cordova
-* Electron
+* Material - 原質化設計
+* Firebase - 後端雲端服務
+* Cordova - 跨平台行動
+* Electron - 跨平台桌面
 * ---------- **擴展** ----------
-* [國際化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/internationalization.md)
-* [本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/Optional/localization.md)
+* [國際化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
+* [本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/localization.md)
 * 資料視覺化
 * 流量分析
 * ...
