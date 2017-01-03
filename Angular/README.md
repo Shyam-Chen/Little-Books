@@ -84,11 +84,12 @@
 * ReactiveX - 反應式的函式
   * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
   * [Operators](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/operators.md)
-  * Subjects
-  * Schedulers
-* NgRx - 狀態容器
-  * Store
-  * Effects
+  * Subjects
+  * Schedulers
+* Redux - 狀態容器
+  * Redux-observable
+  * NgRx - Store
+  * NgRx - Effects
 * ---------- **應用** ----------
 * Material - 原質化設計
 * Firebase - 後端雲端服務
