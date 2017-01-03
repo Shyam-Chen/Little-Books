@@ -87,7 +87,7 @@
   * Subjects
   * Schedulers
 * Redux - 狀態容器
-  * Redux-observable
+  * [Redux Observable](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/redux-observable.md)
   * NgRx - Store
   * NgRx - Effects
 * ---------- **應用** ----------
