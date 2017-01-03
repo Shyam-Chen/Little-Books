@@ -1,15 +1,19 @@
 ## Operators
 
-練習來源: https://gist.github.com/btroncone/d6cf141d6f2c00dc6b35
+練習來源: https://github.com/btroncone/learn-rxjs
 
 範例執行: https://github.com/Shyam-Chen/Web-Starter-Kit
 
 ***
 
 ### 目錄
-* [Buffer](#buffer)
+* Transformation
+  * [buffer](#buffer)
+  * [bufferCount](#buffercount)
 
 ***
+
+## Transformation
 
 ### buffer
 
