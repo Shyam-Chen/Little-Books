@@ -1,4 +1,4 @@
-## Operators
+# Operators (操作者)
 
 練習來源: https://github.com/btroncone/learn-rxjs
 
@@ -7,13 +7,66 @@
 ***
 
 ### 目錄
-* [Transformation](#transformation)
+* [Combination (組合)](#組合)
+  * [combineAll](#combineall)
+* [Transformation (轉化)](#轉化)
   * [buffer](#buffer)
   * [bufferCount](#buffercount)
+  * [bufferTime](#buffertime)
 
 ***
 
-## Transformation
+## 組合
+
+### combineAll
+
+當外部的觀察者完成時，輸出內部觀者者的最新值。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+import { of } from 'rxjs/observable/of';
+
+import { mapTo } from 'rxjs/operator/mapTo';
+import { combineAll } from 'rxjs/operator/combineAll';
+
+const timer$ = Observable::timer(2000);
+
+timer$::mapTo(Observable::of('Hello', 'World'))
+  ::combineAll()
+  .subscribe((val) => console.log('Values from inner observable:', val));
+  // ["Hello"]
+  // ["World"]
+
+timer$::mapTo(Observable::of('Hello', 'Goodbye'))
+  ::combineAll((val) => `${val} Friend!`)
+  .subscribe((val) => console.log('Values Using Projection:', val));
+  // Hello Friend!
+  // Goodbye Friend!
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { take } from 'rxjs/operator/take';
+import { map } from 'rxjs/operator/map';
+import { combineAll } from 'rxjs/operator/combineAll';
+
+Observable::interval(1000)
+  ::take(3)
+  ::map((val) => Observable::interval(val + 500)::take(2))
+  ::combineAll()
+  .subscribe((val) => console.log(val));
+  // [0, 0, 0]
+  // [1, 0, 0]
+  // [1, 1, 0]
+  // [1, 1, 1]
+```
+
+## 轉化
 
 ### buffer
 
@@ -21,14 +74,17 @@
 
 ```js
 import { Observable } from 'rxjs/Observable';
+
 import { interval } from 'rxjs/observable/interval';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 
 import { buffer } from 'rxjs/operator/buffer';
 
 Observable::interval(1000)
-  ::buffer(Observable::fromEvent(document, 'click'))
+  ::buffer(Observable::fromEvent(document, 'click'))  // 點擊頁面
   .subscribe((val) => console.log('Buffered Values:', val));
+  // 發射數值
+  // [...]
 ```
 
 ### bufferCount
@@ -37,6 +93,7 @@ Observable::interval(1000)
 
 ```js
 import { Observable } from 'rxjs/Observable';
+
 import { interval } from 'rxjs/observable/interval';
 
 import { bufferCount } from 'rxjs/operator/bufferCount';
@@ -45,9 +102,21 @@ const interval$ = Observable::interval(1000);
 
 interval$::bufferCount(3)
   .subscribe((val) => console.log('Buffered Values:', val));
+  // [0, 1, 2]
+  // 下個間隔
+  // [3, 4, 5]
+  // ...
 
 interval$::bufferCount(3, 1)
   .subscribe((val) => console.log('Start Buffer Every 1:', val));
+  // [0, 1, 2]
+  // [1, 2, 3]
+  // [2, 3, 4]
+  // 下個間隔
+  // [3, 4, 5]
+  // [4, 5, 6]
+  // [5, 6, 7]
+  // ...
 ```
 
 ### bufferTime
@@ -56,6 +125,7 @@ interval$::bufferCount(3, 1)
 
 ```js
 import { Observable } from 'rxjs/Observable';
+
 import { interval } from 'rxjs/observable/interval';
 
 import { bufferTime } from 'rxjs/operator/bufferTime';
@@ -64,7 +134,22 @@ const interval$ = Observable::interval(1000);
 
 interval$::bufferTime(2000)
   .subscribe((val) => console.log('Buffered with Time:', val));
+  // [0]
+  // 下個間隔
+  // [1, 2]
+  // 下個間隔
+  // [3, 4]
+  // ...
 
 interval$::bufferTime(2000, 1000)
   .subscribe((val) => console.log('Start Buffer Every 1s:', val));
+  // [0]
+  // [0, 1, 2]
+  // 下個間隔
+  // [1, 2, 3]
+  // [2, 3, 4]
+  // 下個間隔
+  // [3, 4, 5]
+  // [4, 5, 6]
+  // ...
 ```

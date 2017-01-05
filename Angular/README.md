@@ -81,15 +81,15 @@
 ### 番外
 * ---------- **增強** ----------
 * Lodash - 實用的函式
-* ReactiveX - 反應式的函式
+* RxJS - 反應式的函式
   * [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
   * [Operators](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/operators.md)
   * Subjects
   * Schedulers
 * Redux - 狀態容器
   * [Redux Observable](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/redux-observable.md)
-  * NgRx - Store
-  * NgRx - Effects
+  * @ngrx/store
+  * @ngrx/effects
 * ---------- **應用** ----------
 * Material - 原質化設計
 * Firebase - 後端雲端服務
