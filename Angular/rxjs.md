@@ -1,4 +1,4 @@
-# Operators (操作者)
+# RxJS
 
 練習來源: https://github.com/btroncone/learn-rxjs
 
@@ -15,6 +15,28 @@
   * [bufferTime](#buffertime)
 
 ***
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { Subject } from 'rxjs/Subject';
+import { AsyncSubject } from 'rxjs/AsyncSubject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+```
+
+```js
+import { ReplaySubject } from 'rxjs/ReplaySubject';
+
+const subject = new ReplaySubject(2);  // 緩衝區域大小為 2
+
+subject.next(1);
+subject.next(2);
+subject.next(3);
+
+subject.subscribe((val) => console.log('Received value:', val));
+// 2
+// 3
+```
 
 ## 組合
 
