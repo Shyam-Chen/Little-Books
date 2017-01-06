@@ -8,7 +8,7 @@
 
 ***
 
-Counter
+計數器
 
 ```js
 import { filter } from 'rxjs/operator/filter';

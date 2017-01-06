@@ -98,10 +98,11 @@
   * [Observables in Angular](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
     * Services
     * View Components
-* Redux - 狀態容器
+* [Redux](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/redux.md) - 狀態容器
   * [Redux Observable](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/redux-observable.md)
-  * @ngrx/store
-  * @ngrx/effects
+  * Redux style in Angular
+    * @ngrx/store
+    * @ngrx/effects
 * ---------- **應用** ----------
 * Material - 原質化設計
 * Firebase - 後端雲端服務
