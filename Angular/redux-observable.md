@@ -4,6 +4,8 @@
 
 實作執行: https://github.com/Shyam-Chen/Web-Starter-Kit
 
+使用 `rollducks` 來實現 `redux-observable` 的 ES6 版本
+
 ***
 
 Counter

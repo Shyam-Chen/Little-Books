@@ -1,4 +1,4 @@
-## Store
+## Redux
 
 Store
 
