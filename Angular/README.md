@@ -141,5 +141,6 @@
 * [本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/localization.md)
 * 資料視覺化
 * 流量分析
-* 雙向溝通
+* JSON Web Token
+* WebSockets
 * ...
