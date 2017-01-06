@@ -12,15 +12,14 @@ Counter
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
-import { combineEpics, createEpicMiddleware } from 'rollducks';  // `rollducks` 就是 `redux-observable`
+import { combineEpics, createEpicMiddleware } from 'rollducks';
 
+// Action types
 const INCREMENT = 'INCREMENT';
 const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
 
-const increment = () => ({ type: INCREMENT });
-const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
-
-const counter = (state = 0, action) => {
+// Reducer
+const counterReducer = (state = 0, action) => {
   switch (action.type) {
     case INCREMENT:
       return state + 1;
@@ -29,20 +28,27 @@ const counter = (state = 0, action) => {
   }
 };
 
-const rootReducer = combineReducers({ counter });
+const rootReducer = combineReducers({ counterReducer });
 
+// Actions
+const increment = () => ({ type: INCREMENT });
+const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
+
+// Epic
 const incrementIfOddEpic = (action$, store) =>
   action$.ofType(INCREMENT_IF_ODD)
-    ::filter(() => store.getState().counter % 2 === 1)
+    ::filter(() => store.getState().counterReducer % 2 === 1)
     ::map(increment);
 
 const rootEpic = combineEpics(incrementIfOddEpic);
 const epicMiddleware = createEpicMiddleware(rootEpic);
+
+// Configure store
 const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
 const render = () => {
-  const { counter } = store.getState();
-  document.querySelector('#value').innerHTML = counter;
+  const { counterReducer } = store.getState();
+  document.querySelector('#value').innerHTML = counterReducer;
 };
 
 store.subscribe(render);
