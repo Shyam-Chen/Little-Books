@@ -133,8 +133,9 @@
 * ---------- **應用** ----------
 * Material - 原質化設計
 * Firebase - 後端雲端服務
-* Cordova - 跨平台行動
-* Electron - 跨平台桌面
+* Cordova - 跨平台行動開發
+* Electron - 跨平台桌面開發
+* MEAN Stack - 全端開發
 * ---------- **擴展** ----------
 * [國際化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
 * [本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/localization.md)
