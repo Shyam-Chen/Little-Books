@@ -22,10 +22,11 @@
 
 ```js
 import { Observable } from 'rxjs/Observable';
+import { Scheduler } from 'rxjs/Scheduler'
+
 import { Subject } from 'rxjs/Subject';
 import { AsyncSubject } from 'rxjs/AsyncSubject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Scheduler } from 'rxjs/Scheduler'
 ```
 
 ## ReplaySubject
