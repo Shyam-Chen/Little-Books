@@ -7,6 +7,7 @@
 ***
 
 ### 目錄
+* [ReplaySubject](#replaysubject)
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
 * [Transformation (轉化)](#轉化)
@@ -14,6 +15,8 @@
   * [bufferCount](#buffercount)
   * [bufferTime](#buffertime) :star:
   * [map](#map) :star:
+  * [mapTo](#mapto)
+  * [mergeMap](#mergemap) :star:
 
 ***
 
@@ -23,6 +26,12 @@ import { Subject } from 'rxjs/Subject';
 import { AsyncSubject } from 'rxjs/AsyncSubject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 ```
+
+## ReplaySubject
+
+可以是可觀察的序列，也可以是觀察者的物件。
+
+每個通知被推播給所有訂閱和未來的觀察者，並尊從緩衝區修整的策略。
 
 ```js
 import { ReplaySubject } from 'rxjs/ReplaySubject';
@@ -206,6 +215,12 @@ Observable::from([
   // Joe
   // Frank
   // Ryan
+```
+
+### mapTo
+
+```js
+
 ```
 
 ### mergeMap
