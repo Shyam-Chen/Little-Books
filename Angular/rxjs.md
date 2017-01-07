@@ -219,8 +219,19 @@ Observable::from([
 
 ### mapTo
 
-```js
+將發射值映射到所賦予的常數。
 
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { mapTo } from 'rxjs/operator/mapTo';
+
+Observable::interval(1000)
+  ::mapTo('Hello World!')
+  .subscribe((val) => console.log(val));
+  // 每秒打印 Hello World!
 ```
 
 ### mergeMap
