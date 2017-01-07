@@ -7,6 +7,7 @@
 ***
 
 ### 目錄
+* [Classes](#classes)
 * [ReplaySubject](#replaysubject)
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
@@ -20,11 +21,17 @@
 
 ***
 
+## Classes
+
+`public class`
+
 ```js
 import { Observable } from 'rxjs/Observable';
-import { Scheduler } from 'rxjs/Scheduler'
+import { Scheduler } from 'rxjs/Scheduler';
 
 import { Subject } from 'rxjs/Subject';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
+
 import { AsyncSubject } from 'rxjs/AsyncSubject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 ```
