@@ -12,14 +12,13 @@
 * [Transformation (轉化)](#轉化)
   * [buffer](#buffer)
   * [bufferCount](#buffercount)
-  * [bufferTime](#buffertime)
-  * [map](#map)
+  * [bufferTime](#buffertime) :star:
+  * [map](#map) :star:
 
 ***
 
 ```js
 import { Observable } from 'rxjs/Observable';
-
 import { Subject } from 'rxjs/Subject';
 import { AsyncSubject } from 'rxjs/AsyncSubject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -43,7 +42,7 @@ subject.subscribe((val) => console.log('Received value:', val));
 
 ### combineAll
 
-當外部的觀察者完成時，輸出內部觀者者的最新值。
+當外部的觀察者完成時，輸出內部觀者的最新值。
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -207,4 +206,21 @@ Observable::from([
   // Joe
   // Frank
   // Ryan
+```
+
+### mergeMap
+
+將來源的值先映射到內部個觀察者，再將其合併發射出去。即，先 `map` 再 `mergeAll`。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { mergeMap } from 'rxjs/operator/mergeMap';
+
+Observable::of('Hello')
+  ::mergeMap((val) => Observable::of(`${val} World!`))
+  .subscribe((val) => console.log(val));
+  // Hello World!
 ```
