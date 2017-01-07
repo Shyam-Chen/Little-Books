@@ -13,6 +13,7 @@
   * [buffer](#buffer)
   * [bufferCount](#buffercount)
   * [bufferTime](#buffertime)
+  * [map](#map)
 
 ***
 
@@ -174,4 +175,36 @@ interval$::bufferTime(2000, 1000)
   // [3, 4, 5]
   // [4, 5, 6]
   // ...
+```
+
+### map
+
+對來源的每個值進行應用投射。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { map } from 'rxjs/operator/map';
+
+Observable::from([1, 2, 3, 4, 5])
+  ::map((val) => val + 10)
+  .subscribe((val) => console.log(val))
+  // 11
+  // 12
+  // 13
+  // 14
+  // 15
+
+Observable::from([
+    { name: 'Joe', age: 30 },
+    { name: 'Frank', age: 20 },
+    { name: 'Ryan', age: 50 }
+  ])
+  ::map((person) => person.name)
+  .subscribe((val) => console.log(val))
+  // Joe
+  // Frank
+  // Ryan
 ```
