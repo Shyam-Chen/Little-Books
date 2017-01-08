@@ -120,13 +120,13 @@
 
 ### 番外
 * ---------- **增強** ----------
-* Lodash - 實用的函式
+* [Lodash](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/lodash.md) - 實用的函式
 * [RxJS](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/rxjs.md) - 反應式的函式
-  * [Observables in Angular](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
+  * [Observable streams in Angular](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
     * Services
     * View Components
 * [Redux](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/redux.md) - 狀態容器
-  * [Redux Observable](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/redux-observable.md)
+  * [Observable streams in Redux](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/redux-observable.md)
   * Redux style in Angular
     * @ngrx/store
     * @ngrx/effects
