@@ -1,6 +1,6 @@
 # RxJS
 
-練習來源: https://github.com/btroncone/learn-rxjs
+練習來源: https://github.com/ReactiveX/rxjs & https://github.com/btroncone/learn-rxjs
 
 實作執行: https://github.com/Shyam-Chen/Web-Starter-Kit
 
@@ -9,7 +9,7 @@
 ### 目錄
 * [Classes](#classes)
 * Observable
-  * [combineLatest](#combinelatest)
+  * [combineLatest](#combinelatest) (:beginner:)
 * Scheduler
 * Subject
 * [ReplaySubject](#replaysubject)
