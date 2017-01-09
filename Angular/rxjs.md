@@ -74,8 +74,35 @@ const timerThree$ = Observable::timer(3000, 4000);
 Observable::combineLatest(timerOne$, timerTwo$, timerThree$)
   .subscribe((latestValues) => {
     const [timerValOne, timerValTwo, timerValThree] = latestValues;
-    console.log(`Timer One Latest: ${timerValOne}, Timer Two Latest: ${timerValTwo}, Timer Three Latest: ${timerValThree}`);
+    console.log(`${timerValOne}, ${timerValTwo}, ${timerValThree}`);
   });
+  // 0, 0, 0
+  // 1, 0, 0
+  // 1, 1, 0
+  // 1, 1, 1
+  // 2, 1, 1
+  // 2, 2, 1
+  // 2, 2, 2
+  // ...
+```
+
+使用函式投射
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+import { combineLatest } from 'rxjs/observable/combineLatest';
+
+const timerOne$ = Observable::timer(1000, 4000);
+const timerTwo$ = Observable::timer(2000, 4000);
+const timerThree$ = Observable::timer(3000, 4000);
+
+Observable::combineLatest(
+    timerOne$, timerTwo$, timerThree$,
+    (one, two, three) => `${one}, ${two}, ${three}`
+  )
+  .subscribe((latestValuesProject) => console.log(latestValuesProject));
   // 0, 0, 0
   // 1, 0, 0
   // 1, 1, 0
