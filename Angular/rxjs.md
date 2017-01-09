@@ -8,9 +8,23 @@
 
 ### 目錄
 * [Classes](#classes)
+* Observable
+  * [combineLatest](#combinelatest)
+* Scheduler
+* Subject
 * [ReplaySubject](#replaysubject)
+* AsyncSubject
+* BehaviorSubject
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
+  * [combineLatest](#combinelatest) :star: (:beginner:)
+  * concat :star:
+  * concatAll
+* Conditional
+* Creation
+* Error Handling
+* Filtering
+* Multicasting
 * [Transformation (轉化)](#轉化)
   * [buffer](#buffer)
   * [bufferCount](#buffercount)
@@ -18,6 +32,9 @@
   * [map](#map) :star:
   * [mapTo](#mapto)
   * [mergeMap](#mergemap) :star:
+* Utility
+
+:star - 常用
 
 ***
 
@@ -34,6 +51,39 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import { AsyncSubject } from 'rxjs/AsyncSubject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+```
+
+## Observable
+
+`import { Observable } from 'rxjs/Observable';`
+
+### combineLatest
+
+當任何的觀察者發射一個值時，從每個值發射出最新的值。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+import { combineLatest } from 'rxjs/observable/combineLatest';
+
+const timerOne$ = Observable::timer(1000, 4000);
+const timerTwo$ = Observable::timer(2000, 4000);
+const timerThree$ = Observable::timer(3000, 4000);
+
+Observable::combineLatest(timerOne$, timerTwo$, timerThree$)
+  .subscribe((latestValues) => {
+    const [timerValOne, timerValTwo, timerValThree] = latestValues;
+    console.log(`Timer One Latest: ${timerValOne}, Timer Two Latest: ${timerValTwo}, Timer Three Latest: ${timerValThree}`);
+  });
+  // 0, 0, 0
+  // 1, 0, 0
+  // 1, 1, 0
+  // 1, 1, 1
+  // 2, 1, 1
+  // 2, 2, 1
+  // 2, 2, 2
+  // ...
 ```
 
 ## ReplaySubject
