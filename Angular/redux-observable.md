@@ -16,7 +16,7 @@ import { map } from 'rxjs/operator/map';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'rollducks';
 
-// Action types
+// Types
 const INCREMENT = 'INCREMENT';
 const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
 
@@ -29,8 +29,6 @@ const counterReducer = (state = 0, action) => {
       return state;
   }
 };
-
-const rootReducer = combineReducers({ counterReducer });
 
 // Actions
 const increment = () => ({ type: INCREMENT });
@@ -45,7 +43,8 @@ const incrementIfOddEpic = (action$, store) =>
 const rootEpic = combineEpics(incrementIfOddEpic);
 const epicMiddleware = createEpicMiddleware(rootEpic);
 
-// Configure store
+// Store
+const rootReducer = combineReducers({ counterReducer });
 const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
 const render = () => {

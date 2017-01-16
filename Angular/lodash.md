@@ -8,138 +8,153 @@
 * Array
 * Collection
 * Function (函式)
+  * before
+  * bind
 * Lang
 * Math
-* Object (物件)
+* [Object (物件)](#物件)
   * assignIn
-* Seq
+* Seq (序列)
+  * chain
+  * value
 * String
 * Util  
 
 ***
 
-_.assignIn
+## 函式
 
-_.before
+### before
 
-_.bind
+### bind
 
-_.chain
+## 物件
 
-_.clone
+### assignIn
 
-_.compact
+比較 ES2015 的 Object.assign()
 
-_.concat
+## 序列
 
-_.create
+### chain
 
-_.defaults
+### value
 
-_.defer
 
-_.delay
+`_.clone`
 
-_.each
+`_.compact`
 
-_.escape
+`_.concat`
 
-_.every
+`_.create`
 
-_.filter
+`_.defaults`
 
-_.find
+`_.defer`
 
-_.flatten
+`_.delay`
 
-_.flattenDeep
+`_.each`
 
-_.forEach
+`_.escape`
 
-_.has
+`_.every`
 
-_.head
+`_.filter`
 
-_.identity
+`_.find`
 
-_.indexOf
+`_.flatten`
 
-_.isArguments
+`_.flattenDeep`
 
-_.isArray
+`_.forEach`
 
-_.isBoolean
+`_.has`
 
-_.isDate
+`_.head`
 
-_.isEmpty
+`_.identity`
 
-_.isEqual
+`_.indexOf`
 
-_.isFinite
+`_.isArguments`
 
-_.isFunction
+`_.isArray`
 
-_.isNaN
+`_.isBoolean`
 
-_.isNull
+`_.isDate`
 
-_.isNumber
+`_.isEmpty`
 
-_.isObject
+`_.isEqual`
 
-_.isRegExp
+`_.isFinite`
 
-_.isString
+`_.isFunction`
 
-_.isUndefined
+`_.isNaN`
 
-_.iteratee
+`_.isNull`
 
-_.keys
+`_.isNumber`
 
-_.last
+`_.isObject`
 
-_.map
+`_.isRegExp`
 
-_.matches
+`_.isString`
 
-_.max
+`_.isUndefined`
 
-_.min
+`_.iteratee`
 
-_.mixin
+`_.keys`
 
-_.negate
+`_.last`
 
-_.noConflict
+`_.map`
 
-_.noop
+`_.matches`
 
-_.once
+`_.max`
 
-_.pick
+`_.min`
 
-_.reduce
+`_.mixin`
 
-_.result
+`_.negate`
 
-_.size
+`_.noConflict`
 
-_.slice
+`_.noop`
 
-_.some
+`_.once`
 
-_.sortBy
+`_.pick`
 
-_.tap
+`_.reduce`
 
-_.thru
+`_.result`
 
-_.toArray
+`_.size`
 
-_.uniqueId
+`_.slice`
 
-_#value
+`_.some`
 
-_.values
+`_.sortBy`
+
+`_.tap`
+
+`_.thru`
+
+`_.toArray`
+
+`_.uniqueId`
+
+`_#value`
+
+`_.values`
