@@ -28,6 +28,7 @@
     * [@Input() 與 @Output()](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#input-與-output)
     * [@ContentChild() 與 @ContentChildren()](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#contentchild-與-contentchildren)
     * [@ViewChild() 與 @ViewChildren()](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#viewchild-與-viewchildren)
+  * 繼承
   * [隔離樣式](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#隔離樣式)
   * [變化檢測](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#變化檢測)
   * [生命週期掛鉤](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#生命週期掛鉤)
@@ -133,17 +134,23 @@
   * Redux style in Angular
     * @ngrx/store
     * @ngrx/effects
+* ---------- **擴展** ----------
+* [國際化 (ng2-translate)](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
+* [本地化 (localize-router)](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/localization.md)
+* 資料視覺化 (d3)
+* 流量分析 (angulartics2)
 * ---------- **應用** ----------
 * Material - 原質化設計
+  * Flex Layout (Flex 排版)
+  * Components (元件)
 * Firebase - 後端雲端服務
+  * Authentication (驗證)
+  * Realtime Database (即時資料庫)
+  * Storage (存儲)
+  * Cloud Messaging (雲端訊息)
 * Cordova - 跨平台行動開發
 * Electron - 跨平台桌面開發
 * MEAN Stack - 全端開發
-* ---------- **擴展** ----------
-* [國際化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
-* [本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/localization.md)
-* 資料視覺化
-* 流量分析
-* JSON Web Token
-* WebSockets
-* ...
+  * JSON Web Tokens
+  * Representational State Transfer
+  * WebSockets
