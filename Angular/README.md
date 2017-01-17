@@ -71,6 +71,7 @@
     * [@Self() 與 @SkipSelf()](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#self-與-skipself)
   * [內建服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#內建服務)
     * [標題服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/dependency-injection.md#標題服務)
+* [Observables](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
 * [HTTP](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/http.md)
   * [Get](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/http.md#get)
   * [Post](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/http.md#post)
@@ -97,6 +98,7 @@
   * 動畫時間軸
   * 動畫影格
   * 並行動畫
+* 狀態容器
 * [測試](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md)
   * [測試原則](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#測試原則)
   * [靜態分析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#靜態分析)
@@ -123,17 +125,6 @@
 ***
 
 ### 番外
-* ---------- **增強** ----------
-* [Lodash](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/lodash.md) - 實用的函式
-* [RxJS](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/rxjs.md) - 反應式的函式
-  * [Observable streams in Angular](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/observables.md)
-    * Services
-    * View Components
-* [Redux](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/redux.md) - 狀態容器
-  * [Observable streams in Redux](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/redux-observable.md)
-  * Redux style in Angular
-    * @ngrx/store
-    * @ngrx/effects
 * ---------- **擴展** ----------
 * [國際化 (ng2-translate)](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
 * [本地化 (localize-router)](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/localization.md)
