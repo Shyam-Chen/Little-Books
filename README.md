@@ -1,15 +1,11 @@
 # Little Books
 
-Little books on Angular, Express, SCSS, TypeScript, Pug, and Stylus.
+Little books on Angular, SCSS, TypeScript, Pug, and Stylus.
 
 ### Book List
-* ----- **Framework** -----
 * [Angular](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/README.md)
-* Express
-* ----- **Superset** -----
 * SCSS
 * [TypeScript](https://github.com/Shyam-Chen/Little-Books/blob/master/TypeScript.md)
-* ----- **Unfancy** -----
 * [Pug](https://github.com/Shyam-Chen/Little-Books/blob/master/Pug.md)
 * [Stylus](https://github.com/Shyam-Chen/Little-Books/blob/master/Stylus.md)
 
@@ -24,6 +20,8 @@ Little books on Angular, Express, SCSS, TypeScript, Pug, and Stylus.
 * Firebase
 * Cordova
 * Electron
+* Express
+* Mongoose
 
 ***
 
