@@ -32,6 +32,8 @@
   * [map](#map) :star:
   * [mapTo](#mapto)
   * [mergeMap](#mergemap) :star:
+  * scan :star:
+  * switchMap :star:
 * Utility
 
 :star - 常用

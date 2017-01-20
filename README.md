@@ -15,7 +15,7 @@ Little books on Angular, SCSS, TypeScript, Pug, and Stylus.
 * [Lodash](https://github.com/Shyam-Chen/Little-Books/blob/master/Lodash.md)
 * [ReactiveX](https://github.com/Shyam-Chen/Little-Books/blob/master/ReactiveX.md)
 * [Redux](https://github.com/Shyam-Chen/Little-Books/blob/master/Redux.md)
-* D3
+* [D3](https://github.com/Shyam-Chen/Little-Books/blob/master/D3.md)
 * [Material](https://github.com/Shyam-Chen/Little-Books/blob/master/Material.md)
 * Firebase
 * Cordova
