@@ -1,5 +1,21 @@
 # Material
 
+### 練習來源
+* https://github.com/material-components/material-components-web
+
+### 實作執行
+* https://github.com/Shyam-Chen/Web-Starter-Kit
+
+***
+
+### 目錄
+* [Themes](#themes)
+* [Buttons](#buttons)
+
+***
+
+## Themes
+
 ```css
 :root {
   --mdc-theme-primary: #9C27B0;  /* Purple - 500 */

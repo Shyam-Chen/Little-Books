@@ -1,8 +1,11 @@
 # RxJS
 
-練習來源: https://github.com/ReactiveX/rxjs & https://github.com/btroncone/learn-rxjs
+### 練習來源
+* https://github.com/ReactiveX/rxjs
+* https://github.com/btroncone/learn-rxjs
 
-實作執行: https://github.com/Shyam-Chen/Web-Starter-Kit
+### 實作執行
+* https://github.com/Shyam-Chen/Web-Starter-Kit
 
 ***
 
