@@ -12,7 +12,28 @@
 ### 目錄
 * [Classes (類別)](#classes)
 * [Observable](#observable)
+  * bindCallback
+  * bindNodeCallback
   * [combineLatest](#combinelatest-1) :star: (1)
+  * concat :star: (1)
+  * defer
+  * empty (1)
+  * forkJoin (1)
+  * from :star: (1)
+  * fromEvent
+  * fromEventPattern
+  * fromPromise
+  * if
+  * interval
+  * merge :star:
+  * never
+  * of
+  * pairs
+  * range
+  * throw
+  * timer
+  * using
+  * zip (1)
 * [Scheduler](#scheduler)
 * Subject
 * [ReplaySubject](#replaysubject)
@@ -21,23 +42,83 @@
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
   * [combineLatest](#combinelatest-2) :star: (2)
-  * concat :star:
+  * concat :star: (2)
   * concatAll
+  * forkJoin (2)
+  * merge :star:
+  * mergeAll
+  * race
+  * startWith :star:
+  * withLatestFrom :star:
+  * zip (2)
 * Conditional
+  * defaultIfEmpty
+  * every
 * Creation
+  * create
+  * empty (2)
+  * from :star: (2)
+  * fromEvent
+  * fromPromise
+  * interval
+  * of
+  * range
+  * throw
+  * timer
 * Error Handling
+  * catch
+  * retry
+  * retryWhen
 * Filtering
+  * debounce
+  * debounceTime :star:
+  * distinctUntilChanged :star:
+  * filter :star:
+  * first
+  * ignoreElements
+  * last
+  * sample
+  * single
+  * skip
+  * skipUntil
+  * skipWhile
+  * take :star:
+  * takeUntil :star:
+  * takeWhile
+  * throttle
+  * throttleTime
 * Multicasting
+  * multicast
+  * publish
+  * share :star:
 * [Transformation (轉化)](#轉化)
   * [buffer](#buffer)
   * [bufferCount](#buffercount)
   * [bufferTime](#buffertime) :star:
+  * bufferToggle
+  * bufferWhen
+  * concatMap :star:
+  * concatMapTo
+  * expand
+  * groupBy
   * [map](#map) :star:
   * [mapTo](#mapto)
   * [mergeMap](#mergemap) :star:
+  * partition
+  * pluck
   * scan :star:
   * switchMap :star:
+  * window
+  * windowCount
+  * windowTime
+  * windowToggle
+  * windowWhen
 * Utility (公用)
+  * do :star:
+  * delay
+  * delayWhen
+  * let
+  * toPromise
 
 :star: - 常用
 
@@ -50,10 +131,8 @@
 ```js
 import { Observable } from 'rxjs/Observable';
 import { Scheduler } from 'rxjs/Scheduler';
-
 import { Subject } from 'rxjs/Subject';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-
 import { AsyncSubject } from 'rxjs/AsyncSubject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 ```

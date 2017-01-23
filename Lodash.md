@@ -11,18 +11,24 @@
 ### 目錄
 * Array (陣列)
 * Collection (集合)
+* Date (日期)
 * Function (函式)
-  * before
-  * bind
+  * before :star:
+  * bind :star:
 * Lang (語言)
 * Math (數學)
+* Number (數字)
 * [Object (物件)](#物件)
-  * assignIn
+  * assignIn :star:
 * Seq (序列)
   * chain
   * value
 * String (字串)
 * Util (公用)
+
+:star: - 核心<br>
+:broken_heart: - ES5 (含)以下<br>
+:heart: - ES2015 (含)以上
 
 ***
 
