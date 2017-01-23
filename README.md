@@ -20,9 +20,5 @@ Little books on Angular, SCSS, TypeScript, Pug, and Stylus.
 * [Firebase](https://github.com/Shyam-Chen/Little-Books/blob/master/Firebase.md)
 * Cordova
 * Electron
-* Express
-* Mongoose
-
-***
-
-:sparkles: ECMAScript / HTML5 / Node.js :sparkles:
+* [Express](https://github.com/Shyam-Chen/Little-Books/blob/master/Express.md)
+* [Mongoose](https://github.com/Shyam-Chen/Little-Books/blob/master/Mongoose.md)
