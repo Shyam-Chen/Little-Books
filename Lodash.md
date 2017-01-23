@@ -1,24 +1,28 @@
 # Lodash
 
-`lodash core`
+### 練習來源
+* https://github.com/lodash/lodash
+
+### 實作執行
+* https://github.com/Shyam-Chen/Web-Starter-Kit
 
 ***
 
 ### 目錄
-* Array
-* Collection
+* Array (陣列)
+* Collection (集合)
 * Function (函式)
   * before
   * bind
-* Lang
-* Math
+* Lang (語言)
+* Math (數學)
 * [Object (物件)](#物件)
   * assignIn
 * Seq (序列)
   * chain
   * value
-* String
-* Util  
+* String (字串)
+* Util (公用)
 
 ***
 

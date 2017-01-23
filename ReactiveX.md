@@ -10,17 +10,17 @@
 ***
 
 ### 目錄
-* [Classes](#classes)
-* Observable
-  * [combineLatest](#combinelatest) (:beginner:)
-* Scheduler
+* [Classes (類別)](#classes)
+* [Observable](#observable)
+  * [combineLatest](#combinelatest) :star: (1)
+* [Scheduler](#scheduler)
 * Subject
 * [ReplaySubject](#replaysubject)
 * AsyncSubject
 * BehaviorSubject
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
-  * [combineLatest](#combinelatest) :star: (:beginner:)
+  * [combineLatest](#combinelatest) :star: (2)
   * concat :star:
   * concatAll
 * Conditional
@@ -37,9 +37,9 @@
   * [mergeMap](#mergemap) :star:
   * scan :star:
   * switchMap :star:
-* Utility
+* Utility (公用)
 
-:star - 常用
+:star: - 常用
 
 ***
 
@@ -60,9 +60,11 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 ## Observable
 
-`import { Observable } from 'rxjs/Observable';`
+```js
+import { Observable } from 'rxjs/Observable';
+```
 
-### combineLatest
+### combineLatest (1)
 
 當任何的觀察者發射一個值時，從每個值發射出最新的值。
 
@@ -116,6 +118,17 @@ Observable::combineLatest(
   // 2, 2, 1
   // 2, 2, 2
   // ...
+```
+
+## Scheduler
+
+```js
+import { Scheduler } from 'rxjs/Scheduler';
+
+import { animationFrame } from 'rxjs/scheduler/animationFrame';
+import { asap } from 'rxjs/scheduler/asap';
+import { async } from 'rxjs/scheduler/async';
+import { queue } from 'rxjs/scheduler/queue';
 ```
 
 ## ReplaySubject
@@ -186,6 +199,44 @@ Observable::interval(1000)
   // [1, 0, 0]
   // [1, 1, 0]
   // [1, 1, 1]
+```
+
+### combineLatest (2)
+
+當任何的觀察者發射一個值時，從每個值發射出最新的值。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+import { interval } from 'rxjs/observable/interval';
+
+import { combineLatest } from 'rxjs/operator/combineLatest';
+
+const timerOne$ = Observable::timer(1000, 4000);
+const timerTwo$ = Observable::timer(2000, 4000);
+const timerThree$ = Observable::timer(3000, 4000);
+
+Observable::interval(1000)
+  ::combineLatest(timerOne$, timerTwo$, timerThree$)
+  .subscribe((latestValues) => {
+    const [timerValOne, timerValTwo, timerValThree] = latestValues;
+    console.log(`${timerValOne}, ${timerValTwo}, ${timerValThree}`);
+  });
+  // 2, 0, 0
+  // 3, 0, 0
+  // 4, 0, 0
+  // 4, 1, 0
+  // 5, 1, 0
+  // 5, 1, 1
+  // 6, 1, 1
+  // 6, 1, 1
+  // 7, 1, 1
+  // 8, 1, 1
+  // 8, 2, 1
+  // 9, 2, 1
+  // 9, 2, 2
+  // ...
 ```
 
 ## 轉化
