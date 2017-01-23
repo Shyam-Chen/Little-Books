@@ -1,4 +1,4 @@
-# RxJS
+# ReactiveX
 
 ### 練習來源
 * https://github.com/ReactiveX/rxjs
@@ -12,7 +12,7 @@
 ### 目錄
 * [Classes (類別)](#classes)
 * [Observable](#observable)
-  * [combineLatest](#combinelatest) :star: (1)
+  * [combineLatest](#combinelatest-1) :star: (1)
 * [Scheduler](#scheduler)
 * Subject
 * [ReplaySubject](#replaysubject)
@@ -20,7 +20,7 @@
 * BehaviorSubject
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
-  * [combineLatest](#combinelatest) :star: (2)
+  * [combineLatest](#combinelatest-2) :star: (2)
   * concat :star:
   * concatAll
 * Conditional
