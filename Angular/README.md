@@ -125,8 +125,7 @@
 ***
 
 ### 番外
-* [國際化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
-* [本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/localization.md)
+* [國際化與本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/globalization.md)
 * 資料視覺化
 * 流量分析
 * 使用者介面設計
