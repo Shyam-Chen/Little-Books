@@ -125,14 +125,12 @@
 ***
 
 ### 番外
-* ---------- **擴展** ----------
 * [國際化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
 * [本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/localization.md)
 * 資料視覺化
 * 流量分析
-* ---------- **應用** ----------
-* Material - 使用者介面設計
-* Firebase - 後端雲端服務
-* Cordova - 跨平台行動開發
-* Electron - 跨平台桌面開發
-* [M.E.A.N.](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/mean-stack.md) - 全端雲端開發
+* 使用者介面設計
+* 後端雲端服務
+* 跨平台行動開發
+* 跨平台桌面開發
+* [全端雲端開發](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/mean-stack.md)
