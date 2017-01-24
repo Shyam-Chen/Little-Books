@@ -1,6 +1,6 @@
 # Little Books
 
-Little books on Angular, SCSS, TypeScript, Pug, and Stylus.
+:books: Little books on Angular (and beyond), SCSS, TypeScript, Pug, and Stylus.
 
 ### Book List
 * [Angular](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/README.md)
