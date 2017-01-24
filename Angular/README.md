@@ -126,22 +126,13 @@
 
 ### 番外
 * ---------- **擴展** ----------
-* [國際化 (ng2-translate)](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
-* [本地化 (localize-router)](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/localization.md)
-* 資料視覺化 (d3)
-* 流量分析 (angulartics2)
+* [國際化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
+* [本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/localization.md)
+* 資料視覺化
+* 流量分析
 * ---------- **應用** ----------
-* Material - 原質化設計
-  * Flex Layout (Flex 排版)
-  * Components (元件)
+* Material - 使用者介面設計
 * Firebase - 後端雲端服務
-  * Authentication (驗證)
-  * Realtime Database (即時資料庫)
-  * Storage (存儲)
-  * Cloud Messaging (雲端訊息)
 * Cordova - 跨平台行動開發
 * Electron - 跨平台桌面開發
-* M.E.A.N. - 全端開發
-  * JSON Web Tokens
-  * Representational State Transfer
-  * WebSockets
+* [M.E.A.N.](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/mean-stack.md) - 全端雲端開發
