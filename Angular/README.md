@@ -141,7 +141,7 @@
   * Cloud Messaging (雲端訊息)
 * Cordova - 跨平台行動開發
 * Electron - 跨平台桌面開發
-* MEAN Stack - 全端開發
+* M.E.A.N. - 全端開發
   * JSON Web Tokens
   * Representational State Transfer
   * WebSockets

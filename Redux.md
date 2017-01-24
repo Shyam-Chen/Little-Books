@@ -14,7 +14,7 @@
 
 ***
 
-計數器
+## 計數器
 
 ```js
 import { combineReducers, createStore } from 'redux';
