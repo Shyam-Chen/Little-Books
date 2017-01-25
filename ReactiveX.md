@@ -20,18 +20,18 @@
   * empty (1)
   * forkJoin (1)
   * from :star: (1)
-  * fromEvent
+  * fromEvent (1)
   * fromEventPattern
-  * fromPromise
+  * fromPromise (1)
   * if
-  * interval
-  * merge :star:
+  * interval (1)
+  * merge :star: (1)
   * never
-  * of
+  * of (1)
   * pairs
-  * range
-  * throw
-  * timer
+  * range (1)
+  * throw (1)
+  * timer (1)
   * using
   * zip (1)
 * [Scheduler](#scheduler)
@@ -45,31 +45,31 @@
   * concat :star: (2)
   * concatAll
   * forkJoin (2)
-  * merge :star:
+  * merge :star: (2)
   * mergeAll
   * race
   * startWith :star:
   * withLatestFrom :star:
   * zip (2)
-* Conditional
+* Conditional (條件)
   * defaultIfEmpty
   * every
-* Creation
+* Creation (創建)
   * create
   * empty (2)
   * from :star: (2)
-  * fromEvent
-  * fromPromise
-  * interval
-  * of
-  * range
-  * throw
-  * timer
-* Error Handling
+  * fromEvent (2)
+  * fromPromise (2)
+  * interval (2)
+  * of (2)
+  * range (2)
+  * throw (2)
+  * timer (2)
+* Error Handling (錯誤處理)
   * catch
   * retry
   * retryWhen
-* Filtering
+* Filtering (過濾)
   * debounce
   * debounceTime :star:
   * distinctUntilChanged :star:
@@ -87,7 +87,7 @@
   * takeWhile
   * throttle
   * throttleTime
-* Multicasting
+* Multicasting (組播)
   * multicast
   * publish
   * share :star:
