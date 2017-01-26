@@ -18,7 +18,5 @@
 * [D3](https://github.com/Shyam-Chen/Little-Books/blob/master/D3.md)
 * [Material](https://github.com/Shyam-Chen/Little-Books/blob/master/Material.md)
 * [Firebase](https://github.com/Shyam-Chen/Little-Books/blob/master/Firebase.md)
-* [Cordova](https://github.com/Shyam-Chen/Little-Books/blob/master/Cordova.md)
-* [Electron](https://github.com/Shyam-Chen/Little-Books/blob/master/Electron.md)
 * [Express](https://github.com/Shyam-Chen/Little-Books/blob/master/Express.md)
 * [Mongoose](https://github.com/Shyam-Chen/Little-Books/blob/master/Mongoose.md)
