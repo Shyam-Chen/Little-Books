@@ -16,7 +16,7 @@
   * bindCallback
   * bindNodeCallback
   * [combineLatest](#combinelatest-1) :star: (1)
-  * concat :star: (1)
+  * [concat](#concat-1) :star: (1)
   * defer
   * empty (1)
   * forkJoin (1)
@@ -43,7 +43,7 @@
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
   * [combineLatest](#combinelatest-2) :star: (2)
-  * concat :star: (2)
+  * [concat](#concat-2) :star: (2)
   * concatAll
   * forkJoin (2)
   * merge :star: (2)
@@ -200,6 +200,47 @@ Observable::combineLatest(
   // ...
 ```
 
+### concat (1)
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+import { concat } from 'rxjs/observable/concat';
+
+Observable::concat(
+    Observable::of(1, 2, 3),
+    Observable::of(4, 5, 6)
+  )
+  .subscribe(result => console.log(result));
+  // 1
+  // 2
+  // 3
+  // 4
+  // 5
+  // 6
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { concat } from 'rxjs/observable/concat';
+import { interval } from 'rxjs/observable/interval';
+import { of } from 'rxjs/observable/of';
+
+Observable::concat(
+    Observable::interval(1000),
+    Observable::of('This', 'Never', 'Runs')  // 這個不會被執行
+  )
+  .subscribe(result => console.log(result));
+  // 每秒打印
+  // 0
+  // 1
+  // 2
+  // 3
+  // ...
+```
+
 ## Scheduler
 
 ```js
@@ -318,6 +359,49 @@ Observable::interval(1000)
   // 9, 2, 2
   // ...
 ```
+
+### concat (2)
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { concat } from 'rxjs/operator/concat';
+
+Observable::of(1, 2, 3)
+  ::concat(Observable::of(4, 5, 6))
+  .subscribe(result => console.log(result));
+  // 1
+  // 2
+  // 3
+  // 4
+  // 5
+  // 6
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { delay } from 'rxjs/operator/delay';
+import { concat } from 'rxjs/operator/concat';
+
+Observable::of(1, 2, 3)
+  ::delay(2000)
+  ::concat(Observable::of(4, 5, 6))
+  .subscribe(result => console.log(result));
+  // 延遲兩秒
+  // 1
+  // 2
+  // 3
+  // 4
+  // 5
+  // 6
+```
+
+
 
 ## 轉化
 
