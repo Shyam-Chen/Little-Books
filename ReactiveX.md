@@ -11,7 +11,6 @@
 ***
 
 ### 目錄
-* [Classes (類別)](#classes)
 * [Observable](#observable)
   * bindCallback
   * bindNodeCallback
@@ -121,22 +120,11 @@
   * let
   * toPromise
 
-:star: - 常用
+:star: - 常用<br>
+(1) - 靜態<br>
+(2) - 動態
 
 ***
-
-## Classes
-
-`public class`
-
-```js
-import { Observable } from 'rxjs/Observable';
-import { Scheduler } from 'rxjs/Scheduler';
-import { Subject } from 'rxjs/Subject';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { AsyncSubject } from 'rxjs/AsyncSubject';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-```
 
 ## Observable
 
@@ -245,11 +233,19 @@ Observable::concat(
 
 ```js
 import { Scheduler } from 'rxjs/Scheduler';
+```
 
+```js
 import { animationFrame } from 'rxjs/scheduler/animationFrame';
 import { asap } from 'rxjs/scheduler/asap';
 import { async } from 'rxjs/scheduler/async';
 import { queue } from 'rxjs/scheduler/queue';
+```
+
+## Subject
+
+```js
+import { Subject } from 'rxjs/Subject';
 ```
 
 ## ReplaySubject
@@ -270,6 +266,18 @@ subject.next(3);
 subject.subscribe((val) => console.log('Received value:', val));
 // 2
 // 3
+```
+
+## AsyncSubject
+
+```js
+import { AsyncSubject } from 'rxjs/AsyncSubject';
+```
+
+## BehaviorSubject
+
+```js
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 ```
 
 ## 組合
