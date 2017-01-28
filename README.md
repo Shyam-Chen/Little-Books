@@ -14,7 +14,9 @@
 ### Note List
 * [Lodash](https://github.com/Shyam-Chen/Little-Books/blob/master/Lodash.md)
 * [ReactiveX](https://github.com/Shyam-Chen/Little-Books/blob/master/ReactiveX.md)
+* ----------
 * [Redux](https://github.com/Shyam-Chen/Little-Books/blob/master/Redux.md)
+* [Immutable](https://github.com/Shyam-Chen/Little-Books/blob/master/Immutable.md)
 * ----------
 * [D3](https://github.com/Shyam-Chen/Little-Books/blob/master/D3.md)
 * [Three](https://github.com/Shyam-Chen/Little-Books/blob/master/Three.md)
