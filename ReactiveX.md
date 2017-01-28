@@ -17,7 +17,7 @@
   * [combineLatest](#combinelatest-1) :star: (1)
   * [concat](#concat-1) :star: (1)
   * [defer](#defer)
-  * empty (1)
+  * [empty](#empty-1) (1)
   * forkJoin (1)
   * from :star: (1)
   * fromEvent (1)
@@ -268,6 +268,22 @@ Observable::defer(() => Observable::of(1, 2, 3))
   // 2
   // 3
   // 4
+```
+
+### empty (1)
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { empty } from 'rxjs/observable/empty';
+
+Observable::empty()  // 直接完成
+  .subscribe(
+    result => console.log(result, 'Next...'),
+    error => console.error(error),
+    () => console.log('Complete!')
+  );
+  // Complete!
 ```
 
 ## Scheduler
