@@ -11,11 +11,116 @@
 
 ### 目錄
 * Array (陣列)
+  * chunk
+  * compact
+  * difference
+  * differenceBy
+  * differenceWith
+  * drop
+  * dropRight
+  * dropRightWhile
+  * dropWhile
+  * fill :sparkles:
+  * findIndex :sparkles:
+  * findLastIndex
+  * flatten
+  * flattenDeep
+  * flattenDepth
+  * fromPairs
+  * head
+  * initial
+  * intersection
+  * intersectionBy
+  * intersectionWith
+  * last
+  * nth
+  * pull
+  * pullAll
+  * pullAllBy
+  * pullAllWith
+  * pullAt
+  * remove
+  * slice
+  * sortedIndex
+  * sortedIndexBy
+  * sortedIndexOf
+  * sortedLastIndex
+  * sortedLastIndexBy
+  * sortedLastIndexOf
+  * sortedUniq
+  * sortedUniqBy
+  * tail
+  * take
+  * takeRight
+  * takeRightWhile
+  * takeWhile
+  * union
+  * unionBy
+  * unionWith
+  * uniq
+  * uniqBy
+  * uniqWith
+  * unzip
+  * unzipWith
+  * without
+  * xor
+  * xorBy
+  * xorWith
+  * zip
+  * zipObject
+  * zipObjectDeep
+  * zipWith
 * Collection (集合)
+  * countBy
+  * every
+  * filter
+  * find :sparkles:
+  * findLast
+  * flatMap
+  * flatMapDeep
+  * flatMapDepth
+  * forEachRight
+  * groupBy
+  * includes
+  * invokeMap
+  * keyBy
+  * map
+  * orderBy
+  * partition
+  * reduce
+  * reduceRight
+  * reject
+  * sample
+  * sampleSize
+  * shuffle
+  * size
+  * some
+  * sortBy
 * Date (日期)
+  * now
 * Function (函式)
+  * ary
   * before :star:
   * bind :star:
+  * bindKey
+  * curry
+  * curryRight
+  * debounce
+  * defer
+  * delay
+  * flip
+  * memoize
+  * negate
+  * once
+  * overArgs
+  * partial
+  * partialRight
+  * rearg
+  * rest
+  * spread
+  * throttle
+  * unary
+  * wrap
 * Lang (語言)
 * Math (數學)
 * Number (數字)
@@ -28,8 +133,7 @@
 * Util (公用)
 
 :star: - 核心<br>
-:broken_heart: - ES5 (含)以下<br>
-:heart: - ES2015 (含)以上
+:sparkles: - ES2015+
 
 ***
 

@@ -35,10 +35,10 @@
   * using
   * zip (1)
 * [Scheduler](#scheduler)
-* Subject
+* [Subject](#subject)
 * [ReplaySubject](#replaysubject)
-* AsyncSubject
-* BehaviorSubject
+* [AsyncSubject](#asyncsubject)
+* [BehaviorSubject](#behaviorsubject)
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
   * [combineLatest](#combinelatest-2) :star: (2)
