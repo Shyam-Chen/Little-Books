@@ -27,7 +27,7 @@
   * interval (1)
   * merge :star: (1)
   * never
-  * of (1)
+  * [of](#of-1) (1)
   * pairs
   * range (1)
   * throw (1)
@@ -284,6 +284,40 @@ Observable::empty()  // 直接完成
     () => console.log('Complete!')
   );
   // Complete!
+```
+
+### of (1)
+
+為觀察者發射給予指定的參數做為一個值，然後再一個接著一個，最後再一次發射出去。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+Observable::of(1, 2, 3)
+  .subscribe(result => console.log(result));
+  // 1
+  // 2
+  // 3
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+Observable::of(
+    { a: 'A' },
+    [2, 'b'],
+    () => 'C'
+  )
+  .subscribe(result => console.log(result));
+  // {a: "A"}
+  // [2, "b"]
+  // function () {
+  //   return 'C';
+  // }
 ```
 
 ## Scheduler
