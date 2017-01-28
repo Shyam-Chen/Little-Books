@@ -16,7 +16,7 @@
   * bindNodeCallback
   * [combineLatest](#combinelatest-1) :star: (1)
   * [concat](#concat-1) :star: (1)
-  * defer
+  * [defer](#defer)
   * empty (1)
   * forkJoin (1)
   * from :star: (1)
@@ -227,6 +227,18 @@ Observable::concat(
   // 2
   // 3
   // ...
+```
+
+### defer
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { defer } from 'rxjs/observable/defer';
+import { of } from 'rxjs/observable/of';
+
+Observable::defer(() => Observable::of(1, 2, 3))
+  .subscribe(result => console.log(result + 1));
 ```
 
 ## Scheduler
