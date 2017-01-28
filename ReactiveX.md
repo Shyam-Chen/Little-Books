@@ -12,8 +12,8 @@
 
 ### 目錄
 * [Observable](#observable)
-  * bindCallback
-  * bindNodeCallback
+  * [bindCallback](#bindcallback)
+  * [bindNodeCallback](#bindnodecallback)
   * [combineLatest](#combinelatest-1) :star: (1)
   * [concat](#concat-1) :star: (1)
   * [defer](#defer)
@@ -132,6 +132,32 @@
 import { Observable } from 'rxjs/Observable';
 ```
 
+### bindCallback
+
+將回呼 API 轉換成返回 Observable 函式。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { bindCallback } from 'rxjs/observable/bindCallback';
+
+Observable::bindCallback(...)
+  .subscribe(result => console.log(result));
+```
+
+### bindNodeCallback
+
+將 Node.js 風格的回呼 API 轉換成返回 Observable 函式。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { bindNodeCallback } from 'rxjs/observable/bindNodeCallback';
+
+Observable::bindNodeCallback(...)
+  .subscribe(result => console.log(result));
+```
+
 ### combineLatest (1)
 
 當任何的觀察者發射一個值時，從每個值發射出最新的值。
@@ -239,6 +265,9 @@ import { of } from 'rxjs/observable/of';
 
 Observable::defer(() => Observable::of(1, 2, 3))
   .subscribe(result => console.log(result + 1));
+  // 2
+  // 3
+  // 4
 ```
 
 ## Scheduler
