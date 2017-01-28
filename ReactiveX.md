@@ -216,6 +216,10 @@ Observable::combineLatest(
 
 ### concat (1)
 
+Creates an output Observable which sequentially emits all values from every given input Observable after the current Observable.
+
+創建一個輸出 Observable，它從當前 Observable 後的每個給定輸入 Observable 中順序發出所有值。
+
 ```js
 import { Observable } from 'rxjs/Observable';
 
@@ -257,6 +261,10 @@ Observable::concat(
 
 ### defer
 
+Creates an Observable that, on subscribe, calls an Observable factory to make an Observable for each new Observer.
+
+創建一個 Observable，在 subscribe 上，調用一個 Observable 工廠為每個新的 Observer 做一個 Observable。
+
 ```js
 import { Observable } from 'rxjs/Observable';
 
@@ -271,6 +279,10 @@ Observable::defer(() => Observable::of(1, 2, 3))
 ```
 
 ### empty (1)
+
+Creates an Observable that emits no items to the Observer and immediately emits a complete notification.
+
+創建一個不向 Observer 發送項的 Observable，並立即發出一個完整的通知。
 
 ```js
 import { Observable } from 'rxjs/Observable';
