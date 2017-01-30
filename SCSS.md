@@ -1,7 +1,7 @@
 # SCSS
 
 ### 目錄
-* [簡寫](#簡寫)
+* [入門](#入門)
 * [變數](#變數)
 * [巢狀](#巢狀)
 * [混入](#混入)
@@ -22,32 +22,13 @@
 
 ***
 
-## 簡寫
+## 入門
 
-Stylus 可以讓我們把大括號 `{}` 省略
+GUI 工具: https://prepros.io/
 
-```styl
-.foo
-  color: #F44336;
-```
+SCSS 可以直接撰寫原本的 CSS。
 
-也可以把分號 `;` 省略
-
-```styl
-.foo
-  color: #F44336
-```
-
-還可以把冒號 `:` 省略
-
-```styl
-.foo
-  color #F44336
-```
-
-其實也可以寫原本的 CSS
-
-```styl
+```scss
 .foo {
   color: #F44336;
 }
@@ -63,20 +44,13 @@ Stylus 可以讓我們把大括號 `{}` 省略
 
 ***
 
-群組
+選擇器的群組。
 
-```styl
+```scss
 .foo,
-.bar
-  color #F44336
-```
-
-把逗號 ',' 省略
-
-```styl
-.foo
-.bar
-  color #F44336
+.bar {
+  color: #F44336;
+}
 ```
 
 :point_up: 編譯前後 :point_down:
@@ -90,20 +64,14 @@ Stylus 可以讓我們把大括號 `{}` 省略
 
 ## 變數
 
-```styl
-bar = #F44336
+變數的宣告與使用。
 
-.foo
-  color bar
-```
+```scss
+$bar: #F44336;
 
-不過建議前面加個金錢符號 `$`
-
-```styl
-$bar = #F44336
-
-.foo
-  color $bar
+.foo {
+  color: $bar;
+}
 ```
 
 :point_up: 編譯前後 :point_down:
@@ -118,11 +86,13 @@ $bar = #F44336
 
 選擇器的使用
 
-```styl
-.foo
-  border 1px solid #eee
-  .bar
-    color #F44336
+```scss
+.foo {
+  border: 1px solid #eee;
+  .bar {
+    color: #F44336;
+  }
+}
 ```
 
 使用 And 符號 `&`
