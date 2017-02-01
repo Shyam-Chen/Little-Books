@@ -15,6 +15,10 @@
 
 ***
 
+```js
+import { createStore, combineReducers, bindActionCreators, applyMiddleware, compose } from 'redux';
+```
+
 ## 計數器
 
 ```js
