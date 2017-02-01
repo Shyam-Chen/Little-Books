@@ -52,6 +52,7 @@
     * [ngFor](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/directives.md#ng-for)
     * [ngPlural](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/directives.md#ng-plural)
     * [ngTemplateOutlet](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/directives.md#ng-template-outlet)
+    * ViewContainer
   * [自訂指令](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/directives.md#自訂指令)
     * [實體變數 (ElementRef & Renderer)](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/directives.md#實體變數)
     * [屬性型指令 (@Attribute(), HostBinding(), & @HostListener())](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/directives.md#屬性型指令)
@@ -130,6 +131,4 @@
 * 流量分析
 * 使用者介面設計
 * 後端雲端服務
-* 跨平台行動開發
-* 跨平台桌面開發
 * [全端雲端開發](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/mean-stack.md)
