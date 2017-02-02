@@ -1,15 +1,12 @@
 # Little Books
 
-:books: Little books on Angular, SCSS, and TypeScript.
+:books: Little books on Angular, SCSS, TypeScript, Lodash, ReactiveX, Redux, Immutable, Material, Firebase, Express, and Mongoose. :memo:
 
 ### Book List
 * [Angular](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/README.md)
 * [SCSS](https://github.com/Shyam-Chen/Little-Books/blob/master/SCSS.md)
 * [TypeScript](https://github.com/Shyam-Chen/Little-Books/blob/master/TypeScript.md)
-
-***
-
-### Note List
+* ----------
 * [Lodash](https://github.com/Shyam-Chen/Little-Books/blob/master/Lodash.md)
 * [ReactiveX](https://github.com/Shyam-Chen/Little-Books/blob/master/ReactiveX.md)
 * [Redux](https://github.com/Shyam-Chen/Little-Books/blob/master/Redux.md)
