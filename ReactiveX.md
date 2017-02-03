@@ -43,7 +43,7 @@
   * [combineAll](#combineall)
   * [combineLatest](#combinelatest-2) :star: (2)
   * [concat](#concat-2) :star: (2)
-  * concatAll
+  * [concatAll](#concatall)
   * forkJoin (2)
   * merge :star: (2)
   * mergeAll
@@ -512,7 +512,78 @@ Observable::of(1, 2, 3)
   // 6
 ```
 
+### concatAll
 
+Converts a higher-order Observable into a first-order Observable by concatenating the inner Observables in order.
+
+通過按順序連接內部 Observable，將高階 Observable 轉換為一階 Observable。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+import { of } from 'rxjs/observable/of';
+
+import { map } from 'rxjs/operator/map';
+import { concatAll } from 'rxjs/operator/concatAll';
+
+Observable::interval(1000)
+  ::map(value => Observable::of(value + 10))
+  ::concatAll()
+  .subscribe(result => console.log(result));
+  // 每秒打印
+  // 10
+  // 11
+  // 12
+  // 13
+  // ...
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { map } from 'rxjs/operator/map';
+import { concatAll } from 'rxjs/operator/concatAll';
+
+Observable::interval(1000)
+  ::map(value => new Promise(resolve => resolve(value)))
+  ::concatAll()
+  .subscribe(result => console.log(result));
+  // 每秒打印
+  // 0
+  // 1
+  // 2
+  // 3
+  // ...
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+import { interval } from 'rxjs/observable/interval';
+
+import { take } from 'rxjs/operator/take';
+import { concatAll } from 'rxjs/operator/concatAll';
+
+Observable::of(
+    Observable::interval(1000)::take(5),  // 0, 1, 2, 3, 4 (完成)
+    Observable::interval(500)::take(2),  // 0, 1 (完成)
+    Observable::interval(2000)::take(1)  // 0 (完成)
+  )
+  ::concatAll()
+  .subscribe(result => console.log(result));
+  // 0
+  // 1
+  // 2
+  // 3
+  // 4
+  // 0
+  // 1
+  // 0
+```
 
 ## 轉化
 
