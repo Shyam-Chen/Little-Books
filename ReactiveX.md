@@ -18,7 +18,7 @@
   * [concat](#concat-1) :star: (1)
   * [defer](#defer)
   * [empty](#empty-1) (1)
-  * forkJoin (1)
+  * [forkJoin](#forkjoin-1) (1)
   * from :star: (1)
   * fromEvent (1)
   * fromEventPattern
@@ -296,6 +296,49 @@ Observable::empty()  // 直接完成
     () => console.log('Complete!')
   );
   // Complete!
+```
+
+### forkJoin (1)
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { forkJoin } from 'rxjs/observable/forkJoin';
+import { of } from 'rxjs/observable/of';
+import { interval } from 'rxjs/observable/interval';
+
+import { delay } from 'rxjs/operator/delay';
+import { take } from 'rxjs/operator/take';
+
+const p = value => new Promise(resolve => setTimeout(() => resolve(`Resolved: ${value}`), 5000));
+
+Observable::forkJoin(
+    Observable::of('Hello'),
+    Observable::of('World')::delay(1000),
+    Observable::interval(1000)::take(1),
+    Observable::interval(1000)::take(2),
+    p('RESULT')
+  )
+  .subscribe(result => console.log(result));
+  // 五秒後印出
+  // [ "Hello", "World", 0, 1, "Resolved: RESULT" ]
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+import { forkJoin } from 'rxjs/observable/forkJoin';
+
+import { mergeMap } from 'rxjs/operator/mergeMap';
+
+const p = value => new Promise(resolve => setTimeout(() => resolve(`Resolved: ${value}`), 5000));
+
+Observable::of([1, 2, 3, 4, 5])
+  ::mergeMap(q => Observable::forkJoin(...q.map(p)))
+  .subscribe(value => console.log(value));
+  // 五秒後印出
+  // [ "Resolved: 1", "Resolved: 2", "Resolved: 3", "Resolved: 4", "Resolved: 5" ]
 ```
 
 ### of (1)
