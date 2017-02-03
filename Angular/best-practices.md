@@ -165,5 +165,9 @@ $ npm start
 壓縮程式碼
 
 ```bash
-$ 
+$
 ```
+
+### 伺服端渲染
+
+https://universal.angular.io/

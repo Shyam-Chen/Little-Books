@@ -4,6 +4,4 @@
 $ npm i universal-cli -g
 ```
 
-`Heroku`
-
-`mLab`
+Amazon Web Services

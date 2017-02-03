@@ -121,7 +121,7 @@
   * 快取
   * 預先抓取
   * 延遲載入
-  * 伺服端渲染
+  * [伺服端渲染](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/best-practices.md#伺服端渲染)
 
 ***
 
