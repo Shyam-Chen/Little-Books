@@ -19,7 +19,7 @@
   * [defer](#defer)
   * [empty](#empty-1) (1)
   * [forkJoin](#forkjoin-1) (1)
-  * from :star: (1)
+  * [from](#from-1) :star: (1)
   * fromEvent (1)
   * fromEventPattern
   * fromPromise (1)
@@ -339,6 +339,29 @@ Observable::of([1, 2, 3, 4, 5])
   .subscribe(value => console.log(value));
   // 五秒後印出
   // [ "Resolved: 1", "Resolved: 2", "Resolved: 3", "Resolved: 4", "Resolved: 5" ]
+```
+
+### from (1)
+
+Creates an Observable from an Array, an array-like object, a Promise, an iterable object, or an Observable-like object.
+
+從陣列，像陣列的物件，Promise，可迭代物件或像 Observable 的物件創建一個 Observable。
+
+```js
+import { Map } from 'immutable';
+
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+const map1 = Map({ a: 1, b: 2, c: 3 });
+const map2 = map1.set('b', 4);
+
+Observable::from(map2)
+  .subscribe(val => console.log(val));
+  // ["a", 1]
+  // ["b", 4]
+  // ["c", 3]
 ```
 
 ### interval (1)
