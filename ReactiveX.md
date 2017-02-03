@@ -24,7 +24,7 @@
   * fromEventPattern
   * fromPromise (1)
   * if
-  * interval (1)
+  * [interval](#interval-1) (1)
   * merge :star: (1)
   * never
   * [of](#of-1) (1)
@@ -339,6 +339,26 @@ Observable::of([1, 2, 3, 4, 5])
   .subscribe(value => console.log(value));
   // 五秒後印出
   // [ "Resolved: 1", "Resolved: 2", "Resolved: 3", "Resolved: 4", "Resolved: 5" ]
+```
+
+### interval (1)
+
+Creates an Observable that emits sequential numbers every specified interval of time, on a specified IScheduler.
+
+創建一個 Observable，它在指定的 IScheduler 上每隔指定的時間間隔發出序列號。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+Observable::interval(1000)
+  .subscribe(result => console.log(result));
+  // 0
+  // 1
+  // 2
+  // 3
+  // ...
 ```
 
 ### of (1)
