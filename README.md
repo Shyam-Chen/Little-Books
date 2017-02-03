@@ -4,7 +4,7 @@
 
 ### 書單
 * [Angular (高)](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/README.md)
-* [SCSS (低)](https://github.com/Shyam-Chen/Little-Books/blob/master/SCSS.md)
+* [SCSS (高，重構)](https://github.com/Shyam-Chen/Little-Books/blob/master/SCSS.md)
 * [TypeScript (中)](https://github.com/Shyam-Chen/Little-Books/blob/master/TypeScript.md)
 * ----------
 * [Lodash (極低)](https://github.com/Shyam-Chen/Little-Books/blob/master/Lodash.md)
