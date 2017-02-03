@@ -99,7 +99,7 @@
   * 動畫時間軸
   * 動畫影格
   * 並行動畫
-* 狀態容器
+* [狀態容器](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/state-container.md)
 * [測試](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md)
   * [測試原則](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#測試原則)
   * [靜態分析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#靜態分析)
@@ -127,8 +127,8 @@
 
 ### 番外
 * [國際化與本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/globalization.md)
-* 資料視覺化
-* 流量分析
-* 使用者介面設計
-* 後端雲端服務
+* [資料視覺化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/data-visualization.md)
+* [流量分析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/analytics.md)
+* [使用者介面設計](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/material.md)
+* [後端雲端服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/firebase.md)
 * [全端雲端開發](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/mean-stack.md)
