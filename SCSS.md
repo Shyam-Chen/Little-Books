@@ -82,6 +82,32 @@ $bar: #F44336;
 }
 ```
 
+***
+
+使用 CSS 的變數
+
+```scss
+:root {
+  --bar: #F44336;
+}
+
+.foo {
+  color: var(--bar);
+}
+```
+
+:point_up: 編譯前後 :point_down:
+
+```css
+:root {
+  --bar: #F44336;
+}
+
+.foo {
+  color: var(--bar);
+}
+```
+
 ## 巢狀
 
 選擇器的使用
