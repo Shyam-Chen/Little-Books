@@ -27,12 +27,12 @@
   * flattenDeep
   * flattenDepth
   * fromPairs
-  * head
-  * initial
+  * head :sparkles:
+  * initial :sparkles:
   * intersection
   * intersectionBy
   * intersectionWith
-  * last
+  * last :sparkles:
   * nth
   * pull
   * pullAll
@@ -49,7 +49,7 @@
   * sortedLastIndexOf
   * sortedUniq
   * sortedUniqBy
-  * tail
+  * tail :sparkles:
   * take
   * takeRight
   * takeRightWhile
@@ -73,7 +73,7 @@
 * Collection (集合)
   * countBy
   * every
-  * filter
+  * filter :sparkles:
   * find :sparkles:
   * findLast
   * flatMap
@@ -84,10 +84,10 @@
   * includes
   * invokeMap
   * keyBy
-  * map
+  * map :sparkles:
   * orderBy
   * partition
-  * reduce
+  * reduce :sparkles:
   * reduceRight
   * reject
   * sample
@@ -103,7 +103,7 @@
   * before :star:
   * bind :star:
   * bindKey
-  * curry
+  * curry :sparkles:
   * curryRight
   * debounce
   * defer
@@ -113,11 +113,11 @@
   * negate
   * once
   * overArgs
-  * partial
+  * partial :sparkles:
   * partialRight
   * rearg
-  * rest
-  * spread
+  * rest :sparkles:
+  * spread :sparkles:
   * throttle
   * unary
   * wrap
