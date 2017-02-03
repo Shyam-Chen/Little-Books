@@ -26,6 +26,8 @@
 * is
 * fromJS
 
+:sparkles: - 與 ES2015+ 有關
+
 ***
 
 ## Immutable
