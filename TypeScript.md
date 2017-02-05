@@ -862,12 +862,7 @@ Promise.race([
 `function* name() { ... }`
 
 ```ts
-/*
- * 為什麼在這裡星號是放在後面？
- *  - 因為未來搭配箭頭函式會是這樣 `*()`
- *    如: const foo = *() => { ... };
- */
-function *foo(x) {
+function* foo(x) {
   let y = x * (yield);  // 在這裡暫停
   return y;
 };
@@ -912,7 +907,7 @@ async function foo(x) {
 async function bar() {
   console.log(1);
   await foo(1000);  // 等待了一秒
-  setTimeout(() => console.log(3), 1000);  //  等待了一秒，加自己的一秒
+  setTimeout(() => console.log(3), 1000);  // 等待了一秒，加自己的一秒
 }
 
 bar();
