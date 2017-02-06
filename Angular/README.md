@@ -129,6 +129,7 @@
 * [國際化與本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/globalization.md)
 * [資料視覺化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/data-visualization.md)
 * [流量分析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/analytics.md)
-* [使用者介面設計](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/material.md)
+* [後設資料](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/metadata.md)
+* [原質化設計](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/material.md)
 * [後端雲端服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/firebase.md)
 * [全端雲端開發](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/mean-stack.md)
