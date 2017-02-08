@@ -11,81 +11,39 @@
 ***
 
 ### 目錄
-* [計數器](#計數器)
+* [入門](#入門)
 
 ***
 
+## 入門
+
 ```js
 import { createStore, combineReducers, bindActionCreators, applyMiddleware, compose } from 'redux';
+import { combineEpics, createEpicMiddleware } from 'redux-observable-es';
 ```
-
-## 計數器
-
-```js
-import { combineReducers, createStore } from 'redux';
-
-// Types
-const INCREMENT = 'INCREMENT';
-const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
-
-// Reducers
-const counterReducer = (state = 0, action) => {
-  switch (action.type) {
-    case INCREMENT:
-      return state + 1;
-    default:
-      return state;
-  }
-};
-
-const rootReducer = combineReducers({ counterReducer });
-
-// Actions
-const increment = () => ({ type: INCREMENT });
-const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
-
-// Store
-const store = createStore(rootReducer);
-
-const render = () => {
-  const { counterReducer } = store.getState();
-  document.querySelector('#value').innerHTML = counterReducer;
-};
-
-store.subscribe(render);
-render();
-
-document.querySelector('#increment').onclick = () => store.dispatch(increment());
-document.querySelector('#incrementIfOdd').onclick = () => {
-  if (store.getState().counterReducer % 2 === 1) {
-    store.dispatch(incrementIfOdd());
-  }
-};
-```
-
-```html
-Current count: <span id="value">0</span>
-<button id="increment">Increment</button>
-<button id="incrementIfOdd">Increment If Odd</button>
-```
-
-使用 `Epics`
 
 ```js
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
-import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'redux-observable-es';
 
 // Types
 const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+const RESET = 'RESET';
 const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
+const DECREMENT_IF_EVEN = 'DECREMENT_IF_EVEN';
 
 // Reducers
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
     case INCREMENT:
       return state + 1;
+    case DECREMENT:
+      return state - 1;
+    case RESET:
+      return 0;
     default:
       return state;
   }
@@ -93,7 +51,10 @@ const counterReducer = (state = 0, action) => {
 
 // Actions
 const increment = () => ({ type: INCREMENT });
+const decrement = () => ({ type: DECREMENT });
+const reset = () => ({ type: RESET });
 const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
+const decrementIfEven = () => ({ type: DECREMENT_IF_EVEN });
 
 // Epics
 const incrementIfOddEpic = (action$, store) =>
@@ -101,21 +62,37 @@ const incrementIfOddEpic = (action$, store) =>
     ::filter(() => store.getState().counterReducer % 2 === 1)
     ::map(increment);
 
-const rootEpic = combineEpics(incrementIfOddEpic);
+const decrementIfEvenEpic = (action$, store) =>
+  action$.ofType(DECREMENT_IF_EVEN)
+    ::filter(() => store.getState().counterReducer % 2 === 0)
+    ::map(decrement);
+
+const rootEpic = combineEpics(incrementIfOddEpic, decrementIfEvenEpic);
 const epicMiddleware = createEpicMiddleware(rootEpic);
 
 // Store
 const rootReducer = combineReducers({ counterReducer });
 const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
-const render = () => {
+store.subscribe(() => {
   const { counterReducer } = store.getState();
-  document.querySelector('#value').innerHTML = counterReducer;
-};
+  console.log(counterReducer);
+});
 
-store.subscribe(render);
-render();
+store.dispatch(increment());
+// 1
 
-document.querySelector('#increment').onclick = () => store.dispatch(increment());
-document.querySelector('#incrementIfOdd').onclick = () => store.dispatch(incrementIfOdd());
+store.dispatch(incrementIfOdd());
+// 1
+// 2
+
+store.dispatch(decrementIfEven());
+// 2
+// 1
+
+store.dispatch(reset());
+// 0
+
+store.dispatch(decrement());
+// -1
 ```
