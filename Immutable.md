@@ -10,7 +10,7 @@
 ***
 
 ### 目錄
-* [Immutable](#immutable)
+* 入門
 * Iterable
 * Seq
 * Collection
@@ -30,7 +30,7 @@
 
 ***
 
-## Immutable
+## 入門
 
 ```js
 import {
