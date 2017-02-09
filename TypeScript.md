@@ -12,7 +12,7 @@
 * [類別](#類別)
 * [型別兼容性](#型別兼容性)
 * [通用型別](#通用型別)
-* [型別查找]
+* [型別查找](#型別查找)
 * [後設資料](#後設資料)
 * [泛型](#泛型)
 * [型別斷言](#型別斷言)
@@ -146,12 +146,24 @@ let sentence: string = `My name is ${myName}.`;  // My name is Hale.
 
 ### 陣列
 ```ts
-let foo: number[] = [1, 2, 3];
-let bar: string[] = ['a', 'b', 'c'];
+const foo: number[] = [1, 2, 3];
+const bar: string[] = ['a', 'b', 'c'];
 
 // 或者
-let foo: Array<number> = [3, 2, 1];
-let bar: Array<string> = ['x', 'y', 'z'];
+const foo: Array<number> = [3, 2, 1];
+const bar: Array<string> = ['x', 'y', 'z'];
+```
+
+### 物件
+
+```ts
+const foo: object = { prop: 0 };
+```
+
+### 象徵
+
+```ts
+
 ```
 
 ### 元組
@@ -621,6 +633,17 @@ thing = new Thing();
 ### 通用型別
 ```ts
 const ng: Ng[] = [new Angular(), new Material(), new Firebase()];
+```
+
+### 型別查找
+
+```ts
+interface Foo {
+  bar: string;
+  baz: number;
+}
+
+type K1 = keyof Foo;  // "bar" | "baz"
 ```
 
 ### 後設資料
