@@ -19,14 +19,14 @@
 
 ```js
 import { createStore, combineReducers, bindActionCreators, applyMiddleware, compose } from 'redux';
-import { combineEpics, createEpicMiddleware } from 'redux-observable-es';
+import { createEpicMiddleware, combineEpics } from 'redux-observable-es';
 ```
 
 ```js
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { combineEpics, createEpicMiddleware } from 'redux-observable-es';
+import { createEpicMiddleware, combineEpics } from 'redux-observable-es';
 
 // Types
 const INCREMENT = 'INCREMENT';
