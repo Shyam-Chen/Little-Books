@@ -503,13 +503,13 @@ $bar = 'color'
 
 ```css
 /*
- * foo.styl
+ * 多行註解
  */
 .foo {
   color: #f44336;
 }
 /*
- * [附註]: Red-500 是 Material Design 的顏色定義
+ * 多行註解
  */
 ```
 
@@ -517,7 +517,7 @@ $bar = 'color'
 
 ```css
 /*
- * foo.styl
+ * 多行註解
  */
 .foo{color:#f44336}
 ```
