@@ -1,6 +1,6 @@
 # 小書
 
-:books: 有關 Angular、TypeScript、SCSS、Lodash、ReactiveX、Redux、Immutable、Material、Firebase、Express 和 Mongoose 的小書。 :memo:
+:books: 有關 Angular、TypeScript、SCSS、Lodash、ReactiveX、Redux、Immutable、D3、Material、Firebase、Express 和 Mongoose 的小書。 :memo:
 
 ### 書單
 * [Angular (中高)](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/README.md)

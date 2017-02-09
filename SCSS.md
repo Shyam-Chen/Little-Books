@@ -123,11 +123,13 @@ $bar: #F44336;
 
 使用 And 符號 `&`
 
-```styl
-.foo
-  border 1px solid #eee
-  & .bar
-    color #F44336
+```scss
+.foo {
+  border: 1px solid #eee;
+  & .bar {
+    color: #F44336;
+  }
+}
 ```
 
 :point_up: 編譯前後 :point_down:
@@ -145,18 +147,22 @@ $bar: #F44336;
 
 使用其它選擇器
 
-```styl
-.foo
-  border 1px solid #eee
-  > .bar
-    color #F44336
+```scss
+.foo {
+  border: 1px solid #eee;
+  > .bar {
+    color: #F44336;
+  }
+}
 ```
 
-```styl
-.foo
-  border 1px solid #eee
-  & > .bar
-    color #F44336
+```scss
+.foo {
+  border: 1px solid #eee;
+  & > .bar {
+    color: #F44336;
+  }
+}
 ```
 
 :point_up: 編譯前後 :point_down:
@@ -174,11 +180,13 @@ $bar: #F44336;
 
 把 And 符號 `&` 用在後面
 
-```styl
-a
-  border 1px solid #eee
-  .foo &
-    color #F44336
+```scss
+a {
+  border: 1px solid #eee;
+  .foo & {
+    color: #F44336;
+  }
+}
 ```
 
 :point_up: 編譯前後 :point_down:
@@ -194,18 +202,16 @@ a {
 
 ***
 
-像是一些 CSS 的架構 OOCSS、SMACSS 和 BEM 就會需要這麼做了
+```scss
+.foo {
+  &-bar {
+    color: #F44336;
+  }
 
-這些架構的共同點都是會有區塊的
-
-這裡的 `.foo` 就是一個區塊
-
-```styl
-.foo
-  &-bar
-    color #F44336
-  &-baz
-    color #E91E63
+  &-baz__action {
+    color: #E91E63;
+  }
+}
 ```
 
 :point_up: 編譯前後 :point_down:
@@ -214,21 +220,23 @@ a {
 .foo-bar {
   color: #f44336;
 }
-.foo-baz {
+.foo-baz__action {
   color: #e91e63;
 }
 ```
 
 ***
 
-換成 CSS Modules，CSS Modules 和前面提到的三個不同，它已經有自己的區域了，不過在使用的命名方式是用駝峰式
+```scss
+.foo {
+  &Bar {
+    color: #F44336;
+  }
 
-```styl
-.foo
-  &Bar
-    color #F44336
-  &Baz
-    color #E91E63
+  &Baz {
+    color: #E91E63;
+  }
+}
 ```
 
 :point_up: 編譯前後 :point_down:
@@ -246,13 +254,18 @@ a {
 
 更深層的巢狀
 
-```styl
-.foo
-  position fixed
-  &-bar
-    color #F44336
-    ~ .foo-baz
-      color #E91E63
+```scss
+.foo {
+  position: fixed;
+
+  &-bar {
+    color: #F44336;
+
+    ~ .foo-baz {
+      color: #E91E63;
+    }
+  }
+}
 ```
 
 使用 `^[num]` 直接指定
@@ -282,12 +295,14 @@ a {
 
 ## 混入
 
-```styl
-bar()
-  color #F44336
+```scss
+@mixin bar {
+  color: #F44336;
+}
 
-.foo
-  bar()
+.foo {
+  @include bar;
+}
 ```
 
 設定參數
