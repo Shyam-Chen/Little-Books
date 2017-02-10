@@ -22,6 +22,7 @@
   * [bindNodeCallback](#bindnodecallback)
   * [combineLatest](#combinelatest-1) :star: (1)
   * [concat](#concat-1) :star: (1)
+  * create :smiley:
   * [defer](#defer)
   * [empty](#empty-1) (1)
   * [forkJoin](#forkjoin-1) (1)
@@ -29,16 +30,17 @@
   * [fromEvent (1)](#fromEvent-1)
   * fromEventPattern
   * fromPromise (1)
-  * if
+  * if :astonished:
   * [interval](#interval-1) (1)
   * merge :star: (1)
   * never
   * [of](#of-1) (1)
-  * pairs
+  * pairs :astonished:
   * range (1)
   * throw (1)
   * timer (1)
-  * using
+  * using :astonished:
+  * webSocket :smiley:
   * zip (1)
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
@@ -62,7 +64,7 @@
   * fromEvent (2)
   * fromPromise (2)
   * interval (2)
-  * of (2)
+  * of (2) :astonished:
   * range (2)
   * throw (2)
   * timer (2)
