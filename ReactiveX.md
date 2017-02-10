@@ -698,7 +698,7 @@ Observable::of(
 
 ### filter
 
-發射過濾給定的條件值。
+過濾給予的條件值，再將值發射出去。
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -712,6 +712,22 @@ Observable::from([1, 2, 3, 4, 5])
   .subscribe(result => console.log(result));
   // 2
   // 4
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { filter } from 'rxjs/operator/filter';
+
+Observable::from([
+    { name: 'Joe', age: 31 },
+    { name: 'Bob', age: 25 }
+  ])
+  ::filter(person => person.age > 30)  // 過濾掉大於 30 歲的人
+  .subscribe(value => console.log(`Over 30: ${value.name}`));
+  // Over 30: Joe
 ```
 
 ## 組播
