@@ -120,11 +120,15 @@
   * do :star:
   * delay
   * delayWhen
+  * dematerialize
   * let
+  * materialize
+  * observeOn
   * toPromise
 
-:star: - 常用
-
+:star: - 常用<br>
+:astonished: - 移除?<br>
+:smiley: - 新增?
 ***
 
 ## Observable
