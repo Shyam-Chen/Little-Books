@@ -26,7 +26,7 @@
   * [empty](#empty-1) (1)
   * [forkJoin](#forkjoin-1) (1)
   * [from](#from-1) :star: (1)
-  * fromEvent (1)
+  * [fromEvent (1)](#fromEvent-1)
   * fromEventPattern
   * fromPromise (1)
   * if
@@ -410,10 +410,26 @@ const map1 = Map({ a: 1, b: 2, c: 3 });
 const map2 = map1.set('b', 4);
 
 Observable::from(map2)
-  .subscribe(val => console.log(val));
+  .subscribe(result => console.log(result));
   // ["a", 1]
   // ["b", 4]
   // ["c", 3]
+```
+
+### fromEvent (1)
+
+Creates an Observable that emits events of a specific type coming from the given event target.
+
+創建一個 Observable，發出來自給定事件目標的特定類型的事件。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromEvent } from 'rxjs/observable/fromEvent';
+
+Observable::fromEvent(document, 'click')  // 點擊頁面
+  .subscribe(result => console.log(result.pageX, result.pageY));
+  // 打印出點擊的座標
 ```
 
 ### interval (1)
