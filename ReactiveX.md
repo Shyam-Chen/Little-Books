@@ -12,6 +12,12 @@
 
 ### 目錄
 * [Observable](#observable)
+* [Scheduler](#scheduler)
+* [Subject](#subject)
+* [ReplaySubject](#replaysubject)
+* [AsyncSubject](#asyncsubject)
+* [BehaviorSubject](#behaviorsubject)
+* [Static (靜態)](#靜態)
   * [bindCallback](#bindcallback)
   * [bindNodeCallback](#bindnodecallback)
   * [combineLatest](#combinelatest-1) :star: (1)
@@ -34,11 +40,6 @@
   * timer (1)
   * using
   * zip (1)
-* [Scheduler](#scheduler)
-* [Subject](#subject)
-* [ReplaySubject](#replaysubject)
-* [AsyncSubject](#asyncsubject)
-* [BehaviorSubject](#behaviorsubject)
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
   * [combineLatest](#combinelatest-2) :star: (2)
@@ -51,10 +52,10 @@
   * startWith :star:
   * withLatestFrom :star:
   * zip (2)
-* Conditional (條件)
+* [Conditional (條件)](#條件)
   * defaultIfEmpty
   * every
-* Creation (創建)
+* [Creation (創建)](#創建)
   * create
   * empty (2)
   * from :star: (2)
@@ -65,11 +66,11 @@
   * range (2)
   * throw (2)
   * timer (2)
-* Error Handling (錯誤處理)
+* [Error Handling (錯誤處理)](#錯誤處理)
   * catch
   * retry
   * retryWhen
-* Filtering (過濾)
+* [Filtering (過濾)](#過濾)
   * debounce
   * debounceTime :star:
   * distinctUntilChanged :star:
@@ -87,7 +88,7 @@
   * takeWhile
   * throttle
   * throttleTime
-* Multicasting (組播)
+* [Multicasting (組播)](#組播)
   * multicast
   * publish
   * share :star:
@@ -113,16 +114,14 @@
   * windowTime
   * windowToggle
   * windowWhen
-* Utility (公用)
+* [Utility (公用)](#公用)
   * do :star:
   * delay
   * delayWhen
   * let
   * toPromise
 
-:star: - 常用<br>
-(1) - 靜態<br>
-(2) - 動態
+:star: - 常用
 
 ***
 
@@ -131,6 +130,59 @@
 ```js
 import { Observable } from 'rxjs/Observable';
 ```
+
+## Scheduler
+
+```js
+import { Scheduler } from 'rxjs/Scheduler';
+```
+
+```js
+import { animationFrame } from 'rxjs/scheduler/animationFrame';
+import { asap } from 'rxjs/scheduler/asap';
+import { async } from 'rxjs/scheduler/async';
+import { queue } from 'rxjs/scheduler/queue';
+```
+
+## Subject
+
+```js
+import { Subject } from 'rxjs/Subject';
+```
+
+## ReplaySubject
+
+可以是可觀察的序列，也可以是觀察者的物件。
+
+每個通知被推播給所有訂閱和未來的觀察者，並尊從緩衝區修整的策略。
+
+```js
+import { ReplaySubject } from 'rxjs/ReplaySubject';
+
+const subject = new ReplaySubject(2);  // 緩衝區域大小為 2
+
+subject.next(1);
+subject.next(2);
+subject.next(3);
+
+subject.subscribe((val) => console.log('Received value:', val));
+// 2
+// 3
+```
+
+## AsyncSubject
+
+```js
+import { AsyncSubject } from 'rxjs/AsyncSubject';
+```
+
+## BehaviorSubject
+
+```js
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+```
+
+## 靜態
 
 ### bindCallback
 
@@ -418,57 +470,6 @@ Observable::of(
   // }
 ```
 
-## Scheduler
-
-```js
-import { Scheduler } from 'rxjs/Scheduler';
-```
-
-```js
-import { animationFrame } from 'rxjs/scheduler/animationFrame';
-import { asap } from 'rxjs/scheduler/asap';
-import { async } from 'rxjs/scheduler/async';
-import { queue } from 'rxjs/scheduler/queue';
-```
-
-## Subject
-
-```js
-import { Subject } from 'rxjs/Subject';
-```
-
-## ReplaySubject
-
-可以是可觀察的序列，也可以是觀察者的物件。
-
-每個通知被推播給所有訂閱和未來的觀察者，並尊從緩衝區修整的策略。
-
-```js
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-
-const subject = new ReplaySubject(2);  // 緩衝區域大小為 2
-
-subject.next(1);
-subject.next(2);
-subject.next(3);
-
-subject.subscribe((val) => console.log('Received value:', val));
-// 2
-// 3
-```
-
-## AsyncSubject
-
-```js
-import { AsyncSubject } from 'rxjs/AsyncSubject';
-```
-
-## BehaviorSubject
-
-```js
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-```
-
 ## 組合
 
 ### combineAll
@@ -671,6 +672,16 @@ Observable::of(
   // 0
 ```
 
+## 條件
+
+## 創建
+
+## 錯誤處理
+
+## 過濾
+
+## 組播
+
 ## 轉化
 
 ### buffer
@@ -824,3 +835,5 @@ Observable::of('Hello')
   .subscribe((val) => console.log(val));
   // Hello World!
 ```
+
+## 公用
