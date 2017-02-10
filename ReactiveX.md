@@ -74,7 +74,7 @@
   * debounce
   * debounceTime :star:
   * distinctUntilChanged :star:
-  * filter :star:
+  * [filter](#filter) :star:
   * first
   * ignoreElements
   * last
@@ -695,6 +695,24 @@ Observable::of(
 ## 錯誤處理
 
 ## 過濾
+
+### filter
+
+發射過濾給定的條件值。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { filter } from 'rxjs/operator/filter';
+
+Observable::from([1, 2, 3, 4, 5])
+  ::filter(num => num % 2 === 0)  // 過濾掉非偶數的數值
+  .subscribe(result => console.log(result));
+  // 2
+  // 4
+```
 
 ## 組播
 
