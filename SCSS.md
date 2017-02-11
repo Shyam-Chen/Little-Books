@@ -406,26 +406,31 @@ flex(x)
 
 ***
 
-```styl
-.foo
-  color #F44336
-  .bar
-    color #E91E63
-    .baz
-      background @color
+CSS `currentColor` value
+
+```scss
+.foo {
+  color: #F44336;
+  .bar {
+    color: #3F51B5;
+    .baz {
+      color: currentColor;  // #3F51B5
+    }
+  }
+}
 ```
 
 :point_up: 編譯前後 :point_down:
 
 ```css
 .foo {
-  color: #f44336;
+  color: #F44336;
 }
 .foo .bar {
-  color: #e91e63;
+  color: #3F51B5;
 }
 .foo .bar .baz {
-  background: #e91e63;
+  color: currentColor;
 }
 ```
 
