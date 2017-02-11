@@ -27,7 +27,7 @@
   * [empty](#empty-1) (1)
   * [forkJoin](#forkjoin-1) (1)
   * [from](#from-1) :star: (1)
-  * [fromEvent (1)](#fromEvent-1)
+  * [fromEvent](#fromevent-1) (1)
   * fromEventPattern
   * fromPromise (1)
   * if :astonished:
