@@ -319,7 +319,7 @@ let baz = new Thing.Foo.Baz()
 
 // 等同於
 import foo = Thing.Foo;
-let baz = new foo.Baz();  
+let baz = new foo.Baz();
 ```
 
 ### 模組機制
@@ -513,6 +513,9 @@ ng('Angular', 'Material');  // Angular and Material
 ```
 
 ## 類別
+
+### 定義類別
+
 ```ts
 class Foo {
   bar: string;
@@ -524,8 +527,10 @@ class Foo {
   }
 }
 ```
+
+### 繼承
+
 ```ts
-// 類別的繼承
 class Foo {
   constructor() {
     // ...
@@ -539,17 +544,23 @@ class Bar extends Foo {
   }
 }
 ```
+
+### 修飾字元
+
+`public` 表示可以在任何定放進行操作。
+
+`private` 表示只能在自身內部進行操作。
+
+`protected` 表示可以在自身或子內部進行操作。
+
 ```ts
-// 修飾字元
 class Thing {
   public foo: string;
   private bar: string;
   protected baz: string;
-  constructor() {
-    // ...
-  }
 }
 ```
+
 ```ts
 class Name {
   private name: string;
@@ -560,6 +571,7 @@ class Name {
 
 new Name('Hale').name;  // Error: 'name' is private
 ```
+
 ```ts
 class Adder {
   constructor(a: number) {
@@ -574,8 +586,12 @@ let foo: Adder = new Adder(1);
 
 console.log(foo.add(2));
 ```
+
+### 作為介面
+
+將類別當作介面使用
+
 ```ts
-// 將類別當作介面使用
 class Point {
   x: number;
   y: number;
@@ -921,7 +937,7 @@ foo(10).then(x => console.log(x));  // 7.2
 ```
 
 ```ts
-async function foo(x) {  
+async function foo(x) {
   return new Promise((resolve, reject) => {
     setTimeout(() => resolve(console.log(2)), x);
   });
