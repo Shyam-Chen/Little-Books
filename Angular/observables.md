@@ -6,12 +6,9 @@
 
 除了 Iterator/Generators 其他非同步設計的主題有 Promises 和 Async/Await。
 
-### 基本應用
+透過 RxJS 來使用 Observable，RxJS 可以說是非同步 Lodash。
 
-首先透過 `RxJS` 載入 `Observable`
-```ts
-import { Observable } from 'rxjs/Observable';
-```
+### 基本應用
 
 ```ts
 import { Component } from '@angular/core';
