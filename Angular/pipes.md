@@ -192,7 +192,7 @@ import { Component } from '@angular/core';
   template: `
     <ul>
       <!-- 從陣列索引的 1 開始 ~ 到 3 結束，但不包含 3 -->
-      <li *ngFor="let item of list | slice: 1:3">{{ item }}</li>  
+      <li *ngFor="let item of list | slice: 1:3">{{ item }}</li>
     </ul>
   `
 })

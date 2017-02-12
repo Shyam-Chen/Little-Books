@@ -1051,7 +1051,7 @@ import { NoneComponent } from './encapsulation-none.component';
 export class AppComponent { }
 ```
 
-### 變化檢測
+### 臟值檢測策略
 
 #### OnPush
 ```ts
@@ -1115,6 +1115,14 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 export class ChangeDetectionComponent {
   @Input() public onePiece: string;
 }
+```
+
+#### Immutable
+
+使用 [Immutable](https://github.com/facebook/immutable-js/) 函式庫和 OnPush 策略來提升效能
+
+```ts
+
 ```
 
 ### 生命週期掛鉤

@@ -30,7 +30,10 @@
     * [@ViewChild() 與 @ViewChildren()](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#viewchild-與-viewchildren)
   * 繼承
   * [隔離樣式](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#隔離樣式)
-  * [變化檢測](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#變化檢測)
+  * [臟值檢測策略](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#臟值檢測策略)
+    * [OnPush](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#onpush)
+    * [Default](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#default)
+    * [Immutable](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#immutable)
   * [生命週期掛鉤](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/components.md#生命週期掛鉤)
 * [表單](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/forms.md)
   * [基本應用](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/forms.md#基本應用)
