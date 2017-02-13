@@ -136,15 +136,28 @@
 
 ```js
 import { Observable } from 'rxjs/Observable';
+
+new Observable(observer => {
+    // 回呼方法: next()、error() 和 complete()
+    setTimeout(() => observer.next('開始'), 0);
+    setTimeout(() => observer.next('第一個'), 1000);
+    setTimeout(() => observer.next('第二個'), 2000);
+    setTimeout(() => observer.next('第三個'), 3000);
+    setTimeout(() => observer.complete(), 4000);
+  })
+  .subscribe(
+    // 訂閱一個或多個 Observable (可觀察的物件)
+    value => console.log(value),
+    () => console.error('錯誤'),
+    () => console.log('完成')
+  );
 ```
 
 ## Scheduler
 
 ```js
 import { Scheduler } from 'rxjs/Scheduler';
-```
 
-```js
 import { animationFrame } from 'rxjs/scheduler/animationFrame';
 import { asap } from 'rxjs/scheduler/asap';
 import { async } from 'rxjs/scheduler/async';

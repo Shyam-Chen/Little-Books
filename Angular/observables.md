@@ -31,16 +31,16 @@ export class AppComponent {
     // 一個 Observer (觀察者)
     this.data = new Observable(observer => {
       // 回呼方法: next()、error() 和 complete()
-      setTimeout(() => observer.next('開始'), 0);
-      setTimeout(() => observer.next('第一個'), 1000);
-      setTimeout(() => observer.next('第二個'), 2000);
-      setTimeout(() => observer.next('第三個'), 3000);
+      setTimeout(() => observer.next('開始'), 0);
+      setTimeout(() => observer.next('第一個'), 1000);
+      setTimeout(() => observer.next('第二個'), 2000);
+      setTimeout(() => observer.next('第三個'), 3000);
       setTimeout(() => observer.complete(), 4000);
     });
 
     let subscription = this.data.subscribe(  // 訂閱一個或多個 Observable (可觀察的物件)
       value => this.values.push(value),
-      () => new Error('初始化失敗'),
+      () => new Error('初始化失敗'),
       () => this.finished = '完成'
     );
   }
