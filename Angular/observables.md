@@ -40,7 +40,7 @@ export class AppComponent {
 
     let subscription = this.data.subscribe(  // 訂閱一個或多個 Observable (可觀察的物件)
       value => this.values.push(value),
-      () => new Error('初始化失敗'),
+      () => console.error('錯誤'),
       () => this.finished = '完成'
     );
   }

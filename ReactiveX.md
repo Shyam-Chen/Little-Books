@@ -22,7 +22,7 @@
   * [bindNodeCallback](#bindnodecallback)
   * [combineLatest](#combinelatest-1) :star: (1)
   * [concat](#concat-1) :star: (1)
-  * create :smiley:
+  * create :smiley: (1)
   * [defer](#defer)
   * [empty](#empty-1) (1)
   * [forkJoin](#forkjoin-1) (1)
@@ -58,7 +58,7 @@
   * defaultIfEmpty
   * every
 * [Creation (創建)](#創建)
-  * create
+  * create (2)
   * empty (2)
   * from :star: (2)
   * fromEvent (2)
@@ -137,6 +137,7 @@
 ```js
 import { Observable } from 'rxjs/Observable';
 
+// 一個 Observer (觀察者)
 new Observable(observer => {
     // 回呼方法: next()、error() 和 complete()
     setTimeout(() => observer.next('開始'), 0);
@@ -145,12 +146,16 @@ new Observable(observer => {
     setTimeout(() => observer.next('第三個'), 3000);
     setTimeout(() => observer.complete(), 4000);
   })
-  .subscribe(
-    // 訂閱一個或多個 Observable (可觀察的物件)
+  .subscribe(  // 訂閱一個或多個 Observable (可觀察的物件)
     value => console.log(value),
     () => console.error('錯誤'),
     () => console.log('完成')
   );
+  // 開始
+  // 第一個
+  // 第二個
+  // 第三個
+  // 完成
 ```
 
 ## Scheduler
