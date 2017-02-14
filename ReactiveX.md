@@ -36,7 +36,7 @@
   * never
   * [of](#of-1) (1)
   * pairs :astonished:
-  * range (1)
+  * [range](#range-1) (1)
   * throw (1)
   * timer (1)
   * using :astonished:
@@ -509,6 +509,26 @@ Observable::of(
   // function () {
   //   return 'C';
   // }
+```
+
+### range (1)
+
+Creates an Observable that emits a sequence of numbers within a specified range.
+
+創建一個 Observable，它發射指定範圍內的一系列數字。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { range } from 'rxjs/observable/range';
+
+Observable:range(1, 5)
+  .subscribe(result => console.log(result));
+  // 1
+  // 2
+  // 3
+  // 4
+  // 5
 ```
 
 ## 組合
