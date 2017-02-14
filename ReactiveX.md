@@ -11,63 +11,49 @@
 ***
 
 ### 目錄
-* [Observable](#observable)
-* [Scheduler](#scheduler)
-* [Subject](#subject)
-* [ReplaySubject](#replaysubject)
-* [AsyncSubject](#asyncsubject)
-* [BehaviorSubject](#behaviorsubject)
-* [Static (靜態)](#靜態)
-  * [bindCallback](#bindcallback)
-  * [bindNodeCallback](#bindnodecallback)
-  * [combineLatest](#combinelatest-1) :star: (1)
-  * [concat](#concat-1) :star: (1)
-  * create :smiley: (1)
-  * [defer](#defer)
-  * [empty](#empty-1) (1)
-  * [forkJoin](#forkjoin-1) (1)
-  * [from](#from-1) :star: (1)
-  * [fromEvent](#fromevent-1) (1)
-  * fromEventPattern
-  * fromPromise (1)
-  * if :astonished:
-  * [interval](#interval-1) (1)
-  * merge :star: (1)
-  * never
-  * [of](#of-1) (1)
-  * pairs :astonished:
-  * [range](#range-1) (1)
-  * throw (1)
-  * timer (1)
-  * using :astonished:
-  * webSocket :smiley:
-  * zip (1)
+* [Observable (可觀察)](#observable)
+  * -> [Subject (主體)](#subject)
+    * -> [AsyncSubject (非同步主體)](#asyncsubject)
+    * -> [BehaviorSubject (行為主體)](#behaviorsubject)
+    * -> [ReplaySubject (反覆主體)](#replaysubject)
+* [Scheduler (調度器)](#scheduler)
+  * animationFrame
+  * asap
+  * async
+  * queue
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
-  * [combineLatest](#combinelatest-2) :star: (2)
-  * [concat](#concat-2) :star: (2)
+  * [combineLatest](#combinelatest) :star:
+  * [concat](#concat) :star:
   * [concatAll](#concatall)
-  * forkJoin (2)
-  * merge :star: (2)
+  * [forkJoin](#forkjoin)
+  * merge :star:
   * mergeAll
   * race
   * startWith :star:
   * withLatestFrom :star:
-  * zip (2)
+  * zip
 * [Conditional (條件)](#條件)
   * defaultIfEmpty
   * every
 * [Creation (創建)](#創建)
-  * create (2)
-  * empty (2)
-  * from :star: (2)
-  * fromEvent (2)
-  * fromPromise (2)
-  * interval (2)
-  * of (2) :astonished:
-  * range (2)
-  * throw (2)
-  * timer (2)
+  * [bindCallback](#bindcallback)
+  * [bindNodeCallback](#bindnodecallback)
+  * create
+  * [defer](#defer)
+  * [empty](#empty)
+  * [from](#from) :star:
+  * [fromEvent](#fromevent)
+  * fromEventPattern
+  * fromPromise
+  * [interval](#interval)
+  * interval
+  * never
+  * [of](#of)
+  * [range](#range)
+  * range
+  * throw
+  * timer
 * [Error Handling (錯誤處理)](#錯誤處理)
   * catch
   * retry
@@ -126,9 +112,7 @@
   * observeOn
   * toPromise
 
-:star: - 常用<br>
-:astonished: - 移除?<br>
-:smiley: - 新增?
+:star: - 常用
 
 ***
 
@@ -158,24 +142,25 @@ new Observable(observer => {
   // 完成
 ```
 
-## Scheduler
-
-```js
-import { Scheduler } from 'rxjs/Scheduler';
-
-import { animationFrame } from 'rxjs/scheduler/animationFrame';
-import { asap } from 'rxjs/scheduler/asap';
-import { async } from 'rxjs/scheduler/async';
-import { queue } from 'rxjs/scheduler/queue';
-```
-
-## Subject
+### Subject
 
 ```js
 import { Subject } from 'rxjs/Subject';
 ```
 
-## ReplaySubject
+#### AsyncSubject
+
+```js
+import { AsyncSubject } from 'rxjs/AsyncSubject';
+```
+
+#### BehaviorSubject
+
+```js
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+```
+
+#### ReplaySubject
 
 可以是可觀察的序列，也可以是觀察者的物件。
 
@@ -195,47 +180,68 @@ subject.subscribe((val) => console.log('Received value:', val));
 // 3
 ```
 
-## AsyncSubject
+## Scheduler
 
 ```js
-import { AsyncSubject } from 'rxjs/AsyncSubject';
+import { Scheduler } from 'rxjs/Scheduler';
+
+import { animationFrame } from 'rxjs/scheduler/animationFrame';
+import { asap } from 'rxjs/scheduler/asap';
+import { async } from 'rxjs/scheduler/async';
+import { queue } from 'rxjs/scheduler/queue';
 ```
 
-## BehaviorSubject
+## 組合
 
-```js
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-```
+### combineAll
 
-## 靜態
-
-### bindCallback
-
-將回呼 API 轉換成返回 Observable 函式。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { bindCallback } from 'rxjs/observable/bindCallback';
-
-Observable::bindCallback(...)
-  .subscribe(result => console.log(result));
-```
-
-### bindNodeCallback
-
-將 Node.js 風格的回呼 API 轉換成返回 Observable 函式。
+當外部的觀察者完成時，輸出內部觀者的最新值。
 
 ```js
 import { Observable } from 'rxjs/Observable';
 
-import { bindNodeCallback } from 'rxjs/observable/bindNodeCallback';
+import { timer } from 'rxjs/observable/timer';
+import { of } from 'rxjs/observable/of';
 
-Observable::bindNodeCallback(...)
-  .subscribe(result => console.log(result));
+import { mapTo } from 'rxjs/operator/mapTo';
+import { combineAll } from 'rxjs/operator/combineAll';
+
+const timer$ = Observable::timer(2000);
+
+timer$::mapTo(Observable::of('Hello', 'World'))
+  ::combineAll()
+  .subscribe((val) => console.log('Values from inner observable:', val));
+  // ["Hello"]
+  // ["World"]
+
+timer$::mapTo(Observable::of('Hello', 'Goodbye'))
+  ::combineAll((val) => `${val} Friend!`)
+  .subscribe((val) => console.log('Values Using Projection:', val));
+  // Hello Friend!
+  // Goodbye Friend!
 ```
 
-### combineLatest (1)
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { take } from 'rxjs/operator/take';
+import { map } from 'rxjs/operator/map';
+import { combineAll } from 'rxjs/operator/combineAll';
+
+Observable::interval(1000)
+  ::take(3)
+  ::map((val) => Observable::interval(val + 500)::take(2))
+  ::combineAll()
+  .subscribe((val) => console.log(val));
+  // [0, 0, 0]
+  // [1, 0, 0]
+  // [1, 1, 0]
+  // [1, 1, 1]
+```
+
+### combineLatest
 
 當任何的觀察者發射一個值時，從每個值發射出最新的值。
 
@@ -291,7 +297,41 @@ Observable::combineLatest(
   // ...
 ```
 
-### concat (1)
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+import { interval } from 'rxjs/observable/interval';
+
+import { combineLatest } from 'rxjs/operator/combineLatest';
+
+const timerOne$ = Observable::timer(1000, 4000);
+const timerTwo$ = Observable::timer(2000, 4000);
+const timerThree$ = Observable::timer(3000, 4000);
+
+Observable::interval(1000)
+  ::combineLatest(timerOne$, timerTwo$, timerThree$)
+  .subscribe((latestValues) => {
+    const [timerValOne, timerValTwo, timerValThree] = latestValues;
+    console.log(`${timerValOne}, ${timerValTwo}, ${timerValThree}`);
+  });
+  // 2, 0, 0
+  // 3, 0, 0
+  // 4, 0, 0
+  // 4, 1, 0
+  // 5, 1, 0
+  // 5, 1, 1
+  // 6, 1, 1
+  // 6, 1, 1
+  // 7, 1, 1
+  // 8, 1, 1
+  // 8, 2, 1
+  // 9, 2, 1
+  // 9, 2, 2
+  // ...
+```
+
+### concat
 
 Creates an output Observable which sequentially emits all values from every given input Observable after the current Observable.
 
@@ -335,291 +375,6 @@ Observable::concat(
   // 3
   // ...
 ```
-
-### defer
-
-Creates an Observable that, on subscribe, calls an Observable factory to make an Observable for each new Observer.
-
-創建一個 Observable，在 subscribe 上，調用一個 Observable 工廠為每個新的 Observer 做一個 Observable。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { defer } from 'rxjs/observable/defer';
-import { of } from 'rxjs/observable/of';
-
-Observable::defer(() => Observable::of(1, 2, 3))
-  .subscribe(result => console.log(result + 1));
-  // 2
-  // 3
-  // 4
-```
-
-### empty (1)
-
-Creates an Observable that emits no items to the Observer and immediately emits a complete notification.
-
-創建一個不向 Observer 發送項的 Observable，並立即發出一個完整的通知。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { empty } from 'rxjs/observable/empty';
-
-Observable::empty()  // 直接完成
-  .subscribe(
-    result => console.log(result, 'Next...'),
-    error => console.error(error),
-    () => console.log('Complete!')
-  );
-  // Complete!
-```
-
-### forkJoin (1)
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { forkJoin } from 'rxjs/observable/forkJoin';
-import { of } from 'rxjs/observable/of';
-import { interval } from 'rxjs/observable/interval';
-
-import { delay } from 'rxjs/operator/delay';
-import { take } from 'rxjs/operator/take';
-
-const p = value => new Promise(resolve => setTimeout(() => resolve(`Resolved: ${value}`), 5000));
-
-Observable::forkJoin(
-    Observable::of('Hello'),
-    Observable::of('World')::delay(1000),
-    Observable::interval(1000)::take(1),
-    Observable::interval(1000)::take(2),
-    p('RESULT')
-  )
-  .subscribe(result => console.log(result));
-  // 五秒後印出
-  // [ "Hello", "World", 0, 1, "Resolved: RESULT" ]
-```
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable/of';
-import { forkJoin } from 'rxjs/observable/forkJoin';
-
-import { mergeMap } from 'rxjs/operator/mergeMap';
-
-const p = value => new Promise(resolve => setTimeout(() => resolve(`Resolved: ${value}`), 5000));
-
-Observable::of([1, 2, 3, 4, 5])
-  ::mergeMap(q => Observable::forkJoin(...q.map(p)))
-  .subscribe(value => console.log(value));
-  // 五秒後印出
-  // [ "Resolved: 1", "Resolved: 2", "Resolved: 3", "Resolved: 4", "Resolved: 5" ]
-```
-
-### from (1)
-
-Creates an Observable from an Array, an array-like object, a Promise, an iterable object, or an Observable-like object.
-
-從陣列，像陣列的物件，Promise，可迭代物件或像 Observable 的物件創建一個 Observable。
-
-```js
-import { Map } from 'immutable';
-
-import { Observable } from 'rxjs/Observable';
-
-import { from } from 'rxjs/observable/from';
-
-const map1 = Map({ a: 1, b: 2, c: 3 });
-const map2 = map1.set('b', 4);
-
-Observable::from(map2)
-  .subscribe(result => console.log(result));
-  // ["a", 1]
-  // ["b", 4]
-  // ["c", 3]
-```
-
-### fromEvent (1)
-
-Creates an Observable that emits events of a specific type coming from the given event target.
-
-創建一個 Observable，發出來自給定事件目標的特定類型的事件。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { fromEvent } from 'rxjs/observable/fromEvent';
-
-Observable::fromEvent(document, 'click')  // 點擊頁面
-  .subscribe(result => console.log(result.pageX, result.pageY));
-  // 打印出點擊的座標
-```
-
-### interval (1)
-
-Creates an Observable that emits sequential numbers every specified interval of time, on a specified IScheduler.
-
-創建一個 Observable，它在指定的 IScheduler 上每隔指定的時間間隔發出序列號。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-
-Observable::interval(1000)
-  .subscribe(result => console.log(result));
-  // 0
-  // 1
-  // 2
-  // 3
-  // ...
-```
-
-### of (1)
-
-為觀察者發射給予指定的參數做為一個值，然後再一個接著一個，最後再一次發射出去。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable/of';
-
-Observable::of(1, 2, 3)
-  .subscribe(result => console.log(result));
-  // 1
-  // 2
-  // 3
-```
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable/of';
-
-Observable::of(
-    { a: 'A' },
-    [2, 'b'],
-    () => 'C'
-  )
-  .subscribe(result => console.log(result));
-  // {a: "A"}
-  // [2, "b"]
-  // function () {
-  //   return 'C';
-  // }
-```
-
-### range (1)
-
-Creates an Observable that emits a sequence of numbers within a specified range.
-
-創建一個 Observable，它發射指定範圍內的一系列數字。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { range } from 'rxjs/observable/range';
-
-Observable:range(1, 5)
-  .subscribe(result => console.log(result));
-  // 1
-  // 2
-  // 3
-  // 4
-  // 5
-```
-
-## 組合
-
-### combineAll
-
-當外部的觀察者完成時，輸出內部觀者的最新值。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { timer } from 'rxjs/observable/timer';
-import { of } from 'rxjs/observable/of';
-
-import { mapTo } from 'rxjs/operator/mapTo';
-import { combineAll } from 'rxjs/operator/combineAll';
-
-const timer$ = Observable::timer(2000);
-
-timer$::mapTo(Observable::of('Hello', 'World'))
-  ::combineAll()
-  .subscribe((val) => console.log('Values from inner observable:', val));
-  // ["Hello"]
-  // ["World"]
-
-timer$::mapTo(Observable::of('Hello', 'Goodbye'))
-  ::combineAll((val) => `${val} Friend!`)
-  .subscribe((val) => console.log('Values Using Projection:', val));
-  // Hello Friend!
-  // Goodbye Friend!
-```
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-
-import { take } from 'rxjs/operator/take';
-import { map } from 'rxjs/operator/map';
-import { combineAll } from 'rxjs/operator/combineAll';
-
-Observable::interval(1000)
-  ::take(3)
-  ::map((val) => Observable::interval(val + 500)::take(2))
-  ::combineAll()
-  .subscribe((val) => console.log(val));
-  // [0, 0, 0]
-  // [1, 0, 0]
-  // [1, 1, 0]
-  // [1, 1, 1]
-```
-
-### combineLatest (2)
-
-當任何的觀察者發射一個值時，從每個值發射出最新的值。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { timer } from 'rxjs/observable/timer';
-import { interval } from 'rxjs/observable/interval';
-
-import { combineLatest } from 'rxjs/operator/combineLatest';
-
-const timerOne$ = Observable::timer(1000, 4000);
-const timerTwo$ = Observable::timer(2000, 4000);
-const timerThree$ = Observable::timer(3000, 4000);
-
-Observable::interval(1000)
-  ::combineLatest(timerOne$, timerTwo$, timerThree$)
-  .subscribe((latestValues) => {
-    const [timerValOne, timerValTwo, timerValThree] = latestValues;
-    console.log(`${timerValOne}, ${timerValTwo}, ${timerValThree}`);
-  });
-  // 2, 0, 0
-  // 3, 0, 0
-  // 4, 0, 0
-  // 4, 1, 0
-  // 5, 1, 0
-  // 5, 1, 1
-  // 6, 1, 1
-  // 6, 1, 1
-  // 7, 1, 1
-  // 8, 1, 1
-  // 8, 2, 1
-  // 9, 2, 1
-  // 9, 2, 2
-  // ...
-```
-
-### concat (2)
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -733,9 +488,230 @@ Observable::of(
   // 0
 ```
 
+### forkJoin
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { forkJoin } from 'rxjs/observable/forkJoin';
+import { of } from 'rxjs/observable/of';
+import { interval } from 'rxjs/observable/interval';
+
+import { delay } from 'rxjs/operator/delay';
+import { take } from 'rxjs/operator/take';
+
+const p = value => new Promise(resolve => setTimeout(() => resolve(`Resolved: ${value}`), 5000));
+
+Observable::forkJoin(
+    Observable::of('Hello'),
+    Observable::of('World')::delay(1000),
+    Observable::interval(1000)::take(1),
+    Observable::interval(1000)::take(2),
+    p('RESULT')
+  )
+  .subscribe(result => console.log(result));
+  // 五秒後印出
+  // [ "Hello", "World", 0, 1, "Resolved: RESULT" ]
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+import { forkJoin } from 'rxjs/observable/forkJoin';
+
+import { mergeMap } from 'rxjs/operator/mergeMap';
+
+const p = value => new Promise(resolve => setTimeout(() => resolve(`Resolved: ${value}`), 5000));
+
+Observable::of([1, 2, 3, 4, 5])
+  ::mergeMap(q => Observable::forkJoin(...q.map(p)))
+  .subscribe(value => console.log(value));
+  // 五秒後印出
+  // [ "Resolved: 1", "Resolved: 2", "Resolved: 3", "Resolved: 4", "Resolved: 5" ]
+```
+
 ## 條件
 
 ## 創建
+
+### bindCallback
+
+將回呼 API 轉換成返回 Observable 函式。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { bindCallback } from 'rxjs/observable/bindCallback';
+
+Observable::bindCallback(...)
+  .subscribe(result => console.log(result));
+```
+
+### bindNodeCallback
+
+將 Node.js 風格的回呼 API 轉換成返回 Observable 函式。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { bindNodeCallback } from 'rxjs/observable/bindNodeCallback';
+
+Observable::bindNodeCallback(...)
+  .subscribe(result => console.log(result));
+```
+
+### defer
+
+Creates an Observable that, on subscribe, calls an Observable factory to make an Observable for each new Observer.
+
+創建一個 Observable，在 subscribe 上，調用一個 Observable 工廠為每個新的 Observer 做一個 Observable。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { defer } from 'rxjs/observable/defer';
+import { of } from 'rxjs/observable/of';
+
+Observable::defer(() => Observable::of(1, 2, 3))
+  .subscribe(result => console.log(result + 1));
+  // 2
+  // 3
+  // 4
+```
+
+### empty
+
+Creates an Observable that emits no items to the Observer and immediately emits a complete notification.
+
+創建一個不向 Observer 發送項的 Observable，並立即發出一個完整的通知。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { empty } from 'rxjs/observable/empty';
+
+Observable::empty()  // 直接完成
+  .subscribe(
+    result => console.log(result, 'Next...'),
+    error => console.error(error),
+    () => console.log('Complete!')
+  );
+  // Complete!
+```
+
+### from
+
+Creates an Observable from an Array, an array-like object, a Promise, an iterable object, or an Observable-like object.
+
+從陣列，像陣列的物件，Promise，可迭代物件或像 Observable 的物件創建一個 Observable。
+
+```js
+import { Map } from 'immutable';
+
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+const map1 = Map({ a: 1, b: 2, c: 3 });
+const map2 = map1.set('b', 4);
+
+Observable::from(map2)
+  .subscribe(result => console.log(result));
+  // ["a", 1]
+  // ["b", 4]
+  // ["c", 3]
+```
+
+### fromEvent
+
+Creates an Observable that emits events of a specific type coming from the given event target.
+
+創建一個 Observable，發出來自給定事件目標的特定類型的事件。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromEvent } from 'rxjs/observable/fromEvent';
+
+Observable::fromEvent(document, 'click')  // 點擊頁面
+  .subscribe(result => console.log(result.pageX, result.pageY));
+  // 打印出點擊的座標
+```
+
+### interval
+
+Creates an Observable that emits sequential numbers every specified interval of time, on a specified IScheduler.
+
+創建一個 Observable，它在指定的 IScheduler 上每隔指定的時間間隔發出序列號。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+Observable::interval(1000)
+  .subscribe(result => console.log(result));
+  // 0
+  // 1
+  // 2
+  // 3
+  // ...
+```
+
+### of
+
+為觀察者發射給予指定的參數做為一個值，然後再一個接著一個，最後再一次發射出去。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+Observable::of(1, 2, 3)
+  .subscribe(result => console.log(result));
+  // 1
+  // 2
+  // 3
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+Observable::of(
+    { a: 'A' },
+    [2, 'b'],
+    () => 'C'
+  )
+  .subscribe(result => console.log(result));
+  // {a: "A"}
+  // [2, "b"]
+  // function () {
+  //   return 'C';
+  // }
+```
+
+### range
+
+Creates an Observable that emits a sequence of numbers within a specified range.
+
+創建一個 Observable，它發射指定範圍內的一系列數字。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { range } from 'rxjs/observable/range';
+
+Observable:range(1, 5)
+  .subscribe(result => console.log(result));
+  // 1
+  // 2
+  // 3
+  // 4
+  // 5
+```
 
 ## 錯誤處理
 
