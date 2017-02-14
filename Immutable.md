@@ -10,37 +10,55 @@
 ***
 
 ### 目錄
-* 入門
-* Iterable
-* Seq
-* Collection
+* Iterable (可迭代)
+* Seq (序列)
+* Collection (集合)
 * Map
 * OrderedMap
-* List
-* Stack
+* List (列表)
+* Stack (堆疊)
 * Set
 * OrderedSet
-* Record
-* Range
-* Repeat
+* Record (紀錄)
+* Range (範圍)
+* Repeat (反覆)
 * is
 * fromJS
 
-:sparkles: - 與 ES2015+ 有關
-
 ***
 
-## 入門
+## Iterable
 
 ```js
-import {
-  Iterable,
-  Seq, Collection, Map, OrderedMap, List, Stack, Set, OrderedSet,
-  Record, Range, Repeat,
-  is, fromJS
-} from 'immutable';
+import { Iterable } from 'immutable';
 ```
+
+## Seq
+
+## Collection
 
 ## Map
 
+```js
+import { Map } from 'immutable';
+```
+
+## OrderedMap
+
+## List
+
+## Stack
+
 ## Set
+
+## OrderedSet
+
+## Record
+
+## Range
+
+## Repeat
+
+## is
+
+## fromJS
