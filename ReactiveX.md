@@ -39,7 +39,7 @@
 * [Creation (建立)](#建立)
   * [bindCallback](#bindcallback)
   * [bindNodeCallback](#bindnodecallback)
-  * create
+  * [create](#create)
   * [defer](#defer)
   * [empty](#empty)
   * [from](#from) :star:
@@ -557,6 +557,24 @@ import { bindNodeCallback } from 'rxjs/observable/bindNodeCallback';
 
 Observable::bindNodeCallback(...)
   .subscribe(result => console.log(result));
+```
+
+### create
+
+Creates a new Observable that will execute the specified function when a Subscriber subscribes to it.
+
+建立一個新的 Observable，當 Subscriber 訂閱時，它將執行指定的函式。
+
+```js
+import * as Rx from 'rxjs';
+
+Rx.Observable.create(observer => {
+    observer.next('Hello');
+    observer.next('World');
+  })
+  .subscribe(result => console.log(result));
+  // Hello
+  // World
 ```
 
 ### defer
