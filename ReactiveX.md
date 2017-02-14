@@ -47,11 +47,9 @@
   * fromEventPattern
   * fromPromise
   * [interval](#interval)
-  * interval
   * never
   * [of](#of)
   * [range](#range)
-  * range
   * throw
   * timer
 * [Error Handling (錯誤處理)](#錯誤處理)
