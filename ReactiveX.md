@@ -33,10 +33,10 @@
   * startWith :star:
   * withLatestFrom :star:
   * zip
-* [Conditional (條件)](#條件)
+* [Conditional (附條件)](#附條件)
   * defaultIfEmpty
   * every
-* [Creation (創建)](#創建)
+* [Creation (建立)](#建立)
   * [bindCallback](#bindcallback)
   * [bindNodeCallback](#bindnodecallback)
   * create
@@ -335,7 +335,7 @@ Observable::interval(1000)
 
 Creates an output Observable which sequentially emits all values from every given input Observable after the current Observable.
 
-創建一個輸出 Observable，它從當前 Observable 後的每個給定輸入 Observable 中順序發出所有值。
+建立一個輸出 Observable，它從當前 Observable 後的每個給定輸入 Observable 中順序發出所有值。
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -531,9 +531,9 @@ Observable::of([1, 2, 3, 4, 5])
   // [ "Resolved: 1", "Resolved: 2", "Resolved: 3", "Resolved: 4", "Resolved: 5" ]
 ```
 
-## 條件
+## 附條件
 
-## 創建
+## 建立
 
 ### bindCallback
 
@@ -565,7 +565,7 @@ Observable::bindNodeCallback(...)
 
 Creates an Observable that, on subscribe, calls an Observable factory to make an Observable for each new Observer.
 
-創建一個 Observable，在 subscribe 上，調用一個 Observable 工廠為每個新的 Observer 做一個 Observable。
+建立一個 Observable，在 subscribe 上，調用一個 Observable 工廠為每個新的 Observer 做一個 Observable。
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -584,7 +584,7 @@ Observable::defer(() => Observable::of(1, 2, 3))
 
 Creates an Observable that emits no items to the Observer and immediately emits a complete notification.
 
-創建一個不向 Observer 發送項的 Observable，並立即發出一個完整的通知。
+建立一個不向 Observer 發送項的 Observable，並立即發出一個完整的通知。
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -604,7 +604,7 @@ Observable::empty()  // 直接完成
 
 Creates an Observable from an Array, an array-like object, a Promise, an iterable object, or an Observable-like object.
 
-從陣列，像陣列的物件，Promise，可迭代物件或像 Observable 的物件創建一個 Observable。
+從陣列，像陣列的物件，Promise，可迭代物件或像 Observable 的物件建立一個 Observable。
 
 ```js
 import { Map } from 'immutable';
@@ -627,7 +627,7 @@ Observable::from(map2)
 
 Creates an Observable that emits events of a specific type coming from the given event target.
 
-創建一個 Observable，發出來自給定事件目標的特定類型的事件。
+建立一個 Observable，發出來自給定事件目標的特定類型的事件。
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -643,7 +643,7 @@ Observable::fromEvent(document, 'click')  // 點擊頁面
 
 Creates an Observable that emits sequential numbers every specified interval of time, on a specified IScheduler.
 
-創建一個 Observable，它在指定的 IScheduler 上每隔指定的時間間隔發出序列號。
+建立一個 Observable，它在指定的 IScheduler 上每隔指定的時間間隔發出序列號。
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -697,7 +697,7 @@ Observable::of(
 
 Creates an Observable that emits a sequence of numbers within a specified range.
 
-創建一個 Observable，它發射指定範圍內的一系列數字。
+建立一個 Observable，它發射指定範圍內的一系列數字。
 
 ```js
 import { Observable } from 'rxjs/Observable';
