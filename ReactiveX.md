@@ -27,7 +27,7 @@
   * [concat](#concat) :star:
   * [concatAll](#concatall)
   * [forkJoin](#forkjoin)
-  * merge :star:
+  * [merge](#merge) :star:
   * mergeAll
   * race
   * startWith :star:
@@ -527,6 +527,54 @@ Observable::of([1, 2, 3, 4, 5])
   .subscribe(value => console.log(value));
   // 五秒後印出
   // [ "Resolved: 1", "Resolved: 2", "Resolved: 3", "Resolved: 4", "Resolved: 5" ]
+```
+
+### merge
+
+Creates an output Observable which concurrently emits all values from every given input Observable.
+
+建立一個輸出 Observable，它從每個給定的輸入 Observable 同時發射所有的值。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { merge } from 'rxjs/observable/merge';
+import { interval } from 'rxjs/observable/interval';
+
+import { mapTo } from 'rxjs/operator/mapTo';
+
+Observable::merge(
+    Observable::interval(3000)::mapTo('FIRST'),
+    Observable::interval(2000)::mapTo('SECOND'),
+    Observable::interval(1000)::mapTo('THIRD')
+  )
+  .subscribe(value => console.log(value));
+  // THIRD
+  // SECOND
+  // THIRD
+  // FIRST
+  // THIRD
+  // SECOND
+  // ...
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { merge } from 'rxjs/operator/merge';
+
+Observable::interval(2000)
+  ::merge(Observable::interval(1000))
+  .subscribe(value => console.log(value));
+  // 0
+  // 0
+  // 1
+  // 2
+  // 1
+  // 3
+  // ...
 ```
 
 ## 附條件
