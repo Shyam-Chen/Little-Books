@@ -11,11 +11,8 @@
 ***
 
 ### 目錄
-* [入門](#入門)
 
 ***
-
-## 入門
 
 ```js
 import { createStore, combineReducers, bindActionCreators, applyMiddleware, compose } from 'redux';

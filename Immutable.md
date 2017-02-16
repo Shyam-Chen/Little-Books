@@ -41,6 +41,17 @@ import { Iterable } from 'immutable';
 
 ```js
 import { Map } from 'immutable';
+
+const foo = Map({ bar: 'A', baz: 'B' });
+
+foo.bar;  // undefined
+foo.get('bar'); // "A"
+
+foo.set('bar', 'C');
+foo.get('bar');  // "A"
+
+foo = foo.set('bar', 'C');
+foo.get('bar');  // "C"
 ```
 
 ## OrderedMap
@@ -62,3 +73,12 @@ import { Map } from 'immutable';
 ## is
 
 ## fromJS
+
+```js
+import { fromJS } from 'immutable';
+
+const thing = fromJS({
+  foo1: 'A',
+  foo2: { bar: 'BB', baz: 'CC' }
+});
+```

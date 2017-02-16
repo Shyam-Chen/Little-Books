@@ -102,9 +102,8 @@
   * 動畫時間軸
   * 動畫影格
   * 並行動畫
+  * 路由動畫
 * [狀態容器](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/state-container.md)
-  * Store
-  * Effects
 * [測試](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md)
   * [測試原則](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#測試原則)
   * [靜態分析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#靜態分析)

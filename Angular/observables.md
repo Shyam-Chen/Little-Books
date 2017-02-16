@@ -4,8 +4,6 @@
 
 這種概念是從一個串流的 `subscribe` 事件方式傳入一個 Generator (產生器)，而產生器會使用 Iterator (迭代器)。
 
-除了 Iterator/Generators 其他非同步設計的主題有 Promises 和 Async/Await。
-
 透過 RxJS 來使用 Observable，RxJS 可以說是非同步 Lodash。
 
 ### 基本應用
