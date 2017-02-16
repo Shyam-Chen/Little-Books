@@ -1080,7 +1080,7 @@ import { ChangeDetectionComponent } from './change-detection.component';
 import { OnePiece } from './one-piece.model';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <button (click)="changeProperty()">改變屬性</button>
     <button (click)="changeObject()">改變物件</button>
@@ -1121,8 +1121,44 @@ export class ChangeDetectionComponent {
 
 使用 [Immutable](https://github.com/facebook/immutable-js/) 函式庫和 OnPush 策略來提升效能
 
-```ts
+```bash
+$ npm i immutable -S
+```
 
+```ts
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Map } from 'immutable';
+
+@Component({
+  selector: 'one-piece',
+  template: `
+    <p>{{ onePiece.get('name') }}</p>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class OnePieceComponent {
+  @Input() onePiece: Map<string>;
+}
+```
+
+```ts
+import { Component } from '@angular/core';
+import { Map } from 'immutable';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <button type="button" (click)="change()">更換</button>
+    <one-piece [onePiece]="onePiece"></one-piece>
+  `
+})
+export class AppComponent {
+  public onePiece: Map<string> = Map({ name: '艾斯' });
+
+  change(): void {
+    this.onePiece = this.onePiece.merge({ name: '薩波' });
+  }
+}
 ```
 
 ### 生命週期掛鉤
