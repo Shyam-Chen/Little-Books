@@ -109,7 +109,14 @@
   * [靜態分析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#靜態分析)
   * [測試入門](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#測試入門)
   * [單元測試](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#單元測試)
+    * 測試元件
+    * 測試指令
+    * 測試服務
+    * 測試管道
+    * 測試動畫
   * [端對端測試](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#端對端測試)
+    * 測試路由
+    * 測試介面
 * [安全](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/security.md)
   * 信任安全值
   * [跨站指令碼](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/security.md#跨站指令碼)
