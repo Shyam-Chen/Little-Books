@@ -1,5 +1,7 @@
 ## 最佳實踐
 
+### 提前時間編譯
+
 ### 樹搖優化
 
 Tree-shaking (樹搖優化) 的目的是要將未使用到的程式碼從打捆中移除。現在支援樹搖優化的工具有 Rollup 和 Webpack 2 等等。
@@ -160,14 +162,10 @@ export class AppComponent { }
 $ npm start
 ```
 
-### 壓縮
+### 離線存儲
 
-壓縮程式碼
-
-```bash
-$
-```
+漸靜式網頁應用程式 (Progressive Web Applications)
 
 ### 伺服端渲染
 
-https://universal.angular.io/
+共通式網頁應用程式 (Universal Web Applications)
