@@ -10,7 +10,7 @@
 * [Lodash (極低)](https://github.com/Shyam-Chen/Little-Books/blob/master/Lodash.md)
 * [ReactiveX (低)](https://github.com/Shyam-Chen/Little-Books/blob/master/ReactiveX.md)
 * [Redux (極低)](https://github.com/Shyam-Chen/Little-Books/blob/master/Redux.md)
-* [Immutable (極低)](https://github.com/Shyam-Chen/Little-Books/blob/master/Immutable.md)
+* [Immutable (低)](https://github.com/Shyam-Chen/Little-Books/blob/master/Immutable.md)
 * [D3 (極低)](https://github.com/Shyam-Chen/Little-Books/blob/master/D3.md)
 * ----------
 * [Material (低)](https://github.com/Shyam-Chen/Little-Books/blob/master/Material.md)

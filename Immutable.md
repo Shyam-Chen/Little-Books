@@ -14,11 +14,11 @@
 * Seq (序列)
 * Collection (集合)
 * Map
-* OrderedMap
+* OrderedMap (有順序的 Map)
 * List (列表)
 * Stack (堆疊)
 * Set
-* OrderedSet
+* OrderedSet (有順序的 Set)
 * Record (紀錄)
 * Range (範圍)
 * Repeat (反覆)
@@ -35,7 +35,15 @@ import { Iterable } from 'immutable';
 
 ## Seq
 
+```js
+import { Seq } from 'immutable';
+```
+
 ## Collection
+
+```js
+import { Collection } from 'immutable';
+```
 
 ## Map
 
@@ -56,6 +64,10 @@ foo.get('bar');  // "C"
 
 ## OrderedMap
 
+```js
+import { OrderedMap } from 'immutable';
+```
+
 ## List
 
 ```js
@@ -71,11 +83,36 @@ list1.push(4, 5, 6)  // List [ 1, 2, 3, 4, 5, 6 ]
 
 ## Stack
 
+```js
+import { Stack } from 'immutable';
+```
+
 ## Set
+
+```js
+import { Seq } from 'immutable';
+```
 
 ## OrderedSet
 
+```js
+import { OrderedSet } from 'immutable';
+```
+
 ## Record
+
+```js
+import { Record } from 'immutable';
+
+const Foo = Record({ a: 1, b: 2, c: 3 });
+const bar = new Foo({ b: 4 });
+
+bar.get('a');  // 1
+bar.get('b');  // 4
+
+const baz = bar.remove('b');
+baz.get('b');  // 2
+```
 
 ## Range
 
@@ -93,7 +130,28 @@ Range(10, 15, 2);  // Range [ 10, 12, 14 ]
 
 ## Repeat
 
+```ts
+Repeat<T>(value: T, times?: number): Seq.Indexed<T>
+```
+
+```js
+import { Repeat } from 'immutable';
+
+Repeat(1);  // Repeat [ 1...Infinity ]
+Repeat(1, 5);  // Repeat [ 1, 1, 1, 1, 1 ]
+```
+
 ## is
+
+```js
+import { Map, is } from 'immutable';
+
+const map1 = Map({ foo: 1, bar: 2 });
+const map2 = Map({ foo: 1, bar: 2 });
+
+map1 !== map2;  // true
+is(map1, map2);  // true
+```
 
 ## fromJS
 
