@@ -79,6 +79,18 @@ list1.push(4, 5, 6)  // List [ 1, 2, 3, 4, 5, 6 ]
 
 ## Range
 
+```ts
+Range(start?: number, end?: number, step?: number): Seq.Indexed<number>
+```
+
+```js
+import { Range } from 'immutable';
+
+Range(10);  // Range [ 10...Infinity ]
+Range(10, 15);  // Range [ 10, 11, 12, 13, 14, 15 ]
+Range(10, 15, 2);  // Range [ 10, 12, 14 ]
+```
+
 ## Repeat
 
 ## is
