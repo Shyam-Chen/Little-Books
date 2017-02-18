@@ -58,6 +58,17 @@ foo.get('bar');  // "C"
 
 ## List
 
+```js
+import { List } from 'immutable';
+
+const list1 = List.of(1, 2, 3);
+const list2 = List.of('A', 'B', 'C');
+const list3 = List.of('一', '二', '三');
+
+list1.push(4, 5, 6)  // List [ 1, 2, 3, 4, 5, 6 ]
+  .concat(list2, list3)  // List [ 1, 2, 3, 4, 5, 6, "A", "B", "C", "一", "二", "三" ]
+```
+
 ## Stack
 
 ## Set
