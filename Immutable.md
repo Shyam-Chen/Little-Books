@@ -10,20 +10,20 @@
 ***
 
 ### 目錄
-* Iterable (可迭代)
-* Seq (序列)
-* Collection (集合)
-* Map
-* OrderedMap (有順序的 Map)
-* List (列表)
-* Stack (堆疊)
-* Set
-* OrderedSet (有順序的 Set)
-* Record (紀錄)
-* Range (範圍)
-* Repeat (反覆)
-* is
-* fromJS
+* [Iterable (可迭代)](#iterable)
+* [Seq (序列)](#seq)
+* [Collection (集合)](#collection)
+* [Map](#map)
+* [OrderedMap (有順序的 Map)](#orderedmap)
+* [List (列表)](#list)
+* [Stack (堆疊)](#stack)
+* [Set](#set)
+* [OrderedSet (有順序的 Set)](#orderedset)
+* [Record (紀錄)](#record)
+* [Range (範圍)](#range)
+* [Repeat (反覆)](#repeat)
+* [is](#is)
+* [fromJS](#fromjs)
 
 ***
 
