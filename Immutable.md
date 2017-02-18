@@ -66,7 +66,7 @@ const list2 = List.of('A', 'B', 'C');
 const list3 = List.of('一', '二', '三');
 
 list1.push(4, 5, 6)  // List [ 1, 2, 3, 4, 5, 6 ]
-  .concat(list2, list3)  // List [ 1, 2, 3, 4, 5, 6, "A", "B", "C", "一", "二", "三" ]
+  .concat(list2, list3);  // List [ 1, 2, 3, 4, 5, 6, "A", "B", "C", "一", "二", "三" ]
 ```
 
 ## Stack
@@ -88,8 +88,18 @@ list1.push(4, 5, 6)  // List [ 1, 2, 3, 4, 5, 6 ]
 ```js
 import { fromJS } from 'immutable';
 
-const thing = fromJS({
-  foo1: 'A',
-  foo2: { bar: 'BB', baz: 'CC' }
+const nestedMaps = fromJS({
+  foo1: 1,
+  foo2: {
+    bar1: 2,
+    bar2: {
+      baz: 3
+    }
+  }
 });
+
+nestedMaps.getIn(['foo2', 'bar2', 'baz']);  // 3
+
+nestedMaps.setIn(['foo2', 'bar2', 'baz'], 11)
+  .getIn(['foo2', 'bar2', 'baz']);  // 11
 ```
