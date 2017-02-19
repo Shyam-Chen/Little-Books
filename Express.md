@@ -9,9 +9,17 @@
 ***
 
 ### 目錄
-* 應用程式
-* 中介軟體
-* 控制器
-* 路由
 
 ***
+
+```js
+import { Router } from 'express';
+
+const router = Router();
+
+router.get('/', (req, res) => {
+  res.send('Backend Starter Kit');
+});
+
+export const route = router;
+```
