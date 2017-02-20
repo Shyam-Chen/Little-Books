@@ -11,16 +11,16 @@
 ***
 
 ### 目錄
-* [Observable (可觀察)](#observable)
-  * -> [Subject (主體)](#subject)
-    * -> [AsyncSubject (非同步主體)](#asyncsubject)
-    * -> [BehaviorSubject (行為主體)](#behaviorsubject)
-    * -> [ReplaySubject (反覆主體)](#replaysubject)
-* [Scheduler (調度器)](#scheduler)
-  * animationFrame
-  * asap
-  * async
-  * queue
+* [Observable](#observable)
+  * -> [Subject](#subject)
+    * -> [AsyncSubject](#asyncsubject)
+    * -> [BehaviorSubject](#behaviorsubject)
+    * -> [ReplaySubject](#replaysubject)
+* [Scheduler](#scheduler)
+  * [animationFrame](#animationframe)
+  * [asap](#asap)
+  * [async](#async)
+  * [queue](#queue)
 * [Combination (組合)](#組合)
   * [combineAll](#combineall)
   * [combineLatest](#combinelatest) :star:
@@ -35,7 +35,7 @@
   * zip
 * [Conditional (附條件)](#附條件)
   * defaultIfEmpty
-  * every
+  * [every](#every)
 * [Creation (建立)](#建立)
   * [bindCallback](#bindcallback)
   * [bindNodeCallback](#bindnodecallback)
@@ -182,10 +182,29 @@ subject.subscribe((val) => console.log('Received value:', val));
 
 ```js
 import { Scheduler } from 'rxjs/Scheduler';
+```
 
+### animationFrame
+
+```js
 import { animationFrame } from 'rxjs/scheduler/animationFrame';
+```
+
+### asap
+
+```js
 import { asap } from 'rxjs/scheduler/asap';
+```
+
+### async
+
+```js
 import { async } from 'rxjs/scheduler/async';
+```
+
+### queue
+
+```js
 import { queue } from 'rxjs/scheduler/queue';
 ```
 
@@ -578,6 +597,34 @@ Observable::interval(2000)
 ```
 
 ## 附條件
+
+### every
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { every } from 'rxjs/operator/every';
+
+Observable::of(1, 2, 3, 4, 5)
+  ::every(value => value % 2 === 0)  // 每個值都是偶數嗎？
+  .subscribe(value => console.log(value));
+  // false
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { every } from 'rxjs/operator/every';
+
+Observable::of(2, 4, 6, 8, 10)
+  ::every(value => value % 2 === 0)  // 每個值都是偶數嗎？
+  .subscribe(value => console.log(value));
+  // true
+```
 
 ## 建立
 
