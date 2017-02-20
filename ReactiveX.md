@@ -102,7 +102,7 @@
   * windowWhen
 * [Utility (公用)](#公用)
   * [do](#do) :star:
-  * delay
+  * [delay](#delay)
   * delayWhen
   * dematerialize
   * let
@@ -1034,4 +1034,28 @@ Observable::of(1, 2, 3, 4, 5)
   // BEFORE MAP: 5
   // AFTER MAP: 15
   // 15
+```
+
+### delay
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+import { merge } from 'rxjs/observable/merge';
+
+import { mapTo } from 'rxjs/operator/mapTo';
+import { delay } from 'rxjs/operator/delay';
+
+const of$ = Observable::of(null);
+
+Observable::merge(
+    of$::mapTo(1),
+    of$::mapTo(2)::delay(1000),
+    of$::mapTo(3)::delay(3000)
+  )
+  .subscribe(value => console.log(value));
+  // 1
+  // 2 (延遲 1 秒)
+  // 3 (延遲 4 秒)
 ```
