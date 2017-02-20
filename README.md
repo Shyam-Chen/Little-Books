@@ -19,6 +19,6 @@
 * [Express (極低)](https://github.com/Shyam-Chen/Little-Books/blob/master/Express.md)
 * [Mongoose (極低)](https://github.com/Shyam-Chen/Little-Books/blob/master/Mongoose.md)
 
-(X) - 完整度
+(Value) - 完整度
 
-X: 極低 (10%) -> 低 (30%) -> 中 (50%) -> 中高 (70%) -> 高 (90%) -> 完成 (100%)
+Value±10%: 極低 (10%) -> 低 (30%) -> 中 (50%) -> 中高 (70%) -> 高 (90%)
