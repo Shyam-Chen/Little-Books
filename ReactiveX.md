@@ -77,7 +77,7 @@
 * [Multicasting (組播)](#組播)
   * multicast
   * publish
-  * share :star:
+  * [share](#share) :star:
 * [Transformation (轉化)](#轉化)
   * [buffer](#buffer)
   * [bufferCount](#buffercount)
@@ -816,6 +816,37 @@ Observable::from([
 ```
 
 ## 組播
+
+### share
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+
+import { _do } from 'rxjs/operator/do';
+import { mapTo } from 'rxjs/operator/mapTo';
+import { share } from 'rxjs/operator/share';
+
+const timer$ = Observable::timer(1000)
+  ::_do(() => console.log('***SIDE EFFECT***'))
+  ::mapTo('***RESULT***');
+
+timer$.subscribe(value => console.log(value));
+timer$.subscribe(value => console.log(value));
+// ***SIDE EFFECT***
+// ***RESULT***
+// ***SIDE EFFECT***
+// ***RESULT***
+
+const share$ = timer$::share();
+
+share$.subscribe(value => console.log(value));
+share$.subscribe(value => console.log(value));
+// **SIDE EFFECT***
+// ***RESULT***
+// ***RESULT***
+```
 
 ## 轉化
 
