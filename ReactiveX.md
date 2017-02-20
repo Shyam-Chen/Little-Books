@@ -1038,6 +1038,10 @@ Observable::of(1, 2, 3, 4, 5)
 
 ### delay
 
+Delays the emission of items from the source Observable by a given timeout or until a given Date.
+
+延遲發射 Observable 來源中的項目，依照由給定的超時或直到給定的日期。
+
 ```js
 import { Observable } from 'rxjs/Observable';
 
