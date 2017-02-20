@@ -101,7 +101,7 @@
   * windowToggle
   * windowWhen
 * [Utility (公用)](#公用)
-  * do :star:
+  * [do](#do) :star:
   * delay
   * delayWhen
   * dematerialize
@@ -614,7 +614,7 @@ Creates a new Observable that will execute the specified function when a Subscri
 建立一個新的 Observable，當 Subscriber 訂閱時，它將執行指定的函式。
 
 ```js
-import * as Rx from 'rxjs';
+import * as Rx from 'rxjs/Rx';
 
 Rx.Observable.create(observer => {
     observer.next('Hello');
@@ -972,3 +972,35 @@ Observable::of('Hello')
 ```
 
 ## 公用
+
+### do
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { _do } from 'rxjs/operator/do';
+import { map } from 'rxjs/operator/map';
+
+Observable::of(1, 2, 3, 4, 5)
+  ::_do(value => console.log(`BEFORE MAP: ${value}`))
+  ::map(value => value + 10)
+  ::_do(value => console.log(`AFTER MAP: ${value}`))
+  .subscribe(value => console.log(value));
+  // BEFORE MAP: 1
+  // AFTER MAP: 11
+  // 11
+  // BEFORE MAP: 2
+  // AFTER MAP: 12
+  // 12
+  // BEFORE MAP: 3
+  // AFTER MAP: 13
+  // 13
+  // BEFORE MAP: 4
+  // AFTER MAP: 14
+  // 14
+  // BEFORE MAP: 5
+  // AFTER MAP: 15
+  // 15
+```
