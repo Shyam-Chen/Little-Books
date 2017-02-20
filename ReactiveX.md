@@ -53,7 +53,7 @@
   * throw
   * timer
 * [Error Handling (錯誤處理)](#錯誤處理)
-  * catch
+  * [catch](#catch) :star:
   * retry
   * retryWhen
 * [Filtering (過濾)](#過濾)
@@ -825,6 +825,22 @@ Observable:range(1, 5)
 ```
 
 ## 錯誤處理
+
+### catch
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { _throw } from 'rxjs/observable/throw';
+import { of } from 'rxjs/observable/of';
+
+import { _catch } from 'rxjs/operator/catch';
+
+Observable::_throw('一個錯誤！')
+  ::_catch(value => Observable::of(`錯誤訊息: ${value}`))
+  .subscribe(value => console.log(value));
+  // 錯誤訊息: 一個錯誤！
+```
 
 ## 過濾
 
