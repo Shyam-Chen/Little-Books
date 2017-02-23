@@ -57,7 +57,7 @@
   * retry
   * retryWhen
 * [Filtering (過濾)](#過濾)
-  * debounce
+  * [debounce](#debounce)
   * debounceTime :star:
   * distinctUntilChanged :star:
   * [filter](#filter) :star:
@@ -173,7 +173,7 @@ subject.next(1);
 subject.next(2);
 subject.next(3);
 
-subject.subscribe((val) => console.log('Received value:', val));
+subject.subscribe(value => console.log(value));
 // 2
 // 3
 ```
@@ -225,15 +225,19 @@ import { combineAll } from 'rxjs/operator/combineAll';
 
 const timer$ = Observable::timer(2000);
 
-timer$::mapTo(Observable::of('Hello', 'World'))
+timer$::mapTo(
+    Observable::of('Hello', 'World')
+  )
   ::combineAll()
-  .subscribe((val) => console.log('Values from inner observable:', val));
+  .subscribe(value => console.log(value));
   // ["Hello"]
   // ["World"]
 
-timer$::mapTo(Observable::of('Hello', 'Goodbye'))
-  ::combineAll((val) => `${val} Friend!`)
-  .subscribe((val) => console.log('Values Using Projection:', val));
+timer$::mapTo(
+    Observable::of('Hello', 'Goodbye')
+  )
+  ::combineAll(value => `${value} Friend!`)
+  .subscribe(value => console.log(value));
   // Hello Friend!
   // Goodbye Friend!
 ```
@@ -249,9 +253,9 @@ import { combineAll } from 'rxjs/operator/combineAll';
 
 Observable::interval(1000)
   ::take(3)
-  ::map((val) => Observable::interval(val + 500)::take(2))
+  ::map(value => Observable::interval(value + 500)::take(2))
   ::combineAll()
-  .subscribe((val) => console.log(val));
+  .subscribe(value => console.log(value));
   // [0, 0, 0]
   // [1, 0, 0]
   // [1, 1, 0]
@@ -273,9 +277,9 @@ const timerTwo$ = Observable::timer(2000, 4000);
 const timerThree$ = Observable::timer(3000, 4000);
 
 Observable::combineLatest(timerOne$, timerTwo$, timerThree$)
-  .subscribe((latestValues) => {
-    const [timerValOne, timerValTwo, timerValThree] = latestValues;
-    console.log(`${timerValOne}, ${timerValTwo}, ${timerValThree}`);
+  .subscribe((values) => {
+    const [valueOne, valueTwo, valueThree] = values;
+    console.log(`${valueOne}, ${valueTwo}, ${valueThree}`);
   });
   // 0, 0, 0
   // 1, 0, 0
@@ -301,9 +305,9 @@ const timerThree$ = Observable::timer(3000, 4000);
 
 Observable::combineLatest(
     timerOne$, timerTwo$, timerThree$,
-    (one, two, three) => `${one}, ${two}, ${three}`
+    (valueOne, valueTwo, valueThree) => `${valueOne}, ${valueTwo}, ${valueThree}`
   )
-  .subscribe((latestValuesProject) => console.log(latestValuesProject));
+  .subscribe(values => console.log(values));
   // 0, 0, 0
   // 1, 0, 0
   // 1, 1, 0
@@ -328,9 +332,9 @@ const timerThree$ = Observable::timer(3000, 4000);
 
 Observable::interval(1000)
   ::combineLatest(timerOne$, timerTwo$, timerThree$)
-  .subscribe((latestValues) => {
-    const [timerValOne, timerValTwo, timerValThree] = latestValues;
-    console.log(`${timerValOne}, ${timerValTwo}, ${timerValThree}`);
+  .subscribe((values) => {
+    const [valueOne, valueTwo, valueThree] = values;
+    console.log(`${valueOne}, ${valueTwo}, ${valueThree}`);
   });
   // 2, 0, 0
   // 3, 0, 0
@@ -364,7 +368,7 @@ Observable::concat(
     Observable::of(1, 2, 3),
     Observable::of(4, 5, 6)
   )
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 1
   // 2
   // 3
@@ -384,7 +388,7 @@ Observable::concat(
     Observable::interval(1000),
     Observable::of('This', 'Never', 'Runs')  // 這個不會被執行
   )
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 每秒打印
   // 0
   // 1
@@ -402,7 +406,7 @@ import { concat } from 'rxjs/operator/concat';
 
 Observable::of(1, 2, 3)
   ::concat(Observable::of(4, 5, 6))
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 1
   // 2
   // 3
@@ -422,7 +426,7 @@ import { concat } from 'rxjs/operator/concat';
 Observable::of(1, 2, 3)
   ::delay(2000)
   ::concat(Observable::of(4, 5, 6))
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 延遲兩秒
   // 1
   // 2
@@ -450,7 +454,7 @@ import { concatAll } from 'rxjs/operator/concatAll';
 Observable::interval(1000)
   ::map(value => Observable::of(value + 10))
   ::concatAll()
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 每秒打印
   // 10
   // 11
@@ -470,7 +474,7 @@ import { concatAll } from 'rxjs/operator/concatAll';
 Observable::interval(1000)
   ::map(value => new Promise(resolve => resolve(value)))
   ::concatAll()
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 每秒打印
   // 0
   // 1
@@ -494,7 +498,7 @@ Observable::of(
     Observable::interval(2000)::take(1)  // 0 (完成)
   )
   ::concatAll()
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 0
   // 1
   // 2
@@ -526,7 +530,7 @@ Observable::forkJoin(
     Observable::interval(1000)::take(2),
     p('RESULT')
   )
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 五秒後印出
   // [ "Hello", "World", 0, 1, "Resolved: RESULT" ]
 ```
@@ -668,7 +672,7 @@ import { Observable } from 'rxjs/Observable';
 import { bindCallback } from 'rxjs/observable/bindCallback';
 
 Observable::bindCallback(...)
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
 ```
 
 ### bindNodeCallback
@@ -681,7 +685,7 @@ import { Observable } from 'rxjs/Observable';
 import { bindNodeCallback } from 'rxjs/observable/bindNodeCallback';
 
 Observable::bindNodeCallback(...)
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
 ```
 
 ### create
@@ -697,7 +701,7 @@ Rx.Observable.create(observer => {
     observer.next('Hello');
     observer.next('World');
   })
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // Hello
   // World
 ```
@@ -715,7 +719,7 @@ import { defer } from 'rxjs/observable/defer';
 import { of } from 'rxjs/observable/of';
 
 Observable::defer(() => Observable::of(1, 2, 3))
-  .subscribe(result => console.log(result + 1));
+  .subscribe(value => console.log(value + 1));
   // 2
   // 3
   // 4
@@ -758,7 +762,7 @@ const map1 = Map({ a: 1, b: 2, c: 3 });
 const map2 = map1.set('b', 4);
 
 Observable::from(map2)
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // ["a", 1]
   // ["b", 4]
   // ["c", 3]
@@ -776,7 +780,7 @@ import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 
 Observable::fromEvent(document, 'click')  // 點擊頁面
-  .subscribe(result => console.log(result.pageX, result.pageY));
+  .subscribe(value => console.log(value.pageX, value.pageY));
   // 打印出點擊的座標
 ```
 
@@ -792,7 +796,7 @@ import { Observable } from 'rxjs/Observable';
 import { interval } from 'rxjs/observable/interval';
 
 Observable::interval(1000)
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 0
   // 1
   // 2
@@ -810,7 +814,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 Observable::of(1, 2, 3)
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 1
   // 2
   // 3
@@ -826,7 +830,7 @@ Observable::of(
     [2, 'b'],
     () => 'C'
   )
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // {a: "A"}
   // [2, "b"]
   // function () {
@@ -846,7 +850,7 @@ import { Observable } from 'rxjs/Observable';
 import { range } from 'rxjs/observable/range';
 
 Observable:range(1, 5)
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 1
   // 2
   // 3
@@ -921,7 +925,7 @@ import { filter } from 'rxjs/operator/filter';
 
 Observable::from([1, 2, 3, 4, 5])
   ::filter(num => num % 2 === 0)  // 過濾掉非偶數的數值
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // 2
   // 4
 ```
@@ -1008,8 +1012,8 @@ import { buffer } from 'rxjs/operator/buffer';
 
 Observable::interval(1000)
   ::buffer(Observable::fromEvent(document, 'click'))  // 點擊頁面
-  .subscribe((val) => console.log('Buffered Values:', val));
-  // 發射數值
+  .subscribe(value => console.log(value));
+  // 發射值
   // [...]
 ```
 
@@ -1027,14 +1031,14 @@ import { bufferCount } from 'rxjs/operator/bufferCount';
 const interval$ = Observable::interval(1000);
 
 interval$::bufferCount(3)
-  .subscribe((val) => console.log('Buffered Values:', val));
+  .subscribe(value => console.log(value));
   // [0, 1, 2]
   // 下個間隔
   // [3, 4, 5]
   // ...
 
 interval$::bufferCount(3, 1)
-  .subscribe((val) => console.log('Start Buffer Every 1:', val));
+  .subscribe(value => console.log(value));
   // [0, 1, 2]
   // [1, 2, 3]
   // [2, 3, 4]
@@ -1059,7 +1063,7 @@ import { bufferTime } from 'rxjs/operator/bufferTime';
 const interval$ = Observable::interval(1000);
 
 interval$::bufferTime(2000)
-  .subscribe((val) => console.log('Buffered with Time:', val));
+  .subscribe(value => console.log(value));
   // [0]
   // 下個間隔
   // [1, 2]
@@ -1068,7 +1072,7 @@ interval$::bufferTime(2000)
   // ...
 
 interval$::bufferTime(2000, 1000)
-  .subscribe((val) => console.log('Start Buffer Every 1s:', val));
+  .subscribe(value => console.log(value));
   // [0]
   // [0, 1, 2]
   // 下個間隔
@@ -1092,8 +1096,8 @@ import { from } from 'rxjs/observable/from';
 import { map } from 'rxjs/operator/map';
 
 Observable::from([1, 2, 3, 4, 5])
-  ::map((val) => val + 10)
-  .subscribe((val) => console.log(val))
+  ::map(value => value + 10)
+  .subscribe(value => console.log(value))
   // 11
   // 12
   // 13
@@ -1105,8 +1109,8 @@ Observable::from([
     { name: 'Frank', age: 20 },
     { name: 'Ryan', age: 50 }
   ])
-  ::map((person) => person.name)
-  .subscribe((val) => console.log(val))
+  ::map(value => value.name)
+  .subscribe(value => console.log(value))
   // Joe
   // Frank
   // Ryan
@@ -1125,7 +1129,7 @@ import { mapTo } from 'rxjs/operator/mapTo';
 
 Observable::interval(1000)
   ::mapTo('Hello World!')
-  .subscribe((val) => console.log(val));
+  .subscribe(value => console.log(value));
   // 每秒打印 Hello World!
 ```
 
@@ -1141,8 +1145,8 @@ import { of } from 'rxjs/observable/of';
 import { mergeMap } from 'rxjs/operator/mergeMap';
 
 Observable::of('Hello')
-  ::mergeMap((val) => Observable::of(`${val} World!`))
-  .subscribe((val) => console.log(val));
+  ::mergeMap(value => Observable::of(`${value} World!`))
+  .subscribe(value => console.log(value));
   // Hello World!
 ```
 
