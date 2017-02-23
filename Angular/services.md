@@ -489,11 +489,12 @@ export class AppComponent {
 
 ### 內建服務
 
-#### 標題服務
+#### Title
+
 ```ts
 // src/app/app.module.ts
 import { NgModule } from '@angular/core';
-import { BrowserModule, Title }  from '@angular/platform-browser';  // 導入 Title 服務
+import { BrowserModule, Title } from '@angular/platform-browser';  // 導入 Title 服務
 
 import { AppComponent } from './app.component';
 
@@ -505,13 +506,14 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { }
 ```
+
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
-import { Title }     from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <button (click)="setTitle('Angular Love')">Angular Love</button>
   `
@@ -524,3 +526,5 @@ export class AppComponent {
   }
 }
 ```
+
+#### Meta
