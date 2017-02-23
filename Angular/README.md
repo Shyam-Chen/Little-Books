@@ -140,4 +140,3 @@
 * [國際化與本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/globalization.md)
 * [資料視覺化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/data-visualization.md)
 * [流量分析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/analytics.md)
-* [後設資料](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/metadata.md)
