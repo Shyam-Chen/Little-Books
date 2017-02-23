@@ -874,6 +874,40 @@ Observable::_throw('一個錯誤！')
 
 ## 過濾
 
+### debounce
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+import { timer } from 'rxjs/observable/timer';
+
+import { debounce } from 'rxjs/operator/debounce';
+
+Observable::of(1, 2, 3)
+  ::debounce(() => Observable::timer(1000))
+  .subscribe(value => console.log(value));
+  // 3
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+import { timer } from 'rxjs/observable/timer';
+
+import { debounce } from 'rxjs/operator/debounce';
+
+Observable::interval(1000)
+  ::debounce(value => Observable::timer(value * 200))
+  .subscribe(value => console.log(value));
+  // 0
+  // 1
+  // 2
+  // 3
+  // 4
+```
+
 ### filter
 
 過濾給予的條件值，再將值發射出去。
