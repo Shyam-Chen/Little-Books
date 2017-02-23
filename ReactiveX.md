@@ -69,7 +69,7 @@
   * skip
   * skipUntil
   * skipWhile
-  * take :star:
+  * [take](#take) :star:
   * takeUntil :star:
   * takeWhile
   * throttle
@@ -906,6 +906,23 @@ Observable::from([
   ::filter(person => person.age > 30)  // 過濾掉大於 30 歲的人
   .subscribe(value => console.log(`Over 30: ${value.name}`));
   // Over 30: Joe
+```
+
+### take
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { take } from 'rxjs/operator/take';
+
+Observable::of(1, 2, 3, 4, 5)
+  ::take(3)
+  .subscribe(value => console.log(value));
+  // 1
+  // 2
+  // 3
 ```
 
 ## 組播
