@@ -34,7 +34,7 @@
   * withLatestFrom :star:
   * zip
 * [Conditional (附條件)](#附條件)
-  * defaultIfEmpty
+  * [defaultIfEmpty](#defaultifempty)
   * [every](#every)
 * [Creation (建立)](#建立)
   * [bindCallback](#bindcallback)
@@ -597,6 +597,36 @@ Observable::interval(2000)
 ```
 
 ## 附條件
+
+### defaultIfEmpty
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { defaultIfEmpty } from 'rxjs/operator/defaultIfEmpty';
+
+Observable::of()  // 空白
+  ::defaultIfEmpty('Observable::of() Empty!')
+  .subscribe(value => console.log(value));
+  // Observable::of() Empty!
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { defaultIfEmpty } from 'rxjs/operator/defaultIfEmpty';
+
+Observable::of(1, 2, 3)
+  ::defaultIfEmpty('Observable::of() Empty!')
+  .subscribe(value => console.log(value));
+  // 1
+  // 2
+  // 3
+```
 
 ### every
 
