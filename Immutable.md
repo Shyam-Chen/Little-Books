@@ -37,6 +37,10 @@ import { Iterable } from 'immutable';
 
 ```js
 import { Seq } from 'immutable';
+
+Seq.of(1, 2, 3)
+  .filter(value => value === 1)  // Seq [ 1 ]
+  .toKeyedSeq();  // Seq { 0: 1 }
 ```
 
 ## Collection
@@ -89,8 +93,28 @@ import { Stack } from 'immutable';
 
 ## Set
 
+讀取值
+
 ```js
-import { Seq } from 'immutable';
+import { Set } from 'immutable';
+
+const s1 = Set([1, 2, 3]);  // Set { 1, 2, 3 }
+
+s1.first();  // 1
+s1.last();  // 3
+```
+
+轉換為 JavaScript 的類型
+
+```js
+import { Set } from 'immutable';
+
+const s1 = Set([1, 2, 3]);  // Set { 1, 2, 3 }
+
+s1.toJS();  // [ 1, 2, 3 ]
+s1.toJSON();  // [ 1, 2, 3 ]
+s1.toArray();  // [ 1, 2, 3 ]
+s1.toObject();  // { '1': 1, '2': 2, '3': 3 }
 ```
 
 ## OrderedSet
