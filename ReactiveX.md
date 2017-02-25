@@ -47,7 +47,7 @@
   * fromEventPattern
   * fromPromise
   * [interval](#interval)
-  * never
+  * [never](#never)
   * [of](#of)
   * [range](#range)
   * throw
@@ -600,6 +600,16 @@ Observable::interval(2000)
   // ...
 ```
 
+### mergeAll
+
+### race
+
+### startWith
+
+### withLatestFrom
+
+### zip
+
 ## 附條件
 
 ### defaultIfEmpty
@@ -784,6 +794,10 @@ Observable::fromEvent(document, 'click')  // 點擊頁面
   // 打印出點擊的座標
 ```
 
+### fromEventPattern
+
+### fromPromise
+
 ### interval
 
 Creates an Observable that emits sequential numbers every specified interval of time, on a specified IScheduler.
@@ -802,6 +816,27 @@ Observable::interval(1000)
   // 2
   // 3
   // ...
+```
+
+### never
+
+Creates an Observable that emits no items to the Observer.
+
+建立一個不向 Observer 發射任何項目的 Observable。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { never } from 'rxjs/observable/never';
+
+import { startWith } from 'rxjs/operator/startWith';
+
+const info = () => console.log('這不會被呼叫');
+
+Observable::never()
+  ::startWith(11)
+  .subscribe(value => console.log(value), info, info);
+  // 11
 ```
 
 ### of
@@ -858,6 +893,10 @@ Observable:range(1, 5)
   // 5
 ```
 
+### throw
+
+### timer
+
 ## 錯誤處理
 
 ### catch
@@ -875,6 +914,10 @@ Observable::_throw('一個錯誤！')
   .subscribe(value => console.log(value));
   // 錯誤訊息: 一個錯誤！
 ```
+
+### retry
+
+### retryWhen
 
 ## 過濾
 
@@ -912,6 +955,10 @@ Observable::interval(1000)
   // 4
 ```
 
+### debounceTime
+
+### distinctUntilChanged
+
 ### filter
 
 過濾給予的條件值，再將值發射出去。
@@ -946,6 +993,22 @@ Observable::from([
   // Over 30: Joe
 ```
 
+### first
+
+### ignoreElements
+
+### last
+
+### sample
+
+### single
+
+### skip
+
+### skipUntil
+
+### skipWhile
+
 ### take
 
 ```js
@@ -963,7 +1026,19 @@ Observable::of(1, 2, 3, 4, 5)
   // 3
 ```
 
+### takeUntil
+
+### takeWhile
+
+### throttle
+
+### throttleTime
+
 ## 組播
+
+### multicast
+
+### publish
 
 ### share
 
@@ -1084,6 +1159,18 @@ interval$::bufferTime(2000, 1000)
   // ...
 ```
 
+### bufferToggle
+
+### bufferWhen
+
+### concatMap
+
+### concatMapTo
+
+### expand
+
+### groupBy
+
 ### map
 
 對來源的每個值進行應用投射。
@@ -1150,6 +1237,24 @@ Observable::of('Hello')
   // Hello World!
 ```
 
+### partition
+
+### pluck
+
+### scan
+
+### switchMap
+
+### window
+
+### windowCount
+
+### windowTime
+
+### windowToggle
+
+### windowWhen
+
 ## 公用
 
 ### do
@@ -1211,3 +1316,15 @@ Observable::merge(
   // 2 (延遲 1 秒)
   // 3 (延遲 4 秒)
 ```
+
+### delayWhen
+
+### dematerialize
+
+### let
+
+### materialize
+
+### observeOn
+
+### toPromise
