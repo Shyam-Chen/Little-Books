@@ -89,6 +89,14 @@ list1.push(4, 5, 6)  // List [ 1, 2, 3, 4, 5, 6 ]
 
 ```js
 import { Stack } from 'immutable';
+
+const foo = new Stack();
+const bar = foo.push('A', 'B', 'C');
+
+bar.get();  // A
+bar.get(0);  // A
+bar.get(1);  // B
+bar.get(2);  // C
 ```
 
 ## Set
