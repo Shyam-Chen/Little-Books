@@ -38,6 +38,13 @@ import { Iterable } from 'immutable';
 ```js
 import { Seq } from 'immutable';
 
+Seq({ foo: 1, bar: 2 }).map(value => 10 * value);
+// Seq { "foo": 10, "bar": 20 }
+```
+
+```js
+import { Seq } from 'immutable';
+
 Seq.of(1, 2, 3)
   .filter(value => value === 1)  // Seq [ 1 ]
   .toKeyedSeq();  // Seq { 0: 1 }
