@@ -1,11 +1,7 @@
 # Angular
 
 ### 目錄
-* [第一個應用程式](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md)
-  * [簡介](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md#angular-簡介)
-  * [設定環境](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md#設定環境)
-  * [開始使用](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md#開始使用)
-  * [整體的架構](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/first-application.md#整體的架構)
+* [入門](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/getting-started.md)
 * [模組](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/modules.md)
   * [基本應用](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/modules.md#基本應用)
   * [共享模組](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/modules.md#共享模組)
@@ -104,6 +100,7 @@
   * 動畫影格
   * 並行動畫
   * 路由動畫
+* [國際化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
 * [狀態容器](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/state-container.md)
 * [測試](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md)
   * [測試原則](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#測試原則)
@@ -137,6 +134,5 @@
 ### 番外
 * [原質化設計](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/material.md)
 * [後端雲端服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/firebase.md)
-* [國際化與本地化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/globalization.md)
 * [資料視覺化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/data-visualization.md)
 * [流量分析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/analytics.md)
