@@ -169,3 +169,23 @@ $ npm start
 ### 伺服端渲染
 
 共通式網頁應用程式 (Universal Web Applications)
+
+```bash
+$ ng new --ng4 --style scss uwa
+$ cd uwa
+```
+
+```bash
+$ npm i @angular/platform-server -S
+```
+
+```bash
+$ npm i express -S
+$ npm i @types/express -D
+```
+
+Angular-Express-Engine
+
+```js
+
+```

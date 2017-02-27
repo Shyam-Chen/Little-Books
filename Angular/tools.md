@@ -2,7 +2,15 @@
 
 ### 模組整合
 
-[Rollup](http://rollupjs.org/) 是 JavaScript 下一代的模組整合工具，類似於 Browserify 和 Webpack。
+擴充 Angular CLI 的 Webpack 組態
+
+```bash
+$ npm i rucksack-css -D
+```
+
+***
+
+[Rollup](http://rollupjs.org/) 是 JavaScript 下一代的模組整合工具，類似於 Browserify。
 
 ```js
 // src/main.js
@@ -89,6 +97,12 @@ $ npm i rollup-watch -g
 $ rollup -c --watch
 ```
 
+在 Angular CLI 的 Webpack 組態上配置 Rollup
+
+```bash
+$ npm i rollup-loader -D
+```
+
 ### 自動化建置
 
 #### Gulp
@@ -121,10 +135,10 @@ gulp.task('tslint', () =>
 $ gulp tslint
 ```
 
-將 Rollup 與 Gulp 整合使用
+在 Angular CLI 中配置 Gulp
 
 ```bash
-$ npm i rollup rollup-stream -D
+$ npm i gulp -D
 ```
 
 ### 除錯和剖析
