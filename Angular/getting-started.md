@@ -15,26 +15,24 @@ $ ng serve
 
 前往 [http://localhost:4200/](http://localhost:4200/) 查看
 
+打開新的終端機
+
+建立 `foo` 和 `bar` 元件
+
 ```bash
-# 建立一個名為 `new` 的元件
-$ ng g component new
+$ ng g component foo
+$ ng g component bar
 ```
 
-```ts
-// src/app/new/new.component.ts
-import { Component, OnInit } from '@angular/core';
+使用剛剛所建立的元件
 
-@Component({
-  selector: 'app-new',
-  templateUrl: './new.component.html',
-  styleUrls: ['./new.component.scss']
-})
-export class NewComponent implements OnInit {
+```html
+// src/app/app.component.html
+<h1>
+  {{title}}
+</h1>
 
-  constructor() { }
+<app-foo></app-foo>
 
-  ngOnInit() {
-  }
-
-}
+<app-bar></app-bar>
 ```
