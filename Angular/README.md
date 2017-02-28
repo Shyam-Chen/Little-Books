@@ -102,7 +102,10 @@
   * 並行動畫
   * 路由動畫
 * [國際化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/internationalization.md)
+* [資料視覺化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/data-visualization.md)
 * [狀態容器](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/state-container.md)
+* [原質化設計](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/material.md)
+* [後端雲端服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/firebase.md)
 * [測試](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md)
   * [測試原則](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#測試原則)
   * [靜態分析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/testing.md#靜態分析)
@@ -129,11 +132,3 @@
   * [樹搖優化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/best-practices.md#樹搖優化)
   * [離線存儲](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/best-practices.md#離線存儲)
   * [伺服端渲染](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/best-practices.md#伺服端渲染)
-
-***
-
-### 番外
-* [原質化設計](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/material.md)
-* [後端雲端服務](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/firebase.md)
-* [資料視覺化](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/data-visualization.md)
-* [流量分析](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/analytics.md)

@@ -47,3 +47,5 @@ $ ng g component bar
 
 <app-bar></app-bar>
 ```
+
+進一步了解 Angular cli
