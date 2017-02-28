@@ -1,13 +1,24 @@
 ## 入門
 
+
+安裝 Node.js
+
+https://nodejs.org
+
+安裝 Angular CLI
+
 ```bash
 $ npm i @angular/cli -g
 ```
+
+建立專案
 
 ```bash
 $ ng new --ng4 --style scss <專案名稱>
 $ cd <專案名稱>
 ```
+
+執行應用程式
 
 ```bash
 $ ng serve

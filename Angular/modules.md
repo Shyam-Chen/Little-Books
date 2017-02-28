@@ -2,7 +2,7 @@
 
 ### 基本應用
 
-先來知道一下模組的構造，底下這段就是模組的起始點。
+先來知道一下模組的構造，底下這段就是模組的起始點：
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -15,45 +15,21 @@ export class NameModule {
 }
 ```
 
-在模組的構造中，底下列出可使用的選項。
+底下列出配置模組所可使用的選項：
 
 ```ts
-providers : any[]
-declarations : Array<Type|any[]>
-imports : Array<Type|ModuleWithProviders|any[]>
-exports : Array<Type|any[]>
-entryComponents : Array<Type|any[]>
-bootstrap : Array<Type|any[]>
+providers : Provider[]
+declarations : Array<Type<any>|any[]>
+imports : Array<Type<any>|ModuleWithProviders|any[]>
+exports : Array<Type<any>|any[]>
+entryComponents : Array<Type<any>|any[]>
+bootstrap : Array<Type<any>|any[]>
 schemas : Array<SchemaMetadata|any[]>
 id : string
 ```
 
-(1) 模組概念
-```ts
-// src/app/new/new.component.ts
-import { Component } from '@angular/core';
+開始建立一個新的模組。
 
-@Component({
-  selector: 'app-new',  // 加入前綴 app，表示是在 AppModule 底下的
-  template: `
-    <p new>這是新建立的元件</p>  <!-- p 標籤裡的 new 屬性是 NewDirective 所建立的 -->
-  `
-})
-export class NewComponent { }
-```
-```ts
-// src/app/new/new.directive.ts
-import { Directive, ElementRef, Renderer } from '@angular/core';
-
-@Directive({
-  selector: '[new]'
-})
-export class NewDirective {
-  constructor(public element: ElementRef, public renderer: Renderer) {
-    renderer.setElementStyle(element.nativeElement, 'color', '#F44336');  // DOM 操作: 將字體顏色設定為紅色
-  }
-}
-```
 ```ts
 // src/app/new/new.module.ts
 import { NgModule } from '@angular/core';
@@ -63,13 +39,47 @@ import { NewDirective } from './new.directive';
 
 @NgModule({
   declarations: [  // 該 NewModule 模組底下的元件、指令或管道
-    NewComponent,
-    NewDirective
+    FooComponent,
+    BarDirective
   ],
-  exports: [NewComponent]  // 導出 NewComponent 給 AppModule 模組使用
+  exports: [FooComponent]  // 導出 NewComponent 給 AppModule 模組使用
 })
 export class NewModule { }
 ```
+
+在新建立的模組裡，建立一個元件。
+
+```ts
+// src/app/new/foo.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'new-foo',  // 加入前綴 new，表示是在 NewModule 底下的
+  template: `
+    <p new-bar>這是新建立的元件</p>  <!-- p 標籤裡的 new-bar 屬性是 BarDirective 所建立的 -->
+  `
+})
+export class FooComponent { }
+```
+
+在新建立的模組裡，建立一個指令。
+
+```ts
+// src/app/new/bar.directive.ts
+import { Directive, ElementRef, Renderer } from '@angular/core';
+
+@Directive({
+  selector: '[new-bar]'  // 加入前綴 new，表示是在 NewModule 底下的
+})
+export class BarDirective {
+  constructor(public element: ElementRef, public renderer: Renderer) {
+    renderer.setElementStyle(element.nativeElement, 'color', '#F44336');  // DOM 操作：將字體顏色設定為紅色
+  }
+}
+```
+
+將新建立的模組導入到 AppModule 裡。
+
 ```ts
 // src/app/app.module.ts
 import { NgModule } from '@angular/core';
@@ -89,21 +99,27 @@ import { NewModule } from './new/new.module';  // 導入 NewModule
 })
 export class AppModule { }
 ```
+
+在 AppComponent 使用 NewModule 裡的 FooComponent。
+
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <p>第一個應用程式</p>
-    <app-new></app-new>  <!-- 使用 NewModule 導出的 NewComponent -->
+    <new-foo></new-foo>  <!-- 使用 NewModule 導出的 FooComponent -->
   `
 })
 export class AppComponent { }
 ```
 
-(2) 功能模組
+#### 功能模組
+
+功能模組主要是輔助專案的，基本上會是指令和管道。
+
 ```ts
 // src/app/color/red.directive.ts
 import { Directive, ElementRef, Renderer } from '@angular/core';
@@ -117,6 +133,7 @@ export class RedDirective {
   }
 }
 ```
+
 ```ts
 // src/app/color/green.directive.ts
 import { Directive, ElementRef, Renderer } from '@angular/core';
@@ -130,6 +147,7 @@ export class GreenDirective {
   }
 }
 ```
+
 ```ts
 // src/app/color/blue.directive.ts
 import { Directive, ElementRef, Renderer } from '@angular/core';
@@ -143,6 +161,7 @@ export class BlueDirective {
   }
 }
 ```
+
 ```ts
 // src/app/color/color.module.ts
 import { NgModule } from '@angular/core';
@@ -165,6 +184,7 @@ import { BlueDirective } from './blue.directive';
 })
 export class ColorModule { }
 ```
+
 ```ts
 // src/app/app.module.ts
 import { NgModule } from '@angular/core';
@@ -184,6 +204,7 @@ import { ColorModule } from './color/color.module';
 })
 export class AppModule { }
 ```
+
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
@@ -199,17 +220,27 @@ import { Component } from '@angular/core';
 export class AppComponent { }
 ```
 
-#### 共享模組
-存放專案中屬於共用的程式碼
+#### 共用模組
+
+共用模組主要是存放專案中屬於共用的程式碼，基本上會是元件和服務。
+
 ```ts
 // src/app/shared/shared.module.ts
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  // ...
+  declarations: [
+    FooComponent,
+    BarComponent
+  ],
+  exports: [
+    FooComponent,
+    BarComponent
+  ]
 })
 export class SharedModule { }
 ```
+
 ```ts
 // src/app/app.module.ts
 import { NgModule } from '@angular/core';
@@ -231,18 +262,22 @@ export class AppModule { }
 ```
 
 #### 延遲載入模組
+
+延遲載入模組主要是優化路由的。
+
 ```ts
-// src/app/app.routing.ts
+// src/app/app-routing.module.ts
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: 'home', loadChildren: './app/home/home.module' },
-  { path: 'about', loadChildren: './app/about/about.module' }
+  { path: 'home', loadChildren: './app/home/home.module#HomeModule' },
+  { path: 'about', loadChildren: './app/about/about.module#AboutModule' }
 ];
 
 export const routing = RouterModule.forRoot(routes);
 ```
+
 ```ts
 // src/app/app.module.ts
 import { NgModule } from '@angular/core';
@@ -266,6 +301,7 @@ import { routing } from './app.routing';
 })
 export class AppModule { }
 ```
+
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
@@ -282,6 +318,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent { }
 ```
+
 ```ts
 // src/app/home/home.component.ts
 import { Component } from '@angular/core';
@@ -293,6 +330,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent { }
 ```
+
 ```ts
 // src/app/home/home.routing.ts
 import { Routes, RouterModule } from '@angular/router';
@@ -305,6 +343,7 @@ const routes: Routes = [
 
 export const routing = RouterModule.forChild(routes);
 ```
+
 ```ts
 // src/app/home/home.module.ts
 import { NgModule } from '@angular/core';
@@ -318,6 +357,7 @@ import { routing } from './home.routing';
 })
 export default class HomeModule { }
 ```
+
 ```ts
 // src/app/about/about.component.ts
 import { Component } from '@angular/core';
@@ -329,6 +369,7 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent { }
 ```
+
 ```ts
 // src/app/about/about.routing.ts
 import { Routes, RouterModule } from '@angular/router';
@@ -341,6 +382,7 @@ const routes: Routes = [
 
 export const routing = RouterModule.forChild(routes);
 ```
+
 ```ts
 // src/app/about/about.module.ts
 import { NgModule } from '@angular/core';
