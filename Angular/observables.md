@@ -6,6 +6,29 @@
 
 透過 RxJS 來使用 Observable，RxJS 可以說是非同步 Lodash。
 
+```js
+import { lowerFirst } from 'lodash';
+
+const hw = lowerFirst('Hello World');
+
+console.log(hw);
+// hello world
+
+
+import { Observable } from 'rxjs/Observable';
+import { timer } from 'rxjs/observable/timer';
+import { of } from 'rxjs/observable/of';
+import { mapTo } from 'rxjs/operator/mapTo';
+import { combineAll } from 'rxjs/operator/combineAll';
+
+Observable::timer(2000)
+  ::mapTo(Observable::of('Hello', 'World'))
+  ::combineAll()
+  .subscribe(value => console.log(value));
+  // ["Hello"]
+  // ["World"]
+```
+
 ### 基本應用
 
 ```ts
