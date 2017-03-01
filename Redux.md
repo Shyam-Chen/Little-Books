@@ -5,8 +5,7 @@
 * https://github.com/redux-observable/redux-observable
 
 ### 實作執行
-* https://github.com/Shyam-Chen/Web-Starter-Kit
-* https://github.com/Shyam-Chen/Backend-Starter-Kit
+* https://github.com/Shyam-Chen/Frontend-Starter-Kit
 
 ***
 

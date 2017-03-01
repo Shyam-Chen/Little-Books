@@ -4,7 +4,7 @@
 * https://github.com/firebase/quickstart-js
 
 ### 實作執行
-* https://github.com/Shyam-Chen/Web-Starter-Kit
+* https://github.com/Shyam-Chen/Frontend-Starter-Kit
 
 ***
 
