@@ -1,5 +1,7 @@
 ## 模組
 
+在現在的 JavaScript 有 ES Modules 的出現，而 Angular 模組和 ES Modules 是屬於互補的關係。
+
 ### 基本應用
 
 先來知道一下模組的構造，底下這段就是模組的起始點：
@@ -18,14 +20,15 @@ export class NameModule {
 底下列出配置模組所可使用的選項：
 
 ```ts
-providers : Provider[]
-declarations : Array<Type<any>|any[]>
-imports : Array<Type<any>|ModuleWithProviders|any[]>
-exports : Array<Type<any>|any[]>
-entryComponents : Array<Type<any>|any[]>
-bootstrap : Array<Type<any>|any[]>
-schemas : Array<SchemaMetadata|any[]>
-id : string
+// 後設資料屬性
+providers?: Provider[];
+declarations?: Array<Type<any>|any[]>;
+imports?: Array<Type<any>|ModuleWithProviders|any[]>;
+exports?: Array<Type<any>|any[]>;
+entryComponents?: Array<Type<any>|any[]>;
+bootstrap?: Array<Type<any>|any[]>;
+schemas?: Array<SchemaMetadata|any[]>;
+id?: string;
 ```
 
 開始建立一個新的模組。

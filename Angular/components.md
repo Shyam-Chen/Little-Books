@@ -1,35 +1,13 @@
 ## 元件
 
-### 基本應用
-
 Angular 的元件底成是在 [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components) 之上的。
 
-Web Component 帶來許多的優點，更好的封裝，解決了 CSS 的樣式的衝突，如果沒有使用 Web Component，就只能透過 CSS Modules 來解決 CSS 樣式的衝突。
+Web Component 帶來許多的優點，更好的封裝，解決了 CSS 的樣式的衝突，如果沒有使用 Web Component，就只能透過 CSS Modules 來解決 CSS 樣式之間的衝突。
 
-#### 元件建構子
-```ts
-selector?: string
-inputs?: string[]
-outputs?: string[]
-host?: {[key: string]: string}  // 查看指令章節
-providers?: any[]  // 查看服務章節
-exportAs?: string  // 查看指令章節
-moduleId?: string
-viewProviders?: any[]  // 查看服務章節
-queries?: {[key: string]: any}
-changeDetection?: ChangeDetectionStrategy
-templateUrl?: string
-template?: string
-styleUrls?: string[]
-styles?: string[]
-animations?: AnimationEntryMetadata[]  // 查看動畫章節
-directives?: Array<Type|any[]>  // 查看指令章節
-pipes?: Array<Type|any[]>  // 查看管道章節
-encapsulation?: ViewEncapsulation
-interpolation?: [string, string]
-```
+### 基本應用
 
-#### 元件起點
+先來知道一下元件的構造，底下這段就是元件的起始點：
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -41,9 +19,37 @@ export class NameComponent {
 }
 ```
 
-#### 使用模板
+底下列出配置元件所可使用的選項：
+
+```ts
+// 後設資料屬性
+selector?: string;
+inputs?: string[];
+outputs?: string[];
+host?: {[key: string]: string};
+providers?: Provider[];
+exportAs?: string;
+queries?: {[key: string]: any};
+
+changeDetection?: ChangeDetectionStrategy;
+viewProviders?: Provider[];
+moduleId?: string;
+templateUrl?: string;
+template?: string;
+styleUrls?: string[];
+styles?: string[];
+animations?: any[];
+encapsulation?: ViewEncapsulation;
+interpolation?: [string, string];
+entryComponents?: Array<Type<any>|any[]>;
+```
+
+#### 模板
 
 (1) `template`
+
+使用行內模板
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -57,23 +63,28 @@ export class UseTemplateComponent { }
 ```
 
 (2) `templateUrl`
+
+使用外部模板
+
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'use-template',
+  selector: 'use-templateUrl',
   templateUrl: './app/use-template.component.html'
 })
-export class UseTemplateComponent { }
+export class UseTemplateUrlComponent { }
 ```
+
 ```html
 <!-- use-template.component.html -->
 <p>Hello Angular</p>
 ```
 
-#### 使用樣式
+#### 樣式
 
 (1) `styles`
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -92,20 +103,24 @@ export class UseStylesComponent { }
 ```
 
 (2) `styleUrls`
+
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'use-styles',
+  selector: 'use-styleUrls',
   templateUrl: './app/use-styles.component.html',
   styleUrls: ['./app/use-styles.component.css']
 })
-export class UseStylesComponent { }
+export class UseStyleUrlsComponent { }
+
 ```
+
 ```html
 <!-- use-styles.component.html -->
 <p class="at-color">Hello Angular</p>
 ```
+
 ```css
 /* use-styles.component.css */
 .at-color {
@@ -114,6 +129,7 @@ export class UseStylesComponent { }
 ```
 
 #### 模組識別
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -141,6 +157,7 @@ export class NameComponent { }
 ### 檢視層
 
 #### 渲染模板
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -166,14 +183,15 @@ export class RenderingTemplatesComponent {
   public image: string = '../assets/images/angular.png';
 
   constructor() {
-    this.name = '陳彥澄';  // 這個比較正確
+    this.name = '陳彥澄';
   }
 }
 ```
 
-如果不喜歡 Angular 預設的插植，我們也可以自訂插值的符號。
+如果不喜歡 Angular 預設的插植符號，也是可以自訂插值符號的。
 
 我們改成三個大括號，如底下範例：
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -190,6 +208,7 @@ export class AppComponent {
 ```
 
 #### 雙向綁定
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -208,6 +227,7 @@ export class TwoWayBindingComponent {
 ```
 
 #### 事件綁定
+
 ```ts
 import { Component } from '@angular/core';
 
