@@ -5,6 +5,11 @@ Redux 是負責管理狀態的，所有的狀態都會透過 Redux 來操作，�
 在 Redux 中會有這三個概念：Action、Reducer 和 Store，
 而額外的 Effects 是透過 Redux Observable，在 Redux Observable 中稱作 Epic。
 
+Action 還可在分為兩個概念：Type 和 Creator，
+Reducer 會根據 Action 的 Type 來做相對應的操作，
+再來是 Epic，Epic 為 Action 和 Reducer 增加額外的 Effects，
+最後就是把 Store 建立起來。
+
 ### 基本應用
 
 這裡透過 [@ngrx/store](https://github.com/ngrx/store) 來實現 Redux，

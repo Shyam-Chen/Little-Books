@@ -24,14 +24,18 @@ import { map } from 'rxjs/operator/map';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createEpicMiddleware, combineEpics } from 'redux-observable-es';
 
-// Types
 const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
 const RESET = 'RESET';
 const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
 const DECREMENT_IF_EVEN = 'DECREMENT_IF_EVEN';
 
-// Reducers
+const increment = () => ({ type: INCREMENT });
+const decrement = () => ({ type: DECREMENT });
+const reset = () => ({ type: RESET });
+const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
+const decrementIfEven = () => ({ type: DECREMENT_IF_EVEN });
+
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
     case INCREMENT:
@@ -45,14 +49,6 @@ const counterReducer = (state = 0, action) => {
   }
 };
 
-// Actions
-const increment = () => ({ type: INCREMENT });
-const decrement = () => ({ type: DECREMENT });
-const reset = () => ({ type: RESET });
-const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
-const decrementIfEven = () => ({ type: DECREMENT_IF_EVEN });
-
-// Epics
 const incrementIfOddEpic = (action$, store) =>
   action$.ofType(INCREMENT_IF_ODD)
     ::filter(() => store.getState().counterReducer % 2 === 1)
@@ -65,8 +61,6 @@ const decrementIfEvenEpic = (action$, store) =>
 
 const rootEpic = combineEpics(incrementIfOddEpic, decrementIfEvenEpic);
 const epicMiddleware = createEpicMiddleware(rootEpic);
-
-// Store
 const rootReducer = combineReducers({ counterReducer });
 const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
