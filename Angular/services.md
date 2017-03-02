@@ -515,7 +515,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   template: `
-    <button (click)="setTitle('Angular Love')">Angular Love</button>
+    <button (click)="setTitle('Angular Love')">Click Me</button>
   `
 })
 export class AppComponent {
@@ -528,3 +528,42 @@ export class AppComponent {
 ```
 
 #### Meta
+
+```ts
+// src/app/app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule, Meta } from '@angular/platform-browser';  // 導入 Meta 服務
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [AppComponent],
+  providers: [Meta],  // 註冊到 AppModule 裡
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+```ts
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <button (click)="setMeta()">Click Me</button>
+  `
+})
+export class AppComponent {
+  constructor(private meta: Meta) { }
+
+  public setMeta(): void {
+    this.meta.addTag({
+      name: 'description',
+      content: '一些文字在這裡...'
+    });
+  }
+}
+```
