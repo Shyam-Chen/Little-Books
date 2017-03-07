@@ -15,14 +15,14 @@
 
 ```js
 import { createStore, combineReducers, bindActionCreators, applyMiddleware, compose } from 'redux';
-import { createEpicMiddleware, combineEpics } from 'redux-observable-es';
+import { createEpicMiddleware, combineEpics } from 'redux-observable';
 ```
 
 ```js
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { createEpicMiddleware, combineEpics } from 'redux-observable-es';
+import { createEpicMiddleware, combineEpics } from 'redux-observable';
 
 const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
