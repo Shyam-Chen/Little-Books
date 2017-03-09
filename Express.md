@@ -30,17 +30,77 @@
 
 ## 驗證
 
+```bash
+$ npm i passport -S
+```
+
 ### 本地
+
+```bash
+$ npm i passport-local -S
+```
 
 ### Facebook
 
+```bash
+$ npm i passport-facebook -S
+```
+
 ### Google
+
+```bash
+$ npm i passport-google-oauth20 -S
+```
 
 ### Twitter
 
+```bash
+$ npm i passport-twitter -S
+```
+
 ## REST
 
+### 增刪改查
+
+```js
+import express from 'express';
+
+import { User } from '../models';
+
+const router = express.Router();
+
+router.get('/', (req, res) => {
+
+});
+
+router.get('/create', (req, res) => {
+
+});
+
+router.post('/insert', (req, res) => {
+
+});
+
+router.get('/:id/edit', (req, res) => {
+
+});
+
+router.put('/:id', (req, res) => {
+
+});
+
+router.get('/:id', (req, res) => {
+
+});
+```
+
 ## 存儲
+
+### 檔案上傳
+
+```bash
+$ npm i multer -S
+```
 
 ## 訊息
 
