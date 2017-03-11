@@ -40,7 +40,6 @@
   * [基本應用](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/routing.md#基本應用)
   * [巢狀路由](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/routing.md#巢狀路由)
   * [URL 參數](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/routing.md#url-參數)
-  * [前後關係](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/routing.md#前後關係)
   * [非同步路由](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/routing.md#非同步路由)
 * [指令](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/directives.md)
   * [內建屬性型指令](https://github.com/Shyam-Chen/Little-Books/blob/master/Angular/directives.md#內建屬性型指令)

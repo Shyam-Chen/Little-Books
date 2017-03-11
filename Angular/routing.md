@@ -156,6 +156,48 @@ export class LinkComponent {
 }
 ```
 
-### 前後關係
-
 ### 非同步路由
+
+```js
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+
+export const ROUTES: Routes = [
+  {
+    path: '',
+    component: FooComponent,
+    children: [
+      { path: 'bar', component: BarFooComponent },
+      { path: 'baz', component: BazFooComponent }
+    ]
+  }
+];
+
+@NgModule({
+  imports: [
+    CommonModule,
+    RouterModule.forChild(ROUTES)
+  ],
+  // ...
+})
+export class FooModule {}
+```
+
+```js
+export const ROUTES: Routes = [
+  {
+    path: 'foo',
+    loadChildren: './foo/foo.module#FooModule'
+  }
+];
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(ROUTES)
+  ],
+  // ...
+})
+export class AppModule {}
+```
