@@ -21,7 +21,7 @@ Redux 是負責管理狀態的，所有的狀態都會透過 Redux 來操作，�
 Action 還可在分為兩個概念：Type 和 Creator，
 Reducer 會根據 Action 的 Type 來做相對應的操作，
 Epic 為 Action 和 Reducer 增加額外的效果，
-最後就是把 Store 建立起來。
+最後就是把 Store 建立起來，執行 Action 的 Creator。
 
 ```js
 import { createStore, combineReducers, bindActionCreators, applyMiddleware, compose } from 'redux';
