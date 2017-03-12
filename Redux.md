@@ -13,6 +13,16 @@
 
 ***
 
+Redux 是負責管理狀態的，所有的狀態都會透過 Redux 來操作，就是個狀態容器。
+
+在 Redux 中會有這三個概念：Action、Reducer 和 Store，
+而額外的效果是透過 Redux Observable，這個概念稱作 Epic。
+
+Action 還可在分為兩個概念：Type 和 Creator，
+Reducer 會根據 Action 的 Type 來做相對應的操作，
+Epic 為 Action 和 Reducer 增加額外的效果，
+最後就是把 Store 建立起來。
+
 ```js
 import { createStore, combineReducers, bindActionCreators, applyMiddleware, compose } from 'redux';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
@@ -25,6 +35,7 @@ import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
+import { Map } from 'immutable';
 
 const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
@@ -38,12 +49,12 @@ const reset = () => ({ type: RESET });
 const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
 const decrementIfEven = () => ({ type: DECREMENT_IF_EVEN });
 
-const counterReducer = (state = 0, action) => {
+const counterReducer = (state = Map({ counter: 0 }), action) => {
   switch (action.type) {
     case INCREMENT:
-      return state + 1;
+      return state.update('counter', value => value + 1);;
     case DECREMENT:
-      return state - 1;
+      return state.update('counter', value => value - 1);;
     case RESET:
       return 0;
     default:
@@ -53,12 +64,12 @@ const counterReducer = (state = 0, action) => {
 
 const incrementIfOddEpic = (action$, store) =>
   action$.ofType(INCREMENT_IF_ODD)
-    ::filter(() => store.getState().counterReducer % 2 === 1)
+    ::filter(() => store.getState().counterReducer.get('counter') % 2 === 1)
     ::map(increment);
 
 const decrementIfEvenEpic = (action$, store) =>
   action$.ofType(DECREMENT_IF_EVEN)
-    ::filter(() => store.getState().counterReducer % 2 === 0)
+    ::filter(() => store.getState().counterReducer.get('counter') % 2 === 0)
     ::map(decrement);
 
 const rootEpic = combineEpics(incrementIfOddEpic, decrementIfEvenEpic);
@@ -68,33 +79,12 @@ const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
 store.subscribe(() => {
   const { counterReducer } = store.getState();
-  console.log(counterReducer);
+  console.log(counterReducer.get('counter'));
 });
 
-store.dispatch(increment());
-// 1
-
-store.dispatch(incrementIfOdd());
-// 1
-// 2
-
-store.dispatch(decrementIfEven());
-// 2
-// 1
-
-store.dispatch(reset());
-// 0
-
-store.dispatch(decrement());
-// -1
-```
-
-```html
-
-```
-
-TodoMVC
-
-```js
-
+store.dispatch(increment());  // 1
+store.dispatch(incrementIfOdd());  // 1 -> 2
+store.dispatch(decrementIfEven());  // 2 -> 1
+store.dispatch(reset());  // 0
+store.dispatch(decrement());  // -1
 ```
