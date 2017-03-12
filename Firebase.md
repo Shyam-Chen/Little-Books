@@ -16,6 +16,7 @@
   * [Google](#google)
   * Facebook
   * Twitter
+  * GitHub
 * Database (資料庫)
   * 增刪改查
 * Storage (存儲)
@@ -25,9 +26,10 @@
 * Functions (函式)
   * Email
   * SMS
-  * GitHub webhook API
-  * Slack postMessage API
+  * GitHub/Slack
   * Chatbot
+  * Prerender
+  * PayPal
 * Hosting (託管)
 
 ***
