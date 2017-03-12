@@ -2,6 +2,8 @@
 
 ### 練習來源
 * https://github.com/firebase/quickstart-js
+* https://github.com/firebase/functions-samples
+* https://github.com/firebase/firebase-tools
 
 ### 實作執行
 * https://github.com/Shyam-Chen/Frontend-Starter-Kit
@@ -9,18 +11,28 @@
 ***
 
 ### 目錄
-* Authentication (認證)
+* Authentication (驗證)
   * Email/Password
   * [Google](#google)
   * Facebook
   * Twitter
 * Database (資料庫)
+  * 增刪改查
 * Storage (存儲)
+  * 檔案上傳
 * Messaging (訊息)
+  * FCM 通知
+* Functions (函式)
+  * Email
+  * SMS
+  * GitHub webhook API
+  * Slack postMessage API
+  * Chatbot
+* Hosting (託管)
 
 ***
 
-## 認證
+## 驗證
 
 ### Google
 
@@ -104,4 +116,10 @@ signInButton.style.display = '';
     </div>
   </div>
 </div>
+```
+
+## 託管
+
+```bash
+$ npm i firebase-tools -g
 ```
