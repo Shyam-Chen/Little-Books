@@ -11,7 +11,8 @@
 
 ### 目錄
 * Array (陣列)
-  * [compact](#compact)
+  * [compact](#compact) :star:
+  * concat :star:
   * fill :sparkles:
   * findIndex :sparkles:
   * head :sparkles:
@@ -32,7 +33,6 @@
   * rest :sparkles:
   * spread :sparkles:
 * Lang (語言)
-  * [clone](#clone)
 * Math (數學)
 * Number (數字)
 * Object (物件)
@@ -40,10 +40,10 @@
 * String (字串)
 * Util (公用)
 
-:star: - 官方建置的核心<br>
-:sparkles: - 與 ES2015+ 有關
+:star: - 核心<br>
+:sparkles: - JS.Next
 
-[:vertical_traffic_light:] - 排除 ES2015-
+[:vertical_traffic_light:] - 排除 JS.Next 以下
 
 ***
 
@@ -62,17 +62,30 @@ compact([0, true, 1, false, 2, 'foo', 3, '', 4, 'bar']);
 // [true, 1, 2, "foo", 3, 4, "bar"]
 ```
 
+## 集合
+
+### every
+
+
+### find
+
 ## 函式
 
 ### before
 
 ### bind
 
+### defer
+
+### delay
+
 ## 物件
 
 ### assignIn
 
-比較 ES2015 的 Object.assign()
+### create
+
+### defaults
 
 ## 序列
 
@@ -82,36 +95,10 @@ compact([0, true, 1, false, 2, 'foo', 3, '', 4, 'bar']);
 
 ## 語言
 
-### clone
+## 字串
 
-```js
-import { clone } from 'lodash-es';
+### escape
 
-const foo = [{ a: 1 }, { b: 2 }];
-const bar = clone(foo);
-
-foo === bar;  // false
-```
-
-`_.concat`
-
-`_.create`
-
-`_.defaults`
-
-`_.defer`
-
-`_.delay`
-
-`_.each`
-
-`_.escape`
-
-`_.every`
-
-`_.filter`
-
-`_.find`
 
 `_.flatten`
 
