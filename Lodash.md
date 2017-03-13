@@ -49,17 +49,39 @@
 
 ## 陣列
 
+### chunk
+
+建立一個元素陣列，分成組大小的長度。如果陣列不能均勻分割，最後的塊將是剩餘的元素。
+
+```js
+import { chunk } from 'lodash';
+
+chunk(['a', 'b', 'c', 'd'], 2);
+// [['a', 'b'], ['c', 'd']]
+
+chunk(['a', 'b', 'c', 'd'], 3);
+// [['a', 'b', 'c'], ['d']]
+```
+
 ### compact
 
-創立一個刪除所有 falsey 值的陣列。
+建立一個刪除所有 falsey 值的陣列。
 
 falsey: `false`、`null`、`0`、`''`、`undefined` 和 `NaN`
 
 ```js
-import { compact } from 'lodash-es';
+import { compact } from 'lodash';
 
 compact([0, true, 1, false, 2, 'foo', 3, '', 4, 'bar']);
 // [true, 1, 2, "foo", 3, 4, "bar"]
+```
+
+### difference
+
+```js
+import { compact } from 'lodash';
+
+difference([2, 1], [2, 3]);
 ```
 
 ## 集合
