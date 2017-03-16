@@ -25,6 +25,9 @@
   * REST
   * 快速結帳
   * 自適應
+* 其他
+  * 網路爬蟲
+  * QR Code
 
 ***
 
@@ -135,3 +138,5 @@ $ npm i paypal-express-checkout -S
 ```bash
 $ npm i paypal-adaptive -S
 ```
+
+## 其他
