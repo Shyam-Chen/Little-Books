@@ -61,7 +61,7 @@
   * debounceTime :star:
   * distinctUntilChanged :star:
   * [filter](#filter) :star:
-  * first
+  * [first](#first)
   * ignoreElements
   * last
   * sample
@@ -994,6 +994,41 @@ Observable::from([
 ```
 
 ### first
+
+僅發射來自 Observable 射出的第一個值 (或滿足某個條件的第一個值)。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { first } from 'rxjs/operator/first';
+
+const from$ = Observable::from([1, 2, 3, 4, 5]);
+
+from$::first()
+  .subscribe(value => console.log(value));
+  // 1
+
+from$::first(value => value === 3)
+  .subscribe(value => console.log(value));
+  // 3
+
+from$::first(
+    num => num % 2 === 0,
+    (result, index) => `First even: ${result} is at index: ${index}`
+  )
+  .subscribe(value => console.log(value));
+  // First even: 2 is at index: 1
+
+from$::first(
+    value => value > 5,
+    value => `Value: ${value}`,
+    'Default Value'
+  )
+  .subscribe(value => console.log(value));
+  // Default Value
+```
 
 ### ignoreElements
 
