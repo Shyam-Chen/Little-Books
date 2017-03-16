@@ -30,7 +30,7 @@
   * [merge](#merge) :star:
   * mergeAll
   * race
-  * startWith :star:
+  * [startWith](#startwith) :star:
   * withLatestFrom :star:
   * zip
 * [Conditional (附條件)](#附條件)
@@ -605,6 +605,44 @@ Observable::interval(2000)
 ### race
 
 ### startWith
+
+Returns an Observable that emits the items you specify as arguments before it begins to emit items emitted by the source Observable.
+
+返回一個 Observable，在開始發射來自 Observable 射出的項目之前發射所指定為參數的項目。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { startWith } from 'rxjs/operator/startWith';
+
+Observable::of(1, 2, 3)
+  ::startWith(0)
+  .subscribe(value => console.log(value));
+  // 0
+  // 1
+  // 2
+  // 3
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { startWith } from 'rxjs/operator/startWith';
+import { scan } from 'rxjs/operator/scan';
+
+Observable::of('World!', 'Goodbye', 'World!')
+  ::startWith('Hello')
+  ::scan((acc, value) => `${acc} ${value}`)
+  .subscribe(value => console.log(value));
+  // Hello
+  // Hello World!
+  // Hello World! Goodbye
+  // Hello World! Goodbye World!
+```
 
 ### withLatestFrom
 
