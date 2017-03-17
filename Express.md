@@ -10,6 +10,7 @@
 
 ### 目錄
 * 核心
+  * 中介軟體
 * 驗證
   * 本地
   * Facebook
@@ -21,11 +22,12 @@
   * 檔案上傳
 * 訊息
   * Email
-  * SMS (TextMagic)
+  * SMS (Twilio)
 * 金流 (PayPal)
   * REST
   * 快速結帳
   * 自適應
+* 興趣點 (Google Places)
 * 其他
   * 網路爬蟲
   * QR Code
