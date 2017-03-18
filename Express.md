@@ -40,6 +40,26 @@
 
 ### 中介軟體
 
+Express 的中介軟體模組
+* `body-parser` - 解析 HTTP 請求的 Body
+* `compression` - 壓縮 HTTP 回應
+* `connect-rid`
+* `cookie-parser`
+* `cookie-session`
+* `cors`
+* `csurf`
+* `errorhandler` - 開發用的錯誤處理/除錯
+* `method-override`
+* `morgan` - HTTP 請求記錄器
+* `multer`
+* `response-time` - 紀錄 HTTP 回應時間
+* `serve-favicon` - 提供一個圖標
+* `serve-index` - 為給定的路徑提供目錄列表
+* `serve-static` - 提供靜態檔案
+* `session` - 設立基於伺服器的 sessions (僅限開發用)
+* `timeout` - 設定 HTTP 請求處理的超時時間
+* `vhost` - 建立虛擬網域
+
 ### 路由
 
 路由是一種通過 URL 和 HTTP 操作，映射到指定的請求處理的方式。
