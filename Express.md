@@ -11,6 +11,9 @@
 ### 目錄
 * 核心
   * 中介軟體
+  * 路由
+  * 請求回應
+  * 視圖
 * 驗證
   * 本地
   * Facebook
@@ -28,11 +31,28 @@
   * 快速結帳
   * 自適應
 * 興趣點 (Google Places)
-* 其他
-  * 網路爬蟲
-  * QR Code
+* 網路爬蟲
+* QR Code
 
 ***
+
+## 核心
+
+### 中介軟體
+
+### 路由
+
+路由是一種通過 URL 和 HTTP 操作，映射到指定的請求處理的方式。
+
+```js
+app.get('/', (req, res) => {
+  res.end("Welcome to my homepage!");
+});
+
+app.get('/about', (req, res) => {
+  res.end("Welcome to my homepage!");
+});
+```
 
 ## 驗證
 
