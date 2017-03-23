@@ -14,7 +14,7 @@ $ npm i @angular/cli -g
 建立專案
 
 ```bash
-$ ng new --ng4 --style scss <專案名稱>
+$ ng new --ng4 <專案名稱>
 $ cd <專案名稱>
 ```
 
@@ -49,3 +49,5 @@ $ ng g component bar
 ```
 
 進一步了解 Angular CLI
+
+...

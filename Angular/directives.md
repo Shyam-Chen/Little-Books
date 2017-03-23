@@ -23,7 +23,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'ng-style',
   template: `
-    <p 
+    <p
       [ngStyle]="{
         'background-color': '#F44336',
         'color': '#FFFFFF'
@@ -56,11 +56,12 @@ export class NgClassComponent { }
 ### 內建結構型指令
 
 #### ng-if
+
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'at-ng-if',
+  selector: 'app-ngif',
   template: `
     <p *ngIf="true">我看的到它</p>
     <p *ngIf="false">我看不到它</p>
@@ -76,6 +77,124 @@ import { Component } from '@angular/core';
   `
 })
 export class NgIfComponent { }
+```
+
+if/else
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-ngif',
+  template: `
+    <div *ngIf="true; else falsy">
+      <p>True.</p>
+    </div>
+
+    <ng-template #falsy>
+      <p>False.</p>
+    </ng-template>
+  `
+})
+export class NgIfComponent { }
+```
+
+if/then/else
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-ngif',
+  template: `
+    <div *ngIf="true; then truthy else falsy"></div>
+
+    <ng-template #truthy>
+      <p>True.</p>
+    </ng-template>
+
+    <ng-template #falsy>
+      <p>False.</p>
+    </ng-template>
+  `
+})
+export class NgIfComponent { }
+```
+
+區域變數設定
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-ngif',
+  template: `
+    <div *ngIf="foo.bar; else nothing; let thing">
+      {{ thing }}
+    </div>
+
+    <ng-template #nothing>
+      Nothing.
+    </ng-template>
+  `
+})
+export class NgIfComponent {
+  public foo: object = {
+    bar: 'A',
+    baz: 'B'
+  };
+}
+```
+
+加入 Async 管道
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-ngif',
+  template: `
+    <div *ngIf="foo | async; else loading; let thing">
+      {{ thing.bar }}, {{ thing.baz }}
+    </div>
+
+    <ng-template #loading>
+      Loading...
+    </ng-template>
+  `
+})
+export class NgIfComponent {
+  public foo: object = {
+    bar: 'A',
+    baz: 'B'
+  };
+}
+```
+
+使用 Observable
+
+```ts
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/delay';
+
+@Component({
+  selector: 'app-ngif',
+  template: `
+    <div *ngIf="thing$ | async; else loading; let thing">
+      {{ thing.bar }}, {{ thing.baz }}
+    </div>
+
+    <ng-template #loading>
+      Loading...
+    </ng-template>
+  `
+})
+export class NgIfComponent {
+  public thing$ = Observable.of({ bar: 'A', baz: 'B' }).delay(1000);
+}
 ```
 
 #### ng-switch

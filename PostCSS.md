@@ -1,4 +1,4 @@
-# SCSS
+# PostCSS
 
 ### 目錄
 * [入門](#入門)
@@ -23,8 +23,6 @@
 ***
 
 ## 入門
-
-GUI 工具: https://prepros.io/
 
 SCSS 可以直接撰寫原本的 CSS。
 
