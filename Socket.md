@@ -1,4 +1,4 @@
-# Socket.IO
+# Socket
 
 ### 練習來源
 * https://github.com/socketio/socket.io

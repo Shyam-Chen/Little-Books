@@ -24,7 +24,7 @@
 * **--------------------**
 * [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
 * [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
-* [Socket.IO (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.IO.md)
+* [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
 
 (值) - 完整度
 
