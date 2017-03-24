@@ -9,35 +9,29 @@
 ***
 
 ### 目錄
-* [Buttons (按鈕)](#按鈕)
-* [Cards (卡片)](#卡片)
-* Drawer
+* [Button (按鈕)](#按鈕)
+* [Card (卡片)](#卡片)
+* Checkbox (複選框)
+* Dialog (對話框)
+* Drawer (側邊欄)
 * [Elevations (白框)](#白框)
 * [FAB (懸浮操作按鈕)](#懸浮操作按鈕)
-* Grid
-* Icon Buttons
+* Form Field (表單字節)
+* Grid List (格子列表)
+* Icon Toggle (圖標按鈕)
+* Layout Grid (版面網格)
 * [List (列表)](#列表)
-* Menu
-* [Radio (單選鈕)](#單選鈕)
-* Select
-* Snackbar
-* Switch
+* Menu (選單)
+* [Radio (單選框)](#單選框)
+* Select (選擇框)
+* Snackbar (小橫條)
+* Switch (切換鈕)
 * [Textfield (文字輸入框)](#文字輸入框)
-* [Themes (主題)](#主題)
-* Toolbar
+* [Theme (主題)](#主題)
+* Toolbar (工具列)
+* Typography (文字排版學)
 
 ***
-
-## 主題
-
-自訂主體的樣式。
-
-```css
-:root {
-  --mdc-theme-primary: #9C27B0;  /* Purple - 500 */
-  --mdc-theme-accent: #009688;  /* Teal - 500 */
-}
-```
 
 ## 按鈕
 
@@ -145,7 +139,7 @@
 </ul>
 ```
 
-## 單選鈕
+## 單選框
 
 ```html
 <div class="mdc-form-field">
@@ -195,4 +189,15 @@ window.mdc.autoInit();
 );
 
 window.mdc.autoInit();
+```
+
+## 主題
+
+自訂主體的樣式。
+
+```css
+:root {
+  --mdc-theme-primary: #9C27B0;  /* Purple - 500 */
+  --mdc-theme-accent: #009688;  /* Teal - 500 */
+}
 ```
