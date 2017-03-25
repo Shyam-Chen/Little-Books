@@ -955,6 +955,28 @@ bar();
 // 3 (兩秒後打印)
 ```
 
+```ts
+function foo(x) {
+  return bar(x).then(data => foo(data));
+}
+
+// vs
+
+function* foo(x) {
+  let data = yield bar(x);
+  let baz = yield foo(data);
+  return baz;
+}
+
+// vs
+
+async function foo(x) {
+  let data = await bar(x);
+  let baz = await foo(data);
+  return baz;
+}
+```
+
 ## 修飾器
 
 ### 修飾類別

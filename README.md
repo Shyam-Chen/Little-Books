@@ -6,7 +6,7 @@
 * [Angular (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md) :octocat:
 * [TypeScript (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md) :octocat:
 * **--------------------**
-* [PostHTML (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/PostHTML.md)
+* [PostHTML (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/PostHTML.md)
 * [PostCSS (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/PostCSS.md)
 * **--------------------**
 * [Lodash (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md)
