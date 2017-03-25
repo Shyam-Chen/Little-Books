@@ -67,3 +67,42 @@ bem({
   modPrefix: '-'
 });
 ```
+
+***
+
+`posthtml-include`
+
+```html
+<!-- foo.html -->
+<p>Foo</p>
+<include src="bar.html"></include>
+```
+
+```html
+<!-- bar.html -->
+<p>Bar</p>
+```
+
+***
+
+`posthtml-mixins`
+
+```html
+<!-- 宣告 -->
+<mixin name="ex">
+  <div class="thing">Thing</div>
+</mixin>
+
+<!-- 使用 -->
+<div>
+  <mixin name="ex"></mixin>
+</div>
+
+<div>
+  <mixin name="ex"></mixin>
+</div>
+```
+
+***
+
+`posthtml-extend`
