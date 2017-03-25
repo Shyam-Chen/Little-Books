@@ -55,6 +55,9 @@
 <button class="mdc-button mdc-button--accent mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
 
 <button class="mdc-button mdc-button--raised mdc-button--accent mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
+
+<!-- posthtml-bem -->
+<button block="mdc-button" mods="primary" class="mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
 ```
 
 ```css
