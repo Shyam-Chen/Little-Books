@@ -160,6 +160,13 @@ const bar: Array<string> = ['x', 'y', 'z'];
 const foo: object = { prop: 0 };
 ```
 
+```ts
+const foo: object = { a: 1, b: 1, c: 1 };
+const { c, ...bar } = foo;
+
+bar; // {a: number, b: number};
+```
+
 ### 象徵
 
 ```ts
@@ -660,6 +667,44 @@ interface Foo {
 }
 
 type K1 = keyof Foo;  // "bar" | "baz"
+```
+
+映射
+
+```ts
+interface Foo {
+  thing: string;
+}
+
+interface Bar {
+  thing: string;
+}
+
+type Foo<T> = {
+  [F in keyof T]?: T[F];
+};
+
+type Bar = Foo<Foo>;
+```
+
+型別轉換
+
+```ts
+type Readonly<T> = {
+  readonly [F in keyof T]: T[F];
+};
+```
+
+```ts
+Partial
+```
+
+```ts
+Record
+```
+
+```ts
+Pick
 ```
 
 ### 後設資料
