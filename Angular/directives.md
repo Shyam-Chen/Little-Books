@@ -68,12 +68,12 @@ import { Component } from '@angular/core';
 
     <!-- 或者 -->
 
-    <template [ngIf]="true">
+    <ng-template [ngIf]="true">
       <p>我看的到它</p>
-    </template>
-    <template [ngIf]="false">
+    </ng-template>
+    <ng-template [ngIf]="false">
       <p>我看不到它</p>
-    </template>
+    </ng-template>
   `
 })
 export class NgIfComponent { }
@@ -309,11 +309,11 @@ import { LocalizationService } from './localization.service';
     <button (click)="onClick()">增加數量</button>
     <p>數量: {{ value }}個</p>
     <div [ngPlural]="value">
-      <template ngPluralCase="=0">沒有任何東西</template>
-      <template ngPluralCase="=1">已經放入一個東西</template>
-      <template ngPluralCase="=2">已經放入兩個東西</template>
-      <template ngPluralCase="many">已經放入了很多東西</template>
-      <template ngPluralCase="excess">已經超出負荷量了</template>
+      <ng-template ngPluralCase="=0">沒有任何東西</ng-template>
+      <ng-template ngPluralCase="=1">已經放入一個東西</ng-template>
+      <ng-template ngPluralCase="=2">已經放入兩個東西</ng-template>
+      <ng-template ngPluralCase="many">已經放入了很多東西</ng-template>
+      <ng-template ngPluralCase="excess">已經超出負荷量了</ng-template>
     </div>
   `,
   providers: [
@@ -349,13 +349,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app',
   template: `
-    <template
+    <ng-template
       [ngTemplateOutlet]="atTemplate" [ngOutletContext]="{ items: ng }"
-    ></template>
+    ></ng-template>
 
-    <template #atTemplate let-items="items">
+    <ng-template #atTemplate let-items="items">
       <p>{{ items }} {{ version }}</p>
-    </template>
+    </ng-template>
   `
 })
 export class AppComponent {
@@ -445,6 +445,7 @@ export class HighlightDirective {
   }
 }
 ```
+
 ```html
 <form>
   <input type="radio" name="colors" (click)="color='#F44336'">紅色
@@ -455,6 +456,7 @@ export class HighlightDirective {
 ```
 
 #### 實體變數
+
 ```ts
 import { Directive, ElementRef, Renderer } from '@angular/core';
 
@@ -613,11 +615,11 @@ import { DelayDirective } from './delay.directive';
 @Component({
   selector: 'app',
   template: `
-    <template ngFor [ngForOf]="itemNumber" let-item>
+    <ng-template ngFor [ngForOf]="itemNumber" let-item>
       <span *delay="333 * item">
         {{ item }}
       </span>
-    </template>
+    </ng-template>
   `,
   directives: [DelayDirective]
 })

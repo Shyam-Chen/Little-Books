@@ -36,7 +36,29 @@
 
 ## 核心
 
+### Lists
+
+### Maps
+
 ### Sets
+
+```js
+import { Set } from 'immutable';
+
+Set();
+// Array []
+```
+
+```js
+import { Set } from 'immutable';
+
+Set(['foo', 'bar', 'baz']);
+// Array [
+//   "foo",
+//   "bar",
+//   "baz"
+// ]
+```
 
 ```js
 import { Set } from 'immutable';
