@@ -16,7 +16,7 @@
   * Deleters (刪值器)
   * Lists
   * Maps
-  * Sets
+  * [Sets](#sets)
 * [Iterable (可迭代)](#iterable)
 * [Seq (序列)](#seq)
 * [Collection (集合)](#collection)
@@ -35,6 +35,94 @@
 ***
 
 ## 核心
+
+### Sets
+
+```js
+import { Set } from 'immutable';
+
+Set.of({ foo: 'A', bar: 'B', baz: 'C' });
+// Array [
+//   Object {
+//   "baz": "C",
+//   "bar": "B",
+//   "foo": "A"
+//   }
+// ]
+```
+
+```js
+import { Set } from 'immutable';
+
+Set.fromKeys({ foo: 'A', bar: 'B', baz: 'C' });
+// Array [
+//   "foo",
+//   "bar",
+//   "baz"
+// ]
+```
+
+```js
+import { Set } from 'immutable';
+
+Set.of('foo', 'bar', 'baz');
+// Array [
+//   "foo",
+//   "bar",
+//   "baz"
+// ]
+```
+
+```js
+import { Set } from 'immutable';
+
+Set(['foo', 'bar', 'baz'].map((item, index) => ([`No.${index}`, item])));
+// Array [
+//   Array [
+//     "No.0",
+//     "foo"
+//   ],
+//     Array [
+//     "No.1",
+//     "bar"
+//   ],
+//   Array [
+//     "No.2",
+//     "baz"
+//   ]
+// ]
+```
+
+```js
+import { Set, List } from 'immutable';
+
+Set(List(['foo', 'bar', 'baz']));
+// Array [
+//   "foo",
+//   "bar",
+//   "baz"
+// ]
+```
+
+```js
+import { Set, Map } from 'immutable';
+
+Set(Map({ foo: 'A', bar: 'B', baz: 'C' }));
+// Array [
+//   Array [
+//     "foo",
+//     "A"
+//   ],
+//     Array [
+//     "bar",
+//     "B"
+//   ],
+//   Array [
+//     "baz",
+//     "C"
+//   ]
+// ]
+```
 
 ## Iterable
 
