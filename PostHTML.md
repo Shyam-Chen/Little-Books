@@ -63,8 +63,8 @@ import bem from 'posthtml-bem';
 
 bem({
   elemPrefix: '__',
-  modDlmtr: '--',
-  modPrefix: '-'
+  modPrefix: '--',
+  modDlmtr: '-'
 });
 ```
 
