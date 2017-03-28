@@ -13,8 +13,6 @@
 </div>
 ```
 
-`postcss-cssnext`
-
 ```css
 // block
 .card {
@@ -106,3 +104,15 @@ bem({
 ***
 
 `posthtml-extend`
+
+***
+
+`posthtml-expressions`
+
+***
+
+`posthtml-inline-assets`
+
+***
+
+`posthtml-retext`
