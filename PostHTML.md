@@ -1,8 +1,12 @@
 # PostHTML
 
 ### 目錄
+* BEM
+* Include
 
 ***
+
+## BEM
 
 `posthtml-bem`
 
@@ -66,7 +70,7 @@ bem({
 });
 ```
 
-***
+## Include
 
 `posthtml-include`
 

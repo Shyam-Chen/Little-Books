@@ -24,9 +24,27 @@
 
 `postcss-comment`
 
+`postcss-import`
+
 `postcss-cssnext`
 
 `rucksack-css`
+
+`postcss-url`
+
+`postcss-extend`
+
+`postcss-simple-vars`
+
+`postcss-conditionals`
+
+`postcss-for`
+
+`postcss-each`
+
+`postcss-define-function`
+
+`cssnano`
 
 ## 入門
 
