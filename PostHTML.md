@@ -1,14 +1,25 @@
 # PostHTML
 
 ### 目錄
-* BEM
-* Include
+* [BEM (Block Element Modifier)](#bem)
+* [Inline Assets](#inline-assets)
+* [Include](#include)
+* [Mixins](#mixins)
+* [Extend](#extend)
+* [Expressions](#expressions)
+* [Minifier](#minifier)
 
 ***
 
 ## BEM
 
 `posthtml-bem`
+
+```js
+import bem from 'posthtml-bem';
+
+bem({ elemPrefix: '__', modPrefix: '--', modDlmtr: '-' });
+```
 
 ```html
 <div block="card" mods="theme:light">
@@ -17,66 +28,45 @@
 </div>
 ```
 
-```css
-// block
-.card {
+```scss
+.card {  // block
   ...
-
-  // elem
-  &__title {
+  &__title {  // elem
     ...
-
-    // mods
-    &--size {
+    &--size {  // mods
       ...
-
-      &-big {
-        ...
-      }
-
-      &-small {
-        ...
-      }
+      &-big { ... }
+      &-small { ... }
     }
   }
-
-  // elem
-  &__content {
+  &__content { ... }  // elem
+  &--theme {  // mods
     ...
-  }
-
-  // mods
-  &--theme {
-    ...
-
-    &-dark {
-      ...
-    }
-
-    &-light {
-      ...
-    }
+    &-dark { ... }
+    &-light { ... }
   }
 }
 ```
 
-```js
-import bem from 'posthtml-bem';
-
-bem({
-  elemPrefix: '__',
-  modPrefix: '--',
-  modDlmtr: '-'
-});
-```
-
-## Inline assets
+## Inline Assets
 
 `posthtml-inline-assets`
+
+```js
+import inlineAssets from 'posthtml-inline-assets';
+
+inlineAssets({ from: ASSETS_ROOT });
+```
 
 ## Include
 
 `posthtml-include`
+
+```js
+import include from 'posthtml-include';
+
+include();
+```
 
 ```html
 <!-- foo.html -->
@@ -92,6 +82,12 @@ bem({
 ## Mixins
 
 `posthtml-mixins`
+
+```js
+import mixins from 'posthtml-mixins';
+
+mixins();
+```
 
 ```html
 <!-- 宣告 -->
@@ -109,8 +105,32 @@ bem({
 </div>
 ```
 
+## Extend
+
 `posthtml-extend`
+
+```js
+import extend from 'posthtml-extend';
+
+extend();
+```
+
+## Expressions
 
 `posthtml-expressions`
 
+```js
+import expressions from 'posthtml-expressions';
+
+expressions();
+```
+
+## Minifier
+
 `posthtml-minifier`
+
+```js
+import minifier from 'posthtml-minifier';
+
+minifier({ collapseWhitespace: true, removeAttributeQuotes: true, removeComments: true });
+```
