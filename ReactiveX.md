@@ -51,7 +51,7 @@
   * [of](#of)
   * [range](#range)
   * throw
-  * timer
+  * [timer](#timer)
 * [Error Handling (錯誤處理)](#錯誤處理)
   * [catch](#catch) :star:
   * retry
@@ -954,6 +954,32 @@ Observable:range(1, 5)
 ### throw
 
 ### timer
+
+Creates an Observable that starts emitting after an `initialDelay` and emits ever increasing numbers after each `period` of time thereafter.
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+
+Observable::timer(1000)
+  .subscribe(value => console.log(value));
+  // 0
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+
+Observable::timer(1000, 2000)
+  .subscribe(value => console.log(value));
+  // 一秒後打印
+  // 0
+  // 再來都是兩秒後打印
+  // 1
+  // 2
+```
 
 ## 錯誤處理
 
