@@ -24,17 +24,67 @@
 
 `postcss-comment`
 
+```scss
+.foo {
+  color: #F44336;  // red-500
+}
+```
+
 `postcss-import`
+
+```scss
+@import '../../root.css';
+
+.foo {
+  color: var(--primary);
+}
+```
 
 `postcss-cssnext`
 
+```styl
+:root {
+  --primary: #3F51B5;
+  --accent: #673AB7;
+}
+
+```
+
 `rucksack-css`
+
+```scss
+
+```
 
 `postcss-url`
 
+```scss
+.foo {
+  background: url('../../assets/images/vanilla.png');
+}
+```
+
 `postcss-extend`
 
+```scss
+.foo {
+  color: #F44336;
+
+  &:first-child {
+    background: #FFFFFF;
+  }
+}
+
+.bar {
+  @extend .foo;
+}
+```
+
 `postcss-simple-vars`
+
+```scss
+$column: 10rem;
+```
 
 `postcss-conditionals`
 

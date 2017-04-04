@@ -70,6 +70,10 @@ bem({
 });
 ```
 
+## Inline assets
+
+`posthtml-inline-assets`
+
 ## Include
 
 `posthtml-include`
@@ -85,7 +89,7 @@ bem({
 <p>Bar</p>
 ```
 
-***
+## Mixins
 
 `posthtml-mixins`
 
@@ -105,18 +109,8 @@ bem({
 </div>
 ```
 
-***
-
 `posthtml-extend`
-
-***
 
 `posthtml-expressions`
 
-***
-
-`posthtml-inline-assets`
-
-***
-
-`posthtml-retext`
+`posthtml-minifier`
