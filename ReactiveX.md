@@ -29,7 +29,7 @@
   * [forkJoin](#forkjoin)
   * [merge](#merge) :star:
   * mergeAll
-  * race
+  * [race](#race)
   * [startWith](#startwith) :star:
   * withLatestFrom :star:
   * zip
@@ -603,6 +603,26 @@ Observable::interval(2000)
 ### mergeAll
 
 ### race
+
+Returns an Observable that mirrors the first source Observable to emit an item from the combination of this Observable and supplied Observables.
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+
+import { race } from 'rxjs/operator/race';
+import { mapTo } from 'rxjs/operator/mapTo';
+
+Observable::timer(5000)
+  ::race(
+    Observable::timer(2000)::mapTo('foo'),
+    Observable::timer(1000)::mapTo('bar'),
+    Observable::timer(3000)::mapTo('baz')
+  )
+  .subscribe(value => console.log(value));
+  // bar
+```
 
 ### startWith
 
