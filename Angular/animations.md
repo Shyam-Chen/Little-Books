@@ -52,7 +52,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     trigger('visibilityChanged', [
       state('shown', style({ opacity: 1 })),
       state('hidden', style({ opacity: 0 })),
-      transition('* => *', animate('.5s'))  // 表示狀態 shown 到 hidden 或 hidden 到 shown 都是五百毫秒
+      transition('* => *', animate('.5s'))
     ])
   ]
 })
@@ -80,4 +80,55 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public isVisible: boolean = true;
 }
+```
+
+### 動畫狀態
+
+`state`
+
+```ts
+state('shown', style({ opacity: 1 })),  // 狀態設為 shown 和其樣式
+state('hidden', style({ opacity: 0 })),  // 狀態設為 hidden 和其樣式
+```
+
+### 動畫漸變
+
+`transition`
+
+`*` 所有狀態
+
+```ts
+transition('* => *', animate('.5s'))  // 表示狀態 shown 到 hidden 或 hidden 到 shown 都是五百毫秒
+```
+
+直接使用狀態名
+
+```ts
+transition(shown => hidden, animate('.5s'))
+transition(hidden => shown, animate('.5s'))
+transition(shown <=> hidden, animate('.5s'))
+transition(shown => hidden, hidden => shown, animate('.5s'))
+```
+
+`void ` 空的狀態
+
+```ts
+transition(void => *, animate('.5s'))  // 進入
+transition(* => void, animate('.5s'))  // 離開
+```
+
+改用別名
+
+```ts
+transition(:enter, animate('.5s'))
+transition(:leave, animate('.5s'))
+```
+
+### 動畫時間
+
+`animate`
+
+```ts
+animate('.5s')  // 500ms 的持續時間
+animate('.5s 100ms')  // 增加 100ms 的延遲
 ```

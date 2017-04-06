@@ -95,6 +95,13 @@
   * [自訂管道](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/pipes.md#自訂管道)
 * [動畫](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/animations.md)
   * [基本應用](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/animations.md#基本應用)
+  * 觸發動畫
+  * [動畫狀態](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/animations.md#動畫狀態)
+  * [動畫漸變](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/animations.md#動畫漸變)
+  * [動畫時間](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/animations.md#動畫時間)
+  * 動畫關鍵影格
+  * 平行動畫
+  * 動畫回呼
 * [國際化](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/internationalization.md)
 * [資料視覺化](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/data-visualization.md)
 * [狀態容器](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/state-container.md)
