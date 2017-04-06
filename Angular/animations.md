@@ -5,15 +5,15 @@
 底下是動畫主要基本使用構造。
 
 ```ts
-import { Component, animate, state, style, transition, trigger } from '@angular/core';
+import { Component } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'name',
   template: `
-    <p @openThing="stateExpression">Hello Angular 2</p>
+    <p @openThing="stateExpression">Hello Angular</p>
   `,
-  styles: [`
-  `],
+  styles: [``],
   animations: [
     trigger('openThing', [
       // ...
@@ -30,14 +30,13 @@ export class NameComponent {
 
 ```ts
 // fader.component.ts
-import { Component, Input, OnChanges, animate, state, style, transition, trigger } from '@angular/core';
+import { Component } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
-  selector : 'fader',
+  selector : 'app-fader',
   template: `
-    <p class="fader" [@visibilityChanged]="visibility">
-      Fade In-Out
-    </p>
+    <p class="fader" [@visibilityChanged]="visibility">淡入淡出</p>
   `,
   styles: [`
     .fader {
@@ -53,12 +52,12 @@ import { Component, Input, OnChanges, animate, state, style, transition, trigger
     trigger('visibilityChanged', [
       state('shown', style({ opacity: 1 })),
       state('hidden', style({ opacity: 0 })),
-      transition('* => *', animate('.5s'))
+      transition('* => *', animate('.5s'))  // 表示狀態 shown 到 hidden 或 hidden 到 shown 都是五百毫秒
     ])
   ]
 })
 export class FaderComponent implements OnChanges {
-  public visibility = 'shown';
+  public visibility: string = 'shown';
 
   @Input() public isVisible: boolean = true;
 
@@ -67,11 +66,12 @@ export class FaderComponent implements OnChanges {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   template: `
     <fader [isVisible]="isVisible"></fader>
     <button (click)="isVisible = !isVisible">Toggle</button>
