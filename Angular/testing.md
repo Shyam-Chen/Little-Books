@@ -132,7 +132,6 @@ export class LengthPipe implements PipeTransform {
 
 ```ts
 // length.spec.ts
-
 import { LengthPipe } from './length';
 
 describe('LengthPipe', () => {
@@ -143,7 +142,44 @@ describe('LengthPipe', () => {
   });
 
   it('應該可以使用字節管道', () => {
-    expect(pipe.transform('Angular')).toEqual(7);
+    expect(pipe.transform('foo')).toEqual(3);
+    expect(pipe.transform('bar')).toEqual(3);
+  });
+});
+```
+
+```ts
+// camelize.ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'camelize'
+})
+export class CamelizePipe implements PipeTransform {
+  transform(value: string): string {
+    return value.toLowerCase()
+      .split(/[-_\s]/g)
+      .filter((v: string) => !!v)
+      .map((word: string, key: any) => !key ? word : (word.slice(0, 1).toUpperCase() + word.slice(1)))
+      .join('');
+  }
+}
+```
+
+```ts
+// camelize.spec.ts
+import { CamelizePipe } from './camelize';
+
+describe('CamelizePipe', () => {
+  let pipe: CamelizePipe;
+
+  beforeEach(() => {
+    pipe = new CamelizePipe();
+  });
+
+  it('應該可以使用駝峰管道', () => {
+    expect(pipe.transform('foo-bar')).toEqual('fooBar');
+    expect(pipe.transform('foo_bar')).toEqual('fooBar');
   });
 });
 ```
