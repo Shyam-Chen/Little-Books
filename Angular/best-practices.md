@@ -177,7 +177,7 @@ Angular CLI 並不是 Universal 的，所以要親自打造一個。
 Express 是最熱門的 Node 應用框架，未來也有會變成 Node 的本身的核心模組。
 
 ```bash
-$ ng new --ng4 --style scss uwa
+$ ng new uwa
 $ cd uwa
 ```
 
@@ -190,7 +190,7 @@ $ npm i express -S
 $ npm i @types/express -D
 ```
 
-這裡需要個 Angular 和 Express 之間的引擎。
+這裡需要個 Angular 和 Express 之間的 View 引擎。
 
 ```ts
 

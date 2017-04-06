@@ -51,3 +51,16 @@ $ ng g component bar
 進一步了解 Angular CLI
 
 ...
+
+擴展 Angular CLI
+
+由於 Angular CLI 的 `webpack.config.js` 是閉鎖的，
+不過我們可以透過 `@ngtools/webpack` 來製作一個新的樣板，
+這時就不會受到 CLI 綁定的影響
+
+```js
+{
+  test: /\.ts$/,
+  loader: '@ngtools/webpack'
+}
+```

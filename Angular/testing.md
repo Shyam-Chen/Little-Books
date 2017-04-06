@@ -114,6 +114,40 @@ describe('HelloUnitComponent', () => {
 });
 ```
 
+#### 測試管道
+
+```ts
+// length.ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'length'
+})
+export class LengthPipe implements PipeTransform {
+  transform(value: string): number {
+    return value.length;
+  }
+}
+```
+
+```ts
+// length.spec.ts
+
+import { LengthPipe } from './length';
+
+describe('LengthPipe', () => {
+  let pipe: LengthPipe;
+
+  beforeEach(() => {
+    pipe = new LengthPipe();
+  });
+
+  it('應該可以使用字節管道', () => {
+    expect(pipe.transform('Angular')).toEqual(7);
+  });
+});
+```
+
 ### 端對端測試
 
 #### 配置 Protractor
