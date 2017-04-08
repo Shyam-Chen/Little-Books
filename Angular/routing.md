@@ -3,55 +3,6 @@
 ### 基本應用
 
 ```ts
-// src/app/main.ts
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
-
-import { AppComponent } from './app.component';
-import { APP_ROUTER_PROVIDERS } from './app.routes';
-
-bootstrap(AppComponent, [
-  APP_ROUTER_PROVIDERS,
-  { provide: APP_BASE_HREF, useValue: '' },
-  { provide: LocationStrategy, useClass: HashLocationStrategy }
-]);
-```
-```ts
-// src/app/app.component.ts
-import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-
-@Component({
-  selector: 'app',
-  template: `
-    <nav>
-      <a [routerLink]="['/home']">Home</a>
-      <a [routerLink]="['/about']">About</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
-  directives: [ROUTER_DIRECTIVES]
-})
-export class AppComponent { }
-```
-```ts
-// src/app/app.routes.ts
-import { provideRouter, RouterConfig } from '@angular/router';
-
-import { HomeComponent } from './home.component';
-import { AboutComponent } from './about.component';
-
-const routes: RouterConfig = [
-  { path: '', redirectTo: 'home', terminal: true },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent }
-];
-
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
-];
-```
-```ts
 // src/app/home.component.ts
 import { Component } from '@angular/core';
 
@@ -62,8 +13,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent { }
 ```
+
 ```ts
-//  src/app/about.component.ts
+// src/app/about.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -72,6 +24,90 @@ import { Component } from '@angular/core';
   `
 })
 export class AboutComponent { }
+```
+
+```ts
+// src/app/error.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  template: `
+    <p>Page not found</p>
+  `
+})
+export class ErrorComponent { }
+```
+
+```ts
+// src/app/app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { HomeComponent } from './home.component';
+import { AboutComponent } from './about.component';
+import { ErrorComponent } from './error.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: '**', component: ErrorComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+```ts
+// src/app/app.module.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
+import { AboutComponent } from './about.component';
+import { ErrorComponent } from './error.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AboutComponent,
+    ErrorComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    AppRoutingModule
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+```ts
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <h1>Angular GO</h1>
+    <nav>
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `
+})
+export class AppComponent { }
 ```
 
 ### 巢狀路由
