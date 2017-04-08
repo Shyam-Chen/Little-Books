@@ -26,31 +26,15 @@ $ ng serve --hmr
 
 前往 [http://localhost:4200/](http://localhost:4200/) 查看
 
-打開新的終端機
-
-建立 `foo` 和 `bar` 元件
+建置應用程式
 
 ```bash
-$ ng g component foo
-$ ng g component bar
-```
-
-使用剛剛所建立的元件
-
-```html
-// src/app/app.component.html
-<h1>
-  {{title}}
-</h1>
-
-<app-foo></app-foo>
-
-<app-bar></app-bar>
+$ ng build --target production --aot
 ```
 
 進一步了解 Angular CLI
 
-```bash
+```
 ng build <options...>
   Builds your app and places it into the output path (dist/ by default).
   aliases: b
