@@ -2,6 +2,8 @@
 
 ### 基本應用
 
+首頁的頁面
+
 ```ts
 // src/app/home.component.ts
 import { Component } from '@angular/core';
@@ -13,6 +15,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent { }
 ```
+
+關於的頁面
 
 ```ts
 // src/app/about.component.ts
@@ -26,6 +30,8 @@ import { Component } from '@angular/core';
 export class AboutComponent { }
 ```
 
+404 的頁面
+
 ```ts
 // src/app/error.component.ts
 import { Component } from '@angular/core';
@@ -37,6 +43,8 @@ import { Component } from '@angular/core';
 })
 export class ErrorComponent { }
 ```
+
+將製作好的頁面，放到 App 下的路由模組
 
 ```ts
 // src/app/app-routing.module.ts
@@ -60,6 +68,8 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 ```
+
+將製作好的頁面，宣告在 App 模組裡
 
 ```ts
 // src/app/app.module.ts
@@ -91,6 +101,8 @@ import { ErrorComponent } from './error.component';
 })
 export class AppModule { }
 ```
+
+再到 App 元件裡設定路由導覽
 
 ```ts
 // src/app/app.component.ts
