@@ -122,6 +122,52 @@ import { Component } from '@angular/core';
 export class AppComponent { }
 ```
 
+增加一個書籍模組
+
+```
+// src/app/book/book.module.ts
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
+
+import { BookComponent } from './book.component';
+import { BookService } from './book.service';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    HttpModule
+  ],
+  declarations: [BookComponent],
+  providers: [BookService]
+})
+export class BookModule {}
+```
+
+一個簡單伺服器
+
+```js
+// server.js
+import express from 'express';
+
+const app = express();
+
+app.get('/book', (req, res) => {
+  res.json([
+    { id: 1, name: 'You Don\'t Know JS: Up & Going', author: 'Kyle Simpson' },
+    { id: 2, name: 'You Don\'t Know JS: Scope & Closures', author: 'Kyle Simpson' },
+    { id: 3, name: 'You Don\'t Know JS: this & Object Prototypes', author: 'Kyle Simpson' },
+    { id: 4, name: 'You Don\'t Know JS: Types & Grammar', author: 'Kyle Simpson' },
+    { id: 5, name: 'You Don\'t Know JS: Async & Performance', author: 'Kyle Simpson' },
+    { id: 6, name: 'You Don\'t Know JS: ES6 & Beyond', author: 'Kyle Simpson' }
+  ]);
+});
+
+app.listen(8000, () => {
+  console.log('Server is running on http://localhost:8000');
+});
+```
+
 ### 巢狀路由
 ```ts
 [...]
