@@ -11,13 +11,14 @@
 ***
 
 ### 目錄
-* Authentication (驗證)
+* [Application (應用程式)](#應用程式)
+* [Authentication (驗證)](#驗證)
   * Email/Password
   * [Google](#google)
   * Facebook
   * Twitter
   * GitHub
-* Database (資料庫)
+* [Database (資料庫)](#資料庫)
   * 新增
   * 查詢
   * 刪除
@@ -26,16 +27,29 @@
   * 檔案上傳
 * Messaging (訊息)
   * FCM 通知
-* Functions (函式)
+* [Functions (功能)](#功能)
   * Email
   * SMS
   * GitHub/Slack
-  * Chatbot
-  * Prerender
   * PayPal
-* Hosting (託管)
+  * Chatbot
+* [Hosting (託管)](#託管)
 
 ***
+
+## 應用程式
+
+初始化
+
+```js
+firebase.initializeApp({
+  apiKey: '...',
+  authDomain: '...',
+  databaseURL: 'https://...',
+  storageBucket: '...',
+  messagingSenderId: '...'
+});
+```
 
 ## 驗證
 
@@ -143,8 +157,37 @@ const postData = (userId, name, email, comment) => {
 };
 ```
 
+## 存儲
+
+## 訊息
+
+## 功能
+
+```js
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+
+admin.initializeApp(functions.config().firebase);
+
+exports.addMessage = functions.https
+  .onRequest((req, res) => {
+    const original = req.query.text;
+
+    admin.database()
+      .ref('/messages')
+      .push({ original })
+      .then(snapshot => {
+        res.redirect(303, snapshot.ref);
+      });
+  });
+```
+
 ## 託管
 
 ```bash
 $ npm i firebase-tools -g
+```
+
+```bash
+$ firebase deploy
 ```
