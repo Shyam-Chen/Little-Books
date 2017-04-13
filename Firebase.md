@@ -18,7 +18,10 @@
   * Twitter
   * GitHub
 * Database (資料庫)
-  * 增刪改查
+  * 新增
+  * 查詢
+  * 刪除
+  * 更新
 * Storage (存儲)
   * 檔案上傳
 * Messaging (訊息)
@@ -118,6 +121,26 @@ signInButton.style.display = '';
     </div>
   </div>
 </div>
+```
+
+## 資料庫
+
+### 新增
+
+```js
+const postData = (userId, name, email, comment) => {
+  firebase.database()
+    .ref(`users/${userId}`)
+    .set({ name, email, comment });
+};
+```
+
+```js
+const postData = (userId, name, email, comment) => {
+  firebase.database()
+    .ref(`users/${userId}`)
+    .push({ name, email, comment });
+};
 ```
 
 ## 託管
