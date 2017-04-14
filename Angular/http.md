@@ -1,47 +1,88 @@
-## 通訊
+## HTTP
+
+```ts
+// src/app/app.module.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';  // 導入 HTTP 模組
+
+import { AppComponent } from './app.component';
+// ...
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    HttpModule,  // 放至 App 模組裡
+    // ...
+  ],
+  declarations: [
+    AppComponent
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
 ### Get
 
-#### 啟動 HTTP
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
-import { HTTP_PROVIDERS } from '@angular/http';  // 導入 HTTP 服務
+import { Http } from '@angular/http';
+
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-root',
   template: `
-    <!-- ... -->
-  `,
-  providers: [HTTP_PROVIDERS],  // 註冊到全應用程式裡
-  viewProviders: []
-})
-export class AppComponent { }
-```
-
-#### 基本應用
-
-(1)
-```ts
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { Http } from '@angular/http';
-
-@Component({
-  selector: 'get-data',
-  template: `
-    <pre>{{ messages }}</pre>
+    <pre>{{ data }}</pre>
   `
 })
-export class GetDataComponent {
-  constructor(private http: Http, private changeDetectorRef: ChangeDetectorRef) {
-    http
-      .get('./assets/data.json')
-      .subscribe((data) => {
-        this.messages = data._body;
-        changeDetectorRef.detectChanges();
+export class AppComponent {
+  private data;
+
+  constructor(private http: Http) {
+    http.get('http://localhost:8000/data')
+      .map(res => res.json())
+      .subscribe(data => {
+        this.data = JSON.stringify(data);
       });
   }
 }
+```
+
+建立一個簡單的伺服器
+
+```js
+// server.js
+const express = require('express');
+
+const app = express();
+
+app.set('port', (process.env.PORT || 8000));
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+app.get('/data', (req, res) => {
+  res.json({
+    title: 'Angular GO',
+    content: 'I have an @angular, I have a @reactivex. Uh! @ngrx!'
+  });
+});
+
+app.listen(app.get('port'), () => {
+  console.log(`Port: ${app.get('port')}.`);
+});
+```
+
+打開新的終端機
+
+```bash
+$ node server.js
 ```
 
 (2)
