@@ -19,35 +19,23 @@ Reducer 會根據 Action 的 Type 來做相對應的操作，
 $ npm i @ngrx/core @ngrx/store @ngrx/effects -S
 ```
 
+導入 StoreModule
+
 ```ts
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { MdButtonModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
-// import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
 
-import { counterReducer } from './counter.reducer';
+import { counter } from './counter';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpModule,
-
-    MdButtonModule,
-
-    StoreModule.provideStore({ counter: counterReducer })
+    StoreModule.provideStore({ counter })
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
@@ -63,10 +51,10 @@ import '@ngrx/core/add/operator/select';
 @Component({
   selector: 'app-root',
   template: `
-    <div class="content">
-      <button md-raised-button (click)="increment()">+</button>
-      <button md-raised-button (click)="decrement()">-</button>
-      <button md-raised-button (click)="reset()">Reset</button>
+    <div class="counter">
+      <button (click)="increment()">+</button>
+      <button (click)="decrement()">-</button>
+      <button (click)="reset()">Reset</button>
       <h3>{{ counter$ | async }}</h3>
     </div>
   `
@@ -93,14 +81,14 @@ export class AppComponent {
 ```
 
 ```ts
-// counter.reducer
+// counter.ts
 import { Action } from '@ngrx/store';
 
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const RESET = 'RESET';
 
-export const counterReducer = (state: number = 0, action: Action) => {
+export const counter = (state: number = 0, action: Action) => {
   switch (action.type) {
     case INCREMENT:
       return state + 1;
