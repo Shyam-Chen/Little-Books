@@ -19,26 +19,60 @@ Reducer 會根據 Action 的 Type 來做相對應的操作，
 $ npm i @ngrx/core @ngrx/store @ngrx/effects -S
 ```
 
-導入 StoreModule
+```ts
+// reducers/counter.ts
+import { Action } from '@ngrx/store';
+
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
+export const RESET = 'RESET';
+export const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
+export const DECREMENT_IF_EVEN = 'DECREMENT_IF_EVEN';
+
+export const increment = () => ({ type: INCREMENT });
+export const decrement = () => ({ type: DECREMENT });
+export const reset = () => ({ type: RESET });
+export const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
+export const decrementIfEven = () => ({ type: DECREMENT_IF_EVEN });
+
+export const counterReducer = (state = { value: 0 }, action: Action) => {
+  switch (action.type) {
+    case INCREMENT:
+      return Object.assign({}, state, { value: state.value + 1 });
+    case DECREMENT:
+      return Object.assign({}, state, { value: state.value - 1 });
+    case RESET:
+      return Object.assign({}, state, { value: 0 });
+    default:
+      return state;
+  }
+};
+```
 
 ```ts
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { StoreModule } from '@ngrx/store';
+// effects/counter.ts
+import { Injectable } from '@angular/core';
+import { Actions, Effect } from '@ngrx/effects';
 
-import { AppComponent } from './app.component';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
 
-import { counter } from './counter';
+import { INCREMENT_IF_ODD, DECREMENT_IF_EVEN, increment, decrement } from '../reducers/counter';
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    StoreModule.provideStore({ counter })
-  ],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+@Injectable()
+export class CounterEffects {
+  constructor(private actions$: Actions) { }
+
+  @Effect() iio$ = this.actions$
+    .ofType(INCREMENT_IF_ODD)
+    .filter(value => value % 2 === 1)
+    .map(increment);
+
+  @Effect() iie$ = this.actions$
+    .ofType(DECREMENT_IF_EVEN)
+    .filter(value => value % 2 === 0)
+    .map(decrement);
+}
 ```
 
 ```ts
@@ -52,10 +86,12 @@ import '@ngrx/core/add/operator/select';
   selector: 'app-root',
   template: `
     <div class="counter">
-      <button (click)="increment()">+</button>
-      <button (click)="decrement()">-</button>
-      <button (click)="reset()">Reset</button>
-      <h3>{{ counter$ | async }}</h3>
+      <button (click)="increment()">增加</button>
+      <button (click)="decrement()">減少</button>
+      <button (click)="reset()">重設</button>
+      <button (click)="incrementIfOdd()">增加 (如果是奇數)</button>
+      <button (click)="decrementIfEven()">減少 (如果是偶數)</button>
+      <h3>當前的計數值: {{ counter$ | async }}</h3>
     </div>
   `
 })
@@ -77,27 +113,35 @@ export class AppComponent {
   reset(): void {
     this.store.dispatch({ type: 'RESET' });
   }
+
+  incrementIfOdd(): void {
+    this.store.dispatch({ type: 'INCREMENT_IF_ODD' });
+  }
+
+  decrementIfEven(): void {
+    this.store.dispatch({ type: 'DECREMENT_IF_EVEN' });
+  }
 }
 ```
 
 ```ts
-// counter.ts
-import { Action } from '@ngrx/store';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
 
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
-export const RESET = 'RESET';
+import { AppComponent } from './app.component';
 
-export const counter = (state: number = 0, action: Action) => {
-  switch (action.type) {
-    case INCREMENT:
-      return state + 1;
-    case DECREMENT:
-      return state - 1;
-    case RESET:
-      return 0;
-    default:
-      return state;
-  }
-};
+import { counterReducer } from '../reducers/counter';
+import { CounterEffects } from '../effects/counter';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    StoreModule.provideStore({ counter: counterReducer }),
+    EffectsModule.run(CounterEffects)
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
