@@ -36,7 +36,9 @@ export const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
 export const decrementIfEven = () => ({ type: DECREMENT_IF_EVEN });
 
 export const counterReducer = (state = { value: 0 }, action: Action) => {
-  switch (action.type) {
+  const { type } = action;
+
+  switch (type) {
     case INCREMENT:
       return Object.assign({}, state, { value: state.value + 1 });
     case DECREMENT:
@@ -128,6 +130,7 @@ export class AppComponent {
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
 
@@ -138,7 +141,7 @@ import { CounterEffects } from '../effects/counter';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    StoreModule.provideStore({ counter: counterReducer }),
+    StoreModule.provideStore(counterReducer),
     EffectsModule.run(CounterEffects)
   ],
   bootstrap: [AppComponent]
