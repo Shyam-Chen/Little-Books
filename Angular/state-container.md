@@ -78,6 +78,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Actions, Effect } from '@ngrx/effects';
 
+import 'rxjs/add/operator/withLatestFrom';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 
@@ -87,12 +88,14 @@ import { INCREMENT_IF_ODD, DECREMENT_IF_EVEN, increment, decrement } from './act
 export class CounterEffects {
   @Effect() incrementIfOdd$ = this.actions$
     .ofType(INCREMENT_IF_ODD)
-    .filter(([action, state]) => state % 2 === 1)
+    .withLatestFrom(this.state$)
+    .filter(([action, state]) => state.counter % 2 === 1)
     .map(increment);
 
   @Effect() decrementIfEven$ = this.actions$
     .ofType(DECREMENT_IF_EVEN)
-    .filter(([action, state]) => state % 2 === 0)
+    .withLatestFrom(this.state$)
+    .filter(([action, state]) => state.counter % 2 === 0)
     .map(decrement);
 
   constructor(private actions$: Actions, private state$: Store<CounterState>) { }
@@ -118,7 +121,7 @@ import { increment, decrement, reset, incrementIfOdd, decrementIfEven } from './
       <button (click)="reset()">重設</button>
       <button (click)="incrementIfOdd()">增加 (如果是奇數)</button>
       <button (click)="decrementIfEven()">減少 (如果是偶數)</button>
-      <h3>當前的計數值: {{ counter$ | async }}</h3>
+      <h3>當前計數值: {{ counter$ | async }}</h3>
     </div>
   `
 })
@@ -129,11 +132,25 @@ export class AppComponent {
     this.counter$ = this.store.select<number>('counter');
   }
 
-  increment(): void { this.store.dispatch(increment()); }
-  decrement(): void { this.store.dispatch(decrement()); }
-  reset(): void { this.store.dispatch(reset()); }
-  incrementIfOdd(): void { this.store.dispatch(incrementIfOdd()); }
-  decrementIfEven(): void { this.store.dispatch(decrementIfEven()); }
+  increment(): void {
+    this.store.dispatch(increment());
+  }
+
+  decrement(): void {
+    this.store.dispatch(decrement());
+  }
+
+  reset(): void {
+    this.store.dispatch(reset());
+  }
+
+  incrementIfOdd(): void {
+    this.store.dispatch(incrementIfOdd());
+  }
+
+  decrementIfEven(): void {
+    this.store.dispatch(decrementIfEven());
+  }
 }
 ```
 
@@ -146,8 +163,8 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
 
-import { counterReducer } from '../reducers/counter';
-import { CounterEffects } from '../effects/counter';
+import { counterReducer } from './reducer';
+import { CounterEffects } from './effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -189,6 +206,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Actions, Effect } from '@ngrx/effects';
 
+import 'rxjs/add/operator/withLatestFrom';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 
@@ -198,12 +216,14 @@ import { INCREMENT_IF_ODD, DECREMENT_IF_EVEN, INCREMENT, DECREMENT } from './act
 export class CounterEffects {
   @Effect() incrementIfOdd$ = this.actions$
     .ofType(INCREMENT_IF_ODD)
-    .filter(([action, state]) => state % 2 === 1)
+    .withLatestFrom(this.state$)
+    .filter(([action, state]) => state.counter % 2 === 1)
     .map(res => ({ type: INCREMENT, payload: res }));
 
   @Effect() decrementIfEven$ = this.actions$
     .ofType(DECREMENT_IF_EVEN)
-    .filter(([action, state]) => state % 2 === 0)
+    .withLatestFrom(this.state$)
+    .filter(([action, state]) => state.counter % 2 === 0)
     .map(res => ({ type: DECREMENT, payload: res }));
 
   constructor(private actions$: Actions, private state$: Store<CounterState>) { }
