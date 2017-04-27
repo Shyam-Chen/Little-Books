@@ -31,7 +31,7 @@
   * mergeAll
   * [race](#race)
   * [startWith](#startwith) :star:
-  * withLatestFrom :star:
+  * [withLatestFrom](#withlatestfrom) :star:
   * zip
 * [Conditional (附條件)](#附條件)
   * [defaultIfEmpty](#defaultifempty)
@@ -665,6 +665,31 @@ Observable::of('World!', 'Goodbye', 'World!')
 ```
 
 ### withLatestFrom
+
+Combines the source Observable with other Observables to create an Observable whose values are calculated from the latest values of each, only when the source emits.
+
+將源 Observable 與其他 Observables 組合，以建立一個 Observable，其值根據每個的最新值計算，只有當源發出時。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { withLatestFrom } from 'rxjs/operator/withLatestFrom';
+import { map } from 'rxjs/operator/map';
+
+const first$ = Observable::interval(2000);
+const second$ = Observable::interval(1000);
+
+first$::withLatestFrom(second$)
+  ::map(([first, second]) => `first$: ${first}, second$: ${second}`)
+  .subscribe(value => console.log(value));
+  // 兩秒後打印
+  // first$: 0, second$: 0
+  // first$: 1, second$: 2
+  // first$: 2, second$: 4
+  // ...
+```
 
 ### zip
 
