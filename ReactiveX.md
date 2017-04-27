@@ -28,11 +28,11 @@
   * [concatAll](#concatall)
   * [forkJoin](#forkjoin)
   * [merge](#merge) :star:
-  * mergeAll
+  * [mergeAll](#mergeall)
   * [race](#race)
   * [startWith](#startwith) :star:
   * [withLatestFrom](#withlatestfrom) :star:
-  * zip
+  * [zip](#zip)
 * [Conditional (附條件)](#附條件)
   * [defaultIfEmpty](#defaultifempty)
   * [every](#every)
@@ -602,6 +602,34 @@ Observable::interval(2000)
 
 ### mergeAll
 
+Converts a higher-order Observable into a first-order Observable which concurrently delivers all values that are emitted on the inner Observables.
+
+將高階 Observable 轉換為一階 Observable，它同時傳遞在內部 Observables 上發出的所有值。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { take } from 'rxjs/operator/take';
+import { map } from 'rxjs/operator/map';
+import { delay } from 'rxjs/operator/delay';
+import { mergeAll } from 'rxjs/operator/mergeAll';
+
+const interval$ = Observable::interval(1000)::take(3);
+
+interval$
+	::map(() => interval$::delay(1000)::take(2))
+  ::mergeAll(2)
+  .subscribe(value => console.log(value));
+  // 0
+  // 1
+  // 0
+  // 1
+  // 0
+  // 1
+```
+
 ### race
 
 Returns an Observable that mirrors the first source Observable to emit an item from the combination of this Observable and supplied Observables.
@@ -692,6 +720,26 @@ first$::withLatestFrom(second$)
 ```
 
 ### zip
+
+Combines multiple Observables to create an Observable whose values are calculated from the values, in order, of each of its input Observables.
+
+組合多個 Observables 以建立一個 Observable，其值根據每個輸入 Observable 的順序計算。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { zip } from 'rxjs/observable/zip';
+import { of } from 'rxjs/observable/of';
+import { delay } from 'rxjs/operator/delay';
+
+Observable::zip(
+    Observable::of('Foo'),
+    Observable::of('Bar')::delay(1000),
+    Observable::of('Baz')::delay(2000)
+  )
+  .subscribe(value => console.log(value));
+  // [ 'Foo', 'Bar', 'Baz' ]
+```
 
 ## 附條件
 
