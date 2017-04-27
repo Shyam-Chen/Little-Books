@@ -2,6 +2,7 @@
 
 ### 練習來源
 * https://github.com/material-components/material-components-web
+* https://material-components-web.appspot.com/
 
 ### 實作執行
 * https://github.com/Shyam-Chen/Frontend-Starter-Kit
@@ -14,7 +15,7 @@
 * Checkbox (複選框)
 * Dialog (對話框)
 * Drawer (側邊欄)
-* [Elevations (白框)](#白框)
+* [Elevation (白框)](#白框)
 * [FAB (懸浮操作按鈕)](#懸浮操作按鈕)
 * Form Field (表單字節)
 * Grid List (格子列表)
@@ -26,7 +27,7 @@
 * Select (選擇框)
 * Snackbar (小橫條)
 * Switch (切換鈕)
-* [Textfield (文字輸入框)](#文字輸入框)
+* [Text Field (文字輸入框)](#文字輸入框)
 * [Theme (主題)](#主題)
 * Toolbar (工具列)
 * Typography (文字排版學)
