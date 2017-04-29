@@ -812,8 +812,13 @@ import { Observable } from 'rxjs/Observable';
 
 import { bindCallback } from 'rxjs/observable/bindCallback';
 
-Observable::bindCallback(...)
+const bindCallback$ = Observable::bindCallback(
+  (value, callback) => callback(`Hello ${value}`)
+);
+
+bindCallback$('World')
   .subscribe(value => console.log(value));
+  // Hello World
 ```
 
 ### bindNodeCallback
@@ -821,12 +826,17 @@ Observable::bindCallback(...)
 將 Node.js 風格的回呼 API 轉換成返回 Observable 函式。
 
 ```js
+import { readdir } from 'fs';
+
 import { Observable } from 'rxjs/Observable';
 
 import { bindNodeCallback } from 'rxjs/observable/bindNodeCallback';
 
-Observable::bindNodeCallback(...)
+const bindNodeCallback$ = Observable::bindNodeCallback(readdir);
+
+bindNodeCallback$(process.cwd())
   .subscribe(value => console.log(value));
+  // $ ls -a
 ```
 
 ### create
@@ -928,6 +938,18 @@ Observable::fromEvent(document, 'click')  // 點擊頁面
 ### fromEventPattern
 
 ### fromPromise
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromPromise } from 'rxjs/observable/fromPromise';
+
+const promise = new Promise(resolve => resolve('Hello World'));
+
+Observable::fromPromise(promise)
+  .subscribe(value => console.log(value));
+  // Hello World
+```
 
 ### interval
 
