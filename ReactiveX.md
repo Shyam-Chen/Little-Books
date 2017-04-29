@@ -189,6 +189,20 @@ subject.subscribe(
 
 ```js
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+const subject = new BehaviorSubject('foo');
+
+subject.subscribe(
+  value => console.log(value),
+  error => console.error(error),
+  () => console.log('done')
+);
+
+subject.next('bar');
+subject.complete();
+// foo
+// bar
+// done
 ```
 
 #### ReplaySubject
@@ -206,15 +220,52 @@ subject.next(1);
 subject.next(2);
 subject.next(3);
 
-subject.subscribe(value => console.log(value));
+subject.subscribe(
+  value => console.log(value),
+  error => console.error(error),
+  () => console.log('done')
+);
+
+subject.next(2);
+subject.next(1);
+subject.next(0);
+subject.complete();
 // 2
 // 3
+// 2
+// 1
+// 0
+// done
 ```
 
 ## Scheduler
 
 ```js
+// Error
+import { Observable } from 'rxjs/Observable';
 import { Scheduler } from 'rxjs/Scheduler';
+
+import { range } from 'rxjs/observable/range';
+
+import { _do } from 'rxjs/operator/do';
+import { observeOn } from 'rxjs/operator/observeOn';
+
+import { queue } from 'rxjs/scheduler/queue';
+
+const timeStart = Date.now();
+const range$ = Observable::range(1, 5)
+  ::_do(value => console.log(`processing value ${value}`))
+  ::observeOn(Scheduler::queue)
+
+console.log('before subscribe');
+
+range$.subscribe(
+  value => console.log(`next ${value}`),
+  error => console.error(error),
+  () => console.log(`Total time: ${Date.now() - timeStart}ms`)
+);
+
+console.log('after subscribe');
 ```
 
 ### animationFrame
