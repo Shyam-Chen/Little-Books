@@ -122,34 +122,67 @@ import { Observable } from 'rxjs/Observable';
 // 一個 Observer (觀察者)
 new Observable(observer => {
     // 回呼方法: next()、error() 和 complete()
-    setTimeout(() => observer.next('開始'), 0);
-    setTimeout(() => observer.next('第一個'), 1000);
-    setTimeout(() => observer.next('第二個'), 2000);
-    setTimeout(() => observer.next('第三個'), 3000);
-    setTimeout(() => observer.complete(), 4000);
+    setTimeout(() => observer.next('foo'), 0);
+    setTimeout(() => observer.next('bar'), 1000);
+    setTimeout(() => observer.next('baz'), 2000);
+    setTimeout(() => observer.complete(), 3000);
   })
   .subscribe(  // 訂閱一個或多個 Observable (可觀察的物件)
     value => console.log(value),
-    () => console.error('錯誤'),
-    () => console.log('完成')
+    error => console.error(error),
+    () => console.log('done')
   );
-  // 開始
-  // 第一個
-  // 第二個
-  // 第三個
-  // 完成
+  // foo
+  // bar
+  // baz
+  // done
 ```
 
 ### Subject
 
 ```js
 import { Subject } from 'rxjs/Subject';
+
+const subject = new Subject();
+
+subject.subscribe(
+  value => console.log(value),
+  error => console.error(error),
+  () => console.log('done')
+);
+
+subject.next('foo');
+subject.next('bar');
+subject.next('baz');
+subject.complete();
+// foo
+// bar
+// baz
+// done
 ```
 
 #### AsyncSubject
 
 ```js
+import { Observable } from 'rxjs/Observable';
 import { AsyncSubject } from 'rxjs/AsyncSubject';
+
+import { from } from 'rxjs/observable/from';
+
+import { delay } from 'rxjs/operator/delay';
+
+const from$ = Observable::from([1, 2, 3])::delay(1000);
+const subject = new AsyncSubject();
+
+from$.subscribe(subject);
+
+subject.subscribe(
+  value => console.log(value),
+  error => console.error(error),
+  () => console.log('done')
+);
+// 3
+// done
 ```
 
 #### BehaviorSubject
