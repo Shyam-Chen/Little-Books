@@ -241,21 +241,174 @@ subject.complete();
 ## Scheduler
 
 ```js
-// Error
+import { Scheduler } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
-import { Scheduler } from 'rxjs/Scheduler';
+
+import { observeOn } from 'rxjs/operator/observeOn';
+
+const observable$ = new Observable(observer => /* ... */);
+
+console.log('before subscribe');
+
+observable$::observeOn(Scheduler.<animationFrame|asap|async|queue>)
+  .subscribe(
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+
+console.log('after subscribe');
+```
+
+### animationFrame
+
+即 `requestAnimationFrame` 的進階版
+
+```js
+import { Scheduler } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+
+import { observeOn } from 'rxjs/operator/observeOn';
+
+const observable$ = new Observable(observer => {
+  observer.next(1);
+  observer.next(2);
+  observer.next(3);
+  observer.complete();
+});
+
+console.log('before subscribe');
+
+observable$::observeOn(Scheduler.animationFrame)
+  .subscribe(
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+
+console.log('after subscribe');
+// before subscribe
+// after subscribe
+// 1
+// 2
+// 3
+// done
+```
+
+### asap
+
+跟 `async` 相似，但會比 `async` 先出現
+
+```js
+import { Scheduler } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+
+import { observeOn } from 'rxjs/operator/observeOn';
+
+const observable$ = new Observable(observer => {
+  observer.next(1);
+  observer.next(2);
+  observer.next(3);
+  observer.complete();
+});
+
+console.log('before subscribe');
+
+observable$::observeOn(Scheduler.asap)
+  .subscribe(
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+
+console.log('after subscribe');
+// before subscribe
+// after subscribe
+// 1
+// 2
+// 3
+// done
+```
+
+### async
+
+```js
+import { Scheduler } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+
+import { observeOn } from 'rxjs/operator/observeOn';
+
+const observable$ = new Observable(observer => {
+  observer.next(1);
+  observer.next(2);
+  observer.next(3);
+  observer.complete();
+});
+
+console.log('before subscribe');
+
+observable$::observeOn(Scheduler.async)
+  .subscribe(
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+
+console.log('after subscribe');
+// before subscribe
+// after subscribe
+// 1
+// 2
+// 3
+// done
+```
+
+### queue
+
+```js
+import { Scheduler } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+
+import { observeOn } from 'rxjs/operator/observeOn';
+
+const observable$ = new Observable(observer => {
+  observer.next(1);
+  observer.next(2);
+  observer.next(3);
+  observer.complete();
+});
+
+console.log('before subscribe');
+
+observable$::observeOn(Scheduler.queue)
+  .subscribe(
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+
+console.log('after subscribe');
+// before subscribe
+// 1
+// 2
+// 3
+// done
+// after subscribe
+```
+
+```js
+import { Scheduler } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 import { range } from 'rxjs/observable/range';
 
-import { _do } from 'rxjs/operator/do';
 import { observeOn } from 'rxjs/operator/observeOn';
-
-import { queue } from 'rxjs/scheduler/queue';
+import { _do } from 'rxjs/operator/do';
 
 const timeStart = Date.now();
 const range$ = Observable::range(1, 5)
   ::_do(value => console.log(`processing value ${value}`))
-  ::observeOn(Scheduler::queue)
+  ::observeOn(Scheduler.queue)
 
 console.log('before subscribe');
 
@@ -266,30 +419,19 @@ range$.subscribe(
 );
 
 console.log('after subscribe');
-```
-
-### animationFrame
-
-```js
-import { animationFrame } from 'rxjs/scheduler/animationFrame';
-```
-
-### asap
-
-```js
-import { asap } from 'rxjs/scheduler/asap';
-```
-
-### async
-
-```js
-import { async } from 'rxjs/scheduler/async';
-```
-
-### queue
-
-```js
-import { queue } from 'rxjs/scheduler/queue';
+// before subscribe
+// processing value 1
+// next 1
+// processing value 2
+// next 2
+// processing value 3
+// next 3
+// processing value 4
+// next 4
+// processing value 5
+// next 5
+// Total time: 7ms
+// after subscribe
 ```
 
 ## 組合
