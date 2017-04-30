@@ -330,7 +330,47 @@ console.log('after subscribe');
 // done
 ```
 
+```js
+import { Scheduler } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+
+import { range } from 'rxjs/observable/range';
+
+import { observeOn } from 'rxjs/operator/observeOn';
+import { _do } from 'rxjs/operator/do';
+
+const timeStart = Date.now();
+const range$ = Observable::range(1, 5)
+  ::_do(value => console.log(`processing value ${value}`))
+  ::observeOn(Scheduler.asap)
+
+console.log('before subscribe');
+
+range$.subscribe(
+  value => console.log(`next ${value}`),
+  error => console.error(error),
+  () => console.log(`Total time: ${Date.now() - timeStart}ms`)
+);
+
+console.log(`after subscribe`);
+// before subscribe
+// processing value 1
+// processing value 2
+// processing value 3
+// processing value 4
+// processing value 5
+// after subscribe
+// next 1
+// next 2
+// next 3
+// next 4
+// next 5
+// Total time: 92ms
+```
+
 ### async
+
+比 `asap` 還晚出現
 
 ```js
 import { Scheduler } from 'rxjs';
@@ -361,6 +401,44 @@ console.log('after subscribe');
 // 2
 // 3
 // done
+```
+
+```js
+import { Scheduler } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+
+import { range } from 'rxjs/observable/range';
+
+import { observeOn } from 'rxjs/operator/observeOn';
+import { _do } from 'rxjs/operator/do';
+
+const timeStart = Date.now();
+const range$ = Observable::range(1, 5)
+  ::_do(value => console.log(`processing value ${value}`))
+  ::observeOn(Scheduler.async)
+
+console.log('before subscribe');
+
+range$.subscribe(
+  value => console.log(`next ${value}`),
+  error => console.error(error),
+  () => console.log(`Total time: ${Date.now() - timeStart}ms`)
+);
+
+console.log(`after subscribe`);
+// before subscribe
+// processing value 1
+// processing value 2
+// processing value 3
+// processing value 4
+// processing value 5
+// after subscribe
+// next 1
+// next 2
+// next 3
+// next 4
+// next 5
+// Total time: 88ms
 ```
 
 ### queue
