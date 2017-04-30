@@ -3,6 +3,7 @@
 ### 練習來源
 * https://github.com/ReactiveX/rxjs
 * https://github.com/btroncone/learn-rxjs
+* https://github.com/miguelmota/rxjs-examples
 
 ### 實作執行
 * https://github.com/Shyam-Chen/Frontend-Starter-Kit
@@ -45,7 +46,7 @@
   * [from](#from) :star:
   * [fromEvent](#fromevent)
   * fromEventPattern
-  * fromPromise
+  * [fromPromise](#frompromise)
   * [interval](#interval)
   * [never](#never)
   * [of](#of)
