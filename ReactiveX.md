@@ -65,7 +65,7 @@
   * [first](#first)
   * [ignoreElements](#ignoreelements)
   * [last](#last)
-  * sample
+  * [sample](#sample)
   * single
   * skip
   * skipUntil
@@ -1609,6 +1609,27 @@ source$::last(
 ```
 
 ### sample
+
+Emits the most recently emitted value from the source Observable whenever another Observable, the `notifier`, emits.
+
+當 `notifier` 發射另一個 Observabl e時，從源 Observable 發射最近發射的值。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { sample } from 'rxjs/operator/sample';
+
+Observable::interval(1000)
+  ::sample(Observable::interval(2000))
+  .subscribe(value => console.log(value));
+  // 0
+  // 2
+  // 4
+  // 6
+  // ...
+```
 
 ### single
 
