@@ -66,7 +66,7 @@
   * [ignoreElements](#ignoreelements)
   * [last](#last)
   * [sample](#sample)
-  * single
+  * [single](#single)
   * skip
   * skipUntil
   * skipWhile
@@ -1632,6 +1632,23 @@ Observable::interval(1000)
 ```
 
 ### single
+
+Returns an Observable that emits the single item emitted by the source Observable that matches a specified predicate, if that Observable emits one such item.
+
+返回一個 Observable，它發出源 Observable 發射的與指定謂詞匹配的單個項，如果該 Observable 發射一個這樣的項。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { single } from 'rxjs/operator/single';
+
+Observable::from([1, 2, 3, 4, 5])
+  ::single(value => value === 4)
+  .subscribe(value => console.log(value));
+  // 4
+```
 
 ### skip
 
