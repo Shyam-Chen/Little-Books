@@ -132,8 +132,6 @@ let { [key]: bar } = { foo: 'baz' };
 bar;  // "baz"
 ```
 
-### 函式參數分割代入
-
 ```ts
 const foo = () => [1, 2, 3];
 
@@ -142,8 +140,6 @@ let [a, , b] = foo();
 a;  // 1
 b;  // 3
 ```
-
-### CommonJS 模組分割代入
 
 ```js
 const { join } = require('path');
