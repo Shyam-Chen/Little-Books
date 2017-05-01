@@ -6,25 +6,22 @@
 * [Angular (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md) :octocat: :fire:
 * [TypeScript (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md) :octocat: :fire:
 * **--------------------**
-* [PostHTML (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/PostHTML.md)
-* [PostCSS (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/PostCSS.md)
+* [Lodash (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md) :bread:
+* [ReactiveX (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md) :octocat: :bread: :fire:
 * **--------------------**
-* [Lodash (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md)
-* [ReactiveX (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md) :octocat: :fire:
+* [Material (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md) :octocat: :cookie:
+* [Firebase (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md) :octocat: :cookie:
 * **--------------------**
-* [Material (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md) :octocat:
-* [Firebase (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md) :octocat:
+* [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md) :octocat: :candy:
+* [Mongoose (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md) :octocat: :candy:
 * **--------------------**
-* [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md) :octocat:
-* [Mongoose (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md) :octocat:
+* [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md) :cookie:
+* [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md) :cookie:
+* [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md) :cookie:
 * **--------------------**
-* [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md)
-* [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
-* [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
-* **--------------------**
-* [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
-* [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
-* [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
+* [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md) :candy:
+* [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md) :candy:
+* [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md) :candy:
 
 (值) - 完整度
 
