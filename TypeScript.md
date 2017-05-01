@@ -582,6 +582,23 @@ class Bar extends Foo {
 }
 ```
 
+```ts
+class A {
+  constructor() {
+    console.log(new.target.name);
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+  }
+}
+
+const a = new A();  // logs "A"
+const b = new B();  // logs "B"
+```
+
 ### 修飾字元
 
 `public` 表示可以在任何定放進行操作。
