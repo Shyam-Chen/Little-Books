@@ -90,6 +90,7 @@ foo;  // { bar: 456 }
 ## 分割代入
 
 ### 陣列分割代入
+
 ```ts
 let [foo, bar] = [123, 456];
 foo;  // 123
@@ -101,7 +102,18 @@ let [foo = 1] = [];
 foo;  // 1
 ```
 
+```ts
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a];
+
+a;  // 2
+b;  // 1
+```
+
 ### 物件分割代入
+
 ```ts
 const foo = {
   x: 'bar',
@@ -113,14 +125,16 @@ x;  // "bar"
 y;  // "baz"
 ```
 
-### 混合型分割代入
-```ts
-
-```
 
 ### 函式參數分割代入
-```ts
 
+```ts
+const foo = () => [1, 2, 3];
+
+let [a, , b] = foo();
+
+a;  // 1
+b;  // 3
 ```
 
 ## 型別
@@ -170,7 +184,15 @@ bar; // {a: number, b: number};
 ### 象徵
 
 ```ts
+const s1 = Symbol();
+const s2 = Symbol('foo');
+```
 
+```ts
+const s1 = Symbol('foo');
+const s2 = Symbol('foo');
+
+s1 === s2;  // false
 ```
 
 ### 元組
