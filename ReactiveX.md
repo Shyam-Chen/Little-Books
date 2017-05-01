@@ -63,7 +63,7 @@
   * distinctUntilChanged :star:
   * [filter](#filter) :star:
   * [first](#first)
-  * ignoreElements
+  * [ignoreElements](#ignoreelements)
   * [last](#last)
   * sample
   * single
@@ -1555,6 +1555,27 @@ source$::first(
 ```
 
 ### ignoreElements
+
+Ignores all items emitted by the source Observable and only passes calls of `complete` or `error`.
+
+忽略源 Observable 發射的所有項目，只傳遞 `complete` 或 `error` 的呼叫。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { ignoreElements } from 'rxjs/operator/ignoreElements';
+
+Observable::from([1, 2, 3])
+  ::ignoreElements()
+  .subscribe(
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+  // done
+```
 
 ### last
 
