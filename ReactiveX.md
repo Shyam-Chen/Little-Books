@@ -45,13 +45,13 @@
   * [empty](#empty)
   * [from](#from) :star:
   * [fromEvent](#fromevent)
-  * fromEventPattern
-  * [fromPromise](#frompromise)
+  * [fromEventPattern](#fromeventpattern)
+  * [fromPromise](#frompromise) :star:
   * [interval](#interval)
   * [never](#never)
-  * [of](#of)
+  * [of](#of) :star:
   * [range](#range)
-  * throw
+  * [throw](#throw)
   * [timer](#timer)
 * [Error Handling (錯誤處理)](#錯誤處理)
   * [catch](#catch) :star:
@@ -1242,7 +1242,29 @@ Observable::fromEvent(document, 'click')  // 點擊頁面
 
 ### fromEventPattern
 
+Creates an Observable from an API based on addHandler/removeHandler functions.
+
+基於 addHandler/removeHandler 函式從 API 建立一個 Observable。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromEvent } from 'rxjs/observable/fromEvent';
+
+const addClickHandler = handler => document.addEventListener('click', handler);
+const removeClickHandler = handler => document.removeEventListener('click', handler);
+
+Observable::fromEventPattern(
+    addClickHandler,
+    removeClickHandler
+  )
+  .subscribe(value => console.log(value.screenX, value.screenY));
+  // xxx, xxx
+```
+
 ### fromPromise
+
+將 Promise 轉化為 Observable。
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -1352,6 +1374,24 @@ Observable:range(1, 5)
 ```
 
 ### throw
+
+Creates an Observable that emits no items to the Observer and immediately emits an error notification.
+
+建立一個 Observable，它不向 Observer 發送任何項目，並立即發出錯誤通知。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { _throw } from 'rxjs/observable/throw';
+
+Observable::_throw('This is an error!')
+  .subscribe(
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+  // This is an error!
+```
 
 ### timer
 
