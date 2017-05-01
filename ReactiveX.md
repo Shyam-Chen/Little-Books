@@ -64,7 +64,7 @@
   * [filter](#filter) :star:
   * [first](#first)
   * ignoreElements
-  * last
+  * [last](#last)
   * sample
   * single
   * skip
@@ -1528,24 +1528,24 @@ import { from } from 'rxjs/observable/from';
 
 import { first } from 'rxjs/operator/first';
 
-const from$ = Observable::from([1, 2, 3, 4, 5]);
+const source$ = Observable::from([1, 2, 3, 4, 5]);
 
-from$::first()
+source$::first()
   .subscribe(value => console.log(value));
   // 1
 
-from$::first(value => value === 3)
+source$::first(value => value === 3)
   .subscribe(value => console.log(value));
   // 3
 
-from$::first(
-    num => num % 2 === 0,
+source$::first(
+    value => value % 2 === 0,
     (result, index) => `First even: ${result} is at index: ${index}`
   )
   .subscribe(value => console.log(value));
   // First even: 2 is at index: 1
 
-from$::first(
+source$::first(
     value => value > 5,
     value => `Value: ${value}`,
     'Default Value'
@@ -1557,6 +1557,35 @@ from$::first(
 ### ignoreElements
 
 ### last
+
+Returns an Observable that emits only the last item emitted by the source Observable.
+
+返回一個僅發出源 Observable 發射的最後一個項目的 Observable。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { last } from 'rxjs/operator/last';
+
+const source$ = Observable::from([1, 2, 3, 4, 5]);
+
+source$::last()
+  .subscribe(value => console.log(value));
+  // 5
+
+source$::last(value => value % 2 === 0)
+  .subscribe(value => console.log(value));
+  // 4
+
+source$::last(
+    value => value % 2 === 0,
+    (result, index) => `Last even: ${result} is at index: ${index}`
+  )
+  .subscribe(value => console.log(value));
+  // Last even: 4 is at index: 3
+```
 
 ### sample
 
