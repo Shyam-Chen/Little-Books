@@ -150,6 +150,64 @@ unAuth();
 
 ## 資料庫
 
+取得資料庫位址
+
+```js
+firebase.database()
+  .ref('foo/bar');
+
+// 等同於
+
+firebase.database()
+  .ref()
+  .child('foo/bar');
+
+// 等同於
+
+firebase.database()
+  .ref('https://<DATABASE_NAME>.firebaseio.com/foo/bar');
+```
+
+***
+
+重新連接到伺服器，並將離線資料庫狀態與伺服器狀態同步
+
+```js
+firebase.database().goOnline();
+```
+
+斷開與伺服器的連接 (所有資料庫操作都將離線完成)
+
+```js
+firebase.database().goOffline();
+```
+
+***
+
+```js
+{
+  "name": {
+    "first": "Shyam",
+    "last": "Chen"
+  }
+}
+
+const fooBarRef = firebase.database().ref('foo/bar');
+
+fooBarRef.once('value')
+  .then(snapshot => {
+    snapshot.key;  // "bar"
+    snapshot.child('name/first').key;  // "first"
+    snapshot.child('name/last').key;  // "last"
+  });
+```
+
+***
+
+```js
+
+```
+
 ### 新增
 
 ```js
