@@ -153,6 +153,18 @@ unAuth();
 ### 新增
 
 ```js
+firebase.database()
+  .ref('text')
+  .set({ text: '123' });
+```
+
+```js
+firebase.database()
+  .ref('text')
+  .push({ text: '123' });
+```
+
+```js
 const postData = (userId, name, email, comment) => {
   firebase.database()
     .ref(`users/${userId}`)
@@ -161,8 +173,6 @@ const postData = (userId, name, email, comment) => {
 
 postData(user.uid, user.displayName, user.email, comment.value);
 ```
-
-由於用 `set` 第二筆資料會覆蓋第一筆，如果不想覆蓋可以使用 `push`
 
 ```js
 const postData = (userId, name, email, comment) => {
