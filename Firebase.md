@@ -21,8 +21,8 @@
 * [Database (資料庫)](#資料庫)
   * [新增](#新增)
   * [讀取](#讀取)
-  * 刪除
-  * 更新
+  * [刪除](#刪除)
+  * [更新](#更新)
 * Storage (存儲)
   * 檔案上傳
 * Messaging (訊息)
@@ -162,6 +162,8 @@ const postData = (userId, name, email, comment) => {
 postData(user.uid, user.displayName, user.email, comment.value);
 ```
 
+由於用 `set` 第二筆資料會覆蓋第一筆，如果不想覆蓋可以使用 `push`
+
 ```js
 const postData = (userId, name, email, comment) => {
   firebase.database()
@@ -184,6 +186,22 @@ firebase.database()
   });
 ```
 
+### 刪除
+
+```js
+firebase.database()
+  .ref('text')
+  .remove();
+```
+
+### 更新
+
+```js
+firebase.database()
+  .ref()
+  .update({ text: 'ABC' })
+```
+
 ## 存儲
 
 ## 訊息
@@ -196,16 +214,17 @@ const admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
 
+/**
+ * @example
+ * https://us-central1-<PROJECT_ID>.cloudfunctions.net/addMessage?text=foo
+ */
 exports.addMessage = functions.https
-  .onRequest((req, res) => {
-    const original = req.query.text;
+  .onRequest(req => {
+    const text = req.query.text;
 
     admin.database()
       .ref('/messages')
-      .push({ original })
-      .then(snapshot => {
-        res.redirect(303, snapshot.ref);
-      });
+      .push({ text });
   });
 ```
 
