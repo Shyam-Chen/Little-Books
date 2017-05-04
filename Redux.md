@@ -162,7 +162,7 @@ export const decrementIfEvenEpic = (action$, store) =>
 ```
 
 ```js
-// store.js
+// root.js
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 
@@ -184,70 +184,32 @@ export const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
 ```js
 // counter.js
-import { store } from './store';
+import { template ad _ } from 'lodash';
+
+import { store } from '../../root';
 
 import { increment, decrement, reset, incrementIfOdd, decrementIfEven } from './actions';
 
-document.querySelector(`#ex`).innerHTML = `
-  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-    <thead>
-      <tr>
-        <th style="text-align: center">
-          Current Count: <span id="value" class="mdl-color-text--indigo-500">0</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="text-align: center">
-          <button id="increment" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">
-            <i class="material-icons">add</i> Increment
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td style="text-align: center">
-          <button id="decrement" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">
-            <i class="material-icons">remove</i> Decrement
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td style="text-align: center">
-          <button id="reset" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">
-            <i class="material-icons">clear</i> Reset
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td style="text-align: center">
-          <button id="incrementIfOdd" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">
-            <i class="material-icons">add</i> Increment if odd
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td style="text-align: center">
-          <button id="decrementIfEven" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">
-            <i class="material-icons">remove</i> Decrement if even
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-`;
+import template from './counter.html';
+import style from './counter.css';
 
-const render = () => {
-  const { counterReducer } = store.getState();
-  document.querySelector('#value').innerHTML = counterReducer.get('counter');
+const imports = { style };
+
+export const counter = name => {
+  document.querySelector(`#${name}[data-counter]`).innerHTML = _(template, { imports });
+
+  const render = () => {
+    const { counterReducer } = store.getState();
+    document.querySelector('#value').innerHTML = counterReducer.get('counter');
+  };
+
+  store.subscribe(render);
+  render();
+
+  document.querySelector('#increment').onclick = () => store.dispatch(increment());
+  document.querySelector('#decrement').onclick = () => store.dispatch(decrement());
+  document.querySelector('#reset').onclick = () => store.dispatch(reset());
+  document.querySelector('#incrementIfOdd').onclick = () => store.dispatch(incrementIfOdd());
+  document.querySelector('#decrementIfEven').onclick = () => store.dispatch(decrementIfEven());
 };
-
-store.subscribe(render);
-render();
-
-document.querySelector('#increment').onclick = () => store.dispatch(increment());
-document.querySelector('#decrement').onclick = () => store.dispatch(decrement());
-document.querySelector('#reset').onclick = () => store.dispatch(reset());
-document.querySelector('#incrementIfOdd').onclick = () => store.dispatch(incrementIfOdd());
-document.querySelector('#decrementIfEven').onclick = () => store.dispatch(decrementIfEven());
 ```
