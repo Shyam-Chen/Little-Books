@@ -19,7 +19,7 @@
 import express from 'express';
 import graphql from 'express-graphql';
 
-import { schema } from './schema';
+import { schema, rootValue } from './graphql';
 
 const app = express();
 
@@ -27,12 +27,8 @@ app.set('port', (process.env.PORT || 8000));
 
 app.use('/graphql', graphql({
   schema,
-  graphiql: true,
-  rootValue: {
-    helloWorld() {
-      return 'Hello World';
-    }
-  }
+  rootValue,
+  graphiql: true
 }));
 
 app.listen(app.get('port'), () => {
@@ -41,7 +37,7 @@ app.listen(app.get('port'), () => {
 ```
 
 ```js
-// schema.js
+// graphql.js
 import { buildSchema } from 'graphql';
 
 export const schema = buildSchema(`
@@ -49,8 +45,45 @@ export const schema = buildSchema(`
     helloWorld: String
   }
 `);
+
+export const rootValue = {
+  helloWorld() {
+    return 'Hello World';
+  }
+};
 ```
 
 ```js
-$ babel-node app.js
+$ nodemon app.js --exec babel-node
+```
+
+http://localhost:8000/graphql
+
+查詢 `helloWorld`
+
+```js
+{
+  helloWorld
+}
+```
+
+查詢結果
+
+```js
+{
+  "data": {
+    "helloWorld": "Hello World"
+  }
+}
+```
+
+用戶端取得資料
+
+```bash
+$ curl -X POST \
+    -H "Content-Type: application/json" \
+    -d '{ "query": "{ helloWorld }" }' \
+    http://localhost:8000/graphql
+
+# { "data": { "helloWorld": "Hello World" } }
 ```
