@@ -10,10 +10,10 @@
 
 ### 目錄
 * 核心
-  * 中介軟體
   * 路由
+  * 中介軟體
   * 請求回應
-  * 視圖
+  * 模板
 * 驗證
   * 本地
   * Facebook
@@ -38,20 +38,140 @@
 
 ## 核心
 
+```bash
+$ npm i express -S
+```
+
+```js
+import express from 'express';
+
+const app = express();
+
+app.set('port', (process.env.PORT || 8000));
+
+app.listen(app.get('port'), () => {
+  console.log(`Port: ${app.get('port')}.`);
+});
+```
+
+### 路由
+
+路由是一種通過 URL 和 HTTP 操作，映射到指定的請求處理的方式
+
+```js
+app.get('/', (req, res) => {
+  res.end('Home Page');
+});
+
+app.get('/about', (req, res) => {
+  res.end('About Page');
+});
+```
+
+http://localhost:8000/
+
+http://localhost:8000/about
+
+#### 路由參數
+
+```js
+app.get('/text/:id', function(req, res) {
+  res.json({
+    text: req.params.text
+  });
+});
+```
+
+http://localhost:8000/text/foo
+
+```js
+app.get('/random/:min/:max', (req, res) => {
+  const min = parseInt(req.params.min);
+  const max = parseInt(req.params.max);
+  res.json({
+    result: Math.round((Math.random() * (max - min)) + min)
+  });
+});
+```
+
+http://localhost:8000/random/1/100
+
+```js
+app.get('/api', (req, res) => {
+  res.send('GET request');
+});
+
+app.post('/api', (req, res) => {
+  res.send('POST request');
+});
+
+app.put('/api', (req, res) => {
+  res.send('PUT request');
+});
+
+app.delete('/api', (req, res) => {
+  res.send('DELETE request');
+});
+```
+
+```bash
+$ curl http://localhost:8000/api
+# GET request
+```
+
+```js
+app.all('/thing', (req, res, next) => {
+  console.log('Accessing the thing section ...');
+  next();
+});
+```
+
+```js
+// routes/thing.js
+import { Router } from 'express';
+
+const router = Router();
+
+router.get('/', (req, res) => {
+  res.send('Thing');
+});
+
+export const thingRoutes = router;
+```
+
+```js
+// app.js
+[...]
+
+import { thingRoutes } from './routes/thing';
+
+[...]
+
+app.use('/thing', thingRoutes);
+
+[...]
+```
+
+本版化
+
+```js
+
+```
+
 ### 中介軟體
 
 Express 的中介軟體模組
 * `body-parser` - 解析 HTTP 請求的 Body
 * `compression` - 壓縮 HTTP 回應
-* `connect-rid`
-* `cookie-parser`
-* `cookie-session`
-* `cors`
-* `csurf`
+* `connect-rid` - 產生讀一無二的請求 ID
+* `cookie-parser` -
+* `cookie-session` - 設立基於 cookie 的 sessions
+* `cors` - 啟用具有各種選項的跨源資源共享 (CORS)
+* `csurf` -
 * `errorhandler` - 開發用的錯誤處理/除錯
-* `method-override`
+* `method-override` - 使用表頭覆蓋 HTTP 方法
 * `morgan` - HTTP 請求記錄器
-* `multer`
+* `multer` - 處理多部分表單資料
 * `response-time` - 紀錄 HTTP 回應時間
 * `serve-favicon` - 提供一個圖標
 * `serve-index` - 為給定的路徑提供目錄列表
@@ -59,20 +179,6 @@ Express 的中介軟體模組
 * `session` - 設立基於伺服器的 sessions (僅限開發用)
 * `timeout` - 設定 HTTP 請求處理的超時時間
 * `vhost` - 建立虛擬網域
-
-### 路由
-
-路由是一種通過 URL 和 HTTP 操作，映射到指定的請求處理的方式。
-
-```js
-app.get('/', (req, res) => {
-  res.end("Welcome to my homepage!");
-});
-
-app.get('/about', (req, res) => {
-  res.end("Welcome to my homepage!");
-});
-```
 
 ## 驗證
 
