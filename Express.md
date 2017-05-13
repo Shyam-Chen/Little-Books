@@ -9,9 +9,9 @@
 ***
 
 ### 目錄
-* 核心
-  * 路由
-  * 中介軟體
+* [核心](#核心)
+  * [路由](#路由)
+  * [中介軟體](#中介軟體)
   * 請求回應
   * 模板
 * 驗證
@@ -38,11 +38,16 @@
 
 ## 核心
 
+安裝 Express
+
 ```bash
 $ npm i express -S
 ```
 
+建立 Express 伺服器
+
 ```js
+// app.js
 import express from 'express';
 
 const app = express();
@@ -52,6 +57,10 @@ app.set('port', (process.env.PORT || 8000));
 app.listen(app.get('port'), () => {
   console.log(`Port: ${app.get('port')}.`);
 });
+```
+
+```bash
+$ nodemon app.js --exec babel-node
 ```
 
 ### 路由
@@ -289,3 +298,21 @@ $ npm i paypal-adaptive -S
 ```
 
 ## 其他
+
+### 網路爬蟲
+
+```js
+import request from 'request';
+
+request('https://www.sitepoint.com/', (error, response, body) => {
+  console.log(body);
+});
+```
+
+```js
+import request from 'request';
+import { createWriteStream } from 'fs';
+
+request('https://www.sitepoint.com/')
+  .pipe(createWriteStream('index.html'));
+```
