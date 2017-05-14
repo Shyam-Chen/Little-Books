@@ -1010,16 +1010,16 @@ import { interval } from 'rxjs/observable/interval';
 import { withLatestFrom } from 'rxjs/operator/withLatestFrom';
 import { map } from 'rxjs/operator/map';
 
-const sourceFirst$ = Observable::interval(2000);
-const sourceSecond$ = Observable::interval(1000);
+const sourceOne$ = Observable::interval(2000);
+const sourceTwo$ = Observable::interval(1000);
 
-sourceFirst$::withLatestFrom(sourceSecond$)
-  ::map(([first, second]) => `sourceFirst$: ${first}, sourceSecond$: ${second}`)
+sourceOne$::withLatestFrom(sourceTwo$)
+  ::map(([valueOne, valueTwo]) => `sourceOne$: ${valueOne}, sourceTwo$: ${valueTwo}`)
   .subscribe(value => console.log(value));
   // 兩秒後打印
-  // sourceFirst$: 0, sourceSecond$: 0
-  // sourceFirst$: 1, sourceSecond$: 2
-  // sourceFirst$: 2, sourceSecond$: 4
+  // sourceOne$: 0, sourceTwo$: 0
+  // sourceOne$: 1, sourceTwo$: 2
+  // sourceOne$: 2, sourceTwo$: 4
   // ...
 ```
 
@@ -1964,12 +1964,12 @@ import { merge } from 'rxjs/observable/merge';
 import { mapTo } from 'rxjs/operator/mapTo';
 import { delay } from 'rxjs/operator/delay';
 
-const of$ = Observable::of(null);
+const source$ = Observable::of(null);
 
 Observable::merge(
-    of$::mapTo(1),
-    of$::mapTo(2)::delay(1000),
-    of$::mapTo(3)::delay(3000)
+    source$::mapTo(1),
+    source$::mapTo(2)::delay(1000),
+    source$::mapTo(3)::delay(3000)
   )
   .subscribe(value => console.log(value));
   // 1
