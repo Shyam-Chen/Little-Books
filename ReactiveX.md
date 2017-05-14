@@ -85,7 +85,7 @@
   * [bufferTime](#buffertime) :star:
   * bufferToggle
   * bufferWhen
-  * concatMap :star:
+  * [concatMap](#concatmap) :star:
   * concatMapTo
   * expand
   * groupBy
@@ -172,10 +172,10 @@ import { from } from 'rxjs/observable/from';
 
 import { delay } from 'rxjs/operator/delay';
 
-const from$ = Observable::from([1, 2, 3])::delay(1000);
+const source$ = Observable::from([1, 2, 3])::delay(1000);
 const subject = new AsyncSubject();
 
-from$.subscribe(subject);
+source$.subscribe(subject);
 
 subject.subscribe(
   value => console.log(value),
@@ -247,11 +247,11 @@ import { Observable } from 'rxjs/Observable';
 
 import { observeOn } from 'rxjs/operator/observeOn';
 
-const observable$ = new Observable(observer => /* ... */);
+const source$ = new Observable(observer => /* ... */);
 
 console.log('before subscribe');
 
-observable$::observeOn(Scheduler.<animationFrame|asap|async|queue>)
+source$::observeOn(Scheduler.<animationFrame|asap|async|queue>)
   .subscribe(
     value => console.log(value),
     error => console.error(error),
@@ -271,7 +271,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { observeOn } from 'rxjs/operator/observeOn';
 
-const observable$ = new Observable(observer => {
+const source$ = new Observable(observer => {
   observer.next(1);
   observer.next(2);
   observer.next(3);
@@ -280,7 +280,7 @@ const observable$ = new Observable(observer => {
 
 console.log('before subscribe');
 
-observable$::observeOn(Scheduler.animationFrame)
+source$::observeOn(Scheduler.animationFrame)
   .subscribe(
     value => console.log(value),
     error => console.error(error),
@@ -306,7 +306,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { observeOn } from 'rxjs/operator/observeOn';
 
-const observable$ = new Observable(observer => {
+const source$ = new Observable(observer => {
   observer.next(1);
   observer.next(2);
   observer.next(3);
@@ -315,7 +315,7 @@ const observable$ = new Observable(observer => {
 
 console.log('before subscribe');
 
-observable$::observeOn(Scheduler.asap)
+source$::observeOn(Scheduler.asap)
   .subscribe(
     value => console.log(value),
     error => console.error(error),
@@ -341,13 +341,13 @@ import { observeOn } from 'rxjs/operator/observeOn';
 import { _do } from 'rxjs/operator/do';
 
 const timeStart = Date.now();
-const range$ = Observable::range(1, 5)
+const source$ = Observable::range(1, 5)
   ::_do(value => console.log(`processing value ${value}`))
   ::observeOn(Scheduler.asap)
 
 console.log('before subscribe');
 
-range$.subscribe(
+source$.subscribe(
   value => console.log(`next ${value}`),
   error => console.error(error),
   () => console.log(`Total time: ${Date.now() - timeStart}ms`)
@@ -379,7 +379,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { observeOn } from 'rxjs/operator/observeOn';
 
-const observable$ = new Observable(observer => {
+const source$ = new Observable(observer => {
   observer.next(1);
   observer.next(2);
   observer.next(3);
@@ -388,7 +388,7 @@ const observable$ = new Observable(observer => {
 
 console.log('before subscribe');
 
-observable$::observeOn(Scheduler.async)
+source$::observeOn(Scheduler.async)
   .subscribe(
     value => console.log(value),
     error => console.error(error),
@@ -414,13 +414,13 @@ import { observeOn } from 'rxjs/operator/observeOn';
 import { _do } from 'rxjs/operator/do';
 
 const timeStart = Date.now();
-const range$ = Observable::range(1, 5)
+const source$ = Observable::range(1, 5)
   ::_do(value => console.log(`processing value ${value}`))
   ::observeOn(Scheduler.async)
 
 console.log('before subscribe');
 
-range$.subscribe(
+source$.subscribe(
   value => console.log(`next ${value}`),
   error => console.error(error),
   () => console.log(`Total time: ${Date.now() - timeStart}ms`)
@@ -450,7 +450,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { observeOn } from 'rxjs/operator/observeOn';
 
-const observable$ = new Observable(observer => {
+const source$ = new Observable(observer => {
   observer.next(1);
   observer.next(2);
   observer.next(3);
@@ -459,7 +459,7 @@ const observable$ = new Observable(observer => {
 
 console.log('before subscribe');
 
-observable$::observeOn(Scheduler.queue)
+source$::observeOn(Scheduler.queue)
   .subscribe(
     value => console.log(value),
     error => console.error(error),
@@ -485,13 +485,12 @@ import { observeOn } from 'rxjs/operator/observeOn';
 import { _do } from 'rxjs/operator/do';
 
 const timeStart = Date.now();
-const range$ = Observable::range(1, 5)
+const source$ = Observable::range(1, 5)
   ::_do(value => console.log(`processing value ${value}`))
   ::observeOn(Scheduler.queue)
 
 console.log('before subscribe');
-
-range$.subscribe(
+source$.subscribe(
   value => console.log(`next ${value}`),
   error => console.error(error),
   () => console.log(`Total time: ${Date.now() - timeStart}ms`)
@@ -528,9 +527,9 @@ import { of } from 'rxjs/observable/of';
 import { mapTo } from 'rxjs/operator/mapTo';
 import { combineAll } from 'rxjs/operator/combineAll';
 
-const timer$ = Observable::timer(2000);
+const source$ = Observable::timer(2000);
 
-timer$::mapTo(
+source$::mapTo(
     Observable::of('Hello', 'World')
   )
   ::combineAll()
@@ -538,7 +537,7 @@ timer$::mapTo(
   // ["Hello"]
   // ["World"]
 
-timer$::mapTo(
+source$::mapTo(
     Observable::of('Hello', 'Goodbye')
   )
   ::combineAll(value => `${value} Friend!`)
@@ -577,11 +576,11 @@ import { Observable } from 'rxjs/Observable';
 import { timer } from 'rxjs/observable/timer';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 
-const timerOne$ = Observable::timer(1000, 4000);
-const timerTwo$ = Observable::timer(2000, 4000);
-const timerThree$ = Observable::timer(3000, 4000);
+const sourceOne$ = Observable::timer(1000, 4000);
+const sourceTwo$ = Observable::timer(2000, 4000);
+const sourceThree$ = Observable::timer(3000, 4000);
 
-Observable::combineLatest(timerOne$, timerTwo$, timerThree$)
+Observable::combineLatest(sourceOne$, sourceTwo$, sourceThree$)
   .subscribe((values) => {
     const [valueOne, valueTwo, valueThree] = values;
     console.log(`${valueOne}, ${valueTwo}, ${valueThree}`);
@@ -604,12 +603,12 @@ import { Observable } from 'rxjs/Observable';
 import { timer } from 'rxjs/observable/timer';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 
-const timerOne$ = Observable::timer(1000, 4000);
-const timerTwo$ = Observable::timer(2000, 4000);
-const timerThree$ = Observable::timer(3000, 4000);
+const sourceOne$ = Observable::timer(1000, 4000);
+const sourceTwo$ = Observable::timer(2000, 4000);
+const sourceThree$ = Observable::timer(3000, 4000);
 
 Observable::combineLatest(
-    timerOne$, timerTwo$, timerThree$,
+    sourceOne$, sourceTwo$, sourceThree$,
     (valueOne, valueTwo, valueThree) => `${valueOne}, ${valueTwo}, ${valueThree}`
   )
   .subscribe(values => console.log(values));
@@ -631,12 +630,12 @@ import { interval } from 'rxjs/observable/interval';
 
 import { combineLatest } from 'rxjs/operator/combineLatest';
 
-const timerOne$ = Observable::timer(1000, 4000);
-const timerTwo$ = Observable::timer(2000, 4000);
-const timerThree$ = Observable::timer(3000, 4000);
+const sourceOne$ = Observable::timer(1000, 4000);
+const sourceTwo$ = Observable::timer(2000, 4000);
+const sourceThree$ = Observable::timer(3000, 4000);
 
 Observable::interval(1000)
-  ::combineLatest(timerOne$, timerTwo$, timerThree$)
+  ::combineLatest(sourceOne$, sourceTwo$, sourceThree$)
   .subscribe((values) => {
     const [valueOne, valueTwo, valueThree] = values;
     console.log(`${valueOne}, ${valueTwo}, ${valueThree}`);
@@ -921,10 +920,10 @@ import { map } from 'rxjs/operator/map';
 import { delay } from 'rxjs/operator/delay';
 import { mergeAll } from 'rxjs/operator/mergeAll';
 
-const interval$ = Observable::interval(1000)::take(3);
+const source$ = Observable::interval(1000)::take(3);
 
-interval$
-	::map(() => interval$::delay(1000)::take(2))
+source$
+	::map(() => source$::delay(1000)::take(2))
   ::mergeAll(2)
   .subscribe(value => console.log(value));
   // 0
@@ -1011,16 +1010,16 @@ import { interval } from 'rxjs/observable/interval';
 import { withLatestFrom } from 'rxjs/operator/withLatestFrom';
 import { map } from 'rxjs/operator/map';
 
-const first$ = Observable::interval(2000);
-const second$ = Observable::interval(1000);
+const sourceFirst$ = Observable::interval(2000);
+const sourceSecond$ = Observable::interval(1000);
 
-first$::withLatestFrom(second$)
-  ::map(([first, second]) => `first$: ${first}, second$: ${second}`)
+sourceFirst$::withLatestFrom(sourceSecond$)
+  ::map(([first, second]) => `sourceFirst$: ${first}, sourceSecond$: ${second}`)
   .subscribe(value => console.log(value));
   // 兩秒後打印
-  // first$: 0, second$: 0
-  // first$: 1, second$: 2
-  // first$: 2, second$: 4
+  // sourceFirst$: 0, sourceSecond$: 0
+  // sourceFirst$: 1, sourceSecond$: 2
+  // sourceFirst$: 2, sourceSecond$: 4
   // ...
 ```
 
@@ -1117,11 +1116,11 @@ import { Observable } from 'rxjs/Observable';
 
 import { bindCallback } from 'rxjs/observable/bindCallback';
 
-const bindCallback$ = Observable::bindCallback(
+const source$ = Observable::bindCallback(
   (value, callback) => callback(`Hello ${value}`)
 );
 
-bindCallback$('World')
+source$('World')
   .subscribe(value => console.log(value));
   // Hello World
 ```
@@ -1137,9 +1136,9 @@ import { Observable } from 'rxjs/Observable';
 
 import { bindNodeCallback } from 'rxjs/observable/bindNodeCallback';
 
-const bindNodeCallback$ = Observable::bindNodeCallback(readdir);
+const source$ = Observable::bindNodeCallback(readdir);
 
-bindNodeCallback$(process.cwd())
+source$(process.cwd())
   .subscribe(value => console.log(value));
   // $ ls -a
 ```
@@ -1698,21 +1697,21 @@ import { _do } from 'rxjs/operator/do';
 import { mapTo } from 'rxjs/operator/mapTo';
 import { share } from 'rxjs/operator/share';
 
-const timer$ = Observable::timer(1000)
+const source$ = Observable::timer(1000)
   ::_do(() => console.log('***SIDE EFFECT***'))
   ::mapTo('***RESULT***');
 
-timer$.subscribe(value => console.log(value));
-timer$.subscribe(value => console.log(value));
+source$.subscribe(value => console.log(value));
+source$.subscribe(value => console.log(value));
 // ***SIDE EFFECT***
 // ***RESULT***
 // ***SIDE EFFECT***
 // ***RESULT***
 
-const share$ = timer$::share();
+const sourceShared$ = timer$::share();
 
-share$.subscribe(value => console.log(value));
-share$.subscribe(value => console.log(value));
+sourceShared$.subscribe(value => console.log(value));
+sourceShared$.subscribe(value => console.log(value));
 // **SIDE EFFECT***
 // ***RESULT***
 // ***RESULT***
@@ -1750,16 +1749,16 @@ import { interval } from 'rxjs/observable/interval';
 
 import { bufferCount } from 'rxjs/operator/bufferCount';
 
-const interval$ = Observable::interval(1000);
+const source$ = Observable::interval(1000);
 
-interval$::bufferCount(3)
+source$::bufferCount(3)
   .subscribe(value => console.log(value));
   // [0, 1, 2]
   // 下個間隔
   // [3, 4, 5]
   // ...
 
-interval$::bufferCount(3, 1)
+source$::bufferCount(3, 1)
   .subscribe(value => console.log(value));
   // [0, 1, 2]
   // [1, 2, 3]
@@ -1782,9 +1781,9 @@ import { interval } from 'rxjs/observable/interval';
 
 import { bufferTime } from 'rxjs/operator/bufferTime';
 
-const interval$ = Observable::interval(1000);
+const source$ = Observable::interval(1000);
 
-interval$::bufferTime(2000)
+source$::bufferTime(2000)
   .subscribe(value => console.log(value));
   // [0]
   // 下個間隔
@@ -1793,7 +1792,7 @@ interval$::bufferTime(2000)
   // [3, 4]
   // ...
 
-interval$::bufferTime(2000, 1000)
+source$::bufferTime(2000, 1000)
   .subscribe(value => console.log(value));
   // [0]
   // [0, 1, 2]
@@ -1811,6 +1810,20 @@ interval$::bufferTime(2000, 1000)
 ### bufferWhen
 
 ### concatMap
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { concatMap } from 'rxjs/operator/concatMap';
+
+Observable::of('Hello', 'Goodbye')
+  ::concatMap(value => Observable::of(`${value} World!`))
+  .subscribe(value => console.log(value));
+  // Hello World!
+  // Goodbye World!
+```
 
 ### concatMapTo
 
