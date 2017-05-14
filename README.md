@@ -15,7 +15,7 @@
 * [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md) :octocat: :candy:
 * [Mongoose (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md) :octocat: :candy:
 * **--------------------**
-* [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md) :cookie: :fire:
+* [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md) :cookie:
 * [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md) :cookie:
 * [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md) :cookie:
 * **--------------------**

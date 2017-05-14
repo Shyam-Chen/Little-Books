@@ -77,3 +77,19 @@ userSchema.statics.bar = () => ...;
 
 export const User = mongoose.model('user', userSchema);
 ```
+
+```js
+import mongoose, { Schema } from 'mongoose';
+
+const listSchema = Schema({
+  text: String,
+  created: Date
+});
+
+const List = mongoose.model('List', listSchema);
+
+List.find({}, (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+```
