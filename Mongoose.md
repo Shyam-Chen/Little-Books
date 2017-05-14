@@ -16,6 +16,18 @@
 
 ## 核心
 
+```bash
+$ npm i mongoose -S
+```
+
+```js
+import mongoose from 'mongoose';
+
+mongoose.connect('mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo');
+mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+mongoose.connection.once('open', () => console.log('Connection Succeeded.'));
+```
+
 ### 定義綱要
 
 綱要型別 (SchemaTypes):
@@ -77,6 +89,8 @@ userSchema.statics.bar = () => ...;
 
 export const User = mongoose.model('user', userSchema);
 ```
+
+查詢資料
 
 ```js
 import mongoose, { Schema } from 'mongoose';
