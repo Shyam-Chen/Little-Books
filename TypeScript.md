@@ -16,7 +16,6 @@
 * [後設資料](#後設資料)
 * [泛型](#泛型)
 * [型別斷言](#型別斷言)
-* [象徵](#象徵)
 * [冪運算子](#冪運算子)
 * [混入](#混入)
 * [合併宣告](#合併宣告)
@@ -148,17 +147,20 @@ const { join } = require('path');
 ## 型別
 
 ### 布林值
+
 ```ts
 let foo: boolean = true;
 let bar: boolean = false;
 ```
 
 ### 數值
+
 ```ts
 let foo: number = 18;  // 十進制
 ```
 
 ### 字串
+
 ```ts
 let myName: string = 'Hale';
 
@@ -167,11 +169,13 @@ let sentence: string = `My name is ${myName}.`;  // My name is Hale.
 ```
 
 ### 陣列
+
 ```ts
 const foo: number[] = [1, 2, 3];
 const bar: string[] = ['a', 'b', 'c'];
 
 // 或者
+
 const foo: Array<number> = [3, 2, 1];
 const bar: Array<string> = ['x', 'y', 'z'];
 ```
@@ -186,7 +190,7 @@ const foo: object = { prop: 0 };
 const foo: object = { a: 1, b: 1, c: 1 };
 const { c, ...bar } = foo;
 
-bar; // {a: number, b: number};
+bar;  // {a: number, b: number};
 ```
 
 ### 象徵
@@ -201,6 +205,24 @@ const s1 = Symbol('foo');
 const s2 = Symbol('foo');
 
 s1 === s2;  // false
+```
+
+```ts
+const KEY = Symbol();
+const foo = {};
+
+foo[KEY] = 123;
+
+foo[KEY];  // 123
+
+// 或者
+
+const KEY = Symbol();
+const foo = {
+  [KEY]: 123
+};
+
+foo[KEY];  // 123
 ```
 
 ### 元組
@@ -854,12 +876,6 @@ let foo: Foo = {
 };
 
 foo;  // { bar: 123, baz: 'abc' }
-```
-
-### 象徵
-```ts
-let s1 = Symbol();
-let s2 = Symbol('TS');
 ```
 
 ## 冪運算子
