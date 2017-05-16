@@ -17,7 +17,7 @@
   * findIndex :fire:
   * head :fire:
   * initial :fire:
-  * join :muscle:
+  * [join](#join) :muscle:
   * last :fire:
   * tail :fire:
 * Collection (集合)
@@ -101,6 +101,20 @@ Array(3).fill(2);   // [2, 2, 2]
 ```
 
 [Array.prototype.fill()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill?v=example)
+
+### join
+
+```js
+import { join } from 'lodash';
+
+join(['a', 'b', 'c'], ', ');  // 'a, b, c'
+```
+
+```js
+['a', 'b', 'c'].join(', ');  // 'a, b, c'
+```
+
+[Array.prototype.join()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join?v=example)
 
 ## 集合
 
