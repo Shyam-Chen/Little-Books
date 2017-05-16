@@ -577,10 +577,20 @@ ng('Angular', 'Material');  // Angular and Material
 
 ```ts
 class Foo {
-  bar: string;
-  constructor() { /* ... */ }
-  baz() { /* ... */ }
+  bar: number;
+
+  constructor(x: number, y: number) {
+    this.bar = x + y;
+  }
+
+  baz(): number {
+    return this.bar;
+  }
 }
+
+const foo = new Foo(13, 14);
+
+foo.baz();  // 27
 ```
 
 ### 靜態資料屬性
