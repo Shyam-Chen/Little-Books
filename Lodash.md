@@ -13,25 +13,26 @@
 * Array (陣列)
   * [compact](#compact) :star:
   * concat :star:
-  * fill :sparkles:
-  * findIndex :sparkles:
-  * head :sparkles:
-  * initial :sparkles:
-  * last :sparkles:
-  * tail :sparkles:
+  * [fill](#fill) :fire:
+  * findIndex :fire:
+  * head :fire:
+  * initial :fire:
+  * join :muscle:
+  * last :fire:
+  * tail :fire:
 * Collection (集合)
-  * filter :sparkles:
-  * find :sparkles:
-  * map :sparkles:
-  * reduce :sparkles:
+  * filter :fire:
+  * find :fire:
+  * map :fire:
+  * reduce :fire:
 * Date (日期)
 * Function (函式)
   * before :star:
   * bind :star:
-  * curry :sparkles:
-  * partial :sparkles:
-  * rest :sparkles:
-  * spread :sparkles:
+  * curry :fire:
+  * partial :fire:
+  * rest :fire:
+  * spread :fire:
 * Lang (語言)
 * Math (數學)
 * Number (數字)
@@ -41,9 +42,8 @@
 * Util (公用)
 
 :star: - 核心<br>
-:sparkles: - JS.Next
-
-[:vertical_traffic_light:] - 排除 JS.Next 以下
+:muscle: - JS<br>
+:fire: - JS.Next
 
 ***
 
@@ -84,10 +84,27 @@ import { compact } from 'lodash';
 difference([2, 1], [2, 3]);
 ```
 
+### fill
+
+```js
+import { fill } from 'lodash';
+
+fill([1, 2, 3], 1);  // [1, 1, 1]
+
+fill(Array(3), 2);  // [2, 2, 2]
+```
+
+```js
+[1, 2, 3].fill(1);  // [1, 1, 1]
+
+Array(3).fill(2);   // [2, 2, 2]
+```
+
+[Array.prototype.fill()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill?v=example)
+
 ## 集合
 
 ### every
-
 
 ### find
 
