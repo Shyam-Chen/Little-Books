@@ -14,8 +14,9 @@
 
 ```js
 // src/app.js
+import { join } from 'path';
 import express from 'express';
-import io from 'socket.io';
+import socket from 'socket.io';
 
 const app = express();
 
@@ -24,19 +25,18 @@ app.set('port', (process.env.PORT || 8000));
 app.use(express.static(join(__dirname, '../public')));
 
 const server = app.listen(app.get('port'), () => {
-  console.log('Bootstrap Succeeded.');
+  console.log('App: Bootstrap Succeeded.');
   console.log(`Port: ${app.get('port')}.`);
 });
 
-const socket = io.listen(server);
+const io = socket.listen(server);
 
-socket.on('connection', client => {
-  console.log('Establish a connection');
+io.on('connection', socket => {
+  console.log('WS: Establish a connection.');
+  socket.on('disconnect', () => console.log('WS: Disconnected'));
 
-  client.on('B', message => {
-    console.log(message);
-    socket.emit('A', 'A: Hi, B!');
-  });
+  socket.emit('A', { foo: 'bar' });
+  socket.on('B', data => console.log(data));
 });
 ```
 
@@ -46,17 +46,19 @@ socket.on('connection', client => {
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Socket</title>
   </head>
   <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
     <script>
-      const socket = io.connect('http://localhost:8000');
+      const socket = io();
 
-      socket.on('connect', () => console.log('Accept a connection'));
-      socket.on('A', message => console.log(message));
+      socket.on('connect', () => console.log('WS: Accept a connection.'));
 
-      socket.emit('B', 'B: What\'s up?');
+      socket.on('A', data => {
+        console.log(data);
+        socket.emit('B', { foo: 'baz' });
+      });
     </script>
   </body>
 </html>
