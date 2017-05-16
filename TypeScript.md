@@ -597,12 +597,12 @@ foo.baz();  // 27
 
 ```ts
 class Point {
-  constructor(x, y) {
+  constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
   }
 
-  static zero() {
+  static zero(): object {
     return new Point(0, 0);
   }
 }
@@ -648,11 +648,11 @@ const b = new B();  // logs "B"
 
 ```ts
 class Foo {
-  get bar() {
+  get bar(): string {
     return 'Getter: baz';
   }
 
-  set bar(value) {
+  set bar(value): void {
     console.log(`Setter: ${value}`);
   }
 }
