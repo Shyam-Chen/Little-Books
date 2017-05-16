@@ -90,3 +90,30 @@ $ curl -X POST \
 
 # { "data": { "helloWorld": "Hello World" } }
 ```
+
+```js
+import { join } from 'path';
+
+app.use(express.static(join(__dirname, '../public')));
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GraphQL</title>
+  </head>
+  <body>
+    <script>
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = 'json';
+      xhr.open('POST', '/graphql');
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.onload = () => console.log('GraphQL:', xhr.response);
+      xhr.send(JSON.stringify({ query: '{ helloWorld }' }));
+    </script>
+  </body>
+</html>
+```
