@@ -11,8 +11,11 @@
 
 ### 目錄
 * Array (陣列)
+  * [chunk](#chunk)
   * [compact](#compact) :star:
-  * concat :star:
+  * concat :star: :muscle:
+  * [difference](#difference)
+  * differenceBy
   * [fill](#fill) :fire:
   * findIndex :fire:
   * head :fire:
@@ -75,6 +78,8 @@ import { compact } from 'lodash';
 compact([0, true, 1, false, 2, 'foo', 3, '', 4, 'bar']);
 // [true, 1, 2, "foo", 3, 4, "bar"]
 ```
+
+### concat
 
 ### difference
 
