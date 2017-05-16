@@ -1,5 +1,15 @@
 ## 測試
 
+在 Angular 測試可以分為三大塊，分別是靜態分析、單元測試和端對端測試
+
+靜態分析工具為 Codelyzer
+
+單元和端對端測試的框架為 Jasmine
+
+單元測試的執行器為 Karma
+
+端對端測試測試執行器為 Protractor
+
 ### 測試原則
 
 要編寫出可靠度極高的程式碼是非常困難的事情。不管怎樣，只要有 Bug 的出現，即便是小型應用程式也會變得相當複雜。
@@ -54,9 +64,8 @@ $ tslint src/**/*.ts
 
 BDD
 
-官方推薦的測試框架是 Jasmine
-
 `describe`
+
 `it`
 
 ```js
@@ -69,21 +78,21 @@ describe('...', () => {
 
 斷言
 
+`expect`
+
 ```js
 expect(true).toBe(true);
 ```
 
 間諜
 
+`spyOn`
+
 ```js
 spyOn(foo, 'bar')
 ```
 
 ### 單元測試
-
-```bash
-$ npm i karma -D
-```
 
 ```ts
 import { Component } from '@angular/core';
@@ -98,11 +107,11 @@ export class HelloUnitComponent {
   public messages: string = 'Hello Unit';
 }
 ```
+
 ```ts
 import { HelloUnitComponent } from './hello-unit.component';
 
 describe('HelloUnitComponent', () => {
-
   beforeEach(() => {
     this.helloUnitComponent = new HelloUnitComponent();
   });
@@ -110,7 +119,37 @@ describe('HelloUnitComponent', () => {
   it('should have a content', () => {
     expect(this.helloUnitComponent.messages).toEqual('Hello Unit');
   });
+});
+```
 
+```ts
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+describe('HelloUnitComponent', () => {
+  let component: HelloUnitComponent;
+  let fixture: ComponentFixture<HelloUnitComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [HelloUnitComponent],
+    });
+
+    fixture = TestBed.createComponent(HelloUnitComponent);
+    component = fixture.componentInstance;
+  });
+});
+```
+
+```ts
+import { TestBed, async } from '@angular/core/testing';
+
+describe('HelloUnitComponent', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+        declarations: [HelloUnitComponent],
+      })
+      .compileComponents();
+  }));
 });
 ```
 
