@@ -578,13 +578,26 @@ ng('Angular', 'Material');  // Angular and Material
 ```ts
 class Foo {
   bar: string;
-  constructor() {
-    // ...
+  constructor() { /* ... */ }
+  baz() { /* ... */ }
+}
+```
+
+### 靜態資料屬性
+
+```ts
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
   }
-  baz() {
-    // ...
+
+  static zero() {
+    return new Point(0, 0);
   }
 }
+
+Point.zero();  // { x: 0, y: 0 }
 ```
 
 ### 繼承
@@ -619,6 +632,26 @@ class B extends A {
 
 const a = new A();  // logs "A"
 const b = new B();  // logs "B"
+```
+
+### 取值器和設值器
+
+```ts
+class Foo {
+  get bar() {
+    return 'Getter: baz';
+  }
+
+  set bar(value) {
+    console.log(`Setter: ${value}`);
+  }
+}
+
+const foo = new Foo();
+
+foo.bar;  // "Getter: baz"
+
+foo.bar = 'baz';  // Setter: baz
 ```
 
 ### 修飾字元
