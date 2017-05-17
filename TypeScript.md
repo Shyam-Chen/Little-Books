@@ -1073,6 +1073,7 @@ result.value;  // 2 * 3 = 6
 ```
 
 ## 非同步與等待
+
 ```ts
 async function foo(x) {  // 10
   let bar = await Promise
@@ -1104,6 +1105,18 @@ bar();
 // 1
 // 2 (一秒後打印)
 // 3 (兩秒後打印)
+```
+
+```ts
+async function* foo() {
+  yield 1;
+  await sleep(100);
+  yield* [2, 3];
+  yield* (async function *() {
+    await sleep(100);
+    yield 4;
+  })();
+}
 ```
 
 ```ts
