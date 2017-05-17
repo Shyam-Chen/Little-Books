@@ -1,6 +1,6 @@
 ## Observables
 
-[Observables](https://github.com/tc39/proposal-observable) 是一個未來 ECMAScript 的新型別。
+[Observables](https://github.com/tc39/proposal-observable) 是一個未來 ECMAScript 的規範。
 
 這種概念是從一個串流的 `subscribe` 事件方式傳入一個 Generator (產生器)，而產生器會使用 Iterator (迭代器)。
 
@@ -65,5 +65,23 @@ export class AppComponent {
       () => this.finished = '完成'
     );
   }
+}
+```
+
+```ts
+import 'rxjs/add/operator/<METHOD>';
+
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+@Component({
+  selector: 'app-root',
+  template: `
+
+  `
+})
+export class AppComponent {
+  private data: Observable<Array<string>>;
+
 }
 ```
