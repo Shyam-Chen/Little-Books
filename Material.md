@@ -56,42 +56,26 @@ import '@material/ripple/dist/mdc.ripple.css';
 ```
 
 ```html
-<button class="mdc-button mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
+<button class="mdc-button mdc-button--primary mdc-ripple-surface">Button</button>
 
-<button class="mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
+<button class="mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface">Button</button>
 
-<button class="mdc-button mdc-button--accent mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
+<button class="mdc-button mdc-button--accent mdc-ripple-surface">Button</button>
 
-<button class="mdc-button mdc-button--raised mdc-button--accent mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
-```
+<button class="mdc-button mdc-button--raised mdc-button--accent mdc-ripple-surface">Button</button>
 
-```css
-.mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--primary::before,
-.mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--primary::after {
-  background-color: rgba(74, 20, 140, .2);  /* 900 */
-}
+<button class="mdc-button mdc-button--dense mdc-button--primary mdc-ripple-surface">Button</button>
 
-.mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--raised.mdc-button--primary::before,
-.mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--raised.mdc-button--primary::after {
-  background-color: rgba(243, 229, 245, .2);  /* 50 */
-}
-
-.mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--accent::before,
-.mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--accent::after {
-  background-color: rgba(0, 77, 64, .2);  /* 900 */
-}
-
-.mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--raised.mdc-button--accent::before,
-.mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--raised.mdc-button--accent::after {
-  background-color: rgba(224, 242, 241, .2);  /* 50 */
-}
+<button class="mdc-button mdc-button--compact mdc-button--primary mdc-ripple-surface">Button</button>
 ```
 
 ```js
-import mdcAutoInit from '@material/auto-init';
 import { MDCRipple } from '@material/ripple';
 
-mdcAutoInit.register('MDCRipple', MDCRipple);
+[].forEach.call(
+  document.querySelectorAll('.mdc-ripple-surface'),
+  surface => MDCRipple.attachTo(surface)
+);
 ```
 
 ## 卡片
