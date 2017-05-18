@@ -44,36 +44,29 @@
 
 顏色: `mdc-button--primary` or `mdc-button--accent`
 
-波紋: `mdc-ripple-surface`
-
 ```js
-// src/vendor.js
-// 導入按鈕樣式
 import '@material/button/dist/mdc.button.css';
-
-// 導入波紋樣式
-import '@material/ripple/dist/mdc.ripple.css';
 ```
 
 ```html
-<button class="mdc-button mdc-button--primary mdc-ripple-surface">Button</button>
+<button class="mdc-button mdc-button--primary">Button</button>
 
-<button class="mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface">Button</button>
+<button class="mdc-button mdc-button--raised mdc-button--primary">Button</button>
 
-<button class="mdc-button mdc-button--accent mdc-ripple-surface">Button</button>
+<button class="mdc-button mdc-button--accent">Button</button>
 
-<button class="mdc-button mdc-button--raised mdc-button--accent mdc-ripple-surface">Button</button>
+<button class="mdc-button mdc-button--raised mdc-button--accent">Button</button>
 
-<button class="mdc-button mdc-button--dense mdc-button--primary mdc-ripple-surface">Button</button>
+<button class="mdc-button mdc-button--dense mdc-button--primary">Button</button>
 
-<button class="mdc-button mdc-button--compact mdc-button--primary mdc-ripple-surface">Button</button>
+<button class="mdc-button mdc-button--compact mdc-button--primary">Button</button>
 ```
 
 ```js
 import { MDCRipple } from '@material/ripple';
 
 [].forEach.call(
-  document.querySelectorAll('.mdc-ripple-surface'),
+  document.querySelectorAll('.mdc-button'),
   surface => MDCRipple.attachTo(surface)
 );
 ```
