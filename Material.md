@@ -36,17 +36,24 @@
 
 ## 按鈕
 
-`mdc-button`
+基本: `mdc-button`
 
-`mdc-button--raised`
+墊高: `mdc-button--raised`
 
-`mdc-button--dense`
+變化: `mdc-button--dense` or `mdc-button--compact`
 
-`mdc-button--compact`
+顏色: `mdc-button--primary` or `mdc-button--accent`
 
-`mdc-button--primary`
+波紋: `mdc-ripple-surface`
 
-`mdc-button--accent`
+```js
+// src/vendor.js
+// 導入按鈕樣式
+import '@material/button/dist/mdc.button.css';
+
+// 導入波紋樣式
+import '@material/ripple/dist/mdc.ripple.css';
+```
 
 ```html
 <button class="mdc-button mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
@@ -56,9 +63,6 @@
 <button class="mdc-button mdc-button--accent mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
 
 <button class="mdc-button mdc-button--raised mdc-button--accent mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
-
-<!-- posthtml-bem -->
-<button block="mdc-button" mods="primary" class="mdc-ripple-surface" data-mdc-auto-init="MDCRipple">Button</button>
 ```
 
 ```css
@@ -83,6 +87,13 @@
 }
 ```
 
+```js
+import mdcAutoInit from '@material/auto-init';
+import { MDCRipple } from '@material/ripple';
+
+mdcAutoInit.register('MDCRipple', MDCRipple);
+```
+
 ## 卡片
 
 ```html
@@ -99,6 +110,12 @@
     <button class="mdc-button mdc-button--compact mdc-button--accent mdc-ripple-surface mdc-card__action" data-mdc-auto-init="MDCRipple">Action 2</button>
   </section>
 </div>
+```
+
+## 側邊欄
+
+```js
+import { MDCTemporaryDrawer } from '@material/drawer';
 ```
 
 ## 白框
@@ -169,12 +186,18 @@
 ```
 
 ```js
+import { MDCRadio, MDCRadioFoundation } from '@material/radio';
+
 [].forEach.call(
   document.querySelectorAll('.mdc-radio:not([data-demo-no-js])'),
   (radio) => window.mdc.radio.MDCRadio.attachTo(radio)
 );
 
-window.mdc.autoInit();
+
+import mdcAutoInit from '@material/auto-init';
+import { MDCRipple } from '@material/ripple';
+
+mdcAutoInit.register('MDCRipple', MDCRipple);
 ```
 
 ## 文字輸入框
