@@ -60,6 +60,18 @@ import '@material/button/dist/mdc.button.css';
 <button class="mdc-button mdc-button--dense mdc-button--primary">Button</button>
 
 <button class="mdc-button mdc-button--compact mdc-button--primary">Button</button>
+
+<button class="mdc-button mdc-button--dense mdc-button--accent">Button</button>
+
+<button class="mdc-button mdc-button--compact mdc-button--accent">Button</button>
+
+<button class="mdc-button mdc-button--raised mdc-button--dense mdc-button--primary">Button</button>
+
+<button class="mdc-button mdc-button--raised mdc-button--compact mdc-button--primary">Button</button>
+
+<button class="mdc-button mdc-button--raised mdc-button--dense mdc-button--accent">Button</button>
+
+<button class="mdc-button mdc-button--raised mdc-button--compact mdc-button--accent">Button</button>
 ```
 
 ```js
