@@ -13,7 +13,6 @@
 * [型別兼容性](#型別兼容性)
 * [通用型別](#通用型別)
 * [型別查找](#型別查找)
-* [後設資料](#後設資料)
 * [泛型](#泛型)
 * [型別斷言](#型別斷言)
 * [冪運算子](#冪運算子)
@@ -28,6 +27,7 @@
 ***
 
 ## 入門
+
 ```bash
 # 安裝 ts-node 與 typescript
 $ npm i ts-node typescript -g
@@ -55,6 +55,7 @@ Hello TypeScript
 ## 變數宣告
 
 ### 一般賦值
+
 ```ts
 let foo = 123;
 foo;  // 123
@@ -73,6 +74,7 @@ foo;  // 123
 ```
 
 ### 單一賦值
+
 ```ts
 const bar = 123;
 bar;  // 123
@@ -226,12 +228,14 @@ foo[KEY];  // 123
 ```
 
 ### 元組
+
 ```ts
 let foo: [number, string];  // 宣告一個元組型別
 foo = [123, 'abc'];  // 將 foo 初始化
 ```
 
 ### 列舉
+
 ```ts
 enum Thing {
   Foo, Bar, Baz
@@ -275,6 +279,7 @@ declare enum Thing5 {
 ```
 
 ### 任意值
+
 ```ts
 let notSure: any = 123;
 notSure = 'abc';  // OK
@@ -282,6 +287,7 @@ notSure = 'true';  // OK
 ```
 
 ### 空值
+
 ```ts
 let foo: void = undefined;
 let bar: void = null;
@@ -290,6 +296,7 @@ function baz(thing: number): void {
   this.thing = thing;
 }
 ```
+
 ```ts
 let foo: string;
 foo;  // Error
@@ -302,6 +309,7 @@ baz;  // OK
 ```
 
 ### 型別斷言
+
 ```ts
 let foo: any = 'abc';
 let bar = <string>foo;  // 語法: <>
@@ -313,6 +321,7 @@ let baz2: number = bar2.length;  // 3
 ```
 
 ### 型別併集
+
 ```ts
 let foo: string | number;
 
@@ -342,6 +351,7 @@ st.baz();  // OK
 ```
 
 ### 型別別名
+
 ```ts
 // 型別別名
 type ThingType = string | number;
@@ -354,7 +364,6 @@ foo = true;  // Error
 
 ## 命名空間
 
-(1)
 ```ts
 namespace Thing {
   export class Foo { }
@@ -365,7 +374,6 @@ let foo = new Thing.Foo();
 let bar = new Thing.Bar();
 ```
 
-(2)
 ```ts
 namespace Thing {
   export namespace Foo {
@@ -382,6 +390,7 @@ let baz = new foo.Baz();
 ```
 
 ### 模組機制
+
 ```ts
 // foo.ts
 // 導出介面
@@ -392,6 +401,7 @@ export interface Foo {
 // 導出變數
 export const numberRegexp = /^[0-9]+$/;
 ```
+
 ```ts
 // bar.ts
 import { Foo } from './foo';
@@ -400,6 +410,7 @@ export class Bar {
   // ...
 }
 ```
+
 ```ts
 // 預設導出
 export default thing;
@@ -411,6 +422,7 @@ export class Angular2 {
   // ...
 }
 ```
+
 ```ts
 // bar.ts
 import { Angular2 as Ng2 } from './foo';  // 對導入的內容重新命名
@@ -424,6 +436,7 @@ declare module 'thing-module' {
   export function foo(): void;
 }
 ```
+
 ```ts
 // module.ts
 /// <reference path="thing.d.ts" />
@@ -443,7 +456,6 @@ import { join } from 'path';  // OK
 
 ## 介面
 
-(1)
 ```ts
 interface Foo {
   bar: number;
@@ -460,7 +472,6 @@ thing({ baz: 'abc' });  // Error
 thing({ bar: 123, baz: 'abc' });  // OK
 ```
 
-(2)
 ```ts
 interface Thing {
   [index: number]: string;
@@ -471,7 +482,6 @@ let thing: Thing = ['a', 'b', 'c'];
 let foo: string = thing[1];  // 'b'
 ```
 
-(3)
 ```ts
 interface Square {
   color?: string;
@@ -485,7 +495,6 @@ function createSquare(square: Square): { color: string; area: number } {
 let cs = createSquare({ width: 100, opacity: 0.5 } as Square);
 ```
 
-(4)
 ```ts
 interface Foo {
   (bar: number): void;
@@ -496,7 +505,6 @@ const baz = (foo: Foo) => foo(123);
 baz((bar: number) => console.log(bar));  // 123
 ```
 
-(5)
 ```ts
 interface Foo {
   (x: number, y: number): boolean;
@@ -515,6 +523,7 @@ foo(2, -4);  // true
 ```
 
 ## 函式
+
 ```ts
 // 設定函式型別
 function addition(a: number, b: number): number {
@@ -524,6 +533,7 @@ function addition(a: number, b: number): number {
 addition(1, 1);  // 2
 addition('1', '1');  // Error
 ```
+
 ```ts
 // 匿名函式
 const addition = function(a: number, b: number): number {
@@ -540,12 +550,10 @@ const foo: object = {
 
   }
 };
-
 ```
 
 ### 可選參數
 
-(1)
 ```ts
 const ng = function(a: string, b: string, c?: string): string {
   return `${a} ${b} ${c}`;
@@ -556,7 +564,6 @@ ng('Angular', 'Material');  // Angular Material undefined
 ng('Angular');  // Error
 ```
 
-(2)
 ```ts
 const ng = function(a: string, b: string, c?: string): string {
   if (c !== undefined) {
@@ -571,6 +578,7 @@ ng('Angular');  // Error
 ```
 
 ### 預設參數
+
 ```ts
 const ng = function(a: string, b: string = 'Angular 2'): string {
   return `${a} and ${b}`;
@@ -735,6 +743,7 @@ let point3d: Point3d = {
   z: 180
 };
 ```
+
 ```ts
 class Foo {
   constructor(public x = 0) { }
@@ -760,6 +769,7 @@ bar.barX;  // 123
 ```
 
 ## 型別兼容性
+
 ```ts
 interface Foo {
   bar: string;
@@ -775,6 +785,7 @@ thing = new Thing();
 ```
 
 ### 通用型別
+
 ```ts
 const ng: Ng[] = [new Angular(), new Material(), new Firebase()];
 ```
@@ -828,22 +839,8 @@ Record
 Pick
 ```
 
-### 後設資料
-```bash
-$ npm install core-js -S
-```
-```js
-// tsconfig.json
-{
-  "compilerOptions": {
-    "target": "es5",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  }
-}
-```
-
 ## 泛型
+
 ```ts
 function identity<T>(arg: T): T {
   return arg;
@@ -853,6 +850,7 @@ identity(123);  // 123
 identity('abc');  // 'abc'
 identity(true);  // true
 ```
+
 ```ts
 class Thing<T> {
   foo: Thing<T>;
@@ -864,6 +862,7 @@ let st = new Thing<string>();
 
 nt.foo = new Thing<boolean>();
 ```
+
 ```ts
 class Thing<T, U> {
   key: T;
@@ -877,6 +876,7 @@ thing.value = true;  // OK
 ```
 
 ## 型別斷言
+
 ```ts
 interface Foo {
   bar: number;
@@ -889,6 +889,7 @@ foo.baz = 'abc';
 
 foo;  // { bar: 123, baz: 'abc' }
 ```
+
 ```ts
 interface Foo {
   bar: number;
@@ -901,6 +902,7 @@ foo.baz = 'abc';
 
 foo;  // { bar: 123, baz: 'abc' }
 ```
+
 ```ts
 interface Foo {
   bar: number;
@@ -916,6 +918,7 @@ foo.ts = 'TypeScript';
 
 foo;  // { bar: 123, baz: 'abc', ts: 'TypeScript' }
 ```
+
 ```ts
 interface Foo {
   bar: number;
@@ -931,6 +934,7 @@ foo;  // { bar: 123, baz: 'abc' }
 ```
 
 ## 冪運算子
+
 ```ts
 let x = 2 ** 5;  // Math.pow(2, 5)
 x;  // 32
@@ -955,6 +959,7 @@ z;  // Error
 ```
 
 ## 混入
+
 ```ts
 class Disposable {
   isDisposed: boolean;
@@ -989,6 +994,7 @@ class Foo implements IFoo {
 ```
 
 ## 合併宣告
+
 ```ts
 // 合併介面
 interface Box {
@@ -1052,6 +1058,17 @@ Promise.race([
 錯誤處理
 
 ```ts
+foo().then(() => console.log(4))
+  .catch(error => console.error(error));
+```
+
+鏈接
+
+```ts
+foo().then(() => console.log(4))
+  .then(() => console.log(6))
+  .then(() => console.log(8))
+  .catch(error => console.error(error));
 ```
 
 ## 迭代器與產生器
@@ -1149,6 +1166,8 @@ const foo: object = {
 };
 ```
 
+非同步比較
+
 ```ts
 function foo(x) {
   return bar(x).then(data => foo(data));
@@ -1169,11 +1188,14 @@ async function foo(x) {
   let baz = await foo(data);
   return baz;
 }
+
+// 還有一個 Observable，如果要在現在環境使用 Observable，需要透過 RxJS 來實現
 ```
 
 ## 修飾器
 
 ### 修飾類別
+
 ```ts
 const Foo = (value: any) => {
   return (target: any) => {
@@ -1187,6 +1209,7 @@ class Thing { }  // 這個類別會打印出 123
 ```
 
 ### 修飾屬性
+
 ```ts
 const Foo = (value: any) => {
   return (target: any, key: any, descriptor: any) => {
@@ -1202,6 +1225,7 @@ class Thing {
 ```
 
 ### 修飾參數
+
 ```ts
 const Foo = (target: any, key: any, index: number) => {
   console.log(key, index);
