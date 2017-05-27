@@ -534,6 +534,15 @@ addition(1, 1);  // 2
 addition('1', '1');  // Error
 ```
 
+```ts
+const foo: object = {
+  bar() {
+
+  }
+};
+
+```
+
 ### 可選參數
 
 (1)
@@ -1072,6 +1081,19 @@ result.value;  // 2 * 3 = 6
 
 ```
 
+```ts
+const foo: object = {
+  * bar() {
+    let index: number = 0;
+    while (true) yield index++;
+  }
+};
+
+const it = foo.bar();
+it.next().value;  // 0
+it.next().value;  // 1
+```
+
 ## 非同步與等待
 
 ```ts
@@ -1089,7 +1111,7 @@ foo(10).then(x => console.log(x));  // 7.2
 ```
 
 ```ts
-async function foo(x) {
+async function sleep(x) {
   return new Promise((resolve, reject) => {
     setTimeout(() => resolve(console.log(2)), x);
   });
@@ -1097,7 +1119,7 @@ async function foo(x) {
 
 async function bar() {
   console.log(1);
-  await foo(1000);  // 等待了一秒
+  await sleep(1000);  // 等待了一秒
   setTimeout(() => console.log(3), 1000);  // 等待了一秒，加自己的一秒
 }
 
@@ -1117,6 +1139,14 @@ async function* foo() {
     yield 4;
   })();
 }
+```
+
+```ts
+const foo: object = {
+  async bar() {
+    await sleep(1000);
+  }
+};
 ```
 
 ```ts
