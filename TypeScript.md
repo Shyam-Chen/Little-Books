@@ -18,6 +18,8 @@
 * [冪運算子](#冪運算子)
 * [混入](#混入)
 * [合併宣告](#合併宣告)
+* [代理](#代理)
+* [反映](#反映)
 * [承諾](#承諾)
 * [迭代器與產生器](#迭代器與產生器)
 * [非同步與等待](#非同步與等待)
@@ -1007,6 +1009,38 @@ interface Box {
 }
 
 const box: Box = { height: 5, width: 6, scale: 10 };
+```
+
+## 代理
+
+```ts
+const proxy = new Proxy(<TARGET>, <HANDLER>);
+```
+
+攔截讀取屬性值
+
+```ts
+const proxy = new Proxy({}, {
+  foo(target, property) {
+    return 99;
+  }
+});
+
+proxy.thing;  // 99
+```
+
+## 反映
+
+```ts
+const thing: object = {
+  foo: 1,
+  get bar() {
+    return this.foo;
+  },
+}
+
+Reflect.get(thing, 'foo');  // 1
+Reflect.get(thing, 'bar');  // 1
 ```
 
 ## 承諾
