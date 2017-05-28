@@ -205,47 +205,56 @@ drawer.addEventListener('MDCTemporaryDrawer:close', () => bodyEl.style.overflowY
 ```
 
 ```js
-import { MDCRadio, MDCRadioFoundation } from '@material/radio';
+import { MDCRadio } from '@material/radio';
 
 [].forEach.call(
-  document.querySelectorAll('.mdc-radio:not([data-demo-no-js])'),
-  (radio) => window.mdc.radio.MDCRadio.attachTo(radio)
+  document.querySelectorAll('.mdc-radio'),
+  radio => MDCRadio.attachTo(radio)
 );
-
-
-import mdcAutoInit from '@material/auto-init';
-import { MDCRipple } from '@material/ripple';
-
-mdcAutoInit.register('MDCRipple', MDCRipple);
 ```
 
 ## 小橫條
 
 ## 文字輸入框
 
+基本:
+* `mdc-textfield`
+  * `mdc-textfield__input`
+  * `mdc-textfield__label`
+
+多行: `mdc-textfield--multiline`
+
+
 ```html
 <div class="mdc-textfield">
-  <input type="text" class="mdc-textfield__input" id="my-textfield" aria-controls="my-textfield-helptext" data-demo-no-auto-js>
-  <label for="my-textfield" class="mdc-textfield__label">Label text</label>
+  <input type="text" id="ex" class="mdc-textfield__input" aria-controls="ex-helptext">
+  <label for="ex" class="mdc-textfield__label">Label text</label>
 </div>
 ```
 
 ```js
-[].forEach.call(
-  document.querySelectorAll('.mdc-textfield:not([data-demo-no-auto-js])'),
-  (textfield) => window.mdc.textfield.MDCTextfield.attachTo(textfield)
-);
+import { MDCTextfield } from '@material/textfield';
 
-window.mdc.autoInit();
+[].forEach.call(
+  document.querySelectorAll('.mdc-textfield'),
+  textfield => MDCTextfield.attachTo(textfield)
+);
+```
+
+```html
+<div class="mdc-textfield mdc-textfield--multiline">
+  <textarea id="ex" class="mdc-textfield__input" rows="5"></textarea>
+  <label class="mdc-textfield__label" for="ex">Label text</label>
+</div>
 ```
 
 ## 主題
 
 自訂主體的樣式。
 
-```css
+```scss
 :root {
-  --mdc-theme-primary: #9C27B0;  /* Purple - 500 */
-  --mdc-theme-accent: #009688;  /* Teal - 500 */
+  --mdc-theme-primary: #9C27B0;  // Purple
+  --mdc-theme-accent: #009688;  // Teal
 }
 ```
