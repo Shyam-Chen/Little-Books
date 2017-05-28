@@ -12,6 +12,8 @@
 
 ***
 
+更佳安全認證
+
 ```js
 import express from 'express';
 import jwt from 'express-jwt';
