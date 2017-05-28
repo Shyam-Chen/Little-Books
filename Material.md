@@ -17,7 +17,6 @@
 * Drawer (側邊欄)
 * [Elevation (白框)](#白框)
 * [FAB (懸浮操作按鈕)](#懸浮操作按鈕)
-* Form Field (表單字節)
 * Grid List (格子列表)
 * Icon Toggle (圖標按鈕)
 * Layout Grid (版面網格)
@@ -25,8 +24,9 @@
 * Menu (選單)
 * [Radio (單選框)](#單選框)
 * Select (選擇框)
-* Snackbar (小橫條)
+* [Snackbar (小橫條)](#小橫條)
 * Switch (切換鈕)
+* Tabs (選項卡)
 * [Text Field (文字輸入框)](#文字輸入框)
 * [Theme (主題)](#主題)
 * Toolbar (工具列)
@@ -85,6 +85,28 @@ import { MDCRipple } from '@material/ripple';
 
 ## 卡片
 
+基本: `mdc-card` or `mdc-card__horizontal-block`
+
+主區塊:
+* `mdc-card__primary`
+* `mdc-card__title`
+  * `mdc-card__title--large`
+* `mdc-card__subtitle`
+
+媒體區:
+* `mdc-card__media`
+* `mdc-card__media-item`
+  * `mdc-card__media-item--1dot5x`
+  * `mdc-card__media-item--2x`
+  * `mdc-card__media-item--3x`
+
+文字區: `mdc-card__supporting-text`
+
+操作區:
+* `mdc-card__actions`
+  * `mdc-card__actions--vertical`
+* `mdc-card__action`
+
 ```html
 <div class="mdc-card">
   <section class="mdc-card__primary">
@@ -95,8 +117,8 @@ import { MDCRipple } from '@material/ripple';
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
   </section>
   <section class="mdc-card__actions">
-    <button class="mdc-button mdc-button--compact mdc-button--accent mdc-ripple-surface mdc-card__action" data-mdc-auto-init="MDCRipple">Action 1</button>
-    <button class="mdc-button mdc-button--compact mdc-button--accent mdc-ripple-surface mdc-card__action" data-mdc-auto-init="MDCRipple">Action 2</button>
+    <button class="mdc-button mdc-card__action">Action 1</button>
+    <button class="mdc-button mdc-card__action">Action 2</button>
   </section>
 </div>
 ```
@@ -105,6 +127,14 @@ import { MDCRipple } from '@material/ripple';
 
 ```js
 import { MDCTemporaryDrawer } from '@material/drawer';
+
+const drawerEl = document.querySelector('.mdc-temporary-drawer');
+const drawer = new MDCTemporaryDrawer(drawerEl);
+
+drawer.open = true;
+
+drawer.addEventListener('MDCTemporaryDrawer:open', () => bodyEl.style.overflowY = 'hidden');
+drawer.addEventListener('MDCTemporaryDrawer:close', () => bodyEl.style.overflowY = 'auto');
 ```
 
 ## 白框
@@ -128,7 +158,7 @@ import { MDCTemporaryDrawer } from '@material/drawer';
 ## 懸浮操作按鈕
 
 ```html
-<button class="mdc-fab material-icons mdc-ripple-surface" data-mdc-auto-init="MDCRipple" aria-label="Favorite">
+<button class="mdc-fab material-icons" aria-label="Favorite">
   <span class="mdc-fab__icon">favorite_border</span>
 </button>
 ```
@@ -188,6 +218,8 @@ import { MDCRipple } from '@material/ripple';
 
 mdcAutoInit.register('MDCRipple', MDCRipple);
 ```
+
+## 小橫條
 
 ## 文字輸入框
 
