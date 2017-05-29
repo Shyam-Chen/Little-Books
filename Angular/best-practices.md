@@ -166,6 +166,18 @@ $ npm start
 
 漸靜式網頁應用程式 (Progressive Web Applications)
 
+一個 Vanilla 實體的例子: [https://web-go-demo.firebaseapp.com/](https://web-go-demo.firebaseapp.com/)
+
+到此網站的任何一頁後 (如，https://web-go-demo.firebaseapp.com/about)，再將網路線拔掉，再給它重新整理下去，就會看到網頁還活生生地呈現著。
+
+不過離線只不過是裡面的一塊，最為主要的還是效能的提升。
+
+現在就為 Angular 的應用程式上加上它
+
+```bash
+$ npm i @angular/service-worker -S
+```
+
 ### 伺服端渲染
 
 共通式網頁應用程式 (Universal Web Applications)
@@ -236,3 +248,5 @@ import { AppModule } from './app.module';
 })
 export class ServerAppModule { }
 ```
+
+完整的程式碼可以參考: [https://github.com/Shyam-Chen/Fullstack-Starter-Kit](https://github.com/Shyam-Chen/Fullstack-Starter-Kit)
