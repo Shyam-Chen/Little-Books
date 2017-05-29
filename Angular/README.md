@@ -2,6 +2,8 @@
 
 ### 目錄
 * [入門](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/getting-started.md)
+  * [生態系](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/getting-started.md#生態系)
+  * [環境設置](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/getting-started.md#環境設置)
 * [模組](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/modules.md)
   * [基本應用](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/modules.md#基本應用)
   * [功能模組](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/modules.md#功能模組)
