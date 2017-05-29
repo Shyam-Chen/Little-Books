@@ -174,7 +174,7 @@ Angular CLI 並不是 Universal 的，所以要親自打造一個。
 
 這裡以 Node + Express 為例。
 
-Express 是最熱門的 Node 應用框架，未來也有會變成 Node 的本身的核心模組。
+Express 是最熱門的 Node 應用框架，未來或許會變成 Node 的本身的核心模組。
 
 ```bash
 $ ng new uwa
@@ -188,10 +188,51 @@ $ npm i @angular/platform-server -S
 ```bash
 $ npm i express -S
 $ npm i @types/express -D
+
+$ npm i @types/node -D
 ```
 
 這裡需要個 Angular 和 Express 之間的 View 引擎。
 
-```ts
+```bash
+$ npm i @nguniversal/express-engine -S
+```
 
+```ts
+import * as express from 'express';
+import { ngExpressEngine } from '@nguniversal/express-engine';
+
+import { ServerAppModule } from './app/server-app.module';
+
+const app = express();
+
+app.engine('html', ngExpressEngine({
+  bootstrap: ServerAppModule
+}));
+```
+
+```ts
+import { NgModule, APP_BOOTSTRAP_LISTENER, ApplicationRef } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ServerModule } from '@angular/platform-server';
+
+import { AppComponent } from './app.component';
+import { AppModule } from './app.module';
+
+@NgModule({
+  bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: APP_BOOTSTRAP_LISTENER,
+      multi: true,
+      deps: [ApplicationRef]
+    }
+  ],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'angular-go' }),
+    ServerModule,
+    AppModule
+  ]
+})
+export class ServerAppModule { }
 ```
