@@ -108,6 +108,7 @@
 * [狀態容器](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/state-container.md)
 * [原質化設計](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/material.md)
 * [後端雲端服務](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/firebase.md)
+* [跨平台](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/cross-platform.md)
 * [測試](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/testing.md)
   * [測試原則](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/testing.md#測試原則)
   * [靜態分析](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/testing.md#靜態分析)
