@@ -29,6 +29,36 @@ Observable::timer(2000)
   // ["World"]
 ```
 
+基本上可以用 Observables 取代 Promises 了。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+new Observable(observer => {
+    setTimeout(() => observer.next('foo'), 0);
+    setTimeout(() => observer.next('bar'), 1000);
+    setTimeout(() => observer.next('baz'), 2000);
+    setTimeout(() => observer.complete(), 3000);
+  })
+  .subscribe(
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+
+// vs
+
+new Promise((resolve, reject) => {
+    setTimeout(() => resolve(console.log('foo')), 0);
+    setTimeout(() => resolve(console.log('bar')), 1000);
+    setTimeout(() => resolve(console.log('baz')), 2000);
+  })
+  .then(
+    value => console.log(value),
+    error => console.error(error)
+  );
+```
+
 ### 基本應用
 
 ```ts
