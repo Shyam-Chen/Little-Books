@@ -184,7 +184,7 @@ export const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
 ```js
 // counter.js
-import { template ad _ } from 'lodash';
+import { template as _ } from 'lodash';
 
 import { store } from '../../root';
 

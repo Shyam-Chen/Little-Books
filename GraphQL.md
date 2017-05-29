@@ -10,6 +10,7 @@
 
 ### 目錄
 * [核心](#核心)
+* [型別](#型別)
 
 ***
 
@@ -119,3 +120,99 @@ app.use(express.static(join(__dirname, '../public')));
   </body>
 </html>
 ```
+
+***
+
+```js
+// app.js
+import express from 'express';
+import graphql from 'express-graphql';
+
+import { schema } from './graphql';
+
+const app = express();
+
+app.set('port', (process.env.PORT || 8000));
+
+app.use('/graphql', graphql({
+  schema,
+  graphiql: true
+}));
+
+app.listen(app.get('port'), () => {
+  console.log(`Port: ${app.get('port')}.`);
+});
+```
+
+```js
+// graphql.js
+import { GraphQLSchema, GraphQLObjectType, GraphQLString } from 'graphql';
+
+// 這裡之後換成從 mongoose 的模型取得
+const data = {
+  "1": { "id": "1", "name": "Foo" },
+  "2": { "id": "2", "name": "Bar" },
+  "3": { "id": "3", "name": "Baz" }
+};
+
+export const schema = new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: 'Query',
+    fields: {
+      user: {
+        type: new GraphQLObjectType({
+          name: 'User',
+          fields: {
+            id: { type: GraphQLID },
+            name: { type: GraphQLString },
+          }
+        }),
+        args: {
+          id: { type: GraphQLID }
+        },
+        resolve(_, args) {
+          return data[args.id];
+        }
+      }
+    }
+  })
+});
+```
+
+查詢
+
+```js
+{
+  user(id: "1") {
+    name
+  }
+}
+```
+
+回傳
+
+```js
+{
+  "data": {
+    "user": {
+      "name": "Foo"
+    }
+  }
+}
+```
+
+## 型別
+
+基本:
+* `GraphQLSchema`
+* `GraphQLObjectType`
+
+定標:
+* `GraphQLInt` or `GraphQLFloat`
+* `GraphQLString`
+* `GraphQLBoolean`
+* `GraphQLID`
+
+介面: `GraphQLInterfaceType`
+
+列舉: `GraphQLEnumType`
