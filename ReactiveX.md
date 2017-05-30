@@ -67,9 +67,9 @@
   * [last](#last)
   * [sample](#sample)
   * [single](#single)
-  * skip
-  * skipUntil
-  * skipWhile
+  * [skip](#skip)
+  * [skipUntil](#skipuntil)
+  * [skipWhile](#skipwhile)
   * [take](#take) :star:
   * takeUntil :star:
   * takeWhile
@@ -1518,7 +1518,7 @@ Observable::from([
 
 ### first
 
-僅發射來自 Observable 射出的第一個值 (或滿足某個條件的第一個值)。
+僅發射來源 Observable 射出的第一個值 (或滿足某個條件的第一個值)。
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -1611,7 +1611,7 @@ source$::last(
 
 Emits the most recently emitted value from the source Observable whenever another Observable, the `notifier`, emits.
 
-當 `notifier` 發射另一個 Observabl e時，從源 Observable 發射最近發射的值。
+當 `notifier` 發射另一個 Observable 時，從源 Observable 發射最近發射的值。
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -1651,9 +1651,70 @@ Observable::from([1, 2, 3, 4, 5])
 
 ### skip
 
+Returns an Observable that skips the first `count` items emitted by the source Observable.
+
+返回一個 Observable，它忽略源 Observable 發射的第一個 `count` 項。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { skip } from 'rxjs/operator/skip';
+
+Observable::interval(1000)
+  ::skip(3)
+  .subscribe(value => console.log(value));
+  // 3
+  // 4
+  // 5
+  // ...
+```
+
 ### skipUntil
 
+Returns an Observable that skips items emitted by the source Observable until a second Observable emits an item.
+
+返回一個 Observable，它跳過源 Observable 發射的項目，直到第二個 Observable 發射一個項目。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+import { timer } from 'rxjs/observable/timer';
+
+import { skipUntil } from 'rxjs/operator/skipUntil';
+
+Observable::interval(1000)
+  ::skipUntil(Observable::timer(3000))
+  .subscribe(value => console.log(value));
+  // 2
+  // 3
+  // 4
+  // ...
+```
+
 ### skipWhile
+
+Returns an Observable that skips all items emitted by the source Observable as long as a specified condition holds true, but emits all further source items as soon as the condition becomes false.
+
+返回一個 Observable，它可以忽略源 Observable 發射的所有項目，只要指定的條件成立，只要條件變為 false，就會發射所有其他的源項目。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { skipWhile } from 'rxjs/operator/skipWhile';
+
+Observable::interval(1000)
+  ::skipWhile(value => value < 3)
+  .subscribe(value => console.log(value));
+  // 3
+  // 4
+  // 5
+  // ...
+```
 
 ### take
 
