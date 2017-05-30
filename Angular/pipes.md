@@ -4,22 +4,6 @@
 
 ### 內建管道
 
-要使用管道必須要先載入它
-
-```ts
-import { Component } from '@angular/core';
-import { COMMON_PIPES } from '@angular/common';  // 導入內建管道
-
-@Component({
-  selector: 'ap-name',
-  template: `
-    <!-- ... -->
-  `,
-  pipes: [COMMON_PIPES]  // 將內建管道註冊到元件裡
-})
-export class NameComponent { }
-```
-
 #### 大小寫
 
 ```ts
@@ -32,8 +16,7 @@ import { COMMON_PIPES } from '@angular/common';
     <p>{{ messages | uppercase }}</p>
     <p>{{ messages | lowercase }}</p>
     <p>{{ messages | uppercase | lowercase }}</p>  <!-- 先 uppercase 再來 lowercase -->
-  `,
-  pipes: [COMMON_PIPES]
+  `
 })
 export class UppercaseLowercaseComponent {
   public messages: string = 'Angular';
@@ -84,6 +67,7 @@ export class DateComponent {
 #### 非同步
 
 (1)
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -102,6 +86,7 @@ export class AsyncComponent {
 ```
 
 (2)
+
 ```ts
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
@@ -121,6 +106,7 @@ export class AsyncDateComponent {
 ```
 
 #### 數值 (十進制)
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -137,6 +123,7 @@ export class NumberComponent {
 ```
 
 #### 百分率
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -150,6 +137,7 @@ export class PercentComponent {
 ```
 
 #### 貨幣
+
 ```ts
 import { Component } from '@angular/core';
 

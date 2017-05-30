@@ -276,6 +276,7 @@ export class ToggleMeComponent {
 #### 屬性綁定
 
 (1) 基本
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -297,6 +298,7 @@ export class BindingPropertiesComponent {
 ```
 
 (2) `[innerHTML]="表達式"`
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -315,6 +317,7 @@ export class BindingPropertiesComponent {
 ```
 
 (3) `[style.規則]="'表達式'"`
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -334,6 +337,7 @@ export class BindingPropertiesComponent { }
 ```
 
 (4) `[class.名稱]="條件式"`
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -352,6 +356,7 @@ export class BindingPropertiesComponent { }
 ```
 
 切換 CSS 類別
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -371,6 +376,7 @@ export class ToggleClassComponent { }
 ```
 
 (5) `[attr.名稱]="表達式"`
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -384,6 +390,7 @@ export class BindingPropertiesComponent {
   public version: number = 2;
 }
 ```
+
 ```html
 <p at-version="2">Angular</p>
 ```
@@ -440,6 +447,7 @@ export class AddItemComponent {
 ### 內容投射
 
 #### 單一投射
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -452,6 +460,7 @@ import { Component } from '@angular/core';
 })
 export class ContentProjectionComponent { }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -468,6 +477,7 @@ export class AppComponent { }
 ```
 
 #### 選擇投射
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -488,6 +498,7 @@ import { Component } from '@angular/core';
 })
 export class MoreProjectionComponent { }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -515,6 +526,7 @@ export class AppComponent { }
 #### Input 與 Output
 
 (1) Input 建構子
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -529,6 +541,7 @@ export class UseInputComponent {
   public version: string;
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -562,6 +575,7 @@ export class AppComponent {
 ```
 
 (2) Input 修飾器
+
 ```ts
 import { Component, Input } from '@angular/core';
 
@@ -577,6 +591,7 @@ export class UseInputComponent {
 ```
 
 (3) 自訂名稱
+
 ```ts
 import { Component, Input } from '@angular/core';
 
@@ -592,11 +607,13 @@ export class StudentProfilesComponent {
   @Input('student-id') public id: string;
 }
 ```
+
 ```html
 <student-profiles schoolName="NFU" student-id="40148155"></student-profiles>
 ```
 
 (4) Output 建構子
+
 ```ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
@@ -617,6 +634,7 @@ export class CounterComponent {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -637,6 +655,7 @@ export class AppComponent {
 ```
 
 (5) Output 修飾器
+
 ```ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
@@ -660,6 +679,7 @@ export class CounterComponent {
 #### ContentChild 與 ContentChildren
 
 (1) ContentChild
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -673,6 +693,7 @@ export class ChildComponent {
   public name: string = '這是「子」元件 - 2';
 }
 ```
+
 ```ts
 import { Component, ContentChild } from '@angular/core';
 
@@ -693,6 +714,7 @@ export class ParentComponent {
   public name: string = '這是「父」元件 - 2';
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -715,6 +737,7 @@ export class AppComponent { }
 ```
 
 (2) ContentChildren
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -728,6 +751,7 @@ export class ChildComponent {
   public name: string = '這是「子」元件 - 2';
 }
 ```
+
 ```ts
 import { Component, ContentChildren, QueryList } from '@angular/core';
 
@@ -750,6 +774,7 @@ export class ParentComponent {
   public name: string = '這是「父」元件 - 2';
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -774,6 +799,7 @@ export class AppComponent { }
 ```
 
 (3) 生命週期掛鉤
+
 ```ts
 import { Component, ContentChildren, QueryList, AfterContentInit, AfterContentChecked } from '@angular/core';
 
@@ -802,6 +828,7 @@ export class ParentComponent implements AfterContentInit, AfterContentChecked {
 ```
 
 (4) 查找
+
 ```ts
 import { Component, ContentChildren } from '@angular/core';
 
@@ -818,6 +845,7 @@ export class NameComponent {
 #### ViewChild 與 ViewChildren
 
 (1) ViewChild
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -833,6 +861,7 @@ export class ChildComponent {
   }
 }
 ```
+
 ```ts
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 
@@ -854,6 +883,7 @@ export class ParentComponent implements AfterViewInit {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -893,6 +923,7 @@ export class ParentComponent implements AfterViewInit {
 ```
 
 (2) ViewChildren
+
 ```ts
 import { Component, ViewChildren, QueryList } from '@angular/core';
 
@@ -914,6 +945,7 @@ export class ParentComponent {
 ```
 
 (3) 生命週期掛鉤
+
 ```ts
 import { Component, ViewChildren, QueryList, AfterViewInit, AfterViewChecked } from '@angular/core';
 
@@ -942,6 +974,7 @@ export class ParentComponent implements AfterViewInit, AfterViewChecked {
 ```
 
 (4) 查找
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -958,6 +991,7 @@ export class NameComponent {
 ### 隔離樣式
 
 #### Emulated
+
 ```ts
 import { Component, ViewEncapsulation } from '@angular/core';
 
@@ -972,6 +1006,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class EmulatedComponent { }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -994,6 +1029,7 @@ export class AppComponent { }
 ```
 
 #### Native
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -1008,6 +1044,7 @@ import { Component } from '@angular/core';
 })
 export class NativeComponent { }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -1030,6 +1067,7 @@ export class AppComponent { }
 ```
 
 #### None
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -1050,6 +1088,7 @@ import { Component } from '@angular/core';
 })
 export class NoneComponent { }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -1074,6 +1113,7 @@ export class AppComponent { }
 ### 臟值檢測策略
 
 #### OnPush
+
 ```ts
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
@@ -1088,6 +1128,7 @@ export class ChangeDetectionComponent {
   @Input() public onePiece: string;
 }
 ```
+
 ```ts
 export class OnePiece {
   constructor(public name: string) { }
@@ -1122,6 +1163,7 @@ export class AppComponent {
 ```
 
 #### Default
+
 ```ts
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
@@ -1184,6 +1226,7 @@ export class AppComponent {
 ### 生命週期掛鉤
 
 #### OnInit
+
 ```ts
 import { Component, OnInit } from '@angular/core';
 
@@ -1201,6 +1244,7 @@ export class AppComponent implements OnInit {
 ```
 
 #### OnDestroy
+
 ```ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
@@ -1220,6 +1264,7 @@ export class LifecycleComponent implements OnInit, OnDestroy {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -1243,6 +1288,7 @@ export class AppComponent {
 ```
 
 #### OnChanges
+
 ```ts
 import { Component, OnChanges, Input } from '@angular/core';
 
@@ -1260,6 +1306,7 @@ export class LifecycleComponent implements OnChanges {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -1283,6 +1330,7 @@ export class AppComponent {
 ```
 
 #### DoCheck
+
 ```ts
 import { Component, DoCheck, Input } from '@angular/core';
 
@@ -1300,6 +1348,7 @@ export class LifecycleComponent implements DoCheck {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 

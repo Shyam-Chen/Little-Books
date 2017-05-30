@@ -1,19 +1,5 @@
 ## 指令
 
-```ts
-import { Component } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';  // 導入內建指令
-
-@Component({
-  selector: 'at-name',
-  template: `
-    <!-- ... -->
-  `,
-  directives: [CORE_DIRECTIVES]  // 將內建指令註冊到元件裡
-})
-export class NameComponent { }
-```
-
 ### 內建屬性型指令
 
 #### ng-style

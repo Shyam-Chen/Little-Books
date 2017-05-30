@@ -4,7 +4,7 @@
 
 根據 Angular 官網的說明: 一個框架多個平台為主要特色！
 
-Angular 開發概念就是已元件化為中心出發，而 Angular 的元件化實作是在 [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) 標準之上的，除了元件之外，還有模組、指令、服務、管道和動畫地的特色。
+Angular 開發概念就是已元件化為中心出發，而 Angular 的元件化實作是在 [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) 標準之上的，除了元件之外，還有模組、指令、服務、管道和動畫的特色。
 
 #### TypeScript
 
@@ -16,7 +16,7 @@ TypeScript 是 JavaScript 的超集，提供型別的機制，還有更多未來
 
 #### Zone.js
 
-Zone.js 提供一個區域的機制，用在瀏覽器中封裝和攔截異步的操作
+Zone.js 提供一個區域的機制，用在瀏覽器中封裝和攔截非同步的操作
 
 ### 環境設置
 
