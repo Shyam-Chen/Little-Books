@@ -1,14 +1,13 @@
 ## 最佳實踐
 
-### 提前時間編譯
-
 ### 樹搖優化
 
 Tree-shaking (樹搖優化) 的目的是要將未使用到的程式碼從打捆中移除。現在支援樹搖優化的工具有 Rollup 和 Webpack 2 等等。
 
-如果專案是 Angular CLI 生產的 (Angular CLI 的模組整合工具是 Webpack 2)，可以透過 `ng build --prod` 來執行樹搖優化的動作。
+如果專案是 Angular CLI 生產的 (Angular CLI 的模組整合工具是 Webpack 2)，可以透過 `ng build --target production` 來執行樹搖優化的動作。
 
 底下範例為使用 Rollup 進行樹搖優化的程式碼：
+
 ```js
 // package.json
 {
@@ -43,8 +42,8 @@ Tree-shaking (樹搖優化) 的目的是要將未使用到的程式碼從打捆�
     "typescript": "^2.0.3"
   }
 }
-
 ```
+
 ```js
 // rollup.config.js
 import { join } from 'path';
@@ -67,6 +66,7 @@ export default {
   ]
 };
 ```
+
 ```js
 // tsconfig.json
 {
@@ -86,6 +86,7 @@ export default {
   "compileOnSave": false
 }
 ```
+
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
@@ -102,6 +103,7 @@ export default {
 </body>
 </html>
 ```
+
 ```ts
 // src/main.ts
 // polyfills
@@ -146,6 +148,7 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { }
 ```
+
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
@@ -158,8 +161,46 @@ import { Component } from '@angular/core';
 })
 export class AppComponent { }
 ```
+
 ```bash
 $ npm start
+```
+
+### 提前時間編譯
+
+如果是使用 Angular CLI 直接使用 `--aot` 選項
+
+```bash
+$ ng build --target production --aot
+```
+
+```bash
+$ npm i @angular/compiler-cli @angular/platform-server -S
+```
+
+```js
+// tsconfig.json
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "es2015",
+    "target": "es5",
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": [
+      "es2016",
+      "dom"
+    ]
+  },
+  "include": [
+    "src"
+  ],
+  "angularCompilerOptions": {
+    "entryModule": "./app/app.module#AppModule"
+  }
+}
 ```
 
 ### 離線存儲

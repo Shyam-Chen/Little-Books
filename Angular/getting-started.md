@@ -4,17 +4,19 @@
 
 根據 Angular 官網的說明: 一個框架多個平台為主要特色！
 
-Angular 開發概念就是已元件化為中心出發，而 Angular 的元件化實作是在 Web Components 標準之上的，不同於 React，React 雖然也是以元件為出發點，但是 React 不是在標準之上的，不過現今也有一個火紅的框架出現，叫做 Vue，Vue 與 Web Components 標準非常的相似，是將其 HTML/CSS/JavaScript 寫在 `.vue` 內，再做編譯的動作。在 Angular 與 React 和 Vue 的不同，React 和 Vue 是專注於 View 上，而 Angular 是在 MVC 上，實際上會是 MVVM。
+Angular 開發概念就是已元件化為中心出發，而 Angular 的元件化實作是在 [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) 標準之上的，除了元件之外，還有模組、指令、服務、管道和動畫地的特色。
 
 #### TypeScript
 
-TypeScript 是 JavaScript 的超集
+TypeScript 是 JavaScript 的超集，提供型別的機制，還有更多未來標準的實現
 
 #### RxJS
 
-Observables
+透過 RxJS 來實現 Observables 未來的標準的非同步操作
 
 #### Zone.js
+
+Zone.js 提供一個區域的機制，用在瀏覽器中封裝和攔截異步的操作
 
 ### 環境設置
 

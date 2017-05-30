@@ -75,6 +75,7 @@ app.get('/data', (req, res) => {
 });
 
 app.listen(app.get('port'), () => {
+  console.log('App: Bootstrap Succeeded.');
   console.log(`Port: ${app.get('port')}.`);
 });
 ```

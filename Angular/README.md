@@ -137,7 +137,7 @@
   * [自動化建置](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#自動化建置)
   * [除錯和剖析](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#除錯和剖析)
 * [最佳實踐](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md)
-  * [提前時間編譯](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#提前時間編譯)
   * [樹搖優化](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#樹搖優化)
+  * [提前時間編譯](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#提前時間編譯)
   * [離線存儲](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#離線存儲)
   * [伺服端渲染](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#伺服端渲染)
