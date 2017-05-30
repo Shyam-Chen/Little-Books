@@ -73,7 +73,7 @@
   * [take](#take) :star:
   * takeUntil :star:
   * takeWhile
-  * throttle
+  * [throttle](#throttle)
   * throttleTime
 * [Multicasting (組播)](#組播)
   * multicast
@@ -1738,6 +1738,27 @@ Observable::of(1, 2, 3, 4, 5)
 ### takeWhile
 
 ### throttle
+
+Emits a value from the source Observable, then ignores subsequent source values for a duration determined by another Observable, then repeats this process.
+
+從源 Observable 中發出一個值，然後忽略由另一個 Observable 確定的持續源值，然後重複此過程。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { throttle } from 'rxjs/operator/throttle';
+
+Observable::interval(1000)
+  ::throttle(() => Observable::interval(3000))
+  .subscribe(value => console.log(value));
+  // 0
+  // 4
+  // 8
+  // 12
+  // ...
+```
 
 ### throttleTime
 
