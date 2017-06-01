@@ -922,8 +922,7 @@ import { mergeAll } from 'rxjs/operator/mergeAll';
 
 const source$ = Observable::interval(1000)::take(3);
 
-source$
-	::map(() => source$::delay(1000)::take(2))
+source$::map(() => source$::delay(1000)::take(2))
   ::mergeAll(2)
   .subscribe(value => console.log(value));
   // 0
