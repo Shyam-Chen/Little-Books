@@ -101,6 +101,7 @@ app.use(express.static(join(__dirname, '../public')));
 ```
 
 ```html
+<!-- public/index.html -->
 <!DOCTYPE html>
 <html>
   <head>

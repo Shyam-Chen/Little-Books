@@ -242,6 +242,8 @@ const postData = (userId, name, email, comment) => {
 postData(user.uid, user.displayName, user.email, comment.value);
 ```
 
+`set` 會覆蓋既有的資料，而 `push` 不會
+
 ### 讀取
 
 ```js
