@@ -30,7 +30,7 @@
 * [Text Field (文字輸入框)](#文字輸入框)
 * [Theme (主題)](#主題)
 * Toolbar (工具列)
-* Typography (文字排版學)
+* [Typography (文字排版學)](#文字排版學)
 
 ***
 
@@ -224,7 +224,6 @@ import { MDCRadio } from '@material/radio';
 
 多行: `mdc-textfield--multiline`
 
-
 ```html
 <div class="mdc-textfield">
   <input type="text" id="ex" class="mdc-textfield__input" aria-controls="ex-helptext">
@@ -257,4 +256,51 @@ import { MDCTextfield } from '@material/textfield';
   --mdc-theme-primary: #9C27B0;  // Purple
   --mdc-theme-accent: #009688;  // Teal
 }
+```
+
+## 文字排版學
+
+主標:
+* `mdc-typography--display4`
+* `mdc-typography--display3`
+* `mdc-typography--display2`
+* `mdc-typography--display1`
+* `mdc-typography--headline`
+
+標題:
+* `mdc-typography--title`
+  * `mdc-typography--caption`
+
+子標:
+* `mdc-typography--subheading2`
+* `mdc-typography--subheading1`
+
+段落:
+* `mdc-typography--body1`
+* `mdc-typography--body2`
+
+額外調整: `mdc-typography--adjust-margin`
+
+```js
+import '@material/typography/dist/mdc.typography.css';
+```
+
+```html
+<h1 class="mdc-typography--display4">Display 4</h1>
+<h1 class="mdc-typography--display3">Display 3</h1>
+<h1 class="mdc-typography--display2">Display 2</h1>
+<h1 class="mdc-typography--display1">Display 1</h1>
+<h1 class="mdc-typography--headline">Headline</h1>
+
+<h2 class="mdc-typography--title">
+  Title <span class="mdc-typography--caption">Caption.</span>
+</h2>
+
+<h3 class="mdc-typography--subheading2">Subheading 2</h3>
+<h4 class="mdc-typography--subheading1">Subheading 1</h4>
+
+<p class="mdc-typography--body1">Body 1 paragraph.</p>
+<aside class="mdc-typography--body2">Body 2 text, calling something out.</aside>
+
+
 ```
