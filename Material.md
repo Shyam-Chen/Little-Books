@@ -14,10 +14,10 @@
 * [Card (卡片)](#卡片)
 * Checkbox (複選框)
 * Dialog (對話框)
-* Drawer (側邊欄)
+* [Drawer (側邊欄)](#側邊欄)
 * [Elevation (白框)](#白框)
 * [FAB (懸浮操作按鈕)](#懸浮操作按鈕)
-* Grid List (格子列表)
+* Grid List (網格列表)
 * Icon Toggle (圖標按鈕)
 * Layout Grid (版面網格)
 * [List (列表)](#列表)
@@ -40,7 +40,7 @@
 
 墊高: `mdc-button--raised`
 
-變化: `mdc-button--dense` or `mdc-button--compact`
+大小: `mdc-button--dense` or `mdc-button--compact`
 
 顏色: `mdc-button--primary` or `mdc-button--accent`
 
@@ -50,27 +50,16 @@ import '@material/button/dist/mdc.button.css';
 
 ```html
 <button class="mdc-button mdc-button--primary">Button</button>
-
 <button class="mdc-button mdc-button--raised mdc-button--primary">Button</button>
-
 <button class="mdc-button mdc-button--accent">Button</button>
-
 <button class="mdc-button mdc-button--raised mdc-button--accent">Button</button>
-
 <button class="mdc-button mdc-button--dense mdc-button--primary">Button</button>
-
 <button class="mdc-button mdc-button--compact mdc-button--primary">Button</button>
-
 <button class="mdc-button mdc-button--dense mdc-button--accent">Button</button>
-
 <button class="mdc-button mdc-button--compact mdc-button--accent">Button</button>
-
 <button class="mdc-button mdc-button--raised mdc-button--dense mdc-button--primary">Button</button>
-
 <button class="mdc-button mdc-button--raised mdc-button--compact mdc-button--primary">Button</button>
-
 <button class="mdc-button mdc-button--raised mdc-button--dense mdc-button--accent">Button</button>
-
 <button class="mdc-button mdc-button--raised mdc-button--compact mdc-button--accent">Button</button>
 ```
 
@@ -123,6 +112,10 @@ import { MDCRipple } from '@material/ripple';
 </div>
 ```
 
+## 複選框
+
+## 對話框
+
 ## 側邊欄
 
 ```js
@@ -163,6 +156,10 @@ drawer.addEventListener('MDCTemporaryDrawer:close', () => bodyEl.style.overflowY
 </button>
 ```
 
+## 網格列表
+
+## 圖標按鈕
+
 ## 列表
 
 ```html
@@ -178,6 +175,10 @@ drawer.addEventListener('MDCTemporaryDrawer:close', () => bodyEl.style.overflowY
   </li>
 </ul>
 ```
+
+## 版面網格
+
+## 選單
 
 ## 單選框
 
@@ -213,7 +214,11 @@ import { MDCRadio } from '@material/radio';
 );
 ```
 
+## 選擇框
+
 ## 小橫條
+
+## 切換鈕
 
 ## 文字輸入框
 
@@ -257,6 +262,8 @@ import { MDCTextfield } from '@material/textfield';
   --mdc-theme-accent: #009688;  // Teal
 }
 ```
+
+## 工具列
 
 ## 文字排版學
 
