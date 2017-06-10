@@ -82,7 +82,7 @@
   * [Put](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#put)
   * [Delete](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#delete)
   * [JSONP](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#jsonp)
-  * GraphQL
+  * [GraphQL](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#graphql)
 * [WebSocket](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/websocket.md)
 * [管道](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/pipes.md)
   * [內建管道](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/pipes.md#內建管道)
