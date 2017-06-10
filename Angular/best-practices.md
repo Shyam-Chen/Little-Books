@@ -209,7 +209,7 @@ $ npm i @angular/compiler-cli @angular/platform-server -S
 
 一個 Vanilla 實體的例子: [https://web-go-demo.firebaseapp.com/](https://web-go-demo.firebaseapp.com/)
 
-到此網站的任何一頁後 (如，https://web-go-demo.firebaseapp.com/about)，再將網路線拔掉，再給它重新整理下去，就會看到網頁還活生生地呈現著。
+到此網站的任何一頁後 (如，[https://web-go-demo.firebaseapp.com/about](https://web-go-demo.firebaseapp.com/about))，再將網路線拔掉，再給它重新整理下去，就會看到網頁還活生生地呈現著。
 
 不過離線只不過是裡面的一塊，最為主要的還是效能的提升。
 

@@ -26,9 +26,9 @@
   * [更新](#更新)
 * Storage (存儲)
   * 檔案上傳
-* Messaging (訊息)
-  * FCM 通知
+  * 多個檔案上傳
 * [Functions (功能)](#功能)
+  * FCM 通知
   * Email
   * SMS
   * GitHub/Slack
@@ -309,6 +309,14 @@ const text = document.querySelector('#text');
 firebase.database()
   .ref('text')
   .on('value', snapshot => {
+    text.innerHTML = snapshot.val();
+  });
+
+// 只讀取一次
+
+firebase.database()
+  .ref('text')
+  .once('value', snapshot => {
     text.innerHTML = snapshot.val();
   });
 ```
