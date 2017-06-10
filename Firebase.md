@@ -13,6 +13,7 @@
 ### 目錄
 * [Application (應用程式)](#應用程式)
 * [Authentication (驗證)](#驗證)
+  * [匿名](#匿名)
   * Email/Password
   * [Google](#google)
   * Facebook
@@ -52,6 +53,62 @@ firebase.initializeApp({
 ```
 
 ## 驗證
+
+### 匿名
+
+```js
+const name = document.querySelector('#name');
+const email = document.querySelector('#email');
+const comment = document.querySelector('#comment');
+const sendButton = document.querySelector('#send-button');
+
+firebase.auth()
+  .onAuthStateChanged(user => {
+    if (user) {
+      sendButton.onclick = () => {
+        if (name.value !== '' && email.value !== '' && comment.value !== '') {
+          firebase.database()
+            .ref('users')
+            .push({ id: user.uid, name: name.value, email: email.value, message: comment.value });
+
+          name.value = '';
+          email.value = '';
+          comment.value = '';
+        }
+      };
+    } else {
+      firebase.auth().signInAnonymously();
+    }
+  });
+```
+
+```html
+<div class="flexbox flexbox--center">
+  <div class="mdc-card ${ style.card }">
+    <form class="flexbox__cell--column ${ style.form }">
+      <div class="mdc-textfield">
+        <input id="name" class="mdc-textfield__input ${ style.input }" type="text" required>
+        <label class="mdc-textfield__label" for="name">${ NAME }</label>
+      </div>
+      <div class="mdc-textfield ${ style.email }">
+        <input id="email" class="mdc-textfield__input ${ style.input }" type="text" required>
+        <label class="mdc-textfield__label" for="email">${ EMAIL }</label>
+      </div>
+      <div class="mdc-textfield mdc-textfield--multiline">
+        <textarea id="comment" class="mdc-textfield__input ${ style.input }" type="text" rows="5" required></textarea>
+        <label class="mdc-textfield__label" for="comment">${ COMMENT }</label>
+      </div>
+      <button type="button" aria-label="Send" id="send-button" class="mdc-button mdc-button--primary">
+        ${ SEND }
+        <svg fill="#3F51B5" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+```
 
 ### Google
 
