@@ -20,7 +20,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule } from '@angular/material';
 ```
 
+註冊到 AppModule 裡
+
 ```ts
+[...]
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -34,4 +38,10 @@ import { MdButtonModule } from '@angular/material';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+```
+
+使用按鈕
+
+```html
+<button md-button>點擊我</button>
 ```
