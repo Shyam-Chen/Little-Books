@@ -44,7 +44,6 @@
   * [URL 參數](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/routing.md#url-參數)
   * [非同步路由](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/routing.md#非同步路由)
   * 路由守衛
-  * SEO
 * [指令](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md)
   * [內建屬性型指令](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md#內建屬性型指令)
     * [ngStyle](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md#ng-style)

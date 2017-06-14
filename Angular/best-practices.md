@@ -290,4 +290,4 @@ import { AppModule } from './app.module';
 export class ServerAppModule { }
 ```
 
-完整的程式碼可以參考: [https://github.com/Shyam-Chen/Fullstack-Starter-Kit](https://github.com/Shyam-Chen/Fullstack-Starter-Kit)
+完整的程式碼可以參考: [https://github.com/Shyam-Chen/Universal-Starter-Kit](https://github.com/Shyam-Chen/Universal-Starter-Kit)

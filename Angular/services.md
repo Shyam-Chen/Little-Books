@@ -3,6 +3,7 @@
 ### 可注入的服務
 
 #### 服務起點
+
 ```ts
 // name.service.ts
 import { Injectable } from '@angular/core';
@@ -14,6 +15,7 @@ export class NameService {
 ```
 
 #### 建立服務
+
 ```ts
 // languages.service.ts
 import { Injectable } from '@angular/core';
@@ -27,6 +29,7 @@ export class LanguagesService {
 ```
 
 #### 使用服務
+
 ```ts
 // app.component.ts
 import { Component } from '@angular/core';
@@ -54,6 +57,7 @@ export class AppComponent {
 ```
 
 #### 沒有相依性注入
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -75,6 +79,7 @@ export class AppComponent {
 ```
 
 #### Inject 修飾器
+
 ```ts
 import { Component, Inject } from '@angular/core';
 
@@ -95,11 +100,13 @@ export class AppComponent {
 ```
 
 #### 完整的服務
+
 ```ts
 export interface List {
   label: string;
 }
 ```
+
 ```ts
 import { Injectable } from '@angular/core';
 
@@ -113,11 +120,12 @@ export class ListService {
     { label: 'TypeScript' }
   ];
 
-  getList(): List[] {
+  private getList(): List[] {
     return this.LIST;
   }
 }
 ```
+
 ```ts
 import { Component, OnInit, Inject } from '@angular/core';
 
@@ -135,7 +143,7 @@ import { ListService } from './services/list';
 export class AppComponent implements OnInit {
   constructor(private listService: ListService) { }
 
-  getList(): void {
+  public getList(): void {
     this.list = this.listService.getList();
   }
 
@@ -148,6 +156,7 @@ export class AppComponent implements OnInit {
 ### 服務的相依性
 
 #### useClass
+
 ```ts
 import { Injectable } from '@angular/core';
 
@@ -160,6 +169,7 @@ export class RedService {
   public r900: string = '#B71C1C';
 }
 ```
+
 ```ts
 import { Component, Inject } from '@angular/core';
 
@@ -185,6 +195,7 @@ export class AppComponent {
 ```
 
 #### useExisting
+
 ```ts
 import { Component, Inject } from '@angular/core';
 
@@ -211,6 +222,7 @@ export class AppComponent {
 ```
 
 #### useValue
+
 ```ts
 import { Component, Inject } from '@angular/core';
 
@@ -271,6 +283,7 @@ export class AppComponent {
 ```
 
 #### useFactory
+
 ```ts
 import { Component, Inject } from '@angular/core';
 
@@ -280,7 +293,7 @@ import { Component, Inject } from '@angular/core';
     <p>亂數值: {{ value }}</p>
   `,
   viewProviders: [
-    { provide: 'NumberService', useFactory: () => { return Math.random(); }}  // 注入返回的值
+    { provide: 'NumberService', useFactory: () => Math.random() }  // 注入返回的值
   ]
 })
 export class AppComponent {
@@ -293,6 +306,7 @@ export class AppComponent {
 ```
 
 #### deps
+
 ```ts
 import { Component, Inject } from '@angular/core';
 
@@ -302,8 +316,8 @@ import { Component, Inject } from '@angular/core';
     <p>{{ messages }}</p>
   `,
   viewProviders: [
-    { provide: 'NumberService', useFactory: () => { return Math.random(); }},
-    { provide: 'StringService', useFactory: (value) => { return `亂數值: ${ value }`; }, deps: ['NumberService'] }
+    { provide: 'NumberService', useFactory: () => Math.random() },
+    { provide: 'StringService', useFactory: value => `亂數值: ${ value }`, deps: ['NumberService'] }
   ]
 })
 export class AppComponent {
@@ -316,6 +330,7 @@ export class AppComponent {
 ```
 
 ### 層疊注入器
+
 ```ts
 // src/app/random.service.ts
 import { Injectable } from '@angular/core';
@@ -325,6 +340,7 @@ export class RandomService {
   public value: number = Math.floor(Math.random() * 100 + 1);
 }
 ```
+
 ```ts
 // src/app/inheritor.component.ts
 import { Component } from '@angular/core';
@@ -335,7 +351,8 @@ import { RandomService } from './random.service';
   selector: 'at-inheritor',
   template: `
     <p>{{ message }}</p>
-  `
+  `,
+  viewProviders: [RandomService]
 })
 export class InheritorComponent {
   public message: number;
@@ -345,6 +362,7 @@ export class InheritorComponent {
   }
 }
 ```
+
 ```ts
 // src/app/injector.component.ts
 import { Component } from '@angular/core';
@@ -366,6 +384,7 @@ export class InjectorComponent {
   }
 }
 ```
+
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
@@ -406,6 +425,7 @@ export class AppComponent {
 #### Optional 與 Host
 
 (1) Optional
+
 ```ts
 import { Component, Optional } from '@angular/core';
 
@@ -426,6 +446,7 @@ export class AppComponent {
 ```
 
 (2) Host
+
 ```ts
 import { Component, Host } from '@angular/core';
 
@@ -448,6 +469,7 @@ export class AppComponent {
 #### Self 與 SkipSelf
 
 (1) Self
+
 ```ts
 import { Component, Self } from '@angular/core';
 
@@ -468,6 +490,7 @@ export class AppComponent {
 ```
 
 (2) SkipSelf
+
 ```ts
 import { Component, SkipSelf } from '@angular/core';
 
@@ -501,7 +524,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   imports: [BrowserModule],
   declarations: [AppComponent],
-  providers: [Title],  // 註冊到 AppModule 裡
+  providers: [Title],  // 註冊到 AppModule 裡
   bootstrap: [AppComponent]
 })
 export class AppModule { }
@@ -510,16 +533,16 @@ export class AppModule { }
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';  // 導入 Title 服務
 
 @Component({
   selector: 'app-root',
   template: `
-    <button (click)="setTitle('Angular Love')">Click Me</button>
+    <button (click)="setTitle('Angular Love')">設置 Title</button>
   `
 })
 export class AppComponent {
-  constructor(private title: Title) { }
+  constructor(private title: Title) { }  // 注入 Title 服務
 
   public setTitle(newTitle: string): void {
     this.title.setTitle(newTitle);
@@ -539,7 +562,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   imports: [BrowserModule],
   declarations: [AppComponent],
-  providers: [Meta],  // 註冊到 AppModule 裡
+  providers: [Meta],  // 註冊到 AppModule 裡
   bootstrap: [AppComponent]
 })
 export class AppModule { }
@@ -548,21 +571,21 @@ export class AppModule { }
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta } from '@angular/platform-browser';  // 導入 Meta 服務
 
 @Component({
   selector: 'app-root',
   template: `
-    <button (click)="setMeta()">Click Me</button>
+    <button (click)="setMeta()">設置 Meta</button>
   `
 })
 export class AppComponent {
-  constructor(private meta: Meta) { }
+  constructor(private meta: Meta) { }  // 注入 Meta 服務
 
   public setMeta(): void {
-    this.meta.addTag({
+    this.meta.addTags({
       name: 'description',
-      content: '一些文字在這裡...'
+      content: 'Great description is here.'
     });
   }
 }
