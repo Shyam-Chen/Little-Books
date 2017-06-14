@@ -44,6 +44,7 @@
   * [URL 參數](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/routing.md#url-參數)
   * [非同步路由](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/routing.md#非同步路由)
   * 路由守衛
+  * SEO
 * [指令](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md)
   * [內建屬性型指令](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md#內建屬性型指令)
     * [ngStyle](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md#ng-style)
@@ -136,6 +137,7 @@
   * [模組整合](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#模組整合)
   * [自動化建置](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#自動化建置)
   * [除錯和剖析](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#除錯和剖析)
+* 設計模式
 * [最佳實踐](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md)
   * [樹搖優化](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#樹搖優化)
   * [提前時間編譯](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#提前時間編譯)
