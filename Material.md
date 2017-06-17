@@ -12,7 +12,7 @@
 ### 目錄
 * [Button (按鈕)](#按鈕)
 * [Card (卡片)](#卡片)
-* Checkbox (複選框)
+* [Checkbox (複選框)](#複選框)
 * Dialog (對話框)
 * [Drawer (側邊欄)](#側邊欄)
 * [Elevation (白框)](#白框)
@@ -113,6 +113,26 @@ import { MDCRipple } from '@material/ripple';
 ```
 
 ## 複選框
+
+```js
+import '@material/form-field/dist/mdc.form-field.css';
+import '@material/checkbox/dist/mdc.checkbox.css';
+```
+
+```html
+<div class="mdc-form-field">
+  <div class="mdc-checkbox">
+    <input type="checkbox" id="basic-checkbox" class="mdc-checkbox__native-control">
+    <div class="mdc-checkbox__background">
+      <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+        <path class="mdc-checkbox__checkmark__path" fill="none" stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+      </svg>
+      <div class="mdc-checkbox__mixedmark"></div>
+    </div>
+  </div>
+  <label for="basic-checkbox">OK?</label>
+</div>
+```
 
 ## 對話框
 
@@ -308,6 +328,4 @@ import '@material/typography/dist/mdc.typography.css';
 
 <p class="mdc-typography--body1">Body 1 paragraph.</p>
 <aside class="mdc-typography--body2">Body 2 text, calling something out.</aside>
-
-
 ```

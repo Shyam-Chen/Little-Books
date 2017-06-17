@@ -221,7 +221,7 @@ $ npm i @angular/service-worker -S
 
 ### 伺服端渲染
 
-共通式網頁應用程式 (Universal Web Applications)
+通用式網頁應用程式 (Universal Web Applications)
 
 Angular CLI 並不是 Universal 的，所以要親自打造一個。
 
