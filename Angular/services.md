@@ -590,3 +590,5 @@ export class AppComponent {
   }
 }
 ```
+
+不過 Title 和 Meta 只是算輔助的，要達到 SEO 優化的話，還需要用 Cloud Functions 做 Isomorphic JavaScript Apps 或者用 Angular Universal 做 Universal Web Apps
