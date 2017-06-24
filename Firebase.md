@@ -24,8 +24,9 @@
   * [讀取](#讀取)
   * [刪除](#刪除)
   * [更新](#更新)
-* Storage (存儲)
-  * 檔案上傳
+  * 完整 CRUD
+* [Storage (存儲)](#存儲)
+  * [檔案上傳](#檔案上傳)
   * 多個檔案上傳
 * [Functions (功能)](#功能)
   * FCM 通知
@@ -56,16 +57,34 @@ firebase.initializeApp({
 
 ### 匿名
 
+```html
+<section>
+  <div class="mdc-textfield">
+    <input type="text" id="name" class="mdc-textfield__input">
+    <label for="name" class="mdc-textfield__label">Name</label>
+  </div>
+  <div class="mdc-textfield">
+    <input type="text" id="email" class="mdc-textfield__input">
+    <label for="email" class="mdc-textfield__label">Email</label>
+  </div>
+  <div class="mdc-textfield mdc-textfield--multiline">
+    <textarea id="message" class="mdc-textfield__input" rows="5"></textarea>
+    <label for="message" class="mdc-textfield__label">Message</label>
+  </div>
+  <button type="button" aria-label="Send" id="send" class="mdc-button">Send</button>
+</section>
+```
+
 ```js
 const name = document.querySelector('#name');
 const email = document.querySelector('#email');
 const comment = document.querySelector('#comment');
-const sendButton = document.querySelector('#send-button');
+const send = document.querySelector('#send');
 
 firebase.auth()
   .onAuthStateChanged(user => {
     if (user) {
-      sendButton.onclick = () => {
+      send.onclick = () => {
         if (name.value !== '' && email.value !== '' && comment.value !== '') {
           firebase.database()
             .ref('users')
@@ -82,44 +101,19 @@ firebase.auth()
   });
 ```
 
-```html
-<div class="flexbox flexbox--center">
-  <div class="mdc-card ${ style.card }">
-    <form class="flexbox__cell--column ${ style.form }">
-      <div class="mdc-textfield">
-        <input id="name" class="mdc-textfield__input ${ style.input }" type="text" required>
-        <label class="mdc-textfield__label" for="name">${ NAME }</label>
-      </div>
-      <div class="mdc-textfield ${ style.email }">
-        <input id="email" class="mdc-textfield__input ${ style.input }" type="text" required>
-        <label class="mdc-textfield__label" for="email">${ EMAIL }</label>
-      </div>
-      <div class="mdc-textfield mdc-textfield--multiline">
-        <textarea id="comment" class="mdc-textfield__input ${ style.input }" type="text" rows="5" required></textarea>
-        <label class="mdc-textfield__label" for="comment">${ COMMENT }</label>
-      </div>
-      <button type="button" aria-label="Send" id="send-button" class="mdc-button mdc-button--primary">
-        ${ SEND }
-        <svg fill="#3F51B5" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle">
-          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-          <path d="M0 0h24v24H0z" fill="none" />
-        </svg>
-      </button>
-    </form>
-  </div>
-</div>
-```
+後續底下操作都需要在匿名驗證下執行，也可以直接將規則 `auth != null` 設定為 `true`
 
 ### Google
 
 ```js
+// TODO: 重寫
 const signInButton = document.querySelector('#sign-in-button');
 const signOutButton = document.querySelector('#sign-out-button');
 const signInContent = document.querySelector('#sign-in-content');
 const name = document.querySelector('#name');
 const email = document.querySelector('#email');
 const comment = document.querySelector('#comment');
-const sendButton = document.querySelector('#send-button');
+const send = document.querySelector('#send');
 
 let currentUID;
 const onAuthStateChanged = user => {
@@ -135,7 +129,7 @@ const onAuthStateChanged = user => {
     name.value = `${user.displayName}`;
     email.value = `${user.email}`;
 
-    sendButton.onclick = () => {
+    send.onclick = () => {
       if (comment.value !== '') {
         postData(user.uid, user.displayName, user.email, comment.value);
       }
@@ -338,6 +332,23 @@ firebase.database()
 ```
 
 ## 存儲
+
+### 檔案上傳
+
+```html
+<input type="file" id="file-upload">
+```
+
+```js
+const fileUpload = document.querySelector('#file-upload');
+
+fileUpload.onchange = () => {
+  firebase.storage()
+    .ref()
+    .child(`images/${fileUpload.files[0].name}`)
+    .put(fileUpload.files[0], { contentType: fileUpload.files[0].type });
+};
+```
 
 ## 訊息
 
