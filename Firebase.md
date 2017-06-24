@@ -14,12 +14,12 @@
 * [Application (應用程式)](#應用程式)
 * [Authentication (驗證)](#驗證)
   * [匿名](#匿名)
-  * Email/Password
+  * [Email/Password](#email-password)
   * [Google](#google)
   * Facebook
   * Twitter
   * GitHub
-* [Database (資料庫)](#資料庫)
+* [Realtime Database (資料庫)](#資料庫)
   * [新增](#新增)
   * [讀取](#讀取)
   * [刪除](#刪除)
@@ -30,7 +30,15 @@
   * [檔案上傳](#檔案上傳)
   * 整合 File API
   * 多個檔案上傳
-* [Functions (功能)](#功能)
+* Cloud Messaging (訊息)
+* [Cloud Functions (函式)](#函式)
+  * 核心
+    * Realtime Database Triggers (資料庫觸發器)
+    * Authentication Triggers (驗證觸發器)
+    * Google Analytics Triggers (GA 觸發器)
+    * Cloud Storage Triggers (Google Cloud 存儲觸發器)
+    * Cloud Pub/Sub Triggers (Google 發佈/訂閱觸發器)
+    * HTTP Triggers (HTTP 觸發器)
   * FCM 通知
   * Email
   * SMS
@@ -109,6 +117,42 @@ firebase.auth()
 ```
 
 後續底下操作都需要在匿名驗證下執行，也可以直接將規則 `auth != null` 設定為 `true`
+
+### Email/Password
+
+登入
+
+```js
+const adminEmail = document.querySelector('#admin-email');
+const adminPassword = document.querySelector('#admin-password');
+
+const signOutContent = document.querySelectorAll('[data-sign-out]');
+const signInContent = document.querySelectorAll('[data-sign-in]');
+
+adminSignIn.onclick = () => {
+  firebase.auth()
+    .signInWithEmailAndPassword(adminEmail.value, adminPassword.value)
+    .then(() => {
+      adminEmail.value = '';
+      adminPassword.value = ''
+      adminEmailLabel.classList.remove('mdc-textfield__label--float-above');
+      adminPasswordLabel.classList.remove('mdc-textfield__label--float-above');
+    })
+    .catch(error => {
+      loginToast.show({ message: error.message });
+    });
+};
+```
+
+註冊
+
+```js
+firebase.auth()
+  .createUserWithEmailAndPassword(email, password)
+  .catch(error => {
+    loginToast.show({ message: error.message });
+  });
+```
 
 ### Google
 
@@ -561,7 +605,7 @@ fileUpload.onchange = () => {
 
 ## 訊息
 
-## 功能
+## 函式
 
 ```js
 const functions = require('firebase-functions');
