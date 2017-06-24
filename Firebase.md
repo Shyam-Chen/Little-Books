@@ -24,7 +24,7 @@
   * [讀取](#讀取)
   * [刪除](#刪除)
   * [更新](#更新)
-  * 完整 CRUD
+  * [完整 CRUD](#完整-crud)
   * 整合 Web Storage API
 * [Storage (存儲)](#存儲)
   * [檔案上傳](#檔案上傳)
@@ -81,21 +81,25 @@ firebase.initializeApp({
 ```js
 const name = document.querySelector('#name');
 const email = document.querySelector('#email');
-const comment = document.querySelector('#comment');
+const message = document.querySelector('#message');
 const send = document.querySelector('#send');
+
+const textfieldInputs = document.querySelectorAll('.mdc-textfield__input');
+const empty = [].filter.call(textfieldInputs, textfieldInput => textfieldInput.value === '');
 
 firebase.auth()
   .onAuthStateChanged(user => {
     if (user) {
       send.onclick = () => {
-        if (name.value !== '' && email.value !== '' && comment.value !== '') {
+        if (!empty.length) {
           firebase.database()
             .ref('users')
-            .push({ id: user.uid, name: name.value, email: email.value, message: comment.value });
+            .push({ id: user.uid, name: name.value, email: email.value, message: message.value });
 
-          name.value = '';
-          email.value = '';
-          comment.value = '';
+          [].forEach.call(
+            textfieldInputs,
+            textfieldInput => textfieldInput.value = ''
+          );
         }
       };
     } else {
@@ -115,7 +119,7 @@ const signOutButton = document.querySelector('#sign-out-button');
 const signInContent = document.querySelector('#sign-in-content');
 const name = document.querySelector('#name');
 const email = document.querySelector('#email');
-const comment = document.querySelector('#comment');
+const message = document.querySelector('#message');
 const send = document.querySelector('#send');
 
 let currentUID;
@@ -133,8 +137,8 @@ const onAuthStateChanged = user => {
     email.value = `${user.email}`;
 
     send.onclick = () => {
-      if (comment.value !== '') {
-        postData(user.uid, user.displayName, user.email, comment.value);
+      if (message.value !== '') {
+        postData(user.uid, user.displayName, user.email, message.value);
       }
     };
   } else {
@@ -188,8 +192,8 @@ unAuth();
           <label class="mdl-textfield__label" for="email">${ EMAIL }</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <textarea class="mdl-textfield__input" type="text" rows= "3" id="comment"></textarea>
-          <label class="mdl-textfield__label" for="comment">${ COMMENT }</label>
+          <textarea class="mdl-textfield__input" type="text" rows= "3" id="message"></textarea>
+          <label class="mdl-textfield__label" for="message">${ COMMENT }</label>
         </div>
       </form>
     </div>
@@ -277,23 +281,23 @@ firebase.database()
 ```
 
 ```js
-const postData = (userId, name, email, comment) => {
+const postData = (userId, name, email, message) => {
   firebase.database()
     .ref(`users/${userId}`)
-    .set({ name, email, comment });
+    .set({ name, email, message });
 };
 
-postData(user.uid, user.displayName, user.email, comment.value);
+postData(user.uid, user.displayName, user.email, message.value);
 ```
 
 ```js
-const postData = (userId, name, email, comment) => {
+const postData = (userId, name, email, message) => {
   firebase.database()
     .ref(`users/${userId}`)
-    .push({ name, email, comment });
+    .push({ name, email, message });
 };
 
-postData(user.uid, user.displayName, user.email, comment.value);
+postData(user.uid, user.displayName, user.email, message.value);
 ```
 
 `set` 會覆蓋既有的資料，而 `push` 不會
@@ -332,6 +336,201 @@ firebase.database()
 firebase.database()
   .ref()
   .update({ text: 'ABC' });
+```
+
+### 完整 CRUD
+
+```html
+<div id="users"></div>
+```
+
+```js
+import { template as _ } from 'lodash';
+
+firebase.database()
+  .ref('users')
+  .on('value', snapshot => {
+    document.querySelector('#users')
+      .innerHTML = _(usersTemplate, { imports: { snapshot } })();
+
+    users();
+  });
+```
+
+```html
+<div class="mdc-layout-grid">
+  <table id="users-table" class="md-table">
+    <thead>
+      <tr>
+        <th colspan="4">
+          <div class="mdc-textfield">
+            <input type="text" id="create-name" class="mdc-textfield__input">
+            <label for="create-name" class="mdc-textfield__label">Name</label>
+          </div>
+          <div class="mdc-textfield">
+            <input type="text" id="create-email" class="mdc-textfield__input">
+            <label for="create-email" class="mdc-textfield__label">Email</label>
+          </div>
+          <div class="mdc-textfield">
+            <input type="text" id="create-message" class="mdc-textfield__input">
+            <label for="create-message" class="mdc-textfield__label">Message</label>
+          </div>
+          <button type="button" id="create" class="mdc-button">Add</button>
+        </th>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% snapshot.forEach(function(childSnapshot) { %>
+        <tr>
+          <td><%- childSnapshot.val().name %></td>
+          <td><%- childSnapshot.val().email %></td>
+          <td><%- childSnapshot.val().message %></td>
+          <td>
+            <button type="button" class="mdc-button mdc-button--primary"
+              data-edit="<%- childSnapshot.key %>"
+              data-edit-name="<%- childSnapshot.val().name %>"
+              data-edit-email="<%- childSnapshot.val().email %>"
+              data-edit-message="<%- childSnapshot.val().message %>"
+            >Edit</button>
+            <button type="button" class="mdc-button mdc-button--primary" data-delete="<%- childSnapshot.key %>">Delete</button>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+
+<aside id="dialog-edit" class="mdc-dialog">
+  <div class="mdc-dialog__surface">
+    <header class="mdc-dialog__header">
+      <h2 class="mdc-dialog__header__title">Edit</h2>
+    </header>
+    <section class="mdc-dialog__body">
+      <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell">
+            <div class="mdc-textfield">
+              <label class="mdc-textfield__label" for="name">Name</label>
+              <input type="text" class="mdc-textfield__input" id="edit-name" value=" ">
+            </div>
+
+            <div class="mdc-textfield">
+              <label class="mdc-textfield__label" for="email">Email</label>
+              <input type="text" class="mdc-textfield__input" id="edit-email" value=" ">
+            </div>
+
+            <div class="mdc-textfield">
+              <label class="mdc-textfield__label" for="message">Message</label>
+              <input type="text" class="mdc-textfield__input" id="edit-message" value=" ">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+    <footer class="mdc-dialog__footer">
+      <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+      <button type="button" id="edit-save" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Save</button>
+    </footer>
+  </div>
+</aside>
+
+<aside id="dialog-delete" class="mdc-dialog">
+  <div class="mdc-dialog__surface">
+    <header class="mdc-dialog__header">
+      <h2 class="mdc-dialog__header__title">Delete</h2>
+    </header>
+    <section class="mdc-dialog__body">
+      Are you sure you want to delete it?
+    </section>
+    <footer class="mdc-dialog__footer">
+      <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+      <button type="button" id="delete-confirm" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Confirm</button>
+    </footer>
+  </div>
+</aside>
+```
+
+```js
+const bodyEl = document.querySelector('body');
+
+const name = document.querySelector('#create-name');
+const email = document.querySelector('#create-email');
+const message = document.querySelector('#create-message');
+const create = document.querySelector('#create');
+
+const dialogEditEl = document.querySelector('#dialog-edit');
+const dialogEdit = new mdDialog.MDCDialog(dialogEditEl);
+const name = document.querySelector('#edit-name');
+const email = document.querySelector('#edit-email');
+const message = document.querySelector('#edit-message');
+const save = document.querySelector('#edit-save');
+
+const dialogDeleteEl = document.querySelector('#dialog-delete');
+const dialogDelete = new mdDialog.MDCDialog(dialogDeleteEl);
+const confirm = document.querySelector('#delete-confirm');
+
+const sliceAll = (selector: string, element: HTMLElement = document): string[] =>
+  [].slice.call((element).querySelectorAll(selector));
+
+sliceAll('tbody').forEach((body: HTMLTableElement): void => {
+  sliceAll('tr', body).reverse()
+    .forEach(row => body.appendChild(row));
+});
+
+[dialogEdit, dialogDelete].forEach((dialog: any): void => {
+  dialog.listen('MDCDialog:accept', () => bodyEl.style.overflowY = 'auto');
+  dialog.listen('MDCDialog:cancel', () => bodyEl.style.overflowY = 'auto');
+});
+
+create.onclick = () => {
+  firebase.database()
+    .ref('users')
+    .push({ name: name.value, email: email.value, message: message.value });
+};
+
+[].forEach.call(
+  document.querySelectorAll('.mdc-button[data-edit]'),
+  editButton => {
+    editButton.onclick = (): void => {
+      dialogEdit.show();
+      bodyEl.style.overflowY = 'hidden';
+
+      name.value = editButton.dataset.editName;
+      email.value = editButton.dataset.editEmail;
+      message.value = editButton.dataset.editMessage;
+
+      save.onclick = (): void => {
+        firebase.database()
+          .ref(`users/${editButton.dataset.edit}`)
+          .update({ name: name.value, email: email.value, message: message.value });
+      };
+    };
+  }
+);
+
+[].forEach.call(
+  document.querySelectorAll('.mdc-button[data-delete]'),
+  deleteButton => {
+    deleteButton.onclick = (): void => {
+      dialogDelete.show();
+      bodyEl.style.overflowY = 'hidden';
+
+      confirm.onclick = (): void => {
+        firebase.database()
+          .ref(`users/${deleteButton.dataset.delete}`)
+          .remove();
+      };
+    };
+  }
+);
 ```
 
 ## 存儲
