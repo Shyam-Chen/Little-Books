@@ -1,12 +1,14 @@
 # Firebase
 
 ### 練習來源
+
 * https://github.com/firebase/quickstart-js
 * https://github.com/firebase/functions-samples
 * https://github.com/firebase/firebase-tools
 
 ### 實作執行
-* https://github.com/Shyam-Chen/Frontend-Starter-Kit
+
+* https://github.com/Shyam-Chen/Web-Starter-Kit
 
 ***
 
@@ -31,6 +33,8 @@
   * 整合 File API
   * 多個檔案上傳
 * Cloud Messaging (訊息)
+  * Notification message
+  * Data message
 * [Cloud Functions (函式)](#函式)
   * 核心
     * Realtime Database Triggers (資料庫觸發器)
@@ -47,6 +51,7 @@
   * PayPal
   * Chatbot
 * [Hosting (託管)](#託管)
+  * Custom Domain (自訂網域)
 
 ***
 

@@ -1,14 +1,17 @@
 # Immutable
 
 ### 練習來源
+
 * https://github.com/facebook/immutable-js
 
 ### 實作執行
-* https://github.com/Shyam-Chen/Frontend-Starter-Kit
+
+* https://github.com/Shyam-Chen/Web-Starter-Kit
 
 ***
 
 ### 目錄
+
 * [核心](#核心)
   * Getters (取值器)
   * Setters (設值器)

@@ -1,10 +1,12 @@
 # Lodash
 
 ### 練習來源
+
 * https://github.com/lodash/lodash
 
 ### 實作執行
-* https://github.com/Shyam-Chen/Frontend-Starter-Kit
+
+* https://github.com/Shyam-Chen/Web-Starter-Kit
 * https://github.com/Shyam-Chen/Backend-Starter-Kit
 
 ***

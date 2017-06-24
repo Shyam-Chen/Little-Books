@@ -1,15 +1,18 @@
 # Redux
 
 ### 練習來源
+
 * https://github.com/reactjs/redux
 * https://github.com/redux-observable/redux-observable
 
 ### 實作執行
-* https://github.com/Shyam-Chen/Frontend-Starter-Kit
+
+* https://github.com/Shyam-Chen/Web-Starter-Kit
 
 ***
 
 ### 目錄
+
 * [核心](#核心)
   * Action
   * Reducer
