@@ -25,8 +25,10 @@
   * [刪除](#刪除)
   * [更新](#更新)
   * 完整 CRUD
+  * 整合 Web Storage API
 * [Storage (存儲)](#存儲)
   * [檔案上傳](#檔案上傳)
+  * 整合 File API
   * 多個檔案上傳
 * [Functions (功能)](#功能)
   * FCM 通知
@@ -353,6 +355,10 @@ fileUpload.onchange = () => {
     });
 };
 ```
+
+### 整合 File API
+
+由於選完檔案直接上傳不是個好方法，所以我們需要運用 File API
 
 ## 訊息
 
