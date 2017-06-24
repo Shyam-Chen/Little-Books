@@ -329,7 +329,7 @@ firebase.database()
 ```js
 firebase.database()
   .ref()
-  .update({ text: 'ABC' })
+  .update({ text: 'ABC' });
 ```
 
 ## 存儲
@@ -347,7 +347,10 @@ fileUpload.onchange = () => {
   firebase.storage()
     .ref()
     .child(`images/${fileUpload.files[0].name}`)
-    .put(fileUpload.files[0], { contentType: fileUpload.files[0].type });
+    .put(fileUpload.files[0], { contentType: fileUpload.files[0].type })
+    .then(snapshot => {
+      console.log(snapshot.downloadURL);
+    });
 };
 ```
 
