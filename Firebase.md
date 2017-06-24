@@ -32,6 +32,7 @@
   * FCM 通知
   * Email
   * SMS
+  * Prerender
   * GitHub/Slack
   * PayPal
   * Chatbot

@@ -13,7 +13,7 @@
 * [ReactiveX (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md) :octocat: :bread: :fire:
 * **--------------------**
 * [Material (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md) :octocat: :cookie:
-* [Firebase (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md) :octocat: :cookie:
+* [Firebase (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md) :octocat: :cookie:
 * **--------------------**
 * [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md) :octocat: :candy:
 * [Mongoose (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md) :octocat: :candy:
