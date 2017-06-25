@@ -20,18 +20,13 @@
 * **--------------------**
 * [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md) :cookie:
 * [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md) :cookie:
-* [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md) :cookie:
 * **--------------------**
 * [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md) :candy:
 * [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md) :candy:
 * [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md) :candy:
 * **--------------------**
-* Snap
-* Paper
+* [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
 * Three
-* **--------------------**
-* WebVR
-* WebAR
 
 (值) - 完整度
 
