@@ -137,9 +137,35 @@
   * [模組整合](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#模組整合)
   * [自動化建置](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#自動化建置)
   * [除錯和剖析](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#除錯和剖析)
+  * 效能分析
 * 設計模式
+  * 建立型
+    * 工廠模式
+    * 抽象工廠模式
+    * 產生器模式
+    * 原型模式
+    * 單體模式
+  * 結構型
+    * 匹配器模式
+    * 組合模式
+    * 裝飾模式
+    * 外觀模式
+    * 享元模式
+    * 摻合模式
+    * 模組模式
+    * 代理模式
+  * 行為型
+    * 職責鏈模式
+    * 命令模式
+    * 迭代器模式
+    * 觀察者模式
+    * 中介者模式
+    * 備忘錄模式
+    * 承諾模式
+    * 策略模式
 * [最佳實踐](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md)
   * [樹搖優化](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#樹搖優化)
   * [提前時間編譯](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#提前時間編譯)
   * [離線存儲](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#離線存儲)
   * [伺服端渲染](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#伺服端渲染)
+  * 同構 JavaScript (Serverless)
