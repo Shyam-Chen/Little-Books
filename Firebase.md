@@ -47,6 +47,7 @@
   * Email
   * SMS
   * Prerender
+  * 匯出 Excel
   * GitHub/Slack
   * PayPal
   * Chatbot

@@ -84,6 +84,9 @@
   * [Delete](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#delete)
   * [JSONP](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#jsonp)
   * [GraphQL](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#graphql)
+    * Query (查詢)
+    * Mutation (變動)
+    * Fragment (分段)
 * [WebSocket](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/websocket.md)
 * [管道](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/pipes.md)
   * [內建管道](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/pipes.md#內建管道)
@@ -132,12 +135,12 @@
   * 信任安全值
   * [跨站指令碼](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/security.md#跨站指令碼)
   * 跨站請求偽造
-  * JWT
+  * 更佳安全驗證 (JWT)
 * [工具](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md)
   * [模組整合](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#模組整合)
   * [自動化建置](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#自動化建置)
   * [除錯和剖析](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/tools.md#除錯和剖析)
-  * 效能分析
+  * 效能分析 (Lighthouse)
 * 設計模式
   * 建立型
     * 工廠模式
@@ -168,4 +171,4 @@
   * [提前時間編譯](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#提前時間編譯)
   * [離線存儲](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#離線存儲)
   * [伺服端渲染](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#伺服端渲染)
-  * 同構 JavaScript (Serverless)
+  * 同構 JavaScript (Cloud Functions)
