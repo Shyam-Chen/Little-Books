@@ -82,6 +82,7 @@
   * [Post](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#post)
   * [Put](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#put)
   * [Delete](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#delete)
+  * [完整的 REST](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#完整的-rest)
   * [JSONP](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#jsonp)
   * [GraphQL](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#graphql)
     * Query (查詢)

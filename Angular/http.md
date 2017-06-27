@@ -377,6 +377,131 @@ export class RestService {
 }
 ```
 
+### 完整的 REST
+
+建立一個 List 模型
+
+```ts
+export interface List {
+  _id: string;
+  text: string;
+  __v: number;
+}
+```
+
+建立一個 List 服務
+
+```ts
+import 'rxjs/add/operator/map';
+
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
+
+import { List } from './list';
+
+@Injectable()
+export class ListService {
+  private url = 'https://web-go-demo.herokuapp.com/__/list';  // API 位址
+
+  constructor(private http: Http) { }
+
+  getList(): Observable<List[]> {  // 取得所有資料，API: GET /__/list
+    return this.http
+      .get(this.url)
+      .map(res => res.json());
+  }
+
+  getItem(id: string): Observable<List> {  // 取得單筆資料，API: GET /__/list/{id}
+    return this.http
+      .get(`${this.url}/${id}`)
+      .map(res => res.json());
+  }
+
+  postItem(data): Observable<List> {  // 新增一筆資料，API: POST /__/list
+    return this.http
+      .post(this.url, data)
+      .map(res => res.json());  // 伺服器會回傳的訊息
+  }
+
+  putItem(id: string, data): Observable<List> {  // 更新一筆資料，API: PUT /__/list/{id}
+    return this.http
+      .put(`${this.url}/${id}`, data)
+      .map(res => res.json());  // 伺服器會回傳的訊息
+  }
+
+  deleteItem(id: string): Observable<List> {  // 刪除一筆資料，API: DELETE /__/list/{id}
+    return this.http
+      .delete(`${this.url}/${id}`)
+      .map(res => res.json());  // 伺服器會回傳的訊息
+  }
+}
+```
+
+使用 ListService 操作 API
+
+```ts
+import { Component, OnInit } from '@angular/core';
+
+import { ListService } from './list.service';
+
+@Component({
+  selector: 'app-root',
+  template: `<p>{{ data }}</p>`
+})
+export class AppComponent implements OnInit {
+  data;
+
+  constructor(private listService: ListService) { }
+
+  /**
+   * 分別操作底下程式碼，來查看資料的變化
+   */
+  ngOnInit() {
+    this.listService
+      .getList()
+      .subscribe(data => this.data = JSON.stringify(data));
+
+    // this.listService
+    //   .getItem('594baf4170d21a00129b7c27')
+    //   .subscribe(data => this.data = JSON.stringify(data));
+
+    // this.listService
+    //   .postItem({ text: 'Angular GO' })
+    //   .subscribe(data => this.data = JSON.stringify(data));
+
+    // this.listService
+    //   .putItem('594bb5c270d21a00129b7c28', { text: 'Angular GO' })
+    //   .subscribe(data => this.data = JSON.stringify(data));
+
+    // this.listService
+    //   .deleteItem('594bb5e670d21a00129b7c29')
+    //   .subscribe(data => this.data = JSON.stringify(data));
+  }
+}
+```
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
+import { AppComponent } from './app.component';
+import { ListService } from './list.service';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    HttpModule,
+  ],
+  providers: [ListService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
 ### JSONP
 ```ts
 
