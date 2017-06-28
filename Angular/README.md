@@ -114,6 +114,9 @@
   * 動畫回呼
 * [國際化](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/internationalization.md)
 * [資料視覺化](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/data-visualization.md)
+* 追蹤分析
+  * 深度追蹤
+  * 離線追蹤
 * [狀態容器](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/state-container.md)
 * [原質化設計](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/material.md)
 * [後端雲端服務](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/firebase.md)
