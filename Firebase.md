@@ -45,10 +45,15 @@
     * HTTP Triggers (HTTP 觸發器)
   * FCM 通知
   * Email
+  * 授權
+    * LINE
+    * Instagram
   * SMS
-  * Prerender
+  * Isomorphic
   * 匯出 Excel
   * GitHub/Slack
+  * Google Cloud
+    * BigQuery
   * PayPal
   * Chatbot
 * [Hosting (託管)](#託管)
@@ -631,6 +636,17 @@ exports.addMessage = functions.https
       .ref('/messages')
       .push({ text });
   });
+```
+
+### Google Cloud
+
+#### BigQuery
+
+```js
+const functions = require('firebase-functions');
+const bigquery = require('@google-cloud/bigquery')();
+
+// TODO
 ```
 
 ## 託管

@@ -55,7 +55,9 @@
     * [ngFor](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md#ng-for)
     * [ngPlural](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md#ng-plural)
     * [ngTemplateOutlet](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md#ng-template-outlet)
-    * ViewContainer
+    * ngComponentOutlet
+    * View Containers
+    * Embedded Views
   * [自訂指令](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md#自訂指令)
     * [實體變數 (ElementRef & Renderer)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md#實體變數)
     * [屬性型指令 (@Attribute(), HostBinding(), & @HostListener())](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/directives.md#屬性型指令)

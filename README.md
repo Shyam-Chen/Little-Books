@@ -20,13 +20,11 @@
 * **--------------------**
 * [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md) :cookie:
 * [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md) :cookie:
+* [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
 * **--------------------**
 * [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md) :candy:
 * [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md) :candy:
 * [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md) :candy:
-* **--------------------**
-* [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
-* Three
 
 (值) - 完整度
 
