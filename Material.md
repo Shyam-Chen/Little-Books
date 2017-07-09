@@ -17,17 +17,19 @@
 * [Button (按鈕)](#按鈕)
 * [Card (卡片)](#卡片)
 * [Checkbox (複選框)](#複選框)
-* Dialog (對話框)
+* [Dialog (對話框)](#對話框)
 * [Drawer (側邊欄)](#側邊欄)
 * [Elevation (白框)](#白框)
 * [FAB (懸浮操作按鈕)](#懸浮操作按鈕)
 * Grid List (網格列表)
 * Icon Toggle (圖標按鈕)
 * Layout Grid (版面網格)
+* Linear Progress (線性進度條)
 * [List (列表)](#列表)
 * Menu (選單)
 * [Radio (單選框)](#單選框)
 * Select (選擇框)
+* Slider (滑動條)
 * [Snackbar (小橫條)](#小橫條)
 * Switch (切換鈕)
 * Tabs (選項卡)
@@ -139,6 +141,43 @@ import '@material/checkbox/dist/mdc.checkbox.css';
 ```
 
 ## 對話框
+
+```js
+import '@material/dialog/dist/mdc.dialog.css';
+```
+
+```html
+<button type="button" id="open" class="mdc-button mdc-button--raised mdc-button--primary">Open</button>
+
+<aside id="dialog" class="mdc-dialog">
+  <div class="mdc-dialog__surface">
+    <header class="mdc-dialog__header">
+      <h2 class="mdc-dialog__header__title">Title</h2>
+    </header>
+    <section class="mdc-dialog__body">
+      <p>Content</p>
+    </section>
+    <footer class="mdc-dialog__footer">
+      <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
+      <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Accept</button>
+    </footer>
+  </div>
+</aside>
+```
+
+```js
+import { __moduleExports as mdDialog } from '@material/dialog/dist/mdc.dialog';
+
+const openBtn = document.querySelector('#open');
+
+const dialogEl = document.querySelector('#dialog');
+const dialog = new mdDialog.MDCDialog(dialogEl);
+
+dialog.listen('MDCDialog:accept', () => bodyEl.style.overflowY = 'auto');
+dialog.listen('MDCDialog:cancel', () => bodyEl.style.overflowY = 'auto');
+
+openBtn.addEventListener('click', () => dialog.show());
+```
 
 ## 側邊欄
 
