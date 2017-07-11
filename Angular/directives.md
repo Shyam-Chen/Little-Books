@@ -3,6 +3,7 @@
 ### 內建屬性型指令
 
 #### ng-style
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -22,6 +23,7 @@ export class NgStyleComponent { }
 ```
 
 #### ng-class
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -184,6 +186,7 @@ export class NgIfComponent {
 ```
 
 #### ng-switch
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -204,11 +207,13 @@ export class NgSwitchComponent {
 ```
 
 #### ng-for
+
 ```ts
 export interface List {
   label: string;
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -239,6 +244,7 @@ export interface List {
   language: string;
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -283,6 +289,7 @@ export class EditComponent {
 ```
 
 #### ng-plural
+
 ```ts
 import { Component, provide } from '@angular/core';
 import { NgLocalization } from '@angular/common';
@@ -314,6 +321,7 @@ export class AppComponent {
   }
 }
 ```
+
 ```ts
 import { NgLocalization } from '@angular/common';
 
@@ -329,6 +337,7 @@ export class LocalizationService extends NgLocalization {
 ```
 
 #### ng-template-outlet
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -353,6 +362,7 @@ export class AppComponent {
 ### 自訂指令
 
 #### 指令建構子
+
 ```ts
 selector?: string
 inputs?: string[]  // 查看元件章節
@@ -364,6 +374,7 @@ queries?: {[key: string]: any}  // 查看元件章節
 ```
 
 #### 指令起點
+
 ```ts
 import { Directive } from '@angular/core';
 
@@ -376,6 +387,7 @@ export class NameDirective {
 ```
 
 #### 簡單的指令
+
 ```ts
 import { Directive, ElementRef, Renderer } from '@angular/core';
 
@@ -388,6 +400,7 @@ export class ColorDirective {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -458,6 +471,7 @@ export class ColorDirective {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -477,6 +491,7 @@ export class AppComponent { }
 #### 屬性型指令
 
 (1)
+
 ```ts
 import { Component, Attribute } from '@angular/core';
 
@@ -492,6 +507,7 @@ export class AttributeComponent {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -508,6 +524,7 @@ export class AppComponent { }
 ```
 
 (2)
+
 ```ts
 import { Directive, HostBinding } from '@angular/core';
 
@@ -523,6 +540,7 @@ export class ColorDirective {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -544,6 +562,7 @@ export class AppComponent { }
 ```
 
 (3)
+
 ```ts
 import { Directive, HostListener, ElementRef, Renderer } from '@angular/core';
 
@@ -559,6 +578,7 @@ export class ClickDirective {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -575,6 +595,7 @@ export class AppComponent { }
 ```
 
 #### 結構型指令
+
 ```ts
 import { Directive, TemplateRef, ViewContainerRef, Input } from '@angular/core';
 
@@ -593,6 +614,7 @@ export class DelayDirective {
   }
 }
 ```
+
 ```ts
 import { Component } from '@angular/core';
 

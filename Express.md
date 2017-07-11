@@ -132,61 +132,6 @@ $ curl http://localhost:8000/api
 ```
 
 ```js
-import { Router } from 'express';
-
-import { List } from '../models';
-
-const router = Router();
-
-router.get('/', (req, res, next) => {
-  List.find({}, (err, data) => {
-    if (err) return next(err);
-    res.json(data);
-  });
-});
-
-router.get('/:id', (req, res, next) => {
-  List.findById(req.params.id, (err, data) => {
-    if (err) return next(err);
-    res.json(data);
-  });
-});
-
-router.post('/', (req, res, next) => {
-  const list = new List(req.body);
-
-  list.save(err => {
-    if (err) return next(err);
-    res.json({ message: 'List saved' });
-  });
-});
-
-router.put('/:id', (req, res, next) => {
-  List.findById(req.params.id, (err, data) => {
-    if (err) return next(err);
-
-    for (let prop in req.body) {
-      data[prop] = req.body[prop];
-    }
-
-    data.save(err => {
-      if (err) return next(err);
-      res.json({ message: 'List updated' });
-    });
-  });
-});
-
-router.delete('/:id', (req, res, next) => {
-  List.findByIdAndRemove(req.params.id, err => {
-    if (err) return next(err);
-    res.json({ message: 'List deleted' });
-  });
-});
-
-export const listRoutes = router;
-```
-
-```js
 app.all('/thing', (req, res, next) => {
   console.log('Accessing the thing section ...');
   next();
@@ -282,35 +227,58 @@ $ npm i passport-twitter -S
 ### 增刪改查
 
 ```js
-import express from 'express';
+import { Router } from 'express';
 
-import { User } from '../models';
+import { List } from '../models';  // Mongoose 模型
 
-const router = express.Router();
+const router = Router();
 
-router.get('/', (req, res) => {
-
+router.get('/', (req, res, next) => {
+  List.find({}, (err, data) => {
+    if (err) return next(err);
+    res.json(data);
+  });
 });
 
-router.get('/create', (req, res) => {
-
+router.get('/:id', (req, res, next) => {
+  List.findById(req.params.id, (err, data) => {
+    if (err) return next(err);
+    res.json(data);
+  });
 });
 
-router.post('/insert', (req, res) => {
+router.post('/', (req, res, next) => {
+  const list = new List(req.body);
 
+  list.save(err => {
+    if (err) return next(err);
+    res.json({ message: 'List saved' });
+  });
 });
 
-router.get('/:id/edit', (req, res) => {
+router.put('/:id', (req, res, next) => {
+  List.findById(req.params.id, (err, data) => {
+    if (err) return next(err);
 
+    for (let prop in req.body) {
+      data[prop] = req.body[prop];
+    }
+
+    data.save(err => {
+      if (err) return next(err);
+      res.json({ message: 'List updated' });
+    });
+  });
 });
 
-router.put('/:id', (req, res) => {
-
+router.delete('/:id', (req, res, next) => {
+  List.findByIdAndRemove(req.params.id, err => {
+    if (err) return next(err);
+    res.json({ message: 'List deleted' });
+  });
 });
 
-router.get('/:id', (req, res) => {
-
-});
+export const listRoutes = router;
 ```
 
 ## 存儲

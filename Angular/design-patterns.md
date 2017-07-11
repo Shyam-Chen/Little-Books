@@ -3,7 +3,7 @@
 ```js
 class Product {
   constructor() {
-    console.log('Product Created')
+    console.log('Product Created');
   }
 }
 
@@ -24,7 +24,7 @@ class Creator {
   AnOperation() {
     console.log('Creator - AnOperation()');
     this.product = this.FactoryMethod();
-    console.log(this.product instanceof ConcreteProduct)
+    console.log(this.product instanceof ConcreteProduct);
   }
 }
 

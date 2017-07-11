@@ -25,6 +25,6 @@
 
 桌面開發就沒有行動這麼多種了，而在做選擇的話，不外乎會是 Electron，Electron 和 Cordova 很像，都是將 HTML/CSS/JavaScript 封裝變成原生的應用程式，不過比 Cordova 好的地方是可以在同一個平台編譯成其它平台的應用程式 (主要還是用 macOS)，而 NW 是以 HTML/CSS/JavaScript 和 WebGL，不過 NW 會比較偏 Node.js 的使用。
 
-### 初探 Ionic
+### 初探 Cordova
 
 ### 初探 Electron
