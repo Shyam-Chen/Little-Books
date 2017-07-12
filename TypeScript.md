@@ -706,6 +706,7 @@ class Thing {
 ```ts
 class Name {
   private name: string;
+
   constructor(private theName: string) {
     this.name = theName;
   }
@@ -719,7 +720,8 @@ class Adder {
   constructor(a: number) {
     console.log(a);
   }
-  add(b: number): number {
+
+  public add(b: number): number {
     return b;
   }
 }
@@ -993,8 +995,8 @@ interface IFoo {
 }
 
 class Foo implements IFoo {
-  add() {
-    return // ...
+  public add() {  // 混入後，就不用再給型別了
+    return 123;
   }
 }
 ```
@@ -1144,7 +1146,7 @@ result.value;  // 2 * 3 = 6
 
 ```ts
 const foo: object = {
-  * bar() {
+  *bar() {
     let index: number = 0;
     while (true) yield index++;
   }
