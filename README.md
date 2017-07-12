@@ -1,28 +1,31 @@
 # 大小書
 
-:books: 有關 Angular、TypeScript、ReactiveX、Material、Firebase、Express 和 Mongoose 的大小書。 :memo:
+:books: 有關 Angular、React、Vue、TypeScript、Material、Firebase、Express 和 Mongoose 的大小書。 :memo:
 
 ### 書單
 
-* [Angular (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md) :octocat: :fire:
-* [TypeScript (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md) :octocat: :fire:
+* [Angular (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md)
+* [React (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/README.md)
+* [Vue (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Vue/README.md)
 * **--------------------**
-* [Lodash (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md) :bread:
-* [ReactiveX (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md) :octocat: :bread: :fire:
+* [TypeScript (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md)
+* **====================**
+* [Material (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
+* [Firebase (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
 * **--------------------**
-* [Material (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md) :octocat: :cookie:
-* [Firebase (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md) :octocat: :cookie:
+* [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md)
+* [Mongoose (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md)
 * **--------------------**
-* [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md) :octocat: :candy:
-* [Mongoose (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md) :octocat: :candy:
+* [Lodash (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md)
+* [ReactiveX (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md)
 * **--------------------**
-* [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md) :cookie:
-* [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md) :cookie:
-* [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md) :cookie:
+* [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md)
+* [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
+* [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
 * **--------------------**
-* [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md) :candy:
-* [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md) :candy:
-* [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md) :candy:
+* [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
+* [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
+* [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
 
 (值) - 完整度
 
