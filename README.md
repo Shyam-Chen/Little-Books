@@ -9,7 +9,7 @@
 * [Vue (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Vue/README.md)
 * **--------------------**
 * [TypeScript (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md)
-* **====================**
+* **============**
 * [Material (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
 * [Firebase (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
 * **--------------------**
