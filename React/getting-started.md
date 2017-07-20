@@ -12,7 +12,7 @@ $ npm init -y
 ```
 
 ```bash
-$ npm i react react-dom -S
+$ npm i react react-dom react-router redux redux-thunk react-redux react-router-redux -S
 ```
 
 ```bash
@@ -28,6 +28,13 @@ $ touch webpack.config.js
 const { join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const scss = require('postcss-scss');
+const pimport = require('postcss-import');
+const cssnext = require('postcss-cssnext');
+const rucksack = require('rucksack-css');
+const url = require('postcss-url');
+const cssnano = require('cssnano');
+
 module.exports = {
   context: join(__dirname, 'src'),
   entry: {
@@ -40,13 +47,43 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
-        }
-      }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015', 'react']
+            }
+          }
+        ]
+      }, {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              parser: scss,
+              plugins: [
+                pimport(),
+                cssnext({ warnForDuplicates: false }),
+                rucksack({ autoprefixer: true }),
+                url(),
+                cssnano()
+              ]
+            }
+          }
+        ]
+      },
     ]
   },
   devServer: {
@@ -97,8 +134,6 @@ export class App extends React.Component {
     );
   }
 }
-
-App.propTypes = {};
 
 ReactDOM.render(
   <App />,
