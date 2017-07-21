@@ -1,5 +1,7 @@
 ## 入門
 
+### 生態系
+
 ### 環境配置
 
 ```bash
@@ -12,7 +14,7 @@ $ npm init -y
 ```
 
 ```bash
-$ npm i react react-dom react-router redux redux-thunk react-redux react-router-redux -S
+$ npm i react react-dom redux react-redux redux-thunk -S
 ```
 
 ```bash
