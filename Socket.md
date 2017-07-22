@@ -6,7 +6,7 @@
 
 ### 實作執行
 
-* https://github.com/Shyam-Chen/Web-Starter-Kit
+* https://github.com/Shyam-Chen/Frontend-Starter-Kit
 * https://github.com/Shyam-Chen/Backend-Starter-Kit
 
 ***
@@ -67,14 +67,4 @@ io.on('connection', socket => {
     </script>
   </body>
 </html>
-```
-
-與 ZeroMQ 整合
-
-```bash
-$ npm i zeromq -S
-```
-
-```js
-import zmq from 'zeromq';
 ```

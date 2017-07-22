@@ -7,7 +7,7 @@
 
 ### 實作執行
 
-* https://github.com/Shyam-Chen/Web-Starter-Kit
+* https://github.com/Shyam-Chen/Frontend-Starter-Kit
 
 ***
 
@@ -17,10 +17,10 @@
   * Action
   * Reducer
   * Store
-  * Epic
+  * Effect
 * [範例](#範例)
   * [計數器](#計數器)
-  * TodoMVC
+  * 增刪改查
 
 ***
 
@@ -29,11 +29,13 @@
 Redux 是負責管理狀態的，所有的狀態都會透過 Redux 來操作，就是個狀態容器。
 
 在 Redux 中會有這三個概念：Action、Reducer 和 Store，
-而額外的效果是透過 Redux Observable，這個概念稱作 Epic。
+而 Action side effects 是透過 Redux Observable，這個概念稱作 Epic。
+
+如果不選擇 Redux Observable 可以選擇最為簡單基本的 Redux Thunk 或是比較進一步的 Redux Saga。
 
 Action 還可在分為兩個概念：Type 和 Creator，
 Reducer 會根據 Action 的 Type 來做相對應的操作，
-Epic 為 Action 和 Reducer 增加額外的效果，
+Epic 為 Action 的 side effects，
 最後就是把 Store 建立起來，執行 Action 的 Creator。
 
 ```js
@@ -46,8 +48,7 @@ import { createEpicMiddleware, combineEpics } from 'redux-observable';
 ### 計數器
 
 ```js
-import { filter } from 'rxjs/operator/filter';
-import { map } from 'rxjs/operator/map';
+import { filter, map } from 'rxjs/operator';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
 import { Map } from 'immutable';

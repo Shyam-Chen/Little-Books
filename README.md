@@ -8,8 +8,8 @@
 * [React (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/README.md)
 * [Vue (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Vue/README.md)
 * **--------------------**
-* [Material (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
-* [Firebase (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
+* [Material (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
+* [Firebase (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
 * **--------------------**
 * [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md)
 * [Mongoose (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md)
@@ -19,11 +19,15 @@
 * **--------------------**
 * [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md)
 * [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
+* **--------------------**
 * [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
+* [Three (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Three.md)
 * **--------------------**
 * [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
 * [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
+* **--------------------**
 * [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
+* [RabbitMQ (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/RabbitMQ.md)
 
 (值) - 完整度
 
