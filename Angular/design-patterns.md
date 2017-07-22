@@ -1,5 +1,9 @@
 ## 設計模式
 
+### 建立型
+
+#### 工廠
+
 ```js
 class Product {
   constructor() {
@@ -19,11 +23,11 @@ class Creator {
     console.log('Creator Created');
   }
 
-  FactoryMethod() { }
+  Factory() { }
 
   AnOperation() {
     console.log('Creator - AnOperation()');
-    this.product = this.FactoryMethod();
+    this.product = this.Factory();
     console.log(this.product instanceof ConcreteProduct);
   }
 }
@@ -34,21 +38,42 @@ class ConcreteCreator extends Creator {
     console.log('ConcreteCreator Created');
   }
 
-  FactoryMethod() {
+  Factory() {
     return new ConcreteProduct();
   }
 }
 
-const FactoryMethod = () => {
+const Factory = () => {
   const factory = new ConcreteCreator();
   factory.AnOperation();
 };
 
-FactoryMethod();
+Factory();
 // Creator Created
 // ConcreteCreator Created
 // Creator - AnOperation()
 // Product Created
 // ConcreteProduct Created
 // true
+```
+
+```ts
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class Factory {
+
+}
+```
+
+### 結構型
+
+#### 模組
+
+最簡單的樣子
+
+```js
+((foo, bar) => {
+  // ...
+})(foo);
 ```

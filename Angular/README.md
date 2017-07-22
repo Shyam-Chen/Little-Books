@@ -150,19 +150,19 @@
   * 效能分析 (Lighthouse)
 * [設計模式](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/design-patterns.md)
   * 建立型
-    * 工廠 (Factory Method)
+    * 工廠 (Factory)
     * 抽象工廠 (Abstract Factory)
     * 建造器 (Builder)
     * 原型模式 (Prototype)
     * 單體模式 (Singleton)
   * 結構型
     * 匹配器 (Adapter)
-    * 組合
+    * 組合 (Composite)
     * 修飾 (Decorator)
     * 外觀 (Facade)
-    * 享元
-    * 摻合
-    * 模組
+    * 享元 (Flyweight)
+    * 摻合 (Mixin)
+    * [模組 (Module)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/design-patterns.md#模組)
     * 代理 (Proxy)
   * 行為型
     * 職責鏈 (Chain of Responsibility)
@@ -171,7 +171,7 @@
     * 觀察者 (Observer)
     * 中介者 (Mediator)
     * 備忘錄 (Memento)
-    * 承諾
+    * 承諾 (Promises)
     * 策略 (Strategy)
 * [最佳實踐](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md)
   * [樹搖優化](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#樹搖優化)
