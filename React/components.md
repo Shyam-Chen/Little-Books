@@ -2,7 +2,6 @@
 
 ```js
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 
 export class Thing {
   constructor(props) {
@@ -17,4 +16,15 @@ export class Thing {
     );
   }
 }
+```
+
+```js
+import React from 'react';
+
+
+export const Thing = (props) => {
+  return (
+    <div>Thing Component</div>
+  );
+};
 ```
