@@ -24,6 +24,8 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 
+或者使用 `import { HttpClientModule } from '@angular/common/http';`
+
 ### Get
 
 ```ts
@@ -44,7 +46,35 @@ export class AppComponent {
 
   constructor(private http: Http) {
     http.get('http://localhost:8000/data')
-      .map(res => res.json())
+      .map(res => res.json())  // 映射成 JSON
+      .subscribe(data => {
+        this.data = JSON.stringify(data);
+      });
+  }
+}
+```
+
+換成 HttpClientModule
+
+```diff
+import { Component } from '@angular/core';
+- import { Http } from '@angular/http';
++ import { HttpClient } from '@angular/common/http';
+
+- import 'rxjs/add/operator/map';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <pre>{{ data }}</pre>
+  `
+})
+export class AppComponent {
+  private data;
+
+  constructor(private http: HttpClient) {
+    http.get<any>('http://localhost:8000/data')
+-      .map(res => res.json())  // 映射成 JSON
       .subscribe(data => {
         this.data = JSON.stringify(data);
       });

@@ -396,6 +396,7 @@ export class BindingPropertiesComponent {
 ```
 
 #### 區域變數
+
 ```ts
 import { Component } from '@angular/core';
 
