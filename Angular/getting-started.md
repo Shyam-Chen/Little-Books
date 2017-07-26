@@ -8,21 +8,27 @@ Angular 開發概念就是已元件化為中心出發，而 Angular 的元件化
 
 #### TypeScript
 
-TypeScript 是 JavaScript 的超集，提供型別的機制，還有更多未來標準的實現
+TypeScript 是 JavaScript 的超集，提供型別的機制，還有更多未來標準的實現，是 Angular 官方預設使用的
 
 #### RxJS
 
-透過 RxJS 來實現 Observables 未來的標準的非同步操作
+透過 RxJS 來實現 Observables 未來的標準的非同步操作，是 Angular 官方預設使用的
 
 #### Zone.js
 
-Zone.js 提供一個區域的機制，用在瀏覽器中封裝和攔截非同步的操作
+Zone.js 提供一個區域的機制，用在瀏覽器中封裝和攔截非同步的操作，是 Angular 官方預設使用的
+
+#### @ngrx
+
+@ngrx 就是 Redux
+
+#### Ionic
+
+#### NativeScript
 
 ### 環境設置
 
-安裝 Node.js
-
-https://nodejs.org
+在開發之前，首先就是要有個好工具，這工具就是 Angular CLI
 
 安裝 Angular CLI
 
