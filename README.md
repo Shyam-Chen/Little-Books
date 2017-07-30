@@ -4,6 +4,9 @@
 
 ### 書單
 
+* [JavaScript (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JavaScript.md)
+* [TypeScript (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md)
+* **--------------------**
 * [Angular (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md)
 * [React (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/README.md)
 * [Vue (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Vue/README.md)
