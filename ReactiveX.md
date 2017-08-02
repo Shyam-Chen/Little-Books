@@ -97,7 +97,7 @@
   * [mergeMap](#mergemap) :star:
   * partition
   * pluck
-  * scan :star:
+  * [scan](#scan) :star:
   * switchMap :star:
   * window
   * windowCount
@@ -1986,6 +1986,43 @@ Observable::of('Hello')
 ### pluck
 
 ### scan
+
+Applies an accumulator function over the source Observable, and returns each intermediate result, with an optional seed value.
+
+在源 Observable 上應用累加器函式，並返回每個中間結果，並具有可選的種子值。
+
+```js
+import { Subject } from 'rxjs';
+
+import { startWith, scan } from 'rxjs/operator';
+
+const subject = new Subject();
+
+subject::startWith(0)
+  ::scan((acc, curr) => acc + curr)
+  .subscribe(value => console.log(value));
+  // 0
+
+subject.next(1);  // 1 <= 0 + 1
+subject.next(2);  // 3 <= 1 + 2
+subject.next(3);  // 6 <= 3 + 3
+```
+
+累積物件
+
+```js
+import { Subject } from 'rxjs';
+
+import { scan } from 'rxjs/operator';
+
+const subject = new Subject();
+
+subject::scan((acc, curr) => Object.assign({}, acc, curr), {})
+  .subscribe(value => console.log(value));
+
+subject.next({ primary: 'JavaScript' });  // { primary: 'JavaScript' }
+subject.next({ accent: 'TypeScript' });  // { primary: 'JavaScript', accent: 'TypeScript' }
+```
 
 ### switchMap
 

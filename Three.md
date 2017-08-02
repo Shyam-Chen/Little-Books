@@ -25,6 +25,48 @@
 
 ***
 
+## 核心
+
+空白的骨架
+
+```js
+const init = () => {
+  // ...
+};
+
+init();
+```
+
+```html
+<div id="ex"></div>
+```
+
+製作場景
+
+```js
+import {
+  Scene, PerspectiveCamera, WebGLRenderer,
+  Color
+} from 'three';
+
+const init = () => {
+  const scene = new Scene();
+
+  const camera = new PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+  const renderer = new WebGLRenderer();
+  renderer.setClearColorHex();
+  renderer.setClearColor(new Color(0xEEEEEE));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // ...
+};
+
+init();
+```
+
+***
+
 ```js
 import { PerspectiveCamera, Scene, BoxGeometry, MeshBasicMaterial, Mesh, WebGLRenderer } from 'three';
 
