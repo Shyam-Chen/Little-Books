@@ -98,8 +98,8 @@
   * partition
   * pluck
   * [scan](#scan) :star:
-  * switchMap :star:
-  * window
+  * [switchMap](#switchmap) :star:
+  * [window](#window)
   * windowCount
   * windowTime
   * windowToggle
@@ -2026,7 +2026,70 @@ subject.next({ accent: 'TypeScript' });  // { primary: 'JavaScript', accent: 'Ty
 
 ### switchMap
 
+Projects each source value to an Observable which is merged in the output Observable, emitting values only from the most recently projected Observable.
+
+將每個源值投射到一個 Observable，將其合併到輸出 Observable 中，僅從最近預計的 Observable 發射值。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer, interval } from 'rxjs/observable';
+
+import { switchMap } from 'rxjs/operator';
+
+Observable::timer(0, 5000)
+  ::switchMap(() => Observable::interval(500))
+  .subscribe(value => console.log(value));
+  // 0
+  // 1
+  // 2
+  // 3
+  // 4
+  // 5
+  // 6
+  // 7
+  // 8
+  // 0 - 重複
+  // 1
+  // 2
+  // ...
+```
+
 ### window
+
+Branch out the source Observable values as a nested Observable whenever `windowBoundaries` emits.
+
+將每個 windowBoundaries 發出的源 Observable 值作為嵌套 Observable 分支。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer, interval } from 'rxjs/observable';
+
+import { window, scan, mergeAll } from 'rxjs/operator';
+
+const source = Observable::timer(0, 1000);
+
+const window$ = source::window(Observable::interval(3000))
+
+const count = window$::scan(acc => acc + 1, 0);
+
+count.subscribe(value => console.log(`Window ${value}:`));
+window$::mergeAll().subscribe(value => console.log(value));
+// Window 1:
+// 0
+// 1
+// 2
+// Window 2:
+// 3
+// 4
+// 5
+// Window 3:
+// 6
+// 7
+// 8
+// ...
+```
 
 ### windowCount
 
