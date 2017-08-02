@@ -22,7 +22,7 @@
 * Grid List (網格列表)
 * Icon Toggle (圖標按鈕)
 * Layout Grid (版面網格)
-* Linear Progress (線性進度條)
+* [Linear Progress (線性進度條)](#線性進度條)
 * [List (列表)](#列表)
 * Menu (選單)
 * [Radio (單選框)](#單選框)
@@ -220,6 +220,21 @@ drawer.addEventListener('MDCTemporaryDrawer:close', () => bodyEl.style.overflowY
 ## 網格列表
 
 ## 圖標按鈕
+
+## 線性進度條
+
+```html
+<div role="progressbar" class="mdc-linear-progress">
+  <div class="mdc-linear-progress__buffering-dots"></div>
+  <div class="mdc-linear-progress__buffer"></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+    <span class="mdc-linear-progress__bar-inner"></span>
+  </div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+    <span class="mdc-linear-progress__bar-inner"></span>
+  </div>
+</div>
+```
 
 ## 列表
 

@@ -39,6 +39,38 @@
 
 ## 核心
 
+### 取值器
+
+```js
+import { Map } from 'immutable';
+
+const foo = Map({ bar: 'A', baz: 'B' });
+
+foo.get('bar');  // "A"
+```
+
+### 設值器
+
+```js
+import { Map } from 'immutable';
+
+const foo = Map();
+
+foo.set('bar', 'A');  // Map { "bar": "A" }
+```
+
+### 更值器
+
+```js
+import { Map } from 'immutable';
+
+const foo = Map({ bar: 'A' });
+
+foo.update('bar', () => 'B');  // Map { "bar": "B" }
+```
+
+### 刪值器
+
 ### Lists
 
 ### Maps
@@ -186,7 +218,7 @@ import { Map } from 'immutable';
 const foo = Map({ bar: 'A', baz: 'B' });
 
 foo.bar;  // undefined
-foo.get('bar'); // "A"
+foo.get('bar');  // "A"
 
 foo.set('bar', 'C');
 foo.get('bar');  // "A"

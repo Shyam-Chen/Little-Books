@@ -2,8 +2,8 @@
 
 ### 目錄
 
-* 非同步處理
-  * 承諾 (Promises)
+* [非同步處理](#非同步處理)
+  * [承諾 (Promises)](#承諾)
   * 產生器 (Generators)
   * 非同步函式 (Async Function)
   * 可觀察 (Observables)
@@ -55,6 +55,28 @@
 ***
 
 ## 非同步處理
+
+### 承諾
+
+```js
+const foo = () => {
+  console.log(1);
+
+  const bar = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(console.log(2)), 0);
+  });
+
+  console.log(3);
+
+  return bar;
+};
+
+foo().then(() => console.log(4));
+// 1
+// 3
+// 2
+// 4
+```
 
 ## 函式型程式設計
 
