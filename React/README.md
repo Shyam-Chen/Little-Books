@@ -19,4 +19,5 @@
 * GraphQL (Apollo)
 * 動畫
 * 單元測試
-* 伺服器端渲染
+* 伺服器端渲染 (Next)
+* 行動應用 (React Native)
