@@ -7,9 +7,12 @@
   * 產生器 (Generators)
   * 非同步函式 (Async Function)
   * 可觀察 (Observables)
-* 函式型程式設計
+* [函式型程式設計](#函式型程式設計)
   * 組合函式
-  * 副作用
+  * [議題](#議題)
+    * [共享狀態](#共享狀態)
+    * 突變狀態
+    * 副作用
   * 不可變性
   * 尾端呼叫優化
 * [資料結構和演算法](#資料結構和演算法)
@@ -89,6 +92,30 @@ foo().then(() => console.log(4));
 ```
 
 ## 函式型程式設計
+
+### 議題
+
+#### 共享狀態
+
+```js
+const counter = { value: 0 };
+
+const counter1 = () => counter.value += 1;
+const counter2 = () => counter.value += 5;
+
+counter1();  // 1
+counter2();  // 6
+```
+
+```js
+const counter = { value: 0 };
+
+const counter1 = () => Object.assign({}, counter, { value: counter.value + 1 });
+const counter2 = () => Object.assign({}, counter, { value: counter.value + 5 });
+
+counter1().value;  // 1
+counter2().value;  // 5
+```
 
 ## 資料結構和演算法
 
