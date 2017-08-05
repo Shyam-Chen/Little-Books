@@ -201,7 +201,7 @@ let regex = /[abc]+/g;
 regex.test('a bb ccc');  // true
 ```
 
-比對: <span style="background: #D1C4E9">a</span> <span style="background: #D1C4E9">bb</span> <span style="background: #D1C4E9">ccc</span>
+比對: `a` `bb` `ccc`
 
 (2) 匹配除了 a、b 或 c 之外的任何字元
 
