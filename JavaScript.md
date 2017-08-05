@@ -18,9 +18,10 @@
 * [資料結構和演算法](#資料結構和演算法)
   * 堆疊
   * [佇列](#佇列)
+    * 環狀佇列
   * 鏈結
-    * 雙向
-    * 環狀
+    * 雙向鏈結
+    * 環狀鏈結
   * 集合
   * 雜湊表
   * 樹
@@ -125,13 +126,46 @@ counter2().value;  // 5
 
 ```js
 class Queue {
-  constructor() {
-    this.queueArray = [];
+  queueArray = [];  // 需要使用 babel-plugin-transform-class-properties
+
+  constructor(item, priority) {
+    this.item = item;
+    this.priority = priority;
   }
 
   // 排隊
   enqueue(item) {
     this.queueArray.push(item);
+  }
+
+  // 離隊
+  dequeue() {
+    return this.queueArray.shift();
+  }
+
+  // 隊伍首項
+  front() {
+    return this.queueArray[0];
+  }
+
+  // 檢查是否為空佇列
+  isEmpty() {
+    return this.queueArray.length === 0;
+  }
+
+  // 清空佇列
+  clear() {
+    this.queueArray = [];
+  }
+
+  // 佇列的數量
+  size() {
+    return this.queueArray.length;
+  }
+
+  // 打印佇列
+  print() {
+    console.log(this.queueArray.toString());
   }
 }
 ```

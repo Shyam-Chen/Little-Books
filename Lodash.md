@@ -12,7 +12,7 @@
 ***
 
 ### 目錄
-* Array (陣列)
+* [Array (陣列)](#陣列)
   * [chunk](#chunk)
   * [compact](#compact) :star:
   * concat :star: :muscle:
