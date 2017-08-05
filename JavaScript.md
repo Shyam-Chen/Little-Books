@@ -51,6 +51,16 @@
     * 備忘錄 (Memento)
     * 承諾 (Promises)
     * 策略 (Strategy)
+* Regex (規則運算式)
+  * 共用
+  * 一般
+  * 錨點
+  * 後設資料佇列
+  * 量詞
+  * 群組建構
+  * 字元符號
+  * 修飾符號
+  * 代換
 
 ***
 
@@ -178,3 +188,5 @@ export class Factory {
   // ...
 })(foo);
 ```
+
+## Regex
