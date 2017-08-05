@@ -51,8 +51,8 @@
     * 備忘錄 (Memento)
     * 承諾 (Promises)
     * 策略 (Strategy)
-* Regex (規則運算式)
-  * 共用
+* [規則運算式 (Regex)](#規則運算式)
+  * [共用](#共用)
   * 一般
   * 錨點
   * 後設資料佇列
@@ -189,4 +189,44 @@ export class Factory {
 })(foo);
 ```
 
-## Regex
+## 規則運算式
+
+### 共用
+
+(1) 匹配 a、b 或 c 字元
+
+```js
+let regex = /[abc]+/g;
+
+regex.test('a bb ccc');  // true
+```
+
+比對: `a` `bb` `ccc`
+
+(2) 匹配除了 a、b 或 c 之外的任何字元
+
+```js
+let regex = /[^abc]+/g;
+
+regex.test('Anything but abc.');  // true
+```
+
+比對: `Anything `b`ut `abc`.`
+
+(3)
+
+```js
+let regex = /[a-z]+/g;
+```
+
+```js
+let regex = /[^a-z]+/g;
+```
+
+```js
+let regex = /[a-zA-Z]+/g;
+```
+
+```js
+let regex = /.+/;
+```
