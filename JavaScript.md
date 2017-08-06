@@ -125,7 +125,7 @@ counter2().value;  // 5
 佇列的原則是先進先出 (先來先服務)
 
 ```js
-class Queue {
+export class Queue {
   queueArray = [];  // 需要使用 babel-plugin-transform-class-properties
 
   constructor(item, priority) {
@@ -168,6 +168,19 @@ class Queue {
     console.log(this.queueArray.toString());
   }
 }
+```
+
+```js
+const q1 = new Queue();
+
+q1.isEmpty();  // true
+
+q1.enqueue('Vanilla');
+q1.enqueue('Angular');
+q1.enqueue('React');
+q1.enqueue('Vue');
+
+q1.print();
 ```
 
 ## 設計模式
