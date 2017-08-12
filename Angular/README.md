@@ -152,4 +152,4 @@
   * [提前時間編譯](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#提前時間編譯)
   * [離線存儲](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#離線存儲)
   * [伺服端渲染](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/best-practices.md#伺服端渲染)
-  * 同構 JavaScript (Cloud Functions)
+    * Cloud Functions
