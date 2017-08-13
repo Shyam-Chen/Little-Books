@@ -1,5 +1,12 @@
 # TypeScript
 
+### 參考資源
+
+* http://www.typescriptlang.org/docs/home.html
+* https://basarat.gitbooks.io/typescript/content/
+
+***
+
 ### 目錄
 
 * [入門](#入門)

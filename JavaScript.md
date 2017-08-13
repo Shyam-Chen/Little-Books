@@ -1,11 +1,19 @@
 # JavaScript
 
+### 參考資源
+
+* http://speakingjs.com/es5/index.html
+* http://exploringjs.com/es6/index.html
+* http://exploringjs.com/es2016-es2017/index.html
+
+***
+
 ### 目錄
 
 * [非同步處理](#非同步處理)
   * [承諾 (Promises)](#承諾)
   * 產生器 (Generators)
-  * 非同步函式 (Async Function)
+  * [非同步函式 (Async Function)](#非同步函式)
   * 可觀察 (Observables)
 * [函式型程式設計](#函式型程式設計)
   * 組合函式
@@ -90,6 +98,97 @@ foo().then(() => console.log(4));
 // 3
 // 2
 // 4
+```
+
+### 非同步函式
+
+宣告式:
+
+```js
+async function foo() {
+  const result = await bar();
+  console.log(result);
+}
+```
+
+表示法:
+
+```js
+const foo = async function () {
+  const result = await bar();
+  console.log(result);
+};
+```
+
+箭頭函式:
+
+```js
+const foo = async () => {
+  const result = await bar();
+  console.log(result);
+};
+```
+
+方法定義:
+
+```js
+const thing = {
+  async foo() {
+    const result = await bar();
+    console.log(result);
+  }
+};
+```
+
+類別方法:
+
+```js
+class Thing {
+  async foo() {
+    const result = await bar();
+    console.log(result);
+  }
+}
+```
+
+平行處理:
+
+```js
+const foo = async () => {
+  const [result1, result2] = await Promise.all([bar(), baz()]);
+  console.log(result1, result2);
+};
+```
+
+錯誤處理:
+
+```js
+const foo = async () => {
+  try {
+    const result = await bar();
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+};
+```
+
+返回承諾:
+
+```js
+const foo = async () => {
+  const result = await bar();
+
+  if (result) {
+    return `Foo, ${result}`;
+  } else {
+    throw new Error('Problem!');
+  }
+};
+
+foo()
+  .then(value => console.log(value))
+  .catch(error => console.error(error));
 ```
 
 ## 函式型程式設計
