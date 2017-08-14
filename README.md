@@ -4,31 +4,35 @@
 
 ### 書單
 
+* ---------- **Core** ----------
 * [JavaScript (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JavaScript.md)
 * [TypeScript (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md)
-* **--------------------**
+* ---------- **Frameworks** ----------
 * [Angular (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md)
 * [React (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/README.md)
 * [Vue (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Vue/README.md)
-* **--------------------**
+* ---------- **Web** ----------
 * [Material (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
 * [Firebase (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
-* **--------------------**
+* ---------- **Server** ----------
 * [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md)
+* [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
+* ---------- **Database** ----------
 * [Mongoose (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md)
-* **--------------------**
+* Sequelize
+* ---------- **Extensions** ----------
 * [Lodash (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md)
 * [ReactiveX (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md)
-* **--------------------**
+* ---------- **Structures** ----------
 * [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md)
 * [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
-* **--------------------**
+* ---------- **Graphics** ----------
 * [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
 * [Three (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Three.md)
-* **--------------------**
+* ---------- **Authentication** ----------
 * [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
-* [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
-* **--------------------**
+* Passport
+* ---------- **Messaging** ----------
 * [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
 * [RabbitMQ (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/RabbitMQ.md)
 
