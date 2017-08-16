@@ -17,11 +17,6 @@
   * [中介軟體](#中介軟體)
   * 請求回應
   * 模板
-* 驗證
-  * 本地
-  * Facebook
-  * Google
-  * Twitter
 * REST
   * 增刪改查
 * 存儲
@@ -191,36 +186,6 @@ Express 的中介軟體模組
 * `session` - 設立基於伺服器的 sessions (僅限開發用)
 * `timeout` - 設定 HTTP 請求處理的超時時間
 * `vhost` - 建立虛擬網域
-
-## 驗證
-
-```bash
-$ npm i passport -S
-```
-
-### 本地
-
-```bash
-$ npm i passport-local -S
-```
-
-### Facebook
-
-```bash
-$ npm i passport-facebook -S
-```
-
-### Google
-
-```bash
-$ npm i passport-google-oauth20 -S
-```
-
-### Twitter
-
-```bash
-$ npm i passport-twitter -S
-```
 
 ## REST
 

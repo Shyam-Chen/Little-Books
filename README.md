@@ -4,35 +4,35 @@
 
 ### 書單
 
-* ---------- **Core** ----------
+* ---------- **主核心** ----------
 * [JavaScript (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JavaScript.md)
 * [TypeScript (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md)
-* ---------- **Frameworks** ----------
+* ---------- **框架** ----------
 * [Angular (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md)
 * [React (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/README.md)
 * [Vue (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Vue/README.md)
-* ---------- **Web** ----------
+* ---------- **瀏覽器** ----------
 * [Material (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
 * [Firebase (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
-* ---------- **Server** ----------
+* ---------- **伺服器** ----------
 * [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md)
 * [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
-* ---------- **Database** ----------
+* ---------- **資料庫** ----------
 * [Mongoose (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md)
-* Sequelize
-* ---------- **Extensions** ----------
+* [Sequelize (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Sequelize.md)
+* ---------- **擴展** ----------
 * [Lodash (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md)
 * [ReactiveX (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md)
-* ---------- **Structures** ----------
+* ---------- **結構** ----------
 * [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md)
 * [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
-* ---------- **Graphics** ----------
+* ---------- **圖形** ----------
 * [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
 * [Three (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Three.md)
-* ---------- **Authentication** ----------
+* ---------- **憑證** ----------
 * [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
-* Passport
-* ---------- **Messaging** ----------
+* [Passport (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Passport.md)
+* ---------- **訊息** ----------
 * [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
 * [RabbitMQ (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/RabbitMQ.md)
 
