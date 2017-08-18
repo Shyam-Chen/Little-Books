@@ -73,6 +73,10 @@
   * 字元符號
   * 修飾符號
   * 代換
+* 二進制資料
+  * ArrayBuffer 物件
+  * TypedArray 視圖
+  * DataView 視圖
 
 ***
 
