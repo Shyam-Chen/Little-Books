@@ -80,7 +80,7 @@
   * throttleTime
 * [Multicasting (組播)](#組播)
   * multicast
-  * publish
+  * [publish](#publish)
   * [share](#share) :star:
 * [Transformation (轉化)](#轉化)
   * [buffer](#buffer)
@@ -1770,7 +1770,45 @@ Observable::interval(1000)
 
 ### publish
 
+Returns a ConnectableObservable, which is a variety of Observable that waits until its connect method is called before it begins emitting items to those Observers that have subscribed to it.
+
+返回一個 ConnectableObservable，它是各種 Observable 等待，直到它的連接方法被調用之前，它開始向已經訂閱的觀察者發送項目。
+
+```js
+import Observable from 'rxjs/Observable';
+import { interval } from 'rxjs/observable';
+import { publish } from 'rxjs/operator';
+
+import { _do } from 'rxjs/operator/do';
+
+const source$ = Observable::interval(1000)
+  ::_do(() => console.log('----------'))
+  ::publish();
+
+source$.subscribe(value => console.log(`Subscriber One: ${value}`));
+source$.subscribe(value => console.log(`Subscriber Two: ${value}`));
+
+setTimeout(() => source$.connect(), 3000);
+// ----------
+// Subscriber One: 0
+// Subscriber Two: 0
+// ----------
+// Subscriber One: 1
+// Subscriber Two: 1
+// ----------
+// Subscriber One: 2
+// Subscriber Two: 2
+// ----------
+// Subscriber One: 3
+// Subscriber Two: 3
+// ...
+```
+
 ### share
+
+Returns a new Observable that multicasts (shares) the original Observable.
+
+返回一個新的 Observable 來組播 (共享) 原始的 Observable
 
 ```js
 import { Observable } from 'rxjs/Observable';
