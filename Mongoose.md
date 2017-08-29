@@ -13,9 +13,14 @@
 ### 目錄
 
 * [核心](#核心)
-  * 定義綱要
-  * 查詢
-* 進階查詢
+  * [綱要](#綱要)
+  * [新增](#新增)
+  * [讀取](#讀取)
+  * [刪除](#刪除)
+  * [更新](#更新)
+* 欄位查詢
+* 資料分頁
+* 模型測試
 
 ***
 
@@ -33,7 +38,7 @@ mongoose.connection.on('error', console.error.bind(console, 'connection error:')
 mongoose.connection.once('open', () => console.log('Connection Succeeded.'));
 ```
 
-### 定義綱要
+### 綱要
 
 綱要型別 (SchemaTypes):
 * String
@@ -58,7 +63,7 @@ const userSchema = new Schema({
 });
 ```
 
-### 建立模型
+建立模型
 
 ```js
 import mongoose, { Schema } from 'mongoose';
@@ -75,7 +80,7 @@ const userSchema = new Schema({
 export const User = mongoose.model('user', userSchema);
 ```
 
-### 實體方法
+實體方法
 
 ```js
 import mongoose, { Schema } from 'mongoose';
@@ -95,8 +100,6 @@ userSchema.statics.bar = () => ...;
 export const User = mongoose.model('user', userSchema);
 ```
 
-查詢資料
-
 ```js
 import mongoose, { Schema } from 'mongoose';
 
@@ -106,9 +109,57 @@ const listSchema = Schema({
 });
 
 const List = mongoose.model('List', listSchema);
+```
 
+### 新增
+
+```js
+const list = new List(req.body);
+
+list.save(err => {
+  if (err) return next(err);
+  res.json({ message: 'List saved' });
+});
+```
+
+### 讀取
+
+```js
 List.find({}, (err, data) => {
   if (err) throw err;
   console.log(data);
+});
+```
+
+```js
+List.findById(<ID>, (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+```
+
+### 更新
+
+```js
+List.findById(req.params.id, (err, data) => {
+  if (err) return next(err);
+
+  for (let prop in req.body) {
+    data[prop] = req.body[prop];
+  }
+
+  data.save(err => {
+    if (err) return next(err);
+    res.json({ message: 'List updated' });
+  });
+});
+```
+
+### 刪除
+
+```js
+List.findByIdAndRemove(req.params.id, err => {
+  if (err) return next(err);
+  res.json({ message: 'List deleted' });
 });
 ```

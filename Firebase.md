@@ -28,6 +28,7 @@
   * [更新](#更新)
   * [完整 CRUD](#完整-crud)
   * 整合 Web Storage API
+  * 資料分頁
 * [Storage (存儲)](#存儲)
   * [檔案上傳](#檔案上傳)
   * 整合 File API

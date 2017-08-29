@@ -27,4 +27,20 @@
 
 ### 初探 Cordova
 
+這邊直接透過 Ionic 來執行
+
+```bash
+$ npm i -g cordova ionic
+```
+
+```bash
+$ ionic start <專案名稱> sidemenu
+```
+
+```bash
+$ ionic serve
+```
+
+下載 PhoneGap
+
 ### 初探 Electron

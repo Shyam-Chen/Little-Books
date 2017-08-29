@@ -18,6 +18,7 @@
   * Reducer
   * Store
   * Effect
+* 整合 IndexedDB
 * [範例](#範例)
   * [計數器](#計數器)
   * 增刪改查
