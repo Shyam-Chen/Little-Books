@@ -39,30 +39,32 @@
   * 洗牌
   * 貪婪
 * [設計模式](#設計模式)
-  * [建立型](#建立型)
-    * [工廠 (Factory)](#工廠)
+  * [建立型 (Creational)](#建立型)
     * 抽象工廠 (Abstract Factory)
     * 建造器 (Builder)
-    * 原型模式 (Prototype)
-    * 單體模式 (Singleton)
-  * 結構型
+    * [工廠 (Factory)](#工廠)
+    * 原型 (Prototype)
+    * 單體 (Singleton)
+  * 結構型 (Structural)
     * 匹配器 (Adapter)
+    * 橋梁 (Bridge)
     * 組合 (Composite)
     * 修飾 (Decorator)
     * 外觀 (Facade)
     * 享元 (Flyweight)
-    * 摻合 (Mixin)
-    * 模組 (Module)
     * 代理 (Proxy)
-  * 行為型
+  * 行為型 (Behavioral)
     * 職責鏈 (Chain of Responsibility)
     * 命令 (Command)
+    * 翻譯者 (Interpreter)
     * 迭代器 (Iterator)
-    * 觀察者 (Observer)
     * 中介者 (Mediator)
     * 備忘錄 (Memento)
-    * 承諾 (Promises)
+    * 觀察者 (Observer)
+    * 狀態 (State)
     * 策略 (Strategy)
+    * 模板 (Template)
+    * 遊客 (Visitor)
 * [規則運算式 (Regex)](#規則運算式)
   * [共用](#共用)
   * 一般
@@ -355,16 +357,6 @@ export class Factory {
 ```
 
 ### 結構型
-
-#### 模組
-
-最簡單的樣子
-
-```js
-((foo, bar) => {
-  // ...
-})(foo);
-```
 
 ## 規則運算式
 
