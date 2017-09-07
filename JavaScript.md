@@ -12,9 +12,9 @@
 
 * [非同步處理](#非同步處理)
   * [承諾 (Promises)](#承諾)
-  * 產生器 (Generators)
+  * [產生器 (Generators)](#產生器)
   * [非同步函式 (Async Function)](#非同步函式)
-  * 可觀察 (Observables)
+  * [可觀察 (Observables)](#可觀察)
 * [函式型程式設計](#函式型程式設計)
   * 組合函式
   * [議題](#議題)
@@ -75,10 +75,6 @@
   * 字元符號
   * 修飾符號
   * 代換
-* 二進制資料
-  * ArrayBuffer 物件
-  * TypedArray 視圖
-  * DataView 視圖
 
 ***
 
@@ -104,6 +100,74 @@ foo().then(() => console.log(4));
 // 3
 // 2
 // 4
+```
+
+平行
+
+```js
+Promise.all([
+    p1(), p2()
+  ])
+  .then(data => {
+    console.log(data[0]);  // p1 結果
+    console.log(data[1]);  // p2 結果
+  });
+```
+
+平行且競賽
+
+```js
+Promise.race([
+    p1(),  // 假設 p1 為主體
+    p2()  // p2 不一定要執行，通常是 p1 的超時處理
+  ])
+  .then(() => {
+    // ...
+  });
+```
+
+錯誤處理
+
+```js
+foo().then(() => console.log(4))
+  .catch(error => console.error(error));
+```
+
+鏈接
+
+```js
+foo().then(() => console.log(4))
+  .then(() => console.log(6))
+  .then(() => console.log(8))
+  .catch(error => console.error(error));
+```
+
+### 產生器
+
+```js
+function* foo(x) {
+  let y = x * (yield);  // 在這裡暫停
+  return y;
+};
+
+let it = foo(2);  // 通常會已使用 `it` 來控制產生器
+it.next();  // 執行 foo 函式，但會停在 yield 的地方
+
+let result = it.next(3);  // 執行 foo 函式，這次會從暫停的地方開始
+result.value;  // 2 * 3 = 6
+```
+
+```js
+const foo = {
+  *bar() {
+    let index = 0;
+    while (true) yield index++;
+  }
+};
+
+const it = foo.bar();
+it.next().value;  // 0
+it.next().value;  // 1
 ```
 
 ### 非同步函式
@@ -195,6 +259,47 @@ const foo = async () => {
 foo()
   .then(value => console.log(value))
   .catch(error => console.error(error));
+```
+
+### 可觀察
+
+```js
+// 一個 Observer (觀察者)
+new Observable(observer => {
+    // 回呼方法: next()、error() 和 complete()
+    setTimeout(() => observer.next('foo'), 0);
+    setTimeout(() => observer.next('bar'), 1000);
+    setTimeout(() => observer.next('baz'), 2000);
+    setTimeout(() => observer.complete(), 3000);
+  })
+  .subscribe(  // 訂閱一個或多個 Observable (可觀察的物件)
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+  // foo
+  // bar
+  // baz
+  // done
+```
+
+```js
+Observable.of(1, 2, 3)
+  .subscribe(value => console.log(value));
+  // 1
+  // 2
+  // 3
+```
+
+```js
+const map1 = Map({ a: 1, b: 2, c: 3 });
+const map2 = map1.set('b', 4);
+
+Observable.from(map2)
+  .subscribe(value => console.log(value));
+  // ["a", 1]
+  // ["b", 4]
+  // ["c", 3]
 ```
 
 ## 函式型程式設計
