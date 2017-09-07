@@ -44,7 +44,7 @@
     * 建造器 (Builder)
     * [工廠 (Factory)](#工廠)
     * 原型 (Prototype)
-    * 單體 (Singleton)
+    * [單體 (Singleton)](#單體)
   * 結構型 (Structural)
     * 匹配器 (Adapter)
     * 橋梁 (Bridge)
@@ -452,13 +452,25 @@ Factory();
 // true
 ```
 
-```ts
-import { Injectable } from '@angular/core';
+#### 單體
 
-@Injectable()
-export class Factory {
+```js
+class Singleton {
+  constructor() {
+    if (typeof Singleton.instance === 'object') {
+      return Singleton.instance;
+    }
 
+    Singleton.instance = this;
+
+    return this;
+  }
 }
+
+const instance1 = new Singleton();
+const instance2 = new Singleton();
+
+console.log(instance1 === instance2);  // true
 ```
 
 ### 結構型
