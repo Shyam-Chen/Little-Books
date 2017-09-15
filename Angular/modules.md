@@ -103,7 +103,7 @@ import { NewModule } from './new/new.module';  // 導入 NewModule
 export class AppModule { }
 ```
 
-在 AppComponent 使用 NewModule 裡的 NewComponent。
+在 AppComponent 使用 NewModule 裡的 NewComponent
 
 ```html
 <!-- src/app/app.component.html -->
@@ -117,7 +117,30 @@ export class AppModule { }
 
 #### 功能模組
 
-功能模組主要是輔助專案的，基本上會是指令和管道。
+在開發的階段，每一個功能，都需要建立一個功能模組，而一個功能模組底下也可以有小功能模組，以方面日後的管理
+
+在 app 資料夾建立一個 color 模組，這與上方的第一個模組是相同的意思，會再一次，主要是希望整體的目錄結構，是以功能來做區分的
+
+```ts
+// src/app/color/color.module.ts
+import { NgModule } from '@angular/core';
+
+import { ColorComponent } from './color.component';
+import { RedDirective } from './red.directive';
+import { GreenDirective } from './green.directive';
+import { BlueDirective } from './blue.directive';
+
+@NgModule({
+  declarations: [
+    ColorComponent,
+    RedDirective,
+    GreenDirective,
+    BlueDirective
+  ],
+  exports: [ColorComponent]
+})
+export class ColorModule { }
+```
 
 ```ts
 // src/app/color/red.directive.ts
@@ -159,29 +182,6 @@ export class BlueDirective {
     renderer.setElementStyle(element.nativeElement, 'color', '#2196F3');
   }
 }
-```
-
-```ts
-// src/app/color/color.module.ts
-import { NgModule } from '@angular/core';
-
-import { RedDirective } from './red.directive';
-import { GreenDirective } from './green.directive';
-import { BlueDirective } from './blue.directive';
-
-@NgModule({
-  declarations: [
-    RedDirective,
-    GreenDirective,
-    BlueDirective
-  ],
-  exports: [
-    RedDirective,
-    GreenDirective,
-    BlueDirective
-  ]
-})
-export class ColorModule { }
 ```
 
 ```ts
