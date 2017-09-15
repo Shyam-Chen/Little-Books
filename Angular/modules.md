@@ -109,7 +109,7 @@ export class AppModule { }
 <!-- src/app/app.component.html -->
 
 <!--
- ... 少略
+ ... 省略
  -->
 
 <app-new></app-new>  <!-- 使用 NewModule 導出的 NewComponent -->
