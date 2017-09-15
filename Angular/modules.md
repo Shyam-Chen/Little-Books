@@ -1,37 +1,35 @@
 ## 模組
 
-在現在的 JavaScript 有 ES Modules 的出現，而 Angular 模組和 ES Modules 是屬於互補的關係。
+在現在的 JavaScript 有 ES Modules 的出現，而 Angular 模組和 ES Modules 是屬於互補的關係
 
 ### 基本應用
 
-先來知道一下模組的構造，底下這段就是模組的起始點：
+先來知道一下模組的構造，底下這段就是模組的起始點
 
 ```ts
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  // ...
+  // 在這裡配置模組的屬性
 })
-export class NameModule {
-  // ...
-}
+export class NameModule {}
 ```
 
-底下列出配置模組所可使用的選項：
+底下列出配置模組所可使用的選項
 
 ```ts
 // 後設資料屬性
-providers?: Provider[];
-declarations?: Array<Type<any>|any[]>;
-imports?: Array<Type<any>|ModuleWithProviders|any[]>;
-exports?: Array<Type<any>|any[]>;
-entryComponents?: Array<Type<any>|any[]>;
-bootstrap?: Array<Type<any>|any[]>;
-schemas?: Array<SchemaMetadata|any[]>;
-id?: string;
+providers?: Provider[]  // 注入服務用
+declarations?: Array<Type<any>|any[]>  // 定義元件、指令或管道用
+imports?: Array<Type<any>|ModuleWithProviders|any[]>  // 導入模組、元件、指令或管道
+exports?: Array<Type<any>|any[]>  // 導出模組或元件
+entryComponents?: Array<Type<any>|any[]>  // 所依賴的原件
+bootstrap?: Array<Type<any>|any[]>  // 啟動元件
+schemas?: Array<SchemaMetadata|any[]>  // 定義元件或指令的屬性
+id?: string  // 模組識別
 ```
 
-開始建立一個新的模組。
+開始建立一個新的模組
 
 ```ts
 // src/app/new/new.module.ts
@@ -42,46 +40,46 @@ import { NewDirective } from './new.directive';
 
 @NgModule({
   declarations: [  // 該 NewModule 模組底下的元件、指令或管道
-    FooComponent,
-    BarDirective
+    NewComponent,
+    NewDirective
   ],
-  exports: [FooComponent]  // 導出 NewComponent 給 AppModule 模組使用
+  exports: [NewComponent]  // 導出 NewComponent
 })
-export class NewModule { }
+export class NewModule {}
 ```
 
-在新建立的模組裡，建立一個元件。
+在新建立的模組內，建立一個新的元件
 
 ```ts
-// src/app/new/foo.component.ts
+// src/app/new/new.component.ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'new-foo',  // 加入前綴 new，表示是在 NewModule 底下的
+  selector: 'app-new',
   template: `
-    <p new-bar>這是新建立的元件</p>  <!-- p 標籤裡的 new-bar 屬性是 BarDirective 所建立的 -->
+    <p new-directive>這是新建立的元件</p>  <!-- p 標籤裡的 new-directive 屬性是 NewDirective 所建立的 -->
   `
 })
-export class FooComponent { }
+export class NewComponent {}
 ```
 
-在新建立的模組裡，建立一個指令。
+在新建立的模組內，建立一個新的指令
 
 ```ts
-// src/app/new/bar.directive.ts
+// src/app/new/new.directive.ts
 import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
-  selector: '[new-bar]'  // 加入前綴 new，表示是在 NewModule 底下的
+  selector: '[new-directive]'  // 加入前綴 new，表示是在 NewModule 底下的
 })
-export class BarDirective {
+export class NewDirective {
   constructor(public element: ElementRef, public renderer: Renderer) {
     renderer.setElementStyle(element.nativeElement, 'color', '#F44336');  // DOM 操作：將字體顏色設定為紅色
   }
 }
 ```
 
-將新建立的模組導入到 AppModule 裡。
+將新建立的模組導入到 AppModule 裡
 
 ```ts
 // src/app/app.module.ts
@@ -89,13 +87,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-
 import { NewModule } from './new/new.module';  // 導入 NewModule
 
 @NgModule({
   imports: [
     BrowserModule,
-    NewModule  // 將 NewModule 註冊到 AppModule 裡
+    NewModule  // 將 NewModule 導入到 AppModule 裡
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
@@ -103,7 +100,7 @@ import { NewModule } from './new/new.module';  // 導入 NewModule
 export class AppModule { }
 ```
 
-在 AppComponent 使用 NewModule 裡的 FooComponent。
+在 AppComponent 使用 NewModule 裡的 NewComponent。
 
 ```ts
 // src/app/app.component.ts
@@ -113,10 +110,10 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <p>第一個應用程式</p>
-    <new-foo></new-foo>  <!-- 使用 NewModule 導出的 FooComponent -->
+    <app-new></app-new>  <!-- 使用 NewModule 導出的 NewComponent -->
   `
 })
-export class AppComponent { }
+export class AppComponent {}
 ```
 
 #### 功能模組
