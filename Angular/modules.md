@@ -219,9 +219,11 @@ import { Component } from '@angular/core';
 export class AppComponent { }
 ```
 
+這樣就完成了一個模組了，至於詳細的元件和指令可以先查看元件和指令章節
+
 #### 共用模組
 
-共用模組主要是存放專案中屬於共用的程式碼，基本上會是元件和服務。
+共用模組的定義是在很多的功能模組上也許都會使用到的
 
 ```ts
 // src/app/shared/shared.module.ts
@@ -262,7 +264,7 @@ export class AppModule { }
 
 #### 延遲載入模組
 
-延遲載入模組主要是優化路由的。
+延遲載入模組會搭配上路由的操作，詳細的路由可以先查看路由章節
 
 ```ts
 // src/app/app-routing.module.ts

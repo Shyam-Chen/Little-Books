@@ -9,7 +9,7 @@
   * [基本應用](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/modules.md#基本應用)
   * [功能模組](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/modules.md#功能模組)
   * [共用模組](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/modules.md#共用模組)
-  * [延遲載入模組](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/modules.md#共享模組)
+  * [延遲載入模組](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/modules.md#延遲載入模組)
 * [元件](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/components.md)
   * [基本應用](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/components.md#基本應用)
     * [模板](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/components.md#模板)
