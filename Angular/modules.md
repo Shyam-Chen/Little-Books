@@ -45,7 +45,7 @@ import { NewDirective } from './new.directive';
   ],
   exports: [NewComponent]  // 導出 NewComponent
 })
-export class NewModule {}
+export class NewModule { }
 ```
 
 在新建立的模組內，建立一個新的元件
@@ -60,7 +60,7 @@ import { Component } from '@angular/core';
     <p new-directive>這是新建立的元件</p>  <!-- p 標籤裡的 new-directive 屬性是 NewDirective 所建立的 -->
   `
 })
-export class NewComponent {}
+export class NewComponent { }
 ```
 
 在新建立的模組內，建立一個新的指令
@@ -70,7 +70,7 @@ export class NewComponent {}
 import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
-  selector: '[new-directive]'  // 加入前綴 new，表示是在 NewModule 底下的
+  selector: '[appNewDirectivee]'
 })
 export class NewDirective {
   constructor(public element: ElementRef, public renderer: Renderer) {
@@ -83,18 +83,21 @@ export class NewDirective {
 
 ```ts
 // src/app/app.module.ts
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NewModule } from './new/new.module';  // 導入 NewModule
 
 @NgModule({
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     NewModule  // 將 NewModule 導入到 AppModule 裡
   ],
-  declarations: [AppComponent],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
@@ -102,18 +105,14 @@ export class AppModule { }
 
 在 AppComponent 使用 NewModule 裡的 NewComponent。
 
-```ts
-// src/app/app.component.ts
-import { Component } from '@angular/core';
+```html
+<!-- src/app/app.component.html -->
 
-@Component({
-  selector: 'app-root',
-  template: `
-    <p>第一個應用程式</p>
-    <app-new></app-new>  <!-- 使用 NewModule 導出的 NewComponent -->
-  `
-})
-export class AppComponent {}
+<!--
+ ... 少略
+ -->
+
+<app-new></app-new>  <!-- 使用 NewModule 導出的 NewComponent -->
 ```
 
 #### 功能模組
