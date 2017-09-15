@@ -10,7 +10,18 @@
   * 事件處理
   * 生命週期
 * 狀態容器
-  * 中介軟體
+  * 核心
+    * Actions
+    * Reducers
+  * 非同步
+    * `redux-thunk`
+    * `redux-saga`
+    * `redux-observable`
+  * 輔助
+    * `reselect`
+    * `redux-logger`
+    * `redux-actions`
+  * 簡單明寮 Mobx
 * 表單
 * 路由
 * Observables
