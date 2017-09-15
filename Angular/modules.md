@@ -268,35 +268,39 @@ export class AppModule { }
 
 ```ts
 // src/app/app-routing.module.ts
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: 'home', loadChildren: './app/home/home.module#HomeModule' },
-  { path: 'about', loadChildren: './app/about/about.module#AboutModule' }
+  { path: 'home', loadChildren: './home/home.module#HomeModule' },
+  { path: 'about', loadChildren: './about/about.module#AboutModule' }
 ];
 
-export const routing = RouterModule.forRoot(routes);
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
 ```
 
 ```ts
 // src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { routing } from './app.routing';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    routing
+    AppRoutingModule
   ],
   declarations: [AppComponent],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '' },
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: APP_BASE_HREF, useValue: '/' }  // 詳細的服務可以先查看服務章節
   ],
   bootstrap: [AppComponent]
 })
