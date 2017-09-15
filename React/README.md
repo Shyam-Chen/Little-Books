@@ -9,6 +9,8 @@
   * 參考 (Refs)
   * 事件處理
   * 生命週期
+  * JSX
+  * CSS in JS
 * 狀態容器
   * 核心
     * Actions
@@ -21,14 +23,12 @@
     * `reselect`
     * `redux-logger`
     * `redux-actions`
-  * 簡單明寮 Mobx
+  * 簡單明寮 MobX
 * 表單
 * 路由
-* Observables
 * 伺服器通訊
-* GraphQL (Relay)
-* GraphQL (Apollo)
+* GraphQL
 * 動畫
 * 單元測試
-* 伺服器端渲染 (Next)
-* 行動應用 (React Native)
+* 伺服器端渲染
+* 跨平台
