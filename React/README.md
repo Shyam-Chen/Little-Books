@@ -19,8 +19,8 @@
     * `redux-thunk`
     * `redux-saga`
     * `redux-observable`
+  * 取值器 (`reselect`)
   * 輔助
-    * `reselect`
     * `redux-logger`
     * `redux-actions`
   * 簡單明寮 MobX

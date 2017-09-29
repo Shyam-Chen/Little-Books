@@ -30,14 +30,12 @@
 Redux 是負責管理狀態的，所有的狀態都會透過 Redux 來操作，就是個狀態容器。
 
 在 Redux 中會有這三個概念：Action、Reducer 和 Store，
-而 Action side effects 是透過 Redux Observable，這個概念稱作 Epic。
+除了 Redux 本身之外，還有 Effect 和 Getter，
+Effect 有很多種，主要常見的會有 Thunk、Saga 和 Observable 這些，
+最為高階是 Observable，這個概念會透過 Redux Observable 來實現，
+在 Redux Observable 這個概念會稱作 Epics，
+Getter 則是在 Store 操作資料變化，這可以減少渲染的時間，這個概念會透過 Reselect 來實現。
 
-如果不選擇 Redux Observable 可以選擇最為簡單基本的 Redux Thunk 或是比較進一步的 Redux Saga。
-
-Action 還可在分為兩個概念：Type 和 Creator，
-Reducer 會根據 Action 的 Type 來做相對應的操作，
-Epic 為 Action 的 side effects，
-最後就是把 Store 建立起來，執行 Action 的 Creator。
 
 ```js
 import { createStore, combineReducers, bindActionCreators, applyMiddleware, compose } from 'redux';
