@@ -1,6 +1,6 @@
 # 大小書
 
-:books: 有關 Angular、React、Vue、Material、Firebase、Express 和 Mongoose 的大小書。 :memo:
+:books: 有關 Angular、React、Vue、Material 和 Express 的大小書。 :memo:
 
 ### 書單
 
@@ -11,10 +11,10 @@
 * [Angular (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md)
 * [React (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/README.md)
 * [Vue (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Vue/README.md)
-* ---------- **瀏覽器** ----------
+* ---------- **用戶端** ----------
 * [Material (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
 * [Firebase (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
-* ---------- **伺服器** ----------
+* ---------- **伺服端** ----------
 * [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md)
 * [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
 * ---------- **資料庫** ----------
