@@ -1,5 +1,23 @@
 ## 狀態容器
 
+什麼是狀態容器？為什麼要使用狀態容器？
+
+隨著現今的應用程式開發越來越複雜，
+需要管理的項目也跟著越來越多，
+像是伺服器回應、使用者介面的變化、資料的快取 ...，
+管理這些不斷發生變化的事物是非常困難的，
+如果一個模型發生了變化會引起另一個模型也產生變化，
+那當檢視變化時，就可能引起對應模型以及另一個模型的變化，
+依次地，可能會引起另一個檢視的變化，
+所以為了好管理這些發生的變化，
+我們可以利用狀態容器來管理這些變化。
+
+要在 Angular 的應用程式中使用狀態容器，
+在現在的社群有 @ngrx (仿 Redux 的風格)、
+@angular-redux (與 Redux 綁定) 和 mobx-angular 這三種方式．
+
+### 基本應用
+
 Redux 是負責管理狀態的，所有的狀態都會透過 Redux 來操作，就是個狀態容器。
 
 在 Redux 中會有這三個概念：Action、Reducer 和 Store，
@@ -9,8 +27,6 @@ Action 還可在分為兩個概念：Type 和 Creator，
 Reducer 會根據 Action 的 Type 來做相對應的操作，
 再來是 Epic，Epic 為 Action 和 Reducer 增加額外的 Effects，
 最後就是把 Store 建立起來。
-
-### 基本應用
 
 這裡透過 [@ngrx/store](https://github.com/ngrx/store) 來實現 Redux，
 以及 [@ngrx/effects](https://github.com/ngrx/effects) 來實現 Redux Observable。

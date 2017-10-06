@@ -86,10 +86,10 @@
   * [Delete](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#delete)
   * [完整的 REST](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#完整的-rest)
   * [JSONP](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#jsonp)
-  * [GraphQL](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/http.md#graphql)
-    * Query (查詢)
-    * Mutation (變動)
-    * Fragment (分段)
+* [GraphQL](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/GraphQL.md)
+  * Query (查詢)
+  * Mutation (變動)
+  * Fragment (分段)
 * [WebSocket](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/websocket.md)
 * [管道](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/pipes.md)
   * [內建管道](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/pipes.md#內建管道)
@@ -120,6 +120,8 @@
   * 深度追蹤
   * 離線追蹤
 * [狀態容器](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/state-container.md)
+  * Redux
+  * MobX
 * [原質化設計](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/material.md)
 * [後端雲端服務](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/firebase.md)
 * [跨平台](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/cross-platform.md)
