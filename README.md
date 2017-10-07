@@ -24,7 +24,7 @@
 * [Lodash (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md)
 * [ReactiveX (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md)
 * ---------- **結構** ----------
-* [Redux (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redux.md)
+* [MobX (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/MobX.md)
 * [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
 * ---------- **圖形** ----------
 * [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
