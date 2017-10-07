@@ -64,6 +64,14 @@ const counterStore = new CounterStore();
 export default counterStore;
 ```
 
+```js
+import counterStore from './counter.store';
+
+counterStore.value;  // 0
+counterStore.increment();
+counterStore.value;  // 1
+```
+
 使用 Lodash 函式
 
 ```js
