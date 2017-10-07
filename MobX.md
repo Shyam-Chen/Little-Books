@@ -28,7 +28,7 @@ MobX
 import { observer, observable, action, computed } from 'mobx';
 
 @observer
-export class CounterStore {
+class CounterStore {
   @observable value: number = 0;
 
   @action
@@ -58,6 +58,10 @@ export class CounterStore {
     return this.value % 2 === 0 ? 'even' : 'odd';
   }
 }
+
+const counterStore = new CounterStore();
+
+export default counterStore;
 ```
 
 使用 Lodash 函式
