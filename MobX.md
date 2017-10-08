@@ -24,11 +24,41 @@ MobX
 ## 範例
 
 ```js
-// counter.store.js
-import { observer, observable, action, computed } from 'mobx';
+import { observable, action } from 'mobx';
 
-@observer
-class CounterStore {
+const store = observable({
+  /**
+   * @name observable
+   */
+  value: 0,
+
+  /**
+   * @name action
+   */
+  increment: action(() => this.value++),
+  decrement: action(() => this.value--),
+  incrementAsync: action(() =>
+    setTimeout(() => this.increment(), 1000)
+  ),
+  incrementIfOdd: action(() => {
+    if (Math.abs(this.value % 2) === 1) {
+      this.increment();
+    }
+  }),
+
+  /**
+   * @name computed
+   */
+  get evenOrOdd() {
+    return this.value % 2 === 0 ? 'even' : 'odd';
+  }
+});
+```
+
+```js
+import { observable, action, computed } from 'mobx';
+
+class Store {
   @observable value: number = 0;
 
   @action
@@ -59,17 +89,28 @@ class CounterStore {
   }
 }
 
-const counterStore = new CounterStore();
-
-export default counterStore;
+const store = new Store();
 ```
 
 ```js
-import counterStore from './counter.store';
+import { autorun } from 'mobx';
 
-counterStore.value;  // 0
-counterStore.increment();
-counterStore.value;  // 1
+autorun(() => {
+  store.value;  // 0
+  store.evenOrOdd;  // even
+
+  store.increment();
+  store.value;  // 1
+  store.evenOrOdd;  // odd
+
+  store.decrement();
+  store.value;  // 0
+  store.evenOrOdd;  // even
+
+  store.increment();  // 0 -> 1
+  store.incrementIfOdd();  // 1 -> 2
+  store.incrementIfOdd();  // 2 -> 2
+});
 ```
 
 使用 Lodash 函式
@@ -106,13 +147,15 @@ import { delay } from 'rxjs/operator';
 [...]
 ```
 
-除了可以直接使用第三方的函式庫，
-像是在做資料的效能調整或視覺化，
-也是可以直接進行操作變化的。
+不可變
 
 ```js
 import { Set } from 'immutable';
-import { select } from 'd3-selection';
 
+[...]
 
+  @observable s1 = Set[0, 1, 2];
+  @observable s2 = Set[9, 8, 7];
+
+[...]
 ```
