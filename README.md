@@ -32,9 +32,9 @@
 * ---------- **憑證** ----------
 * [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
 * [Passport (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Passport.md)
-* ---------- **訊息** ----------
+* ---------- **即時** ----------
 * [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
-* [RabbitMQ (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/RabbitMQ.md)
+* [Redis (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redis.md)
 
 (值) - 完整度
 
