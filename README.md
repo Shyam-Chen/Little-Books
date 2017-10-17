@@ -5,37 +5,33 @@
 ### 書單
 
 * ---------- **主核心** ----------
-* [JavaScript (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JavaScript.md)
-* [TypeScript (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md)
+* [JavaScript (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JavaScript.md)
+* [TypeScript (±70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md)
 * ---------- **框架** ----------
-* [Angular (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md)
-* [React (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/README.md)
-* [Vue (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Vue/README.md)
+* [Angular (±70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md)
+* [React (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/README.md)
+* [Vue (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Vue/README.md)
 * ---------- **用戶端** ----------
-* [Material (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
-* [Firebase (中)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
+* [Material (±50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
+* [Firebase (±50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
 * ---------- **伺服端** ----------
-* [Express (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md)
-* [GraphQL (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
+* [Express (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md)
+* [GraphQL (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
 * ---------- **資料庫** ----------
-* [Mongoose (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md)
-* [Sequelize (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Sequelize.md)
+* [Mongoose (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md)
+* [Sequelize (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Sequelize.md)
 * ---------- **擴展** ----------
-* [Lodash (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md)
-* [ReactiveX (中高)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md)
+* [Lodash (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md)
+* [ReactiveX (±70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md)
 * ---------- **結構** ----------
-* [MobX (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/MobX.md)
-* [Immutable (低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
+* [MobX (±30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/MobX.md)
+* [Immutable (±30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
 * ---------- **圖形** ----------
-* [D3 (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
-* [Three (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Three.md)
+* [D3 (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
+* [Three (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Three.md)
 * ---------- **憑證** ----------
-* [JWT (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
-* [Passport (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Passport.md)
+* [JWT (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
+* [Passport (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Passport.md)
 * ---------- **即時** ----------
-* [Socket (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
-* [Redis (極低)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redis.md)
-
-(值) - 完整度
-
-值±10%: 極低 (10%) -> 低 (30%) -> 中 (50%) -> 中高 (70%) -> 高 (90%)
+* [Socket (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
+* [Redis (±10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redis.md)
