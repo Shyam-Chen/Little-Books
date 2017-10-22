@@ -1,7 +1,8 @@
-## 入門
+## Getting started (入門)
 
-### 生態系
+### Ecosystems (生態系)
 
+According to Angular's official website: A framework for multiple platforms as the main feature!
 根據 Angular 官網的說明: 一個框架多個平台為主要特色！
 
 Angular 開發概念就是已元件化為中心出發，而 Angular 的元件化實作是在 [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) 標準之上的，除了元件之外，還有模組、指令、服務、管道和動畫的特色。
