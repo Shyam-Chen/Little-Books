@@ -10,21 +10,21 @@
 ### Table of Contents (目錄)
 
 * [Quick start (快速開始)](#quick-start-快速開始)
-* [變數宣告](#變數宣告)
-* [分割代入](#分割代入)
-* [型別](#型別)
-* [Namespace (命名空間)](#命名空間)
-* [Module (模組機制)](#模組機制)
-* [Interface (介面)](#介面)
-* [Function (函式)](#函式)
-* [Class (類別)](#類別)
+* [Variable declarations (變數宣告)](#variable-declarations-變數宣告)
+* [Destructuring (分割代入)](#destructuring-分割代入)
+* [Types (型別)](#types-型別)
+* [Namespaces (命名空間)](#namespaces-命名空間)
+* [Modules (模組機制)](#modules-模組機制)
+* [Interfaces (介面)](#interfaces-介面)
+* [Functions (函式)](#函式)
+* [Classes (類別)](#類別)
 * [型別兼容性](#型別兼容性)
 * [通用型別](#通用型別)
 * [型別查找](#型別查找)
-* [Generic (泛型)](#泛型)
+* [Generics (泛型)](#泛型)
 * [型別斷言](#型別斷言)
 * [冪運算子](#冪運算子)
-* [Mixin (混入)](#混入)
+* [Mixins (混入)](#混入)
 * [合併宣告](#合併宣告)
 * [Set (似陣列)](#似陣列)
 * [Map (似物件)](#似物件)
@@ -69,7 +69,7 @@ $ ts-node script
 Hello TypeScript
 ```
 
-## 變數宣告
+## Variable declarations (變數宣告)
 
 ### 一般賦值
 
@@ -105,18 +105,18 @@ foo.bar = 456;  // OK
 foo;  // { bar: 456 }
 ```
 
-## 分割代入
+## Destructuring (分割代入)
 
-### 陣列分割代入
+### Array destructuring (陣列分割代入)
 
 ```ts
-let [foo, bar] = [123, 456];
+const [foo, bar] = [123, 456];
 foo;  // 123
 bar;  // 456
 ```
 
 ```ts
-let [foo = 1] = [];
+const [foo = 1] = [];
 foo;  // 1
 ```
 
@@ -130,22 +130,26 @@ a;  // 2
 b;  // 1
 ```
 
-### 物件分割代入
+### Object destructuring (物件分割代入)
 
 ```ts
-const foo = {
-  x: 'bar',
-  y: 'baz'
+const thing = {
+  x: 'foo',
+  y: 'bar',
+  child: {
+    z: 'baz'
+  }
 };
 
-let { x, y } = foo;
-x;  // "bar"
-y;  // "baz"
+const { x, y, child: { z } } = thing;
+x;  // "foo"
+y;  // "bar"
+z;  // "baz"
 ```
 
 ```ts
 let key = 'foo';
-let { [key]: bar } = { foo: 'baz' };
+const { [key]: bar } = { foo: 'baz' };
 
 bar;  // "baz"
 ```
@@ -153,32 +157,39 @@ bar;  // "baz"
 ```ts
 const foo = () => [1, 2, 3];
 
-let [a, , b] = foo();
+const [a, , b] = foo();
 
 a;  // 1
 b;  // 3
 ```
 
 ```js
+const path = require('path');
+
+path.join(__dirname, 'thing');
+
+// destructuring
 const { join } = require('path');
+
+join(__dirname, 'thing');
 ```
 
-## 型別
+## Types (型別)
 
-### 布林值
+### Boolean (布林值)
 
 ```ts
 let foo: boolean = true;
 let bar: boolean = false;
 ```
 
-### 數值
+### Number (數值)
 
 ```ts
 let foo: number = 18;  // 十進制
 ```
 
-### 字串
+### String (字串)
 
 ```ts
 let myName: string = 'Hale';
@@ -187,13 +198,13 @@ let myName: string = 'Hale';
 let sentence: string = `My name is ${myName}.`;  // My name is Hale.
 ```
 
-### 陣列
+### Array (陣列)
 
 ```ts
 const foo: number[] = [1, 2, 3];
 const bar: string[] = ['a', 'b', 'c'];
 
-// 或者
+// or
 
 const foo: Array<number> = [3, 2, 1];
 const bar: Array<string> = ['x', 'y', 'z'];
@@ -379,7 +390,7 @@ foo = 123;  // OK
 foo = true;  // Error
 ```
 
-## 命名空間
+## Namespaces (命名空間)
 
 ```ts
 namespace Thing {
@@ -387,8 +398,8 @@ namespace Thing {
   export class Bar { }
 }
 
-let foo = new Thing.Foo();
-let bar = new Thing.Bar();
+const foo = new Thing.Foo();
+const bar = new Thing.Bar();
 ```
 
 ```ts
@@ -399,14 +410,14 @@ namespace Thing {
   }
 }
 
-let baz = new Thing.Foo.Baz()
+const baz = new Thing.Foo.Baz()
 
-// 等同於
+// equal to (等同於)
 import foo = Thing.Foo;
-let baz = new foo.Baz();
+const baz = new foo.Baz();
 ```
 
-### 模組機制
+### Modules (模組機制)
 
 ```ts
 // foo.ts
@@ -471,7 +482,7 @@ $ npm i @types/node -D
 import { join } from 'path';  // OK
 ```
 
-## 介面
+## Interfaces (介面)
 
 ```ts
 interface Foo {
