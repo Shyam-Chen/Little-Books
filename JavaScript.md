@@ -1,6 +1,6 @@
 # JavaScript
 
-### 參考資源
+### Reference Resources (參考資源)
 
 * http://speakingjs.com/es5/index.html
 * http://exploringjs.com/es6/index.html
@@ -8,14 +8,14 @@
 
 ***
 
-### 目錄
+### Table of Contents (目錄)
 
-* [非同步處理](#非同步處理)
-  * [承諾 (Promises)](#承諾)
-  * [產生器 (Generators)](#產生器)
-  * [非同步函式 (Async Function)](#非同步函式)
-  * [可觀察 (Observables)](#可觀察)
-* [函式型程式設計](#函式型程式設計)
+* [Asynchronous processing (非同步處理)](#非同步處理)
+  * [Promises (承諾)](#承諾)
+  * [Generators (產生器)](#產生器)
+  * [Async functions (非同步函式)](#非同步函式)
+  * [Observables (可觀察)](#可觀察)
+* [Functional programming (函式型程式設計)](#函式型程式設計)
   * 組合函式
   * [議題](#議題)
     * [共享狀態](#共享狀態)
@@ -78,7 +78,7 @@
 
 ***
 
-## 非同步處理
+## Asynchronous Processing (非同步處理)
 
 ### 承諾
 
