@@ -1,34 +1,34 @@
 # React
 
-### 目錄
+### Table of Contents (目錄)
 
-* [入門](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/getting-started.md)
-* 元件
-  * 屬性 (Props)
-  * 狀態 (State)
-  * 參考 (Refs)
-  * 事件處理
-  * 生命週期
+* [Getting started (入門)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/getting-started.md)
+* Components (元件)
+  * Properties (屬性)
+  * States (狀態)
+  * References (參考)
+  * Event handling (事件處理)
+  * lifecycle hooks (生命週期掛鉤)
   * JSX
   * CSS in JS
-* 狀態容器
-  * 核心
-    * Actions
-    * Reducers
-  * 非同步
-    * `redux-thunk`
-    * `redux-saga`
-    * `redux-observable`
-  * 取值器 (`reselect`)
-  * 輔助
-    * `redux-logger`
-    * `redux-actions`
-  * 簡單明寮 MobX
-* 表單
-* 路由
-* 伺服器通訊
+* State management (狀態管理)
+  * Core (核心)
+  * Asynchronous (非同步)
+  * Getters (取值器)
+  * Auxiliary (輔助)
+  * TFRP (明確運用函式型反應式程式設計)
+* Forms (表單)
+* Routing (路由)
+* Http
 * GraphQL
-* 動畫
-* 單元測試
+* Sockets
+* Animations (動畫)
+* Testing (測試)
+  * Static code analysis (靜態程式碼分析)
+  * Unit testing (單元測試)
+  * End-to-end testing (端對端測試)
+* 預先渲染
 * 伺服器端渲染
-* 跨平台
+* 跨平台開發
+  * 行動應用
+  * 桌面應用

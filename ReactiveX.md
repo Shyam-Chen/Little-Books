@@ -1,19 +1,19 @@
 # ReactiveX
 
-### 練習來源
+### Reference Resources (參考資源)
 
 * https://github.com/ReactiveX/rxjs
 * https://github.com/btroncone/learn-rxjs
 * https://github.com/miguelmota/rxjs-examples
 
-### 實作執行
+### Actual Operation (實作執行)
 
 * https://github.com/Shyam-Chen/Frontend-Starter-Kit
 * https://github.com/Shyam-Chen/Backend-Starter-Kit
 
 ***
 
-### 目錄
+### Table of Contents (目錄)
 
 * [Observable](#observable)
   * -> [Subject](#subject)
