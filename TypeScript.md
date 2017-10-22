@@ -16,7 +16,7 @@
 * [Namespaces (命名空間)](#namespaces-命名空間)
 * [Modules (模組機制)](#modules-模組機制)
 * [Interfaces (介面)](#interfaces-介面)
-* [Functions (函式)](#函式)
+* [Functions (函式)](#functions-函式)
 * [Classes (類別)](#類別)
 * [型別兼容性](#型別兼容性)
 * [通用型別](#通用型別)
@@ -43,7 +43,6 @@
 ```bash
 # install ts-node and typescript (安裝 ts-node 和 typescript)
 $ npm i ts-node typescript -g
-
 # or
 $ yarn global add ts-node typescript
 ```
@@ -471,10 +470,12 @@ declare module 'thing-module' {
 import * as thing from 'thing-module';
 ```
 
-透過 Types 安裝模組定義
+Install the module definition via Types (透過 Types 安裝模組定義)
 
 ```bash
 $ npm i @types/node -D
+# or
+$ yarn add @types/node -D
 ```
 
 ```ts
@@ -487,7 +488,7 @@ import { join } from 'path';  // OK
 ```ts
 interface Foo {
   bar: number;
-  baz?: string;  // 可選參數
+  baz?: string;  // optional parameters (可選參數)
 }
 
 function thing(foo: Foo) {
@@ -550,70 +551,79 @@ const foo: Foo = (x, y) => {
 foo(2, -4);  // true
 ```
 
-## 函式
+## Functions (函式)
 
 ```ts
-// 設定函式型別
+// named function, function declaration (具名函式，函式宣告)
 function addition(a: number, b: number): number {
   return a + b;
 }
 
-addition(1, 1);  // 2
-addition('1', '1');  // Error
-```
-
-```ts
-// 匿名函式
+// anonymous function, function expression (匿名函式，函式表達)
 const addition = function(a: number, b: number): number {
   return a + b;
 };
 
+// named function expression (具名函式表達)
+const addition = function addition(a: number, b: number): number {
+  return a + b;
+};
+
+// use arrow function (使用箭頭函式)
+const addition = (a: number, b: number): number => {
+  return a + b;
+};
+
+// simplify arrow function (簡化箭頭函式)
+const addition = (a: number, b: number): number => a + b;
+
 addition(1, 1);  // 2
 addition('1', '1');  // Error
 ```
 
 ```ts
+// object literal (物件實字)
 const foo: object = {
-  bar() {
-
-  }
+  bar: function(parameter) {},
+  // or
+  bar: parameter => {}
+  // or
+  bar(parameter) {}
 };
 ```
 
-### 可選參數
+### Optional parameters (可選參數)
 
 ```ts
-const ng = function(a: string, b: string, c?: string): string {
+const thing = function(a: string, b: string, c?: string): string {
   return `${a} ${b} ${c}`;
 };
 
-ng('Angular', 'Material', 'Firebase');  // Angular Material Firebase
-ng('Angular', 'Material');  // Angular Material undefined
-ng('Angular');  // Error
+thing('foo', 'bar', 'baz');  // foo bar baz
+thing('foo', 'bar');  // foo bar undefined
+thing('foo');  // Error
 ```
 
 ```ts
-const ng = function(a: string, b: string, c?: string): string {
-  if (c !== undefined) {
-    return `${a} ${b} ${c}`;
-  }
+const thing = function(a: string, b: string, c?: string): string {
+  if (c !== undefined) return `${a} ${b} ${c}`;
   return `${a} ${b}`;
 };
 
-ng('Angular', 'Material', 'Firebase');  // Angular Material Firebase
-ng('Angular', 'Material');  // Angular Material
-ng('Angular');  // Error
+thing('foo', 'bar', 'baz');  // foo bar baz
+thing('foo', 'bar');  // foo bar
+thing('foo');  // Error
 ```
 
-### 預設參數
+### Default parameters (預設參數)
 
 ```ts
-const ng = function(a: string, b: string = 'Angular 2'): string {
-  return `${a} and ${b}`;
+const thing = function(a: string, b: string = 'bar'): string {
+  return `${a} ${b}`;
 };
 
-ng('Angular');  // Angular and Angular 2
-ng('Angular', 'Material');  // Angular and Material
+thing('foo');  // foo bar
+thing('foo', 'baz');  // foo baz
 ```
 
 ## 類別
