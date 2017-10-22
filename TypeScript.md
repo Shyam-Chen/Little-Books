@@ -1,15 +1,15 @@
 # TypeScript
 
-### 參考資源
+### Reference Resources (參考資源)
 
 * http://www.typescriptlang.org/docs/home.html
 * https://basarat.gitbooks.io/typescript/content/
 
 ***
 
-### 目錄
+### Table of Contents (目錄)
 
-* [入門](#入門)
+* [Quick start (快速開始)](#quick-start-快速開始)
 * [變數宣告](#變數宣告)
 * [分割代入](#分割代入)
 * [型別](#型別)
@@ -38,13 +38,18 @@
 
 ***
 
-## 入門
+## Quick start (快速開始)
 
 ```bash
-# 安裝 ts-node 與 typescript
+# install ts-node and typescript (安裝 ts-node 和 typescript)
 $ npm i ts-node typescript -g
 
-# 建立練習檔
+# or
+$ yarn global add ts-node typescript
+```
+
+```bash
+# create a practice file (建立練習檔)
 $ touch script.ts
 ```
 
@@ -55,12 +60,12 @@ console.log(ht);
 ```
 
 ```bash
-# 執行練習檔
+# execute a practice file (執行練習檔)
 $ ts-node script
 ```
 
 ```bash
-# 輸出
+# outputs (輸出)
 Hello TypeScript
 ```
 

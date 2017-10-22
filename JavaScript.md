@@ -10,12 +10,12 @@
 
 ### Table of Contents (目錄)
 
-* [Asynchronous processing (非同步處理)](#非同步處理)
-  * [Promises (承諾)](#承諾)
-  * [Generators (產生器)](#產生器)
-  * [Async functions (非同步函式)](#非同步函式)
-  * [Observables (可觀察)](#可觀察)
-* [Functional programming (函式型程式設計)](#函式型程式設計)
+* [Asynchronous processing (非同步處理)](#asynchronous-processing-非同步處理)
+  * [Promises (承諾)](#promises-承諾)
+  * [Generators (產生器)](#generators-產生器)
+  * [Async functions (非同步函式)](#async-functions-非同步函式)
+  * [Observables (可觀察)](#observables-可觀察)
+* [Functional programming (函式型程式設計)](#functional-programming-函式型程式設計)
   * 組合函式
   * [議題](#議題)
     * [共享狀態](#共享狀態)
@@ -80,7 +80,7 @@
 
 ## Asynchronous Processing (非同步處理)
 
-### 承諾
+### Promises (承諾)
 
 ```js
 const foo = () => {
@@ -102,6 +102,7 @@ foo().then(() => console.log(4));
 // 4
 ```
 
+Parallel
 平行
 
 ```js
@@ -114,6 +115,7 @@ Promise.all([
   });
 ```
 
+Parallel and competition
 平行且競賽
 
 ```js
@@ -126,6 +128,7 @@ Promise.race([
   });
 ```
 
+Error handling
 錯誤處理
 
 ```js
@@ -133,6 +136,7 @@ foo().then(() => console.log(4))
   .catch(error => console.error(error));
 ```
 
+Chaining
 鏈接
 
 ```js
@@ -142,11 +146,11 @@ foo().then(() => console.log(4))
   .catch(error => console.error(error));
 ```
 
-### 產生器
+### Generators (產生器)
 
 ```js
-function* foo(x) {
-  let y = x * (yield);  // 在這裡暫停
+function *foo(x) {
+  let y = x * (yield);  // pause here (在這裡暫停)
   return y;
 };
 
@@ -170,9 +174,10 @@ it.next().value;  // 0
 it.next().value;  // 1
 ```
 
-### 非同步函式
+### Async functions (非同步函式)
 
-宣告式:
+Declarations
+宣告式
 
 ```js
 async function foo() {
@@ -261,7 +266,7 @@ foo()
   .catch(error => console.error(error));
 ```
 
-### 可觀察
+### Observables (可觀察)
 
 ```js
 // 一個 Observer (觀察者)
@@ -302,7 +307,7 @@ Observable.from(map2)
   // ["c", 3]
 ```
 
-## 函式型程式設計
+## Functional programming (函式型程式設計)
 
 ### 議題
 
