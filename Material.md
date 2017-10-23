@@ -15,11 +15,11 @@
 
 * [Buttons (按鈕)](#buttons-按鈕)
 * [Cards (卡片)](#cards-卡片)
-* [Checkbox (複選框)](#複選框)
-* [Dialog (對話框)](#對話框)
-* [Drawer (側邊欄)](#側邊欄)
-* [Elevation (白框)](#白框)
-* [FAB (懸浮操作按鈕)](#懸浮操作按鈕)
+* [Checkboxes (複選框)](#checkboxes-複選框)
+* [Dialogs (對話框)](#dialogs-對話框)
+* [Drawers (側邊欄)](#drawers-側邊欄)
+* [Elevations (白框)](#elevations-白框)
+* [FABs (懸浮操作按鈕)](#fabs-懸浮操作按鈕)
 * Grid List (網格列表)
 * Icon Toggle (圖標按鈕)
 * Layout Grid (版面網格)
@@ -78,6 +78,13 @@ import { MDCRipple } from '@material/ripple';
 ```
 
 ## Cards (卡片)
+
+Import the card's CSS (導入卡片的 CSS)
+
+```js
+// Frontend-Starter-Kit/src/vendor.js
+import '@material/card/dist/mdc.card.css';
+```
 
 Basic (基本):
 
@@ -188,7 +195,7 @@ Horizontal blocks (水平區塊):
 </div>
 ```
 
-## 複選框
+## Checkboxes (複選框)
 
 ```js
 import '@material/form-field/dist/mdc.form-field.css';
@@ -210,7 +217,7 @@ import '@material/checkbox/dist/mdc.checkbox.css';
 </div>
 ```
 
-## 對話框
+## Dialogs (對話框)
 
 ```js
 import '@material/dialog/dist/mdc.dialog.css';
@@ -249,7 +256,7 @@ dialog.listen('MDCDialog:cancel', () => bodyEl.style.overflowY = 'auto');
 openBtn.addEventListener('click', () => dialog.show());
 ```
 
-## 側邊欄
+## Drawers (側邊欄)
 
 ```js
 import { MDCTemporaryDrawer } from '@material/drawer';
@@ -263,25 +270,16 @@ drawer.addEventListener('MDCTemporaryDrawer:open', () => bodyEl.style.overflowY 
 drawer.addEventListener('MDCTemporaryDrawer:close', () => bodyEl.style.overflowY = 'auto');
 ```
 
-## 白框
+## Elevations (白框)
 
 ```html
-<figure class="mdc-elevation--z1" style="padding: .5rem">
-  <figcaption>1dp (<code>mdc-elevation--z1</code>)</figcaption>
-</figure>
-
-<figure class="mdc-elevation--z2" style="padding: .5rem">
-  <figcaption>2dp (<code>mdc-elevation--z2</code>)</figcaption>
-</figure>
-
-<!-- z3 ~ z23 -->>
-
-<figure class="mdc-elevation--z24" style="padding: .5rem">
-  <figcaption>24dp (<code>mdc-elevation--z24</code>)</figcaption>
-</figure>
+<div class="mdc-elevation--z1"></div>
+<div class="mdc-elevation--z2"></div>
+<!-- z3 ~ z23 -->
+<div class="mdc-elevation--z24"></div>
 ```
 
-## 懸浮操作按鈕
+## FABs (懸浮操作按鈕)
 
 ```html
 <button class="mdc-fab material-icons" aria-label="Favorite">

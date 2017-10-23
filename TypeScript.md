@@ -70,8 +70,6 @@ Hello TypeScript
 
 ## Variable declarations (變數宣告)
 
-### 一般賦值
-
 ```ts
 let foo = 123;
 foo;  // 123
@@ -88,8 +86,6 @@ if (true) {
 
 foo;  // 123
 ```
-
-### 單一賦值
 
 ```ts
 const bar = 123;
@@ -185,7 +181,7 @@ let bar: boolean = false;
 ### Number (數值)
 
 ```ts
-let foo: number = 18;  // 十進制
+let foo: number = 18;  // decimal (十進制)
 ```
 
 ### String (字串)
@@ -193,9 +189,22 @@ let foo: number = 18;  // 十進制
 ```ts
 let myName: string = 'Hale';
 
-// 模板字串
-let sentence: string = `My name is ${myName}.`;  // My name is Hale.
+// template literals (模板文字)
+let sentence: string = `My name is ${myName}.`;  // outputs (輸出): My name is Hale.
 ```
+
+```ts
+function tag(strings, ...values) {
+  return strings.raw[0];
+}
+
+tag`foo \n bar`;
+```
+
+MDN JS Docs:
+
+* [`Template literals`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+* [`String.raw()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw)
 
 ### Array (陣列)
 
@@ -209,7 +218,7 @@ const foo: Array<number> = [3, 2, 1];
 const bar: Array<string> = ['x', 'y', 'z'];
 ```
 
-### 物件
+### Object (物件)
 
 ```ts
 const foo: object = { prop: 0 };
@@ -222,7 +231,7 @@ const { c, ...bar } = foo;
 bar;  // {a: number, b: number};
 ```
 
-### 象徵
+### Symbol (象徵)
 
 ```ts
 const s1 = Symbol();
@@ -244,7 +253,7 @@ foo[KEY] = 123;
 
 foo[KEY];  // 123
 
-// 或者
+// or
 
 const KEY = Symbol();
 const foo = {
@@ -254,14 +263,14 @@ const foo = {
 foo[KEY];  // 123
 ```
 
-### 元組
+### Tuple (元組)
 
 ```ts
-let foo: [number, string];  // 宣告一個元組型別
-foo = [123, 'abc'];  // 將 foo 初始化
+let foo: [number, string];  // declare a tuple type (宣告一個元組型別)
+foo = [123, 'abc'];  // initialize it (將 foo 初始化)
 ```
 
-### 列舉
+### Enum (列舉)
 
 ```ts
 enum Thing {
@@ -305,7 +314,7 @@ declare enum Thing5 {
 }
 ```
 
-### 任意值
+### Any (任意值)
 
 ```ts
 let notSure: any = 123;
@@ -313,16 +322,15 @@ notSure = 'abc';  // OK
 notSure = 'true';  // OK
 ```
 
-### 空值
+### Void (虛值)
 
 ```ts
-let foo: void = undefined;
-let bar: void = null;
-
-function baz(thing: number): void {
+function foo(thing: number): void {
   this.thing = thing;
 }
 ```
+
+### Null and Undefined (空值和未定義)
 
 ```ts
 let foo: string;
@@ -335,7 +343,15 @@ let baz: string | undefined;
 baz;  // OK
 ```
 
-### 型別斷言
+### Never (從未)
+
+```ts
+function error(message: string): never {
+  throw new Error(message);
+}
+```
+
+### Type assertions (型別斷言)
 
 ```ts
 let foo: any = 'abc';

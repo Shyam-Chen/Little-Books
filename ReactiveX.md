@@ -266,13 +266,13 @@ console.log('after subscribe');
 
 ### animationFrame
 
-即 `requestAnimationFrame` 的進階版
+Advanced version of `requestAnimationFrame`
+`requestAnimationFrame` 的進階版
 
 ```js
-import { Scheduler } from 'rxjs';
-import { Observable } from 'rxjs/Observable';
+import { Observable, Scheduler } from 'rxjs';
 
-import { observeOn } from 'rxjs/operator/observeOn';
+import { observeOn } from 'rxjs/operator';
 
 const source$ = new Observable(observer => {
   observer.next(1);
