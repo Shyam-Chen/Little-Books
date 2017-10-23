@@ -13,8 +13,8 @@
 
 ### Table of Contents (目錄)
 
-* [Button (按鈕)](#按鈕)
-* [Card (卡片)](#卡片)
+* [Buttons (按鈕)](#buttons-按鈕)
+* [Cards (卡片)](#cards-卡片)
 * [Checkbox (複選框)](#複選框)
 * [Dialog (對話框)](#對話框)
 * [Drawer (側邊欄)](#側邊欄)
@@ -39,9 +39,9 @@
 
 ***
 
-## 按鈕
+## Buttons (按鈕)
 
-基本: `mdc-button`
+Basic (基本): `mdc-button`
 
 墊高: `mdc-button--raised`
 
@@ -77,43 +77,114 @@ import { MDCRipple } from '@material/ripple';
 );
 ```
 
-## 卡片
+## Cards (卡片)
 
-基本: `mdc-card` or `mdc-card__horizontal-block`
+Basic (基本):
 
-主區塊:
-* `mdc-card__primary`
-* `mdc-card__title`
-  * `mdc-card__title--large`
-* `mdc-card__subtitle`
+```html
+<div class="mdc-card"></div>
+```
 
-媒體區:
-* `mdc-card__media`
-* `mdc-card__media-item`
-  * `mdc-card__media-item--1dot5x`
-  * `mdc-card__media-item--2x`
-  * `mdc-card__media-item--3x`
-
-文字區: `mdc-card__supporting-text`
-
-操作區:
-* `mdc-card__actions`
-  * `mdc-card__actions--vertical`
-* `mdc-card__action`
+Media items (媒體項目):
 
 ```html
 <div class="mdc-card">
+  <!-- section ... -->
+  <section class="mdc-card__media"></section>
+  <!-- section ... -->
+</div>
+```
+
+```html
+<div class="mdc-card">
+  <div class="mdc-card__horizontal-block">
+    <!-- section ... -->
+    <img class="mdc-card__media-item" src="image.jpg">  <!-- height of 80px (高度 80px) -->
+    <!-- section ... -->
+  </div>
+</div>
+
+<div class="mdc-card">
+  <div class="mdc-card__horizontal-block">
+    <!-- section ... -->
+    <img class="mdc-card__media-item mdc-card__media-item--1dot5x" src="image.jpg">  <!-- height of 120px (高度 120px) -->
+    <!-- section ... -->
+  </div>
+</div>
+
+<div class="mdc-card">
+  <div class="mdc-card__horizontal-block">
+    <!-- section ... -->
+    <img class="mdc-card__media-item mdc-card__media-item--2x" src="image.jpg">  <!-- height of 160px (高度 160px) -->
+    <!-- section ... -->
+  </div>
+</div>
+
+<div class="mdc-card">
+  <div class="mdc-card__horizontal-block">
+    <!-- section ... -->
+    <img class="mdc-card__media-item mdc-card__media-item--3x" src="image.jpg">  <!-- height of 240ox (高度 240ox) -->
+    <!-- section ... -->
+  </div>
+</div>
+```
+
+Primary title / text (主區塊):
+
+```html
+<div class="mdc-card">
+  <!-- section ... -->
   <section class="mdc-card__primary">
-    <h1 class="mdc-card__title">Title</h1>
-    <h2 class="mdc-card__subtitle">Subhead</h2>
+    <h1 class="mdc-card__title mdc-card__title--large">Title goes here</h1>
+    <h2 class="mdc-card__subtitle">Subtitle here</h2>
   </section>
-  <section class="mdc-card__supporting-text">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-  </section>
+  <!-- section ... -->
+</div>
+```
+
+Supporting text (文字區):
+
+```html
+<div class="mdc-card">
+  <!-- section ... -->
+  <section class="mdc-card__supporting-text"></section>
+  <!-- section ... -->
+</div>
+```
+
+Actions (操作區):
+
+```html
+<div class="mdc-card">
+  <!-- section ... -->
   <section class="mdc-card__actions">
-    <button class="mdc-button mdc-card__action">Action 1</button>
-    <button class="mdc-button mdc-card__action">Action 2</button>
+    <button class="mdc-button mdc-button--compact mdc-card__action">Action 1</button>
+    <button class="mdc-button mdc-button--compact mdc-card__action">Action 2</button>
   </section>
+</div>
+
+<div class="mdc-card">
+  <!-- section ... -->
+  <section class="mdc-card__actions mdc-card__actions--vertical">
+    <button class="mdc-button mdc-button--compact mdc-card__action">Action 1</button>
+    <button class="mdc-button mdc-button--compact mdc-card__action">Action 2</button>
+  </section>
+</div>
+```
+
+Dark theme (暗的主題):
+
+```html
+<div class="mdc-card mdc-card--theme-dark"></div>
+```
+
+Horizontal blocks (水平區塊):
+
+```html
+<div class="mdc-card">
+  <div class="mdc-card__horizontal-block">
+    <!-- section ... -->
+  </div>
 </div>
 ```
 
