@@ -1,16 +1,16 @@
 # Three
 
-### 練習來源
+### Reference Resources (參考資源)
 
 * https://github.com/mrdoob/three.js
 
-### 實作執行
+### Actual Operation (實作執行)
 
 * https://github.com/Shyam-Chen/Frontend-Starter-Kit
 
 ***
 
-### 目錄
+### Table of Contents (目錄)
 
 * 核心
   * 場景元件

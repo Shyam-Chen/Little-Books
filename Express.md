@@ -1,18 +1,18 @@
 # Express
 
-### 練習來源
+### Reference Resources (參考資源)
 
 * https://github.com/expressjs/express
 
-### 實作執行
+### Actual Operation (實作執行)
 
 * https://github.com/Shyam-Chen/Backend-Starter-Kit
 
 ***
 
-### 目錄
+### Table of Contents (目錄)
 
-* [核心](#核心)
+* [Core (核心)](#core-核心)
   * [路由](#路由)
   * [中介軟體](#中介軟體)
   * 請求回應
@@ -34,14 +34,18 @@
 
 ***
 
-## 核心
+## Core (核心)
 
+Install Express
 安裝 Express
 
 ```bash
 $ npm i express -S
+# or
+$ yarn add express
 ```
 
+Create an express server
 建立 Express 伺服器
 
 ```js

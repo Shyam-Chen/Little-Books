@@ -1,17 +1,18 @@
 # Material
 
-### 練習來源
+### Reference Resources (參考資源)
 
 * https://github.com/material-components/material-components-web
 * https://material-components-web.appspot.com/
 
-### 實作執行
+### Actual Operation (實作執行)
 
 * https://github.com/Shyam-Chen/Frontend-Starter-Kit
 
 ***
 
-### 目錄
+### Table of Contents (目錄)
+
 * [Button (按鈕)](#按鈕)
 * [Card (卡片)](#卡片)
 * [Checkbox (複選框)](#複選框)

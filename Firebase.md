@@ -1,18 +1,19 @@
 # Firebase
 
-### 練習來源
+### Reference Resources (參考資源)
 
 * https://github.com/firebase/quickstart-js
 * https://github.com/firebase/functions-samples
 * https://github.com/firebase/firebase-tools
 
-### 實作執行
+### Actual Operation (實作執行)
 
 * https://github.com/Shyam-Chen/Frontend-Starter-Kit
 
 ***
 
-### 目錄
+### Table of Contents (目錄)
+
 * [Application (應用程式)](#應用程式)
 * [Authentication (驗證)](#驗證)
   * [匿名](#匿名)

@@ -1,6 +1,6 @@
 # Vue
 
-### 目錄
+### Table of Contents (目錄)
 
 * 入門
 * 元件

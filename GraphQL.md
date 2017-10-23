@@ -1,17 +1,17 @@
 # GraphQL
 
-### 練習來源
+### Reference Resources (參考資源)
 
 * https://github.com/graphql/graphiql
 
-### 實作執行
+### Actual Operation (實作執行)
 
 * https://github.com/Shyam-Chen/Frontend-Starter-Kit
 * https://github.com/Shyam-Chen/Backend-Starter-Kit
 
 ***
 
-### 目錄
+### Table of Contents (目錄)
 
 * [核心](#核心)
 * [型別](#型別)

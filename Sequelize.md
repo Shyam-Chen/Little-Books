@@ -1,13 +1,13 @@
 # Sequelize
 
-### 練習來源
+### Reference Resources (參考資源)
 
 * https://github.com/sequelize/sequelize
 
-### 實作執行
+### Actual Operation (實作執行)
 
 * https://github.com/Shyam-Chen/Backend-Starter-Kit
 
 ***
 
-### 目錄
+### Table of Contents (目錄)

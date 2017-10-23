@@ -15,7 +15,7 @@
 
 ### Table of Contents (目錄)
 
-* [Observable](#observable)
+* [Observables (可觀察)](#observables-可觀察)
   * -> [Subject](#subject)
     * -> [AsyncSubject](#asyncsubject)
     * -> [BehaviorSubject](#behaviorsubject)
@@ -118,14 +118,14 @@
 
 ***
 
-## Observable
+## Observables (可觀察)
 
 ```js
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
-// 一個 Observer (觀察者)
+// an observer (一個觀察者)
 new Observable(observer => {
-    // 回呼方法: next()、error() 和 complete()
+    // callback method (回呼方法): next(), error(), & complete()
     setTimeout(() => observer.next('foo'), 0);
     setTimeout(() => observer.next('bar'), 1000);
     setTimeout(() => observer.next('baz'), 2000);

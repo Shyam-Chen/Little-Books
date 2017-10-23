@@ -38,34 +38,34 @@
   * 搜索
   * 洗牌
   * 貪婪
-* [設計模式](#設計模式)
-  * [建立型 (Creational)](#建立型)
-    * 抽象工廠 (Abstract Factory)
-    * 建造器 (Builder)
-    * [工廠 (Factory)](#工廠)
-    * 原型 (Prototype)
-    * [單體 (Singleton)](#單體)
-  * 結構型 (Structural)
-    * 匹配器 (Adapter)
-    * 橋梁 (Bridge)
-    * 組合 (Composite)
-    * 修飾 (Decorator)
-    * 外觀 (Facade)
-    * 享元 (Flyweight)
-    * 代理 (Proxy)
-  * 行為型 (Behavioral)
-    * 職責鏈 (Chain of Responsibility)
-    * 命令 (Command)
-    * 翻譯者 (Interpreter)
-    * 迭代器 (Iterator)
-    * 中介者 (Mediator)
-    * 備忘錄 (Memento)
-    * 觀察者 (Observer)
-    * 狀態 (State)
-    * 策略 (Strategy)
-    * 模板 (Template)
-    * 遊客 (Visitor)
-* [規則運算式 (Regex)](#規則運算式)
+* [Design patterns (設計模式)](#design-patterns-設計模式)
+  * [Creational (建立型)](#建立型)
+    * Abstract Factory (抽象工廠)
+    * Builder (建造器)
+    * [Factory 工廠](#工廠)
+    * Prototype (原型)
+    * [Singleton (單體)](#單體)
+  * Structural (結構型)
+    * Adapter (匹配器)
+    * Bridge (橋梁)
+    * Composite (組合)
+    * Decorator (修飾)
+    * Facade (外觀)
+    * Flyweight (享元)
+    * Proxy (代理)
+  * Behavioral (行為型)
+    * Chain of Responsibility (職責鏈)
+    * Command (命令)
+    * Interpreter (翻譯者)
+    * Iterator (迭代器)
+    * Mediator (中介者)
+    * Memento (備忘錄)
+    * Observer (觀察者)
+    * State (狀態)
+    * Strategy (策略)
+    * Template (模板)
+    * Visitor (遊客)
+* [Regular expressions (規則運算式)](#規則運算式)
   * [共用](#共用)
   * 一般
   * 錨點
@@ -75,6 +75,7 @@
   * 字元符號
   * 修飾符號
   * 代換
+* Babel & Flow
 
 ***
 
