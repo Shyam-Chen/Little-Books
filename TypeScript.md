@@ -17,15 +17,15 @@
 * [Modules (模組機制)](#modules-模組機制)
 * [Interfaces (介面)](#interfaces-介面)
 * [Functions (函式)](#functions-函式)
-* [Classes (類別)](#類別)
-* [型別兼容性](#型別兼容性)
+* [Classes (類別)](#classes-類別)
+* [Type compatibility (型別兼容性)](#type-compatibility-型別兼容性)
 * [通用型別](#通用型別)
 * [型別查找](#型別查找)
 * [Generics (泛型)](#泛型)
 * [型別斷言](#型別斷言)
 * [冪運算子](#冪運算子)
 * [Mixins (混入)](#混入)
-* [合併宣告](#合併宣告)
+* [Declaration merging (合併宣告)](#declaration-merging-合併宣告)
 * [Set (似陣列)](#似陣列)
 * [Map (似物件)](#似物件)
 * [Proxy (代理)](#代理)
@@ -358,7 +358,7 @@ let foo: any = 'abc';
 let bar = <string>foo;  // 語法: <>
 let baz: number = bar.length;  // 3
 
-// 或者
+// or
 let bar2 = foo as string;  // 語法: as
 let baz2: number = bar2.length;  // 3
 ```
@@ -504,7 +504,7 @@ import { join } from 'path';  // OK
 ```ts
 interface Foo {
   bar: number;
-  baz?: string;  // optional parameters (可選參數)
+  baz?: string;  // optional properties (可選屬性)
 }
 
 function thing(foo: Foo) {
@@ -642,7 +642,7 @@ thing('foo');  // foo bar
 thing('foo', 'baz');  // foo baz
 ```
 
-## 類別
+## Classes (類別)
 
 ### 定義類別
 
@@ -824,7 +824,7 @@ const bar = new Bar(123);
 bar.barX;  // 123
 ```
 
-## 型別兼容性
+## Type compatibility (型別兼容性)
 
 ```ts
 interface Foo {
