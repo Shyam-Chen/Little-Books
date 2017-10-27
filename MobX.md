@@ -35,22 +35,22 @@ const store = observable({
   /**
    * @name action
    */
-  increment: action(() => this.value++),
-  decrement: action(() => this.value--),
+  increment: action(() => store.value++),
+  decrement: action(() => store.value--),
   incrementAsync: action(() =>
-    setTimeout(() => this.increment(), 1000)
+    setTimeout(() => store.increment(), 1000)
   ),
   incrementIfOdd: action(() => {
-    if (Math.abs(this.value % 2) === 1) {
-      this.increment();
+    if (Math.abs(store.value % 2) === 1) {
+      store.increment();
     }
   }),
 
   /**
    * @name computed
    */
-  get evenOrOdd() {
-    return this.value % 2 === 0 ? 'even' : 'odd';
+  get evenOrOdd(): string {
+    return store.value % 2 === 0 ? 'even' : 'odd';
   }
 });
 ```
