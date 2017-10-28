@@ -14,33 +14,24 @@
 
 ### Table of Contents (目錄)
 
-* [Application (應用程式)](#應用程式)
-* [Authentication (驗證)](#驗證)
-  * [匿名](#匿名)
-  * [Email/Password](#email-password)
+* [Authentication (憑證)](#authentication-憑證)
+  * [Anonymous (匿名)](#anonymous-匿名)
+  * [Email/Password (電子郵件/密碼)](#email-password-電子郵件-密碼)
   * [Google](#google)
-  * Facebook
-  * Twitter
-  * GitHub
-* [Realtime Database (資料庫)](#資料庫)
-  * [新增](#新增)
-  * [讀取](#讀取)
-  * [刪除](#刪除)
-  * [更新](#更新)
-  * [完整 CRUD](#完整-crud)
-  * 整合 Web Storage API
-  * 資料分頁
-* [Storage (存儲)](#存儲)
-  * [檔案上傳](#檔案上傳)
+  * [Facebook](#facebook)
+  * [Twitter](#twitter)
+* [Cloud Firestore (資料庫)](#cloud-firestore-資料庫)
+* [Storage (存儲)](#storage-存儲)
+  * [File upload (檔案上傳)](#file-upload-檔案上傳)
   * 整合 File API
   * 多個檔案上傳
-* Cloud Messaging (訊息)
+* [Cloud Messaging (訊息)](#cloud-messaging-訊息)
   * Notification message
   * Data message
-* [Cloud Functions (函式)](#函式)
+* [Cloud Functions (函式)](#cloud-functions-函式)
   * 核心
     * Realtime Database Triggers (資料庫觸發器)
-    * Authentication Triggers (驗證觸發器)
+    * Authentication Triggers (憑證觸發器)
     * Google Analytics Triggers (GA 觸發器)
     * Cloud Storage Triggers (Google Cloud 存儲觸發器)
     * Cloud Pub/Sub Triggers (Google 發佈/訂閱觸發器)
@@ -51,19 +42,16 @@
     * LINE
     * Instagram
   * SMS
-  * Isomorphic
   * 匯出 Excel
   * GitHub/Slack
   * Google Cloud
     * BigQuery
   * PayPal
   * Chatbot
-* [Hosting (託管)](#託管)
+* [Hosting (託管)](#hosting-託管)
   * Custom Domain (自訂網域)
 
 ***
-
-## 應用程式
 
 初始化
 
@@ -77,9 +65,9 @@ firebase.initializeApp({
 });
 ```
 
-## 驗證
+## Authentication (憑證)
 
-### 匿名
+### Anonymous (匿名)
 
 ```html
 <section>
@@ -129,9 +117,9 @@ firebase.auth()
   });
 ```
 
-後續底下操作都需要在匿名驗證下執行，也可以直接將規則 `auth != null` 設定為 `true`
+後續底下操作都需要在匿名憑證下執行，也可以直接將規則 `auth != null` 設定為 `true`
 
-### Email/Password
+### Email/Password (電子郵件/密碼)
 
 登入
 
@@ -263,336 +251,15 @@ unAuth();
 </div>
 ```
 
-## 資料庫
+### Facebook
 
-取得資料庫位址
+### Twitter
 
-```js
-firebase.database()
-  .ref('foo/bar');
+## Cloud Firestore (資料庫)
 
-// 等同於
+## Storage (存儲)
 
-firebase.database()
-  .ref()
-  .child('foo/bar');
-
-// 等同於
-
-firebase.database()
-  .ref('https://<DATABASE_NAME>.firebaseio.com/foo/bar');
-```
-
-***
-
-重新連接到伺服器，並將離線資料庫狀態與伺服器狀態同步
-
-```js
-firebase.database().goOnline();
-```
-
-斷開與伺服器的連接 (所有資料庫操作都將離線完成)
-
-```js
-firebase.database().goOffline();
-```
-
-***
-
-```js
-{
-  "name": {
-    "first": "Shyam",
-    "last": "Chen"
-  }
-}
-
-const fooBarRef = firebase.database().ref('foo/bar');
-
-fooBarRef.once('value')
-  .then(snapshot => {
-    snapshot.key;  // "bar"
-    snapshot.child('name/first').key;  // "first"
-    snapshot.child('name/last').key;  // "last"
-  });
-```
-
-***
-
-```js
-
-```
-
-### 新增
-
-```js
-firebase.database()
-  .ref('text')
-  .set({ text: '123' });
-```
-
-```js
-firebase.database()
-  .ref('text')
-  .push({ text: '123' });
-```
-
-```js
-const postData = (userId, name, email, message) => {
-  firebase.database()
-    .ref(`users/${userId}`)
-    .set({ name, email, message });
-};
-
-postData(user.uid, user.displayName, user.email, message.value);
-```
-
-```js
-const postData = (userId, name, email, message) => {
-  firebase.database()
-    .ref(`users/${userId}`)
-    .push({ name, email, message });
-};
-
-postData(user.uid, user.displayName, user.email, message.value);
-```
-
-`set` 會覆蓋既有的資料，而 `push` 不會
-
-### 讀取
-
-```js
-const text = document.querySelector('#text');
-
-firebase.database()
-  .ref('text')
-  .on('value', snapshot => {
-    text.innerHTML = snapshot.val();
-  });
-
-// 只讀取一次
-
-firebase.database()
-  .ref('text')
-  .once('value', snapshot => {
-    text.innerHTML = snapshot.val();
-  });
-```
-
-### 刪除
-
-```js
-firebase.database()
-  .ref('text')
-  .remove();
-```
-
-### 更新
-
-```js
-firebase.database()
-  .ref()
-  .update({ text: 'ABC' });
-```
-
-### 完整 CRUD
-
-```html
-<div id="users"></div>
-```
-
-```js
-import { template as _ } from 'lodash';
-
-firebase.database()
-  .ref('users')
-  .on('value', snapshot => {
-    document.querySelector('#users')
-      .innerHTML = _(usersTemplate, { imports: { snapshot } })();
-
-    users();
-  });
-```
-
-```html
-<div class="mdc-layout-grid">
-  <table id="users-table" class="md-table">
-    <thead>
-      <tr>
-        <th colspan="4">
-          <div class="mdc-textfield">
-            <input type="text" id="create-name" class="mdc-textfield__input">
-            <label for="create-name" class="mdc-textfield__label">Name</label>
-          </div>
-          <div class="mdc-textfield">
-            <input type="text" id="create-email" class="mdc-textfield__input">
-            <label for="create-email" class="mdc-textfield__label">Email</label>
-          </div>
-          <div class="mdc-textfield">
-            <input type="text" id="create-message" class="mdc-textfield__input">
-            <label for="create-message" class="mdc-textfield__label">Message</label>
-          </div>
-          <button type="button" id="create" class="mdc-button">Add</button>
-        </th>
-      </tr>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Message</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% snapshot.forEach(function(childSnapshot) { %>
-        <tr>
-          <td><%- childSnapshot.val().name %></td>
-          <td><%- childSnapshot.val().email %></td>
-          <td><%- childSnapshot.val().message %></td>
-          <td>
-            <button type="button" class="mdc-button mdc-button--primary"
-              data-edit="<%- childSnapshot.key %>"
-              data-edit-name="<%- childSnapshot.val().name %>"
-              data-edit-email="<%- childSnapshot.val().email %>"
-              data-edit-message="<%- childSnapshot.val().message %>"
-            >Edit</button>
-            <button type="button" class="mdc-button mdc-button--primary" data-delete="<%- childSnapshot.key %>">Delete</button>
-          </td>
-        </tr>
-      <% }); %>
-    </tbody>
-  </table>
-</div>
-
-<aside id="dialog-edit" class="mdc-dialog">
-  <div class="mdc-dialog__surface">
-    <header class="mdc-dialog__header">
-      <h2 class="mdc-dialog__header__title">Edit</h2>
-    </header>
-    <section class="mdc-dialog__body">
-      <div class="mdc-layout-grid">
-        <div class="mdc-layout-grid__inner">
-          <div class="mdc-layout-grid__cell">
-            <div class="mdc-textfield">
-              <label class="mdc-textfield__label" for="name">Name</label>
-              <input type="text" class="mdc-textfield__input" id="edit-name" value=" ">
-            </div>
-
-            <div class="mdc-textfield">
-              <label class="mdc-textfield__label" for="email">Email</label>
-              <input type="text" class="mdc-textfield__input" id="edit-email" value=" ">
-            </div>
-
-            <div class="mdc-textfield">
-              <label class="mdc-textfield__label" for="message">Message</label>
-              <input type="text" class="mdc-textfield__input" id="edit-message" value=" ">
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    </section>
-    <footer class="mdc-dialog__footer">
-      <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-      <button type="button" id="edit-save" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Save</button>
-    </footer>
-  </div>
-</aside>
-
-<aside id="dialog-delete" class="mdc-dialog">
-  <div class="mdc-dialog__surface">
-    <header class="mdc-dialog__header">
-      <h2 class="mdc-dialog__header__title">Delete</h2>
-    </header>
-    <section class="mdc-dialog__body">
-      Are you sure you want to delete it?
-    </section>
-    <footer class="mdc-dialog__footer">
-      <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-      <button type="button" id="delete-confirm" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Confirm</button>
-    </footer>
-  </div>
-</aside>
-```
-
-```js
-const bodyEl = document.querySelector('body');
-
-const name = document.querySelector('#create-name');
-const email = document.querySelector('#create-email');
-const message = document.querySelector('#create-message');
-const create = document.querySelector('#create');
-
-const dialogEditEl = document.querySelector('#dialog-edit');
-const dialogEdit = new mdDialog.MDCDialog(dialogEditEl);
-const name = document.querySelector('#edit-name');
-const email = document.querySelector('#edit-email');
-const message = document.querySelector('#edit-message');
-const save = document.querySelector('#edit-save');
-
-const dialogDeleteEl = document.querySelector('#dialog-delete');
-const dialogDelete = new mdDialog.MDCDialog(dialogDeleteEl);
-const confirm = document.querySelector('#delete-confirm');
-
-const sliceAll = (selector: string, element: HTMLElement = document): string[] =>
-  [].slice.call((element).querySelectorAll(selector));
-
-sliceAll('tbody').forEach((body: HTMLTableElement): void => {
-  sliceAll('tr', body).reverse()
-    .forEach(row => body.appendChild(row));
-});
-
-[dialogEdit, dialogDelete].forEach((dialog: any): void => {
-  dialog.listen('MDCDialog:accept', () => bodyEl.style.overflowY = 'auto');
-  dialog.listen('MDCDialog:cancel', () => bodyEl.style.overflowY = 'auto');
-});
-
-create.onclick = () => {
-  firebase.database()
-    .ref('users')
-    .push({ name: name.value, email: email.value, message: message.value });
-};
-
-[].forEach.call(
-  document.querySelectorAll('.mdc-button[data-edit]'),
-  editButton => {
-    editButton.onclick = (): void => {
-      dialogEdit.show();
-      bodyEl.style.overflowY = 'hidden';
-
-      name.value = editButton.dataset.editName;
-      email.value = editButton.dataset.editEmail;
-      message.value = editButton.dataset.editMessage;
-
-      save.onclick = (): void => {
-        firebase.database()
-          .ref(`users/${editButton.dataset.edit}`)
-          .update({ name: name.value, email: email.value, message: message.value });
-      };
-    };
-  }
-);
-
-[].forEach.call(
-  document.querySelectorAll('.mdc-button[data-delete]'),
-  deleteButton => {
-    deleteButton.onclick = (): void => {
-      dialogDelete.show();
-      bodyEl.style.overflowY = 'hidden';
-
-      confirm.onclick = (): void => {
-        firebase.database()
-          .ref(`users/${deleteButton.dataset.delete}`)
-          .remove();
-      };
-    };
-  }
-);
-```
-
-## 存儲
-
-### 檔案上傳
+### File upload (檔案上傳)
 
 ```html
 <input type="file" id="file-upload">
@@ -616,9 +283,9 @@ fileUpload.onchange = () => {
 
 由於選完檔案直接上傳不是個好方法，所以我們需要運用 File API
 
-## 訊息
+## Cloud Messaging (訊息)
 
-## 函式
+## Cloud Functions (函式)
 
 ```js
 const functions = require('firebase-functions');
@@ -651,7 +318,7 @@ const bigquery = require('@google-cloud/bigquery')();
 // TODO
 ```
 
-## 託管
+## Hosting (託管)
 
 ```bash
 $ npm i firebase-tools -g
