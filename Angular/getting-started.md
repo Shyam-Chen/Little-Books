@@ -3,7 +3,7 @@
 ### Ecosystems (生態系)
 
 According to Angular's official website: A framework for multiple platforms as the main feature!
-根據 Angular 官網的說明: 一個框架多個平台為主要特色！
+(根據 Angular 官網的說明: 一個框架多個平台為主要特色！)
 
 Angular 開發概念就是已元件化為中心出發，而 Angular 的元件化實作是在 [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) 標準之上的，除了元件之外，還有模組、指令、服務、管道和動畫的特色。
 
@@ -33,7 +33,9 @@ Zone.js 提供一個區域的機制，用在瀏覽器中封裝和攔截非同步
 
 ### 環境設置
 
-在開發之前，首先就是要有個好工具，這工具就是 Angular CLI
+開發環境的設定也是一件浩大的事情，
+不太建議自己做從零開始建立 Angular 的環境，
+所以我們可以透過官方提供的 Angular CLI 來快速建立一個完整的環境
 
 先決條件需要安裝好 Node.js
 

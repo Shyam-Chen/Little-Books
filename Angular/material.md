@@ -1,11 +1,13 @@
-## 原質化設計
+## Material Design (原質化設計)
 
 [material2](https://github.com/angular/material2)
 
-安裝 `@angular/material`
+Install `@angular/material` (安裝 `@angular/material`)
 
 ```bsah
-$ npm i @angular/material -S
+$ npm i @angular/material @angular/cdk -S
+# or
+$ yarn add @angular/material @angular/cdk
 ```
 
 導入 Angular 動畫模組
