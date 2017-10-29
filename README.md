@@ -17,7 +17,7 @@
 * ---------- **Server-side** ----------
 * [Express (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md)
 * [GraphQL (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
-* ---------- **Databases** ----------
+* ---------- **Data-side** ----------
 * [Mongoose (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md)
 * [Sequelize (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Sequelize.md)
 * ---------- **Extensions** ----------
