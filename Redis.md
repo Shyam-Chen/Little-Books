@@ -29,15 +29,17 @@ client.on('connect', () => console.log('Connected'));
 client.on('error', err => console.error(err));
 ```
 
+Storing Strings (儲存字串)
+
 ```js
 client.set('thing', 'foo');
 
 client.get('thing', (err, reply) => {
-  console.log(reply);
+  console.log(reply);  // foo
 });
 ```
 
-Storing Hash (存儲雜湊)
+Storing Hash (儲存雜湊)
 
 ```js
 client.hmset('thing', 'foo', 'js', 'bar', 'html', 'baz', 'css');
@@ -51,5 +53,20 @@ client.hmset('thing', {
   foo: 'js',
   bar: 'html',
   baz: 'css'
+});
+```
+
+Storing Lists (儲存列表)
+
+```js
+client.rpush(
+  ['thing', 'foo', 'bar'],
+  (err, reply) => {
+    console.log(reply);  // 2
+  }
+);
+
+client.lrange('thing', 0, -1, (err, reply) => {
+  console.log(reply);  // ['foo', 'bar']
 });
 ```

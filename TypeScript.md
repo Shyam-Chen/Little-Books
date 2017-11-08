@@ -21,20 +21,20 @@
 * [Type compatibility (型別兼容性)](#type-compatibility-型別兼容性)
 * [通用型別](#通用型別)
 * [型別查找](#型別查找)
-* [Generics (泛型)](#泛型)
+* [Generics (泛型)](#generics-泛型)
 * [型別斷言](#型別斷言)
 * [冪運算子](#冪運算子)
-* [Mixins (混入)](#混入)
+* [Mixins (混入)](#mixins-混入)
 * [Declaration merging (合併宣告)](#declaration-merging-合併宣告)
 * [Set (似陣列)](#似陣列)
 * [Map (似物件)](#似物件)
 * [Proxy (代理)](#代理)
 * [Reflect (反映)](#反映)
-* [Promise (承諾)](#承諾)
-* [Iterator (迭代器)](#迭代器)
-* [Generator (產生器)](#產生器)
-* [Async (非同步)](#非同步)
-* [Decorator (修飾器)](#修飾器)
+* [Promises (承諾)](#承諾)
+* [Iterators (迭代器)](#迭代器)
+* [Generators (產生器)](#產生器)
+* [Async functions (非同步函式)](#非同步)
+* [Decorators (修飾器)](#decorators-修飾器)
 
 ***
 
@@ -409,8 +409,8 @@ foo = true;  // Error
 
 ```ts
 namespace Thing {
-  export class Foo { }
-  export class Bar { }
+  export class Foo {}
+  export class Bar {}
 }
 
 const foo = new Thing.Foo();
@@ -420,8 +420,8 @@ const bar = new Thing.Bar();
 ```ts
 namespace Thing {
   export namespace Foo {
-    export class Bar { }
-    export class Baz { }
+    export class Bar {}
+    export class Baz {}
   }
 }
 
@@ -461,16 +461,16 @@ export default thing;
 
 ```ts
 // foo.ts
-export class Angular2 {
+export class Angular {
   // ...
 }
 ```
 
 ```ts
 // bar.ts
-import { Angular2 as Ng2 } from './foo';  // 對導入的內容重新命名
+import { Angular as Ng } from './foo';  // 對導入的內容重新命名
 
-let ng2 = new Ng2();
+let ng = new Ng();
 ```
 
 ```ts
@@ -576,7 +576,7 @@ function addition(a: number, b: number): number {
 }
 
 // anonymous function, function expression (匿名函式，函式表達)
-const addition = function(a: number, b: number): number {
+const addition = function (a: number, b: number): number {
   return a + b;
 };
 
@@ -600,7 +600,7 @@ addition('1', '1');  // Error
 ```ts
 // object literal (物件實字)
 const foo: object = {
-  bar: function(parameter) {},
+  bar: function (parameter) {},
   // or
   bar: parameter => {}
   // or
@@ -611,7 +611,7 @@ const foo: object = {
 ### Optional parameters (可選參數)
 
 ```ts
-const thing = function(a: string, b: string, c?: string): string {
+const thing = function (a: string, b: string, c?: string): string {
   return `${a} ${b} ${c}`;
 };
 
@@ -621,7 +621,7 @@ thing('foo');  // Error
 ```
 
 ```ts
-const thing = function(a: string, b: string, c?: string): string {
+const thing = function (a: string, b: string, c?: string): string {
   if (c !== undefined) return `${a} ${b} ${c}`;
   return `${a} ${b}`;
 };
@@ -634,7 +634,7 @@ thing('foo');  // Error
 ### Default parameters (預設參數)
 
 ```ts
-const thing = function(a: string, b: string = 'bar'): string {
+const thing = function (a: string, b: string = 'bar'): string {
   return `${a} ${b}`;
 };
 
@@ -802,7 +802,7 @@ let point3d: Point3d = {
 
 ```ts
 class Foo {
-  constructor(public x = 0) { }
+  constructor(public x = 0) {}
 
   public getFooX(): number {
     return this.x;
@@ -810,7 +810,7 @@ class Foo {
 }
 
 class Bar {
-  constructor(public x = 0) { }
+  constructor(public x = 0) {}
 
   public get barX(): number {
     return this.x;
@@ -895,7 +895,7 @@ Record
 Pick
 ```
 
-## 泛型
+## Generics (泛型)
 
 ```ts
 function identity<T>(arg: T): T {
@@ -1005,16 +1005,16 @@ x;  // 2 * 25 = 50
 let x = -(2 ** 3);
 x;  // -8
 
-// 或者
+// or
 let y = (-2) ** 3;
 y;  // -8
 
-// 錯誤
+// Error
 let z = -2 ** 3;
-z;  // Error
+z;
 ```
 
-## 混入
+## Mixins (混入)
 
 ```ts
 class Disposable {
@@ -1034,7 +1034,7 @@ class Activatable {
   }
 }
 
-class SmartObject implements Disposable, Activatable { }
+class SmartObject implements Disposable, Activatable {}
 ```
 
 ```ts
@@ -1286,7 +1286,7 @@ async function foo(x) {
 // 還有一個 Observable，如果要在現在環境使用 Observable，需要透過 RxJS 來實現
 ```
 
-## 修飾器
+## Decorators (修飾器)
 
 ### 修飾類別
 
@@ -1299,7 +1299,7 @@ const Foo = (value: any) => {
 }
 
 @Foo(123)
-class Thing { }  // 這個類別會打印出 123
+class Thing {}  // 123
 ```
 
 ### 修飾屬性
@@ -1314,7 +1314,7 @@ const Foo = (value: any) => {
 
 class Thing {
   @Foo('bar')
-  baz() { }
+  baz() {}
 }
 ```
 

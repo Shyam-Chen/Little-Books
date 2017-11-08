@@ -39,12 +39,12 @@
   * 洗牌
   * 貪婪
 * [Design patterns (設計模式)](#design-patterns-設計模式)
-  * [Creational (建立型)](#建立型)
+  * [Creational (建立型)](#creational-建立型)
     * Abstract Factory (抽象工廠)
     * Builder (建造器)
-    * [Factory 工廠](#工廠)
+    * [Factory (工廠)](#factory-工廠)
     * Prototype (原型)
-    * [Singleton (單體)](#單體)
+    * [Singleton (單體)](#singleton-單體)
   * Structural (結構型)
     * Adapter (匹配器)
     * Bridge (橋梁)
@@ -65,7 +65,7 @@
     * Strategy (策略)
     * Template (模板)
     * Visitor (遊客)
-* [Regular expressions (規則運算式)](#規則運算式)
+* [Regular expressions (規則運算式)](#regular-expressions-規則運算式)
   * [共用](#共用)
   * 一般
   * 錨點
@@ -399,11 +399,11 @@ q1.enqueue('Vue');
 q1.print();
 ```
 
-## 設計模式
+## Design patterns (設計模式)
 
-### 建立型
+### Creational (建立型)
 
-#### 工廠
+#### Factory (工廠)
 
 ```js
 class Product {
@@ -458,7 +458,7 @@ Factory();
 // true
 ```
 
-#### 單體
+#### Singleton (單體)
 
 ```js
 class Singleton {
@@ -481,7 +481,7 @@ console.log(instance1 === instance2);  // true
 
 ### 結構型
 
-## 規則運算式
+## Regular expressions (規則運算式)
 
 ### 共用
 
