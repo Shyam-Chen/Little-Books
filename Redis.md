@@ -33,10 +33,22 @@ Storing Strings (儲存字串)
 
 ```js
 client.set('thing', 'foo');
+// or
+client.set(['thing', 'foo']);
 
 client.get('thing', (err, reply) => {
   console.log(reply);  // foo
 });
+
+// this key will expire after 10 seconds (此密鑰將在 10 秒後過期)
+client.set('<KEY>', '<VALUE>', 'EX', 10);
+/**
+ * options:
+ *   EX - Set the specified expire time, in seconds.
+ *   PX - Set the specified expire time, in milliseconds.
+ *   NX - Only set the key if it does not already exist. (只有在密鑰不存在的情況下才能設置)
+ *   XX - Only set the key if it already exist. (只有在已經存在的情況下才能設置密鑰)
+ */
 ```
 
 Storing Hash (儲存雜湊)
