@@ -1,16 +1,15 @@
 # Big Little Books
 
-:books: Big little books on Angular, React, Vue, Material, and Express. :memo:
+:books: Big little books on Angular, Nest, TypeScript, and ReactiveX. :memo:
 
 ### List of books
 
+* ---------- **Frameworks** ----------
+* [Angular (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md) :fire:
+* [Nest (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Nest/README.md) :fire:
 * ---------- **Core** ----------
 * [JavaScript (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JavaScript.md)
-* [TypeScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md)
-* ---------- **Frameworks** ----------
-* [Angular (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md)
-* [React (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/React/README.md)
-* [Vue (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Vue/README.md)
+* [TypeScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md) :fire:
 * ---------- **Client-side** ----------
 * [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
 * [Firebase (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
@@ -22,7 +21,7 @@
 * [Sequelize (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Sequelize.md)
 * ---------- **Extensions** ----------
 * [Lodash (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md)
-* [ReactiveX (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md)
+* [ReactiveX (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ReactiveX.md) :fire:
 * ---------- **Structures** ----------
 * [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/MobX.md)
 * [Immutable (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
@@ -32,6 +31,6 @@
 * ---------- **Authorizations** ----------
 * [JWT (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
 * [Passport (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Passport.md)
-* ---------- **Real-time** ----------
+* ---------- **Microservice** ----------
 * [Socket (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
 * [Redis (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redis.md)
