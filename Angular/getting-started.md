@@ -31,7 +31,7 @@ Zone.js 提供一個區域的機制，用在瀏覽器中封裝和攔截非同步
 
 行動 ...
 
-### 環境設置
+### Environment settings (環境設置)
 
 開發環境的設定也是一件浩大的事情，
 不太建議自己做從零開始建立 Angular 的環境，
@@ -43,6 +43,8 @@ Zone.js 提供一個區域的機制，用在瀏覽器中封裝和攔截非同步
 
 ```bash
 $ npm i @angular/cli -g
+# or
+$ yarn global add @angular/cli
 ```
 
 確認版本
