@@ -15,11 +15,14 @@
 
 ### Table of Contents (目錄)
 
-* [Observables (可觀察)](#observables-可觀察)
-  * -> [Subject](#subject)
-    * -> [AsyncSubject](#asyncsubject)
-    * -> [BehaviorSubject](#behaviorsubject)
-    * -> [ReplaySubject](#replaysubject)
+* [Observable (可觀察)](#observable-可觀察)
+  * [Subject](#subject)
+    * [AsyncSubject](#asyncsubject)
+    * [BehaviorSubject](#behaviorsubject)
+    * [ReplaySubject](#replaysubject)
+    * AnonymousSubject
+  * ConnectableObservable
+  * GroupedObservable
 * [Scheduler](#scheduler)
   * [animationFrame](#animationframe)
   * [asap](#asap)
@@ -113,12 +116,65 @@
   * materialize
   * observeOn
   * toPromise
+* [DOM (文件物件模型)](#dom-文件物件模型)
+  * ajax
+  * webSocket
 
 :star: - 常用
 
+`audit`, `auditTime`
+
+`count`
+
+`distinct`, `distinctUntilKeyChanged`
+
+`elementAt`
+
+`exhaust`, `exhaustMap`
+
+`find`, `findIndex`
+
+`forEach`
+
+`isEmpty`
+
+`letProto`
+
+`lift`
+
+`max`, `min`
+
+`mergeScan`
+
+`pairwise`
+
+`publishBehavior`, `publishLast`, `publishReplay`
+
+`reduce`
+
+`repeat`, `repeatWhen`
+
+`sampleTime`
+
+`sequenceEqual`
+
+`subscribeOn`
+
+`switch`, `switchMapTo`
+
+`takeLast`
+
+`timeInterval`, `timeout`, `timeoutWith`, `timestamp`
+
+`toArray`
+
+`zipAll`
+
+`zipProto`
+
 ***
 
-## Observables (可觀察)
+## Observable (可觀察)
 
 ```js
 import { Observable } from 'rxjs';
@@ -2210,3 +2266,9 @@ Observable::merge(
 ### observeOn
 
 ### toPromise
+
+## DOM (文件物件模型)
+
+### ajax
+
+### webSocket
