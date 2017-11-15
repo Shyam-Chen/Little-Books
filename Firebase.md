@@ -20,20 +20,19 @@
   * [Google](#google)
   * [Facebook](#facebook)
   * [Twitter](#twitter)
-* [Cloud Firestore (資料庫)](#cloud-firestore-資料庫)
+* [Database (資料庫)](#database-資料庫)
 * [Storage (存儲)](#storage-存儲)
   * [File upload (檔案上傳)](#file-upload-檔案上傳)
   * 整合 File API
   * 多個檔案上傳
-* [Cloud Messaging (訊息)](#cloud-messaging-訊息)
-  * Notification message
-  * Data message
-* [Cloud Functions (函式)](#cloud-functions-函式)
-  * 核心
-    * Realtime Database Triggers (資料庫觸發器)
+* [Hosting (託管)](#hosting-託管)
+  * Custom Domain (自訂網域)
+* [Functions (函式)](#functions-函式)
+  * Triggers (觸發器)
+    * Cloud Firestore Triggers (資料庫觸發器)
     * Authentication Triggers (憑證觸發器)
     * Google Analytics Triggers (GA 觸發器)
-    * Cloud Storage Triggers (Google Cloud 存儲觸發器)
+    * Cloud Storage Triggers (Google 存儲觸發器)
     * Cloud Pub/Sub Triggers (Google 發佈/訂閱觸發器)
     * HTTP Triggers (HTTP 觸發器)
   * FCM 通知
@@ -48,8 +47,7 @@
     * BigQuery
   * PayPal
   * Chatbot
-* [Hosting (託管)](#hosting-託管)
-  * Custom Domain (自訂網域)
+
 
 ***
 
@@ -255,7 +253,7 @@ unAuth();
 
 ### Twitter
 
-## Cloud Firestore (資料庫)
+## Database (資料庫)
 
 ## Storage (存儲)
 
@@ -283,9 +281,7 @@ fileUpload.onchange = () => {
 
 由於選完檔案直接上傳不是個好方法，所以我們需要運用 File API
 
-## Cloud Messaging (訊息)
-
-## Cloud Functions (函式)
+## Functions (函式)
 
 ```js
 const functions = require('firebase-functions');
