@@ -77,7 +77,7 @@
   * [skipUntil](#skipuntil)
   * [skipWhile](#skipwhile)
   * [take](#take) :star:
-  * takeUntil :star:
+  * [takeUntil](#takeuntil) :star:
   * takeWhile
   * [throttle](#throttle)
   * throttleTime
@@ -1792,6 +1792,24 @@ Observable::of(1, 2, 3, 4, 5)
 ```
 
 ### takeUntil
+
+Emits the values emitted by the source Observable until a `notifier` Observable emits a value.
+
+發出源 Observable 發出的值，直到 `notifier` Observable 發出一個值。
+
+```js
+import { Observable } from 'rxjs';
+import { interval, timer } from 'rxjs/observable';
+import { takeUntil } from 'rxjs/operator';
+
+Observable::interval(1000)
+  ::takeUntil(Observable::timer(5000))
+  .subscribe(value => console.log(value));
+  // 0
+  // 1
+  // 2
+  // 3
+```
 
 ### takeWhile
 
