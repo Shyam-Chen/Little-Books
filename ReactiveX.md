@@ -16,19 +16,19 @@
 ### Table of Contents (目錄)
 
 * [Observable (可觀察)](#observable-可觀察)
-  * [Subject](#subject)
-    * [AsyncSubject](#asyncsubject)
-    * [BehaviorSubject](#behaviorsubject)
-    * [ReplaySubject](#replaysubject)
-    * AnonymousSubject
-  * ConnectableObservable
-  * GroupedObservable
-* [Scheduler](#scheduler)
+  * [Subject (主體)](#subject)
+    * [AsyncSubject (非同步主體)](#asyncsubject)
+    * [BehaviorSubject (行為主體)](#behaviorsubject)
+    * [ReplaySubject (重放主體)](#replaysubject)
+    * AnonymousSubject (匿名主體)
+  * ConnectableObservable (可連接的 Observable)
+  * GroupedObservable (已分組的 Observable)
+* [Scheduler (調度)](#scheduler)
   * [animationFrame](#animationframe)
   * [asap](#asap)
   * [async](#async)
   * [queue](#queue)
-* [Combination (組合)](#組合)
+* [Combination (組合)](#combination-組合)
   * [combineAll](#combineall)
   * [combineLatest](#combinelatest) :star:
   * [concat](#concat) :star:
@@ -40,10 +40,10 @@
   * [startWith](#startwith) :star:
   * [withLatestFrom](#withlatestfrom) :star:
   * [zip](#zip)
-* [Conditional (附條件)](#附條件)
+* [Conditional (附條件)](#conditional-附條件)
   * [defaultIfEmpty](#defaultifempty)
   * [every](#every)
-* [Creation (建立)](#建立)
+* [Creation (建立)](#creation-建立)
   * [bindCallback](#bindcallback)
   * [bindNodeCallback](#bindnodecallback)
   * [create](#create)
@@ -59,11 +59,12 @@
   * [range](#range)
   * [throw](#throw)
   * [timer](#timer)
-* [Error Handling (錯誤處理)](#錯誤處理)
+* [Error Handling (錯誤處理)](#error-handling-錯誤處理)
   * [catch](#catch) :star:
   * retry
   * retryWhen
-* [Filtering (過濾)](#過濾)
+* [Filtering (過濾)](#filtering-過濾)
+  * count :notes:
   * [debounce](#debounce)
   * debounceTime :star:
   * distinctUntilChanged :star:
@@ -81,11 +82,11 @@
   * [takeWhile](#takewhile)
   * [throttle](#throttle)
   * [throttleTime](#throttletime)
-* [Multicasting (組播)](#組播)
+* [Multicasting (組播)](#multicasting-組播)
   * multicast
   * [publish](#publish)
   * [share](#share) :star:
-* [Transformation (轉化)](#轉化)
+* [Transformation (轉化)](#transformation-轉化)
   * [buffer](#buffer)
   * [bufferCount](#buffercount)
   * [bufferTime](#buffertime) :star:
@@ -107,7 +108,7 @@
   * windowTime
   * windowToggle
   * windowWhen
-* [Utility (公用)](#公用)
+* [Utility (公用)](#utility-公用)
   * [do](#do) :star:
   * [delay](#delay)
   * delayWhen
@@ -120,11 +121,10 @@
   * ajax
   * webSocket
 
-:star: - 常用
+:star: - 常用<br>
+:notes: - 跳動
 
 `audit`, `auditTime`
-
-`count`
 
 `distinct`, `distinctUntilKeyChanged`
 
@@ -571,7 +571,7 @@ console.log('after subscribe');
 // after subscribe
 ```
 
-## 組合
+## Combination (組合)
 
 ### combineAll
 
@@ -1103,7 +1103,7 @@ Observable::zip(
   // [ 'Foo', 'Bar', 'Baz' ]
 ```
 
-## 附條件
+## Conditional (附條件)
 
 ### defaultIfEmpty
 
@@ -1163,7 +1163,7 @@ Observable::of(2, 4, 6, 8, 10)
   // true
 ```
 
-## 建立
+## Creation (建立)
 
 ### bindCallback
 
@@ -1478,7 +1478,7 @@ Observable::timer(1000, 2000)
   // 2
 ```
 
-## 錯誤處理
+## Error Handling (錯誤處理)
 
 ### catch
 
@@ -1500,7 +1500,7 @@ Observable::_throw('一個錯誤！')
 
 ### retryWhen
 
-## 過濾
+## Filtering (過濾)
 
 ### debounce
 
@@ -1874,7 +1874,7 @@ Observable::interval(1000)
   // ...
 ```
 
-## 組播
+## Multicasting (組播)
 
 ### multicast
 
@@ -1949,7 +1949,7 @@ sourceShared$.subscribe(value => console.log(value));
 // ***RESULT***
 ```
 
-## 轉化
+## Transformation (轉化)
 
 ### buffer
 
@@ -2247,7 +2247,7 @@ window$::mergeAll().subscribe(value => console.log(value));
 
 ### windowWhen
 
-## 公用
+## Utility (公用)
 
 ### do
 
