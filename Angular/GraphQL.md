@@ -53,17 +53,22 @@ $ node app.js
 ```ts
 // src/app/graphql.service.ts
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class GraphqlService {
-  private dataUrl: string = 'http://localhost:8000/graphql';
+  readonly dataUrl = 'http://localhost:8000/graphql';
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) {}
 
   private graphqlMethod(): any {
+    // TODO: ...
   };
 }
+```
+
+```bash
+$ yarn add apollo-angular apollo-angular-link-http apollo-client apollo-cache-inmemory graphql-tag graphql
 ```

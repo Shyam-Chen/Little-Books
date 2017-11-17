@@ -16,8 +16,6 @@
 在現在的社群有 @ngrx (仿 Redux 的風格)、
 @angular-redux (與 Redux 綁定) 和 mobx-angular 這三種方式．
 
-### 基本應用
-
 Redux 是負責管理狀態的，所有的狀態都會透過 Redux 來操作，就是個狀態容器。
 
 在 Redux 中會有這三個概念：Action、Reducer 和 Store，
@@ -31,8 +29,12 @@ Reducer 會根據 Action 的 Type 來做相對應的操作，
 這裡透過 [@ngrx/store](https://github.com/ngrx/store) 來實現 Redux，
 以及 [@ngrx/effects](https://github.com/ngrx/effects) 來實現 Redux Observable。
 
+@ngrx
+
 ```bash
 $ npm i @ngrx/core @ngrx/store @ngrx/effects -S
+# or
+$ yarn add @ngrx/core @ngrx/store @ngrx/effects
 ```
 
 ```ts
@@ -244,4 +246,33 @@ export class CounterEffects {
 
   constructor(private actions$: Actions, private state$: Store<CounterState>) { }
 }
+```
+
+MobX
+
+```bash
+$ yarn add mobx mobx-angular
+```
+
+```ts
+import { MobxAngularModule } from 'mobx-angular';
+
+@NgModule({
+  imports: [
+    // ...
+    MobxAngularModule,
+    // ...
+  ],
+  // ...
+})
+// ...
+```
+
+```ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { observable, action, computed } from 'mobx';
+
+@Injectable()
+export class <NAME_HERE>Store {}
 ```
