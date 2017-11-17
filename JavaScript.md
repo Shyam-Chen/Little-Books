@@ -29,19 +29,16 @@
   * Algebraic (代數)
 * [Data structures & Algorithms (資料結構和演算法)](#data-structures-algorithms-資料結構和演算法)
   * Heap (堆疊)
-  * [佇列](#佇列)
-    * 環狀佇列
-  * 鏈結
-    * 雙向鏈結
-    * 環狀鏈結
-  * 集合
+  * [Queues (佇列)](#佇列)
+  * Linked Lists (鏈結列表)
+  * Sets (集)
   * Hash table (雜湊表)
-  * 樹
-  * 圖形
+  * Trees (樹)
+  * Graphs (圖形)
   * Sorting (排序)
-  * 搜索
-  * 洗牌
-  * 貪婪
+  * Primes (素數)
+  * Searching (搜索)
+  * Shuffle (洗牌)
 * [Design patterns (設計模式)](#design-patterns-設計模式)
   * [Creational (建立型)](#creational-建立型)
     * Abstract Factory (抽象工廠)
