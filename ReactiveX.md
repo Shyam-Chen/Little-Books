@@ -33,6 +33,8 @@
   * [combineLatest](#combinelatest) :star:
   * [concat](#concat) :star:
   * [concatAll](#concatall)
+  * exhaust :notes:
+  * exhaustMap :notes:
   * [forkJoin](#forkjoin)
   * [merge](#merge) :star:
   * [mergeAll](#mergeall)
@@ -40,6 +42,8 @@
   * [startWith](#startwith) :star:
   * [withLatestFrom](#withlatestfrom) :star:
   * [zip](#zip)
+  * zipAll :notes:
+  * zipProto :notes:
 * [Conditional (附條件)](#conditional-附條件)
   * [defaultIfEmpty](#defaultifempty)
   * [every](#every)
@@ -54,30 +58,50 @@
   * [fromEventPattern](#fromeventpattern)
   * [fromPromise](#frompromise) :star:
   * [interval](#interval)
+  * lift :notes:
+  * mergeScan :notes:
   * [never](#never)
   * [of](#of) :star:
   * [range](#range)
+  * repeat :notes:
+  * repeatWhen :notes:
   * [throw](#throw)
+  * timeInterval :notes:
+  * timeout :notes:
+  * timeoutWith :notes:
   * [timer](#timer)
+  * timestamp :notes:
 * [Error Handling (錯誤處理)](#error-handling-錯誤處理)
   * [catch](#catch) :star:
   * retry
   * retryWhen
 * [Filtering (過濾)](#filtering-過濾)
+  * audit :notes:
+  * auditTime :notes:
   * count :notes:
   * [debounce](#debounce)
   * debounceTime :star:
+  * distinct :notes:
   * distinctUntilChanged :star:
+  * distinctUntilKeyChanged :notes:
+  * elementAt :notes:
   * [filter](#filter) :star:
+  * find :notes:
+  * findIndex :notes:
   * [first](#first)
   * [ignoreElements](#ignoreelements)
   * [last](#last)
+  * max :notes:
+  * min :notes:
   * [sample](#sample)
+  * sampleTime :notes:
+  * sequenceEqual :notes:
   * [single](#single)
   * [skip](#skip)
   * [skipUntil](#skipuntil)
   * [skipWhile](#skipwhile)
   * [take](#take) :star:
+  * takeLast :notes:
   * [takeUntil](#takeuntil) :star:
   * [takeWhile](#takewhile)
   * [throttle](#throttle)
@@ -99,10 +123,14 @@
   * [map](#map) :star:
   * [mapTo](#mapto)
   * [mergeMap](#mergemap) :star:
+  * pairwise :notes:
   * partition
   * pluck
+  * reduce :notes:
   * [scan](#scan) :star:
+  * switch :notes:
   * [switchMap](#switchmap) :star:
+  * switchMapTo :notes:
   * [window](#window)
   * windowCount
   * windowTime
@@ -113,9 +141,16 @@
   * [delay](#delay)
   * delayWhen
   * dematerialize
-  * let
+  * forEach :notes:
+  * isEmpty :notes:
+  * letProto :notes:
   * materialize
   * observeOn
+  * publishBehavior :notes:
+  * publishLast :notes:
+  * publishReplay :notes:
+  * subscribeOn :notes:
+  * toArray :notes:
   * toPromise
 * [DOM (文件物件模型)](#dom-文件物件模型)
   * ajax
@@ -123,54 +158,6 @@
 
 :star: - 常用<br>
 :notes: - 跳動
-
-`audit`, `auditTime`
-
-`distinct`, `distinctUntilKeyChanged`
-
-`elementAt`
-
-`exhaust`, `exhaustMap`
-
-`find`, `findIndex`
-
-`forEach`
-
-`isEmpty`
-
-`letProto`
-
-`lift`
-
-`max`, `min`
-
-`mergeScan`
-
-`pairwise`
-
-`publishBehavior`, `publishLast`, `publishReplay`
-
-`reduce`
-
-`repeat`, `repeatWhen`
-
-`sampleTime`
-
-`sequenceEqual`
-
-`subscribeOn`
-
-`switch`, `switchMapTo`
-
-`takeLast`
-
-`timeInterval`, `timeout`, `timeoutWith`, `timestamp`
-
-`toArray`
-
-`zipAll`
-
-`zipProto`
 
 ***
 

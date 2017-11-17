@@ -7,7 +7,7 @@
 * ---------- **Frameworks** ----------
 * [Angular (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Angular/README.md) :fire:
 * [Nest (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Nest/README.md) :fire:
-* ---------- **Core** ----------
+* ---------- **Languages** ----------
 * [JavaScript (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JavaScript.md)
 * [TypeScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md) :fire:
 * ---------- **Client-side** ----------
@@ -31,6 +31,6 @@
 * ---------- **Authorizations** ----------
 * [JWT (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
 * [Passport (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Passport.md)
-* ---------- **Microservice** ----------
+* ---------- **Realtime** ----------
 * [Socket (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
 * [Redis (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redis.md)
