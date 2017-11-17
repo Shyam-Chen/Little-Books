@@ -76,7 +76,10 @@
   * Character Classes (字元符號)
   * Flags/Modifiers (旗標/修改)
   * Substitution (代換)
-* Babel & Flow
+* Type Annotations (型別註釋)
+  * Primitive (原始)
+  * Generics (泛型)
+  * Interfaces (介面)
 
 ***
 
