@@ -255,6 +255,62 @@ unAuth();
 
 ## Database (資料庫)
 
+Add data (新增資料)
+
+```js
+firebase.firestore()
+  .collection('users')
+  .add({ id: user.uid, name: name.value, email: email.value })
+  .catch(error => console.error(`Error adding document: ${error}`));
+```
+
+Get data (取得資料)
+
+```js
+firebase.firestore()
+  .collection('users')
+  .get()
+  .then(snapshot => {
+    snapshot.forEach(childSnapshot => {
+      console.log('ID', childSnapshot.id);
+      console.log('Name', childSnapshot.data().name);
+      console.log('Email', childSnapshot.data().email);
+    });
+  });
+```
+
+Get realtime updates (取得即時的更新)
+
+```js
+firebase.firestore()
+  .collection('users')
+  .onSnapshot(snapshot => {
+    snapshot.forEach(childSnapshot => {
+      console.log('ID', childSnapshot.id);
+      console.log('Name', childSnapshot.data().name);
+      console.log('Email', childSnapshot.data().email);
+    });
+  });
+```
+
+Delete data (刪除資料)
+
+```js
+firebase.firestore()
+  .collection('users')
+  .doc(deleteButton.dataset.delete)
+  .delete();
+```
+
+Update data (更新資料)
+
+```js
+firebase.firestore()
+  .collection('users')
+  .doc(editButton.dataset.edit)
+  .update({ name: name.value, email: email.value })
+```
+
 ## Storage (存儲)
 
 ### File upload (檔案上傳)

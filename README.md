@@ -12,7 +12,7 @@
 * [TypeScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md) :fire:
 * ---------- **Client-side** ----------
 * [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
-* [Firebase (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
+* [Firebase (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
 * ---------- **Server-side** ----------
 * [Express (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md)
 * [GraphQL (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
