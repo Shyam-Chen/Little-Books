@@ -78,7 +78,7 @@
   * [skipWhile](#skipwhile)
   * [take](#take) :star:
   * [takeUntil](#takeuntil) :star:
-  * takeWhile
+  * [takeWhile](#takewhile)
   * [throttle](#throttle)
   * throttleTime
 * [Multicasting (組播)](#組播)
@@ -1812,6 +1812,20 @@ Observable::interval(1000)
 ```
 
 ### takeWhile
+
+Emits values emitted by the source Observable so long as each value satisfies the given `predicate`, and then completes as soon as this `predicate` is not satisfied.
+
+```js
+import { Observable } from 'rxjs';
+import { of } from 'rxjs/observable';
+import { takeWhile } from 'rxjs/operator';
+
+Observable::of(2, 2, 4, 4, 6, 6, 8, 8, 6, 6, 4, 4, 2, 2)
+  ::takeWhile(value => value === 2)
+  .subscribe(value => console.log(value));
+  // 2
+  // 2
+```
 
 ### throttle
 

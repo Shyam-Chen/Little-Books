@@ -23,7 +23,7 @@
     * 副作用
   * 不可變性
   * 尾端呼叫優化
-* [Data structures & algorithms (資料結構和演算法)](#data-structures-algorithms-資料結構和演算法)
+* [Data structures & Algorithms (資料結構和演算法)](#data-structures-algorithms-資料結構和演算法)
   * Heap (堆疊)
   * [佇列](#佇列)
     * 環狀佇列
