@@ -39,7 +39,7 @@
   * Primes (素數)
   * Searching (搜索)
   * Shuffle (洗牌)
-* [Design patterns (設計模式)](#design-patterns-設計模式)
+* [Design Patterns (設計模式)](#design-patterns-設計模式)
   * [Creational (建立型)](#creational-建立型)
     * Abstract Factory (抽象工廠)
     * Builder (建造器)
@@ -66,16 +66,16 @@
     * Strategy (策略)
     * Template (模板)
     * Visitor (遊客)
-* [Regular expressions (規則運算式)](#regular-expressions-規則運算式)
-  * [共用](#共用)
-  * 一般
-  * 錨點
-  * 後設資料佇列
-  * 量詞
-  * 群組建構
-  * 字元符號
-  * 修飾符號
-  * 代換
+* [Regular Expressions (規則運算式)](#regular-expressions-規則運算式)
+  * [Common (共用)](#共用)
+  * General (一般)
+  * Anchors (錨點)
+  * Meta Sequences (後設資料佇列)
+  * Quantifiers (量詞)
+  * Group Constructs (群組建構)
+  * Character Classes (字元符號)
+  * Flags/Modifiers (旗標/修改)
+  * Substitution (代換)
 * Babel & Flow
 
 ***
