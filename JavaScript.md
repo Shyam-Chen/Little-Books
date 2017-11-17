@@ -103,24 +103,22 @@ foo().then(() => console.log(4));
 // 4
 ```
 
-Parallel
-平行
+Parallel (平行)
 
 ```js
-Promise.all([
-    p1(), p2()
-  ])
+Promise
+  .all([p1(), p2()])
   .then(data => {
     console.log(data[0]);  // p1 結果
     console.log(data[1]);  // p2 結果
   });
 ```
 
-Parallel and competition
-平行且競賽
+Parallel and competition (平行且競賽)
 
 ```js
-Promise.race([
+Promise
+  .race([
     p1(),  // 假設 p1 為主體
     p2()  // p2 不一定要執行，通常是 p1 的超時處理
   ])
@@ -129,16 +127,14 @@ Promise.race([
   });
 ```
 
-Error handling
-錯誤處理
+Error handling (錯誤處理)
 
 ```js
 foo().then(() => console.log(4))
   .catch(error => console.error(error));
 ```
 
-Chaining
-鏈接
+Chaining (鏈接)
 
 ```js
 foo().then(() => console.log(4))
@@ -177,8 +173,7 @@ it.next().value;  // 1
 
 ### Async functions (非同步函式)
 
-Declarations
-宣告式
+Function declarations (函式宣告式)
 
 ```js
 async function foo() {
@@ -187,7 +182,7 @@ async function foo() {
 }
 ```
 
-表示法:
+Function expressions (函式表示式)
 
 ```js
 const foo = async function () {
@@ -196,7 +191,7 @@ const foo = async function () {
 };
 ```
 
-箭頭函式:
+Arrow functions (箭頭函式)
 
 ```js
 const foo = async () => {
@@ -205,7 +200,7 @@ const foo = async () => {
 };
 ```
 
-方法定義:
+Method definitions (方法定義)
 
 ```js
 const thing = {
@@ -216,7 +211,7 @@ const thing = {
 };
 ```
 
-類別方法:
+Class prototype methods (類別原型方法)
 
 ```js
 class Thing {
@@ -227,7 +222,7 @@ class Thing {
 }
 ```
 
-平行處理:
+Parallel (平行)
 
 ```js
 const foo = async () => {
@@ -236,7 +231,7 @@ const foo = async () => {
 };
 ```
 
-錯誤處理:
+Error handling (錯誤處理)
 
 ```js
 const foo = async () => {
@@ -249,7 +244,7 @@ const foo = async () => {
 };
 ```
 
-返回承諾:
+Returned Promises (返回承諾):
 
 ```js
 const foo = async () => {
