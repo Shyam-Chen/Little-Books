@@ -10,19 +10,23 @@
 
 ### Table of Contents (目錄)
 
-* [Asynchronous processing (非同步處理)](#asynchronous-processing-非同步處理)
+* [Asynchronous Processing (非同步處理)](#asynchronous-processing-非同步處理)
   * [Promises (承諾)](#promises-承諾)
   * [Generators (產生器)](#generators-產生器)
-  * [Async functions (非同步函式)](#async-functions-非同步函式)
+  * [Async Functions (非同步函式)](#async-functions-非同步函式)
   * [Observables (可觀察)](#observables-可觀察)
-* [Functional programming (函式型程式設計)](#functional-programming-函式型程式設計)
-  * 組合函式
-  * [議題](#議題)
-    * [共享狀態](#共享狀態)
-    * 突變狀態
-    * 副作用
-  * 不可變性
-  * 尾端呼叫優化
+* [Functional Programming (函式型程式設計)](#functional-programming-函式型程式設計)
+  * Collection (集合)
+    * Immutable (不可變性)
+  * Recursion (遞迴)
+    * Tail Call Optimization (尾端呼叫優化)
+  * Function Composition (函式組合)
+  * Macro (巨集)
+  * Monadic (單化)
+  * Concurrent (並發)
+  * Lenses (透鏡)
+  * Arity (二元)
+  * Algebraic (代數)
 * [Data structures & Algorithms (資料結構和演算法)](#data-structures-algorithms-資料結構和演算法)
   * Heap (堆疊)
   * [佇列](#佇列)
@@ -171,9 +175,9 @@ it.next().value;  // 0
 it.next().value;  // 1
 ```
 
-### Async functions (非同步函式)
+### Async Functions (非同步函式)
 
-Function declarations (函式宣告式)
+Function Declarations (函式宣告式)
 
 ```js
 async function foo() {
@@ -182,7 +186,7 @@ async function foo() {
 }
 ```
 
-Function expressions (函式表示式)
+Function Expressions (函式表示式)
 
 ```js
 const foo = async function () {
@@ -191,7 +195,7 @@ const foo = async function () {
 };
 ```
 
-Arrow functions (箭頭函式)
+Arrow Functions (箭頭函式)
 
 ```js
 const foo = async () => {
@@ -200,7 +204,7 @@ const foo = async () => {
 };
 ```
 
-Method definitions (方法定義)
+Method Definitions (方法定義)
 
 ```js
 const thing = {
@@ -303,31 +307,7 @@ Observable.from(map2)
   // ["c", 3]
 ```
 
-## Functional programming (函式型程式設計)
-
-### 議題
-
-#### 共享狀態
-
-```js
-const counter = { value: 0 };
-
-const counter1 = () => counter.value += 1;
-const counter2 = () => counter.value += 5;
-
-counter1();  // 1
-counter2();  // 6
-```
-
-```js
-const counter = { value: 0 };
-
-const counter1 = () => Object.assign({}, counter, { value: counter.value + 1 });
-const counter2 = () => Object.assign({}, counter, { value: counter.value + 5 });
-
-counter1().value;  // 1
-counter2().value;  // 5
-```
+## Functional Programming (函式型程式設計)
 
 ## Data structures & algorithms (資料結構和演算法)
 
