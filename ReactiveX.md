@@ -80,7 +80,7 @@
   * [takeUntil](#takeuntil) :star:
   * [takeWhile](#takewhile)
   * [throttle](#throttle)
-  * throttleTime
+  * [throttleTime](#throttletime)
 * [Multicasting (組播)](#組播)
   * multicast
   * [publish](#publish)
@@ -1815,6 +1815,8 @@ Observable::interval(1000)
 
 Emits values emitted by the source Observable so long as each value satisfies the given `predicate`, and then completes as soon as this `predicate` is not satisfied.
 
+只要每個值滿足給定的 `predicate`，就發出源 Observable 發出的值，然後一旦這個 `predicate` 不滿足就立即完成。
+
 ```js
 import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable';
@@ -1851,6 +1853,26 @@ Observable::interval(1000)
 ```
 
 ### throttleTime
+
+Emits a value from the source Observable, then ignores subsequent source values for a duration determined by another Observable, then repeats this process.
+
+從源 Observable 發射一個值，然後忽略由另一個 Observable 確定的持續時間的後續源值，然後重複這個過程。
+
+```js
+import { Observable } from 'rxjs';
+import { interval } from 'rxjs/observable';
+import { throttleTime } from 'rxjs/operator';
+
+Observable::interval(1000)
+  ::throttleTime(5000)
+  .subscribe(value => console.log(value));
+  // 0
+  // 5
+  // 10
+  // 15
+  // 20
+  // ...
+```
 
 ## 組播
 
