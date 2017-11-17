@@ -23,18 +23,18 @@
     * 副作用
   * 不可變性
   * 尾端呼叫優化
-* [資料結構和演算法](#資料結構和演算法)
-  * 堆疊
+* [Data structures & algorithms (資料結構和演算法)](#data-structures-algorithms-資料結構和演算法)
+  * Heap (堆疊)
   * [佇列](#佇列)
     * 環狀佇列
   * 鏈結
     * 雙向鏈結
     * 環狀鏈結
   * 集合
-  * 雜湊表
+  * Hash table (雜湊表)
   * 樹
   * 圖形
-  * 排序
+  * Sorting (排序)
   * 搜索
   * 洗牌
   * 貪婪
@@ -334,7 +334,7 @@ counter1().value;  // 1
 counter2().value;  // 5
 ```
 
-## 資料結構和演算法
+## Data structures & algorithms (資料結構和演算法)
 
 ### 佇列
 
