@@ -12,20 +12,14 @@
 
 ### Table of Contents (目錄)
 
-* 核心
-  * 場景元件
-* 著色
-* 矩陣
-* 材質
-* 光源
-* 幾何體
-* 粒子
-* 精靈
-* WebVR
+* Components (元件)
+* Material (材質)
+* Light (光源)
+* Geometry (幾何體)
+* Particle (粒子)
+* VR (虛擬實境)
 
 ***
-
-## 核心
 
 空白的骨架
 
