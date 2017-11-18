@@ -5,6 +5,8 @@
 * http://speakingjs.com/es5/index.html
 * http://exploringjs.com/es6/index.html
 * http://exploringjs.com/es2016-es2017/index.html
+* https://github.com/getify/You-Dont-Know-JS
+* https://github.com/getify/Functional-Light-JS
 
 ***
 
@@ -67,7 +69,7 @@
     * Template (模板)
     * Visitor (遊客)
 * [Regular Expressions (規則運算式)](#regular-expressions-規則運算式)
-  * [Common (共用)](#共用)
+  * [Common (共用)](#common-共用)
   * General (一般)
   * Anchors (錨點)
   * Meta Sequences (後設資料佇列)
@@ -76,7 +78,7 @@
   * Character Classes (字元符號)
   * Flags/Modifiers (旗標/修改)
   * Substitution (代換)
-* Type Annotations (型別註釋)
+* [Type Annotations (型別註釋)](#type-annotations-型別註釋)
   * Primitive (原始)
   * Generics (泛型)
   * Interfaces (介面)
@@ -269,9 +271,9 @@ foo()
 ### Observables (可觀察)
 
 ```js
-// 一個 Observer (觀察者)
+// an observer (一個觀察者)
 new Observable(observer => {
-    // 回呼方法: next()、error() 和 complete()
+    // callback method (回呼方法): next(), error(), & complete()
     setTimeout(() => observer.next('foo'), 0);
     setTimeout(() => observer.next('bar'), 1000);
     setTimeout(() => observer.next('baz'), 2000);
@@ -308,6 +310,56 @@ Observable.from(map2)
 ```
 
 ## Functional Programming (函式型程式設計)
+
+```js
+const state = { value: 0 };
+
+const counter1 = () => state.value += 1;
+const counter2 = () => state.value += 5;
+
+counter1();  // 1
+counter2();  // 6
+
+// immutable
+
+const counter1 = () => Object.assign({}, state, { value: state.value + 1 });
+const counter2 = () => Object.assign({}, state, { value: state.value + 5 });
+
+counter1().value;  // 1
+counter2().value;  // 5
+
+// rest parameters
+
+const counter1 = () => ({ ...state, { value: state.value + 1 } });
+const counter2 = () => ({ ...state, { value: state.value + 5 } });
+```
+
+```js
+const factorial = num => {
+  if (num === 0) return 1;
+  return num * factorial(num - 1);
+};
+
+const factorial = (num, acc = 1) => {
+  if (num === 0) return acc;
+  return factorial(num - 1, num * acc);
+};
+```
+
+```js
+const inc = num => num + 1;
+const dbl = num => num * 2;
+const sqr = num => num * num;
+
+const pipe = (...funcs) =>
+  init =>
+    funcs.reduce((acc, func) => func(acc), init);
+
+pipe(inc, dbl, sqr)(2);  // 36
+// 2 + 1 = 3
+// 3 * 2 = 6
+// 6 * 6 = 36
+```
 
 ## Data structures & algorithms (資料結構和演算法)
 
@@ -458,7 +510,7 @@ console.log(instance1 === instance2);  // true
 
 ## Regular expressions (規則運算式)
 
-### 共用
+### Common (共用)
 
 (1) 匹配 a、b 或 c 字元
 
@@ -497,3 +549,5 @@ let regex = /[a-zA-Z]+/g;
 ```js
 let regex = /.+/;
 ```
+
+## Type Annotations (型別註釋)
