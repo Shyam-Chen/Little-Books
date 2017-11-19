@@ -35,7 +35,7 @@
   * Algebraic (代數)
 * [Data structures & Algorithms (資料結構和演算法)](#data-structures-algorithms-資料結構和演算法)
   * Heap (堆疊)
-  * [Queues (佇列)](#佇列)
+  * [Queues (佇列)](#queues-佇列)
   * Linked Lists (鏈結列表)
   * Sets (集)
   * Hash table (雜湊表)
@@ -419,13 +419,13 @@ const multReducer = (acc, num) => acc * num;
 
 ## Data structures & algorithms (資料結構和演算法)
 
-### 佇列
+### Queues (佇列)
 
 佇列的原則是先進先出 (先來先服務)
 
 ```js
 export class Queue {
-  queueArray = [];  // 需要使用 babel-plugin-transform-class-properties
+  queueArray = [];
 
   constructor(item, priority) {
     this.item = item;
@@ -467,9 +467,7 @@ export class Queue {
     console.log(this.queueArray.toString());
   }
 }
-```
 
-```js
 const q1 = new Queue();
 
 q1.isEmpty();  // true
@@ -559,10 +557,8 @@ class Singleton {
 const instance1 = new Singleton();
 const instance2 = new Singleton();
 
-console.log(instance1 === instance2);  // true
+instance1 === instance2;  // true
 ```
-
-### 結構型
 
 ## Regular expressions (規則運算式)
 
@@ -573,20 +569,20 @@ console.log(instance1 === instance2);  // true
 ```js
 let regex = /[abc]+/g;
 
-regex.test('a bb ccc');  // true
+regex.test('a-bb-ccc');  // true
 ```
 
-比對: `a` `bb` `ccc`
+比對: `a`-`bb`-`ccc`
 
 (2) 匹配除了 a、b 或 c 之外的任何字元
 
 ```js
 let regex = /[^abc]+/g;
 
-regex.test('Anything but abc.');  // true
+regex.test('Anything-but-abc');  // true
 ```
 
-比對: `Anything `b`ut `abc`.`
+比對: `Anything-`b`ut-`abc`
 
 (3)
 
@@ -607,3 +603,16 @@ let regex = /.+/;
 ```
 
 ## Type Annotations (型別註釋)
+
+```js
+// @flow
+
+let foo: boolean = true;
+let bar: boolean = false;
+```
+
+```js
+// @flow
+
+let foo: number = 18;  // decimal (十進制)
+```
