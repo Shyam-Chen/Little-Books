@@ -9,8 +9,8 @@
 
 ### Table of Contents (目錄)
 
-* [Quick start (快速開始)](#quick-start-快速開始)
-* [Variable declarations (變數宣告)](#variable-declarations-變數宣告)
+* [Quick Start (快速開始)](#quick-start-快速開始)
+* [Variable Declarations (變數宣告)](#variable-declarations-變數宣告)
 * [Destructuring (分割代入)](#destructuring-分割代入)
 * [Types (型別)](#types-型別)
 * [Namespaces (命名空間)](#namespaces-命名空間)
@@ -18,27 +18,26 @@
 * [Interfaces (介面)](#interfaces-介面)
 * [Functions (函式)](#functions-函式)
 * [Classes (類別)](#classes-類別)
-* [Type compatibility (型別兼容性)](#type-compatibility-型別兼容性)
-* [通用型別](#通用型別)
-* [型別查找](#型別查找)
+* [Type Compatibility (型別兼容性)](#type-compatibility-型別兼容性)
+* [Type Queries (型別查詢)](#type-queries-型別查詢)
 * [Generics (泛型)](#generics-泛型)
-* [型別斷言](#型別斷言)
-* [冪運算子](#冪運算子)
+* [Type Assertion (型別斷言)](#type-assertion-型別斷言)
+* [Exponentiation Operators (冪運算子)](#exponentiation-operators-冪運算子)
 * [Mixins (混入)](#mixins-混入)
-* [Declaration merging (合併宣告)](#declaration-merging-合併宣告)
-* [Set (似陣列)](#似陣列)
-* [Map (似物件)](#似物件)
-* [Proxy (代理)](#代理)
-* [Reflect (反映)](#反映)
-* [Promises (承諾)](#承諾)
-* [Iterators (迭代器)](#迭代器)
-* [Generators (產生器)](#產生器)
-* [Async functions (非同步函式)](#非同步)
+* [Declaration Merging (合併宣告)](#declaration-merging-合併宣告)
+* [Set (似陣列)](#set-似陣列)
+* [Map (似物件)](#map-似物件)
+* [Proxy (代理)](#proxy-代理)
+* [Reflect (反映)](#reflect-反映)
+* [Promises (承諾)](#promises-承諾)
+* [Iterators (迭代器)](#iterators-迭代器)
+* [Generators (產生器)](#generators-產生器)
+* [Async Functions (非同步函式)](#async-functions-非同步函式)
 * [Decorators (修飾器)](#decorators-修飾器)
 
 ***
 
-## Quick start (快速開始)
+## Quick Start (快速開始)
 
 ```bash
 # install ts-node and typescript (安裝 ts-node 和 typescript)
@@ -68,7 +67,7 @@ $ ts-node script
 Hello TypeScript
 ```
 
-## Variable declarations (變數宣告)
+## Variable Declarations (變數宣告)
 
 ```ts
 let foo = 123;
@@ -102,7 +101,7 @@ foo;  // { bar: 456 }
 
 ## Destructuring (分割代入)
 
-### Array destructuring (陣列分割代入)
+### Array Destructuring (陣列分割代入)
 
 ```ts
 const [foo, bar] = [123, 456];
@@ -125,7 +124,7 @@ a;  // 2
 b;  // 1
 ```
 
-### Object destructuring (物件分割代入)
+### Object Destructuring (物件分割代入)
 
 ```ts
 const thing = {
@@ -330,7 +329,7 @@ function foo(thing: number): void {
 }
 ```
 
-### Null and Undefined (空值和未定義)
+### Null & Undefined (空值和未定義)
 
 ```ts
 let foo: string;
@@ -351,7 +350,7 @@ function error(message: string): never {
 }
 ```
 
-### Type assertions (型別斷言)
+### Type Assertions (型別斷言)
 
 ```ts
 let foo: any = 'abc';
@@ -363,7 +362,25 @@ let bar2 = foo as string;  // 語法: as
 let baz2: number = bar2.length;  // 3
 ```
 
-### 型別併集
+### Intersection Type (相交型別)
+
+```ts
+function extend<T, U>(first: T, second: U): T & U {
+  const result = <T & U>{};
+
+  for (const id in first) {
+    (<any>result)[id] = (<any>first)[id];
+  }
+
+  for (const id in second) {
+    if (!result.hasOwnProperty(id)) (<any>result)[id] = (<any>second)[id];
+  }
+
+  return result;
+}
+```
+
+### Union Type (併集型別)
 
 ```ts
 let foo: string | number;
@@ -393,16 +410,29 @@ st.bar();  // Error
 st.baz();  // OK
 ```
 
-### 型別別名
+### Type Aliases (型別別名)
 
 ```ts
-// 型別別名
 type ThingType = string | number;
 let foo: ThingType;
 
 foo = 'abc';  // OK
 foo = 123;  // OK
 foo = true;  // Error
+```
+
+String literal types (字串實字型別)
+
+```ts
+type Easing = 'ease-in' | 'ease-out' | 'ease-in-out';
+```
+
+Numeric literal types (數字實字型別)
+
+```ts
+function thing(): 0 | 1 {
+  // ...
+}
 ```
 
 ## Namespaces (命名空間)
@@ -824,7 +854,7 @@ const bar = new Bar(123);
 bar.barX;  // 123
 ```
 
-## Type compatibility (型別兼容性)
+## Type Compatibility (型別兼容性)
 
 ```ts
 interface Foo {
@@ -840,13 +870,7 @@ let thing: Foo;
 thing = new Thing();
 ```
 
-### 通用型別
-
-```ts
-const ng: Ng[] = [new Angular(), new Material(), new Firebase()];
-```
-
-### 型別查找
+## Type Queries (型別查詢)
 
 ```ts
 interface Foo {
@@ -931,7 +955,7 @@ thing.key = 'foo';  // OK
 thing.value = true;  // OK
 ```
 
-## 型別斷言
+## Type Assertion (型別斷言)
 
 ```ts
 interface Foo {
@@ -989,7 +1013,7 @@ let foo: Foo = {
 foo;  // { bar: 123, baz: 'abc' }
 ```
 
-## 冪運算子
+## Exponentiation Operators (冪運算子)
 
 ```ts
 let x = 2 ** 5;  // Math.pow(2, 5)
@@ -1065,11 +1089,11 @@ interface Box {
 const box: Box = { height: 5, width: 6, scale: 10 };
 ```
 
-## 似陣列
+## Set (似陣列)
 
-## 似物件
+## Map (map-似物件)
 
-## 代理
+## Proxy (代理)
 
 ```ts
 const proxy = new Proxy(<TARGET>, <HANDLER>);
@@ -1087,7 +1111,7 @@ const proxy = new Proxy({}, {
 proxy.thing;  // 99
 ```
 
-## 反映
+## Reflect (反映)
 
 ```ts
 const thing: object = {
@@ -1101,7 +1125,7 @@ Reflect.get(thing, 'foo');  // 1
 Reflect.get(thing, 'bar');  // 1
 ```
 
-## 承諾
+## Promises (承諾)
 
 ```ts
 const foo = () => {
@@ -1126,9 +1150,8 @@ foo().then(() => console.log(4));
 平行
 
 ```ts
-Promise.all([
-    p1(), p2()
-  ])
+Promise
+  .all([p1(), p2()])
   .then((data) => {
     console.log(data[0]);  // p1 結果
     console.log(data[1]);  // p2 結果
@@ -1138,7 +1161,8 @@ Promise.all([
 平行且競賽
 
 ```ts
-Promise.race([
+Promise
+  .race([
     p1(),  // 假設 p1 為主體
     p2()  // p2 不一定要執行，通常是 p1 的超時處理
   ])
@@ -1150,22 +1174,24 @@ Promise.race([
 錯誤處理
 
 ```ts
-foo().then(() => console.log(4))
+foo()
+  .then(() => console.log(4))
   .catch(error => console.error(error));
 ```
 
 鏈接
 
 ```ts
-foo().then(() => console.log(4))
+foo()
+  .then(() => console.log(4))
   .then(() => console.log(6))
   .then(() => console.log(8))
   .catch(error => console.error(error));
 ```
 
-## 迭代器
+## Iterators (迭代器)
 
-## 產生器
+## Generators (產生器)
 
 使用星號 `*` 宣告函式為產生器
 
@@ -1205,7 +1231,7 @@ it.next().value;  // 0
 it.next().value;  // 1
 ```
 
-## 非同步
+## Async Functions (非同步函式)
 
 ```ts
 async function foo(x) {  // 10
