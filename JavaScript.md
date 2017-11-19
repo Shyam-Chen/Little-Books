@@ -136,14 +136,16 @@ Promise
 Error handling (錯誤處理)
 
 ```js
-foo().then(() => console.log(4))
+foo()
+  .then(() => console.log(4))
   .catch(error => console.error(error));
 ```
 
 Chaining (鏈接)
 
 ```js
-foo().then(() => console.log(4))
+foo()
+  .then(() => console.log(4))
   .then(() => console.log(6))
   .then(() => console.log(8))
   .catch(error => console.error(error));
@@ -234,6 +236,24 @@ Parallel (平行)
 const foo = async () => {
   const [result1, result2] = await Promise.all([bar(), baz()]);
   console.log(result1, result2);
+};
+```
+
+```js
+const pagination = async (page, row) => {
+  const row = Number(row);
+  const list = await List.find({}).exec();
+  const _data = [];
+
+  for (let i = 0; i < list.length / row; i++) {
+    if (Number(page) === (i + 1)) {
+      _data.push(List.find({}).skip(i * row).limit(row));
+    }
+  }
+
+  const data = await Promise.all(_data);
+
+  return data;
 };
 ```
 
