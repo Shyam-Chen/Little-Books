@@ -19,10 +19,14 @@
   * [Observables (可觀察)](#observables-可觀察)
 * [Functional Programming (函式型程式設計)](#functional-programming-函式型程式設計)
   * Collection (集合)
-    * Immutable (不可變性)
+    * [Immutable (不可變性)](#immutable-不可變性)
   * Recursion (遞迴)
-    * Tail Call Optimization (尾端呼叫優化)
-  * Function Composition (函式組合)
+    * [Tail Call Optimization (尾端呼叫優化)](#tail-call-optimization-尾端呼叫優化)
+    * Trampoline (繃跳區)
+  * [Function Composition (函式組合)](#function-composition-函式組合)
+    * [Currying (柯里化)](#currying-柯里化)
+    * [Reducer (減速器)](#reducer-減速器)
+    * Transducer (傳感器)
   * Macro (巨集)
   * Monadic (單化)
   * Concurrent (並發)
@@ -331,6 +335,8 @@ Observable.from(map2)
 
 ## Functional Programming (函式型程式設計)
 
+#### Immutable (不可變性)
+
 ```js
 const state = { value: 0 };
 
@@ -354,6 +360,8 @@ const counter1 = () => ({ ...state, { value: state.value + 1 } });
 const counter2 = () => ({ ...state, { value: state.value + 5 } });
 ```
 
+#### Tail Call Optimization (尾端呼叫優化)
+
 ```js
 const factorial = num => {
   if (num === 0) return 1;
@@ -365,6 +373,8 @@ const factorial = (num, acc = 1) => {
   return factorial(num - 1, num * acc);
 };
 ```
+
+### Function Composition (函式組合)
 
 ```js
 const inc = num => num + 1;
@@ -379,6 +389,32 @@ pipe(inc, dbl, sqr)(2);  // 36
 // 2 + 1 = 3
 // 3 * 2 = 6
 // 6 * 6 = 36
+```
+
+#### Currying (柯里化)
+
+```js
+const curry = f => a => b => f(a, b);
+const uncurry = f => (a, b) => f(a)(b);
+
+const add = (a, b) => a + b;
+const curriedAdd = a => b => a + b;
+
+add(1, 2);  // 3
+curriedAdd(1)(2);  // 3
+
+uncurry(curry(add))(1, 2);  // 3
+curry(uncurry(curriedAdd))(1)(2);  // 3
+```
+
+#### Reducer (減速器)
+
+```js
+const sumReducer = (acc, num) => acc + num;
+const multReducer = (acc, num) => acc * num;
+
+[1, 2, 3, 4, 5].reduce(sumReducer, 0);  // 15
+[1, 2, 3, 4, 5].reduce(multReducer, 1);  // 120
 ```
 
 ## Data structures & algorithms (資料結構和演算法)
