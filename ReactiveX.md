@@ -30,20 +30,20 @@
   * [queue](#queue)
 * [Combination (組合)](#combination-組合)
   * [combineAll](#combineall)
-  * [combineLatest](#combinelatest) :star:
-  * [concat](#concat) :star:
+  * [combineLatest](#combinelatest)
+  * [concat](#concat)
   * [concatAll](#concatall)
-  * exhaust :notes:
-  * exhaustMap :notes:
+  * exhaust
+  * exhaustMap
   * [forkJoin](#forkjoin)
-  * [merge](#merge) :star:
+  * [merge](#merge)
   * [mergeAll](#mergeall)
   * [race](#race)
-  * [startWith](#startwith) :star:
-  * [withLatestFrom](#withlatestfrom) :star:
+  * [startWith](#startwith)
+  * [withLatestFrom](#withlatestfrom)
   * [zip](#zip)
-  * zipAll :notes:
-  * zipProto :notes:
+  * zipAll
+  * zipProto
 * [Conditional (附條件)](#conditional-附條件)
   * [defaultIfEmpty](#defaultifempty)
   * [every](#every)
@@ -53,111 +53,108 @@
   * [create](#create)
   * [defer](#defer)
   * [empty](#empty)
-  * [from](#from) :star:
+  * [from](#from)
   * [fromEvent](#fromevent)
   * [fromEventPattern](#fromeventpattern)
-  * [fromPromise](#frompromise) :star:
+  * [fromPromise](#frompromise)
   * [interval](#interval)
-  * lift :notes:
-  * mergeScan :notes:
+  * lift
+  * mergeScan
   * [never](#never)
-  * [of](#of) :star:
+  * [of](#of)
   * [range](#range)
-  * repeat :notes:
-  * repeatWhen :notes:
+  * repeat
+  * repeatWhen
   * [throw](#throw)
-  * timeInterval :notes:
-  * timeout :notes:
-  * timeoutWith :notes:
+  * timeInterval
+  * timeout
+  * timeoutWith
   * [timer](#timer)
-  * timestamp :notes:
+  * timestamp
 * [Error Handling (錯誤處理)](#error-handling-錯誤處理)
-  * [catch](#catch) :star:
+  * [catch](#catch)
   * retry
   * retryWhen
 * [Filtering (過濾)](#filtering-過濾)
-  * audit :notes:
-  * auditTime :notes:
-  * count :notes:
+  * audit
+  * auditTime
+  * count
   * [debounce](#debounce)
-  * debounceTime :star:
-  * distinct :notes:
-  * distinctUntilChanged :star:
-  * distinctUntilKeyChanged :notes:
-  * elementAt :notes:
-  * [filter](#filter) :star:
-  * find :notes:
-  * findIndex :notes:
+  * debounceTime
+  * distinct
+  * distinctUntilChanged
+  * distinctUntilKeyChanged
+  * elementAt
+  * [filter](#filter)
+  * find
+  * findIndex
   * [first](#first)
   * [ignoreElements](#ignoreelements)
   * [last](#last)
-  * max :notes:
-  * min :notes:
+  * max
+  * min
   * [sample](#sample)
-  * sampleTime :notes:
-  * sequenceEqual :notes:
+  * sampleTime
+  * sequenceEqual
   * [single](#single)
   * [skip](#skip)
   * [skipUntil](#skipuntil)
   * [skipWhile](#skipwhile)
-  * [take](#take) :star:
-  * takeLast :notes:
-  * [takeUntil](#takeuntil) :star:
+  * [take](#take)
+  * takeLast
+  * [takeUntil](#takeuntil)
   * [takeWhile](#takewhile)
   * [throttle](#throttle)
   * [throttleTime](#throttletime)
 * [Multicasting (組播)](#multicasting-組播)
   * multicast
   * [publish](#publish)
-  * [share](#share) :star:
+  * [share](#share)
 * [Transformation (轉化)](#transformation-轉化)
   * [buffer](#buffer)
   * [bufferCount](#buffercount)
-  * [bufferTime](#buffertime) :star:
+  * [bufferTime](#buffertime)
   * bufferToggle
   * bufferWhen
-  * [concatMap](#concatmap) :star:
+  * [concatMap](#concatmap)
   * concatMapTo
   * expand
   * groupBy
-  * [map](#map) :star:
+  * [map](#map)
   * [mapTo](#mapto)
-  * [mergeMap](#mergemap) :star:
-  * pairwise :notes:
+  * [mergeMap](#mergemap)
+  * pairwise
   * partition
   * pluck
-  * reduce :notes:
-  * [scan](#scan) :star:
-  * switch :notes:
-  * [switchMap](#switchmap) :star:
-  * switchMapTo :notes:
+  * reduce
+  * [scan](#scan)
+  * switch
+  * [switchMap](#switchmap)
+  * switchMapTo
   * [window](#window)
   * windowCount
   * windowTime
   * windowToggle
   * windowWhen
 * [Utility (公用)](#utility-公用)
-  * [do](#do) :star:
+  * [do](#do)
   * [delay](#delay)
   * delayWhen
   * dematerialize
-  * forEach :notes:
-  * isEmpty :notes:
-  * letProto :notes:
+  * forEach
+  * isEmpty
+  * letProto
   * materialize
   * observeOn
-  * publishBehavior :notes:
-  * publishLast :notes:
-  * publishReplay :notes:
-  * subscribeOn :notes:
-  * toArray :notes:
+  * publishBehavior
+  * publishLast
+  * publishReplay
+  * subscribeOn
+  * toArray
   * toPromise
 * [DOM (文件物件模型)](#dom-文件物件模型)
   * ajax
   * webSocket
-
-:star: - 常用<br>
-:notes: - 跳動
 
 ***
 
