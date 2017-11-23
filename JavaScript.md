@@ -22,7 +22,7 @@
     * [Immutable (不可變性)](#immutable-不可變性)
   * Recursion (遞迴)
     * [Tail Call Optimization (尾端呼叫優化)](#tail-call-optimization-尾端呼叫優化)
-    * Trampoline (繃跳區)
+    * [Trampoline (繃跳區)](#trampoline-繃跳區)
   * [Function Composition (函式組合)](#function-composition-函式組合)
     * [Currying (柯里化)](#currying-柯里化)
     * [Reducer (減速器)](#reducer-減速器)
@@ -30,9 +30,9 @@
   * Macro (巨集)
   * Monadic (單化)
   * Concurrent (並發)
-  * Lenses (透鏡)
-  * Arity (二元)
+  * Arity (元數)
   * Algebraic (代數)
+  * Lenses (透鏡)
 * [Data structures & Algorithms (資料結構和演算法)](#data-structures-algorithms-資料結構和演算法)
   * Heap (堆疊)
   * [Queues (佇列)](#queues-佇列)
@@ -86,6 +86,7 @@
   * Primitive (原始)
   * Generics (泛型)
   * Interfaces (介面)
+* Security (安全性)
 
 ***
 
@@ -372,6 +373,36 @@ const factorial = (num, acc = 1) => {
   if (num === 0) return acc;
   return factorial(num - 1, num * acc);
 };
+```
+
+#### Trampoline (繃跳區)
+
+```js
+const trampoline = func => {
+  while (typeof func === 'function') {
+    func = func();
+  }
+
+  return func;
+};
+
+const odd = n =>
+  n === 0 ? false : even(n - 1);
+
+const even = n =>
+  n === 0 ? true : odd(n - 1);
+
+odd(100000);  // Uncaught RangeError: Maximum call stack size exceeded
+
+const odd = n =>
+  () =>
+    n === 0 ? false : even(n - 1);
+
+const even = n =>
+  () =>
+    n === 0 ? true : odd(n - 1);
+
+trampoline(odd(100000));  // false
 ```
 
 ### Function Composition (函式組合)
