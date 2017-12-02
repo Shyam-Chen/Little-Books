@@ -375,6 +375,38 @@ const factorial = (num, acc = 1) => {
 };
 ```
 
+```js
+const tco = func => {
+  const accumulated = [];
+
+  let value = null;
+  let active = false;
+
+  return (...arg) => {
+    accumulated.push(arg);
+
+    if (!active) {
+      active = true;
+
+      while (accumulated.length) {
+        value = func.apply(this, accumulated.shift());
+      }
+
+      active = false;
+
+      return value;
+    }
+  };
+};
+
+const sum = tco((x, y) => {
+  if (y > 0) return sum(x + 1, y - 1)
+  return x;
+});
+
+sum(1, 100000);  // 100001
+```
+
 #### Trampoline (繃跳區)
 
 ```js
