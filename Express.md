@@ -12,41 +12,36 @@
 
 ### Table of Contents (目錄)
 
-* [Core (核心)](#core-核心)
-  * [路由](#路由)
-  * [中介軟體](#中介軟體)
-  * 請求回應
-  * 模板
+* [Getting Started (入門)](#getting-started-入門)
+  * [Routing (路由)](#路由)
+  * [Middlewares (中介軟體)](#中介軟體)
+  * Request and Response 請求和回應
 * REST
-  * 增刪改查
-* 存儲
-  * 檔案上傳
-* 訊息
-  * Email
-  * SMS (Twilio)
-* 金流 (PayPal)
-  * REST
-  * 快速結帳
-  * 自適應
-* 興趣點 (Google Places)
-* 網路爬蟲
-* QR Code
+* Storage‎ (存儲)
+* Messaging (訊息)
+  * Email (電子郵件)
+  * SMS (簡訊)
+* Payment (金流)
+  * Stripe
+* Google Places (興趣點)
+* Crawler (網路爬蟲)
+* QR Code (二維碼)
 
 ***
 
-## Core (核心)
+## Getting Started (入門)
 
-Install Express
-安裝 Express
+Install Express (安裝 Express)
 
 ```bash
 $ npm i express -S
+$ npm i nodemon babel-node -D
 # or
 $ yarn add express
+$ yarn add nodemon babel-node -D
 ```
 
-Create an express server
-建立 Express 伺服器
+Create an express server (建立 Express 伺服器)
 
 ```js
 // app.js
