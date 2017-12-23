@@ -49,5 +49,14 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 export default db;
+```
 
+```js
+export default (sequelize, DataTypes) => {
+  const List = sequelize.define('List', {
+    text: DataTypes.STRING
+  });
+
+  return List;
+};
 ```

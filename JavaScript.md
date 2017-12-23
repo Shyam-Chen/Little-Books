@@ -451,6 +451,8 @@ pipe(inc, dbl, sqr)(2);  // 36
 // 2 + 1 = 3
 // 3 * 2 = 6
 // 6 * 6 = 36
+
+[inc, dbl, sqr].reduce((acc, func) => func(acc), 2);  // 36
 ```
 
 #### Currying (柯里化)

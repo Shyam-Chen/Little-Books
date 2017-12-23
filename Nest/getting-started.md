@@ -2,8 +2,6 @@
 
 ### Environment settings (環境設置)
 
-Prerequisites you need to have Node.js installed. (先決條件需要安裝好 Node.js)
-
 Install Nest CLI (安裝 Nest CLI)
 
 ```bash
@@ -33,4 +31,23 @@ Run the application (執行應用程式)
 $ npm run serve
 # or
 $ yarn serve
+```
+
+or
+
+```bash
+$ git clone https://github.com/nestjs/typescript-starter.git <PROJECT_NAME>
+$ cd <PROJECT_NAME>
+```
+
+```bash
+$ npm i
+# or
+$ yarn
+```
+
+```bash
+$ npm start
+# or
+$ yarn start
 ```
