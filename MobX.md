@@ -18,16 +18,12 @@
 
 ***
 
-
-
 MobX
-
-
 
 ```js
 import { observable, action } from 'mobx';
 
-const store = observable({
+export const store = observable({
   /**
    * @name observable
    */
@@ -90,11 +86,13 @@ class Store {
   }
 }
 
-const store = new Store();
+export const store = new Store();
 ```
 
 ```js
 import { autorun } from 'mobx';
+
+import { store } from './store';
 
 autorun(() => {
   store.value;  // 0
@@ -139,11 +137,11 @@ import { delay } from 'rxjs/operator';
 [...]
 
   @action
-    incrementAsync(): void {
-      Observable::of(null)
-        ::delay(1000)
-        .subscribe(() => this.increment());
-    }
+  incrementAsync(): void {
+    Observable::of(null)
+      ::delay(1000)
+      .subscribe(() => this.increment());
+  }
 
 [...]
 ```

@@ -52,10 +52,10 @@ $ node app.js
 
 ```ts
 // src/app/graphql.service.ts
+import 'rxjs/add/operator/map';
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class GraphqlService {
@@ -65,9 +65,11 @@ export class GraphqlService {
 
   private graphqlMethod(): any {
     // TODO: ...
-  };
+  }
 }
 ```
+
+使用 Apollo GraphQL
 
 ```bash
 $ yarn add apollo-angular apollo-angular-link-http apollo-client apollo-cache-inmemory graphql-tag graphql

@@ -15,7 +15,7 @@
 * [Getting Started (入門)](#getting-started-入門)
   * [Routing (路由)](#路由)
   * [Middlewares (中介軟體)](#中介軟體)
-  * Request and Response 請求和回應
+  * Request and Response (請求和回應)
 * REST
 * Storage‎ (存儲)
 * Messaging (訊息)
@@ -23,6 +23,7 @@
   * SMS (簡訊)
 * Payment (金流)
   * Stripe
+  * PayPal
 * Google Places (興趣點)
 * Crawler (網路爬蟲)
 * QR Code (二維碼)

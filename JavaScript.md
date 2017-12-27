@@ -83,6 +83,7 @@
   * Flags/Modifiers (旗標/修改)
   * Substitution (代換)
 * [Type Annotations (型別註釋)](#type-annotations-型別註釋)
+  * Types (型別)
   * Primitive (原始)
   * Generics (泛型)
   * Interfaces (介面)

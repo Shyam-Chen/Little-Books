@@ -35,19 +35,18 @@
     * Cloud Storage Triggers (Google 存儲觸發器)
     * Cloud Pub/Sub Triggers (Google 發佈/訂閱觸發器)
     * HTTP Triggers (HTTP 觸發器)
-  * FCM 通知
-  * Email
-  * 授權
+  * Messaging (訊息)
+    * FCM
+    * Email
+    * SMS
+  * Authentication (憑證)
     * LINE
     * Instagram
-  * SMS
-  * 匯出 Excel
-  * GitHub/Slack
+  * Extract (提取)
+    * Excel
+    * PDF
   * Google Cloud
     * BigQuery
-  * PayPal
-  * Chatbot
-
 
 ***
 
