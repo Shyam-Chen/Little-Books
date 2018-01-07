@@ -6,25 +6,35 @@
 
 ```html
 <svg width="500" height="500">
-  <rect x="30" y="10" width="300" height="100" />
+  <rect
+    x="30" y="10"
+    width="300" height="100"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+  />
 </svg>
 ```
 
-```css
-rect {
-  fill: #F8BBD0;
-  stroke-width: 3;
-  stroke: #E91E63;
-}
-```
+`x` defines the left position of the rectangle (like `margin-left`) <br>
+`y` defines the top position of the rectangle (like `margin-top`) <br>
+`fill` defines the background color of the rectangle (like `background-color`) <br>
+`stroke-width` defines the border width of the rectangle (like `border-width`) <br>
+`stroke ` defines the border color of the rectangle (like `border-color`)
 
 Add rounded corners (加個圓角)
 
-```html
-...
-  <rect x="30" y="10" rx="12" yx="12" width="300" height="100" />
-...
+```diff
+[...]
+  <rect
+    x="30" y="10"
++   rx="12" yx="12"
+    width="300" height="100"
+    [...]
+  />
+[...]
 ```
+
+`rx` and `ry` rounds the corners of the rectangle (like `border-radius`)
 
 #### Canvas
 
@@ -64,7 +74,7 @@ ctx.moveTo(x, y);  // Starting point (起始點)
 ctx.lineTo(width + x, y);
 ctx.lineTo(width + x, height + y);
 ctx.lineTo(x, height + y);
-ctx.lineTo(x, y);
+ctx.lineTo(x, y);  // Back to the starting point (回到起始點)
 
 ctx.fillStyle = '#F8BBD0';
 ctx.fill();
@@ -85,4 +95,36 @@ ctx.lineTo(x + rx , height + y);
 ctx.quadraticCurveTo(x , height + y, x, height - ry);
 ctx.lineTo(x, y + ry);
 ctx.quadraticCurveTo(x, y, x + rx, y);  // `x + rx, y` is back to the starting point (`x + rx, y` 是回到起始點)
+```
+
+### Circle (圓形)
+
+#### SVG
+
+```html
+<svg height="500" width="500">
+  <circle
+    cx="50" cy="50" r="40"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
+
+`cx` and `cy` define the x and y coordinates of the center of the circle <br>
+`r` defines the radius of the circle
+
+#### Canvas
+
+```html
+<canvas id="canvas" width="500" height="500"></canvas>
+```
+
+```js
+const canvas = document.querySelector('#canvas');
+const ctx = canvas.getContext('2d');
+
+const [cx, cy, r] = [50, 50, 40];
+
+// ...
 ```
