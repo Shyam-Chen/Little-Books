@@ -114,6 +114,9 @@ ctx.lineTo(x, y + ry);
 ctx.quadraticCurveTo(x, y, x + rx, y);  // `x + rx, y` is back to the starting point (`x + rx, y` 是回到起始點)
 ```
 
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/rect <br>
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo
+
 ### Circle (圓形)
 
 #### SVG
@@ -165,7 +168,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
 ```html
 <svg width="500" height="500">
   <ellipse
-    cx="200" cy="100" rx="100" ry="50"
+    cx="150" cy="100" rx="100" ry="50"
     fill="#F8BBD0"
     stroke-width="3" stroke="#E91E63"
   />
@@ -182,14 +185,22 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
 const canvas = document.querySelector('#ellipse');
 const ctx = canvas.getContext('2d');
 
-const [cx, cy, rx, ry] = [200, 100, 100, 50];
+const [cx, cy, rx, ry] = [150, 100, 100, 50];
 
 ctx.beginPath();
 
+ctx.ellipse(cx, cy, rx, ry, 0, 0, 2 * Math.PI);
 
+ctx.fillStyle = '#F8BBD0';
+ctx.fill();
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
 
 ctx.stroke();
 ```
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellipse
 
 ## Three-dimensional (立體圖形)
 
