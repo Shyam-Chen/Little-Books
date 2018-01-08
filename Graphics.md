@@ -11,6 +11,10 @@
   * [Ellipse (橢圓形)](#ellipse-橢圓形)
   * [Rectangle (矩形)](#rectangle-矩形)
   * [Polygon (多邊形)](#polygon-多邊形)
+  * [Shadows (陰影)](#shadows-陰影)
+  * Blur Effects (模糊特效)
+  * Text (文字)
+  * Image (圖像)
 * [Three-dimensional (立體圖形)](#three-dimensional-立體圖形)
 
 ***
@@ -406,6 +410,25 @@ for (let i = 2, l = points.length - 1; i < l; i += 2) {
 ctx.lineTo(points[0], points[1]);
 ```
 
+### Shadows (陰影)
+
+#### SVG
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter
+
+#### Canvas
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
+
 ## Three-dimensional (立體圖形)
 
 WebGL: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
+
+```html
+<canvas id="glcanvas" width="500" height="500"></canvas>
+```
+
+```js
+const canvas = document.querySelector('#glcanvas');
+const gl = canvas.getContext('webgl2');
+```
