@@ -5,9 +5,12 @@
 ### Table of Contents (目錄)
 
 * [Flat Display (平面圖形)](#flat-display-平面圖形)
+  * Line (線)
   * [Rectangle (長方形)](#rectangle-長方形)
   * [Circle (圓形)](#circle-圓形)
   * [Ellipse (橢圓形)](#ellipse-橢圓形)
+  * Polygon (多邊形)
+  * Polyline (折線)
 * [Three-dimensional (立體圖形)](#three-dimensional-立體圖形)
 
 ***
