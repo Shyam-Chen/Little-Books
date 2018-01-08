@@ -7,6 +7,7 @@
 * [Flat Display (平面圖形)](#flat-display-平面圖形)
   * [Rectangle (長方形)](#rectangle-長方形)
   * [Circle (圓形)](#circle-圓形)
+  * [Ellipse (橢圓形)](#ellipse-橢圓形)
 * [Three-dimensional (立體圖形)](#three-dimensional-立體圖形)
 
 ***
@@ -42,7 +43,7 @@ Add rounded corners (加個圓角)
 [...]
   <rect
     x="30" y="10"
-+   rx="12" yx="12"
++   rx="12" ry="12"
     width="300" height="100"
     [...]
   />
@@ -54,11 +55,11 @@ Add rounded corners (加個圓角)
 #### Canvas
 
 ```html
-<canvas id="canvas" width="500" height="500"></canvas>
+<canvas id="rect" width="500" height="500"></canvas>
 ```
 
 ```js
-const canvas = document.querySelector('#canvas');
+const canvas = document.querySelector('#rect');
 const ctx = canvas.getContext('2d');
 
 const [x, y] = [30, 10];
@@ -99,7 +100,7 @@ ctx.stroke();
 
 // Add rounded corners (加個圓角)
 
-// `quadraticCurveTo(cpx, cpy, x, y)`
+// Add `quadraticCurveTo(cpx, cpy, x, y)`
 // `cpx` and `cpy` is the vertical turning point (`cpx` 和 `cpy` 為垂直轉折點)
 
 ctx.moveTo(x + rx, y);  // Starting point (起始點)
@@ -118,7 +119,7 @@ ctx.quadraticCurveTo(x, y, x + rx, y);  // `x + rx, y` is back to the starting p
 #### SVG
 
 ```html
-<svg height="500" width="500">
+<svg width="500" height="500">
   <circle
     cx="50" cy="50" r="40"
     fill="#F8BBD0"
@@ -133,24 +134,59 @@ ctx.quadraticCurveTo(x, y, x + rx, y);  // `x + rx, y` is back to the starting p
 #### Canvas
 
 ```html
-<canvas id="canvas" width="500" height="500"></canvas>
+<canvas id="circle" width="500" height="500"></canvas>
 ```
 
 ```js
-const canvas = document.querySelector('#canvas');
+const canvas = document.querySelector('#circle');
 const ctx = canvas.getContext('2d');
 
 const [cx, cy, r] = [50, 50, 40];
 
 ctx.beginPath();
 
-ctx.arc(cx, cy, r, 0, 2 * Math.PI, false);
+ctx.arc(cx, cy, r, 0, 2 * Math.PI);
 
 ctx.fillStyle = '#F8BBD0';
 ctx.fill();
 
 ctx.lineWidth = '3';
 ctx.strokeStyle = '#E91E63';
+
+ctx.stroke();
+```
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
+
+### Ellipse (橢圓形)
+
+#### SVG
+
+```html
+<svg width="500" height="500">
+  <ellipse
+    cx="200" cy="100" rx="100" ry="50"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
+
+#### Canvas
+
+```html
+<canvas id="ellipse" width="500" height="500"></canvas>
+```
+
+```js
+const canvas = document.querySelector('#ellipse');
+const ctx = canvas.getContext('2d');
+
+const [cx, cy, rx, ry] = [200, 100, 100, 50];
+
+ctx.beginPath();
+
+
 
 ctx.stroke();
 ```
