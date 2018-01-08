@@ -5,7 +5,7 @@
 ### Table of Contents (目錄)
 
 * [Flat Display (平面圖形)](#flat-display-平面圖形)
-  * Line (線)
+  * [Line (線)](#line-線)
   * [Rectangle (長方形)](#rectangle-長方形)
   * [Circle (圓形)](#circle-圓形)
   * [Ellipse (橢圓形)](#ellipse-橢圓形)
@@ -17,7 +17,51 @@
 
 ## Flat Display (平面圖形)
 
-SVG and Canvas
+SVG: https://developer.mozilla.org/en-US/docs/Web/SVG <br>
+Canvas: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+
+### Line (線)
+
+#### SVG
+
+```html
+<svg width="500" height="500">
+  <line
+    x1="30" y1="50"
+    x2="120" y2="100"
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/line
+
+#### Canvas
+
+```html
+<canvas id="line" width="500" height="500"></canvas>
+```
+
+```js
+const canvas = document.querySelector('#line');
+const ctx = canvas.getContext('2d');
+
+const [x1, y1] = [30, 50];
+const [x2, y2] = [120, 100];
+
+ctx.beginPath();
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.moveTo(x1, y1);
+ctx.lineTo(x2, y2);
+
+ctx.stroke();
+```
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/moveTo <br>
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
 
 ### Rectangle (長方形)
 
@@ -54,6 +98,8 @@ Add rounded corners (加個圓角)
 ```
 
 `rx` and `ry` rounds the corners of the rectangle (like `border-radius`)
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect
 
 #### Canvas
 
@@ -137,6 +183,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/quadra
 `cx` and `cy` define the x and y coordinates of the center of the circle <br>
 `r` defines the radius of the circle
 
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle
+
 #### Canvas
 
 ```html
@@ -178,6 +226,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
 </svg>
 ```
 
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/ellipse
+
 #### Canvas
 
 ```html
@@ -207,4 +257,4 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellips
 
 ## Three-dimensional (立體圖形)
 
-WebGL
+WebGL: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
