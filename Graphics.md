@@ -6,11 +6,11 @@
 
 * [Flat Display (平面圖形)](#flat-display-平面圖形)
   * [Line (線)](#line-線)
-  * [Rectangle (長方形)](#rectangle-長方形)
+  * [Polyline (折線)](#polyline-折線)
   * [Circle (圓形)](#circle-圓形)
   * [Ellipse (橢圓形)](#ellipse-橢圓形)
+  * [Rectangle (矩形)](#rectangle-矩形)
   * [Polygon (多邊形)](#polygon-多邊形)
-  * Polyline (折線)
 * [Three-dimensional (立體圖形)](#three-dimensional-立體圖形)
 
 ***
@@ -63,108 +63,76 @@ ctx.stroke();
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/moveTo <br>
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
 
-### Rectangle (長方形)
+### Polyline (折線)
 
 #### SVG
 
 ```html
 <svg width="500" height="500">
-  <rect
-    x="30" y="10"
-    width="300" height="100"
-    fill="#F8BBD0"
+  <polyline
+    points="
+      25,50
+      50,50
+      50,25
+      75,25
+      75,50
+      100,50
+      100,25
+      125,25
+      125,50
+      150,50
+    "
+    fill-opacity="0"
     stroke-width="3" stroke="#E91E63"
   />
 </svg>
 ```
 
-`x` defines the left position of the rectangle (like `margin-left`) <br>
-`y` defines the top position of the rectangle (like `margin-top`) <br>
-`fill` defines the background color of the rectangle (like `background-color`) <br>
-`stroke-width` defines the border width of the rectangle (like `border-width`) <br>
-`stroke ` defines the border color of the rectangle (like `border-color`)
-
-Add rounded corners (加個圓角)
-
-```diff
-[...]
-  <rect
-    x="30" y="10"
-+   rx="12" ry="12"
-    width="300" height="100"
-    [...]
-  />
-[...]
-```
-
-`rx` and `ry` rounds the corners of the rectangle (like `border-radius`)
-
-https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polyline
 
 #### Canvas
 
 ```html
-<canvas id="rect" width="500" height="500"></canvas>
+<canvas id="polyline" width="500" height="500"></canvas>
 ```
 
 ```js
-const canvas = document.querySelector('#rect');
+const canvas = document.querySelector('#polyline');
 const ctx = canvas.getContext('2d');
 
-const [x, y] = [30, 10];
-const [rx, ry] = [12, 12];
-const [width, height] = [300, 100];
-
-// Create a rectangle directly (直接建立一個長方形)
+const [x1, y1] = [25, 50];
+const [x2, y2] = [50, 50];
+const [x3, y3] = [50, 25];
+const [x4, y4] = [75, 25];
+const [x5, y5] = [75, 50];
+const [x6, y6] = [100, 50];
+const [x7, y7] = [100, 25];
+const [x8, y8] = [125, 25];
+const [x9, y9] = [125, 50];
+const [x10, y10] = [150, 50];
 
 ctx.beginPath();
 
-ctx.rect(x, y, width, height);
-
-ctx.fillStyle = '#F8BBD0';
-ctx.fill();
+ctx.moveTo(x1, y1);
+ctx.lineTo(x2, y2);
+ctx.lineTo(x2, y2);
+ctx.lineTo(x3, y3);
+ctx.lineTo(x4, y4);
+ctx.lineTo(x5, y5);
+ctx.lineTo(x6, y6);
+ctx.lineTo(x7, y7);
+ctx.lineTo(x8, y8);
+ctx.lineTo(x9, y9);
+ctx.lineTo(x10, y10);
 
 ctx.lineWidth = '3';
 ctx.strokeStyle = '#E91E63';
 
 ctx.stroke();
-
-// With the way of drawing lines (用畫線的方式)
-
-ctx.beginPath();
-
-ctx.lineWidth = '3';
-ctx.strokeStyle = '#E91E63';
-
-ctx.moveTo(x, y);  // Starting point (起始點)
-ctx.lineTo(width + x, y);
-ctx.lineTo(width + x, height + y);
-ctx.lineTo(x, height + y);
-ctx.lineTo(x, y);  // Back to the starting point (回到起始點)
-
-ctx.fillStyle = '#F8BBD0';
-ctx.fill();
-
-ctx.stroke();
-
-// Add rounded corners (加個圓角)
-
-// Add `quadraticCurveTo(cpx, cpy, x, y)`
-// `cpx` and `cpy` is the vertical turning point (`cpx` 和 `cpy` 為垂直轉折點)
-
-ctx.moveTo(x + rx, y);  // Starting point (起始點)
-ctx.lineTo(width + x - rx, y);
-ctx.quadraticCurveTo(width + x, y, width + x, y + ry);
-ctx.lineTo(width + x, height + y - ry);
-ctx.quadraticCurveTo(width + x, height + y, width + x - rx, height + y);
-ctx.lineTo(x + rx , height + y);
-ctx.quadraticCurveTo(x , height + y, x, height - ry);
-ctx.lineTo(x, y + ry);
-ctx.quadraticCurveTo(x, y, x + rx, y);  // `x + rx, y` is back to the starting point (`x + rx, y` 是回到起始點)
 ```
 
-https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/rect <br>
-https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/moveTo <br>
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
 
 ### Circle (圓形)
 
@@ -254,6 +222,110 @@ ctx.stroke();
 ```
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellipse
+
+### Rectangle (矩形)
+
+#### SVG
+
+```html
+<svg width="500" height="500">
+  <rect
+    x="30" y="10"
+    width="300" height="100"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
+
+`x` defines the left position of the rectangle (like `margin-left`) <br>
+`y` defines the top position of the rectangle (like `margin-top`) <br>
+`fill` defines the background color of the rectangle (like `background-color`) <br>
+`stroke-width` defines the border width of the rectangle (like `border-width`) <br>
+`stroke ` defines the border color of the rectangle (like `border-color`)
+
+Add rounded corners (加個圓角)
+
+```html
+<svg width="500" height="500">
+  <rect
+    x="30" y="10"
+    rx="12" ry="12"
+    width="300" height="100"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
+
+`rx` and `ry` rounds the corners of the rectangle (like `border-radius`)
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect
+
+#### Canvas
+
+```html
+<canvas id="rect" width="500" height="500"></canvas>
+```
+
+```js
+const canvas = document.querySelector('#rect');
+const ctx = canvas.getContext('2d');
+
+const [x, y] = [30, 10];
+const [rx, ry] = [12, 12];
+const [width, height] = [300, 100];
+
+// Create a rectangle directly (直接建立一個矩形)
+
+ctx.beginPath();
+
+ctx.rect(x, y, width, height);
+
+ctx.fillStyle = '#F8BBD0';
+ctx.fill();
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.stroke();
+
+// With the way of drawing lines (用畫線的方式)
+
+ctx.beginPath();
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.moveTo(x, y);  // Starting point (起始點)
+ctx.lineTo(width + x, y);
+ctx.lineTo(width + x, height + y);
+ctx.lineTo(x, height + y);
+ctx.lineTo(x, y);  // Back to the starting point (回到起始點)
+
+ctx.fillStyle = '#F8BBD0';
+ctx.fill();
+
+ctx.stroke();
+
+// Add rounded corners (加個圓角)
+
+// Add `quadraticCurveTo(cpx, cpy, x, y)`
+// `cpx` and `cpy` is the vertical turning point (`cpx` 和 `cpy` 為垂直轉折點)
+
+ctx.moveTo(x + rx, y);  // Starting point (起始點)
+ctx.lineTo(width + x - rx, y);
+ctx.quadraticCurveTo(width + x, y, width + x, y + ry);
+ctx.lineTo(width + x, height + y - ry);
+ctx.quadraticCurveTo(width + x, height + y, width + x - rx, height + y);
+ctx.lineTo(x + rx , height + y);
+ctx.quadraticCurveTo(x , height + y, x, height - ry);
+ctx.lineTo(x, y + ry);
+ctx.quadraticCurveTo(x, y, x + rx, y);  // `x + rx, y` is back to the starting point (`x + rx, y` 是回到起始點)
+```
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/rect <br>
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo
 
 ### Polygon (多邊形)
 
