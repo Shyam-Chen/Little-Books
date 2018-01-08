@@ -9,7 +9,7 @@
   * [Rectangle (長方形)](#rectangle-長方形)
   * [Circle (圓形)](#circle-圓形)
   * [Ellipse (橢圓形)](#ellipse-橢圓形)
-  * Polygon (多邊形)
+  * [Polygon (多邊形)](#polygon-多邊形)
   * Polyline (折線)
 * [Three-dimensional (立體圖形)](#three-dimensional-立體圖形)
 
@@ -254,6 +254,85 @@ ctx.stroke();
 ```
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellipse
+
+### Polygon (多邊形)
+
+#### SVG
+
+```html
+<svg width="500" height="500">
+  <polygon
+    points="
+      60,20
+      100,40
+      100,80
+      60,100
+      20,80
+      20,40
+    "
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polygon
+
+#### Canvas
+
+```html
+<canvas id="polygon" width="500" height="500"></canvas>
+```
+
+```js
+const canvas = document.querySelector('#polygon');
+const ctx = canvas.getContext('2d');
+
+const [x1, y1] = [60, 20];
+const [x2, y2] = [100, 40];
+const [x3, y3] = [100, 80];
+const [x4, y4] = [60, 100];
+const [x5, y5] = [20, 80];
+const [x6, y6] = [20, 40];
+
+ctx.beginPath();
+
+ctx.moveTo(x1, y1);
+ctx.lineTo(x2, y2);
+ctx.lineTo(x3, y3);
+ctx.lineTo(x4, y4);
+ctx.lineTo(x5, y5);
+ctx.lineTo(x6, y6);
+
+ctx.lineTo(x1, y1);
+
+ctx.fillStyle = '#F8BBD0';
+ctx.fill();
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.stroke();
+
+// or
+
+const points = [
+  60, 20,
+  100, 40,
+  100, 80,
+  60, 100,
+  20, 80,
+  20, 40
+];
+
+ctx.moveTo(points[0], points[1]);
+
+for (let i = 2, l = points.length - 1; i < l; i += 2) {
+  ctx.lineTo(points[i] , points[i + 1]);
+}
+
+ctx.lineTo(points[0], points[1]);
+```
 
 ## Three-dimensional (立體圖形)
 
