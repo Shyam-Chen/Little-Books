@@ -5,26 +5,34 @@
 ### Table of Contents (目錄)
 
 * [Flat Display (平面圖形)](#flat-display-平面圖形)
-  * [Line (線)](#line-線)
-  * [Polyline (折線)](#polyline-折線)
-  * [Circle (圓形)](#circle-圓形)
-  * [Ellipse (橢圓形)](#ellipse-橢圓形)
-  * [Rectangle (矩形)](#rectangle-矩形)
-  * [Polygon (多邊形)](#polygon-多邊形)
-  * [Shadows (陰影)](#shadows-陰影)
-  * Filter (濾鏡)
-  * Linear Gradient (線性漸層)
-  * Radial Gradient (放射性漸層)
+  * Shapes (形狀)
+    * [Line (線)](#line-線)
+    * [Polyline (折線)](#polyline-折線)
+    * [Circle (圓形)](#circle-圓形)
+    * [Ellipse (橢圓形)](#ellipse-橢圓形)
+    * [Rectangle (矩形)](#rectangle-矩形)
+    * [Polygon (多邊形)](#polygon-多邊形)
+  * Filters (濾鏡)
+    * Blur (模糊)
+    * [Shadow (陰影)](#shadow-陰影)
+  * Gradients (漸層)
+    * [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
+    * Radial Gradient (放射性漸層)
   * Transformations (變形)
+  * Animations (動畫)
   * Clip (裁切)
   * Mask (遮色片)
   * Text (文字)
   * Image (圖像)
+  * Pattern (圖案)
+  * Responsive (響應式)
 * [Three-dimensional (立體圖形)](#three-dimensional-立體圖形)
+  * Textures (材質)
+  * Lighting (光源)
 
 ***
 
-## Flat Display (平面圖形)
+# Flat Display (平面圖形)
 
 SVG: https://developer.mozilla.org/en-US/docs/Web/SVG <br>
 Canvas: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
@@ -415,17 +423,111 @@ for (let i = 2, l = points.length - 1; i < l; i += 2) {
 ctx.lineTo(points[0], points[1]);
 ```
 
-### Shadows (陰影)
+### Shadow (陰影)
 
 #### SVG
 
-https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter
+```html
+<svg width="500" height="500">
+  <defs>
+    <filter id="shadow" x="0" y="0" width="200%" height="200%">
+      <feOffset result="offOut" in="SourceAlpha" dx="12" dy="12" />
+      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="7" />
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+  </defs>
+
+  <rect
+    x="25" y="25"
+    width="100" height="100"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+    filter="url(#shadow)"
+  />
+</svg>
+```
+
+```html
+<svg width="500" height="500">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="12" dy="12" stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <rect
+    x="25" y="25"
+    width="100" height="100"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+    filter="url(#shadow)"
+  />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter <br>
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feOffset <br>
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feGaussianBlur <br>
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feBlend
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feDropShadow
 
 #### Canvas
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
 
-## Three-dimensional (立體圖形)
+### Linear Gradient (線性漸層)
+
+#### SVG
+
+```html
+<svg width="500" height="500">
+  <defs>
+    <linearGradient id="linear">
+      <stop offset="10%" stop-color="#E91E63" />
+      <stop offset="90%" stop-color="#F8BBD0" />
+    </linearGradient>
+  </defs>
+
+  <rect
+    x="25" y="25"
+    width="100" height="100"
+    fill="url(#linear)"
+  />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient <br>
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/stop
+
+#### Canvas
+
+```html
+<canvas id="linear" width="500" height="500"></canvas>
+```
+
+```js
+const canvas = document.querySelector('#linear');
+const ctx = canvas.getContext('2d');
+
+const offset = [10, 90];  // Percentage (百分比)
+
+const [x, y] = [25, 25];
+const [width, height] = [100, 100];
+
+const lg = ctx.createLinearGradient(0, 0, x + width, 0);
+
+lg.addColorStop(offset[0] / 100, '#E91E63');
+lg.addColorStop(offset[1] / 100, '#F8BBD0');
+
+ctx.fillStyle = lg;
+
+ctx.fillRect(x, y, width, height);
+```
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
+
+# Three-dimensional (立體圖形)
 
 WebGL: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
 
