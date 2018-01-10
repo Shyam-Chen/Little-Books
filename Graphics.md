@@ -1,5 +1,11 @@
 # Graphics
 
+### Reference Resources (參考資源)
+
+* https://developer.mozilla.org/en-US/docs/Web/SVG
+* https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+* https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
+
 ***
 
 ### Table of Contents (目錄)
@@ -33,9 +39,6 @@
 ***
 
 # Flat Display (平面圖形)
-
-SVG: https://developer.mozilla.org/en-US/docs/Web/SVG <br>
-Canvas: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 
 ### Line (線)
 
@@ -576,8 +579,6 @@ ctx.fillRect(x, y, width, height);
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
 
 # Three-dimensional (立體圖形)
-
-WebGL: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
 
 ```html
 <canvas id="glcanvas" width="300" height="300"></canvas>
