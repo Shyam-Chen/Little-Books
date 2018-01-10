@@ -10,6 +10,9 @@
 * ---------- **Languages** ----------
 * [JavaScript (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JavaScript.md)
 * [TypeScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/TypeScript.md) :fire:
+* ---------- **Design** ----------
+* [Graphics (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Graphics.md)
+* [Multimedia (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Multimedia.md)
 * ---------- **Client-side** ----------
 * [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
 * [Firebase (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
@@ -25,7 +28,7 @@
 * ---------- **Structures** ----------
 * [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/MobX.md)
 * [Immutable (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
-* ---------- [**Graphics**](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Graphics.md) ----------
+* ---------- **Graphics** ----------
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Three.md)
 * ---------- **Authorizations** ----------

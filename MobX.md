@@ -15,7 +15,6 @@
 * Web Storage
 * Immutable
 
-
 ***
 
 MobX
@@ -153,8 +152,8 @@ import { Set } from 'immutable';
 
 [...]
 
-  @observable s1 = Set[0, 1, 2];
-  @observable s2 = Set[9, 8, 7];
+  @observable s1 = Set([0, 1, 2]);
+  @observable s2 = Set([9, 8, 7]);
 
 [...]
 ```

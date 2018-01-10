@@ -13,7 +13,7 @@
     * [Rectangle (矩形)](#rectangle-矩形)
     * [Polygon (多邊形)](#polygon-多邊形)
   * Filters (濾鏡)
-    * Blur (模糊)
+    * [Blur (模糊)](#blur-模糊)
     * [Shadow (陰影)](#shadow-陰影)
   * Gradients (漸層)
     * [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
@@ -42,7 +42,7 @@ Canvas: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 #### SVG
 
 ```html
-<svg width="500" height="500">
+<svg width="300" height="300">
   <line
     x1="30" y1="50"
     x2="120" y2="100"
@@ -56,7 +56,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/line
 #### Canvas
 
 ```html
-<canvas id="line" width="500" height="500"></canvas>
+<canvas id="line" width="300" height="300"></canvas>
 ```
 
 ```js
@@ -85,7 +85,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
 #### SVG
 
 ```html
-<svg width="500" height="500">
+<svg width="300" height="300">
   <polyline
     points="
       25,50
@@ -110,7 +110,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polyline
 #### Canvas
 
 ```html
-<canvas id="polyline" width="500" height="500"></canvas>
+<canvas id="polyline" width="300" height="300"></canvas>
 ```
 
 ```js
@@ -156,7 +156,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
 #### SVG
 
 ```html
-<svg width="500" height="500">
+<svg width="300" height="300">
   <circle
     cx="50" cy="50" r="40"
     fill="#F8BBD0"
@@ -173,7 +173,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle
 #### Canvas
 
 ```html
-<canvas id="circle" width="500" height="500"></canvas>
+<canvas id="circle" width="300" height="300"></canvas>
 ```
 
 ```js
@@ -202,7 +202,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
 #### SVG
 
 ```html
-<svg width="500" height="500">
+<svg width="300" height="300">
   <ellipse
     cx="150" cy="100" rx="100" ry="50"
     fill="#F8BBD0"
@@ -216,7 +216,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/ellipse
 #### Canvas
 
 ```html
-<canvas id="ellipse" width="500" height="500"></canvas>
+<canvas id="ellipse" width="300" height="300"></canvas>
 ```
 
 ```js
@@ -245,7 +245,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellips
 #### SVG
 
 ```html
-<svg width="500" height="500">
+<svg width="300" height="300">
   <rect
     x="30" y="10"
     width="300" height="100"
@@ -264,7 +264,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellips
 Add rounded corners (加個圓角)
 
 ```html
-<svg width="500" height="500">
+<svg width="300" height="300">
   <rect
     x="30" y="10"
     rx="12" ry="12"
@@ -282,7 +282,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect
 #### Canvas
 
 ```html
-<canvas id="rect" width="500" height="500"></canvas>
+<canvas id="rect" width="300" height="300"></canvas>
 ```
 
 ```js
@@ -349,7 +349,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/quadra
 #### SVG
 
 ```html
-<svg width="500" height="500">
+<svg width="300" height="300">
   <polygon
     points="
       60,20
@@ -370,7 +370,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polygon
 #### Canvas
 
 ```html
-<canvas id="polygon" width="500" height="500"></canvas>
+<canvas id="polygon" width="300" height="300"></canvas>
 ```
 
 ```js
@@ -423,12 +423,48 @@ for (let i = 2, l = points.length - 1; i < l; i += 2) {
 ctx.lineTo(points[0], points[1]);
 ```
 
+### Blur (模糊)
+
+#### SVG
+
+```html
+<svg width="300" height="300">
+  <defs>
+    <filter id="blur" x="0" y="0" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" />
+    </filter>
+  </defs>
+
+  <circle
+    cx="50" cy="50" r="40"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+    filter="url(#blur)"
+  />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feGaussianBlur
+
+#### Canvas
+
+```html
+<canvas id="blur" width="300" height="300"></canvas>
+```
+
+```js
+const canvas = document.querySelector('#blur');
+const ctx = canvas.getContext('2d');
+```
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
+
 ### Shadow (陰影)
 
 #### SVG
 
 ```html
-<svg width="500" height="500">
+<svg width="300" height="300">
   <defs>
     <filter id="shadow" x="0" y="0" width="200%" height="200%">
       <feOffset result="offOut" in="SourceAlpha" dx="12" dy="12" />
@@ -448,7 +484,7 @@ ctx.lineTo(points[0], points[1]);
 ```
 
 ```html
-<svg width="500" height="500">
+<svg width="300" height="300">
   <defs>
     <filter id="shadow">
       <feDropShadow dx="12" dy="12" stdDeviation="7"/>
@@ -474,14 +510,26 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feDropShadow
 
 #### Canvas
 
-https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
+```html
+<canvas id="shadow" width="300" height="300"></canvas>
+```
+
+```js
+const canvas = document.querySelector('#shadow');
+const ctx = canvas.getContext('2d');
+```
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter <br>
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX <br>
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY <br>
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowBlur
 
 ### Linear Gradient (線性漸層)
 
 #### SVG
 
 ```html
-<svg width="500" height="500">
+<svg width="300" height="300">
   <defs>
     <linearGradient id="linear">
       <stop offset="10%" stop-color="#E91E63" />
@@ -503,7 +551,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/stop
 #### Canvas
 
 ```html
-<canvas id="linear" width="500" height="500"></canvas>
+<canvas id="linear" width="300" height="300"></canvas>
 ```
 
 ```js
@@ -532,7 +580,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/create
 WebGL: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
 
 ```html
-<canvas id="glcanvas" width="500" height="500"></canvas>
+<canvas id="glcanvas" width="300" height="300"></canvas>
 ```
 
 ```js
