@@ -16,7 +16,7 @@
   * [Routing (路由)](#路由)
   * [Middlewares (中介軟體)](#中介軟體)
   * Request and Response (請求和回應)
-* REST
+* REST (表徵狀態轉移)
 * Storage‎ (存儲)
 * Messaging (訊息)
   * Email (電子郵件)

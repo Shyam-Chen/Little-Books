@@ -45,7 +45,7 @@
 #### SVG
 
 ```html
-<svg width="300" height="300">
+<svg width="300" height="300" viewBox="0 0 300 300">
   <line
     x1="30" y1="50"
     x2="120" y2="100"
@@ -88,7 +88,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
 #### SVG
 
 ```html
-<svg width="300" height="300">
+<svg width="300" height="300" viewBox="0 0 300 300">
   <polyline
     points="
       25,50
@@ -159,7 +159,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
 #### SVG
 
 ```html
-<svg width="300" height="300">
+<svg width="300" height="300" viewBox="0 0 300 300">
   <circle
     cx="50" cy="50" r="40"
     fill="#F8BBD0"
@@ -205,7 +205,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
 #### SVG
 
 ```html
-<svg width="300" height="300">
+<svg width="300" height="300" viewBox="0 0 300 300">
   <ellipse
     cx="150" cy="100" rx="100" ry="50"
     fill="#F8BBD0"
@@ -248,10 +248,10 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellips
 #### SVG
 
 ```html
-<svg width="300" height="300">
+<svg width="300" height="300" viewBox="0 0 300 300">
   <rect
     x="30" y="10"
-    width="300" height="100"
+    width="150" height="100"
     fill="#F8BBD0"
     stroke-width="3" stroke="#E91E63"
   />
@@ -271,7 +271,7 @@ Add rounded corners (加個圓角)
   <rect
     x="30" y="10"
     rx="12" ry="12"
-    width="300" height="100"
+    width="150" height="100"
     fill="#F8BBD0"
     stroke-width="3" stroke="#E91E63"
   />
@@ -294,7 +294,7 @@ const ctx = canvas.getContext('2d');
 
 const [x, y] = [30, 10];
 const [rx, ry] = [12, 12];
-const [width, height] = [300, 100];
+const [width, height] = [150, 100];
 
 // Create a rectangle directly (直接建立一個矩形)
 
@@ -431,9 +431,9 @@ ctx.lineTo(points[0], points[1]);
 #### SVG
 
 ```html
-<svg width="300" height="300">
+<svg width="300" height="300" viewBox="0 0 300 300">
   <defs>
-    <filter id="blur" x="0" y="0" width="200%" height="200%">
+    <filter id="blur">
       <feGaussianBlur in="SourceGraphic" stdDeviation="7" />
     </filter>
   </defs>
@@ -478,7 +478,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
 
   <rect
     x="25" y="25"
-    width="100" height="100"
+    width="150" height="100"
     fill="#F8BBD0"
     stroke-width="3" stroke="#E91E63"
     filter="url(#shadow)"
@@ -496,7 +496,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
 
   <rect
     x="25" y="25"
-    width="100" height="100"
+    width="150" height="100"
     fill="#F8BBD0"
     stroke-width="3" stroke="#E91E63"
     filter="url(#shadow)"
@@ -577,6 +577,38 @@ ctx.fillRect(x, y, width, height);
 ```
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
+
+### Radial Gradient (放射性漸層)
+
+#### SVG
+
+```html
+<svg width="300" height="300">
+  <defs>
+    <radialGradient id="radial">
+      <stop offset="10%" stop-color="#F8BBD0" />
+      <stop offset="90%" stop-color="#E91E63" />
+    </radialGradient>
+  </defs>
+
+  <ellipse
+    cx="150" cy="100" rx="100" ry="50"
+    fill="url(#radial)"
+  />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/radialGradient
+
+#### Canvas
+
+```html
+
+```
+
+```js
+
+```
 
 # Three-dimensional (立體圖形)
 
