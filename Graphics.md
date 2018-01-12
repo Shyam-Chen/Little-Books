@@ -520,6 +520,23 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feDropShadow
 ```js
 const canvas = document.querySelector('#shadow');
 const ctx = canvas.getContext('2d');
+
+const [dx, dy, stdDeviation] = [12, 12, 7];
+
+const [x, y] = [25, 25];
+const [width, height] = [150, 100];
+
+ctx.shadowColor = 'black';
+ctx.shadowOffsetX = dx;
+ctx.shadowOffsetY = dy;
+ctx.shadowBlur = stdDeviation;
+
+ctx.fillStyle = '#F8BBD0';
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.fillRect(x, y, width, height);
 ```
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter <br>
@@ -542,7 +559,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadow
 
   <rect
     x="25" y="25"
-    width="100" height="100"
+    width="150" height="100"
     fill="url(#linear)"
   />
 </svg>
@@ -564,7 +581,7 @@ const ctx = canvas.getContext('2d');
 const offset = [10, 90];  // Percentage (百分比)
 
 const [x, y] = [25, 25];
-const [width, height] = [100, 100];
+const [width, height] = [150, 100];
 
 const lg = ctx.createLinearGradient(0, 0, x + width, 0);
 
