@@ -21,9 +21,10 @@
   * Filters (濾鏡)
     * [Blur (模糊)](#blur-模糊)
     * [Shadow (陰影)](#shadow-陰影)
+    * [Concurrent (並發)](#Concurrent-並發)
   * Gradients (漸層)
     * [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
-    * Radial Gradient (放射性漸層)
+    * [Radial Gradient (放射性漸層)](#radial-gradient-放射性漸層)
   * Transformations (變形)
   * Animations (動畫)
   * Clip (裁切)
@@ -543,6 +544,53 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX <br>
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY <br>
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowBlur
+
+### Concurrent (並發)
+
+#### SVG
+
+```html
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <defs>
+    <filter id="blur" x="-100%" y="-50%" width="300%" height="200%">
+      <feGaussianBlur result="blur" stdDeviation="2" />
+
+      <feOffset in="blur" dx="20" dy="20" result="blur-1" />
+      <feOffset in="blur" dx="-50" dy="10" result="blur-2" />
+      <feOffset in="blur" dx="-30" dy="-35" result="blur-3" />
+      <feOffset in="blur" dx="50" dy="-15" result="blur-4" />
+
+      <feMerge>
+        <feMergeNode in="blur-1" />
+        <feMergeNode in="blur-2" />
+        <feMergeNode in="blur-3" />
+        <feMergeNode in="blur-4" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle
+    cx="50" cy="50" r="40"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+    filter="url(#blur)"
+    transform="translate(100, 100)"
+  />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feMerge
+
+#### Canvas
+
+```html
+
+```
+
+```js
+
+```
 
 ### Linear Gradient (線性漸層)
 
