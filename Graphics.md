@@ -23,6 +23,7 @@
   * Filters (濾鏡)
     * [Blur (模糊)](#blur-模糊)
     * [Shadow (陰影)](#shadow-陰影)
+    * Ripple (漣漪)
   * Gradients (漸層)
     * [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
     * [Radial Gradient (放射性漸層)](#radial-gradient-放射性漸層)
@@ -431,13 +432,56 @@ ctx.lineTo(points[0], points[1]);
 
 ### Path (路徑)
 
-M = move to (起始點), `path="M0 0"` <=> `ctx.moveTo(0, 0)`
+M = move to (起始點), `d="M25 50"` <=> `ctx.moveTo(25, 50)`
 
-L = line to (至指定點), `path="M10 20 L25 50"` | ctx.lineTo
+```html
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <path
+    d="M25 50"
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
 
-H = horizontal lineto
+```js
+ctx.beginPath();
 
-V = vertical lineto
+ctx.moveTo(25, 50);
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.stroke();
+```
+
+L = lineTo (至指定點), `d="L50 75"` <=> `ctx.lineTo(50, 75)`
+
+```html
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <path
+    d="
+      M25 50
+      L50 75
+    "
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
+
+```js
+ctx.beginPath();
+
+ctx.moveTo(25, 50);
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.stroke();
+```
+
+H = horizontal lineTo, `d="H100"` <=> `ctx.lineTo(100, x)`
+
+V = vertical lineTo, `d="V100"` <=> `ctx.lineTo(x, 100)`
 
 C = curveto
 
