@@ -60,6 +60,15 @@
 
 https://developer.mozilla.org/en-US/docs/Web/SVG/Element/line
 
+Round line (圓線)
+
+```html
+  <line
+    [...]
+    stroke-linecap="round"
+  />
+```
+
 #### Canvas
 
 ```html
@@ -86,6 +95,12 @@ ctx.stroke();
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/moveTo <br>
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
+
+Round line (圓線)
+
+```js
+ctx.lineCap = 'round';
+```
 
 ### Polyline (折線)
 
@@ -493,7 +508,37 @@ T = smooth quadratic Bézier curveto
 
 A = elliptical Arc
 
-Z = close path (關閉路徑)
+Z = closePath (關閉路徑), `d="Z"` <=> `ctx.closePath()`<br>
+Return a line from the end to the starting point (從終點連一條線回起點)
+
+```html
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <path
+    d="
+      M25 25
+      L25 100
+      L75 100
+      Z
+    "
+    fill="none"
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
+
+```js
+ctx.beginPath();
+
+ctx.moveTo(25, 25);
+ctx.lineTo(25, 100);
+ctx.lineTo(75, 100);
+ctx.closePath();
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.stroke();
+```
 
 ### Layer (圖層)
 
