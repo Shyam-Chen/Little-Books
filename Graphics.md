@@ -18,14 +18,16 @@
     * [Ellipse (橢圓形)](#ellipse-橢圓形)
     * [Rectangle (矩形)](#rectangle-矩形)
     * [Polygon (多邊形)](#polygon-多邊形)
+    * [Path (路徑)](#path-路徑)
+    * [Layer (圖層)](#layer-圖層)
   * Filters (濾鏡)
     * [Blur (模糊)](#blur-模糊)
     * [Shadow (陰影)](#shadow-陰影)
-    * [Concurrent (並發)](#Concurrent-並發)
   * Gradients (漸層)
     * [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
     * [Radial Gradient (放射性漸層)](#radial-gradient-放射性漸層)
   * Transformations (變形)
+    * Rotate (旋轉)
   * Animations (動畫)
   * Clip (裁切)
   * Mask (遮色片)
@@ -427,6 +429,64 @@ for (let i = 2, l = points.length - 1; i < l; i += 2) {
 ctx.lineTo(points[0], points[1]);
 ```
 
+### Path (路徑)
+
+M = move to (起始點), `path="M0 0"` <=> `ctx.moveTo(0, 0)`
+
+L = line to (至指定點), `path="M10 20 L25 50"` | ctx.lineTo
+
+H = horizontal lineto
+
+V = vertical lineto
+
+C = curveto
+
+S = smooth curveto
+
+Q = quadratic Bézier curve
+
+T = smooth quadratic Bézier curveto
+
+A = elliptical Arc
+
+Z = close path (關閉路徑)
+
+### Layer (圖層)
+
+#### SVG
+
+Single layer (單一圖層)
+
+```html
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <polygon id="third" [...] />
+  <polygon id="second" [...] />
+  <polygon id="first" [...] />
+</svg>
+```
+
+Multiple layers (多個圖層)
+
+```html
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <g id="layer-1">
+    <polygon id="third" [...] />
+    <polygon id="second" [...] />
+    <polygon id="first" [...] />
+  </g>
+
+  <g id="layer-2">
+    <polygon [...] />
+  </g>
+</svg>
+```
+
+#### Canvas
+
+```html
+
+```
+
 ### Blur (模糊)
 
 #### SVG
@@ -449,6 +509,44 @@ ctx.lineTo(points[0], points[1]);
 ```
 
 https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feGaussianBlur
+
+```html
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <defs>
+    <filter id="multi-blur" x="-75%" y="-50%" width="300%" height="200%">
+      <!-- main -->
+      <feGaussianBlur result="multi-blur" stdDeviation="2" />
+
+      <!-- others -->
+      <feOffset in="multi-blur" dx="20" dy="20" result="blur-1" />
+      <feOffset in="multi-blur" dx="-50" dy="10" result="blur-2" />
+      <feOffset in="multi-blur" dx="-30" dy="-35" result="blur-3" />
+      <feOffset in="multi-blur" dx="50" dy="-15" result="blur-4" />
+
+      <feMerge>
+        <!-- others -->
+        <feMergeNode in="blur-1" />
+        <feMergeNode in="blur-2" />
+        <feMergeNode in="blur-3" />
+        <feMergeNode in="blur-4" />
+
+        <!-- main -->
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle
+    cx="50" cy="50" r="40"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+    filter="url(#multi-blur)"
+    transform="translate(100, 100)"
+  />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feMerge
 
 #### Canvas
 
@@ -490,8 +588,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
 ```html
 <svg width="300" height="300">
   <defs>
-    <filter id="shadow">
-      <feDropShadow dx="12" dy="12" stdDeviation="7"/>
+    <filter id="shadow-2">
+      <feDropShadow dx="12" dy="12" stdDeviation="7" />
     </filter>
   </defs>
 
@@ -500,7 +598,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
     width="150" height="100"
     fill="#F8BBD0"
     stroke-width="3" stroke="#E91E63"
-    filter="url(#shadow)"
+    filter="url(#shadow-2)"
   />
 </svg>
 ```
@@ -544,53 +642,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX <br>
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY <br>
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowBlur
-
-### Concurrent (並發)
-
-#### SVG
-
-```html
-<svg width="300" height="300" viewbox="0 0 300 300">
-  <defs>
-    <filter id="blur" x="-100%" y="-50%" width="300%" height="200%">
-      <feGaussianBlur result="blur" stdDeviation="2" />
-
-      <feOffset in="blur" dx="20" dy="20" result="blur-1" />
-      <feOffset in="blur" dx="-50" dy="10" result="blur-2" />
-      <feOffset in="blur" dx="-30" dy="-35" result="blur-3" />
-      <feOffset in="blur" dx="50" dy="-15" result="blur-4" />
-
-      <feMerge>
-        <feMergeNode in="blur-1" />
-        <feMergeNode in="blur-2" />
-        <feMergeNode in="blur-3" />
-        <feMergeNode in="blur-4" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-  </defs>
-
-  <circle
-    cx="50" cy="50" r="40"
-    fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
-    filter="url(#blur)"
-    transform="translate(100, 100)"
-  />
-</svg>
-```
-
-https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feMerge
-
-#### Canvas
-
-```html
-
-```
-
-```js
-
-```
 
 ### Linear Gradient (線性漸層)
 
