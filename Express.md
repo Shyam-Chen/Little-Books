@@ -42,7 +42,7 @@ $ yarn add express
 $ yarn add nodemon babel-node -D
 ```
 
-Create an express server (建立 Express 伺服器)
+Create an Express server (建立 Express 伺服器)
 
 ```js
 // app.js
@@ -102,7 +102,26 @@ app.get('/random/:min/:max', (req, res) => {
 
 http://localhost:8000/random/1/100
 
+#### 路由查詢
+
 ```js
+app.get('/text', (req, res) => {
+  const { text } = req.query;
+  res.json({ text });
+});
+```
+
+```bash
+$ curl http://localhost:8000/text?text=foo
+```
+
+#### 路由拆分
+
+```js
+app.use('/api', () => {
+  console.log('USE action');
+});
+
 app.get('/api', (req, res) => {
   res.send('GET request');
 });
@@ -132,6 +151,8 @@ app.all('/thing', (req, res, next) => {
 });
 ```
 
+#### 路由功能
+
 ```js
 // routes/thing.js
 import { Router } from 'express';
@@ -156,12 +177,6 @@ import { thingRoutes } from './routes/thing';
 app.use('/thing', thingRoutes);
 
 [...]
-```
-
-本版化
-
-```js
-
 ```
 
 ### 中介軟體
