@@ -447,7 +447,7 @@ ctx.lineTo(points[0], points[1]);
 
 ### Path (路徑)
 
-M = move to (起始點), `d="M25 50"` <=> `ctx.moveTo(25, 50)`
+M = moveTo (起始點), `d="M25 50"` <=> `ctx.moveTo(25, 50)`
 
 ```html
 <svg width="300" height="300" viewBox="0 0 300 300">
@@ -487,6 +487,7 @@ L = lineTo (至指定點), `d="L50 75"` <=> `ctx.lineTo(50, 75)`
 ctx.beginPath();
 
 ctx.moveTo(25, 50);
+ctx.lineTo(50, 75);
 
 ctx.lineWidth = '3';
 ctx.strokeStyle = '#E91E63';
@@ -496,17 +497,85 @@ ctx.stroke();
 
 H = horizontal lineTo, `d="H100"` <=> `ctx.lineTo(100, x)`
 
+```html
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <path
+    d="
+      M25 50
+      H100
+    "
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
+
+```js
+ctx.beginPath();
+
+ctx.moveTo(25, 50);
+ctx.lineTo(100, 50);
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.stroke();
+```
+
 V = vertical lineTo, `d="V100"` <=> `ctx.lineTo(x, 100)`
+
+```html
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <path
+    d="
+      M25 50
+      V100
+    "
+    stroke-width="3" stroke="#E91E63"
+  />
+</svg>
+```
+
+```js
+ctx.beginPath();
+
+ctx.moveTo(25, 50);
+ctx.lineTo(25, 100);
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.stroke();
+```
 
 C = curveto
 
+```js
+bezierCurveTo()
+```
+
 S = smooth curveto
+
+```js
+bezierCurveTo()
+```
 
 Q = quadratic Bézier curve
 
+```js
+quadraticCurveTo()
+```
+
 T = smooth quadratic Bézier curveto
 
+```js
+quadraticCurveTo()
+```
+
 A = elliptical Arc
+
+```js
+
+```
 
 Z = closePath (關閉路徑), `d="Z"` <=> `ctx.closePath()`<br>
 Return a line from the end to the starting point (從終點連一條線回起點)
@@ -808,12 +877,30 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/radialGradient
 #### Canvas
 
 ```html
-
+<canvas id="radial" width="300" height="300"></canvas>
 ```
 
 ```js
+const canvas = document.querySelector('#radial');
+const ctx = canvas.getContext('2d');
 
+const offset = [10, 90];  // Percentage (百分比)
+
+const [cx, cy, rx, ry] = [150, 100, 100, 50];
+
+ctx.ellipse(cx, cy, rx, ry, 0, 0, 2 * Math.PI);
+
+const rg = ctx.createRadialGradient(150, 100, 0, 150, 100, 100);
+
+rg.addColorStop(offset[0] / 100, '#F8BBD0');
+rg.addColorStop(offset[1] / 100, '#E91E63');
+
+ctx.fillStyle = rg;
+
+ctx.fill();
 ```
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createRadialGradient
 
 # Three-dimensional (立體圖形)
 

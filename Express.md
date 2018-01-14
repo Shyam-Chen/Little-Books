@@ -142,6 +142,15 @@ app.delete('/api', (req, res) => {
 ```bash
 $ curl http://localhost:8000/api
 # GET request
+
+$ curl -X POST http://localhost:8000/api
+# POST request
+
+$ curl -X PUT http://localhost:8000/api
+# PUT request
+
+$ curl -X DELETE http://localhost:8000/api
+# DELETE request
 ```
 
 ```js
@@ -154,27 +163,41 @@ app.all('/thing', (req, res, next) => {
 #### 路由功能
 
 ```js
-// routes/thing.js
+// foo.js
 import { Router } from 'express';
 
 const router = Router();
 
 router.get('/', (req, res) => {
-  res.send('Thing');
+  res.send('foo');
 });
 
-export const thingRoutes = router;
+export default router;
 ```
 
 ```js
-// app.js
+// bar.js
+import { Router } from 'express';
+
+const router = Router();
+
+router.get('/', (req, res) => {
+  res.send('bar');
+});
+
+export default router;
+```
+
+```js
 [...]
 
-import { thingRoutes } from './routes/thing';
+import { foo } from './foo';
+import { bar } from './bar';
 
 [...]
 
-app.use('/thing', thingRoutes);
+app.use('/foo', foo);
+app.use('/bar', bar);
 
 [...]
 ```
@@ -208,7 +231,7 @@ Express 的中介軟體模組
 ```js
 import { Router } from 'express';
 
-import { List } from '../models';  // Mongoose 模型
+import { List } from '~/models';  // Mongoose 模型
 
 const router = Router();
 /**
