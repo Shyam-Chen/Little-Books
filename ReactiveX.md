@@ -119,7 +119,7 @@
   * [concatMap](#concatmap)
   * concatMapTo
   * expand
-  * groupBy
+  * [groupBy](#groupby)
   * [map](#map)
   * [mapTo](#mapto)
   * [mergeMap](#mergemap)
@@ -2046,6 +2046,34 @@ Observable::of('Hello', 'Goodbye')
 ### expand
 
 ### groupBy
+
+Groups the items emitted by an Observable according to a specified criterion, and emits these grouped items as GroupedObservables, one GroupedObservable per group.
+
+按照指定的標準對 Observable 發出的項目進行分組，並將這些分組的項目作為 GroupedObservables 發送，每組一個 GroupedObservable
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable';
+
+import { groupBy } from 'rxjs/operator';
+
+const groupedData = [];
+
+Observable::from([1, 2, 3, 4, 5, 6])
+  ::groupBy(
+    group => group % 2,  // group
+    value => value + 2  // map
+  )
+  .subscribe(result => {
+    const group = { key: result.key, data: [] };
+    result.subscribe(value => group.data.push(value));
+    groupedData.push(group);
+  });
+
+console.log(groupedData);
+// [ { key: 1, data: [ 3, 5, 7 ] }, { key: 0, data: [ 4, 6, 8 ] } ]
+```
 
 ### map
 
