@@ -2124,6 +2124,21 @@ Applies an accumulator function over the source Observable, and returns each int
 在源 Observable 上應用累加器函式，並返回每個中間結果，並具有可選的種子值。
 
 ```js
+import { of as of$ } from 'rxjs/observable';
+import { filter, map, scan } from 'rxjs/operators';
+
+of$(2, 5, 10)  // 2, 5, 10
+  .pipe(
+    filter(value => value % 2 === 0),  // 2, 10
+    map(value => value + value),  // 2 + 2, 10 + 10
+    scan((acc, value) => acc + value, 0)  // 0 + 4, 4 + 20
+  )
+  .subscribe(value => console.log(value));
+  // 4
+  // 24
+```
+
+```js
 import { Subject } from 'rxjs';
 
 import { startWith, scan } from 'rxjs/operator';
