@@ -80,7 +80,7 @@
   * auditTime
   * count
   * [debounce](#debounce)
-  * debounceTime
+  * [debounceTime](#debouncetime)
   * distinct
   * distinctUntilChanged
   * distinctUntilKeyChanged
@@ -1521,6 +1521,38 @@ Observable::interval(1000)
 ```
 
 ### debounceTime
+
+Emits a value from the source Observable only after a particular time span has passed without another source emission.
+
+只有在特定的時間跨度已經過去之後才能從源 Observable 發射一個值，而不會有其他源發射
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable';
+
+import { debounceTime } from 'rxjs/operator';
+
+Observable::of(1, 2, 3)
+  ::debounceTime(1000)
+  .subscribe(value => console.log(value));
+  // 3
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromEvent } from 'rxjs/observable';
+
+import { map, debounceTime } from 'rxjs/operator';
+
+const input = document.querySelector('#text');
+
+Observable::fromEvent(input, 'keyup')
+  ::map(event => event.target.value)
+  ::debounceTime(500)
+  .subscribe(value => console.log(value));
+```
 
 ### distinctUntilChanged
 
