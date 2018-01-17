@@ -76,7 +76,7 @@
   * retry
   * retryWhen
 * [Filtering (過濾)](#filtering-過濾)
-  * audit
+  * [audit](#audit)
   * auditTime
   * count
   * [debounce](#debounce)
@@ -1485,6 +1485,29 @@ Observable::_throw('一個錯誤！')
 ### retryWhen
 
 ## Filtering (過濾)
+
+### audit
+
+Ignores source values for a duration determined by another Observable, then emits the most recent value from the source Observable, then repeats this process.
+
+忽略由另一個 Observable 確定的持續時間的源值，然後從源 Observable 發出最新值，然後重複此過程
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable';
+
+import { take, audit } from 'rxjs/operator';
+
+Observable::interval(1000)
+  ::take(10)
+  ::audit(() => Observable::interval(1500))
+  .subscribe(value => console.log(value));
+  // 1
+  // 3
+  // 5
+  // 7
+```
 
 ### debounce
 
