@@ -11,7 +11,7 @@
 ### Table of Contents (目錄)
 
 * [Flat Display (平面圖形)](#flat-display-平面圖形)
-  * Shapes (形狀)
+  * [Shapes (形狀)](#shapes-形狀)
     * [Line (線)](#line-線)
     * [Polyline (折線)](#polyline-折線)
     * [Circle (圓形)](#circle-圓形)
@@ -32,7 +32,7 @@
   * Animations (動畫)
   * Clip (裁切)
   * Mask (遮色片)
-  * Text (文字)
+  * [Text (文字)](#text-文字)
   * Image (圖像)
   * Pattern (圖案)
   * Responsive (響應式)
@@ -43,6 +43,42 @@
 ***
 
 # Flat Display (平面圖形)
+
+## Shapes (形狀)
+
+1. Create a line (畫出一條線):
+
+  SVG: `<line>` <br>
+  Canvas: `moveTo()`, `lineTo()`
+
+2. Create any shape that consists of only straight lines (畫出以直線為底的任何形狀):
+
+  SVG: `<polyline>` <br>
+  Canvas: `moveTo()`, `lineTo()`
+
+3. Create a circle (畫出一個圓形):
+
+  SVG: `<circle>` <br>
+  Canvas: `arc()`
+
+4. Create an ellipse (畫出一個橢圓形):
+
+  SVG: `<ellipse>` <br>
+  Canvas: `ellipse()`
+
+5. Create a rectangle and variations of a rectangle shape (畫出一個多變化的矩形形狀)：
+
+  SVG: `<rect>` <br>
+  Canvas: `rect()`
+
+6. Create a graphic that contains at least three sides (畫出一個至少包含三個面的圖形):
+
+  SVG: `<polygon>` <br>
+  Canvas: `moveTo()`, `lineTo()`
+
+7. Define a path (定義一個路徑):
+
+8. Define a grouping of elements (定義一個群組元素):
 
 ### Line (線)
 
@@ -901,6 +937,14 @@ ctx.fill();
 ```
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createRadialGradient
+
+### Text (文字)
+
+```html
+<svg width="300" height="300">
+  <text x="10" y="25">Text</text>
+</svg>
+```
 
 # Three-dimensional (立體圖形)
 
