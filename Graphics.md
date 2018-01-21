@@ -20,7 +20,7 @@
     * [Polygon (多邊形)](#polygon-多邊形)
     * [Path (路徑)](#path-路徑)
     * [Layer (圖層)](#layer-圖層)
-  * Filters (濾鏡)
+  * [Filters (濾鏡)](#filters-濾鏡)
     * [Blur (模糊)](#blur-模糊)
     * [Shadow (陰影)](#shadow-陰影)
     * Ripple (漣漪)
@@ -48,33 +48,33 @@
 
 1. Create a line (畫出一條線):
 
-  SVG: `<line>` <br>
-  Canvas: `moveTo()`, `lineTo()`
+SVG: `<line>` <br>
+Canvas: `moveTo()`, `lineTo()`
 
 2. Create any shape that consists of only straight lines (畫出以直線為底的任何形狀):
 
-  SVG: `<polyline>` <br>
-  Canvas: `moveTo()`, `lineTo()`
+SVG: `<polyline>` <br>
+Canvas: `moveTo()`, `lineTo()`
 
 3. Create a circle (畫出一個圓形):
 
-  SVG: `<circle>` <br>
-  Canvas: `arc()`
+SVG: `<circle>` <br>
+Canvas: `arc()`
 
 4. Create an ellipse (畫出一個橢圓形):
 
-  SVG: `<ellipse>` <br>
-  Canvas: `ellipse()`
+SVG: `<ellipse>` <br>
+Canvas: `ellipse()`
 
 5. Create a rectangle and variations of a rectangle shape (畫出一個多變化的矩形形狀)：
 
-  SVG: `<rect>` <br>
-  Canvas: `rect()`
+SVG: `<rect>` <br>
+Canvas: `rect()`
 
 6. Create a graphic that contains at least three sides (畫出一個至少包含三個面的圖形):
 
-  SVG: `<polygon>` <br>
-  Canvas: `moveTo()`, `lineTo()`
+SVG: `<polygon>` <br>
+Canvas: `moveTo()`, `lineTo()`
 
 7. Define a path (定義一個路徑):
 
@@ -223,8 +223,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
 </svg>
 ```
 
-`cx` and `cy` define the x and y coordinates of the center of the circle <br>
-`r` defines the radius of the circle
+`cx` and `cy` define the x and y coordinates of the center of the circle (`cx` 和 `cy` 定義圓心的 x 和 y 座標) <br>
+`r` defines the radius of the circle (`r` 定義圓形的半徑)
 
 https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle
 
@@ -451,7 +451,7 @@ ctx.lineTo(x4, y4);
 ctx.lineTo(x5, y5);
 ctx.lineTo(x6, y6);
 
-ctx.lineTo(x1, y1);
+ctx.closePath();
 
 ctx.fillStyle = '#F8BBD0';
 ctx.fill();
@@ -477,8 +477,6 @@ ctx.moveTo(points[0], points[1]);
 for (let i = 2, l = points.length - 1; i < l; i += 2) {
   ctx.lineTo(points[i] , points[i + 1]);
 }
-
-ctx.lineTo(points[0], points[1]);
 ```
 
 ### Path (路徑)
@@ -531,7 +529,7 @@ ctx.strokeStyle = '#E91E63';
 ctx.stroke();
 ```
 
-H = horizontal lineTo, `d="H100"` <=> `ctx.lineTo(100, x)`
+H = horizontal lineTo (水平至指定點), `d="H100"` <=> `ctx.lineTo(100, x)`
 
 ```html
 <svg width="300" height="300" viewBox="0 0 300 300">
@@ -557,7 +555,7 @@ ctx.strokeStyle = '#E91E63';
 ctx.stroke();
 ```
 
-V = vertical lineTo, `d="V100"` <=> `ctx.lineTo(x, 100)`
+V = vertical lineTo (垂直至指定點), `d="V100"` <=> `ctx.lineTo(x, 100)`
 
 ```html
 <svg width="300" height="300" viewBox="0 0 300 300">
@@ -583,7 +581,7 @@ ctx.strokeStyle = '#E91E63';
 ctx.stroke();
 ```
 
-C = curveto
+C = curveto (曲線)
 
 ```js
 bezierCurveTo()
@@ -637,6 +635,7 @@ ctx.beginPath();
 ctx.moveTo(25, 25);
 ctx.lineTo(25, 100);
 ctx.lineTo(75, 100);
+
 ctx.closePath();
 
 ctx.lineWidth = '3';
@@ -678,8 +677,21 @@ Multiple layers (多個圖層)
 #### Canvas
 
 ```html
-
+<canvas id="layer" width="300" height="300"></canvas>
 ```
+
+```js
+const canvas = document.querySelector('#layer');
+const ctx = canvas.getContext('2d');
+
+ctx.save();
+```
+
+## Filters (濾鏡)
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
 
 ### Blur (模糊)
 
@@ -938,7 +950,7 @@ ctx.fill();
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createRadialGradient
 
-### Text (文字)
+## Text (文字)
 
 ```html
 <svg width="300" height="300">
