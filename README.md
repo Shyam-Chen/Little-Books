@@ -24,24 +24,24 @@
 
 ### HTML5
 
-* [Graphics (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Graphics.md)
-* [Multimedia (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Multimedia.md)
-* [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Material.md)
-* [Firebase (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Firebase.md)
-* [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/MobX.md)
-* [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/D3.md)
-* [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Three.md)
+* [Graphics (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Graphics.md)
+* [Multimedia (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Multimedia.md)
+* [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Material.md)
+* [Firebase (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Firebase.md)
+* [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/MobX.md)
+* [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
+* [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
 
 ### Node.js
 
-* [Express (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Express.md)
-* [GraphQL (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/GraphQL.md)
-* [Mongoose (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Mongoose.md)
-* [Sequelize (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Sequelize.md)
-* [JWT (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JWT.md)
-* [Passport (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Passport.md)
-* [Socket (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Socket.md)
-* [Redis (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Redis.md)
+* [Express (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Express.md)
+* [GraphQL (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/GraphQL.md)
+* [Mongoose (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Mongoose.md)
+* [Sequelize (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Sequelize.md)
+* [JWT (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/JWT.md)
+* [Passport (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Passport.md)
+* [Socket (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Socket.md)
+* [Redis (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Redis.md)
 
 ### Docker
 
