@@ -14,9 +14,13 @@
 
 ### ECMAScript
 
-* [JavaScript (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/JavaScript.md)
-* [Lodash (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Lodash.md)
-* [Immutable (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Immutable.md)
+* [Async Processing (90%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Async-Processing.md)
+* [Functional Programming (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Functional-Programming.md)
+* [Data Structures and Algorithms (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Data-Structures-and-Algorithms.md)
+* [Design Patterns (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Design-Patterns.md)
+* [Regular Expressions (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Regular-Expressions.md)
+* [Lodash (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Lodash.md)
+* [Immutable (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Immutable.md)
 
 ### HTML5
 
