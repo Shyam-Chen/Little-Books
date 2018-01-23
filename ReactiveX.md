@@ -73,8 +73,8 @@
   * timestamp
 * [Error Handling (錯誤處理)](#error-handling-錯誤處理)
   * [catch](#catch)
-  * retry
-  * retryWhen
+  * [retry](#retry)
+  * [retryWhen](#retrywhen)
 * [Filtering (過濾)](#filtering-過濾)
   * [audit](#audit)
   * auditTime
@@ -1466,6 +1466,10 @@ Observable::timer(1000, 2000)
 
 ### catch
 
+Catches errors on the observable to be handled by returning a new observable or throwing an error.
+
+透過返回一個新的 observable 或拋出一個錯誤來捕獲 observable 中的錯誤
+
 ```js
 import { Observable } from 'rxjs/Observable';
 
@@ -1474,15 +1478,73 @@ import { of } from 'rxjs/observable/of';
 
 import { _catch } from 'rxjs/operator/catch';
 
-Observable::_throw('一個錯誤！')
-  ::_catch(value => Observable::of(`錯誤訊息: ${value}`))
+Observable::_throw('An error!')
+  ::_catch(error => Observable::of(`Error message: ${error}`))  // return a new observable (返回一個新的 observable)
   .subscribe(value => console.log(value));
-  // 錯誤訊息: 一個錯誤！
+  // Error message: An error!
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { _throw } from 'rxjs/observable/throw';
+
+import { _catch } from 'rxjs/operator/catch';
+
+Observable::_throw('An error!')
+  ::_catch(error => { throw `Error message: ${error}`; })  // throw an error (拋出一個錯誤)
+  .subscribe(value => console.log(value));
+  // Error message: An error!
 ```
 
 ### retry
 
+Returns an Observable that mirrors the source Observable with the exception of an `error`. If the source Observable calls `error`, this method will resubscribe to the source Observable for a maximum of `count` resubscriptions (given as a number parameter) rather than propagating the `error` call.
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable';
+
+import { map, retry } from 'rxjs/operator';
+
+Observable::of('foo', 'bar', 'error')
+  ::map(value => {
+    if (value === 'error') throw 'throw an error';
+    return value;
+  })
+  ::retry(3)
+  .subscribe(value => console.log(value));
+  // foo
+  // bar
+  // foo - retry
+  // bar
+  // foo - retry 2 times
+  // bar
+  // foo - retry 3 times
+  // bar
+  // throw an error
+```
+
 ### retryWhen
+
+Returns an Observable that mirrors the source Observable with the exception of an error. If the source Observable calls error, this method will emit the Throwable that caused the error to the Observable returned from notifier. If that Observable calls complete or error then this method will call complete or error on the child subscription. Otherwise this method will resubscribe to the source Observable.
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable';
+
+import { map, retryWhen } from 'rxjs/operator';
+
+Observable::of('foo', 'bar', 'error')
+  ::map(value => {
+    if (value === 'error') throw 'throw an error';
+    return value;
+  })
+  ::retryWhen(() => Observable::of('bar'))
+  .subscribe(value => console.log(value));
+```
 
 ## Filtering (過濾)
 
