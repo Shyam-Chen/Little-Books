@@ -2,7 +2,7 @@
 
 :books: Big little books on Angular, Nest, Ionic, TypeScript, and ReactiveX. :memo:
 
-## List of books
+## List of Books
 
 ### ECMAScript
 
@@ -20,7 +20,8 @@
 
 * [Angular - Client-side Apps (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/README.md) :star:
 * [Ionic - Mobile and Desktop Apps (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Ionic/README.md) :star:
-* [Graphics (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Graphics.md)
+* [SVG and Canvas (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/SVG-and-Canvas.md)
+* WebGL
 * [Multimedia (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Multimedia.md)
 * [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Material.md)
 * [Firebase (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Firebase.md)

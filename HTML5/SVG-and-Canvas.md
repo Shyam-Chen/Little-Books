@@ -10,39 +10,33 @@
 
 ### Table of Contents (目錄)
 
-* [Flat Display (平面圖形)](#flat-display-平面圖形)
-  * [Shapes (形狀)](#shapes-形狀)
-    * [Line (線)](#line-線)
-    * [Polyline (折線)](#polyline-折線)
-    * [Circle (圓形)](#circle-圓形)
-    * [Ellipse (橢圓形)](#ellipse-橢圓形)
-    * [Rectangle (矩形)](#rectangle-矩形)
-    * [Polygon (多邊形)](#polygon-多邊形)
-    * [Path (路徑)](#path-路徑)
-    * [Layer (圖層)](#layer-圖層)
-  * [Filters (濾鏡)](#filters-濾鏡)
-    * [Blur (模糊)](#blur-模糊)
-    * [Shadow (陰影)](#shadow-陰影)
-    * Ripple (漣漪)
-  * Gradients (漸層)
-    * [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
-    * [Radial Gradient (放射性漸層)](#radial-gradient-放射性漸層)
-  * Transformations (變形)
-    * Rotate (旋轉)
-  * Animations (動畫)
-  * Clip (裁切)
-  * Mask (遮色片)
-  * [Text (文字)](#text-文字)
-  * Image (圖像)
-  * Pattern (圖案)
-  * Responsive (響應式)
-* [Three-dimensional (立體圖形)](#three-dimensional-立體圖形)
-  * Textures (材質)
-  * Lighting (光源)
+* [Shapes (形狀)](#shapes-形狀)
+  * [Line (線)](#line-線)
+  * [Polyline (折線)](#polyline-折線)
+  * [Circle (圓形)](#circle-圓形)
+  * [Ellipse (橢圓形)](#ellipse-橢圓形)
+  * [Rectangle (矩形)](#rectangle-矩形)
+  * [Polygon (多邊形)](#polygon-多邊形)
+  * [Path (路徑)](#path-路徑)
+  * [Layer (圖層)](#layer-圖層)
+* [Filters (濾鏡)](#filters-濾鏡)
+  * [Blur (模糊)](#blur-模糊)
+  * [Shadow (陰影)](#shadow-陰影)
+  * Ripple (漣漪)
+* Gradients (漸層)
+  * [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
+  * [Radial Gradient (放射性漸層)](#radial-gradient-放射性漸層)
+* Transformations (變形)
+  * Rotate (旋轉)
+* Animations (動畫)
+* Clip (裁切)
+* Mask (遮色片)
+* [Text (文字)](#text-文字)
+* Image (圖像)
+* Pattern (圖案)
+* Responsive (響應式)
 
 ***
-
-# Flat Display (平面圖形)
 
 ## Shapes (形狀)
 
@@ -956,15 +950,4 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/create
 <svg width="300" height="300">
   <text x="10" y="25">Text</text>
 </svg>
-```
-
-# Three-dimensional (立體圖形)
-
-```html
-<canvas id="glcanvas" width="300" height="300"></canvas>
-```
-
-```js
-const canvas = document.querySelector('#glcanvas');
-const gl = canvas.getContext('webgl2');
 ```

@@ -2,5 +2,5 @@
 
 ### Table of Contents (目錄)
 
-* Mobile Apps
-* Desktop Apps
+* Cordova - Mobile Apps
+* Electron - Desktop Apps
