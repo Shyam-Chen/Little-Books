@@ -34,7 +34,7 @@
 * Clip (裁切)
 * Mask (遮色片)
 * [Text (文字)](#text-文字)
-* Image (圖像)
+* [Image (圖像)](#image-圖像)
 * Pattern (圖案)
 * Responsive (響應式)
 
@@ -890,7 +890,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix
 #### SVG
 
 ```html
-<svg width="300" height="300">
+<svg width="300" height="300" viewbox="0 0 300 300">
   <defs>
     <linearGradient id="linear">
       <stop offset="10%" stop-color="#E91E63" />
@@ -941,7 +941,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/create
 #### SVG
 
 ```html
-<svg width="300" height="300">
+<svg width="300" height="300" viewbox="0 0 300 300">
   <defs>
     <radialGradient id="radial">
       <stop offset="10%" stop-color="#F8BBD0" />
@@ -988,8 +988,51 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/create
 
 ## Text (文字)
 
+#### SVG
+
 ```html
-<svg width="300" height="300">
-  <text x="10" y="25">Text</text>
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <text x="10" y="25">Text 1</text>
+  <text x="10" y="50" fill="#E91E63">Text 2</text>
+  <text x="10" y="75" fill="#FCE4EC" stroke="#E91E63">Text 3</text>
 </svg>
 ```
+
+Set the coordinates for each character (為每個字元設定座標)
+
+```html
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <text x="0, 20, 40, 60" y="20, 40, 30, 10">Text</text>
+</svg>
+```
+
+`dx` defines a shift along the x-axis on the position of an element or its content (`dx` 定義元素或其內容位置上沿著 x 軸方向位移) <br>
+`dy` defines a shift along the y-axis on the position of an element or its content (`dy` 定義元素或其內容位置上沿著 y 軸方向位移)
+
+```html
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <text x="10" y="25" dx="0, 5, 10, 15, 20">Text 1</text>
+  <text x="10" y="50" dy="0, 5, 10, 15, 20">Text 2</text>
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text
+
+#### Canvas
+
+## Image (圖像)
+
+#### SVG
+
+```html
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <image
+    href="https://avatars3.githubusercontent.com/u/32692097?s=400&v=4"
+    width="300" height="300"
+  />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/image
+
+#### Canvas
