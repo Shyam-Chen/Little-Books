@@ -22,6 +22,8 @@
 * [Filters (濾鏡)](#filters-濾鏡)
   * [Blur (模糊)](#blur-模糊)
   * [Shadow (陰影)](#shadow-陰影)
+  * [Grayscale (灰階)](#grayscale-灰階)
+  * Gooey (粘稠)
   * Ripple (漣漪)
 * Gradients (漸層)
   * [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
@@ -766,7 +768,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
 #### SVG
 
 ```html
-<svg width="300" height="300">
+<svg width="300" height="300" viewbox="0 0 300 300">
   <defs>
     <filter id="shadow" x="0" y="0" width="200%" height="200%">
       <feOffset result="offOut" in="SourceAlpha" dx="12" dy="12" />
@@ -786,7 +788,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
 ```
 
 ```html
-<svg width="300" height="300">
+<svg width="300" height="300" viewbox="0 0 300 300">
   <defs>
     <filter id="shadow-2">
       <feDropShadow dx="12" dy="12" stdDeviation="7" />
@@ -842,6 +844,46 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX <br>
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY <br>
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowBlur
+
+### Grayscale (灰階)
+
+#### SVG
+
+```html
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <defs>
+    <filter id="grayscale">
+      <feColorMatrix
+        type="matrix"
+        values="
+          .3333 .3333 .3333 0 0
+          .3333 .3333 .3333 0 0
+          .3333 .3333 .3333 0 0
+          0 0 0 1 0
+        "
+      />
+    </filter>
+  </defs>
+
+  <image
+    href="https://avatars3.githubusercontent.com/u/32692097?s=400&v=4"
+    width="300" height="300"
+    filter="url(#grayscale)"
+  />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix
+
+#### Canvas
+
+```html
+
+```
+
+```js
+
+```
 
 ### Linear Gradient (線性漸層)
 
