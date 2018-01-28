@@ -1017,6 +1017,32 @@ Set the coordinates for each character (為每個字元設定座標)
 
 https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text
 
+```html
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <text>
+    <tspan x="10" y="25">Text 1</tspan>
+    <tspan x="10" y="50" fill="#E91E63">Text 2</tspan>
+    <tspan x="10" y="75" fill="#FCE4EC" stroke="#E91E63">Text 3</tspan>
+  </text>
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/tspan
+
+```html
+<svg width="300" height="300" viewbox="0 0 300 300">
+  <defs>
+    <path id="text-path" d="M10 25 C150 150 100 -50 300 50" />
+  </defs>
+
+  <text>
+    <textPath href="#text-path">This text is very very very long.</textPath>
+   </text>
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/textPath
+
 #### Canvas
 
 ## Image (圖像)
