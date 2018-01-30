@@ -597,6 +597,12 @@ const foo: Foo = (x, y) => {
 foo(2, -4);  // true
 ```
 
+```ts
+interface Comparer<T> {
+  foo(x: T, y, T): T;
+}
+```
+
 ## Functions (函式)
 
 ```ts
@@ -1097,7 +1103,38 @@ const box: Box = { height: 5, width: 6, scale: 10 };
 
 ## Set (似陣列)
 
-## Map (map-似物件)
+```ts
+const s = new Set(['foo', 'bar', 'baz']);
+
+for (const value of s) {
+  console.log(value);
+}
+// "foo"
+// "bar"
+// "baz"
+
+const s2 = new Set(['foo', 'bar', 'baz', 'foo', 'bar', 'baz']);
+
+for (const value of s2) {
+  console.log(value);
+}
+// "foo"
+// "bar"
+// "baz"
+```
+
+## Map (似物件)
+
+```ts
+const m = new Map([['foo', 1], ['bar', 2], ['baz', 3]]);
+
+for (const [key, value] of m) {
+  console.log(key, value);
+}
+// "foo" 1
+// "bar" 2
+// "baz" 3
+```
 
 ## Proxy (代理)
 
@@ -1197,14 +1234,40 @@ foo()
 
 ## Iterators (迭代器)
 
+`for..in`
+
+```ts
+const list = ['foo', 'bar', 'baz'];
+
+for (const item in list) {
+  console.log(item);
+}
+// "0"
+// "1"
+// "2"
+```
+
+`for..of`
+
+```ts
+const list = ['foo', 'bar', 'baz'];
+
+for (const item of list) {
+  console.log(item);
+}
+// "foo"
+// "bar"
+// "baz"
+```
+
 ## Generators (產生器)
 
 使用星號 `*` 宣告函式為產生器
 
-`function* name() { ... }`
+`function *name() { ... }`
 
 ```ts
-function* foo(x) {
+function *foo(x) {
   let y = x * (yield);  // 在這裡暫停
   return y;
 };
