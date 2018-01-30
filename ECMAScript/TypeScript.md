@@ -740,6 +740,8 @@ class Thing {
   public foo: string;
   private bar: string;
   protected baz: string;
+
+  readonly num: number;
 }
 ```
 
@@ -771,7 +773,7 @@ let foo: Adder = new Adder(1);
 console.log(foo.add(2));
 ```
 
-Accessors
+### Accessors (訪問器)
 
 ```ts
 class Foo {
@@ -791,7 +793,7 @@ foo.bar;  // "Getter: baz"
 foo.bar = 'baz';  // Setter: baz
 ```
 
-Static Properties
+### Static Properties (靜態屬性)
 
 ```ts
 class Point {
@@ -805,15 +807,17 @@ class Point {
 Point.zero();  // { x: 0, y: 0 }
 ```
 
-Abstract Classes
+### Abstract Classes (抽象類別)
 
 ```ts
+abstract class User {
+  abstract take(): void;
 
+  move(): void {}
+}
 ```
 
-### 作為介面
-
-將類別當作介面使用
+### As an interface (作為介面)
 
 ```ts
 class Point {
@@ -825,7 +829,7 @@ interface Point3d extends Point {
   z: number;
 }
 
-let point3d: Point3d = {
+const point3d: Point3d = {
   x: 60,
   y: 120,
   z: 180
