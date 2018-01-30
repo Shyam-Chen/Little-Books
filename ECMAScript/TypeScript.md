@@ -329,7 +329,7 @@ function foo(thing: number): void {
 }
 ```
 
-### Null & Undefined (空值和未定義)
+### Null and Undefined (空值和未定義)
 
 ```ts
 let foo: string;
@@ -638,7 +638,7 @@ const foo: object = {
 };
 ```
 
-### Optional parameters (可選參數)
+### Optional Parameters (可選參數)
 
 ```ts
 const thing = function (a: string, b: string, c?: string): string {
@@ -661,7 +661,7 @@ thing('foo', 'bar');  // foo bar
 thing('foo');  // Error
 ```
 
-### Default parameters (預設參數)
+### Default Parameters (預設參數)
 
 ```ts
 const thing = function (a: string, b: string = 'bar'): string {
@@ -674,44 +674,25 @@ thing('foo', 'baz');  // foo baz
 
 ## Classes (類別)
 
-### 定義類別
-
 ```ts
-class Foo {
-  bar: number;
+class Add {
+  num: number;
 
   constructor(x: number, y: number) {
-    this.bar = x + y;
+    this.num = x + y;
   }
 
-  baz(): number {
-    return this.bar;
+  sum(): number {
+    return this.num;
   }
 }
 
-const foo = new Foo(13, 14);
+const add = new Add(13, 14);
 
-foo.baz();  // 27
+add.sum();  // 27
 ```
 
-### 靜態資料屬性
-
-```ts
-class Point {
-  constructor(x: number, y: number) {
-    this.x = x;
-    this.y = y;
-  }
-
-  static zero(): object {
-    return new Point(0, 0);
-  }
-}
-
-Point.zero();  // { x: 0, y: 0 }
-```
-
-### 繼承
+### Inheritance (繼承)
 
 ```ts
 class Foo {
@@ -745,33 +726,14 @@ const a = new A();  // logs "A"
 const b = new B();  // logs "B"
 ```
 
-### 取值器和設值器
+### Modifiers (修飾字元)
 
-```ts
-class Foo {
-  get bar(): string {
-    return 'Getter: baz';
-  }
+`public` by default (`public` 為預設)
 
-  set bar(value): void {
-    console.log(`Setter: ${value}`);
-  }
-}
-
-const foo = new Foo();
-
-foo.bar;  // "Getter: baz"
-
-foo.bar = 'baz';  // Setter: baz
-```
-
-### 修飾字元
-
-`public` 表示可以在任何定放進行操作。
-
-`private` 表示只能在自身內部進行操作。
-
-`protected` 表示可以在自身或子內部進行操作。
+`public` 表示可以在任何定放進行操作 <br>
+`private` 表示只能在自身內部進行操作 <br>
+`protected` 表示可以在自身或子內部進行操作 <br>
+`readonly`
 
 ```ts
 class Thing {
@@ -807,6 +769,46 @@ class Adder {
 let foo: Adder = new Adder(1);
 
 console.log(foo.add(2));
+```
+
+Accessors
+
+```ts
+class Foo {
+  get bar(): string {
+    return 'Getter: baz';
+  }
+
+  set bar(value): void {
+    console.log(`Setter: ${value}`);
+  }
+}
+
+const foo = new Foo();
+
+foo.bar;  // "Getter: baz"
+
+foo.bar = 'baz';  // Setter: baz
+```
+
+Static Properties
+
+```ts
+class Point {
+  constructor(public x: number, public y: number) {}
+
+  static zero(): object {
+    return new Point(0, 0);
+  }
+}
+
+Point.zero();  // { x: 0, y: 0 }
+```
+
+Abstract Classes
+
+```ts
+
 ```
 
 ### 作為介面
