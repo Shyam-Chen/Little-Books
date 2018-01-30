@@ -1314,7 +1314,7 @@ async function foo(x) {
 
 ## Decorators (修飾器)
 
-### 修飾類別
+### Class Decorators (類別修飾器)
 
 ```ts
 const Foo = (value: any) => {
@@ -1328,22 +1328,17 @@ const Foo = (value: any) => {
 class Thing {}  // 123
 ```
 
-### 修飾屬性
+Configurable (可配置的)
 
 ```ts
-const Foo = (value: any) => {
-  return (target: any, key: any, descriptor: any) => {
-    console.log(value);
-    return console.log(target, key, descriptor);
-  }
-}
-
-class Thing {
-  @Foo('bar') baz: string;
-}
+@Foo({
+  a: '',
+  b: ''
+})
+class Thing {}
 ```
 
-### 修飾方法
+### Method Decorators (方法修飾器)
 
 ```ts
 const Foo = (value: any) => {
@@ -1355,11 +1350,21 @@ const Foo = (value: any) => {
 
 class Thing {
   @Foo('bar')
-  baz() {}
+  public baz() {}
 }
 ```
 
-### 修飾參數
+Composition (組合)
+
+```ts
+class Thing {
+  @Foo()
+  @Bar()
+  public submit() {}
+}
+```
+
+### Parameter Decorators (參數修飾器)
 
 ```ts
 const Foo = (target: any, key: any, index: number) => {
@@ -1367,10 +1372,25 @@ const Foo = (target: any, key: any, index: number) => {
 }
 
 class Bar {
-  print(@Foo baz): void {
+  print(@Foo public baz): void {
     console.log(baz);
   }
 }
 
 new Bar().print(123);
+```
+
+### Property Decorators (屬性修飾器)
+
+```ts
+const Foo = (value: any) => {
+  return (target: any, key: any, descriptor: any) => {
+    console.log(value);
+    return console.log(target, key, descriptor);
+  }
+}
+
+class Thing {
+  @Foo('bar') public baz: string;
+}
 ```
