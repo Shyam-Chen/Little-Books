@@ -31,6 +31,7 @@
 * Immer
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
+* Puppeteer
 
 ### Node.js
 
@@ -40,8 +41,10 @@
 * [Sequelize (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Sequelize.md)
 * [JWT (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/JWT.md)
 * [Passport (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Passport.md)
+* Supertest
 * [Socket (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Socket.md)
 * [Redis (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Redis.md)
+* Cloud Functions
 
 ### Docker
 

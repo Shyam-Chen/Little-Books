@@ -1339,6 +1339,21 @@ const Foo = (value: any) => {
 }
 
 class Thing {
+  @Foo('bar') baz: string;
+}
+```
+
+### 修飾方法
+
+```ts
+const Foo = (value: any) => {
+  return (target: any, key: any, descriptor: any) => {
+    console.log(value);
+    return console.log(target, key, descriptor);
+  }
+}
+
+class Thing {
   @Foo('bar')
   baz() {}
 }
