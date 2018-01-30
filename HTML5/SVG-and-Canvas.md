@@ -34,7 +34,7 @@
   * Skewing (傾斜)
   * Matrix (矩陣)
 * Animations (動畫)
-  * Displacement (位移)
+  * [Displacement (位移)](#displacement-位移)
 * Combination (組合)
   * Clipping (裁切)
   * Masking (遮色片)
@@ -991,7 +991,31 @@ ctx.fill();
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createRadialGradient
 
-## Text (文字)
+### Displacement (位移)
+
+#### SVG
+
+```html
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <animate
+      href="#move-circle"
+      attributeName="cx"
+      from="50"
+      to="250"
+      dur="1s"
+      repeatCount="indefinite"
+      fill="freeze"
+    />
+  </defs>
+
+  <circle id="move-circle" r="30" cx="50" cy="50" fill="#E91E63" />
+</svg>
+```
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animate
+
+### Text (文字)
 
 #### SVG
 
