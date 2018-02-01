@@ -2,7 +2,7 @@
 
 ### Table of Contents (目錄)
 
-* [Getting started (入門)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Nest/getting-started.md)
+* [Getting started (入門)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Nest/getting-started.md)
 * Modules (模組)
 * Controllers (控制器)
 * Components (元件)
