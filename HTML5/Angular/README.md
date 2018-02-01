@@ -2,8 +2,8 @@
 
 ### Table of Contents (目錄)
 
-* [Getting started (入門)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/getting-started.md)
-  * [Ecosystems (生態系)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/getting-started.md#生態系)
+* [Getting Started (入門)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/getting-started.md)
+  * [Ecosystems (生態系)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/getting-started.md#ecosystems-生態系)
   * [Environment settings (環境設置)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/getting-started.md#環境設置)
 * [Modules (模組)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/modules.md)
   * [Basic operations (基本應用)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/modules.md#基本應用)
@@ -90,6 +90,8 @@
   * Mutation (變動)
   * Pagination (分頁)
 * [WebSockets (雙向通訊)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/websockets.md)
+  * Socket.IO
+  * GraphQL Subscriptions
 * [Pipes (管道過濾器)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/pipes.md)
   * [內建管道](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/pipes.md#內建管道)
     * [uppercase 與 lowercase](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/pipes.md#大小寫)
@@ -119,11 +121,19 @@
   * 深度追蹤
   * 離線追蹤
 * [State container (狀態容器)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/state-container.md)
+  * NgRx
   * Redux
   * MobX
 * [Material design (原質化設計)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/material.md)
+  * Components
+  * CDK
 * [Firebase app (後端雲端服務)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/firebase.md)
+  * Authentication
+  * Database
+  * Storage
 * [Cross-platform app (跨平台應用)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/cross-platform.md)
+  * Mobile Apps
+  * Desktop Apps
 * [Testing (測試)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/testing.md)
   * [測試原則](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/testing.md#測試原則)
   * [靜態分析](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/testing.md#靜態分析)
@@ -153,4 +163,3 @@
   * [提前時間編譯](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/best-practices.md#提前時間編譯)
   * [離線存儲](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/best-practices.md#離線存儲)
   * [伺服端渲染](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/best-practices.md#伺服端渲染)
-    * Cloud Functions
