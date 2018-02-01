@@ -24,11 +24,11 @@
   * [Grayscale (灰階)](#grayscale-灰階)
   * Gooey (粘稠)
   * Ripple (漣漪)
-* Gradients (漸層)
+* [Gradients (漸層)](#gradients-漸層)
   * [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
   * [Radial Gradient (放射性漸層)](#radial-gradient-放射性漸層)
-* Transformations (變形)
-  * Translation (位置)
+* [Transformations (變形)](#transformations-變形)
+  * [Translation (位置)](#translation-位置)
   * Rotation (旋轉)
   * Scaling (縮放)
   * Skewing (傾斜)
@@ -890,6 +890,8 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix
 
 ```
 
+## Gradients (漸層)
+
 ### Linear Gradient (線性漸層)
 
 #### SVG
@@ -990,6 +992,97 @@ ctx.fill();
 ```
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createRadialGradient
+
+## Transformations (變形)
+
+### Translation (位置)
+
+#### SVG
+
+```html
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <!-- Pink -->
+  <rect
+    x="10" y="10"
+    width="150" height="100"
+    fill="#F8BBD0"
+    stroke-width="3" stroke="#E91E63"
+  />
+
+  <!-- Indigo -->
+  <rect
+    x="10" y="10"
+    width="150" height="100"
+    fill="#C5CAE9"
+    stroke-width="3" stroke="#3F51B5"
+    transform="translate(50)"
+  />
+
+  <!-- Purple -->
+  <rect
+    x="10" y="10"
+    width="150" height="100"
+    fill="#E1BEE7"
+    stroke-width="3" stroke="#9C27B0"
+    transform="translate(25, 25)"
+  />
+</svg>
+```
+
+#### Canvas
+
+```html
+<canvas id="translation" width="300" height="300"></canvas>
+```
+
+```js
+const canvas = document.querySelector('#translation');
+const ctx = canvas.getContext('2d');
+
+const [x, y] = [10, 10];
+const [width, height] = [150, 100];
+
+// Pink
+ctx.beginPath();
+
+ctx.rect(x, y, width, height);
+
+ctx.fillStyle = '#F8BBD0';
+ctx.fill();
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#E91E63';
+
+ctx.stroke();
+
+// Indigo
+ctx.beginPath();
+
+ctx.rect(x + 50, y, width, height);
+
+ctx.fillStyle = '#C5CAE9';
+ctx.fill();
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#3F51B5';
+
+ctx.stroke();
+
+// Purple
+ctx.beginPath();
+
+ctx.rect(x + 25, y + 25, width, height);
+
+ctx.fillStyle = '#E1BEE7';
+ctx.fill();
+
+ctx.lineWidth = '3';
+ctx.strokeStyle = '#9C27B0';
+
+ctx.stroke();
+```
+
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/translate
 
 ### Displacement (位移)
 
