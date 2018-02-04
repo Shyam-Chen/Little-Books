@@ -126,7 +126,7 @@
   * pairwise
   * partition
   * pluck
-  * reduce
+  * [reduce](#reduce)
   * [scan](#scan)
   * switch
   * [switchMap](#switchmap)
@@ -2261,6 +2261,26 @@ Observable::of('Hello')
 ### partition
 
 ### pluck
+
+### reduce
+
+Applies an accumulator function over the source Observable, and returns the accumulated result when the source completes, given an optional seed value.
+
+在源 Observable 上應用累加器函式，並在源完成時返回累積結果，給定可選的種子值
+
+```js
+import { of as of$ } from 'rxjs/observable';
+import { filter, map, reduce } from 'rxjs/operators';
+
+of$(2, 'foo', 5, 'bar', 10)  // 2, 'foo', 5, 'bar', 10
+  .pipe(
+    filter(value => !isNaN(value)),  // 2, 5, 10
+    map(value => value + value),  // 2 + 2, 5 + 5, 10 + 10
+    reduce((acc, value) => acc + value, 0)  // 0 + 4, 4 + 10, 14 + 20
+  )
+  .subscribe(value => console.log(value));
+  // 34
+```
 
 ### scan
 
