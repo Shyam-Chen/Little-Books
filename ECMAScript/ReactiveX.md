@@ -3,8 +3,6 @@
 ### Reference Resources (參考資源)
 
 * https://github.com/ReactiveX/rxjs
-* https://github.com/btroncone/learn-rxjs
-* https://github.com/miguelmota/rxjs-examples
 
 ### Actual Operation (實作執行)
 
@@ -1281,6 +1279,18 @@ Observable::fromEvent(document, 'click')  // 點擊頁面
   // 打印出點擊的座標
 ```
 
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromEvent } from 'rxjs/observable';
+
+const ele = document.querySelector('#name');  // an input field (一個輸入框)
+
+Observable::fromEvent(ele, 'input')
+  ::map(event => event.target.value)
+  .subscribe(value => console.log(value));
+```
+
 ### fromEventPattern
 
 Creates an Observable from an API based on addHandler/removeHandler functions.
@@ -1365,27 +1375,18 @@ Observable::never()
 為觀察者發射給予指定的參數做為一個值，然後再一個接著一個，最後再一次發射出去。
 
 ```js
-import { Observable } from 'rxjs/Observable';
+import { of as of$ } from 'rxjs/observable';
 
-import { of } from 'rxjs/observable/of';
-
-Observable::of(1, 2, 3)
-  .subscribe(value => console.log(value));
-  // 1
-  // 2
-  // 3
+of$(1, 2, 3).subscribe(value => console.log(value));
+// 1
+// 2
+// 3
 ```
 
 ```js
-import { Observable } from 'rxjs/Observable';
+import { of as of$ } from 'rxjs/observable';
 
-import { of } from 'rxjs/observable/of';
-
-Observable::of(
-    { a: 'A' },
-    [2, 'b'],
-    () => 'C'
-  )
+of$({ a: 'A' }, [2, 'b'], () => 'C')
   .subscribe(value => console.log(value));
   // {a: "A"}
   // [2, "b"]
@@ -1401,17 +1402,27 @@ Creates an Observable that emits a sequence of numbers within a specified range.
 建立一個 Observable，它發射指定範圍內的一系列數字。
 
 ```js
-import { Observable } from 'rxjs/Observable';
+import { range } from 'rxjs/observable';
 
-import { range } from 'rxjs/observable/range';
-
-Observable:range(1, 5)
-  .subscribe(value => console.log(value));
+range(1, 5).subscribe(value => console.log(value));
   // 1
   // 2
   // 3
   // 4
   // 5
+```
+
+```js
+import { range } from 'rxjs/observable';
+import { map, count } from 'rxjs/operators';
+
+range(1, 5)
+  .pipe(
+    map(value => value * 2),
+    count(value => value % 3 === 0)
+  )
+  .subscribe(value => console.log(value));
+  // 1
 ```
 
 ### throw
@@ -2275,7 +2286,7 @@ import { filter, map, reduce } from 'rxjs/operators';
 of$(2, 'foo', 5, 'bar', 10)  // 2, 'foo', 5, 'bar', 10
   .pipe(
     filter(value => !isNaN(value)),  // 2, 5, 10
-    map(value => value + value),  // 2 + 2, 5 + 5, 10 + 10
+    map(value => value * 2),  // 2 * 2, 5 * 2, 10 * 2
     reduce((acc, value) => acc + value, 0)  // 0 + 4, 4 + 10, 14 + 20
   )
   .subscribe(value => console.log(value));
@@ -2295,7 +2306,7 @@ import { filter, map, scan } from 'rxjs/operators';
 of$(2, 5, 10)  // 2, 5, 10
   .pipe(
     filter(value => value % 2 === 0),  // 2, 10
-    map(value => value + value),  // 2 + 2, 10 + 10
+    map(value => value * 2),  // 2 * 2, 10 * 2
     scan((acc, value) => acc + value, 0)  // 0 + 4, 4 + 20
   )
   .subscribe(value => console.log(value));
