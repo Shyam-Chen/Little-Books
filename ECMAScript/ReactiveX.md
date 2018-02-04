@@ -76,7 +76,7 @@
 * [Filtering (過濾)](#filtering-過濾)
   * [audit](#audit)
   * auditTime
-  * count
+  * [count](#count)
   * [debounce](#debounce)
   * [debounceTime](#debouncetime)
   * distinct
@@ -1580,6 +1580,22 @@ Observable::interval(1000)
   // 3
   // 5
   // 7
+```
+
+### count
+
+Counts the number of emissions on the source and emits that number when the source completes.
+
+計算來源所發射的數量，並在來源完成時發射該數量
+
+```js
+import { range } from 'rxjs/observable';
+import { count } from 'rxjs/operator';
+
+range(0, 10)
+  ::count(value => value % 3 === 0)
+  .subscribe(value => console.log(value));
+  // 4
 ```
 
 ### debounce
