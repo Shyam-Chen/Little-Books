@@ -26,22 +26,6 @@
   * [asap](#asap)
   * [async](#async)
   * [queue](#queue)
-* [Combination (組合)](#combination-組合)
-  * [combineAll](#combineall)
-  * [combineLatest](#combinelatest)
-  * [concat](#concat)
-  * [concatAll](#concatall)
-  * exhaust
-  * exhaustMap
-  * [forkJoin](#forkjoin)
-  * [merge](#merge)
-  * [mergeAll](#mergeall)
-  * [race](#race)
-  * [startWith](#startwith)
-  * [withLatestFrom](#withlatestfrom)
-  * [zip](#zip)
-  * zipAll
-  * zipProto
 * [Creation (建立)](#creation-建立)
   * ajax
   * [bindCallback](#bindcallback)
@@ -53,30 +37,49 @@
   * [fromEvent](#fromevent)
   * [fromEventPattern](#fromeventpattern)
   * [fromPromise](#frompromise)
+  * generate
   * [interval](#interval)
-  * lift
-  * mergeScan
   * [never](#never)
   * [of](#of)
   * [range](#range)
   * repeat
   * repeatWhen
   * [throw](#throw)
-  * timeInterval
-  * timeout
-  * timeoutWith
   * [timer](#timer)
-  * timestamp
-* [Error Handling (錯誤處理)](#error-handling-錯誤處理)
-  * [catch](#catch)
-  * [retry](#retry)
-  * [retryWhen](#retrywhen)
+* [Transformation (轉化)](#transformation-轉化)
+  * [buffer](#buffer)
+  * [bufferCount](#buffercount)
+  * [bufferTime](#buffertime)
+  * bufferToggle
+  * bufferWhen
+  * [concatMap](#concatmap)
+  * concatMapTo
+  * exhaustMap
+  * expand
+  * [groupBy](#groupby)
+  * [map](#map)
+  * [mapTo](#mapto)
+  * [mergeMap](#mergemap)
+  * mergeMapTo
+  * mergeScan
+  * pairwise
+  * partition
+  * pluck
+  * [scan](#scan)
+  * [switchMap](#switchmap)
+  * switchMapTo
+  * [window](#window)
+  * windowCount
+  * windowTime
+  * windowToggle
+  * windowWhen
 * [Filtering (過濾)](#filtering-過濾)
   * [audit](#audit)
   * auditTime
   * [debounce](#debounce)
   * [debounceTime](#debouncetime)
   * distinct
+  * distinctKey
   * distinctUntilChanged
   * distinctUntilKeyChanged
   * elementAt
@@ -86,9 +89,9 @@
   * [last](#last)
   * [sample](#sample)
   * sampleTime
-  * sequenceEqual
   * [single](#single)
   * [skip](#skip)
+  * skipLast
   * [skipUntil](#skipuntil)
   * [skipWhile](#skipwhile)
   * [take](#take)
@@ -97,48 +100,46 @@
   * [takeWhile](#takewhile)
   * [throttle](#throttle)
   * [throttleTime](#throttletime)
+* [Combination (組合)](#combination-組合)
+  * [combineAll](#combineall)
+  * [combineLatest](#combinelatest)
+  * [concat](#concat)
+  * [concatAll](#concatall)
+  * exhaust
+  * [forkJoin](#forkjoin)
+  * [merge](#merge)
+  * [mergeAll](#mergeall)
+  * [race](#race)
+  * [startWith](#startwith)
+  * switch
+  * [withLatestFrom](#withlatestfrom)
+  * [zip](#zip)
+  * zipAll
 * [Multicasting (組播)](#multicasting-組播)
   * multicast
   * [publish](#publish)
+  * publishBehavior
+  * publishLast
+  * publishReplay
   * [share](#share)
-* [Transformation (轉化)](#transformation-轉化)
-  * [buffer](#buffer)
-  * [bufferCount](#buffercount)
-  * [bufferTime](#buffertime)
-  * bufferToggle
-  * bufferWhen
-  * [concatMap](#concatmap)
-  * concatMapTo
-  * expand
-  * [groupBy](#groupby)
-  * [map](#map)
-  * [mapTo](#mapto)
-  * [mergeMap](#mergemap)
-  * pairwise
-  * partition
-  * pluck
-  * [scan](#scan)
-  * switch
-  * [switchMap](#switchmap)
-  * switchMapTo
-  * [window](#window)
-  * windowCount
-  * windowTime
-  * windowToggle
-  * windowWhen
+* [Error Handling (錯誤處理)](#error-handling-錯誤處理)
+  * [catch](#catch)
+  * [retry](#retry)
+  * [retryWhen](#retrywhen)
 * [Utility (公用)](#utility-公用)
   * [do](#do)
   * [delay](#delay)
   * delayWhen
   * dematerialize
-  * forEach
-  * letProto
+  * finally
+  * let
   * materialize
   * observeOn
-  * publishBehavior
-  * publishLast
-  * publishReplay
   * subscribeOn
+  * timeInterval
+  * timestamp
+  * timeout
+  * timeoutWith
   * toArray
   * toPromise
 * [Conditional and Boolean (附條件和布林值)](#conditional-and-boolean-附條件和布林值)
@@ -1082,63 +1083,6 @@ Observable::zip(
   )
   .subscribe(value => console.log(value));
   // [ 'Foo', 'Bar', 'Baz' ]
-```
-
-## Conditional (附條件)
-
-### defaultIfEmpty
-
-Emits a given value if the source Observable completes without emitting any next value, otherwise mirrors the source Observable.
-
-如果來源 Observable 完成而不發射任何下一個值，則發射給定的值，否則反映來源 Observable
-
-```js
-import { of } from 'rxjs/observable';
-import { defaultIfEmpty } from 'rxjs/operators';
-
-of()
-  .pipe(
-    defaultIfEmpty('The source is empty!')
-  )
-  .subscribe(value => console.log(value));
-  // The source is empty!
-
-of(1, 2, 3)
-  .pipe(
-    defaultIfEmpty('The source is empty!')
-  )
-  .subscribe(value => console.log(value));
-  // 1
-  // 2
-  // 3
-```
-
-### every
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable/of';
-
-import { every } from 'rxjs/operator/every';
-
-Observable::of(1, 2, 3, 4, 5)
-  ::every(value => value % 2 === 0)  // 每個值都是偶數嗎？
-  .subscribe(value => console.log(value));
-  // false
-```
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable/of';
-
-import { every } from 'rxjs/operator/every';
-
-Observable::of(2, 4, 6, 8, 10)
-  ::every(value => value % 2 === 0)  // 每個值都是偶數嗎？
-  .subscribe(value => console.log(value));
-  // true
 ```
 
 ## Creation (建立)
@@ -2472,6 +2416,71 @@ Observable::merge(
 
 ### toPromise
 
+## Conditional and Boolean (附條件和布林值)
+
+### defaultIfEmpty
+
+Emits a given value if the source Observable completes without emitting any next value, otherwise mirrors the source Observable.
+
+如果來源 Observable 完成而不發射任何下一個值，則發射給定的值，否則反映來源 Observable
+
+```js
+import { of } from 'rxjs/observable';
+import { defaultIfEmpty } from 'rxjs/operators';
+
+of()
+  .pipe(
+    defaultIfEmpty('The source is empty!')
+  )
+  .subscribe(value => console.log(value));
+  // The source is empty!
+
+of(1, 2, 3)
+  .pipe(
+    defaultIfEmpty('The source is empty!')
+  )
+  .subscribe(value => console.log(value));
+  // 1
+  // 2
+  // 3
+```
+
+### every
+
+Returns an Observable that emits whether or not every item of the source satisfies the condition specified.
+
+返回一個 Observable，它發射一個來源的每個項目是否滿足指定的條件
+
+```js
+import { of } from 'rxjs/observable';
+import { every } from 'rxjs/operators';
+
+of(1, 2, 3, 4, 5)
+  .pipe(
+    every(value => value % 2 === 0)  // Is each value an even number? (每個值都是偶數嗎？)
+  )
+  .subscribe(value => console.log(value));
+  // false
+```
+
+```js
+import { of } from 'rxjs/observable';
+import { every } from 'rxjs/operators';
+
+of(2, 4, 6, 8, 10)
+  .pipe(
+    every(value => value % 2 === 0)  // Is each value an even number? (每個值都是偶數嗎？)
+  )
+  .subscribe(value => console.log(value));
+  // true
+```
+
+### find
+
+### findIndex
+
+### isEmpty
+
 ## Mathematical and Aggregate (運算和合計)
 
 ### count
@@ -2567,10 +2576,10 @@ Applies an accumulator function over the source Observable, and returns the accu
 在源 Observable 上應用累加器函式，並在源完成時返回累積結果，給定可選的種子值
 
 ```js
-import { of as of$ } from 'rxjs/observable';
+import { of } from 'rxjs/observable';
 import { filter, map, reduce } from 'rxjs/operators';
 
-of$(2, 'foo', 5, 'bar', 10)  // 2, 'foo', 5, 'bar', 10
+of(2, 'foo', 5, 'bar', 10)  // 2, 'foo', 5, 'bar', 10
   .pipe(
     filter(value => !isNaN(value)),  // 2, 5, 10
     map(value => value * 2),  // 2 * 2, 5 * 2, 10 * 2

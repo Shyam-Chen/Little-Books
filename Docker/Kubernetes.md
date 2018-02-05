@@ -12,13 +12,13 @@
 
 #### Install VirtualBox (安裝 VirtualBox)
 
-至官網下載安裝 VirtualBox
+Go to the official website to download and install VirtualBox (至官網下載安裝 VirtualBox)
 
 https://www.virtualbox.org/wiki/Downloads
 
 #### Install Kubectl (安裝 Kubectl)
 
-直接透過 Homebrew 安裝 kubernetes CLI
+Install Kubernetes CLI via Homebrew (透過 Homebrew 安裝 Kubernetes CLI)
 
 ```bash
 $ brew install kubectl
@@ -59,7 +59,7 @@ $ minikube version
 $ minikube start
 ```
 
-查看 Minikube 版本
+查看 Kubernetes 版本
 
 ```bash
 $ kubectl version
@@ -88,7 +88,7 @@ $ minikube ssh
 $ docker version
 ```
 
-登出 SSH 連線
+離開 SSH 連線
 
 ```bash
 $ exit
