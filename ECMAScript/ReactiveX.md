@@ -1089,28 +1089,25 @@ Observable::zip(
 
 ### defaultIfEmpty
 
+Emits a given value if the source Observable completes without emitting any next value, otherwise mirrors the source Observable.
+
+如果來源 Observable 完成而不發射任何下一個值，則發射給定的值，否則反映來源 Observable
+
 ```js
-import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable';
+import { defaultIfEmpty } from 'rxjs/operators';
 
-import { of } from 'rxjs/observable/of';
-
-import { defaultIfEmpty } from 'rxjs/operator/defaultIfEmpty';
-
-Observable::of()  // 空白
-  ::defaultIfEmpty('Observable::of() Empty!')
+of()
+  .pipe(
+    defaultIfEmpty('The source is empty!')
+  )
   .subscribe(value => console.log(value));
-  // Observable::of() Empty!
-```
+  // The source is empty!
 
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable/of';
-
-import { defaultIfEmpty } from 'rxjs/operator/defaultIfEmpty';
-
-Observable::of(1, 2, 3)
-  ::defaultIfEmpty('Observable::of() Empty!')
+of(1, 2, 3)
+  .pipe(
+    defaultIfEmpty('The source is empty!')
+  )
   .subscribe(value => console.log(value));
   // 1
   // 2
