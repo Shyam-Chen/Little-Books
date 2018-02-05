@@ -42,10 +42,8 @@
   * [zip](#zip)
   * zipAll
   * zipProto
-* [Conditional (附條件)](#conditional-附條件)
-  * [defaultIfEmpty](#defaultifempty)
-  * [every](#every)
 * [Creation (建立)](#creation-建立)
+  * ajax
   * [bindCallback](#bindcallback)
   * [bindNodeCallback](#bindnodecallback)
   * [create](#create)
@@ -76,7 +74,6 @@
 * [Filtering (過濾)](#filtering-過濾)
   * [audit](#audit)
   * auditTime
-  * [count](#count)
   * [debounce](#debounce)
   * [debounceTime](#debouncetime)
   * distinct
@@ -84,13 +81,9 @@
   * distinctUntilKeyChanged
   * elementAt
   * [filter](#filter)
-  * find
-  * findIndex
   * [first](#first)
   * [ignoreElements](#ignoreelements)
   * [last](#last)
-  * max
-  * min
   * [sample](#sample)
   * sampleTime
   * sequenceEqual
@@ -124,7 +117,6 @@
   * pairwise
   * partition
   * pluck
-  * [reduce](#reduce)
   * [scan](#scan)
   * switch
   * [switchMap](#switchmap)
@@ -140,7 +132,6 @@
   * delayWhen
   * dematerialize
   * forEach
-  * isEmpty
   * letProto
   * materialize
   * observeOn
@@ -150,9 +141,17 @@
   * subscribeOn
   * toArray
   * toPromise
-* [DOM (文件物件模型)](#dom-文件物件模型)
-  * ajax
-  * webSocket
+* [Conditional and Boolean (附條件和布林值)](#conditional-and-boolean-附條件和布林值)
+  * [defaultIfEmpty](#defaultifempty)
+  * [every](#every)
+  * find
+  * findIndex
+  * isEmpty
+* [Mathematical and Aggregate (運算和合計)](#mathematical-and-aggregate-運算和合計)
+  * [count](#count)
+  * [max](#max)
+  * [min](#min)
+  * [reduce](#reduce)
 
 ***
 
@@ -1579,22 +1578,6 @@ Observable::interval(1000)
   // 7
 ```
 
-### count
-
-Counts the number of emissions on the source and emits that number when the source completes.
-
-計算來源所發射的數量，並在來源完成時發射該數量
-
-```js
-import { range } from 'rxjs/observable';
-import { count } from 'rxjs/operator';
-
-range(0, 10)
-  ::count(value => value % 3 === 0)
-  .subscribe(value => console.log(value));
-  // 4
-```
-
 ### debounce
 
 ```js
@@ -2286,26 +2269,6 @@ Observable::of('Hello')
 
 ### pluck
 
-### reduce
-
-Applies an accumulator function over the source Observable, and returns the accumulated result when the source completes, given an optional seed value.
-
-在源 Observable 上應用累加器函式，並在源完成時返回累積結果，給定可選的種子值
-
-```js
-import { of as of$ } from 'rxjs/observable';
-import { filter, map, reduce } from 'rxjs/operators';
-
-of$(2, 'foo', 5, 'bar', 10)  // 2, 'foo', 5, 'bar', 10
-  .pipe(
-    filter(value => !isNaN(value)),  // 2, 5, 10
-    map(value => value * 2),  // 2 * 2, 5 * 2, 10 * 2
-    reduce((acc, value) => acc + value, 0)  // 0 + 4, 4 + 10, 14 + 20
-  )
-  .subscribe(value => console.log(value));
-  // 34
-```
-
 ### scan
 
 Applies an accumulator function over the source Observable, and returns each intermediate result, with an optional seed value.
@@ -2509,8 +2472,110 @@ Observable::merge(
 
 ### toPromise
 
-## DOM (文件物件模型)
+## Mathematical and Aggregate (運算和合計)
 
-### ajax
+### count
 
-### webSocket
+Counts the number of emissions on the source and emits that number when the source completes.
+
+計算來源所發射的數量，並在來源完成時發射該數量
+
+```js
+import { range } from 'rxjs/observable';
+import { count } from 'rxjs/operators';
+
+range(0, 10)
+  .pipe(
+    count(value => value % 3 === 0)
+  )
+  .subscribe(value => console.log(value));
+  // 4
+```
+
+### max
+
+The Max operator operates on an Observable that emits numbers (or items that can be compared with a provided function), and when source Observable completes it emits a single item: the item with the largest value.
+
+Max 操作子在發射數字的 Observable（或可以與提供的函式進行比較的項目）上進行操作，當 Observable 來源完成時，它會發射一個單項：具有最大值的項目
+
+```js
+import { range } from 'rxjs/observable';
+import { max } from 'rxjs/operators';
+
+range(0, 10)
+  .pipe(
+    max()
+  )
+  .subscribe(value => console.log(value));
+  // 9
+```
+
+```js
+import { of } from 'rxjs/observable';
+import { max } from 'rxjs/operators';
+
+of(
+  { name: 'Jojo', age: 18 },
+  { name: 'Anna', age: 25 },
+  { name: 'Joanna', age: 28 }
+)
+  .pipe(
+    max((v1, v2) => v1.age < v2.age ? -1 : 1)
+  )
+  .subscribe(({ name }) => console.log(name));
+  // Joanna
+```
+
+### min
+
+The Min operator operates on an Observable that emits numbers (or items that can be compared with a provided function), and when source Observable completes it emits a single item: the item with the smallest value.
+
+Min 操作子在發射數字的 Observable（或可以與提供的函式進行比較的項目）上進行操作，當 Observable 來源完成時，它將發射單個項目：具有最小值的項目
+
+```js
+import { range } from 'rxjs/observable';
+import { min } from 'rxjs/operators';
+
+range(0, 10)
+  .pipe(
+    min()
+  )
+  .subscribe(value => console.log(value));
+  // 0
+```
+
+```js
+import { of } from 'rxjs/observable';
+import { min } from 'rxjs/operators';
+
+of(
+  { name: 'Jojo', age: 18 },
+  { name: 'Anna', age: 25 },
+  { name: 'Joanna', age: 28 }
+)
+  .pipe(
+    min((v1, v2) => v1.age < v2.age ? -1 : 1)
+  )
+  .subscribe(({ name }) => console.log(name));
+  // Jojo
+```
+
+### reduce
+
+Applies an accumulator function over the source Observable, and returns the accumulated result when the source completes, given an optional seed value.
+
+在源 Observable 上應用累加器函式，並在源完成時返回累積結果，給定可選的種子值
+
+```js
+import { of as of$ } from 'rxjs/observable';
+import { filter, map, reduce } from 'rxjs/operators';
+
+of$(2, 'foo', 5, 'bar', 10)  // 2, 'foo', 5, 'bar', 10
+  .pipe(
+    filter(value => !isNaN(value)),  // 2, 5, 10
+    map(value => value * 2),  // 2 * 2, 5 * 2, 10 * 2
+    reduce((acc, value) => acc + value, 0)  // 0 + 4, 4 + 10, 14 + 20
+  )
+  .subscribe(value => console.log(value));
+  // 34
+```
