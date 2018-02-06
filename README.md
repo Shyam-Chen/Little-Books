@@ -6,7 +6,8 @@
 
 * [Angular - Client-side Apps (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/README.md) :star:
 * [Nest - Server-side Apps (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Nest/README.md) :star:
-* [Ionic - Mobile and Desktop Apps (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Ionic/README.md) :star:
+* Ionic/Cordova - Native Mobile Apps :star:
+* Ionic/Electron - Native Desktop Apps :star:
 * [TypeScript - Superset of JavaScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/TypeScript.md) :star:
 * [ReactiveX - Async Data Streams (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/ReactiveX.md) :star:
 
