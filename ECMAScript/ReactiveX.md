@@ -111,7 +111,7 @@
   * [mergeAll](#mergeall)
   * [race](#race)
   * [startWith](#startwith)
-  * switch
+  * switch/switchAll
   * [withLatestFrom](#withlatestfrom)
   * [zip](#zip)
   * zipAll
@@ -123,15 +123,15 @@
   * publishReplay
   * [share](#share)
 * [Error Handling (錯誤處理)](#error-handling-錯誤處理)
-  * [catch](#catch)
+  * [catch/catchError](#catch)
   * [retry](#retry)
   * [retryWhen](#retrywhen)
 * [Utility (公用)](#utility-公用)
-  * [do](#do)
+  * [do/tap](#do)
   * [delay](#delay)
   * delayWhen
   * dematerialize
-  * finally
+  * finally/finalize
   * let
   * materialize
   * observeOn
