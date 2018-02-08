@@ -78,7 +78,7 @@
   * auditTime
   * [debounce](#debounce)
   * [debounceTime](#debouncetime)
-  * distinct
+  * [distinct](#distinct)
   * distinctKey
   * distinctUntilChanged
   * distinctUntilKeyChanged
@@ -1588,6 +1588,28 @@ Observable::fromEvent(input, 'keyup')
   ::map(event => event.target.value)
   ::debounceTime(500)
   .subscribe(value => console.log(value));
+```
+
+### distinct
+
+Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from previous items.
+
+返回一個 Observable，它發射由來源 Observable 發射的所有項目，這些項目與以前的項目相比是不同的
+
+```js
+import { of } from 'rxjs/observable';
+import { distinct } from 'rxjs/operators';
+
+of('foo', 'bar', 1, 2, 3, 2, 1, 'bar', 'foo')
+  .pipe(
+    distinct()
+  )
+  .subscribe(value => console.log(value));
+  // foo
+  // bar
+  // 1
+  // 2
+  // 3
 ```
 
 ### distinctUntilChanged
