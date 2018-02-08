@@ -146,7 +146,7 @@
   * [defaultIfEmpty](#defaultifempty)
   * [every](#every)
   * [find](#find)
-  * findIndex
+  * [findIndex](#findindex)
   * [isEmpty](#isempty)
 * [Mathematical and Aggregate (運算和合計)](#mathematical-and-aggregate-運算和合計)
   * [count](#count)
@@ -2506,6 +2506,22 @@ of(1, 5, 9, 13, 17, 21, 25)
 ```
 
 ### findIndex
+
+Emits only the index of the first value emitted by the source Observable that meets some condition.
+
+只發射符合一些條件的來源 Observable 發射的第一個值的索引
+
+```js
+import { of } from 'rxjs/observable';
+import { findIndex } from 'rxjs/operators';
+
+of(1, 5, 9, 13, 17, 21, 25)
+  .pipe(
+    findIndex(value => value % 3 === 0)
+  )
+  .subscribe(value => console.log(value));
+  // 2
+```
 
 ### isEmpty
 
