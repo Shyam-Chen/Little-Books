@@ -145,9 +145,9 @@
 * [Conditional and Boolean (附條件和布林值)](#conditional-and-boolean-附條件和布林值)
   * [defaultIfEmpty](#defaultifempty)
   * [every](#every)
-  * find
+  * [find](#find)
   * findIndex
-  * isEmpty
+  * [isEmpty](#isempty)
 * [Mathematical and Aggregate (運算和合計)](#mathematical-and-aggregate-運算和合計)
   * [count](#count)
   * [max](#max)
@@ -2477,9 +2477,67 @@ of(2, 4, 6, 8, 10)
 
 ### find
 
+Emits only the first value emitted by the source Observable that meets some condition.
+
+只發射符合一些條件的來源 Observable 發射的第一個值
+
+```js
+import { of } from 'rxjs/observable';
+import { find } from 'rxjs/operators';
+
+of(1, 5, 9, 13, 17, 21, 25)
+  .pipe(
+    find(value => value % 3 === 0)
+  )
+  .subscribe(value => console.log(value));
+  // 9
+```
+
+```js
+import { of } from 'rxjs/observable';
+import { find } from 'rxjs/operators';
+
+of(1, 5, 9, 13, 17, 21, 25)
+  .pipe(
+    find(value => value % 2 === 0)
+  )
+  .subscribe(value => console.log(value));
+  // undefined
+```
+
 ### findIndex
 
 ### isEmpty
+
+If the source Observable is empty it returns an Observable that emits true, otherwise it emits false.
+
+如果來源 Observable 為空，則返回一個發射 true 的 Observable，否則發射 false
+
+```js
+import { of, from, empty } from 'rxjs/observable';
+import { isEmpty } from 'rxjs/operators';
+
+of()
+  .pipe(
+    isEmpty()
+  )
+  .subscribe(value => console.log(value));
+  // ture
+
+from([])
+  .pipe(
+    isEmpty()
+  )
+  .subscribe(value => console.log(value));
+  // ture
+
+empty()
+  .pipe(
+    isEmpty()
+  )
+  .subscribe(value => console.log(value));
+  // ture
+```
 
 ## Mathematical and Aggregate (運算和合計)
 
