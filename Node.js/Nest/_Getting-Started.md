@@ -1,6 +1,14 @@
-## Getting started (入門)
+## Getting Started (起手式)
 
-### Environment settings (環境設置)
+### Ecosystems (生態系)
+
+#### TypeScript
+
+#### ReactiveX
+
+#### Express
+
+### Environment Settings (環境設置)
 
 Install Nest CLI (安裝 Nest CLI)
 

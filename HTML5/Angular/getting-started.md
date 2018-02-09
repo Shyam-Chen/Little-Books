@@ -11,7 +11,7 @@ Angular 開發概念就是已元件化為中心出發，而 Angular 的元件化
 
 TypeScript 是 JavaScript 的超集，提供型別的機制，還有更多未來標準的實現，是 Angular 官方預設使用的
 
-#### RxJS
+#### ReactiveX
 
 透過 RxJS 來實現 Observables 未來的標準的非同步操作，是 Angular 官方預設使用的
 
