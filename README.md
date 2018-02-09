@@ -19,7 +19,9 @@
 * [Design Patterns (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Design-Patterns.md)
 * [Regular Expressions (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Regular-Expressions.md)
 * [Lodash (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Lodash.md)
+* Babel
 * Flow
+* Jest
 
 ### HTML5
 

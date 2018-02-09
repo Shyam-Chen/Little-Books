@@ -8,6 +8,10 @@
 
 #### Express
 
+#### Socket.IO
+
+#### Redis
+
 ### Environment Settings (環境設置)
 
 Install Nest CLI (安裝 Nest CLI)
