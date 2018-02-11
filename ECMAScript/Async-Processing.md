@@ -144,6 +144,13 @@ it.next().value;  // 0
 it.next().value;  // 1
 ```
 
+```js
+// not support
+const foo = *() => {
+  yield 'foo';
+};
+```
+
 ## Async Functions (非同步函式)
 
 Function Declarations (函式宣告式)
@@ -204,19 +211,19 @@ const foo = async () => {
 };
 ```
 
-```js
-const pagination = async (page, row) => {
-  const row = Number(row);
-  const list = await List.find({}).exec();
-  const _data = [];
+Loops (迴圈)
 
-  for (let i = 0; i < list.length / row; i++) {
-    if (Number(page) === (i + 1)) {
-      _data.push(List.find({}).skip(i * row).limit(row));
-    }
+```js
+const foo = async things => {
+  const results = [];
+
+  for (const value of things) {
+    // All asynchronous operations are immediately started.
+    results.push(bar(thing));
   }
 
-  const data = await Promise.all(_data);
+  // Now that all the asynchronous operations are running, here we wait until they all complete.
+  const data = await Promise.all(results);
 
   return data;
 };
@@ -251,6 +258,27 @@ const foo = async () => {
 foo()
   .then(value => console.log(value))
   .catch(error => console.error(error));
+```
+
+Comparison (比對)
+
+```js
+const foo = async () => {
+  return await bar();
+};
+
+// or
+
+const foo = async () => {
+  const baz = await bar();
+  return baz;
+};
+
+// or
+
+const foo = async () => {
+  return bar();
+};
 ```
 
 ## Observables (可觀察)
