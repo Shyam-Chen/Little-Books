@@ -1,6 +1,6 @@
 # Big Little Books
 
-:books: Big little books on Angular, Nest, TypeScript, and ReactiveX. :memo:
+:books: Big little books on Angular, Nest, TypeScript, ReactiveX, and Kubernetes. :memo:
 
 ## List of Books
 
@@ -8,6 +8,7 @@
 * [Nest - Server-side Web Apps (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Nest/README.md) :star:
 * [TypeScript - Superset of JavaScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/TypeScript.md) :star:
 * [ReactiveX - Async Data Streams (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/ReactiveX.md) :star:
+* [Kubernetes - Container Orchestration (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes.md) :star:
 
 ### ECMAScript
 
@@ -51,8 +52,7 @@
 
 * CircleCI
 * Heroku
-* [Kubernetes (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes.md)
 * Drone
 * Caddy
 * DigitalOcean
-* Google Compute Engine
+* Compute Engine
