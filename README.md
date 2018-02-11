@@ -1,13 +1,11 @@
 # Big Little Books
 
-:books: Big little books on Angular, Nest, Ionic, TypeScript, and ReactiveX. :memo:
+:books: Big little books on Angular, Nest, TypeScript, and ReactiveX. :memo:
 
 ## List of Books
 
 * [Angular - Client-side Web Apps (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/README.md) :star:
 * [Nest - Server-side Web Apps (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Nest/README.md) :star:
-* Ionic/Cordova - Cross-platform Mobile Apps :star:
-* Ionic/Electron - Cross-platform Desktop Apps :star:
 * [TypeScript - Superset of JavaScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/TypeScript.md) :star:
 * [ReactiveX - Async Data Streams (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/ReactiveX.md) :star:
 
