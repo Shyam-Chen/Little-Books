@@ -85,15 +85,49 @@ foo()
 ## Generators (產生器)
 
 ```js
-function *foo(x) {
-  let y = x * (yield);  // pause here (在這裡暫停)
-  return y;
-};
+function *foo(num) {
+  yield num;
+  yield num + 2;
+}
 
-let it = foo(2);  // 通常會已使用 `it` 來控制產生器
+const it = foo(1);
+
+it.next().value;  // 1
+it.next().value;  // 3
+it.next().value;  // undefined
+```
+
+```js
+function *foo() {
+  yield 'foo - 1';
+  yield 'foo - 2';
+}
+
+function *bar() {
+  yield 'bar - 1';
+  yield *foo();  // another generator
+  yield 'bar - 2';
+}
+
+for (const value of bar()) {
+  console.log(value);
+}
+// bar - 1
+// foo - 1
+// foo - 2
+// bar - 2
+```
+
+```js
+function *foo(x) {
+  const y = x * (yield);  // pause here (在這裡暫停)
+  return y;
+}
+
+const it = foo(2);  // 通常會已使用 `it` 來控制產生器
 it.next();  // 執行 foo 函式，但會停在 yield 的地方
 
-let result = it.next(3);  // 執行 foo 函式，這次會從暫停的地方開始
+const result = it.next(3);  // 執行 foo 函式，這次會從暫停的地方開始
 result.value;  // 2 * 3 = 6
 ```
 
