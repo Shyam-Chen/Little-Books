@@ -21,6 +21,10 @@
     * AnonymousSubject (匿名主體)
   * ConnectableObservable (可連接的 Observable)
   * GroupedObservable (已分組的 Observable)
+* Subscription (訂閱)
+  * unsubscribe
+  * add
+  * remove
 * [Scheduler (調度)](#scheduler)
   * [animationFrame](#animationframe)
   * [asap](#asap)
@@ -161,15 +165,17 @@
 ```js
 import { Observable } from 'rxjs';
 
-// an observer (一個觀察者)
-new Observable(observer => {
+new Observable(
+  // an observer (一個觀察者)
+  (observer) => {
     // callback method (回呼方法): next(), error(), & complete()
     setTimeout(() => observer.next('foo'), 0);
     setTimeout(() => observer.next('bar'), 1000);
     setTimeout(() => observer.next('baz'), 2000);
     setTimeout(() => observer.complete(), 3000);
   })
-  .subscribe(  // 訂閱一個或多個 Observable (可觀察的物件)
+  .subscribe(
+    // 訂閱一個或多個 Observable (可觀察的物件)
     value => console.log(value),
     error => console.error(error),
     () => console.log('done')
@@ -780,21 +786,23 @@ Observable::never()
 
 ### of
 
-為觀察者發射給予指定的參數做為一個值，然後再一個接著一個，最後再一次發射出去。
+Creates an Observable that emits some values you specify as arguments, immediately one after the other, and then emits a complete notification.
+
+建立一個 Observable，它發射一些所指定為參數的值，立即一個接一個的發射，然後發射一個完整的通知
 
 ```js
-import { of as of$ } from 'rxjs/observable';
+import { of } from 'rxjs/observable';
 
-of$(1, 2, 3).subscribe(value => console.log(value));
-// 1
-// 2
-// 3
+of('foo', 'bar', 'baz').subscribe(value => console.log(value));
+// foo
+// bar
+// baz
 ```
 
 ```js
-import { of as of$ } from 'rxjs/observable';
+import { of } from 'rxjs/observable';
 
-of$({ a: 'A' }, [2, 'b'], () => 'C')
+of({ a: 'A' }, [2, 'b'], () => 'C')
   .subscribe(value => console.log(value));
   // {a: "A"}
   // [2, "b"]
@@ -1100,10 +1108,10 @@ Applies an accumulator function over the source Observable, and returns each int
 在源 Observable 上應用累加器函式，並返回每個中間結果，並具有可選的種子值。
 
 ```js
-import { of as of$ } from 'rxjs/observable';
+import { of } from 'rxjs/observable';
 import { filter, map, scan } from 'rxjs/operators';
 
-of$(2, 5, 10)  // 2, 5, 10
+of(2, 5, 10)  // 2, 5, 10
   .pipe(
     filter(value => value % 2 === 0),  // 2, 10
     map(value => value * 2),  // 2 * 2, 10 * 2
