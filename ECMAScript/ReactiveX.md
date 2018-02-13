@@ -553,6 +553,1126 @@ console.log('after subscribe');
 // after subscribe
 ```
 
+## Creation (建立)
+
+### bindCallback
+
+將回呼 API 轉換成返回 Observable 函式。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { bindCallback } from 'rxjs/observable/bindCallback';
+
+const source$ = Observable::bindCallback(
+  (value, callback) => callback(`Hello ${value}`)
+);
+
+source$('World')
+  .subscribe(value => console.log(value));
+  // Hello World
+```
+
+### bindNodeCallback
+
+將 Node.js 風格的回呼 API 轉換成返回 Observable 函式。
+
+```js
+import { readdir } from 'fs';
+
+import { Observable } from 'rxjs/Observable';
+
+import { bindNodeCallback } from 'rxjs/observable/bindNodeCallback';
+
+const source$ = Observable::bindNodeCallback(readdir);
+
+source$(process.cwd())
+  .subscribe(value => console.log(value));
+  // $ ls -a
+```
+
+### create
+
+Creates a new Observable that will execute the specified function when a Subscriber subscribes to it.
+
+建立一個新的 Observable，當 Subscriber 訂閱時，它將執行指定的函式。
+
+```js
+import * as Rx from 'rxjs/Rx';
+
+Rx.Observable.create(observer => {
+    observer.next('Hello');
+    observer.next('World');
+  })
+  .subscribe(value => console.log(value));
+  // Hello
+  // World
+```
+
+### defer
+
+Creates an Observable that, on subscribe, calls an Observable factory to make an Observable for each new Observer.
+
+建立一個 Observable，在 subscribe 上，調用一個 Observable 工廠為每個新的 Observer 做一個 Observable。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { defer } from 'rxjs/observable/defer';
+import { of } from 'rxjs/observable/of';
+
+Observable::defer(() => Observable::of(1, 2, 3))
+  .subscribe(value => console.log(value + 1));
+  // 2
+  // 3
+  // 4
+```
+
+### empty
+
+Creates an Observable that emits no items to the Observer and immediately emits a complete notification.
+
+建立一個不向 Observer 發送項的 Observable，並立即發出一個完整的通知。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { empty } from 'rxjs/observable/empty';
+
+Observable::empty()  // 直接完成
+  .subscribe(
+    result => console.log(result, 'Next...'),
+    error => console.error(error),
+    () => console.log('Complete!')
+  );
+  // Complete!
+```
+
+### from
+
+Creates an Observable from an Array, an array-like object, a Promise, an iterable object, or an Observable-like object.
+
+從陣列，像陣列的物件，Promise，可迭代物件或像 Observable 的物件建立一個 Observable。
+
+```js
+import { Map } from 'immutable';
+
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+const map1 = Map({ a: 1, b: 2, c: 3 });
+const map2 = map1.set('b', 4);
+
+Observable::from(map2)
+  .subscribe(value => console.log(value));
+  // ["a", 1]
+  // ["b", 4]
+  // ["c", 3]
+```
+
+### fromEvent
+
+Creates an Observable that emits events of a specific type coming from the given event target.
+
+建立一個 Observable，發出來自給定事件目標的特定類型的事件。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromEvent } from 'rxjs/observable/fromEvent';
+
+Observable::fromEvent(document, 'click')  // 點擊頁面
+  .subscribe(value => console.log(value.pageX, value.pageY));
+  // 打印出點擊的座標
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromEvent } from 'rxjs/observable';
+
+const ele = document.querySelector('#name');  // an input field (一個輸入框)
+
+Observable::fromEvent(ele, 'input')
+  ::map(event => event.target.value)
+  .subscribe(value => console.log(value));
+```
+
+### fromEventPattern
+
+Creates an Observable from an API based on addHandler/removeHandler functions.
+
+基於 addHandler/removeHandler 函式從 API 建立一個 Observable。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromEvent } from 'rxjs/observable/fromEvent';
+
+const addClickHandler = handler => document.addEventListener('click', handler);
+const removeClickHandler = handler => document.removeEventListener('click', handler);
+
+Observable::fromEventPattern(
+    addClickHandler,
+    removeClickHandler
+  )
+  .subscribe(value => console.log(value.screenX, value.screenY));
+  // xxx, xxx
+```
+
+### fromPromise
+
+將 Promise 轉化為 Observable。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromPromise } from 'rxjs/observable/fromPromise';
+
+const promise = new Promise(resolve => resolve('Hello World'));
+
+Observable::fromPromise(promise)
+  .subscribe(value => console.log(value));
+  // Hello World
+```
+
+### interval
+
+Creates an Observable that emits sequential numbers every specified interval of time, on a specified IScheduler.
+
+建立一個 Observable，它在指定的 IScheduler 上每隔指定的時間間隔發出序列號。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+Observable::interval(1000)
+  .subscribe(value => console.log(value));
+  // 0
+  // 1
+  // 2
+  // 3
+  // ...
+```
+
+### never
+
+Creates an Observable that emits no items to the Observer.
+
+建立一個不向 Observer 發射任何項目的 Observable。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { never } from 'rxjs/observable/never';
+
+import { startWith } from 'rxjs/operator/startWith';
+
+const info = () => console.log('這不會被呼叫');
+
+Observable::never()
+  ::startWith(11)
+  .subscribe(value => console.log(value), info, info);
+  // 11
+```
+
+### of
+
+為觀察者發射給予指定的參數做為一個值，然後再一個接著一個，最後再一次發射出去。
+
+```js
+import { of as of$ } from 'rxjs/observable';
+
+of$(1, 2, 3).subscribe(value => console.log(value));
+// 1
+// 2
+// 3
+```
+
+```js
+import { of as of$ } from 'rxjs/observable';
+
+of$({ a: 'A' }, [2, 'b'], () => 'C')
+  .subscribe(value => console.log(value));
+  // {a: "A"}
+  // [2, "b"]
+  // function () {
+  //   return 'C';
+  // }
+```
+
+### range
+
+Creates an Observable that emits a sequence of numbers within a specified range.
+
+建立一個 Observable，它發射指定範圍內的一系列數字。
+
+```js
+import { range } from 'rxjs/observable';
+
+range(1, 5).subscribe(value => console.log(value));
+  // 1
+  // 2
+  // 3
+  // 4
+  // 5
+```
+
+```js
+import { range } from 'rxjs/observable';
+import { map, count } from 'rxjs/operators';
+
+range(1, 5)
+  .pipe(
+    map(value => value * 2),
+    count(value => value % 3 === 0)
+  )
+  .subscribe(value => console.log(value));
+  // 1
+```
+
+### throw
+
+Creates an Observable that emits no items to the Observer and immediately emits an error notification.
+
+建立一個 Observable，它不向 Observer 發送任何項目，並立即發出錯誤通知。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { _throw } from 'rxjs/observable/throw';
+
+Observable::_throw('This is an error!')
+  .subscribe(
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+  // This is an error!
+```
+
+### timer
+
+Creates an Observable that starts emitting after an `initialDelay` and emits ever increasing numbers after each `period` of time thereafter.
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+
+Observable::timer(1000)
+  .subscribe(value => console.log(value));
+  // 0
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer } from 'rxjs/observable/timer';
+
+Observable::timer(1000, 2000)
+  .subscribe(value => console.log(value));
+  // 一秒後打印
+  // 0
+  // 再來都是兩秒後打印
+  // 1
+  // 2
+```
+
+## Transformation (轉化)
+
+### buffer
+
+緩衝所有輸出值，直到被發射出去。反覆執行...
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+import { fromEvent } from 'rxjs/observable/fromEvent';
+
+import { buffer } from 'rxjs/operator/buffer';
+
+Observable::interval(1000)
+  ::buffer(Observable::fromEvent(document, 'click'))  // 點擊頁面
+  .subscribe(value => console.log(value));
+  // 發射值
+  // [...]
+```
+
+### bufferCount
+
+緩衝所有輸出值，直到指定的數字被履行，然後再發射出去。反覆執行...
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { bufferCount } from 'rxjs/operator/bufferCount';
+
+const source$ = Observable::interval(1000);
+
+source$::bufferCount(3)
+  .subscribe(value => console.log(value));
+  // [0, 1, 2]
+  // 下個間隔
+  // [3, 4, 5]
+  // ...
+
+source$::bufferCount(3, 1)
+  .subscribe(value => console.log(value));
+  // [0, 1, 2]
+  // [1, 2, 3]
+  // [2, 3, 4]
+  // 下個間隔
+  // [3, 4, 5]
+  // [4, 5, 6]
+  // [5, 6, 7]
+  // ...
+```
+
+### bufferTime
+
+緩衝所有輸出值，直到到達指定的時間點，然後再發射出去。反覆執行...
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { bufferTime } from 'rxjs/operator/bufferTime';
+
+const source$ = Observable::interval(1000);
+
+source$::bufferTime(2000)
+  .subscribe(value => console.log(value));
+  // [0]
+  // 下個間隔
+  // [1, 2]
+  // 下個間隔
+  // [3, 4]
+  // ...
+
+source$::bufferTime(2000, 1000)
+  .subscribe(value => console.log(value));
+  // [0]
+  // [0, 1, 2]
+  // 下個間隔
+  // [1, 2, 3]
+  // [2, 3, 4]
+  // 下個間隔
+  // [3, 4, 5]
+  // [4, 5, 6]
+  // ...
+```
+
+### bufferToggle
+
+### bufferWhen
+
+### concatMap
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { concatMap } from 'rxjs/operator/concatMap';
+
+Observable::of('Hello', 'Goodbye')
+  ::concatMap(value => Observable::of(`${value} World!`))
+  .subscribe(value => console.log(value));
+  // Hello World!
+  // Goodbye World!
+```
+
+### concatMapTo
+
+### expand
+
+### groupBy
+
+Groups the items emitted by an Observable according to a specified criterion, and emits these grouped items as GroupedObservables, one GroupedObservable per group.
+
+按照指定的標準對 Observable 發出的項目進行分組，並將這些分組的項目作為 GroupedObservables 發送，每組一個 GroupedObservable
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable';
+
+import { groupBy } from 'rxjs/operator';
+
+const groupedData = [];
+
+Observable::from([1, 2, 3, 4, 5, 6])
+  ::groupBy(
+    group => group % 2,  // group
+    value => value + 2  // map
+  )
+  .subscribe(result => {
+    const group = { key: result.key, data: [] };
+    result.subscribe(value => group.data.push(value));
+    groupedData.push(group);
+  });
+
+console.log(groupedData);
+// [ { key: 1, data: [ 3, 5, 7 ] }, { key: 0, data: [ 4, 6, 8 ] } ]
+```
+
+### map
+
+對來源的每個值進行應用投射。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { map } from 'rxjs/operator/map';
+
+Observable::from([1, 2, 3, 4, 5])
+  ::map(value => value + 10)
+  .subscribe(value => console.log(value))
+  // 11
+  // 12
+  // 13
+  // 14
+  // 15
+
+Observable::from([
+    { name: 'Joe', age: 30 },
+    { name: 'Frank', age: 20 },
+    { name: 'Ryan', age: 50 }
+  ])
+  ::map(value => value.name)
+  .subscribe(value => console.log(value))
+  // Joe
+  // Frank
+  // Ryan
+```
+
+### mapTo
+
+將發射值映射到所賦予的常數。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { mapTo } from 'rxjs/operator/mapTo';
+
+Observable::interval(1000)
+  ::mapTo('Hello World!')
+  .subscribe(value => console.log(value));
+  // 每秒打印 Hello World!
+```
+
+### mergeMap
+
+將來源的值先映射到內部個觀察者，再將其合併發射出去。即，先 `map` 再 `mergeAll`。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { mergeMap } from 'rxjs/operator/mergeMap';
+
+Observable::of('Hello')
+  ::mergeMap(value => Observable::of(`${value} World!`))
+  .subscribe(value => console.log(value));
+  // Hello World!
+```
+
+### partition
+
+### pluck
+
+### scan
+
+Applies an accumulator function over the source Observable, and returns each intermediate result, with an optional seed value.
+
+在源 Observable 上應用累加器函式，並返回每個中間結果，並具有可選的種子值。
+
+```js
+import { of as of$ } from 'rxjs/observable';
+import { filter, map, scan } from 'rxjs/operators';
+
+of$(2, 5, 10)  // 2, 5, 10
+  .pipe(
+    filter(value => value % 2 === 0),  // 2, 10
+    map(value => value * 2),  // 2 * 2, 10 * 2
+    scan((acc, value) => acc + value, 0)  // 0 + 4, 4 + 20
+  )
+  .subscribe(value => console.log(value));
+  // 4
+  // 24
+```
+
+```js
+import { Subject } from 'rxjs';
+
+import { startWith, scan } from 'rxjs/operator';
+
+const subject = new Subject();
+
+subject::startWith(0)
+  ::scan((acc, curr) => acc + curr)
+  .subscribe(value => console.log(value));
+  // 0
+
+subject.next(1);  // 1 <= 0 + 1
+subject.next(2);  // 3 <= 1 + 2
+subject.next(3);  // 6 <= 3 + 3
+```
+
+累積物件
+
+```js
+import { Subject } from 'rxjs';
+
+import { scan } from 'rxjs/operator';
+
+const subject = new Subject();
+
+subject::scan((acc, curr) => Object.assign({}, acc, curr), {})
+  .subscribe(value => console.log(value));
+
+subject.next({ primary: 'JavaScript' });  // { primary: 'JavaScript' }
+subject.next({ accent: 'TypeScript' });  // { primary: 'JavaScript', accent: 'TypeScript' }
+```
+
+### switchMap
+
+Projects each source value to an Observable which is merged in the output Observable, emitting values only from the most recently projected Observable.
+
+將每個源值投射到一個 Observable，將其合併到輸出 Observable 中，僅從最近預計的 Observable 發射值。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer, interval } from 'rxjs/observable';
+
+import { switchMap } from 'rxjs/operator';
+
+Observable::timer(0, 5000)
+  ::switchMap(() => Observable::interval(500))
+  .subscribe(value => console.log(value));
+  // 0
+  // 1
+  // 2
+  // 3
+  // 4
+  // 5
+  // 6
+  // 7
+  // 8
+  // 0 - 重複
+  // 1
+  // 2
+  // ...
+```
+
+### window
+
+Branch out the source Observable values as a nested Observable whenever `windowBoundaries` emits.
+
+將每個 windowBoundaries 發出的源 Observable 值作為嵌套 Observable 分支。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { timer, interval } from 'rxjs/observable';
+
+import { window, scan, mergeAll } from 'rxjs/operator';
+
+const source = Observable::timer(0, 1000);
+
+const window$ = source::window(Observable::interval(3000))
+
+const count = window$::scan(acc => acc + 1, 0);
+
+count.subscribe(value => console.log(`Window ${value}:`));
+window$::mergeAll().subscribe(value => console.log(value));
+// Window 1:
+// 0
+// 1
+// 2
+// Window 2:
+// 3
+// 4
+// 5
+// Window 3:
+// 6
+// 7
+// 8
+// ...
+```
+
+### windowCount
+
+### windowTime
+
+### windowToggle
+
+### windowWhen
+
+## Filtering (過濾)
+
+### audit
+
+Ignores source values for a duration determined by another Observable, then emits the most recent value from the source Observable, then repeats this process.
+
+忽略由另一個 Observable 確定的持續時間的源值，然後從源 Observable 發出最新值，然後重複此過程
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable';
+
+import { take, audit } from 'rxjs/operator';
+
+Observable::interval(1000)
+  ::take(10)
+  ::audit(() => Observable::interval(1500))
+  .subscribe(value => console.log(value));
+  // 1
+  // 3
+  // 5
+  // 7
+```
+
+### debounce
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+import { timer } from 'rxjs/observable/timer';
+
+import { debounce } from 'rxjs/operator/debounce';
+
+Observable::of(1, 2, 3)
+  ::debounce(() => Observable::timer(1000))
+  .subscribe(value => console.log(value));
+  // 3
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+import { timer } from 'rxjs/observable/timer';
+
+import { debounce } from 'rxjs/operator/debounce';
+
+Observable::interval(1000)
+  ::debounce(value => Observable::timer(value * 200))
+  .subscribe(value => console.log(value));
+  // 0
+  // 1
+  // 2
+  // 3
+  // 4
+```
+
+### debounceTime
+
+Emits a value from the source Observable only after a particular time span has passed without another source emission.
+
+只有在特定的時間跨度已經過去之後才能從源 Observable 發射一個值，而不會有其他源發射
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable';
+
+import { debounceTime } from 'rxjs/operator';
+
+Observable::of(1, 2, 3)
+  ::debounceTime(1000)
+  .subscribe(value => console.log(value));
+  // 3
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { fromEvent } from 'rxjs/observable';
+
+import { map, debounceTime } from 'rxjs/operator';
+
+const input = document.querySelector('#text');
+
+Observable::fromEvent(input, 'keyup')
+  ::map(event => event.target.value)
+  ::debounceTime(500)
+  .subscribe(value => console.log(value));
+```
+
+### distinct
+
+Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from previous items.
+
+返回一個 Observable，它發射由來源 Observable 發射的所有項目，這些項目與以前的項目相比是不同的
+
+```js
+import { of } from 'rxjs/observable';
+import { distinct } from 'rxjs/operators';
+
+of('foo', 'bar', 1, 2, 3, 2, 1, 'bar', 'foo')
+  .pipe(
+    distinct()
+  )
+  .subscribe(value => console.log(value));
+  // foo
+  // bar
+  // 1
+  // 2
+  // 3
+```
+
+### distinctUntilChanged
+
+### filter
+
+過濾給予的條件值，再將值發射出去。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { filter } from 'rxjs/operator/filter';
+
+Observable::from([1, 2, 3, 4, 5])
+  ::filter(num => num % 2 === 0)  // 過濾掉非偶數的數值
+  .subscribe(value => console.log(value));
+  // 2
+  // 4
+```
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { filter } from 'rxjs/operator/filter';
+
+Observable::from([
+    { name: 'Joe', age: 31 },
+    { name: 'Bob', age: 25 }
+  ])
+  ::filter(person => person.age > 30)  // 過濾掉大於 30 歲的人
+  .subscribe(value => console.log(`Over 30: ${value.name}`));
+  // Over 30: Joe
+```
+
+### first
+
+僅發射來源 Observable 射出的第一個值 (或滿足某個條件的第一個值)。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { first } from 'rxjs/operator/first';
+
+const source$ = Observable::from([1, 2, 3, 4, 5]);
+
+source$::first()
+  .subscribe(value => console.log(value));
+  // 1
+
+source$::first(value => value === 3)
+  .subscribe(value => console.log(value));
+  // 3
+
+source$::first(
+    value => value % 2 === 0,
+    (result, index) => `First even: ${result} is at index: ${index}`
+  )
+  .subscribe(value => console.log(value));
+  // First even: 2 is at index: 1
+
+source$::first(
+    value => value > 5,
+    value => `Value: ${value}`,
+    'Default Value'
+  )
+  .subscribe(value => console.log(value));
+  // Default Value
+```
+
+### ignoreElements
+
+Ignores all items emitted by the source Observable and only passes calls of `complete` or `error`.
+
+忽略源 Observable 發射的所有項目，只傳遞 `complete` 或 `error` 的呼叫。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { ignoreElements } from 'rxjs/operator/ignoreElements';
+
+Observable::from([1, 2, 3])
+  ::ignoreElements()
+  .subscribe(
+    value => console.log(value),
+    error => console.error(error),
+    () => console.log('done')
+  );
+  // done
+```
+
+### last
+
+Returns an Observable that emits only the last item emitted by the source Observable.
+
+返回一個僅發出源 Observable 發射的最後一個項目的 Observable。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { last } from 'rxjs/operator/last';
+
+const source$ = Observable::from([1, 2, 3, 4, 5]);
+
+source$::last()
+  .subscribe(value => console.log(value));
+  // 5
+
+source$::last(value => value % 2 === 0)
+  .subscribe(value => console.log(value));
+  // 4
+
+source$::last(
+    value => value % 2 === 0,
+    (result, index) => `Last even: ${result} is at index: ${index}`
+  )
+  .subscribe(value => console.log(value));
+  // Last even: 4 is at index: 3
+```
+
+### sample
+
+Emits the most recently emitted value from the source Observable whenever another Observable, the `notifier`, emits.
+
+當 `notifier` 發射另一個 Observable 時，從源 Observable 發射最近發射的值。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { sample } from 'rxjs/operator/sample';
+
+Observable::interval(1000)
+  ::sample(Observable::interval(2000))
+  .subscribe(value => console.log(value));
+  // 0
+  // 2
+  // 4
+  // 6
+  // ...
+```
+
+### single
+
+Returns an Observable that emits the single item emitted by the source Observable that matches a specified predicate, if that Observable emits one such item.
+
+返回一個 Observable，它發出源 Observable 發射的與指定謂詞匹配的單個項，如果該 Observable 發射一個這樣的項。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { from } from 'rxjs/observable/from';
+
+import { single } from 'rxjs/operator/single';
+
+Observable::from([1, 2, 3, 4, 5])
+  ::single(value => value === 4)
+  .subscribe(value => console.log(value));
+  // 4
+```
+
+### skip
+
+Returns an Observable that skips the first `count` items emitted by the source Observable.
+
+返回一個 Observable，它忽略源 Observable 發射的第一個 `count` 項。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { skip } from 'rxjs/operator/skip';
+
+Observable::interval(1000)
+  ::skip(3)
+  .subscribe(value => console.log(value));
+  // 3
+  // 4
+  // 5
+  // ...
+```
+
+### skipUntil
+
+Returns an Observable that skips items emitted by the source Observable until a second Observable emits an item.
+
+返回一個 Observable，它跳過源 Observable 發射的項目，直到第二個 Observable 發射一個項目。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+import { timer } from 'rxjs/observable/timer';
+
+import { skipUntil } from 'rxjs/operator/skipUntil';
+
+Observable::interval(1000)
+  ::skipUntil(Observable::timer(3000))
+  .subscribe(value => console.log(value));
+  // 2
+  // 3
+  // 4
+  // ...
+```
+
+### skipWhile
+
+Returns an Observable that skips all items emitted by the source Observable as long as a specified condition holds true, but emits all further source items as soon as the condition becomes false.
+
+返回一個 Observable，它可以忽略源 Observable 發射的所有項目，只要指定的條件成立，只要條件變為 false，就會發射所有其他的源項目。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { skipWhile } from 'rxjs/operator/skipWhile';
+
+Observable::interval(1000)
+  ::skipWhile(value => value < 3)
+  .subscribe(value => console.log(value));
+  // 3
+  // 4
+  // 5
+  // ...
+```
+
+### take
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { of } from 'rxjs/observable/of';
+
+import { take } from 'rxjs/operator/take';
+
+Observable::of(1, 2, 3, 4, 5)
+  ::take(3)
+  .subscribe(value => console.log(value));
+  // 1
+  // 2
+  // 3
+```
+
+### takeUntil
+
+Emits the values emitted by the source Observable until a `notifier` Observable emits a value.
+
+發出源 Observable 發出的值，直到 `notifier` Observable 發出一個值。
+
+```js
+import { Observable } from 'rxjs';
+import { interval, timer } from 'rxjs/observable';
+import { takeUntil } from 'rxjs/operator';
+
+Observable::interval(1000)
+  ::takeUntil(Observable::timer(5000))
+  .subscribe(value => console.log(value));
+  // 0
+  // 1
+  // 2
+  // 3
+```
+
+### takeWhile
+
+Emits values emitted by the source Observable so long as each value satisfies the given `predicate`, and then completes as soon as this `predicate` is not satisfied.
+
+只要每個值滿足給定的 `predicate`，就發出源 Observable 發出的值，然後一旦這個 `predicate` 不滿足就立即完成。
+
+```js
+import { Observable } from 'rxjs';
+import { of } from 'rxjs/observable';
+import { takeWhile } from 'rxjs/operator';
+
+Observable::of(2, 2, 4, 4, 6, 6, 8, 8, 6, 6, 4, 4, 2, 2)
+  ::takeWhile(value => value === 2)
+  .subscribe(value => console.log(value));
+  // 2
+  // 2
+```
+
+### throttle
+
+Emits a value from the source Observable, then ignores subsequent source values for a duration determined by another Observable, then repeats this process.
+
+從源 Observable 中發出一個值，然後忽略由另一個 Observable 確定的持續源值，然後重複此過程。
+
+```js
+import { Observable } from 'rxjs/Observable';
+
+import { interval } from 'rxjs/observable/interval';
+
+import { throttle } from 'rxjs/operator/throttle';
+
+Observable::interval(1000)
+  ::throttle(() => Observable::interval(3000))
+  .subscribe(value => console.log(value));
+  // 0
+  // 4
+  // 8
+  // 12
+  // ...
+```
+
+### throttleTime
+
+Emits a value from the source Observable, then ignores subsequent source values for a duration determined by another Observable, then repeats this process.
+
+從源 Observable 發射一個值，然後忽略由另一個 Observable 確定的持續時間的後續源值，然後重複這個過程。
+
+```js
+import { Observable } from 'rxjs';
+import { interval } from 'rxjs/observable';
+import { throttleTime } from 'rxjs/operator';
+
+Observable::interval(1000)
+  ::throttleTime(5000)
+  .subscribe(value => console.log(value));
+  // 0
+  // 5
+  // 10
+  // 15
+  // 20
+  // ...
+```
+
 ## Combination (組合)
 
 ### combineAll
@@ -1085,332 +2205,79 @@ Observable::zip(
   // [ 'Foo', 'Bar', 'Baz' ]
 ```
 
-## Creation (建立)
+## Multicasting (組播)
 
-### bindCallback
+### multicast
 
-將回呼 API 轉換成返回 Observable 函式。
+### publish
 
-```js
-import { Observable } from 'rxjs/Observable';
+Returns a ConnectableObservable, which is a variety of Observable that waits until its connect method is called before it begins emitting items to those Observers that have subscribed to it.
 
-import { bindCallback } from 'rxjs/observable/bindCallback';
-
-const source$ = Observable::bindCallback(
-  (value, callback) => callback(`Hello ${value}`)
-);
-
-source$('World')
-  .subscribe(value => console.log(value));
-  // Hello World
-```
-
-### bindNodeCallback
-
-將 Node.js 風格的回呼 API 轉換成返回 Observable 函式。
+返回一個 ConnectableObservable，它是各種 Observable 等待，直到它的連接方法被調用之前，它開始向已經訂閱的觀察者發送項目。
 
 ```js
-import { readdir } from 'fs';
+import Observable from 'rxjs/Observable';
+import { interval } from 'rxjs/observable';
+import { publish } from 'rxjs/operator';
 
-import { Observable } from 'rxjs/Observable';
+import { _do } from 'rxjs/operator/do';
 
-import { bindNodeCallback } from 'rxjs/observable/bindNodeCallback';
+const source$ = Observable::interval(1000)
+  ::_do(() => console.log('----------'))
+  ::publish();
 
-const source$ = Observable::bindNodeCallback(readdir);
+source$.subscribe(value => console.log(`Subscriber One: ${value}`));
+source$.subscribe(value => console.log(`Subscriber Two: ${value}`));
 
-source$(process.cwd())
-  .subscribe(value => console.log(value));
-  // $ ls -a
+setTimeout(() => source$.connect(), 3000);
+// ----------
+// Subscriber One: 0
+// Subscriber Two: 0
+// ----------
+// Subscriber One: 1
+// Subscriber Two: 1
+// ----------
+// Subscriber One: 2
+// Subscriber Two: 2
+// ----------
+// Subscriber One: 3
+// Subscriber Two: 3
+// ...
 ```
 
-### create
+### share
 
-Creates a new Observable that will execute the specified function when a Subscriber subscribes to it.
+Returns a new Observable that multicasts (shares) the original Observable.
 
-建立一個新的 Observable，當 Subscriber 訂閱時，它將執行指定的函式。
-
-```js
-import * as Rx from 'rxjs/Rx';
-
-Rx.Observable.create(observer => {
-    observer.next('Hello');
-    observer.next('World');
-  })
-  .subscribe(value => console.log(value));
-  // Hello
-  // World
-```
-
-### defer
-
-Creates an Observable that, on subscribe, calls an Observable factory to make an Observable for each new Observer.
-
-建立一個 Observable，在 subscribe 上，調用一個 Observable 工廠為每個新的 Observer 做一個 Observable。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { defer } from 'rxjs/observable/defer';
-import { of } from 'rxjs/observable/of';
-
-Observable::defer(() => Observable::of(1, 2, 3))
-  .subscribe(value => console.log(value + 1));
-  // 2
-  // 3
-  // 4
-```
-
-### empty
-
-Creates an Observable that emits no items to the Observer and immediately emits a complete notification.
-
-建立一個不向 Observer 發送項的 Observable，並立即發出一個完整的通知。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { empty } from 'rxjs/observable/empty';
-
-Observable::empty()  // 直接完成
-  .subscribe(
-    result => console.log(result, 'Next...'),
-    error => console.error(error),
-    () => console.log('Complete!')
-  );
-  // Complete!
-```
-
-### from
-
-Creates an Observable from an Array, an array-like object, a Promise, an iterable object, or an Observable-like object.
-
-從陣列，像陣列的物件，Promise，可迭代物件或像 Observable 的物件建立一個 Observable。
-
-```js
-import { Map } from 'immutable';
-
-import { Observable } from 'rxjs/Observable';
-
-import { from } from 'rxjs/observable/from';
-
-const map1 = Map({ a: 1, b: 2, c: 3 });
-const map2 = map1.set('b', 4);
-
-Observable::from(map2)
-  .subscribe(value => console.log(value));
-  // ["a", 1]
-  // ["b", 4]
-  // ["c", 3]
-```
-
-### fromEvent
-
-Creates an Observable that emits events of a specific type coming from the given event target.
-
-建立一個 Observable，發出來自給定事件目標的特定類型的事件。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { fromEvent } from 'rxjs/observable/fromEvent';
-
-Observable::fromEvent(document, 'click')  // 點擊頁面
-  .subscribe(value => console.log(value.pageX, value.pageY));
-  // 打印出點擊的座標
-```
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { fromEvent } from 'rxjs/observable';
-
-const ele = document.querySelector('#name');  // an input field (一個輸入框)
-
-Observable::fromEvent(ele, 'input')
-  ::map(event => event.target.value)
-  .subscribe(value => console.log(value));
-```
-
-### fromEventPattern
-
-Creates an Observable from an API based on addHandler/removeHandler functions.
-
-基於 addHandler/removeHandler 函式從 API 建立一個 Observable。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { fromEvent } from 'rxjs/observable/fromEvent';
-
-const addClickHandler = handler => document.addEventListener('click', handler);
-const removeClickHandler = handler => document.removeEventListener('click', handler);
-
-Observable::fromEventPattern(
-    addClickHandler,
-    removeClickHandler
-  )
-  .subscribe(value => console.log(value.screenX, value.screenY));
-  // xxx, xxx
-```
-
-### fromPromise
-
-將 Promise 轉化為 Observable。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { fromPromise } from 'rxjs/observable/fromPromise';
-
-const promise = new Promise(resolve => resolve('Hello World'));
-
-Observable::fromPromise(promise)
-  .subscribe(value => console.log(value));
-  // Hello World
-```
-
-### interval
-
-Creates an Observable that emits sequential numbers every specified interval of time, on a specified IScheduler.
-
-建立一個 Observable，它在指定的 IScheduler 上每隔指定的時間間隔發出序列號。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-
-Observable::interval(1000)
-  .subscribe(value => console.log(value));
-  // 0
-  // 1
-  // 2
-  // 3
-  // ...
-```
-
-### never
-
-Creates an Observable that emits no items to the Observer.
-
-建立一個不向 Observer 發射任何項目的 Observable。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { never } from 'rxjs/observable/never';
-
-import { startWith } from 'rxjs/operator/startWith';
-
-const info = () => console.log('這不會被呼叫');
-
-Observable::never()
-  ::startWith(11)
-  .subscribe(value => console.log(value), info, info);
-  // 11
-```
-
-### of
-
-為觀察者發射給予指定的參數做為一個值，然後再一個接著一個，最後再一次發射出去。
-
-```js
-import { of as of$ } from 'rxjs/observable';
-
-of$(1, 2, 3).subscribe(value => console.log(value));
-// 1
-// 2
-// 3
-```
-
-```js
-import { of as of$ } from 'rxjs/observable';
-
-of$({ a: 'A' }, [2, 'b'], () => 'C')
-  .subscribe(value => console.log(value));
-  // {a: "A"}
-  // [2, "b"]
-  // function () {
-  //   return 'C';
-  // }
-```
-
-### range
-
-Creates an Observable that emits a sequence of numbers within a specified range.
-
-建立一個 Observable，它發射指定範圍內的一系列數字。
-
-```js
-import { range } from 'rxjs/observable';
-
-range(1, 5).subscribe(value => console.log(value));
-  // 1
-  // 2
-  // 3
-  // 4
-  // 5
-```
-
-```js
-import { range } from 'rxjs/observable';
-import { map, count } from 'rxjs/operators';
-
-range(1, 5)
-  .pipe(
-    map(value => value * 2),
-    count(value => value % 3 === 0)
-  )
-  .subscribe(value => console.log(value));
-  // 1
-```
-
-### throw
-
-Creates an Observable that emits no items to the Observer and immediately emits an error notification.
-
-建立一個 Observable，它不向 Observer 發送任何項目，並立即發出錯誤通知。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { _throw } from 'rxjs/observable/throw';
-
-Observable::_throw('This is an error!')
-  .subscribe(
-    value => console.log(value),
-    error => console.error(error),
-    () => console.log('done')
-  );
-  // This is an error!
-```
-
-### timer
-
-Creates an Observable that starts emitting after an `initialDelay` and emits ever increasing numbers after each `period` of time thereafter.
+返回一個新的 Observable 來組播 (共享) 原始的 Observable
 
 ```js
 import { Observable } from 'rxjs/Observable';
 
 import { timer } from 'rxjs/observable/timer';
 
-Observable::timer(1000)
-  .subscribe(value => console.log(value));
-  // 0
-```
+import { _do } from 'rxjs/operator/do';
+import { mapTo } from 'rxjs/operator/mapTo';
+import { share } from 'rxjs/operator/share';
 
-```js
-import { Observable } from 'rxjs/Observable';
+const source$ = Observable::timer(1000)
+  ::_do(() => console.log('***SIDE EFFECT***'))
+  ::mapTo('***RESULT***');
 
-import { timer } from 'rxjs/observable/timer';
+source$.subscribe(value => console.log(value));
+source$.subscribe(value => console.log(value));
+// ***SIDE EFFECT***
+// ***RESULT***
+// ***SIDE EFFECT***
+// ***RESULT***
 
-Observable::timer(1000, 2000)
-  .subscribe(value => console.log(value));
-  // 一秒後打印
-  // 0
-  // 再來都是兩秒後打印
-  // 1
-  // 2
+const sourceShared$ = timer$::share();
+
+sourceShared$.subscribe(value => console.log(value));
+sourceShared$.subscribe(value => console.log(value));
+// **SIDE EFFECT***
+// ***RESULT***
+// ***RESULT***
 ```
 
 ## Error Handling (錯誤處理)
@@ -1496,873 +2363,6 @@ Observable::of('foo', 'bar', 'error')
   ::retryWhen(() => Observable::of('bar'))
   .subscribe(value => console.log(value));
 ```
-
-## Filtering (過濾)
-
-### audit
-
-Ignores source values for a duration determined by another Observable, then emits the most recent value from the source Observable, then repeats this process.
-
-忽略由另一個 Observable 確定的持續時間的源值，然後從源 Observable 發出最新值，然後重複此過程
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable';
-
-import { take, audit } from 'rxjs/operator';
-
-Observable::interval(1000)
-  ::take(10)
-  ::audit(() => Observable::interval(1500))
-  .subscribe(value => console.log(value));
-  // 1
-  // 3
-  // 5
-  // 7
-```
-
-### debounce
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable/of';
-import { timer } from 'rxjs/observable/timer';
-
-import { debounce } from 'rxjs/operator/debounce';
-
-Observable::of(1, 2, 3)
-  ::debounce(() => Observable::timer(1000))
-  .subscribe(value => console.log(value));
-  // 3
-```
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-import { timer } from 'rxjs/observable/timer';
-
-import { debounce } from 'rxjs/operator/debounce';
-
-Observable::interval(1000)
-  ::debounce(value => Observable::timer(value * 200))
-  .subscribe(value => console.log(value));
-  // 0
-  // 1
-  // 2
-  // 3
-  // 4
-```
-
-### debounceTime
-
-Emits a value from the source Observable only after a particular time span has passed without another source emission.
-
-只有在特定的時間跨度已經過去之後才能從源 Observable 發射一個值，而不會有其他源發射
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable';
-
-import { debounceTime } from 'rxjs/operator';
-
-Observable::of(1, 2, 3)
-  ::debounceTime(1000)
-  .subscribe(value => console.log(value));
-  // 3
-```
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { fromEvent } from 'rxjs/observable';
-
-import { map, debounceTime } from 'rxjs/operator';
-
-const input = document.querySelector('#text');
-
-Observable::fromEvent(input, 'keyup')
-  ::map(event => event.target.value)
-  ::debounceTime(500)
-  .subscribe(value => console.log(value));
-```
-
-### distinct
-
-Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from previous items.
-
-返回一個 Observable，它發射由來源 Observable 發射的所有項目，這些項目與以前的項目相比是不同的
-
-```js
-import { of } from 'rxjs/observable';
-import { distinct } from 'rxjs/operators';
-
-of('foo', 'bar', 1, 2, 3, 2, 1, 'bar', 'foo')
-  .pipe(
-    distinct()
-  )
-  .subscribe(value => console.log(value));
-  // foo
-  // bar
-  // 1
-  // 2
-  // 3
-```
-
-### distinctUntilChanged
-
-### filter
-
-過濾給予的條件值，再將值發射出去。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { from } from 'rxjs/observable/from';
-
-import { filter } from 'rxjs/operator/filter';
-
-Observable::from([1, 2, 3, 4, 5])
-  ::filter(num => num % 2 === 0)  // 過濾掉非偶數的數值
-  .subscribe(value => console.log(value));
-  // 2
-  // 4
-```
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { from } from 'rxjs/observable/from';
-
-import { filter } from 'rxjs/operator/filter';
-
-Observable::from([
-    { name: 'Joe', age: 31 },
-    { name: 'Bob', age: 25 }
-  ])
-  ::filter(person => person.age > 30)  // 過濾掉大於 30 歲的人
-  .subscribe(value => console.log(`Over 30: ${value.name}`));
-  // Over 30: Joe
-```
-
-### first
-
-僅發射來源 Observable 射出的第一個值 (或滿足某個條件的第一個值)。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { from } from 'rxjs/observable/from';
-
-import { first } from 'rxjs/operator/first';
-
-const source$ = Observable::from([1, 2, 3, 4, 5]);
-
-source$::first()
-  .subscribe(value => console.log(value));
-  // 1
-
-source$::first(value => value === 3)
-  .subscribe(value => console.log(value));
-  // 3
-
-source$::first(
-    value => value % 2 === 0,
-    (result, index) => `First even: ${result} is at index: ${index}`
-  )
-  .subscribe(value => console.log(value));
-  // First even: 2 is at index: 1
-
-source$::first(
-    value => value > 5,
-    value => `Value: ${value}`,
-    'Default Value'
-  )
-  .subscribe(value => console.log(value));
-  // Default Value
-```
-
-### ignoreElements
-
-Ignores all items emitted by the source Observable and only passes calls of `complete` or `error`.
-
-忽略源 Observable 發射的所有項目，只傳遞 `complete` 或 `error` 的呼叫。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { from } from 'rxjs/observable/from';
-
-import { ignoreElements } from 'rxjs/operator/ignoreElements';
-
-Observable::from([1, 2, 3])
-  ::ignoreElements()
-  .subscribe(
-    value => console.log(value),
-    error => console.error(error),
-    () => console.log('done')
-  );
-  // done
-```
-
-### last
-
-Returns an Observable that emits only the last item emitted by the source Observable.
-
-返回一個僅發出源 Observable 發射的最後一個項目的 Observable。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { from } from 'rxjs/observable/from';
-
-import { last } from 'rxjs/operator/last';
-
-const source$ = Observable::from([1, 2, 3, 4, 5]);
-
-source$::last()
-  .subscribe(value => console.log(value));
-  // 5
-
-source$::last(value => value % 2 === 0)
-  .subscribe(value => console.log(value));
-  // 4
-
-source$::last(
-    value => value % 2 === 0,
-    (result, index) => `Last even: ${result} is at index: ${index}`
-  )
-  .subscribe(value => console.log(value));
-  // Last even: 4 is at index: 3
-```
-
-### sample
-
-Emits the most recently emitted value from the source Observable whenever another Observable, the `notifier`, emits.
-
-當 `notifier` 發射另一個 Observable 時，從源 Observable 發射最近發射的值。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-
-import { sample } from 'rxjs/operator/sample';
-
-Observable::interval(1000)
-  ::sample(Observable::interval(2000))
-  .subscribe(value => console.log(value));
-  // 0
-  // 2
-  // 4
-  // 6
-  // ...
-```
-
-### single
-
-Returns an Observable that emits the single item emitted by the source Observable that matches a specified predicate, if that Observable emits one such item.
-
-返回一個 Observable，它發出源 Observable 發射的與指定謂詞匹配的單個項，如果該 Observable 發射一個這樣的項。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { from } from 'rxjs/observable/from';
-
-import { single } from 'rxjs/operator/single';
-
-Observable::from([1, 2, 3, 4, 5])
-  ::single(value => value === 4)
-  .subscribe(value => console.log(value));
-  // 4
-```
-
-### skip
-
-Returns an Observable that skips the first `count` items emitted by the source Observable.
-
-返回一個 Observable，它忽略源 Observable 發射的第一個 `count` 項。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-
-import { skip } from 'rxjs/operator/skip';
-
-Observable::interval(1000)
-  ::skip(3)
-  .subscribe(value => console.log(value));
-  // 3
-  // 4
-  // 5
-  // ...
-```
-
-### skipUntil
-
-Returns an Observable that skips items emitted by the source Observable until a second Observable emits an item.
-
-返回一個 Observable，它跳過源 Observable 發射的項目，直到第二個 Observable 發射一個項目。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-import { timer } from 'rxjs/observable/timer';
-
-import { skipUntil } from 'rxjs/operator/skipUntil';
-
-Observable::interval(1000)
-  ::skipUntil(Observable::timer(3000))
-  .subscribe(value => console.log(value));
-  // 2
-  // 3
-  // 4
-  // ...
-```
-
-### skipWhile
-
-Returns an Observable that skips all items emitted by the source Observable as long as a specified condition holds true, but emits all further source items as soon as the condition becomes false.
-
-返回一個 Observable，它可以忽略源 Observable 發射的所有項目，只要指定的條件成立，只要條件變為 false，就會發射所有其他的源項目。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-
-import { skipWhile } from 'rxjs/operator/skipWhile';
-
-Observable::interval(1000)
-  ::skipWhile(value => value < 3)
-  .subscribe(value => console.log(value));
-  // 3
-  // 4
-  // 5
-  // ...
-```
-
-### take
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable/of';
-
-import { take } from 'rxjs/operator/take';
-
-Observable::of(1, 2, 3, 4, 5)
-  ::take(3)
-  .subscribe(value => console.log(value));
-  // 1
-  // 2
-  // 3
-```
-
-### takeUntil
-
-Emits the values emitted by the source Observable until a `notifier` Observable emits a value.
-
-發出源 Observable 發出的值，直到 `notifier` Observable 發出一個值。
-
-```js
-import { Observable } from 'rxjs';
-import { interval, timer } from 'rxjs/observable';
-import { takeUntil } from 'rxjs/operator';
-
-Observable::interval(1000)
-  ::takeUntil(Observable::timer(5000))
-  .subscribe(value => console.log(value));
-  // 0
-  // 1
-  // 2
-  // 3
-```
-
-### takeWhile
-
-Emits values emitted by the source Observable so long as each value satisfies the given `predicate`, and then completes as soon as this `predicate` is not satisfied.
-
-只要每個值滿足給定的 `predicate`，就發出源 Observable 發出的值，然後一旦這個 `predicate` 不滿足就立即完成。
-
-```js
-import { Observable } from 'rxjs';
-import { of } from 'rxjs/observable';
-import { takeWhile } from 'rxjs/operator';
-
-Observable::of(2, 2, 4, 4, 6, 6, 8, 8, 6, 6, 4, 4, 2, 2)
-  ::takeWhile(value => value === 2)
-  .subscribe(value => console.log(value));
-  // 2
-  // 2
-```
-
-### throttle
-
-Emits a value from the source Observable, then ignores subsequent source values for a duration determined by another Observable, then repeats this process.
-
-從源 Observable 中發出一個值，然後忽略由另一個 Observable 確定的持續源值，然後重複此過程。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-
-import { throttle } from 'rxjs/operator/throttle';
-
-Observable::interval(1000)
-  ::throttle(() => Observable::interval(3000))
-  .subscribe(value => console.log(value));
-  // 0
-  // 4
-  // 8
-  // 12
-  // ...
-```
-
-### throttleTime
-
-Emits a value from the source Observable, then ignores subsequent source values for a duration determined by another Observable, then repeats this process.
-
-從源 Observable 發射一個值，然後忽略由另一個 Observable 確定的持續時間的後續源值，然後重複這個過程。
-
-```js
-import { Observable } from 'rxjs';
-import { interval } from 'rxjs/observable';
-import { throttleTime } from 'rxjs/operator';
-
-Observable::interval(1000)
-  ::throttleTime(5000)
-  .subscribe(value => console.log(value));
-  // 0
-  // 5
-  // 10
-  // 15
-  // 20
-  // ...
-```
-
-## Multicasting (組播)
-
-### multicast
-
-### publish
-
-Returns a ConnectableObservable, which is a variety of Observable that waits until its connect method is called before it begins emitting items to those Observers that have subscribed to it.
-
-返回一個 ConnectableObservable，它是各種 Observable 等待，直到它的連接方法被調用之前，它開始向已經訂閱的觀察者發送項目。
-
-```js
-import Observable from 'rxjs/Observable';
-import { interval } from 'rxjs/observable';
-import { publish } from 'rxjs/operator';
-
-import { _do } from 'rxjs/operator/do';
-
-const source$ = Observable::interval(1000)
-  ::_do(() => console.log('----------'))
-  ::publish();
-
-source$.subscribe(value => console.log(`Subscriber One: ${value}`));
-source$.subscribe(value => console.log(`Subscriber Two: ${value}`));
-
-setTimeout(() => source$.connect(), 3000);
-// ----------
-// Subscriber One: 0
-// Subscriber Two: 0
-// ----------
-// Subscriber One: 1
-// Subscriber Two: 1
-// ----------
-// Subscriber One: 2
-// Subscriber Two: 2
-// ----------
-// Subscriber One: 3
-// Subscriber Two: 3
-// ...
-```
-
-### share
-
-Returns a new Observable that multicasts (shares) the original Observable.
-
-返回一個新的 Observable 來組播 (共享) 原始的 Observable
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { timer } from 'rxjs/observable/timer';
-
-import { _do } from 'rxjs/operator/do';
-import { mapTo } from 'rxjs/operator/mapTo';
-import { share } from 'rxjs/operator/share';
-
-const source$ = Observable::timer(1000)
-  ::_do(() => console.log('***SIDE EFFECT***'))
-  ::mapTo('***RESULT***');
-
-source$.subscribe(value => console.log(value));
-source$.subscribe(value => console.log(value));
-// ***SIDE EFFECT***
-// ***RESULT***
-// ***SIDE EFFECT***
-// ***RESULT***
-
-const sourceShared$ = timer$::share();
-
-sourceShared$.subscribe(value => console.log(value));
-sourceShared$.subscribe(value => console.log(value));
-// **SIDE EFFECT***
-// ***RESULT***
-// ***RESULT***
-```
-
-## Transformation (轉化)
-
-### buffer
-
-緩衝所有輸出值，直到被發射出去。反覆執行...
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-
-import { buffer } from 'rxjs/operator/buffer';
-
-Observable::interval(1000)
-  ::buffer(Observable::fromEvent(document, 'click'))  // 點擊頁面
-  .subscribe(value => console.log(value));
-  // 發射值
-  // [...]
-```
-
-### bufferCount
-
-緩衝所有輸出值，直到指定的數字被履行，然後再發射出去。反覆執行...
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-
-import { bufferCount } from 'rxjs/operator/bufferCount';
-
-const source$ = Observable::interval(1000);
-
-source$::bufferCount(3)
-  .subscribe(value => console.log(value));
-  // [0, 1, 2]
-  // 下個間隔
-  // [3, 4, 5]
-  // ...
-
-source$::bufferCount(3, 1)
-  .subscribe(value => console.log(value));
-  // [0, 1, 2]
-  // [1, 2, 3]
-  // [2, 3, 4]
-  // 下個間隔
-  // [3, 4, 5]
-  // [4, 5, 6]
-  // [5, 6, 7]
-  // ...
-```
-
-### bufferTime
-
-緩衝所有輸出值，直到到達指定的時間點，然後再發射出去。反覆執行...
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-
-import { bufferTime } from 'rxjs/operator/bufferTime';
-
-const source$ = Observable::interval(1000);
-
-source$::bufferTime(2000)
-  .subscribe(value => console.log(value));
-  // [0]
-  // 下個間隔
-  // [1, 2]
-  // 下個間隔
-  // [3, 4]
-  // ...
-
-source$::bufferTime(2000, 1000)
-  .subscribe(value => console.log(value));
-  // [0]
-  // [0, 1, 2]
-  // 下個間隔
-  // [1, 2, 3]
-  // [2, 3, 4]
-  // 下個間隔
-  // [3, 4, 5]
-  // [4, 5, 6]
-  // ...
-```
-
-### bufferToggle
-
-### bufferWhen
-
-### concatMap
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable/of';
-
-import { concatMap } from 'rxjs/operator/concatMap';
-
-Observable::of('Hello', 'Goodbye')
-  ::concatMap(value => Observable::of(`${value} World!`))
-  .subscribe(value => console.log(value));
-  // Hello World!
-  // Goodbye World!
-```
-
-### concatMapTo
-
-### expand
-
-### groupBy
-
-Groups the items emitted by an Observable according to a specified criterion, and emits these grouped items as GroupedObservables, one GroupedObservable per group.
-
-按照指定的標準對 Observable 發出的項目進行分組，並將這些分組的項目作為 GroupedObservables 發送，每組一個 GroupedObservable
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { from } from 'rxjs/observable';
-
-import { groupBy } from 'rxjs/operator';
-
-const groupedData = [];
-
-Observable::from([1, 2, 3, 4, 5, 6])
-  ::groupBy(
-    group => group % 2,  // group
-    value => value + 2  // map
-  )
-  .subscribe(result => {
-    const group = { key: result.key, data: [] };
-    result.subscribe(value => group.data.push(value));
-    groupedData.push(group);
-  });
-
-console.log(groupedData);
-// [ { key: 1, data: [ 3, 5, 7 ] }, { key: 0, data: [ 4, 6, 8 ] } ]
-```
-
-### map
-
-對來源的每個值進行應用投射。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { from } from 'rxjs/observable/from';
-
-import { map } from 'rxjs/operator/map';
-
-Observable::from([1, 2, 3, 4, 5])
-  ::map(value => value + 10)
-  .subscribe(value => console.log(value))
-  // 11
-  // 12
-  // 13
-  // 14
-  // 15
-
-Observable::from([
-    { name: 'Joe', age: 30 },
-    { name: 'Frank', age: 20 },
-    { name: 'Ryan', age: 50 }
-  ])
-  ::map(value => value.name)
-  .subscribe(value => console.log(value))
-  // Joe
-  // Frank
-  // Ryan
-```
-
-### mapTo
-
-將發射值映射到所賦予的常數。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { interval } from 'rxjs/observable/interval';
-
-import { mapTo } from 'rxjs/operator/mapTo';
-
-Observable::interval(1000)
-  ::mapTo('Hello World!')
-  .subscribe(value => console.log(value));
-  // 每秒打印 Hello World!
-```
-
-### mergeMap
-
-將來源的值先映射到內部個觀察者，再將其合併發射出去。即，先 `map` 再 `mergeAll`。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs/observable/of';
-
-import { mergeMap } from 'rxjs/operator/mergeMap';
-
-Observable::of('Hello')
-  ::mergeMap(value => Observable::of(`${value} World!`))
-  .subscribe(value => console.log(value));
-  // Hello World!
-```
-
-### partition
-
-### pluck
-
-### scan
-
-Applies an accumulator function over the source Observable, and returns each intermediate result, with an optional seed value.
-
-在源 Observable 上應用累加器函式，並返回每個中間結果，並具有可選的種子值。
-
-```js
-import { of as of$ } from 'rxjs/observable';
-import { filter, map, scan } from 'rxjs/operators';
-
-of$(2, 5, 10)  // 2, 5, 10
-  .pipe(
-    filter(value => value % 2 === 0),  // 2, 10
-    map(value => value * 2),  // 2 * 2, 10 * 2
-    scan((acc, value) => acc + value, 0)  // 0 + 4, 4 + 20
-  )
-  .subscribe(value => console.log(value));
-  // 4
-  // 24
-```
-
-```js
-import { Subject } from 'rxjs';
-
-import { startWith, scan } from 'rxjs/operator';
-
-const subject = new Subject();
-
-subject::startWith(0)
-  ::scan((acc, curr) => acc + curr)
-  .subscribe(value => console.log(value));
-  // 0
-
-subject.next(1);  // 1 <= 0 + 1
-subject.next(2);  // 3 <= 1 + 2
-subject.next(3);  // 6 <= 3 + 3
-```
-
-累積物件
-
-```js
-import { Subject } from 'rxjs';
-
-import { scan } from 'rxjs/operator';
-
-const subject = new Subject();
-
-subject::scan((acc, curr) => Object.assign({}, acc, curr), {})
-  .subscribe(value => console.log(value));
-
-subject.next({ primary: 'JavaScript' });  // { primary: 'JavaScript' }
-subject.next({ accent: 'TypeScript' });  // { primary: 'JavaScript', accent: 'TypeScript' }
-```
-
-### switchMap
-
-Projects each source value to an Observable which is merged in the output Observable, emitting values only from the most recently projected Observable.
-
-將每個源值投射到一個 Observable，將其合併到輸出 Observable 中，僅從最近預計的 Observable 發射值。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { timer, interval } from 'rxjs/observable';
-
-import { switchMap } from 'rxjs/operator';
-
-Observable::timer(0, 5000)
-  ::switchMap(() => Observable::interval(500))
-  .subscribe(value => console.log(value));
-  // 0
-  // 1
-  // 2
-  // 3
-  // 4
-  // 5
-  // 6
-  // 7
-  // 8
-  // 0 - 重複
-  // 1
-  // 2
-  // ...
-```
-
-### window
-
-Branch out the source Observable values as a nested Observable whenever `windowBoundaries` emits.
-
-將每個 windowBoundaries 發出的源 Observable 值作為嵌套 Observable 分支。
-
-```js
-import { Observable } from 'rxjs/Observable';
-
-import { timer, interval } from 'rxjs/observable';
-
-import { window, scan, mergeAll } from 'rxjs/operator';
-
-const source = Observable::timer(0, 1000);
-
-const window$ = source::window(Observable::interval(3000))
-
-const count = window$::scan(acc => acc + 1, 0);
-
-count.subscribe(value => console.log(`Window ${value}:`));
-window$::mergeAll().subscribe(value => console.log(value));
-// Window 1:
-// 0
-// 1
-// 2
-// Window 2:
-// 3
-// 4
-// 5
-// Window 3:
-// 6
-// 7
-// 8
-// ...
-```
-
-### windowCount
-
-### windowTime
-
-### windowToggle
-
-### windowWhen
 
 ## Utility (公用)
 
