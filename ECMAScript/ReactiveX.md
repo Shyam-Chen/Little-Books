@@ -14,24 +14,23 @@
 ### Table of Contents (目錄)
 
 * [Observable (可觀察)](#observable-可觀察)
-  * [Subject (主體)](#subject)
-    * [AsyncSubject (非同步主體)](#asyncsubject)
-    * [BehaviorSubject (行為主體)](#behaviorsubject)
-    * [ReplaySubject (重放主體)](#replaysubject)
+  * [Subject (主體)](#subject-主體)
+    * [AsyncSubject (非同步主體)](#asyncsubject-非同步主體)
+    * [BehaviorSubject (行為主體)](#behaviorsubject-行為主體)
+    * [ReplaySubject (重放主體)](#replaysubject-重放主體)
     * AnonymousSubject (匿名主體)
   * ConnectableObservable (可連接的 Observable)
   * GroupedObservable (已分組的 Observable)
-* Subscription (訂閱)
-  * unsubscribe
+* [Subscription (訂閱)](#Subscription-訂閱)
+  * [unsubscribe](#unsubscribe)
   * add
   * remove
-* [Scheduler (調度)](#scheduler)
+* [Scheduler (調度)](#scheduler-調度)
   * [animationFrame](#animationframe)
   * [asap](#asap)
   * [async](#async)
   * [queue](#queue)
 * [Creation (建立)](#creation-建立)
-  * ajax
   * [bindCallback](#bindcallback)
   * [bindNodeCallback](#bindnodecallback)
   * [create](#create)
@@ -186,7 +185,7 @@ new Observable(
   // done
 ```
 
-### Subject
+### Subject (主體)
 
 ```js
 import { Subject } from 'rxjs/Subject';
@@ -209,7 +208,7 @@ subject.complete();
 // done
 ```
 
-#### AsyncSubject
+#### AsyncSubject (非同步主體)
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -233,7 +232,7 @@ subject.subscribe(
 // done
 ```
 
-#### BehaviorSubject
+#### BehaviorSubject (行為主體)
 
 ```js
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -253,7 +252,7 @@ subject.complete();
 // done
 ```
 
-#### ReplaySubject
+#### ReplaySubject (重放主體)
 
 可以是可觀察的序列，也可以是觀察者的物件。
 
@@ -286,7 +285,20 @@ subject.complete();
 // done
 ```
 
-## Scheduler
+## Subscription (訂閱)
+
+### unsubscribe
+
+```js
+import { from } from 'rxjs/observable';
+
+const source = from(['foo', 'bar']);
+const subscription = source.subscribe(value => console.log(value));
+
+subscription.unsubscribe();
+```
+
+## Scheduler (調度)
 
 ```js
 import { Scheduler } from 'rxjs';
