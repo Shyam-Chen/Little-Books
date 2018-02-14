@@ -20,16 +20,15 @@
 ### HTML5
 
 * [Angular (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/README.md) :star:
-* [SVG and Canvas (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/SVG-and-Canvas.md)
-* WebGL
+* [Graphics (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Graphics.md)
 * [Multimedia (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Multimedia.md)
 * [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Material.md)
 * [Firebase (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Firebase.md)
 * [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/MobX.md)
 * Immer
+* Puppeteer
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
-* Puppeteer
 
 ### Node.js
 
@@ -38,7 +37,6 @@
 * [GraphQL (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/GraphQL.md)
 * [Mongoose (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Mongoose.md)
 * [Sequelize (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Sequelize.md)
-* [JWT (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/JWT.md)
 * [Passport (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Passport.md)
 * Supertest
 * [Socket (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Socket.md)
@@ -54,5 +52,6 @@
 * Caddy
 * Packer
 * Terraform
+* Consul
 * DigitalOcean
 * Compute Engine

@@ -12,12 +12,43 @@
 
 ### Table of Contents (目錄)
 
-* Web Storage
-* Immutable
+* [Concepts (概念)](#concepts-概念)
 
 ***
 
-MobX
+## Concepts (概念)
+
+### Observable states (可觀察的狀態)
+
+```ts
+import { observable } from 'mobx';
+
+export interface Store {
+  name?: string;
+  email?: string;
+}
+
+export const store = observable<Store>({ name: '', email: '' });
+```
+
+```ts
+import { observable } from 'mobx';
+
+export class Store {
+  @observable name: string = '';
+  @observable email: string = '';
+}
+```
+
+### Action functions (行為函式)
+
+
+
+### Computed values (計算值)
+
+
+
+## Getting Started (起手式)
 
 ```js
 import { observable, action } from 'mobx';
