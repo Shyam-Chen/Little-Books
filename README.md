@@ -1,29 +1,25 @@
 # Big Little Books
 
-:books: Big little books on Angular, Nest, TypeScript, ReactiveX, and Kubernetes. :memo:
+:books: Big little books on ReactiveX, Angular, Nest, and Kubernetes. :memo:
 
 ## List of Books
 
-* [Angular - Client-side Web Apps (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/README.md) :star:
-* [Nest - Server-side Web Apps (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Nest/README.md) :star:
-* [TypeScript - Superset of JavaScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/TypeScript.md) :star:
-* [ReactiveX - Async Data Streams (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/ReactiveX.md) :star:
-* [Kubernetes - Container Orchestration (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes.md) :star:
-
 ### ECMAScript
 
+* [ReactiveX (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/ReactiveX.md) :star:
 * [Async Processing (90%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Async-Processing.md)
 * [Functional Programming (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Functional-Programming.md)
 * [Data Structures and Algorithms (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Data-Structures-and-Algorithms.md)
 * [Design Patterns (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Design-Patterns.md)
 * [Regular Expressions (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Regular-Expressions.md)
 * [Lodash (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Lodash.md)
-* Babel
-* Flow
+* Babel and Flow
+* [TypeScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/TypeScript.md)
 * Jest
 
 ### HTML5
 
+* [Angular (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/README.md) :star:
 * [SVG and Canvas (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/SVG-and-Canvas.md)
 * WebGL
 * [Multimedia (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Multimedia.md)
@@ -37,6 +33,7 @@
 
 ### Node.js
 
+* [Nest (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Nest/README.md) :star:
 * [Express (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Express.md)
 * [GraphQL (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/GraphQL.md)
 * [Mongoose (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Mongoose.md)
@@ -50,9 +47,12 @@
 
 ### Docker
 
+* [Kubernetes (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes.md) :star:
 * CircleCI
 * Heroku
 * Drone
 * Caddy
+* Packer
+* Terraform
 * DigitalOcean
 * Compute Engine
