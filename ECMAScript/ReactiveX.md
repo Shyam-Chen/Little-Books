@@ -132,7 +132,7 @@
 * [Utility (公用)](#utility-公用)
   * [do/tap](#do)
   * [delay](#delay)
-  * delayWhen
+  * [delayWhen](#delaywhen)
   * dematerialize
   * finally/finalize
   * let
@@ -2447,6 +2447,22 @@ Observable::merge(
 ```
 
 ### delayWhen
+
+Delays the emission of items from the source Observable by a given time span determined by the emissions of another Observable.
+
+延遲來自源 Observable 的物品的排放在給定時間跨度由另一個 Observable 的排放決定
+
+```js
+import { range, interval } from 'rxjs/observable';
+import { delayWhen } from 'rxjs/operators';
+
+range(0, 10)
+  .pipe(
+    delayWhen(value => interval(Math.floor((Math.random() * 10))))
+  )
+  .subscribe(value => console.log(value));
+  // random: 0 ~ 9
+```
 
 ### dematerialize
 
