@@ -54,6 +54,12 @@ $ minikube version
 # minikube version: v0.24.1
 ```
 
+or
+
+```bash
+$ brew cask install minikube
+```
+
 ## Getting Started (起手式)
 
 啟動 Kubernetes 叢集
