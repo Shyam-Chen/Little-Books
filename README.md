@@ -11,10 +11,10 @@
 * [Data Structures and Algorithms (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Data-Structures-and-Algorithms.md)
 * [Design Patterns (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Design-Patterns.md)
 * [Regular Expressions (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Regular-Expressions.md)
-* [Lodash (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Lodash.md)
-* [ReactiveX (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/ReactiveX.md)
 * Babel and Flow
 * [TypeScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/TypeScript.md)
+* [Lodash (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Lodash.md)
+* [ReactiveX (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/ReactiveX.md)
 * Jest
 
 ### HTML5

@@ -45,7 +45,7 @@
   * [never](#never)
   * [of](#of)
   * [range](#range)
-  * repeat
+  * [repeat](#repeat)
   * repeatWhen
   * [throw](#throw)
   * [timer](#timer)
@@ -851,6 +851,51 @@ range(1, 5)
   )
   .subscribe(value => console.log(value));
   // 1
+```
+
+### repeat
+
+Returns an Observable that repeats the stream of items emitted by the source Observable at most count times.
+
+返回一個 Observable，它在大多數計數時間內重複由來源 Observable 發射的資料流
+
+```js
+import { of } from 'rxjs/observable';
+import { repeat } from 'rxjs/operators';
+
+of('foo', 'bar')
+  .pipe(
+    repeat(2)
+  )
+  .subscribe(value => console.log(value));
+  // foo
+  // bar
+  // foo
+  // bar
+```
+
+```js
+import { of } from 'rxjs/observable';
+import { repeat } from 'rxjs/operators';
+
+of('foo', 'bar')
+  .pipe(
+    repeat(2),
+    repeat(3)  // 2 * 3 = 6, equivalent to `repeat(6)`
+  )
+  .subscribe(value => console.log(value));
+  // foo
+  // bar
+  // foo
+  // bar
+  // foo
+  // bar
+  // foo
+  // bar
+  // foo
+  // bar
+  // foo
+  // bar
 ```
 
 ### throw
