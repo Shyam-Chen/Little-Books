@@ -2,24 +2,22 @@
 
 ### Table of Contents (目錄)
 
-* Architecture (架構)
-* [Install (安裝)](#install-安裝)
 * [Getting Started (起手式)](#getting-started-起手式)
-* Pods
+* Architecture (架構)
+* Stateless and Stateful (無狀態和有狀態)
+* Components (元件)
 
 ***
 
-## Architecture (架構)
+## Getting Started (起手式)
 
-## Install (安裝)
-
-### Install VirtualBox (安裝 VirtualBox)
+Install VirtualBox (安裝 VirtualBox)
 
 Go to the official website to download and install VirtualBox (至官網下載安裝 VirtualBox)
 
 https://www.virtualbox.org/wiki/Downloads
 
-### Install Kubectl (安裝 Kubectl)
+Install Kubectl (安裝 Kubectl)
 
 Install Kubernetes CLI via Homebrew (透過 Homebrew 安裝 Kubernetes CLI)
 
@@ -27,7 +25,7 @@ Install Kubernetes CLI via Homebrew (透過 Homebrew 安裝 Kubernetes CLI)
 $ brew install kubectl
 ```
 
-### Install Minikube (安裝 Minikube)
+Install Minikube (安裝 Minikube)
 
 下載 Minikube
 
@@ -59,8 +57,6 @@ or
 ```bash
 $ brew cask install minikube
 ```
-
-## Getting Started (起手式)
 
 啟動 Kubernetes 叢集
 
