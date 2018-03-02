@@ -31,6 +31,7 @@
   * [async](#async)
   * [queue](#queue)
 * [Creation (建立)](#creation-建立)
+  * [ajax](#ajax)
   * [bindCallback](#bindcallback)
   * [bindNodeCallback](#bindnodecallback)
   * [create](#create)
@@ -572,6 +573,18 @@ console.log('after subscribe');
 ```
 
 ## Creation (建立)
+
+### ajax
+
+```js
+import { ajax } from 'rxjs/observable/dom/ajax';
+import { map } from 'rxjs/operators';
+
+ajax('https://web-go-demo.herokuapp.com/__/text-list')
+  .map(event => event.response)
+  .subscribe(data => console.log(data));
+  // Array [...]
+```
 
 ### bindCallback
 
