@@ -1,4 +1,4 @@
-# Async Processing (非同步處理)
+# Asynchronous Processing (非同步處理)
 
 ### Reference Resources (參考資源)
 
