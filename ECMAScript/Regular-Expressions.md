@@ -28,37 +28,43 @@
 (1) 匹配 a、b 或 c 字元
 
 ```js
-let regex = /[abc]+/g;
+const regex = /[abc]+/g;
 
 regex.test('a-bb-ccc');  // true
 ```
 
-比對: `a`-`bb`-`ccc`
+```bash
+a-bb-ccc
+^ ^^ ^^^
+```
 
 (2) 匹配除了 a、b 或 c 之外的任何字元
 
 ```js
-let regex = /[^abc]+/g;
+const regex = /[^abc]+/g;
 
-regex.test('Anything-but-abc');  // true
+regex.test('Anything but abc.');  // true
 ```
 
-比對: `Anything-`b`ut-`abc`
+```bash
+Anything but abc.
+^^^^^^^^^ ^^^   ^
+```
 
 (3)
 
 ```js
-let regex = /[a-z]+/g;
+const regex = /[a-z]+/g;
 ```
 
 ```js
-let regex = /[^a-z]+/g;
+const regex = /[^a-z]+/g;
 ```
 
 ```js
-let regex = /[a-zA-Z]+/g;
+const regex = /[a-zA-Z]+/g;
 ```
 
 ```js
-let regex = /.+/;
+const regex = /.+/;
 ```
