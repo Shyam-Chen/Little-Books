@@ -1,4 +1,4 @@
-# ReactiveX
+# Reactive Programming (反應式程式設計)
 
 ### Reference Resources (參考資源)
 
