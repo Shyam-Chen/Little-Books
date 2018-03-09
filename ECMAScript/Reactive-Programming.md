@@ -57,7 +57,7 @@
   * bufferToggle
   * bufferWhen
   * [concatMap](#concatmap)
-  * concatMapTo
+  * [concatMapTo](#concatmapto)
   * exhaustMap
   * expand
   * [groupBy](#groupby)
@@ -1068,6 +1068,26 @@ Observable::of('Hello', 'Goodbye')
 ```
 
 ### concatMapTo
+
+Projects each source value to the same Observable which is merged multiple times in a serialized fashion on the output Observable.
+
+將每個來源值投射到在輸出的 Observable 上以序列化方式多次合併的相同的 Observable
+
+```js
+import { of } from 'rxjs/observable';
+import { concatMapTo } from 'rxjs/operators';
+
+of('INCREMENT', 'DECREMENT')
+  .pipe(
+    concatMapTo(
+      of('Counter'),
+      (outerValue, innerValue) => `[${innerValue}] ${outerValue}`
+    )
+  )
+  .subscribe(value => console.log(value));
+  // [Counter] INCREMENT
+  // [Counter] DECREMENT
+```
 
 ### expand
 

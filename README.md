@@ -21,13 +21,13 @@
 ### HTML5
 
 * [Angular (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/README.md)
-* [Graphics (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Graphics.md)
-* Medias
 * [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Material.md)
 * [Firebase (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Firebase.md)
 * [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/MobX.md)
 * Immer
 * Puppeteer
+* [Graphics (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Graphics.md)
+* Medias
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
 
