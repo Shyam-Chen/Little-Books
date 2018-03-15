@@ -17,7 +17,6 @@
 * Light (光源)
 * Geometry (幾何體)
 * Particle (粒子)
-* VR (虛擬實境)
 
 ***
 

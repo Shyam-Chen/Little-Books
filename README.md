@@ -30,6 +30,7 @@
 * Medias
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
+* Aframe
 
 ### Node.js
 
@@ -43,16 +44,18 @@
 * [Socket (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Socket.md)
 * [Redis (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Redis.md)
 * Serverless
+* WebTorrent
 
 ### Docker
 
-* [Kubernetes (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes.md)
 * CircleCI
 * Heroku
-* Drone
-* Caddy
-* Packer
+* Travis CI
+* AppVeyor
+* [Kubernetes (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes.md)
 * Terraform
+* Drone
+* Traefik
+* Packer
 * Consul
-* DigitalOcean
-* Compute Engine
+* Nomad
