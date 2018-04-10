@@ -44,7 +44,6 @@
 * [Socket (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Socket.md)
 * [Redis (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Redis.md)
 * Serverless
-* WebTorrent
 
 ### Docker
 
