@@ -24,13 +24,13 @@
 * [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Material.md)
 * [Firebase (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Firebase.md)
 * [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/MobX.md)
-* Immer
 * Puppeteer
 * [Graphics (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Graphics.md)
 * Medias
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
 * Aframe
+* TensorFlow
 
 ### Node.js
 
@@ -43,18 +43,16 @@
 * Supertest
 * [Socket (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Socket.md)
 * [Redis (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Redis.md)
-* Serverless
 
 ### Docker
 
+* Golang
 * CircleCI
 * Heroku
+* Now.sh
 * Travis CI
 * AppVeyor
 * [Kubernetes (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes.md)
 * Terraform
 * Drone
 * Traefik
-* Packer
-* Consul
-* Nomad
