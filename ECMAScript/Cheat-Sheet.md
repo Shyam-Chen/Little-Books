@@ -1,5 +1,26 @@
 # Cheat Sheet
 
+### flatten
+
+```js
+const data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+const flatten = arr =>
+  arr.reduce((acc, cur) => acc.concat(cur), []);
+
+flatten(data);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// -
+
+import { flatten } from 'lodash';
+
+const data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+flatten(data);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
 ### range
 
 ```js
