@@ -5,6 +5,7 @@
 * http://speakingjs.com/es5/index.html
 * http://exploringjs.com/es6/index.html
 * http://exploringjs.com/es2016-es2017/index.html
+* http://exploringjs.com/es2018-es2019/toc.html
 * https://github.com/getify/You-Dont-Know-JS
 
 ***
@@ -14,6 +15,7 @@
 * [Promises (承諾)](#promises-承諾)
 * [Generators (產生器)](#generators-產生器)
 * [Async Functions (非同步函式)](#async-functions-非同步函式)
+* Asynchronous Iteration (非同步迭代)
 * [Observables (可觀察)](#observables-可觀察)
 
 ***
@@ -45,7 +47,7 @@ Parallel (平行)
 ```js
 Promise
   .all([p1(), p2()])
-  .then(data => {
+  .then((data) => {
     console.log(data[0]);  // p1 結果
     console.log(data[1]);  // p2 結果
   });
@@ -57,7 +59,7 @@ Parallel and competition (平行且競賽)
 Promise
   .race([
     p1(),  // 假設 p1 為主體
-    p2()  // p2 不一定要執行，通常是 p1 的超時處理
+    p2(),  // p2 不一定要執行，通常是 p1 的超時處理
   ])
   .then(() => {
     // ...
@@ -187,7 +189,7 @@ const thing = {
   async foo() {
     const result = await bar();
     console.log(result);
-  }
+  },
 };
 ```
 
@@ -285,7 +287,7 @@ const foo = async () => {
 
 ```js
 // an observer (一個觀察者)
-new Observable(observer => {
+new Observable((observer) => {
     // callback method (回呼方法): next(), error(), & complete()
     setTimeout(() => observer.next('foo'), 0);
     setTimeout(() => observer.next('bar'), 1000);
