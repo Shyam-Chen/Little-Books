@@ -84,6 +84,15 @@ foo()
   .catch(error => console.error(error));
 ```
 
+Finally (最後)
+
+```js
+foo()
+  .then(() => console.log(4))
+  .catch(error => console.error(error))
+  .finally(() => console.log('done'));
+```
+
 ## Generators (產生器)
 
 ```js
@@ -297,7 +306,7 @@ new Observable((observer) => {
   .subscribe(  // 訂閱一個或多個 Observable (可觀察的物件)
     value => console.log(value),
     error => console.error(error),
-    () => console.log('done')
+    () => console.log('done'),
   );
   // foo
   // bar
