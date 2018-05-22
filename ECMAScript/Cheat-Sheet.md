@@ -8,8 +8,17 @@ const data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 const flatten = arr =>
   arr.reduce((acc, cur) => acc.concat(cur), []);
 
+const flatten = arr =>
+  arr.reduce((acc, cur) => [...acc, ...cur], []);
+
 flatten(data);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// -
+
+const data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+data.flatten();
 
 // -
 
@@ -57,20 +66,20 @@ const range = (start, end, step = 1) =>
 range(1, 9, 2);  // 1, 3, 5, 7, 9
 range(2, 10, 2);  // 2, 4, 6, 8, 10
 
-// ----------
+// -
 
 import { range } from 'lodash';
 
 range(1, 10, 2);  // 1, 3, 5, 7, 9
 
-// ----------
+// -
 
 import { range } from 'rxjs';
 
 range(1, 10).subscribe(value => value);
 // 1 ~ 10
 
-// ----------
+// -
 
 import { range } from 'lodash';
 import { from } from 'rxjs';

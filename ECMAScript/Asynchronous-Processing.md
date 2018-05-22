@@ -292,6 +292,8 @@ const foo = async () => {
 };
 ```
 
+## Asynchronous Iteration (非同步迭代)
+
 ## Observables (可觀察)
 
 ```js
