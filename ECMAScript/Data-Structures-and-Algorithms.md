@@ -2,26 +2,41 @@
 
 ### Reference Resources (參考資源)
 
-* http://speakingjs.com/es5/index.html
-* http://exploringjs.com/es6/index.html
-* http://exploringjs.com/es2016-es2017/index.html
-* https://github.com/getify/You-Dont-Know-JS
+* https://github.com/loiane/javascript-datastructures-algorithms
+* https://github.com/trekhleb/javascript-algorithms
 
 ***
 
 ### Table of Contents (目錄)
 
-* Heap (堆疊)
-* [Queues (佇列)](#queues-佇列)
-* Linked Lists (鏈結列表)
-* Sets (集)
+#### Data Structures (資料結構)
+
+* List (列表)
+* Array (陣列)
+* Stack (堆疊)
+* [Queue (佇列)](#queue-佇列)
 * Hash table (雜湊表)
-* Trees (樹)
-* Graphs (圖形)
+* Heap (堆積)
+* Tree (樹)
+  * Binary Search Tree (二元搜尋樹)
+
+#### Algorithms (演算法)
+
 * Sorting (排序)
-* Primes (素數)
-* Searching (搜索)
-* Shuffle (洗牌)
+  * Bubble Sort (氣泡排序)
+  * Selection Sort (選擇排序)
+  * Insertion Sort (插入排序)
+  * Heap Sort (堆積排序)
+  * Merge Sort (合併排序)
+  * Quicksort (快速排序)
+* Search (搜尋)
+  * Linear Search (線性搜尋)
+  * Binary Search (二元搜尋)
+* Graph (圖形)
+  * Breadth-First Search (廣度優先搜尋)
+  * Depth-First Search (深度優先搜尋)
+  * Bellman-Ford Algorithm (貝爾曼福特演算法)
+  * Dijkstra's Algorithm (戴克斯特拉演算法)
 
 ***
 

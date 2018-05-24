@@ -29,7 +29,6 @@
 * Medias
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
-* Aframe
 * TensorFlow
 
 ### Node.js
@@ -46,10 +45,9 @@
 
 ### Docker
 
-* Golang
+* Docker Compose
 * CircleCI
 * Heroku
-* Now.sh
 * Travis CI
 * AppVeyor
 * [Kubernetes (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes.md)
