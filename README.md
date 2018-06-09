@@ -1,6 +1,6 @@
 # Big Little Books
 
-:books: Big little books on ECMAScript, HTML5, Node.js, and Docker. :memo:
+:books: Big little books on ECMAScript, HTML5, Node.js, and Docker.
 
 ## List of Books
 
@@ -14,9 +14,11 @@
 * [Data Structures and Algorithms (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Data-Structures-and-Algorithms.md)
 * [Design Patterns (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Design-Patterns.md)
 * [Regular Expressions (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Regular-Expressions.md)
-* Babel and Flow
-* [TypeScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/TypeScript.md)
-* Jest
+* [Type Annotations (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Type-Annotations.md)
+* Unit Testing
+* **--------------------**
+* [LeetCode](https://github.com/Shyam-Chen/Big-Little-Books/tree/master/ECMAScript/LeetCode)
+* [Cheat Sheet](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Cheat-Sheet.md)
 
 ### HTML5
 

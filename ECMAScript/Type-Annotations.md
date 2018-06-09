@@ -1,13 +1,17 @@
-# TypeScript
+# Type Annotations
 
 ### Reference Resources (參考資源)
 
-* http://www.typescriptlang.org/docs/home.html
-* https://basarat.gitbooks.io/typescript/content/
+* https://flow.org/
+* http://www.typescriptlang.org/
 
 ***
 
 ### Table of Contents (目錄)
+
+#### Flow
+
+#### TypeScript
 
 * [Quick Start (快速開始)](#quick-start-快速開始)
 * [Variable Declarations (變數宣告)](#variable-declarations-變數宣告)
