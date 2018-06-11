@@ -16,6 +16,7 @@
 * [Regular Expressions (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Regular-Expressions.md)
 * [Type Annotations (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Type-Annotations.md)
 * Unit Testing
+* Clean Code
 * **--------------------**
 * [LeetCode](https://github.com/Shyam-Chen/Big-Little-Books/tree/master/ECMAScript/LeetCode)
 * [Cheat Sheet](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Cheat-Sheet.md)
