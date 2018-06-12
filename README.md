@@ -17,7 +17,6 @@
 * [Type Annotations (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Type-Annotations.md)
 * Unit Testing
 * Clean Code
-* **--------------------**
 * [LeetCode](https://github.com/Shyam-Chen/Big-Little-Books/tree/master/ECMAScript/LeetCode)
 * [Cheat Sheet](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Cheat-Sheet.md)
 
@@ -29,7 +28,7 @@
 * [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/MobX.md)
 * Puppeteer
 * [Graphics (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Graphics.md)
-* Medias
+* Multimedia
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
 * TensorFlow
