@@ -28,7 +28,7 @@
 * [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/MobX.md)
 * Puppeteer
 * [Graphics (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Graphics.md)
-* Multimedia
+* Medias
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
 * TensorFlow
