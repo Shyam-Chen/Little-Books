@@ -2,10 +2,6 @@
 
 ### Reference Resources (參考資源)
 
-* http://speakingjs.com/es5/index.html
-* http://exploringjs.com/es6/index.html
-* http://exploringjs.com/es2016-es2017/index.html
-* https://github.com/getify/You-Dont-Know-JS
 * https://github.com/getify/Functional-Light-JS
 
 ***
@@ -134,6 +130,8 @@ trampoline(odd(100000));  // false
 ### Function Composition (函式組合)
 
 ```js
+// pipe function
+
 const inc = num => num + 1;
 const dbl = num => num * 2;
 const sqr = num => num * num;
@@ -149,6 +147,18 @@ pipe(inc, dbl, sqr)(2);  // 36
 ```
 
 ```js
+// pipeline operator
+
+const inc = num => num + 1;
+const dbl = num => num * 2;
+const sqr = num => num * num;
+
+2 |> inc |> dbl |> sqr;  // 36
+```
+
+```js
+// compose function
+
 const inc = count => num => num + count;
 const mul = count => num => num * count;
 
