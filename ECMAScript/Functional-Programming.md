@@ -146,8 +146,18 @@ pipe(inc, dbl, sqr)(2);  // 36
 // 2 + 1 = 3
 // 3 * 2 = 6
 // 6 * 6 = 36
+```
 
-[inc, dbl, sqr].reduce((acc, func) => func(acc), 2);  // 36
+```js
+const inc = count => num => num + count;
+const mul = count => num => num * count;
+
+const compose = (...funcs) =>
+  funcs.reduce((f, g) => (...args) => g(f(...args)), arg => arg);
+
+compose(inc(1), mul(3))(5);  // 18
+// 5 + 1 = 6
+// 6 * 3 = 18
 ```
 
 #### Currying (柯里化)
