@@ -54,7 +54,7 @@ const counter2 = () => ({ ...state, { value: state.value + 5 } });
 #### Tail Call Optimization (尾端呼叫優化)
 
 ```js
-const factorial = num => {
+const factorial = (num) => {
   if (num === 0) return 1;
   return num * factorial(num - 1);
 };
@@ -66,7 +66,7 @@ const factorial = (num, acc = 1) => {
 ```
 
 ```js
-const tco = func => {
+const tco = (func) => {
   const accumulated = [];
 
   let value = null;
@@ -100,7 +100,7 @@ sum(1, 100000);  // 100001
 #### Trampoline (繃跳區)
 
 ```js
-const trampoline = func => {
+const trampoline = (func) => {
   while (typeof func === 'function') {
     func = func();
   }
@@ -159,15 +159,17 @@ const sqr = num => num * num;
 ```js
 // compose function
 
-const inc = count => num => num + count;
-const mul = count => num => num * count;
+const inc = value => num => num + value;
+const sub = value => num => num - value;
+const mul = value => num => num * value;
 
 const compose = (...funcs) =>
   funcs.reduce((f, g) => (...args) => g(f(...args)), arg => arg);
 
-compose(inc(1), mul(3))(5);  // 18
+compose(inc(1), sub(2), mul(3))(5);  // 12
 // 5 + 1 = 6
-// 6 * 3 = 18
+// 6 - 2 = 4
+// 4 * 3 = 12
 ```
 
 #### Currying (柯里化)
