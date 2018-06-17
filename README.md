@@ -47,12 +47,12 @@
 
 ### Docker
 
+* [Kubernetes (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes/README.md)
 * Docker Compose
 * CircleCI
 * Heroku
 * Travis CI
 * AppVeyor
-* [Kubernetes (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes.md)
 * Packer
 * Terraform
 * Drone
