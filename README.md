@@ -6,6 +6,8 @@
 
 ### ECMAScript
 
+* [TypeScript (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/TypeScript/README.md)
+* **--------------------**
 * [Asynchronous Processing (90%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Asynchronous-Processing.md)
 * [Functional Programming (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Functional-Programming.md)
 * Object-oriented Programming
@@ -14,7 +16,6 @@
 * [Data Structures and Algorithms (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Data-Structures-and-Algorithms.md)
 * [Design Patterns (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Design-Patterns.md)
 * [Regular Expressions (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Regular-Expressions.md)
-* [Type Annotations (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Type-Annotations.md)
 * Unit Testing
 * Clean Code
 * [LeetCode](https://github.com/Shyam-Chen/Big-Little-Books/tree/master/ECMAScript/LeetCode)
@@ -23,6 +24,7 @@
 ### HTML5
 
 * [Angular (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/README.md)
+* **--------------------**
 * [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Material.md)
 * [Firebase (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Firebase.md)
 * [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/MobX.md)
@@ -36,6 +38,7 @@
 ### Node.js
 
 * [Nest (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Nest/README.md)
+* **--------------------**
 * [Express (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Express.md)
 * [GraphQL (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/GraphQL.md)
 * [Mongoose (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Mongoose.md)
@@ -48,6 +51,7 @@
 ### Docker
 
 * [Kubernetes (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Docker/Kubernetes/README.md)
+* **--------------------**
 * Docker Compose
 * CircleCI
 * Heroku
