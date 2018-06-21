@@ -33,7 +33,9 @@
 * Medias
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
-* TensorFlow
+* Machine Learning - TensorFlow
+* Cordova
+* Electron
 
 ### Node.js
 
@@ -47,6 +49,7 @@
 * Supertest
 * [Socket (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Socket.md)
 * [Redis (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/Node.js/Redis.md)
+* Serverless
 
 ### Docker
 

@@ -132,13 +132,13 @@ trampoline(odd(100000));  // false
 ```js
 // pipe function
 
-const inc = num => num + 1;
-const dbl = num => num * 2;
-const sqr = num => num * num;
-
 const pipe = (...funcs) =>
   init =>
     funcs.reduce((acc, func) => func(acc), init);
+
+const inc = num => num + 1;
+const dbl = num => num * 2;
+const sqr = num => num * num;
 
 pipe(inc, dbl, sqr)(2);  // 36
 // 2 + 1 = 3
@@ -159,12 +159,25 @@ const sqr = num => num * num;
 ```js
 // compose function
 
+const compose = (...funcs) =>
+  funcs.reduce((f, g) => (...args) => g(f(...args)), arg => arg);
+
+// -
+
+const inc = num => num + 1;
+const dbl = num => num * 2;
+const sqr = num => num * num;
+
+compose(inc, dbl, sqr)(2);
+// 2 + 1 = 3
+// 3 * 2 = 6
+// 6 * 6 = 36
+
+// -
+
 const inc = value => num => num + value;
 const sub = value => num => num - value;
 const mul = value => num => num * value;
-
-const compose = (...funcs) =>
-  funcs.reduce((f, g) => (...args) => g(f(...args)), arg => arg);
 
 compose(inc(1), sub(2), mul(3))(5);  // 12
 // 5 + 1 = 6
