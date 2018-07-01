@@ -18,7 +18,7 @@ return [0, 1].
 ```js
 // @flow
 
-const twoSum = (nums: number[], target: number): number[] => {
+const twoSum = <T: number>(nums: T[], target: T): T[] => {
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < nums.length; j++) {
       if (i === j) continue;
