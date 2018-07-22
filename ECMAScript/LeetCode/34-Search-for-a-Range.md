@@ -26,11 +26,32 @@ Output: [-1,-1]
 // @flow
 
 const searchRange = <T: number>(nums: T[], target: T): T[] => {
-  let res = [-1, -1];
+  const res = [-1, -1];
 
   // left
+  let [l, r] = [0, nums.length - 1];
+
+  while (l < r) {
+    const mid = Math.floor((l + r) / 2);
+
+    if (nums[mid] < target) l = mid + 1;
+    else r = mid;
+  }
+
+  if (nums[l] !== target) return res;
+  else res[0] = l;
 
   // right
+  r = nums.length - 1;
+
+  while (l < r) {
+    const mid = Math.ceil((l + r) / 2);
+
+    if (nums[mid] > target) r = mid - 1;
+    else l = mid;
+  }
+
+  res[1] = r;
 
   return res;
 };

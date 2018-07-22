@@ -16,6 +16,7 @@
 * [Data Structures and Algorithms (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Data-Structures-and-Algorithms.md)
 * [Design Patterns (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Design-Patterns.md)
 * [Regular Expressions (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/ECMAScript/Regular-Expressions.md)
+* Machine Learning
 * Unit Testing
 * Clean Code
 * [LeetCode](https://github.com/Shyam-Chen/Big-Little-Books/tree/master/ECMAScript/LeetCode)
@@ -25,6 +26,7 @@
 
 * [Angular (70%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/README.md) - A framework for scalable client-side applications.
 * **--------------------**
+* PostCSS
 * [Material (50%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Material.md)
 * [Firebase (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Firebase.md)
 * [MobX (30%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/MobX.md)
@@ -33,7 +35,6 @@
 * Medias
 * [D3 (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/D3.md)
 * [Three (10%)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Three.md)
-* Machine Learning - TensorFlow
 * Cordova
 * Electron
 
