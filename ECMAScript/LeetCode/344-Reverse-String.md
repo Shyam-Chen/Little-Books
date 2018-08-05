@@ -42,7 +42,7 @@ const reverseString = <T: string>(s: T): T => {
   let res = '';
 
   for (let i = s.length - 1; i >= 0; i--) {
-    res += s[i];
+    res += s.split('')[i];
   }
 
   return res;
@@ -50,6 +50,22 @@ const reverseString = <T: string>(s: T): T => {
 ```
 
 **Solution 4:**
+
+```js
+// @flow
+
+const reverseString = <T: string>(s: T): T => {
+  let res = '';
+
+  for (let i = s.length - 1; i >= 0; i--) {
+    res += s[i];
+  }
+
+  return res;
+};
+```
+
+**Solution 5:**
 
 ```js
 // @flow
