@@ -29,8 +29,8 @@ const reverseBits = <T: number>(n: T): T =>
 ```js
 // @flow
 
-const reverseBits = <T: number>(n: T): T =>
-  x = n;
+const reverseBits = <T: number>(n: T): T => {
+  let x = n;
 
   x = ((x & 0x0000FFFF) << 16) | ((x & 0xFFFF0000) >>> 16);
   x = ((x & 0x55555555) << 1) | ((x & 0xAAAAAAAA) >>> 1);
