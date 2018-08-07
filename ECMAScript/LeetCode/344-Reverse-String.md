@@ -15,6 +15,11 @@ Given s = "hello", return "olleh".
 
 const reverseString = <T: string>(s: T): T =>
   s.split('').reverse().join('');
+
+// -
+
+const reverseString = <T: string>(s: T): T =>
+  Array.from(s).reverse().join('');
 ```
 
 **Solution 2:**
@@ -27,6 +32,18 @@ const reverseString = <T: string>(s: T): T => {
 
   for (let i = 1; i <= s.length; i++) {
     res.push(s.split('')[s.length - i]);
+  }
+
+  return res.join('');
+};
+
+// -
+
+const reverseString = <T: string>(s: T): T => {
+  const res = [];
+
+  for (let i = 1; i <= s.length; i++) {
+    res.push(Array.from(s)[s.length - i]);
   }
 
   return res.join('');
@@ -47,12 +64,8 @@ const reverseString = <T: string>(s: T): T => {
 
   return res;
 };
-```
 
-**Solution 4:**
-
-```js
-// @flow
+// -
 
 const reverseString = <T: string>(s: T): T => {
   let res = '';
@@ -65,7 +78,7 @@ const reverseString = <T: string>(s: T): T => {
 };
 ```
 
-**Solution 5:**
+**Solution 4:**
 
 ```js
 // @flow
