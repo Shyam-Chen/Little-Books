@@ -7,7 +7,7 @@ Given an integer, write a function to determine if it is a power of two.
 ```
 Input: 1
 Output: true
-Explanation: 2 ** 0 = 1
+Explanation: 2^0 = 1
 ```
 
 **Example 2:**
@@ -15,7 +15,7 @@ Explanation: 2 ** 0 = 1
 ```
 Input: 16
 Output: true
-Explanation: 2 ** 4 = 16
+Explanation: 2^4 = 16
 ```
 
 **Example 3:**
@@ -44,7 +44,33 @@ const isPowerOfTwo = (n: number): boolean => {
 ```js
 // @flow
 
+const isPowerOfTwo = (n: number): boolean => {
+  if (n === 1) return true;
+
+  while (n > 2) {
+    n /= 2;
+  }
+
+  return n % 2 === 0;
+};
+```
+
+**Solution 3:**
+
+```js
+// @flow
+
 const isPowerOfTwo = (n: number): boolean => (
   (n & (n - 1)) === 0
+);
+```
+
+**Solution 4:**
+
+```js
+// @flow
+
+const isPowerOfTwo = (n: number): boolean => (
+  Number.isInteger(Math.log2(n))
 );
 ```
