@@ -13,13 +13,15 @@ Given s = "hello", return "olleh".
 ```js
 // @flow
 
-const reverseString = <T: string>(s: T): T =>
-  s.split('').reverse().join('');
+const reverseString = <T: string>(s: T): T => (
+  s.split('').reverse().join('')
+);
 
 // -
 
-const reverseString = <T: string>(s: T): T =>
-  Array.from(s).reverse().join('');
+const reverseString = <T: string>(s: T): T => (
+  Array.from(s).reverse().join('')
+);
 ```
 
 **Solution 2:**

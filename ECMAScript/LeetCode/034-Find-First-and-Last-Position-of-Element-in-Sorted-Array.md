@@ -62,6 +62,7 @@ const searchRange = <T: number>(nums: T[], target: T): T[] => {
 ```js
 // @flow
 
-const searchRange = <T: number>(nums: T[], target: T): T[] =>
-  [nums.indexOf(target), nums.lastIndexOf(target)];
+const searchRange = <T: number>(nums: T[], target: T): T[] => (
+  [nums.indexOf(target), nums.lastIndexOf(target)]
+);
 ```

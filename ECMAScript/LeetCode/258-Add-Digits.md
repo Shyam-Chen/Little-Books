@@ -74,8 +74,9 @@ const addDigits = <T: number>(num: T): T => {
 ```js
 // @flow
 
-const addDigits = <T: number>(num: T): T =>
-  num === 0 ? 0 : num - 9 * Math.floor((num - 1) / 9);
+const addDigits = <T: number>(num: T): T => (
+  num === 0 ? 0 : num - 9 * Math.floor((num - 1) / 9)
+);
 ```
 
 **Solution 5:**
@@ -83,6 +84,7 @@ const addDigits = <T: number>(num: T): T =>
 ```js
 // @flow
 
-const addDigits = <T: number>(num: T): T =>
-  1 + (num - 1) % 9;
+const addDigits = <T: number>(num: T): T => (
+  1 + (num - 1) % 9
+);
 ```

@@ -20,8 +20,9 @@ If this function is called many times, how would you optimize it?
 ```js
 // @flow
 
-const reverseBits = <T: number>(n: T): T =>
-  parseInt(n.toString(2).padStart(32, '0').split('').reverse().join(''), 2);
+const reverseBits = <T: number>(n: T): T => (
+  parseInt(n.toString(2).padStart(32, '0').split('').reverse().join(''), 2)
+);
 ```
 
 **Solution 2:**

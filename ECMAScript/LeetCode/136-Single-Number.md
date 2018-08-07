@@ -25,6 +25,7 @@ Output: 4
 ```js
 // @flow
 
-const singleNumber = <T: number>(nums: T[]): T =>
-  nums.reduce((sum, num) => sum ^ num);
+const singleNumber = <T: number>(nums: T[]): T => (
+  nums.reduce((sum, num) => sum ^ num)
+);
 ```
