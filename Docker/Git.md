@@ -25,11 +25,67 @@ $ git rm --cached -r <FOLDER_NAME>
 ```
 
 ```bash
-$ git stash
+$ git checkout <BRANCH_NAME>
 
+$ git checkout -b <BRANCH_NAME>
+```
+
+```bash
+$ git branch
+
+$ git branch -D <BRANCH_NAME>
+
+$ git branch -m <OLD_NAME> <NEW_NAME>
+```
+
+```bash
+$ git clone <HTTPS_URL|SSH_KEY>
+```
+
+```bash
+$ git remote -v
+
+$ git remote add <SHORT_NAME> <HTTPS_URL|SSH_KEY>
+```
+
+```bash
+$ git push <SHORTNAME> <BRANCH_NAME>
+```
+
+```bash
+$ git fetch
+```
+
+```bash
+$ git pull
+```
+
+```bash
+$ git stash
+# or
+$ git stash save
+
+# see all stashes
 $ git stash list
 
 $ git stash apply
+# or
+$ git stash apply stash@{0}
+
+$ git stash drop stash@{0}
+
+$ git stash pop
+# or
+$ git stash pop stash@{0}
+
+# creat a branch from a stash
+$ git stash branch <BRANCH_NAME>
+```
+
+```bash
+$ git clean -df
+
+$ git clean -dfx -e '.*'
 ```
 
 ```bash
