@@ -7,6 +7,12 @@ $ git add <FILE_NAME>
 ```
 
 ```bash
+$ git commit -m "[<TICKET>] <TYPE>(<SCOPE>): <SUBJECT>"
+
+$ git commit --amend -m "[<TICKET>] <TYPE>(<SCOPE>): <SUBJECT>"
+```
+
+```bash
 $ git status
 ```
 
@@ -25,9 +31,19 @@ $ git rm --cached -r <FOLDER_NAME>
 ```
 
 ```bash
+$ git reset --hard HEAD
+
+$ git reset --hard HEAD^0
+
+$ git reset --hard HEAD <COMMIT_ISH>
+```
+
+```bash
 $ git checkout <BRANCH_NAME>
 
 $ git checkout -b <BRANCH_NAME>
+
+$ git checkout -- .
 ```
 
 ```bash
