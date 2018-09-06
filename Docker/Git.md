@@ -88,7 +88,7 @@ $ git stash apply
 # or
 $ git stash apply stash@{0}
 
-$ git stash drop stash@{0}
+$ git stash drop stash@{<INDEX_NUMBER>}
 
 $ git stash pop
 # or
