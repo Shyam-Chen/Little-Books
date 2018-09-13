@@ -183,6 +183,10 @@ compose(inc(1), sub(2), mul(3))(5);  // 12
 // 5 + 1 = 6
 // 6 - 2 = 4
 // 4 * 3 = 12
+
+// -
+
+const compose = (...funcs) => res => funcs.reduce((acc, next) => next(acc), res);
 ```
 
 #### Currying (柯里化)

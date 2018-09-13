@@ -35,11 +35,17 @@ const foo = () => {
   return bar;
 };
 
-foo().then(() => console.log(4));
+console.log(4);
+
+foo().then(() => console.log(5));
+
+console.log(6);
+// 4
 // 1
 // 3
+// 6
 // 2
-// 4
+// 5
 ```
 
 Parallel (平行)
@@ -147,7 +153,7 @@ const foo = {
   *bar() {
     let index = 0;
     while (true) yield index++;
-  }
+  },
 };
 
 const it = foo.bar();
