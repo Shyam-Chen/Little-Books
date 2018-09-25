@@ -1141,16 +1141,25 @@ for (const [key, value] of m) {
 const proxy = new Proxy(<TARGET>, <HANDLER>);
 ```
 
-攔截讀取屬性值
-
 ```ts
-const proxy = new Proxy({}, {
-  foo(target, property) {
-    return 99;
-  }
-});
+const handler = {
+  get(target, name) {
+    if (name in target) {
+      return target[name];
+    }
 
-proxy.thing;  // 99
+    return 'nothing';
+  },
+};
+
+const p = new Proxy({}, handler);  // 代理一個空物件
+
+p.foo = 'foo';  // 設定 key 和 value
+p.bar = 'bar';  // 設定 key 和 value
+
+p.foo;  // foo
+p.bar;  // bar
+p.baz;  // nothing
 ```
 
 ## Reflect (反映)
