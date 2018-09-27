@@ -8,7 +8,6 @@
 
 ### Table of Contents (目錄)
 
-* [Quick Start (快速開始)](#quick-start-快速開始)
 * [Variable Declarations (變數宣告)](#variable-declarations-變數宣告)
 * [Destructuring (分割代入)](#destructuring-分割代入)
 * [Types (型別)](#types-型別)
@@ -35,36 +34,6 @@
 * [Decorators (修飾器)](#decorators-修飾器)
 
 ***
-
-## Quick Start (快速開始)
-
-```bash
-# install ts-node and typescript (安裝 ts-node 和 typescript)
-$ npm i ts-node typescript -g
-# or
-$ yarn global add ts-node typescript
-```
-
-```bash
-# create a practice file (建立練習檔)
-$ touch script.ts
-```
-
-```ts
-// script.ts
-var ht = 'Hello TypeScript';
-console.log(ht);
-```
-
-```bash
-# execute a practice file (執行練習檔)
-$ ts-node script
-```
-
-```bash
-# outputs (輸出)
-Hello TypeScript
-```
 
 ## Variable Declarations (變數宣告)
 
@@ -130,8 +99,8 @@ const thing = {
   x: 'foo',
   y: 'bar',
   child: {
-    z: 'baz'
-  }
+    z: 'baz',
+  },
 };
 
 const { x, y, child: { z } } = thing;
@@ -254,9 +223,7 @@ foo[KEY];  // 123
 // or
 
 const KEY = Symbol();
-const foo = {
-  [KEY]: 123
-};
+const foo = { [KEY]: 123 };
 
 foo[KEY];  // 123
 ```
@@ -272,7 +239,7 @@ foo = [123, 'abc'];  // initialize it (將 foo 初始化)
 
 ```ts
 enum Thing {
-  Foo, Bar, Baz
+  Foo, Bar, Baz,
 };
 
 let foo: Thing = Thing.Foo;  // 0
@@ -283,7 +250,7 @@ enum Thing2 {
   Up = 4,
   Down,
   Left,
-  Right
+  Right,
 };
 
 let up: Thing2 = Thing2.Up;  // 4
@@ -292,14 +259,13 @@ let left: Thing2 = Thing2.Left;  // 6
 let right: Thing2 = Thing2.Right;  // 7
 
 // 使用 const 宣告
-const enum Thing3 (
-  // ...
-  // 還能使用一些一元或二元運算子
-  Foo = 60 >> 2  // 0011-1100 -> 0000-1111, 15
-)
+const enum Thing3 {
+  // 使用一元或二元運算子
+  Foo = 60 >> 2,  // 0011-1100 -> 0000-1111, 15
+}
 
 enum Thing4 {
-  Foo
+  Foo,
 }
 let foo = Thing4.Foo;
 let thing4OfFoo = Thing4[Thing4.Foo];  // Foo
@@ -308,7 +274,7 @@ let thing4OfFoo = Thing4[Thing4.Foo];  // Foo
 declare enum Thing5 {
   Foo,
   Bar,
-  Baz
+  Baz,
 }
 ```
 
@@ -804,20 +770,23 @@ console.log(foo.add(2));
 
 ```ts
 class Foo {
+  public value: string = 'foo';
+
   get bar(): string {
-    return 'Getter: baz';
+    return `Getter: ${this.value}`;
   }
 
   set bar(value): void {
+    this.value = value;
     console.log(`Setter: ${value}`);
   }
 }
 
 const foo = new Foo();
 
-foo.bar;  // "Getter: baz"
-
+foo.bar;  // "Getter: foo"
 foo.bar = 'baz';  // Setter: baz
+foo.bar;  // "Getter: baz"
 ```
 
 ### Static Properties (靜態屬性)
@@ -1237,7 +1206,7 @@ Promise
 Promise
   .race([
     p1(),  // 假設 p1 為主體
-    p2()  // p2 不一定要執行，通常是 p1 的超時處理
+    p2(),  // p2 不一定要執行，通常是 p1 的超時處理
   ])
   .then(() => {
     // ...
@@ -1322,7 +1291,7 @@ const foo: object = {
   *bar() {
     let index: number = 0;
     while (true) yield index++;
-  }
+  },
 };
 
 const it = foo.bar();
@@ -1430,9 +1399,15 @@ class Thing {}  // 123
 Configurable (可配置的)
 
 ```ts
+const Foo = (obj) => (
+  (target) => {
+
+  }
+);
+
 @Foo({
   a: '',
-  b: ''
+  b: '',
 })
 class Thing {}
 ```
