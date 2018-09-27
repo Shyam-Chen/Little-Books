@@ -341,6 +341,28 @@ let baz: string | undefined;
 baz;  // OK
 ```
 
+```ts
+// non-null assertion operator
+
+const func = (obj) => {
+  if (!obj || !obj.value) return;
+  return obj.value;
+};
+
+const func = obj => obj!.value;
+```
+
+```ts
+// optional chaining operator
+
+const value = response
+  && response.foo
+  && response.foo.bar
+  && response.foo.bar.baz;
+
+const value = response?.foo?.bar?.baz;
+```
+
 ### Never (從未)
 
 ```ts
