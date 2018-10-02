@@ -57,9 +57,9 @@ import { Component } from '@angular/core';
   selector: 'use-template',
   template: `
     <p>Hello Angular</p>
-  `
+  `,
 })
-export class UseTemplateComponent { }
+export class UseTemplateComponent {}
 ```
 
 (2) `templateUrl`
@@ -71,9 +71,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'use-templateUrl',
-  templateUrl: './app/use-template.component.html'
+  templateUrl: './app/use-template.component.html',
 })
-export class UseTemplateUrlComponent { }
+export class UseTemplateUrlComponent {}
 ```
 
 ```html
@@ -97,9 +97,9 @@ import { Component } from '@angular/core';
     .at-color {
       color: #F44336;
     }
-  `]
+  `],
 })
-export class UseStylesComponent { }
+export class UseStylesComponent {}
 ```
 
 (2) `styleUrls`
@@ -110,10 +110,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'use-styleUrls',
   templateUrl: './app/use-styles.component.html',
-  styleUrls: ['./app/use-styles.component.css']
+  styleUrls: ['./app/use-styles.component.css'],
 })
-export class UseStyleUrlsComponent { }
-
+export class UseStyleUrlsComponent {}
 ```
 
 ```html
@@ -137,9 +136,9 @@ import { Component } from '@angular/core';
   moduleId: module.id,
   selector: 'module-identification',
   templateUrl: 'name.component.html',
-  styleUrls: ['name.component.css']
+  styleUrls: ['name.component.css'],
 })
-export class NameComponent { }
+export class NameComponent {}
 ```
 
 ```ts
@@ -149,9 +148,9 @@ import { Component } from '@angular/core';
   // moduleId: module.id,  // 如果沒有使用它
   selector: 'module-identification',
   templateUrl: './app/name.component.html',  // 模板路徑會變得很長
-  styleUrls: ['./app/name.component.css']  // 樣式路徑也會變得很長
+  styleUrls: ['./app/name.component.css'],  // 樣式路徑也會變得很長
 })
-export class NameComponent { }
+export class NameComponent {}
 ```
 
 ### 檢視層
@@ -173,7 +172,7 @@ import { Component } from '@angular/core';
     <!-- HTML 的屬性綁定 -->
     <a href="{{ link }}">網站連結</a>
     <img src="{{ image }}">
-  `
+  `,
 })
 export class RenderingTemplatesComponent {
   public message: string = 'Hello Angular';
@@ -200,7 +199,7 @@ import { Component } from '@angular/core';
   template: `
     <p>{{{ messages }}}</p>
   `,
-  interpolation: ['{{{', '}}}']
+  interpolation: ['{{{', '}}}'],
 })
 export class AppComponent {
   public messages: string = 'Hello Angular';
@@ -219,7 +218,7 @@ import { Component } from '@angular/core';
     <p>{{ name }}</p>
 
     <!-- [註]: 了解更多的 ngModel 指令可以查看表單章節 -->
-  `
+  `,
 })
 export class TwoWayBindingComponent {
   public name: string = '';
@@ -241,7 +240,7 @@ import { Component } from '@angular/core';
     <button on-click="onClick()">點擊我</button>
 
     <p>{{ message }}</p>
-  `
+  `,
 })
 export class ClickMeComponent {
   public message: string = '我是點擊「前」的訊息';
@@ -260,7 +259,7 @@ import { Component } from '@angular/core';
   template: `
     <button (click)="onToggle()">點擊我</button>
     <p>{{ message }}</p>
-  `
+  `,
 })
 export class ToggleMeComponent {
   public message: string = '你好';
@@ -290,7 +289,7 @@ import { Component } from '@angular/core';
 
     <!-- 都等同於 -->
     <a href="{{ url }}">Angular 官網</a>
-  `
+  `,
 })
 export class BindingPropertiesComponent {
   public url: string = 'https://angular.io/';
@@ -309,7 +308,7 @@ import { Component } from '@angular/core';
 
     <!-- 等同於 -->
     <p>{{ messages }}</p>
-  `
+  `,
 })
 export class BindingPropertiesComponent {
   public messages: string = 'Hello Angular';
@@ -330,10 +329,11 @@ import { Component } from '@angular/core';
       [style.padding.rem]="'1'"
       [style.width]="'6.5rem'"
     >
-    Hello Angular</p>
-  `
+      Hello Angular
+    </p>
+  `,
 })
-export class BindingPropertiesComponent { }
+export class BindingPropertiesComponent {}
 ```
 
 (4) `[class.名稱]="條件式"`
@@ -350,9 +350,9 @@ import { Component } from '@angular/core';
     .at-color {
       color: #E91E63;
     }
-  `]
+  `],
 })
-export class BindingPropertiesComponent { }
+export class BindingPropertiesComponent {}
 ```
 
 切換 CSS 類別
@@ -370,9 +370,9 @@ import { Component } from '@angular/core';
     .at-color {
       color: #F44336;
     }
-  `]
+  `],
 })
-export class ToggleClassComponent { }
+export class ToggleClassComponent {}
 ```
 
 (5) `[attr.名稱]="表達式"`
@@ -384,7 +384,7 @@ import { Component } from '@angular/core';
   selector: 'binding-properties',
   template: `
     <p [attr.at-version]="version">Angular</p>
-  `
+  `,
 })
 export class BindingPropertiesComponent {
   public version: number = 2;
@@ -405,7 +405,7 @@ import { Component } from '@angular/core';
   template: `
     <input #new="" (keyup)="onKeyup(new.value)">
     <p>{{ messages }}</p>
-  `
+  `,
 })
 export class LocalVariableComponent {
   public messages: string = '';
@@ -432,7 +432,7 @@ import { Component } from '@angular/core';
     <ul>
       <li *ngFor="let item of list">{{ item }}</li>
     </ul>
-  `
+  `,
 })
 export class AddItemComponent {
   public list: string[] = ['Angular', 'Material', 'Firebase'];
@@ -457,7 +457,7 @@ import { Component } from '@angular/core';
   template: `
     <p>Hi, TypeScript</p>
     <ng-content></ng-content>
-  `
+  `,
 })
 export class ContentProjectionComponent { }
 ```
@@ -474,7 +474,7 @@ import { ContentProjectionComponent } from './content-projection.component';
   `,
   directives: [ContentProjectionComponent]
 })
-export class AppComponent { }
+export class AppComponent {}
 ```
 
 #### 選擇投射
@@ -495,9 +495,9 @@ import { Component } from '@angular/core';
 
     <!-- 相同的選擇器無法重複渲染 -->
     <ng-content select="span"></ng-content>
-  `
+  `,
 })
-export class MoreProjectionComponent { }
+export class MoreProjectionComponent {}
 ```
 
 ```ts
@@ -517,9 +517,9 @@ import { MoreProjectionComponent } from './more-projection.component';
       <p id="thing">ID 無法被選擇</p>
     </more-projection>
   `,
-  directives: [MoreProjectionComponent]
+  directives: [MoreProjectionComponent],
 })
-export class AppComponent { }
+export class AppComponent {}
 ```
 
 ### 相互溝通
@@ -536,7 +536,7 @@ import { Component } from '@angular/core';
   template: `
     <p>Angular {{ version }}</p>
   `,
-  inputs: ['version']
+  inputs: ['version'],
 })
 export class UseInputComponent {
   public version: string;
@@ -554,9 +554,9 @@ import { UseInputComponent } from './use-input.component';
     <!-- 直接綁定到原字串上 -->
     <use-input version="2"></use-input>
   `,
-  directives: [UseInputComponent]
+  directives: [UseInputComponent],
 })
-export class AppComponent { }
+export class AppComponent {}
 ```
 
 ```ts
@@ -687,11 +687,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'at-child',
   template: `
-    <p>這是「子」元件 - 1</p>
-  `
+    <p>這是「子」元件 - 模板</p>
+  `,
 })
 export class ChildComponent {
-  public name: string = '這是「子」元件 - 2';
+  public name: string = '這是「子」元件 - 屬性';
 }
 ```
 
@@ -703,16 +703,13 @@ import { ChildComponent } from './child.component';
 @Component({
   selector: 'at-parent',
   template: `
-    <p>這是「父」元件 - 1</p>
-    <p>{{ name }}</p>
-
+    <p>這是「父」元件</p>
     <ng-content></ng-content>
-    <p>{{ childComponent.name }}</p>
+    <p>{{ child.name }}</p>  <!-- 使用子元件的屬性 -->
   `
 })
 export class ParentComponent {
-  @ContentChild(ChildComponent) childComponent: ChildComponent;
-  public name: string = '這是「父」元件 - 2';
+  @ContentChild(ChildComponent) public child: ChildComponent;
 }
 ```
 
@@ -731,10 +728,10 @@ import { ChildComponent } from './child.component';
   `,
   directives: [
     ParentComponent,
-    ChildComponent
-  ]
+    ChildComponent,
+  ],
 })
-export class AppComponent { }
+export class AppComponent {}
 ```
 
 (2) ContentChildren
@@ -807,10 +804,10 @@ import { Component, ContentChildren, QueryList, AfterContentInit, AfterContentCh
 import { ChildComponent } from './child.component';
 
 @Component({
-  [...]
+  // ...
 })
 export class ParentComponent implements AfterContentInit, AfterContentChecked {
-  [...]
+  // ...
 
   // 使用 AfterContentInit
   ngAfterContentInit() {
