@@ -22,10 +22,8 @@ Your algorithm should run in linear runtime complexity. Could you implement it u
 
 **Solution:**
 
-```js
-// @flow
-
-const missingNumber = <T: number>(nums: T[]): T => {
+```ts
+const missingNumber = <T extends number>(nums: T[]): T => {
   const sum = nums.reduce((a, b) => a + b);
   return (1 + nums.length) * nums.length / 2 - sum;
 };

@@ -22,10 +22,8 @@ Output: 4
 
 **Solution:**
 
-```js
-// @flow
-
-const singleNumber = <T: number>(nums: T[]): T => (
+```ts
+const singleNumber = <T extends number>(nums: T[]): T => (
   nums.reduce((sum, num) => sum ^ num)
 );
 ```

@@ -20,10 +20,8 @@ Explanation: Integer 128 has binary representation 00000000000000000000000010000
 
 **Solution:**
 
-```js
-// @flow
-
-const hammingWeight = <T: number>(n: T): T => (
+```ts
+const hammingWeight = <T extends number>(n: T): T => (
   n.toString(2).split('0').join('').length
 );
 ```

@@ -17,10 +17,8 @@ Could you do it without any loop/recursion in all runtime?
 
 **Solution 1:**
 
-```js
-// @flow
-
-const addDigits = <T: number>(num: T): T => {
+```ts
+const addDigits = <T extends number>(num: T): T => {
   while (num >= 10) {
     let sum = 0;
 
@@ -39,10 +37,8 @@ const addDigits = <T: number>(num: T): T => {
 
 **Solution 2:**
 
-```js
-// @flow
-
-const addDigits = <T: number>(num: T): T => {
+```ts
+const addDigits = <T extends number>(num: T): T => {
   if (num < 10) return num;
 
   let sum = 0;
@@ -59,10 +55,8 @@ const addDigits = <T: number>(num: T): T => {
 
 **Solution 3:**
 
-```js
-// @flow
-
-const addDigits = <T: number>(num: T): T => {
+```ts
+const addDigits = <T extends number>(num: T): T => {
   if (num === 0) return 0;
   if (num % 9 === 0) return 9;
   return num % 9;
@@ -71,20 +65,16 @@ const addDigits = <T: number>(num: T): T => {
 
 **Solution 4:**
 
-```js
-// @flow
-
-const addDigits = <T: number>(num: T): T => (
+```ts
+const addDigits = <T extends number>(num: T): T => (
   num === 0 ? 0 : num - 9 * Math.floor((num - 1) / 9)
 );
 ```
 
 **Solution 5:**
 
-```js
-// @flow
-
-const addDigits = <T: number>(num: T): T => (
+```ts
+const addDigits = <T extends number>(num: T): T => (
   1 + (num - 1) % 9
 );
 ```

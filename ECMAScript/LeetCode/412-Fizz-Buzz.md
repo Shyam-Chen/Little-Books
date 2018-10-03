@@ -31,9 +31,7 @@ Return:
 
 **Solution:**
 
-```js
-// @flow
-
+```ts
 const fizzBuzz = (n: number): string[] => {
   const res = [];
 

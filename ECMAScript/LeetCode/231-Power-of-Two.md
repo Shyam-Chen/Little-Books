@@ -27,9 +27,7 @@ Output: false
 
 **Solution 1:**
 
-```js
-// @flow
-
+```ts
 const isPowerOfTwo = (n: number): boolean => {
   for (let i = 0; i < n; i++) {
     if (n === Math.pow(2, i)) return true;
@@ -41,9 +39,7 @@ const isPowerOfTwo = (n: number): boolean => {
 
 **Solution 2:**
 
-```js
-// @flow
-
+```ts
 const isPowerOfTwo = (n: number): boolean => {
   if (n === 1) return true;
 
@@ -57,9 +53,7 @@ const isPowerOfTwo = (n: number): boolean => {
 
 **Solution 3:**
 
-```js
-// @flow
-
+```ts
 const isPowerOfTwo = (n: number): boolean => (
   (n & (n - 1)) === 0
 );
@@ -67,9 +61,7 @@ const isPowerOfTwo = (n: number): boolean => (
 
 **Solution 4:**
 
-```js
-// @flow
-
+```ts
 const isPowerOfTwo = (n: number): boolean => (
   Number.isInteger(Math.log2(n))
 );

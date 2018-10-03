@@ -235,6 +235,10 @@ let foo: [number, string];  // declare a tuple type (宣告一個元組型別)
 foo = [123, 'abc'];  // initialize it (將 foo 初始化)
 ```
 
+```ts
+declare function foo(...args: [number, string, boolean]): void;
+```
+
 ### Enum (列舉)
 
 ```ts
@@ -931,6 +935,10 @@ function identity<T>(arg: T): T {
 identity(123);  // 123
 identity('abc');  // 'abc'
 identity(true);  // true
+```
+
+```ts
+declare function bind<T, U extends any[], V>(f: (x: T, ...args: U) => V, x: T): (...args: U) => V;
 ```
 
 ```ts

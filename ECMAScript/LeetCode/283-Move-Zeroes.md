@@ -16,9 +16,7 @@ Output: [1,3,12,0,0]
 
 **Solution:**
 
-```js
-// @flow
-
+```ts
 const moveZeroes = (nums: number[]): void => {
   [...nums.filter(x => x !== 0), ...nums.filter(x => x === 0)];
 };

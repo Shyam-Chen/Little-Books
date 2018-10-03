@@ -897,7 +897,8 @@ import { ParentComponent } from './parent.component';
 export class AppComponent { }
 ```
 
-使用字串選擇
+使用模板區域變數
+
 ```ts
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 
@@ -907,7 +908,7 @@ import { ChildComponent } from './child.component';
   selector: 'at-parent',
   template: `
     <p>這是「父」元件</p>
-    <at-child #child></at-child>
+    <at-child #child></at-child>  <!-- 宣告 #child -->
   `,
   directives: [ChildComponent]
 })
@@ -950,10 +951,10 @@ import { Component, ViewChildren, QueryList, AfterViewInit, AfterViewChecked } f
 import { ChildComponent } from './child.component';
 
 @Component({
-  [...]
+  // ...
 })
 export class ParentComponent implements AfterViewInit, AfterViewChecked {
-  [...]
+  // ...
 
   // 使用 AfterViewInit
   public ngAfterViewInit() {

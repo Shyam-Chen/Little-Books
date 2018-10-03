@@ -22,10 +22,8 @@ Output: [-1,-1]
 
 **Solution 1:**
 
-```js
-// @flow
-
-const searchRange = <T: number>(nums: T[], target: T): T[] => {
+```ts
+const searchRange = <T extends number>(nums: T[], target: T): T[] => {
   const res = [-1, -1];
 
   // left
@@ -59,10 +57,8 @@ const searchRange = <T: number>(nums: T[], target: T): T[] => {
 
 **Solution 2:**
 
-```js
-// @flow
-
-const searchRange = <T: number>(nums: T[], target: T): T[] => (
+```ts
+const searchRange = <T extends number>(nums: T[], target: T): T[] => (
   [nums.indexOf(target), nums.lastIndexOf(target)]
 );
 ```

@@ -10,10 +10,8 @@ Given a = 1 and b = 2, return 3.
 
 **Solution 1:**
 
-```js
-// @flow
-
-const getSum = <T: number>(a: T, b: T): T => {
+```ts
+const getSum = <T extends number>(a: T, b: T): T => {
   while (b !== 0) {
     const carry = a & b;
 
@@ -27,10 +25,8 @@ const getSum = <T: number>(a: T, b: T): T => {
 
 **Solution 2:**
 
-```js
-// @flow
-
-const getSum = <T: number>(a: T, b: T): T => {
+```ts
+const getSum = <T extends number>(a: T, b: T): T => {
   if (b === 0) return a;
   const carry = a & b;
   return getSum(a ^ b, carry << 1);

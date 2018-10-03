@@ -29,10 +29,8 @@ Assume we are dealing with an environment which could only store integers within
 
 **Solution:**
 
-```js
-// @flow
-
-const reverse = <T: number>(x: T): T => {
+```ts
+const reverse = <T extends number>(x: T): T => {
   const res = parseInt(String(x).split('').reverse().join('') , 10) * Math.sign(x);
 
   if (res > Math.pow(2, 31) || res < -Math.pow(2, 31) - 1) return 0;

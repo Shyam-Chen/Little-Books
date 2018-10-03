@@ -283,6 +283,7 @@ export class AppComponent { }
 ```
 
 #### 字節管道
+
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -295,17 +296,19 @@ export class LengthPipe implements PipeTransform {
   }
 }
 ```
+
 ```html
 <p>Angular 2 的字節是: {{ 'Angular 2' | length }}</p>
 ```
 
 #### 延遲管道
+
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'delay',
-  pure: false
+  pure: false,  // 用於串接用
 })
 export class DelayPipe implements PipeTransform {
   public fetchedValue: any;
@@ -323,10 +326,11 @@ export class DelayPipe implements PipeTransform {
   }
 }
 ```
+
 ```html
 <p>
   <span>{{ '文' | delay: 1 }}</span>
-  <span>{{ '字' | delay: 2 }}</span>
+  <span>{{ '字' | delay: 1 | delay: 1 }}</span>
   <span>{{ '一' | delay: 3 }}</span>
   <span>{{ '個' | delay: 4 }}</span>
   <span>{{ '一' | delay: 5 }}</span>
