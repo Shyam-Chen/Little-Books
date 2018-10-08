@@ -1,6 +1,10 @@
 # Cheat Sheet
 
+***
+
 ### flatten
+
+Flattens array a single level deep.
 
 ```js
 const data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
@@ -31,6 +35,8 @@ flatten(data);
 ```
 
 ### range
+
+Creates an array of numbers progressing from start up to.
 
 ```js
 Array.from(Array(10).keys());
@@ -86,4 +92,22 @@ import { from } from 'rxjs';
 
 from(range(1, 10, 2)).subscribe(value => value);
 // 1, 3, 5, 7, 9
+```
+
+### swap
+
+Swap the places of two elements.
+
+```ts
+const swap = <T>(arr: T[], i: number, j: number): T[] => {
+  const temp = arr[i];
+
+  arr[i] = arr[j];
+  array[j] = temp;
+
+  return array;
+};
+
+swap([1, 2, 3, 4, 5], 2, 4);
+// [1, 2, 5, 4, 3]
 ```
