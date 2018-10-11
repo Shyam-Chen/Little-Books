@@ -85,6 +85,7 @@
   * [Put](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/http.md#put)
   * [Delete](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/http.md#delete)
   * [JSONP](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/http.md#jsonp)
+  * [攔截器](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/http.md#攔截器)
 * [GraphQL (資料查詢語言)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/graphql.md)
   * Query (查詢)
   * Mutation (變動)

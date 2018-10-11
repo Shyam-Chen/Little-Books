@@ -561,3 +561,98 @@ export class WikipediaService {
   }
 }
 ```
+
+### 攔截器
+
+(1) Interceptor
+
+```ts
+// name-interceptor.service.ts
+import { Injectable } from '@angular/core';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap, finalize } from 'rxjs/operators';
+
+@Injectable()
+export class NameInterceptor implements HttpInterceptor {
+  public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    return next.handle(req)
+      .tap(() => /* ... */)
+      .finalize(() => /* ... */);
+  }
+}
+```
+
+```ts
+// name.module.ts
+import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { NameInterceptor } from './name-interceptor.service';
+
+@NgModule({
+  // ...
+  providers: [
+    // ...
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NameInterceptor,
+      multi: true,
+    },
+    // ...
+  ],
+  // ...
+})
+export class NameModule {}
+```
+
+(2) Interceptor and Service
+
+```ts
+// name-interceptor.service.ts
+import { Injectable } from '@angular/core';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap, finalize } from 'rxjs/operators';
+
+import { NameService } from './name.service';
+
+@Injectable()
+export class NameInterceptor implements HttpInterceptor {
+  constructor(private nameService: NameService) {}
+
+  public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    return next.handle(req)
+      .tap(() => /* ... */)
+      .finalize(() => /* ... */);
+  }
+}
+```
+
+```ts
+// name.module.ts
+import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { NameService } from './name.service';
+import { NameInterceptor } from './name-interceptor.service';
+
+@NgModule({
+  // ...
+  providers: [
+    // ...
+    NameService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useFactory: (service: NameService) => new NameInterceptor(service),
+      multi: true,
+      deps: [NameService],
+    },
+    // ...
+  ],
+  // ...
+})
+export class NameModule {}
+```
