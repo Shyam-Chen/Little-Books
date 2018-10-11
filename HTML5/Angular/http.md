@@ -1,10 +1,12 @@
 ## HTTP
 
+###
+
 ```ts
 // src/app/app.module.ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';  // 導入 HTTP 模組
+import { HttpClientModule } from '@angular/common/http';  // 導入 HttpClient 模組
 
 import { AppComponent } from './app.component';
 // ...
@@ -12,19 +14,15 @@ import { AppComponent } from './app.component';
 @NgModule({
   imports: [
     BrowserModule,
-    HttpModule,  // 放至 App 模組裡
+    HttpClientModule,  // 放至 App 模組裡
     // ...
   ],
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 ```
-
-或者使用 `import { HttpClientModule } from '@angular/common/http';`
 
 ### Get
 
@@ -87,26 +85,23 @@ export class AppComponent {
 ```js
 // server.js
 const express = require('express');
+const cors = require('cors');  // 使用代理，則無載入
 
 const app = express();
 
-app.set('port', (process.env.PORT || 8000));
+app.use(cors());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
-
-app.get('/data', (req, res) => {
+// 一個卡片 GET API
+app.get('/card', (req, res) => {
   res.json({
     title: 'Angular GO',
-    content: 'I have an @angular, I have a @reactivex. Uh! @ngrx!'
+    content: 'I have an @angular, I have a @reactivex. Uh! @ngrx!',
   });
 });
 
-app.listen(app.get('port'), () => {
+app.listen(3000, () => {
   console.log('App: Bootstrap Succeeded.');
-  console.log(`Port: ${app.get('port')}.`);
+  console.log('Port: 3000.');
 });
 ```
 
@@ -187,6 +182,7 @@ export class SampleService {
 ```
 
 #### 準備資料
+
 ```js
 // src/assets/data.json
 {
@@ -196,6 +192,7 @@ export class SampleService {
 ```
 
 #### 操作服務
+
 ```ts
 // src/app/app.component.ts
 import { Component } from '@angular/core';
@@ -210,7 +207,7 @@ import { SampleService } from './sample.service';
     <pre>{{ messages }}</pre>
   `,
   providers: [HTTP_PROVIDERS],
-  viewProviders: [SampleService]
+  viewProviders: [SampleService],
 })
 export class AppComponent {
   constructor(private sampleService: SampleService) { }
@@ -231,6 +228,7 @@ export class AppComponent {
 ```
 
 #### 倒退為 Promise
+
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
@@ -250,6 +248,7 @@ export class SampleService {
   }
 }
 ```
+
 ```ts
 // src/app/app.component.ts
 [...]
@@ -268,6 +267,7 @@ export class AppComponent {
 ```
 
 #### 捕獲錯誤
+
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
@@ -295,6 +295,7 @@ export class SampleService {
 ### Post
 
 #### 建立服務
+
 ```ts
 // src/app/sample.service.ts
 import { Injectable } from '@angular/core';
@@ -326,6 +327,7 @@ export class SampleService {
 ```
 
 #### 執行服務
+
 ```ts
 import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
@@ -359,6 +361,7 @@ export class AppComponent {
 ```
 
 ### Put
+
 ```ts
 // src/app/rest.service.ts
 import { Injectable } from '@angular/core';
@@ -384,6 +387,7 @@ export class RestService {
 ```
 
 ### Delete
+
 ```ts
 // src/app/rest.service.ts
 import { Injectable } from '@angular/core';
@@ -533,9 +537,11 @@ export class AppModule { }
 ```
 
 ### JSONP
+
 ```ts
 
 ```
+
 ```ts
 import { Injectable } from '@angular/core';
 import { Jsonp, URLSearchParams } from '@angular/http';
@@ -655,4 +661,11 @@ import { NameInterceptor } from './name-interceptor.service';
   // ...
 })
 export class NameModule {}
+```
+
+### 進度事件
+
+進度事件用於檔案上傳時，回報上傳的進度
+
+```ts
 ```
