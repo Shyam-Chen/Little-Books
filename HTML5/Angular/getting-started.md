@@ -11,7 +11,7 @@ Angular 開發概念就是已元件化為中心出發，而 Angular 的元件化
 
 TypeScript 是 JavaScript 的超集，提供型別的機制，還有更多未來標準的實現，是 Angular 官方預設使用的
 
-#### ReactiveX
+#### ReactiveX (RxJS)
 
 透過 RxJS 來實現 Observables 未來的標準的非同步操作，是 Angular 官方預設使用的
 
@@ -19,17 +19,25 @@ TypeScript 是 JavaScript 的超集，提供型別的機制，還有更多未來
 
 Zone.js 提供一個區域的機制，用在瀏覽器中封裝和攔截非同步的操作，是 Angular 官方預設使用的
 
-#### @ngrx
+#### NgRx
 
-@ngrx 靈感來自於 Redux，是負責用來管理狀態的
+NgRx 靈感來自於 Redux，是負責用來管理狀態的
+
+#### NGXS
+
+與 NgRx 都是來處理狀態
 
 #### Ionic
 
-行動 ...
+Ionic 在 Angular 和 Cordova
 
 #### NativeScript
 
-行動 ...
+開發手機應用程式
+
+#### Electron
+
+可以透過 Electron 來開發 Angular 的桌面應用程式
 
 ### Environment settings (環境設置)
 
@@ -37,7 +45,7 @@ Zone.js 提供一個區域的機制，用在瀏覽器中封裝和攔截非同步
 不太建議自己做從零開始建立 Angular 的環境，
 所以我們可以透過官方提供的 Angular CLI 來快速建立一個完整的環境
 
-先決條件需要安裝好 Node.js
+先決條件需要安裝好 [Node.js](https://nodejs.org/en/)
 
 安裝 Angular CLI
 

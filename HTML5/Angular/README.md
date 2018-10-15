@@ -4,7 +4,7 @@
 
 * [Getting Started (入門)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/getting-started.md)
   * [Ecosystems (生態系)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/getting-started.md#ecosystems-生態系)
-  * [Environment settings (環境設置)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/getting-started.md#環境設置)
+  * [Environment Settings (環境設置)](./getting-started.md#environment-settings-環境設置)
 * [Modules (模組)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/modules.md)
   * [Basic operations (基本應用)](https://github.com/Shyam-Chen/Big-Little-Books/blob/master/HTML5/Angular/modules.md#基本應用)
   * Core Feature Module (核心功能模組)

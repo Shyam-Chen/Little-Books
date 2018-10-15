@@ -8,6 +8,7 @@
 
 ### Table of Contents (目錄)
 
+* [Getting Started (起手式)](#getting-started-起手式)
 * [Variable Declarations (變數宣告)](#variable-declarations-變數宣告)
 * [Destructuring (分割代入)](#destructuring-分割代入)
 * [Types (型別)](#types-型別)
@@ -34,6 +35,55 @@
 * [Decorators (修飾器)](#decorators-修飾器)
 
 ***
+
+## Getting Started (起手式)
+
+Ｐrerequisites (先決條件)
+
+```bash
+$ node -v
+v8.12.0
+
+$ yarn -v
+1.10.1
+```
+
+Create a start project (建立起始專案)
+
+```bash
+$ mkdir typescript-starter
+$ cd typescript-starter
+$ yarn init -y
+
+# open code with current directory (在當前目錄打開程式碼)
+$ code .
+```
+
+```coffee
+.
+├── src
+│   └── index.ts
+├── .editorconfig
+├── .gitignore
+├── jest.config.js
+├── package.json
+├── tsconfig.json
+├── tslint.json
+├── webpack.config.js
+└── yarn.lock
+```
+
+```js
+// webpack.config.js
+const SOURCE_ROOT = path.join(__dirname, 'src');
+const DISTRIBUTION_ROOT = path.join(__dirname, 'dist');
+
+distribution files?
+
+module.exports = ({ prod = false } = {}) => ({
+  mode: prod ? 'production' : 'development',
+});
+```
 
 ## Variable Declarations (變數宣告)
 
