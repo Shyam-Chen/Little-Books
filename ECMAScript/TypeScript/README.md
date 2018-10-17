@@ -33,6 +33,7 @@
 * [Generators (產生器)](#generators-產生器)
 * [Async Functions (非同步函式)](#async-functions-非同步函式)
 * [Decorators (修飾器)](#decorators-修飾器)
+* Unit Testing (單元測試)
 
 ***
 
@@ -63,8 +64,6 @@ $ code .
 .
 ├── src
 │   └── index.ts
-├── .editorconfig
-├── .gitignore
 ├── jest.config.js
 ├── package.json
 ├── tsconfig.json
