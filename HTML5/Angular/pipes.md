@@ -1,34 +1,50 @@
-## 管道
+## Pipes (管道)
 
-管道可以讓我們在模板中轉換顯示內容。
+A pipe takes in data as input and transforms it to a desired output. (管道將資料作為輸入並將其轉換為所需的輸出)
 
-### 內建管道
+### Built-in Pipes (內建管道)
 
-#### 大小寫
+在使用內建管道時，需要先導入 `CommonModule`
+
+```ts
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { <NAME>Component } from './<NAME>.component';
+
+@NgModule({
+  imports: [CommonModule],
+  declarations: [<NAME>Component],
+  providers: [],
+})
+export class <NAME>Module {}
+```
+
+#### Uppercase and Lowercase (大小寫)
 
 ```ts
 import { Component } from '@angular/core';
-import { COMMON_PIPES } from '@angular/common';
 
 @Component({
-  selector: 'ap-uppercase-lowercase',
+  selector: 'o-uppercase-lowercase',
   template: `
     <p>{{ messages | uppercase }}</p>
     <p>{{ messages | lowercase }}</p>
     <p>{{ messages | uppercase | lowercase }}</p>  <!-- 先 uppercase 再來 lowercase -->
-  `
+  `,
 })
 export class UppercaseLowercaseComponent {
   public messages: string = 'Angular';
 }
 ```
 
-#### 日期
+#### Date (日期)
+
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ap-date',
+  selector: 'o-date',
   template: `
     <p>{{ today | date }}</p>
     <p>{{ today | date: 'medium' }}</p>
@@ -41,30 +57,15 @@ import { Component } from '@angular/core';
     <p>{{ today | date: 'shortTime' }}</p>
 
     <!-- 也能自行配置 -->
-    <p>{{ today | date: 'yyyy/M/d' }}</p>
-  `
+    <p>{{ today | date: 'yyyy/MM/dd' }}</p>
+  `,
 })
 export class DateComponent {
   public today: Date = new Date();
 }
 ```
 
-| Component | Symbol | Short Form   | Long Form                 | Numeric  | 2-digit    |
-|-----------|:------:|--------------|---------------------------|----------|------------|
-| era       | G      | G (AD)       | GGGG (Anno Domini)        | -        | -          |
-| year      | y      | -            | -                         | y (2015) | yy (15)    |
-| month     | M      | MMM (Sep)    | MMMM (September)          | M (9)    | MM (09)    |
-| day       | d      | -            | -                         | d (3)    | dd (03)    |
-| weekday   | E      | EEE (Sun)    | EEEE (Sunday)             | -        | -          |
-| hour      | j      | -            | -                         | j (13)   | jj (13)    |
-| hour12    | h      | -            | -                         | h (1 PM) | hh (01 PM) |
-| hour24    | H      | -            | -                         | H (13)   | HH (13)    |
-| minute    | m      | -            | -                         | m (5)    | mm (05)    |
-| second    | s      | -            | -                         | s (9)    | ss (09)    |
-| timezone  | z      | -            | z (Pacific Standard Time) | -        | -          |
-| timezone  | Z      | Z (GMT-8:00) | -                         | -        | -          |
-
-#### 非同步
+#### Async (非同步)
 
 (1)
 
@@ -72,13 +73,16 @@ export class DateComponent {
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ap-async',
-  template: `<p>{{ messages | async }}</p>`
+  selector: 'o-async',
+  template: `
+    <p>{{ messages | async }}</p>
+  `,
 })
 export class AsyncComponent {
   public messages: string;
+
   constructor() {
-    this.messages = new Promise((resolve, reject) => {
+    this.messages = new Promise((resolve) => {
       setTimeout(() => resolve('三秒後呈現'), 3000);
     });
   }
@@ -105,7 +109,7 @@ export class AsyncDateComponent {
 }
 ```
 
-#### 數值 (十進制)
+#### Number (數值)
 
 ```ts
 import { Component } from '@angular/core';
@@ -136,18 +140,18 @@ export class PercentComponent {
 }
 ```
 
-#### 貨幣
+#### Currency (貨幣)
 
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ap-currency',
+  selector: 'o-currency',
   template: `
     <!-- currency: 貨幣代號: 是否顯示金錢符號: 位數資訊 -->
     <p>{{ price | currency: 'USD': false }}</p>
     <p>{{ price | currency: 'USD': true: '4.2-2' }}</p>
-  `
+  `,
 })
 export class CurrencyComponent {
   public price: number = 125.18;
@@ -155,6 +159,7 @@ export class CurrencyComponent {
 ```
 
 #### JSON
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -172,6 +177,7 @@ export class JsonComponent {
 ```
 
 #### 裁切
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -190,6 +196,7 @@ export class SliceListComponent {
 ```
 
 #### 替換
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -207,6 +214,7 @@ export class ReplaceComponent {
 ```
 
 #### 選擇
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -223,6 +231,7 @@ export class I18nSelectComponent {
 ```
 
 #### 複數
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -247,12 +256,14 @@ export class I18nPluralComponent {
 ### 自訂管道
 
 #### 管道建構子
+
 ```ts
 name: string
 pure?: boolean
 ```
 
 #### 管道起點
+
 ```ts
 // name.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
@@ -266,6 +277,7 @@ export class NamePipe implements PipeTransform {
   }
 }
 ```
+
 ```ts
 // app.component.ts
 import { Component } from '@angular/core';

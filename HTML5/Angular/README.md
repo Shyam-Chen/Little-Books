@@ -90,13 +90,12 @@
 * [GraphQL (資料查詢語言)](./HTML5/Angular/graphql.md)
   * Query (查詢)
   * Mutation (變動)
-  * Pagination (分頁)
 * [WebSockets (雙向通訊)](./HTML5/Angular/websockets.md)
   * Socket.IO
   * GraphQL Subscriptions
-* [Pipes (管道過濾器)](./HTML5/Angular/pipes.md)
-  * [內建管道](./HTML5/Angular/pipes.md#內建管道)
-    * [uppercase 與 lowercase](./HTML5/Angular/pipes.md#大小寫)
+* [Pipes (管道)](./HTML5/Angular/pipes.md)
+  * [Built-in Pipes (內建管道)](./HTML5/Angular/pipes.md#built-in-pipes-內建管道)
+    * [Uppercase and Lowercase (大小寫)](./HTML5/Angular/pipes.md#uppercase-and-lowercase-大小寫)
     * [date](./HTML5/Angular/pipes.md#日期)
     * [async](./HTML5/Angular/pipes.md#非同步)
     * [number](./HTML5/Angular/pipes.md#數值-十進制)
