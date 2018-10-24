@@ -13,36 +13,49 @@ import { CommonModule } from '@angular/common';
 import { <NAME>Component } from './<NAME>.component';
 
 @NgModule({
+  // ...
   imports: [CommonModule],
   declarations: [<NAME>Component],
-  providers: [],
+  // ...
 })
 export class <NAME>Module {}
 ```
 
-#### Uppercase and Lowercase (大小寫)
+#### Uppercase (大寫)
 
-Transforms text to all upper/lower case. (將文字轉換成全部大/小寫)
+Transforms text to all upper case. (將文字轉換成全部大寫)
 
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'o-uppercase-lowercase',
+  selector: 'o-uppercase',
   template: `
-    <p>{{ messages | uppercase }}</p>
-    <p>{{ messages | lowercase }}</p>
-    <p>{{ messages | uppercase | lowercase }}</p>  <!-- 先 uppercase 再來 lowercase -->
+    <div>{{ 'Angular' | uppercase }}</div>  <!-- Output: ANGULAR -->
   `,
 })
-export class UppercaseLowercaseComponent {
-  public messages: string = 'Angular';
-}
+export class UppercaseComponent {}
 ```
 
-API: <br>
-https://angular.io/api/common/UpperCasePipe <br>
-https://angular.io/api/common/LowerCasePipe
+API: https://angular.io/api/common/UpperCasePipe
+
+#### Lowercase (小寫)
+
+Transforms text to all lower case. (將文字轉換成全部小寫)
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'o-lowercase',
+  template: `
+    <div>{{ 'Angular' | lowercase }}</div>  <!-- Output: angular -->
+  `,
+})
+export class LowercaseComponent {}
+```
+
+API: https://angular.io/api/common/LowerCasePipe
 
 #### Titlecase (首字母大寫)
 
@@ -54,8 +67,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'o-titlecase',
   template: `
-    <div>{{ 'foo' | titlecase }}</div>  <!-- Foo -->
-    <div>{{ 'foo-bar' | titlecase }}</div>  <!-- Foo-bar -->
+    <div>{{ 'foo' | titlecase }}</div>  <!-- Output: Foo -->
+    <div>{{ 'foo-bar' | titlecase }}</div>  <!-- Output: Foo-bar -->
   `,
 })
 export class TitlecaseComponent {}
@@ -65,30 +78,34 @@ API: https://angular.io/api/common/TitleCasePipe
 
 #### Date (日期)
 
+Formats a date value according to locale rules. (依據本地規則來格式化日期值)
+
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'o-date',
   template: `
-    <p>{{ today | date }}</p>
-    <p>{{ today | date: 'medium' }}</p>
-    <p>{{ today | date: 'short' }}</p>
-    <p>{{ today | date: 'fullDate' }}</p>
-    <p>{{ today | date: 'longDate' }}</p>
-    <p>{{ today | date: 'mediumDate' }}</p>
-    <p>{{ today | date: 'shortDate' }}</p>
-    <p>{{ today | date: 'mediumTime' }}</p>
-    <p>{{ today | date: 'shortTime' }}</p>
+    <div>{{ today | date }}</div>
+    <div>{{ today | date: 'medium' }}</div>
+    <div>{{ today | date: 'short' }}</div>
+    <div>{{ today | date: 'fullDate' }}</div>
+    <div>{{ today | date: 'longDate' }}</div>
+    <div>{{ today | date: 'mediumDate' }}</div>
+    <div>{{ today | date: 'shortDate' }}</div>
+    <div>{{ today | date: 'mediumTime' }}</div>
+    <div>{{ today | date: 'shortTime' }}</div>
 
-    <!-- 也能自行配置 -->
-    <p>{{ today | date: 'yyyy/MM/dd' }}</p>
+    <!-- Custom format (自訂格式) -->
+    <div>{{ today | date: 'yyyy/MM/dd' }}</div>
   `,
 })
 export class DateComponent {
   public today: Date = new Date();
 }
 ```
+
+API: https://angular.io/api/common/DatePipe
 
 #### Async (非同步)
 
@@ -153,7 +170,9 @@ export class NumberComponent {
 }
 ```
 
-#### 百分率
+API: https://angular.io/api/common/DecimalPipe
+
+#### Percent (百分比)
 
 ```ts
 import { Component } from '@angular/core';
@@ -166,6 +185,8 @@ export class PercentComponent {
   public proficiency: number = 0.703517;
 }
 ```
+
+API: https://angular.io/api/common/PercentPipe
 
 #### Currency (貨幣)
 
@@ -185,6 +206,8 @@ export class CurrencyComponent {
 }
 ```
 
+API: https://angular.io/api/common/CurrencyPipe
+
 #### JSON
 
 ```ts
@@ -203,13 +226,42 @@ export class JsonComponent {
 }
 ```
 
-#### 裁切
+API: https://angular.io/api/common/JsonPipe
+
+#### KeyValue (鍵值組)
 
 ```ts
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'slice-list',
+  selector: 'o-keyvalue',
+  template: `
+    <div>
+      <div *ngFor="let item of withObject | keyvalue">
+        {{item.key}}:{{item.value}}
+      </div>
+
+      <div *ngFor="let item of withMap | keyvalue">
+        {{item.key}}:{{item.value}}
+      </div>
+    </div>
+  `,
+})
+export class KeyValueComponent {
+  public withObject = { 2: 'foo', 1: 'bar' };
+  public withMap = new Map([[2, 'foo'], [1, 'bar']]);
+}
+```
+
+API: https://angular.io/api/common/KeyValuePipe
+
+#### Slice (裁切)
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'o-slice',
   template: `
     <ul>
       <!-- 從陣列索引的 1 開始 ~ 到 3 結束，但不包含 3 -->
@@ -217,30 +269,14 @@ import { Component } from '@angular/core';
     </ul>
   `
 })
-export class SliceListComponent {
+export class SliceComponent {
   public list: string[] = ['0', '1', '2', '3', '4', '5'];
 }
 ```
 
-#### 替換
+API: https://angular.io/api/common/SlicePipe
 
-```ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'ap-replace',
-  template: `
-    <p>{{ 'Angular 2' | replace: ' ':'_' }}</p>
-    <p>{{ 'Angular 2' | replace: 'Angular ':'ng' }}</p>
-    <p>{{ 'Angular_2_in_Action' | replace: regex:' ' }}</p>
-  `
-})
-export class ReplaceComponent {
-  public regex: RegExp = /_/g;
-}
-```
-
-#### 選擇
+#### I18nSelect (國際化選擇值)
 
 ```ts
 import { Component } from '@angular/core';
@@ -257,7 +293,9 @@ export class I18nSelectComponent {
 }
 ```
 
-#### 複數
+API: https://angular.io/api/common/I18nSelectPipe
+
+#### i18nPlural (國際化複數值)
 
 ```ts
 import { Component } from '@angular/core';
@@ -280,25 +318,36 @@ export class I18nPluralComponent {
 }
 ```
 
-### 自訂管道
+API: https://angular.io/api/common/I18nPluralPipe
 
-#### 管道建構子
+### Custom Pipes (自訂管道)
+
+Ｃreate your own custom pipes. (建立自己的自訂管道)
+
+API: https://angular.io/api/core/Pipe
+
+#### Pipe Interface (管道介面)
 
 ```ts
-name: string
-pure?: boolean
+export interface Pipe {
+  // The pipe name to use in template bindings.
+  // (要在模板綁定中使用的管道名稱)
+  name: string;
+
+  // If the pipe has internal state, set pure to false.
+  // (如果管道具有內部狀態，則將 pure 設為 false)
+  pure?: boolean;  // Default: true
+}
 ```
 
-#### 管道起點
-
 ```ts
-// name.pipe.ts
+// <NAME>.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'name'
+  name: '<NAME>',
 })
-export class NamePipe implements PipeTransform {
+export class <NAME>Pipe implements PipeTransform {
   transform(value: any, ...args: any[]): any {
     // ...
   }
@@ -306,28 +355,27 @@ export class NamePipe implements PipeTransform {
 ```
 
 ```ts
-// app.component.ts
-import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 
-import { NamePipe } from './name.pipe';  // 導入所自訂管道
+import { <NAME>Pipe } from './<NAME>.pipe';
 
-@Component({
-  selector: 'app',
-  template: `
-    <!-- ... -->
-  `,
-  pipe: [NamePipe]  // 將所自訂管道註冊到元件中
+@NgModule({
+  // ...
+  declarations: [<NAME>Pipe],
+  // ...
 })
-export class AppComponent { }
+export class <NAME>Module {}
 ```
 
-#### 字節管道
+#### Hands-On Construction (動手打造)
+
+(1) 字節管道
 
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'length'
+  name: 'length',
 })
 export class LengthPipe implements PipeTransform {
   transform(value: string): number {
@@ -340,7 +388,7 @@ export class LengthPipe implements PipeTransform {
 <p>Angular 2 的字節是: {{ 'Angular 2' | length }}</p>
 ```
 
-#### 延遲管道
+(2) 延遲管道
 
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
