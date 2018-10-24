@@ -324,8 +324,6 @@ API: https://angular.io/api/common/I18nPluralPipe
 
 Ｃreate your own custom pipes. (建立自己的自訂管道)
 
-API: https://angular.io/api/core/Pipe
-
 #### Pipe Interface (管道介面)
 
 ```ts
@@ -367,6 +365,10 @@ import { <NAME>Pipe } from './<NAME>.pipe';
 export class <NAME>Module {}
 ```
 
+API: <br>
+https://angular.io/api/core/Pipe<br>
+https://angular.io/api/core/PipeTransform
+
 #### Hands-On Construction (動手打造)
 
 (1) 字節管道
@@ -385,17 +387,34 @@ export class LengthPipe implements PipeTransform {
 ```
 
 ```html
-<p>Angular 2 的字節是: {{ 'Angular 2' | length }}</p>
+<div>{{ 'Angular' | length }}</div>  <!-- Output: 7 -->
 ```
 
-(2) 延遲管道
+(2) Truncate (截短)
+
+```ts
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'truncate',
+  pure: false,
+})
+export class TruncatePipe implements PipeTransform {
+  transform(value: string, length: number = 15): string {
+    if (value.length <= length) return value;
+    return `${value.substring(0, length)}...`;
+  }
+}
+```
+
+(3) 延遲管道
 
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'delay',
-  pure: false,  // 用於串接用
+  pure: false,
 })
 export class DelayPipe implements PipeTransform {
   public fetchedValue: any;
@@ -403,12 +422,15 @@ export class DelayPipe implements PipeTransform {
 
   transform(value: any, seconds: number): any {
     if (!this.fetchPromise) {
-      this.fetchPromise = new Promise((resolve, reject) => {
+      this.fetchPromise = new Promise((resolve) => {
         setTimeout(() => resolve(value), seconds * 1000);
       });
 
-      this.fetchPromise.then((val: any) => this.fetchedValue = val);
+      this.fetchPromise.then((val: any) => {
+        this.fetchedValue = val;
+      });
     }
+
     return this.fetchedValue;
   }
 }
