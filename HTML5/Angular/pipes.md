@@ -22,6 +22,8 @@ export class <NAME>Module {}
 
 #### Uppercase and Lowercase (大小寫)
 
+Transforms text to all upper/lower case. (將文字轉換成全部大/小寫)
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -37,6 +39,29 @@ export class UppercaseLowercaseComponent {
   public messages: string = 'Angular';
 }
 ```
+
+API: <br>
+https://angular.io/api/common/UpperCasePipe <br>
+https://angular.io/api/common/LowerCasePipe
+
+#### Titlecase (首字母大寫)
+
+Transforms text to title case. (將文字轉換成首字母大寫)
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'o-titlecase',
+  template: `
+    <div>{{ 'foo' | titlecase }}</div>  <!-- Foo -->
+    <div>{{ 'foo-bar' | titlecase }}</div>  <!-- Foo-bar -->
+  `,
+})
+export class TitlecaseComponent {}
+```
+
+API: https://angular.io/api/common/TitleCasePipe
 
 #### Date (日期)
 
@@ -108,6 +133,8 @@ export class AsyncDateComponent {
   }
 }
 ```
+
+API: https://angular.io/api/common/AsyncPipe
 
 #### Number (數值)
 
