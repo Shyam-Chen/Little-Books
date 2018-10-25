@@ -2,6 +2,8 @@
 
 ### Table of Contents (目錄)
 
+#### Part 1
+
 * [Getting Started (入門)](./getting-started.md)
   * [Ecosystems (生態系)](./getting-started.md#ecosystems-生態系)
   * [Environment Settings (環境設置)](./getting-started.md#environment-settings-環境設置)
@@ -87,12 +89,6 @@
   * [JSONP](./http.md#jsonp)
   * [攔截器](./http.md#攔截器)
   * 進度事件
-* [GraphQL (資料查詢語言)](./graphql.md)
-  * Query (查詢)
-  * Mutation (變動)
-* [WebSockets (雙向通訊)](./websockets.md)
-  * Socket.IO
-  * GraphQL Subscriptions
 * [Pipes (管道)](./pipes.md)
   * [Built-in Pipes (內建管道)](./pipes.md#built-in-pipes-內建管道)
     * [Uppercase (大寫)](./pipes.md#uppercase-大寫)
@@ -120,6 +116,15 @@
   * 動畫關鍵影格
   * 平行動畫
   * 動畫回呼
+
+#### Part 2
+
+* [GraphQL (資料查詢語言)](./graphql.md)
+  * Query (查詢)
+  * Mutation (變動)
+* [WebSockets (雙向通訊)](./websockets.md)
+  * Socket.IO
+  * GraphQL Subscriptions
 * [Internationalization (國際化)](./internationalization.md)
 * [Data visualization (資料視覺化)](./data-visualization.md)
 * [Analysis (追蹤分析)](./analysis.md)
@@ -160,13 +165,8 @@
   * XSRF (跨站請求偽造)
   * XSSI (跨站指令碼包含漏洞)
   * JWT (跨域驗證)
+* 伺服端渲染
+* 離線存儲
 * [Tools (工具)](./tools.md)
-  * [模組整合](./tools.md#模組整合)
-  * [自動化建置](./tools.md#自動化建置)
   * [除錯和剖析](./tools.md#除錯和剖析)
   * 效能分析 (Lighthouse)
-* [Best practices (最佳實踐)](./best-practices.md)
-  * [樹搖優化](./best-practices.md#樹搖優化)
-  * [提前時間編譯](./best-practices.md#提前時間編譯)
-  * [離線存儲](./best-practices.md#離線存儲)
-  * [伺服端渲染](./best-practices.md#伺服端渲染)

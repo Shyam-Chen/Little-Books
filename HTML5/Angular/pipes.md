@@ -1,8 +1,8 @@
-## Pipes (管道)
+# Pipes (管道)
 
 A pipe takes in data as input and transforms it to a desired output. (管道將資料作為輸入並將其轉換為所需的輸出)
 
-### Built-in Pipes (內建管道)
+## Built-in Pipes (內建管道)
 
 在使用內建管道時，需要先導入 `CommonModule`
 
@@ -21,7 +21,7 @@ import { <NAME>Component } from './<NAME>.component';
 export class <NAME>Module {}
 ```
 
-#### Uppercase (大寫)
+### Uppercase (大寫)
 
 Transforms text to all upper case. (將文字轉換成全部大寫)
 
@@ -39,7 +39,7 @@ export class UppercaseComponent {}
 
 API: https://angular.io/api/common/UpperCasePipe
 
-#### Lowercase (小寫)
+### Lowercase (小寫)
 
 Transforms text to all lower case. (將文字轉換成全部小寫)
 
@@ -57,7 +57,7 @@ export class LowercaseComponent {}
 
 API: https://angular.io/api/common/LowerCasePipe
 
-#### Titlecase (首字母大寫)
+### Titlecase (首字母大寫)
 
 Transforms text to title case. (將文字轉換成首字母大寫)
 
@@ -76,7 +76,7 @@ export class TitlecaseComponent {}
 
 API: https://angular.io/api/common/TitleCasePipe
 
-#### Date (日期)
+### Date (日期)
 
 Formats a date value according to locale rules. (依據本地規則來格式化日期值)
 
@@ -107,7 +107,7 @@ export class DateComponent {
 
 API: https://angular.io/api/common/DatePipe
 
-#### Async (非同步)
+### Async (非同步)
 
 (1)
 
@@ -153,7 +153,7 @@ export class AsyncDateComponent {
 
 API: https://angular.io/api/common/AsyncPipe
 
-#### Number (數值)
+### Number (數值)
 
 ```ts
 import { Component } from '@angular/core';
@@ -172,7 +172,7 @@ export class NumberComponent {
 
 API: https://angular.io/api/common/DecimalPipe
 
-#### Percent (百分比)
+### Percent (百分比)
 
 ```ts
 import { Component } from '@angular/core';
@@ -188,7 +188,7 @@ export class PercentComponent {
 
 API: https://angular.io/api/common/PercentPipe
 
-#### Currency (貨幣)
+### Currency (貨幣)
 
 ```ts
 import { Component } from '@angular/core';
@@ -208,7 +208,7 @@ export class CurrencyComponent {
 
 API: https://angular.io/api/common/CurrencyPipe
 
-#### JSON
+### JSON
 
 ```ts
 import { Component } from '@angular/core';
@@ -228,7 +228,7 @@ export class JsonComponent {
 
 API: https://angular.io/api/common/JsonPipe
 
-#### KeyValue (鍵值組)
+### KeyValue (鍵值組)
 
 ```ts
 import { Component } from '@angular/core';
@@ -255,7 +255,7 @@ export class KeyValueComponent {
 
 API: https://angular.io/api/common/KeyValuePipe
 
-#### Slice (裁切)
+### Slice (裁切)
 
 ```ts
 import { Component } from '@angular/core';
@@ -276,7 +276,7 @@ export class SliceComponent {
 
 API: https://angular.io/api/common/SlicePipe
 
-#### I18nSelect (國際化選擇值)
+### I18nSelect (國際化選擇值)
 
 ```ts
 import { Component } from '@angular/core';
@@ -295,7 +295,7 @@ export class I18nSelectComponent {
 
 API: https://angular.io/api/common/I18nSelectPipe
 
-#### i18nPlural (國際化複數值)
+### i18nPlural (國際化複數值)
 
 ```ts
 import { Component } from '@angular/core';
@@ -320,11 +320,11 @@ export class I18nPluralComponent {
 
 API: https://angular.io/api/common/I18nPluralPipe
 
-### Custom Pipes (自訂管道)
+## Custom Pipes (自訂管道)
 
 Ｃreate your own custom pipes. (建立自己的自訂管道)
 
-#### Pipe Interface (管道介面)
+### Pipe Interface (管道介面)
 
 ```ts
 export interface Pipe {
@@ -369,7 +369,7 @@ API: <br>
 https://angular.io/api/core/Pipe<br>
 https://angular.io/api/core/PipeTransform
 
-#### Hands-On Construction (動手打造)
+### Hands-On Construction (動手打造)
 
 (1) 字節管道
 
