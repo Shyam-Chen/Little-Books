@@ -44,52 +44,44 @@
 
 佇列的原則是先進先出 (先來先服務)
 
-```js
-export class Queue {
-  queueArray = [];
+![Queue](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/405px-Data_Queue.svg.png)
 
-  constructor(item, priority) {
-    this.item = item;
-    this.priority = priority;
-  }
+```ts
+class Queue<T> {
+  public queueArray: T[] = [];
 
-  // 排隊
-  enqueue(item) {
+  constructor() {}
+
+  enqueue(item): void {
     this.queueArray.push(item);
   }
 
-  // 離隊
-  dequeue() {
-    return this.queueArray.shift();
+  dequeue(): void {
+    this.queueArray.shift();
   }
 
-  // 隊伍首項
-  front() {
+  back(): T {
     return this.queueArray[0];
   }
 
-  // 檢查是否為空佇列
-  isEmpty() {
+  isEmpty(): boolean {
     return this.queueArray.length === 0;
   }
 
-  // 清空佇列
-  clear() {
+  clear(): void {
     this.queueArray = [];
   }
 
-  // 佇列的數量
-  size() {
+  size(): number {
     return this.queueArray.length;
   }
 
-  // 打印佇列
-  print() {
+  print(): void {
     console.log(this.queueArray.toString());
   }
 }
 
-const q1 = new Queue();
+const q1 = new Queue<string>();
 
 q1.isEmpty();  // true
 
