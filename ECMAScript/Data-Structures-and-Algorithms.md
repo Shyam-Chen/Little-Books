@@ -50,7 +50,10 @@
 class Queue<T> {
   public queueArray: T[] = [];
 
-  constructor() {}
+  constructor(public item: T, public priority: number) {
+    this.item = item;
+    this.priority = priority;
+  }
 
   enqueue(item): void {
     this.queueArray.push(item);
@@ -60,8 +63,12 @@ class Queue<T> {
     this.queueArray.shift();
   }
 
-  back(): T {
-    return this.queueArray[0];
+  front(num: number = 1): T[] {
+    return this.queueArray.slice(num * -1);
+  }
+
+  back(num: number = 1): T[] {
+    return this.queueArray.slice(0, num);
   }
 
   isEmpty(): boolean {
