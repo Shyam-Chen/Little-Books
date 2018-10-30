@@ -15,6 +15,8 @@
 * Array (陣列)
 * Stack (堆疊)
 * [Queue (佇列)](#queue-佇列)
+  * Priority Queue (優先佇列)
+  * Circular Queue (環狀佇列)
 * Hash table (雜湊表)
 * Heap (堆積)
 * Tree (樹)
@@ -40,7 +42,7 @@
 
 ***
 
-### Queues (佇列)
+### Queue (佇列)
 
 佇列的原則是先進先出 (先來先服務)
 
@@ -50,9 +52,8 @@
 class Queue<T> {
   public queueArray: T[] = [];
 
-  constructor(public item: T, public priority: number) {
-    this.item = item;
-    this.priority = priority;
+  constructor(private init: T[]) {
+    this.queueArray = init;
   }
 
   enqueue(item): void {
@@ -88,14 +89,15 @@ class Queue<T> {
   }
 }
 
+// -
+
 const q1 = new Queue<string>();
 
 q1.isEmpty();  // true
 
-q1.enqueue('Vanilla');
-q1.enqueue('Angular');
-q1.enqueue('React');
-q1.enqueue('Vue');
+// -
 
-q1.print();
+const q2 = new Queue<string>(['Angular', 'React', 'Vue']);
+
+q1.isEmpty();  // true
 ```
