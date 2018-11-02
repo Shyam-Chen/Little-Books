@@ -17,7 +17,7 @@
 * [Queue (佇列)](#queue-佇列)
   * Priority Queue (優先佇列)
   * Circular Queue (環狀佇列)
-* Hash table (雜湊表)
+* [Hash Table (雜湊表)](#hash-table-雜湊表)
 * Heap (堆積)
 * Tree (樹)
   * Binary Search Tree (二元搜尋樹)
@@ -100,4 +100,11 @@ q1.isEmpty();  // true
 const q2 = new Queue<string>(['Angular', 'React', 'Vue']);
 
 q1.isEmpty();  // true
+```
+
+### Hash Table (雜湊表)
+
+```ts
+const m1 = new Map();
+const s1 = new Set();
 ```
