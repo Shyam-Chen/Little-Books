@@ -2,6 +2,8 @@
 
 ***
 
+## Object
+
 ### deepClone
 
 Creates a deep clone of an object.
@@ -23,6 +25,8 @@ const bar = deepClone(foo);
 bar.data.value = 2;
 foo.data.value;  // 1
 ```
+
+## Array
 
 ### flatten
 
@@ -150,6 +154,27 @@ const swap = <T>(arr: T[], i: number, j: number): T[] => {
   return array;
 };
 
-swap([1, 2, 3, 4, 5], 2, 4);
+swap<number>([1, 2, 3, 4, 5], 2, 4);
 // [1, 2, 5, 4, 3]
+```
+
+### unique
+
+Returns all unique values of an array.
+
+```ts
+const unique = arr => [...new Set(arr)];
+```
+
+### uniqueBy
+
+Returns all unique values of an array based on the given key.
+
+```ts
+const uniqueBy = (arr, key: string) => (
+  arr.reduce((acc, v) => {
+    if (!acc.some(x => v[key] === x[key] )) acc.push(v);
+    return acc;
+  }, [])
+);
 ```
