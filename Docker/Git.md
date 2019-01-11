@@ -1,7 +1,15 @@
 # Git
 
+## Individual
+
+```bash
+$ git init
+```
+
 ```bash
 $ git add .
+
+$ git add -A
 
 $ git add <FILE_NAME>
 ```
@@ -17,9 +25,15 @@ $ git status
 ```
 
 ```bash
-$ git log
+$ git diff
+```
 
-$ git log -1
+```bash
+$ git log
+$ git log -<NUMBER>
+
+$ git log -p
+$ git log -p -<NUMBER>
 ```
 
 ```bash
@@ -39,6 +53,20 @@ $ git reset --hard HEAD <COMMIT_ISH>
 ```
 
 ```bash
+# remove untracked files
+$ git clean -df
+
+# remove untracked files, including `.gitignore` files
+$ git clean -dfx -e '.*'
+```
+
+## Ｔeam
+
+```bash
+$ git clone <HTTPS_URL|SSH_KEY>
+```
+
+```bash
 $ git checkout <BRANCH_NAME>
 
 $ git checkout -b <BRANCH_NAME>
@@ -55,7 +83,7 @@ $ git branch -m <OLD_NAME> <NEW_NAME>
 ```
 
 ```bash
-$ git clone <HTTPS_URL|SSH_KEY>
+$ git merge <BRANCH_NAME>
 ```
 
 ```bash
@@ -94,16 +122,17 @@ $ git stash pop
 # or
 $ git stash pop stash@{0}
 
-# creat a branch from a stash
+# create a branch from a stash
 $ git stash branch <BRANCH_NAME>
 ```
 
 ```bash
-$ git clean -df
-
-$ git clean -dfx -e '.*'
+# get commits and apply
+$ git cherry-pick <COMMIT_ISH>
 ```
 
 ```bash
-$ git cherry-pick <COMMIT_ISH>
+$ git tag
+
+$ git tag -a <VERSION> -m <MESSAGE>
 ```
