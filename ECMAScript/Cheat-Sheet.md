@@ -65,16 +65,9 @@ flatten(data);
 Groups the elements of an array based on the given key.
 
 ```ts
-const groupBy = <T>(arr: T[], key: string) => (
-  arr.reduce((acc, cur, i) => {
-    acc[cur] = (acc[cur] || []).concat(arr[i]);
-    return acc;
-  }, {})
-);
-
-const groupBy = <T>(arr: T[], key: string) => (
-  arr.reduce((acc, cur) => {
-    (acc[cur[key]] = acc[cur[key]] || []).push(cur);
+const groupBy = (arr, key) => (
+  arr.map(val => val[key]).reduce((acc, val, i) => {
+    acc[val] = (acc[val] || []).concat(arr[i]);
     return acc;
   }, {})
 );
