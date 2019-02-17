@@ -1,6 +1,6 @@
 # Big Little Books
 
-:books: Big little books on ECMAScript, HTML5, Node.js, and Docker.
+:books: Big little books on ECMAScript, HTML5, Node.js, and Linux.
 
 ### List of Books
 
@@ -16,6 +16,6 @@
 
 [Nest](./Node.js/Nest/README.md) - A framework for scalable server-side applications.
 
-##### Docker
+##### Linux
 
-[Kubernetes](./Docker/Kubernetes/README.md) -  A system for managing containerized workloads and services.
+[Kubernetes](./Linux/Kubernetes/README.md) -  A system for managing containerized workloads and services.
