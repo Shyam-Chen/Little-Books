@@ -587,7 +587,7 @@ import { Component, Input } from '@angular/core';
   `
 })
 export class UseInputComponent {
-  @Input() version: string;
+  @Input() public version: string;
 }
 ```
 
@@ -628,7 +628,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CounterComponent {
   @Input() public count: number;
-  public countChange: EventEmitter<number> = new EventEmitter<number>();
+  public countChange: EventEmitter<number> = new EventEmitter();
 
   public onClick(): void {
     this.countChange.emit(this.count++);
@@ -669,7 +669,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CounterComponent {
   @Input() public count: number;
-  @Output() public countChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output() public countChange: EventEmitter<number> = new EventEmitter();
 
   public onClick(): void {
     this.countChange.emit(this.count++);
