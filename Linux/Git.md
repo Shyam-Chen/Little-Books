@@ -1,5 +1,13 @@
 # Git
 
+### Table of Contents
+
+* [Individual](#individual)
+* [Team](#team)
+* [Commit Message Format](#commit-message-format)
+
+***
+
 ## Individual
 
 ```bash
@@ -60,7 +68,7 @@ $ git clean -df
 $ git clean -dfx -e '.*'
 ```
 
-## Ｔeam
+## Team
 
 ```bash
 $ git clone <HTTPS_URL|SSH_KEY>
@@ -136,3 +144,28 @@ $ git tag
 
 $ git tag -a <VERSION> -m <MESSAGE>
 ```
+
+## Commit Message Format
+
+```txt
+[ticket] <type>(<scope>): <subject>
+```
+
+### Ticket
+
+Jira ticket number.
+
+### Type
+
+Must be one of the following:
+
+* build: Changes that affect the build system or external dependencies
+* ci: Changes to our CI configuration files and scripts
+* docs: Documentation only changes
+* feat: A new feature
+* fix: A bug fix
+* perf: A code change that improves performance
+* refactor: A code change that neither fixes a bug nor adds a feature
+* style: Changes that do not affect the meaning of the code
+* test: Adding missing tests or correcting existing tests
+* chore: No production code change
