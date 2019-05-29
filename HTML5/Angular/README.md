@@ -32,10 +32,12 @@
     * [@ViewChild() 與 @ViewChildren()](./components.md#viewchild-與-viewchildren)
   * 繼承
   * [隔離樣式](./components.md#隔離樣式)
-  * [臟值檢測策略](./components.md#臟值檢測策略)
+  * [變化檢測](./components.md#變化檢測)
+    * NgZone
     * [OnPush](./components.md#onpush)
     * [Default](./components.md#default)
     * [Immutable](./components.md#immutable)
+    * ChangeDetectorRef
   * [生命週期掛鉤](./components.md#生命週期掛鉤)
 * [Forms (表單)](./forms.md)
   * [Basic operations (基本應用)](./forms.md#基本應用)
@@ -46,13 +48,16 @@
   * [巢狀路由](./routing.md#巢狀路由)
   * [URL 參數](./routing.md#url-參數)
   * [非同步路由](./routing.md#非同步路由)
+  * 路由事件
   * 路由守衛
+  * RouteReuseStrategy
 * [Directives (指令)](./directives.md)
   * [內建屬性型指令](./directives.md#內建屬性型指令)
     * [ngStyle](./directives.md#ng-style)
     * [ngClass](./directives.md#ng-class)
   * [內建結構型指令](./directives.md#內建結構型指令)
     * [ngIf](./directives.md#ng-if)
+    * ng-container
     * [ngSwitch](./directives.md#ng-switch)
     * [ngFor](./directives.md#ng-for)
     * [ngPlural](./directives.md#ng-plural)

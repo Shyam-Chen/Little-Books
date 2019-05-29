@@ -1109,7 +1109,7 @@ import { NoneComponent } from './encapsulation-none.component';
 export class AppComponent { }
 ```
 
-### 臟值檢測策略
+### 變化檢測
 
 #### OnPush
 
