@@ -43,6 +43,9 @@
   * [Basic operations (基本應用)](./forms.md#基本應用)
   * [Template-driven (模板驅動)](./forms.md#模板驅動)
   * [Reactive forms (反應式表單)](./forms.md#模型驅動)
+    * FormControl
+    * FormGroup
+    * FormBuilder
 * [Routing (路由)](./routing.md)
   * [Basic operations (基本應用)](./routing.md#基本應用)
   * [巢狀路由](./routing.md#巢狀路由)
@@ -114,13 +117,15 @@
     * [Hands-on Construction (動手打造)](./pipes.md#hands-on-construction-動手打造)
 * [Animations (動畫)](./animations.md)
   * [Basic operations (基本應用)](./animations.md#基本應用)
-  * 觸發動畫
-  * [動畫狀態](./animations.md#動畫狀態)
-  * [動畫漸變](./animations.md#動畫漸變)
-  * [動畫時間](./animations.md#動畫時間)
-  * 動畫關鍵影格
-  * 平行動畫
-  * 動畫回呼
+  * 觸發動畫 trigger
+  * [動畫狀態 state](./animations.md#動畫狀態)
+  * [動畫漸變 transition](./animations.md#動畫漸變)
+  * [動畫時間 animate](./animations.md#動畫時間)
+  * 動畫關鍵影格 keyframes
+  * 平行動畫 group
+  * 動畫序列 sequence, query, stagger, animateChild
+  * 重用動畫 animation/useAnimation
+  * AnimationBuilder
 
 #### Part 2
 
