@@ -4,7 +4,7 @@
 
 * [Individual](#individual)
 * [Team](#team)
-* [Commit Message Format](#commit-message-format)
+* [Format](#format)
 
 ***
 
@@ -19,7 +19,7 @@ $ git add .
 
 $ git add -A
 
-$ git add <FILE_NAME>
+$ git add <FILE_NAME|FOLDER_NAME>
 ```
 
 ```bash
@@ -83,10 +83,13 @@ $ git checkout -- .
 ```
 
 ```bash
+# show a list
 $ git branch
 
+# remove
 $ git branch -D <BRANCH_NAME>
 
+# rename
 $ git branch -m <OLD_NAME> <NEW_NAME>
 ```
 
@@ -110,6 +113,9 @@ $ git fetch
 
 ```bash
 $ git pull
+
+$ git remote add upstream <HTTPS_URL|SSH_KEY>
+$ git pull upstream master
 ```
 
 ```bash
@@ -145,7 +151,7 @@ $ git tag
 $ git tag -a <VERSION> -m <MESSAGE>
 ```
 
-## Commit Message Format
+## Format
 
 ```txt
 [ticket] <type>(<scope>): <subject>
@@ -153,7 +159,7 @@ $ git tag -a <VERSION> -m <MESSAGE>
 
 ### Ticket
 
-Jira ticket number.
+Issue ticket number.
 
 ### Type
 
@@ -168,4 +174,13 @@ Must be one of the following:
 * refactor: A code change that neither fixes a bug nor adds a feature
 * style: Changes that do not affect the meaning of the code
 * test: Adding missing tests or correcting existing tests
-* chore: No production code change
+* release: Release a new version
+* revert: Revert commits
+
+### Scope
+
+Feature modules.
+
+### subject
+
+What has been done.
