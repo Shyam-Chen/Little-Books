@@ -2,6 +2,13 @@
 
 ***
 
+### Table of Contents (目錄)
+
+* [Object](#object)
+* [Array](#array)
+
+***
+
 ## Object
 
 ### deepClone

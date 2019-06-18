@@ -4,8 +4,16 @@
 
 * [Getting Started (起手式)](#getting-started-起手式)
 * Architecture (架構)
-* Stateless and Stateful (無狀態和有狀態)
 * Components (元件)
+* Pods (豆莢)
+* Services (服務)
+* Deployments (佈署)
+* Labels and Annotations (標籤和註釋)
+* ReplicaSets (複製集)
+* DaemonSets (守護集)
+* StatefulSets (狀態集)
+* ConfigMaps and Secrets (配置映射和加密)
+* Jobs (作業)
 
 ***
 
