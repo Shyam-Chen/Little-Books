@@ -10,7 +10,7 @@
 
 * Collection (集合)
   * [Immutable (不可變性)](#immutable-不可變性)
-* Recursion (遞迴)
+* [Recursion (遞迴)](#recursion-遞迴)
   * [Tail Call Optimization (尾端呼叫優化)](#tail-call-optimization-尾端呼叫優化)
   * [Trampoline (繃跳區)](#trampoline-繃跳區)
 * [Function Composition (函式組合)](#function-composition-函式組合)
@@ -26,7 +26,7 @@
 
 ***
 
-#### Immutable (不可變性)
+### Immutable (不可變性)
 
 ```js
 const state = { value: 0 };
@@ -51,7 +51,52 @@ const counter1 = () => ({ ...state, { value: state.value + 1 } });
 const counter2 = () => ({ ...state, { value: state.value + 5 } });
 ```
 
-#### Tail Call Optimization (尾端呼叫優化)
+## Recursion (遞迴)
+
+```js
+pow(2, 0);  // 1
+pow(2, 1);  // 2
+pow(2, 2);  // 4
+pow(2, 3);  // 8
+pow(2, 4);  // 16
+
+// for loop
+const pow = (base, exponent) => {
+  let result = 1;
+
+  for (let i = 0; i < exponent; i++) {
+    result *= base;
+  }
+
+  return result;
+};
+
+// while loop
+const pow = (base, exponent) => {
+  let result = 1;
+
+  while (exponent > 0) {
+    exponent -= 1;
+    result *= base;
+  }
+
+  return result;
+};
+
+// recursion
+const pow = (base, exponent) => {
+  if (exponent === 1) return base;
+  return base * pow(base, exponent - 1);
+};
+
+// recursion (tco)
+const pow = (base, exponent, acc = 1) => {
+  if (exponent === 0) return acc;
+  return pow(base, exponent - 1, base * acc);
+};
+```
+
+### Tail Call Optimization (尾端呼叫優化)
 
 ```js
 const factorial = (num) => {
@@ -97,7 +142,7 @@ const sum = tco((x, y) => {
 sum(1, 100000);  // 100001
 ```
 
-#### Trampoline (繃跳區)
+### Trampoline (繃跳區)
 
 ```js
 const trampoline = (func) => {
@@ -127,7 +172,7 @@ const even = n =>
 trampoline(odd(100000));  // false
 ```
 
-### Function Composition (函式組合)
+## Function Composition (函式組合)
 
 ```js
 // pipe function
@@ -189,7 +234,7 @@ compose(inc(1), sub(2), mul(3))(5);  // 12
 const compose = (...funcs) => res => funcs.reduce((acc, next) => next(acc), res);
 ```
 
-#### Currying (柯里化)
+### Currying (柯里化)
 
 ```js
 const curry = f => a => b => f(a, b);
@@ -205,7 +250,7 @@ uncurry(curry(add))(1, 2);  // 3
 curry(uncurry(curriedAdd))(1)(2);  // 3
 ```
 
-#### Reducer (減速器)
+### Reducer (減速器)
 
 ```js
 const sumReducer = (acc, num) => acc + num;
