@@ -149,9 +149,9 @@ const swap = <T>(arr: T[], i: number, j: number): T[] => {
   const temp = arr[i];
 
   arr[i] = arr[j];
-  array[j] = temp;
+  arr[j] = temp;
 
-  return array;
+  return arr;
 };
 
 swap<number>([1, 2, 3, 4, 5], 2, 4);

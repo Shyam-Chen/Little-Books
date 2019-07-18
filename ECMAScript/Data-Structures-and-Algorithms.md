@@ -21,6 +21,8 @@
 * Heap (堆積)
 * Tree (樹)
   * Binary Search Tree (二元搜尋樹)
+  * Trie (字典樹)
+* Graph (圖形)
 
 #### Algorithms (演算法)
 
