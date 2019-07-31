@@ -14,7 +14,7 @@
 ### Table of Contents (目錄)
 
 * [Observable (可觀察)](#observable-可觀察)
-  * [Subject (主體)](#subject-主體)
+  * [Subject (主體, 被觀察)](#subject-主體)
     * [AsyncSubject (非同步主體)](#asyncsubject-非同步主體)
     * [BehaviorSubject (行為主體)](#behaviorsubject-行為主體)
     * [ReplaySubject (重放主體)](#replaysubject-重放主體)

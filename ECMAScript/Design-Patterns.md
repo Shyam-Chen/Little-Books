@@ -1,14 +1,5 @@
 # Design Patterns (設計模式)
 
-### Reference Resources (參考資源)
-
-* http://speakingjs.com/es5/index.html
-* http://exploringjs.com/es6/index.html
-* http://exploringjs.com/es2016-es2017/index.html
-* https://github.com/getify/You-Dont-Know-JS
-
-***
-
 ### Table of Contents (目錄)
 
 * [Creational (建立型)](#creational-建立型)
