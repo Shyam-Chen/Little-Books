@@ -1,5 +1,7 @@
 # Design Patterns (設計模式)
 
+***
+
 ### Table of Contents (目錄)
 
 * [Creational (建立型)](#creational-建立型)
@@ -31,9 +33,9 @@
 
 ***
 
-### Creational (建立型)
+## Creational (建立型)
 
-#### Factory (工廠)
+### Factory (工廠)
 
 ```js
 class Product {
@@ -88,7 +90,7 @@ Factory();
 // true
 ```
 
-#### Singleton (單體)
+### Singleton (單體)
 
 ```js
 class Singleton {

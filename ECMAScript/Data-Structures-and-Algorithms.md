@@ -1,10 +1,5 @@
 # Data Structures and Algorithms (資料結構和演算法)
 
-### Reference Resources (參考資源)
-
-* https://github.com/loiane/javascript-datastructures-algorithms
-* https://github.com/trekhleb/javascript-algorithms
-
 ***
 
 ### Table of Contents (目錄)
@@ -44,7 +39,7 @@
 
 ***
 
-### Queue (佇列)
+## Queue (佇列)
 
 佇列的原則是先進先出 (先來先服務)
 

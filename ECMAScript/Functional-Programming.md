@@ -1,9 +1,5 @@
 # Functional Programming (函式型程式設計)
 
-### Reference Resources (參考資源)
-
-* https://github.com/getify/Functional-Light-JS
-
 ***
 
 ### Table of Contents (目錄)

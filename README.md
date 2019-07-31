@@ -1,6 +1,6 @@
-# Big Little Books
+# Little Books
 
-:books: Big little books on ECMAScript, HTML5, Node.js, and Linux.
+:books: Little books on ECMAScript, HTML5, Node.js, and Linux.
 
 ### List of Books
 

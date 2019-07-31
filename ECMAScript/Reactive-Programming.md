@@ -1,14 +1,5 @@
 # Reactive Programming (反應式程式設計)
 
-### Reference Resources (參考資源)
-
-* https://github.com/ReactiveX/rxjs
-
-### Actual Operation (實作執行)
-
-* https://github.com/Shyam-Chen/Frontend-Starter-Kit
-* https://github.com/Shyam-Chen/Backend-Starter-Kit
-
 ***
 
 ### Table of Contents (目錄)
