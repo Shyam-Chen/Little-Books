@@ -4,7 +4,7 @@
 
 ### Table of Contents (目錄)
 
-* [CallBack (回乎)](#callback-回乎)
+* [Callbacks (回乎)](#callback-回乎)
 * [Promises (承諾)](#promises-承諾)
 * [Generators (產生器)](#generators-產生器)
 * [Async Functions (非同步函式)](#async-functions-非同步函式)
@@ -12,18 +12,18 @@
 
 ***
 
-## CallBack (回乎)
+## Callbacks (回乎)
 
 ```js
-const foo = (x, done) => {
-   done(x);
+const foo = (val, done) => {
+  return done(val * 2);
 };
 
-const bar = (y) => {
-  console.log(y);
+const bar = (val) => {
+  return val + 2;
 };
 
-foo(1, bar);
+foo(5, bar);  // 12
 ```
 
 ## Promises (承諾)
