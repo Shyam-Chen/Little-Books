@@ -6,18 +6,50 @@
 
 * [Object](#object)
 * [Array](#array)
+* [Function](#function)
 
 ***
 
 ## Object
+
+### assignDeep
+
+Copy the values of all enumerable own properties from one or more source objects to a target object.
+
+```ts
+const assignDeep = (target, ...sources) => {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  const isObject = item => {
+    return item && typeof item === 'object' && !Array.isArray(item);
+  };
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (isObject(source[key])) {
+        if (!target[key]) Object.assign(target, { [key]: {} });
+        assignDeep(target[key], source[key]);
+      } else {
+        Object.assign(target, { [key]: source[key] });
+      }
+    }
+  }
+
+  return assignDeep(target, ...sources);
+};
+
+assignDeep({}, { foo: { a: 1, b: 1 } }, { foo: { a: 2, c: 2 } });
+// { foo: { a: 2, b: 1, c: 2 } }
+```
 
 ### deepClone
 
 Creates a deep clone of an object.
 
 ```ts
-const deepClone = <T>(obj: T): T => {
-  let clone = Object.assign({}, obj);
+const deepClone = (obj) => {
+  const clone = Object.assign({}, obj);
 
   Object.keys(clone).forEach(
     key => (clone[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key])
@@ -40,26 +72,11 @@ foo.data.value;  // 1
 Flattens array a single level deep.
 
 ```js
-const data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-
 const flatten = arr =>
   arr.reduce((acc, cur) => acc.concat(cur), []);
 
 const flatten = arr =>
   arr.reduce((acc, cur) => [...acc, ...cur], []);
-
-flatten(data);
-// [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-// -
-
-const data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-
-data.flatten();
-
-// -
-
-import { flatten } from 'lodash';
 
 const data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 
@@ -115,29 +132,8 @@ Array(10).fill(1).map((x, y) => x + y);
 const range = (start, end, step = 1) =>
   Array((end - start) / step + 1).fill(0).map((v, i) => start + i * step);
 
-range(1, 9, 2);  // 1, 3, 5, 7, 9
-range(2, 10, 2);  // 2, 4, 6, 8, 10
-
-// -
-
-import { range } from 'lodash';
-
-range(1, 10, 2);  // 1, 3, 5, 7, 9
-
-// -
-
-import { range } from 'rxjs';
-
-range(1, 10).subscribe(value => value);
-// 1 ~ 10
-
-// -
-
-import { range } from 'lodash';
-import { from } from 'rxjs';
-
-from(range(1, 10, 2)).subscribe(value => value);
-// 1, 3, 5, 7, 9
+range(1, 9, 2); // 1, 3, 5, 7, 9
+range(2, 10, 2); // 2, 4, 6, 8, 10
 ```
 
 ### swap
@@ -145,7 +141,7 @@ from(range(1, 10, 2)).subscribe(value => value);
 Swap the places of two elements.
 
 ```ts
-const swap = <T>(arr: T[], i: number, j: number): T[] => {
+const swap = (arr, i, j) => {
   const temp = arr[i];
 
   arr[i] = arr[j];
@@ -154,8 +150,7 @@ const swap = <T>(arr: T[], i: number, j: number): T[] => {
   return arr;
 };
 
-swap<number>([1, 2, 3, 4, 5], 2, 4);
-// [1, 2, 5, 4, 3]
+swap([1, 2, 3, 4, 5], 2, 4); // [1, 2, 5, 4, 3]
 ```
 
 ### unique
@@ -164,6 +159,8 @@ Returns all unique values of an array.
 
 ```ts
 const unique = arr => [...new Set(arr)];
+
+unique([1, 1, 2, 3]); // [1, 2, 3]
 ```
 
 ### uniqueBy
@@ -177,4 +174,19 @@ const uniqueBy = (arr, key: string) => (
     return acc;
   }, [])
 );
+```
+
+## Function
+
+### compose
+
+```ts
+const compose = (...funcs) =>
+  funcs.reduce((f, g) => (...args) => g(f(...args)), arg => arg);
+
+const inc = num => num + 1;
+const dbl = num => num * 2;
+const sqr = num => num * num;
+
+compose(inc, dbl, sqr)(2); // 36
 ```
