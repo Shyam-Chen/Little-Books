@@ -7,6 +7,7 @@
 * [Object](#object)
 * [Array](#array)
 * [Function](#function)
+* [Map](#map)
 
 ***
 
@@ -189,4 +190,29 @@ const dbl = num => num * 2;
 const sqr = num => num * num;
 
 compose(inc, dbl, sqr)(2); // 36
+```
+
+## Map
+
+### groupByWithMap
+
+```ts
+const groupByWithMap = (arrList, keyGetter) => {
+  const map = new Map();
+
+  arrList.forEach(item => {
+    const key = keyGetter(item);
+    const collection = map.get(key);
+
+    if (!collection) {
+      map.set(key, [item]);
+    } else {
+      collection.push(item);
+    }
+  });
+
+  return map;
+};
+
+groupByWithMap(arr, item => item[key]);
 ```
