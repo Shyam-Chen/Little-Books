@@ -9,6 +9,12 @@
 * [Generators (產生器)](#generators-產生器)
 * [Async Functions (非同步函式)](#async-functions-非同步函式)
 * [Observables (可觀察)](#observables-可觀察)
+* Event Loop
+  * HTML5 Event Loop
+  * Node.js Event Loop
+* Workers
+  * Web Workers
+  * Worker Threads
 
 ***
 
