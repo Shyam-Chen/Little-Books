@@ -1,5 +1,7 @@
 # Kubernetes
 
+A system for managing containerized workloads and services.
+
 ### Table of Contents (目錄)
 
 * [Getting Started (起手式)](#getting-started-起手式)

@@ -1,5 +1,7 @@
 # Nest
 
+A framework for scalable server-side applications.
+
 ### Table of Contents (目錄)
 
 #### Part 1
@@ -14,10 +16,13 @@
 * Guards (守衛)
 * Interceptors (攔截器)
 * Authentication (憑證)
-* Testing (測試)
 
 #### Part 2
 
 * GraphQL (資料查詢語言)
 * WebSockets (雙向通訊)
 * Microservice (微服務)
+* Testing (測試)
+  * 靜態分析
+  * 單元測試
+  * 端對端測試

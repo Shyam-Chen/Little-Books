@@ -1,5 +1,7 @@
 # Angular
 
+A framework for scalable client-side applications.
+
 ### Table of Contents (目錄)
 
 #### Part 1
@@ -141,20 +143,10 @@
   * 深度追蹤
   * 離線追蹤
 * [State container (狀態容器)](./state-container.md)
-  * NGXS
   * NgRx
-  * Redux
-  * MobX
 * [Material design (原質化設計)](./material.md)
   * Components
   * CDK
-* [Firebase app (後端雲端服務)](./firebase.md)
-  * Authentication (憑證)
-  * Database (資料庫)
-  * Storage
-* [Cross-platform app (跨平台應用)](./cross-platform.md)
-  * Mobile Apps (行動應用)
-  * Desktop Apps (桌面應用)
 * [Testing (測試)](./testing.md)
   * [測試原則](./testing.md#測試原則)
   * [靜態分析](./testing.md#靜態分析)
@@ -175,8 +167,7 @@
   * XSRF (跨站請求偽造)
   * XSSI (跨站指令碼包含漏洞)
   * JWT (跨域驗證)
-* 伺服端渲染
-* 離線存儲
+* 漸進式應用
 * [Tools (工具)](./tools.md)
   * [除錯和剖析](./tools.md#除錯和剖析)
   * 效能分析 (Lighthouse)

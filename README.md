@@ -6,16 +6,20 @@
 
 ##### ECMAScript
 
-[TypeScript](./ECMAScript/TypeScript/README.md) - A language for application-scale JavaScript.
+* Babel - The compiler for next generation JavaScript.
+* [TypeScript](./ECMAScript/TypeScript/README.md) - The language for application-scale JavaScript.
 
 ##### HTML5
 
-[Angular](./HTML5/Angular/README.md) - A framework for scalable client-side applications.
+* Vue - The framework for minimalist and high performance client-side applications.
+* [Angular](./HTML5/Angular/README.md) - The framework for scalable client-side applications.
 
 ##### Node.js
 
-[Nest](./Node.js/Nest/README.md) - A framework for scalable server-side applications.
+* Fastify - The framework for fast and low overhead server-side applications.
+* [Nest](./Node.js/Nest/README.md) - The framework for scalable server-side applications.
 
 ##### Linux
 
-[Kubernetes](./Linux/Kubernetes/README.md) -  A system for managing containerized workloads and services.
+* Docker - The container for lightweight, standalone, and executable package.
+* [Kubernetes](./Linux/Kubernetes/README.md) - The system for managing containerized workloads and services.

@@ -1,5 +1,7 @@
 # TypeScript
 
+A language for application-scale JavaScript.
+
 ### Reference Resources (參考資源)
 
 * http://www.typescriptlang.org/
