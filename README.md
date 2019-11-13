@@ -9,21 +9,25 @@
 * Babel
 * Flow
 * [TypeScript](./ECMAScript/TypeScript/README.md)
+* [ReactiveX](./ECMAScript/ReactiveX/README.md)
 
 ##### HTML5
 
 * Vue
 * React
 * [Angular](./HTML5/Angular/README.md)
+* Svelte
 
 ##### Node.js
 
-* Fastify
 * Express
+* Koa
 * [Nest](./Node.js/Nest/README.md)
+* Fastify
 
 ##### Linux
 
 * Ubuntu
 * Docker
 * [Kubernetes](./Linux/Kubernetes/README.md)
+* Cloud Run
