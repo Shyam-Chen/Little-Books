@@ -17,16 +17,11 @@
   * [Middlewares (中介軟體)](#中介軟體)
   * Request and Response (請求和回應)
 * REST (表徵狀態轉移)
+* [Mongoose](#mongoose)
 * Storage‎ (存儲)
 * Messaging (訊息)
-  * Email (電子郵件)
-  * SMS (簡訊)
 * Payment (金流)
-  * Stripe
-  * PayPal
-* Google Places (興趣點)
-* Crawler (網路爬蟲)
-* QR Code (二維碼)
+* [GraphQL](#graphql)
 
 ***
 
@@ -360,6 +355,148 @@ router.delete('/:id', async (req, res, next) => {
 export default router;
 ```
 
+## Mongoose
+
+## 核心
+
+```bash
+$ npm i mongoose -S
+```
+
+```js
+import mongoose from 'mongoose';
+
+mongoose.connect('mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo');
+mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+mongoose.connection.once('open', () => console.log('Connection Succeeded.'));
+```
+
+### 綱要
+
+綱要型別 (SchemaTypes):
+* String
+* Number
+* Date
+* Buffer
+* Boolean
+* Mixed
+* ObjectId
+* Array
+
+```js
+import { Schema } from 'mongoose';
+
+const userSchema = new Schema({
+  name: String,
+  user_name: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  image: String,
+  created_at: { type: Date, default: Date.now },
+  updated_at: { type: Date, default: Date.now }
+});
+```
+
+建立模型
+
+```js
+import mongoose, { Schema } from 'mongoose';
+
+const userSchema = new Schema({
+  name: String,
+  user_name: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  image: String,
+  created_at: { type: Date, default: Date.now },
+  updated_at: { type: Date, default: Date.now }
+});
+
+export const User = mongoose.model('user', userSchema);
+```
+
+實體方法
+
+```js
+import mongoose, { Schema } from 'mongoose';
+
+const userSchema = new Schema({
+  name: String,
+  user_name: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  image: String,
+  created_at: { type: Date, default: Date.now },
+  updated_at: { type: Date, default: Date.now }
+});
+
+userSchema.methods.foo = () => ...;
+userSchema.statics.bar = () => ...;
+
+export const User = mongoose.model('user', userSchema);
+```
+
+```js
+import mongoose, { Schema } from 'mongoose';
+
+const listSchema = Schema({
+  text: String,
+  created: Date
+});
+
+const List = mongoose.model('List', listSchema);
+```
+
+### 新增
+
+```js
+const list = new List(req.body);
+
+list.save(err => {
+  if (err) return next(err);
+  res.json({ message: 'List saved' });
+});
+```
+
+### 讀取
+
+```js
+List.find({}, (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+```
+
+```js
+List.findById(<ID>, (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+```
+
+### 更新
+
+```js
+List.findById(req.params.id, (err, data) => {
+  if (err) return next(err);
+
+  for (let prop in req.body) {
+    data[prop] = req.body[prop];
+  }
+
+  data.save(err => {
+    if (err) return next(err);
+    res.json({ message: 'List updated' });
+  });
+});
+```
+
+### 刪除
+
+```js
+List.findByIdAndRemove(req.params.id, err => {
+  if (err) return next(err);
+  res.json({ message: 'List deleted' });
+});
+```
+
 ## 存儲
 
 ### 檔案上傳
@@ -420,4 +557,238 @@ import { createWriteStream } from 'fs';
 
 request('https://www.sitepoint.com/')
   .pipe(createWriteStream('index.html'));
+```
+
+## GraphQL
+
+為什麼會有 GraphQL 的出現？在使用 RESTful API 的時候，往往我們只需要一小塊的資料，卻要向伺服器請求整塊的資料，因此 GraphQL 的出現，解決了從用戶端到伺服端不斷增加 API 請求所衍生的問題。
+
+#### 核心
+
+建立 GraphQL 伺服器
+
+```js
+// app.js
+import express from 'express';
+import graphql from 'express-graphql';
+
+import { schema, rootValue } from './graphql';
+
+const app = express();
+
+app.set('port', (process.env.PORT || 8000));
+
+app.use('/graphql', graphql({
+  schema,
+  rootValue,
+  graphiql: true
+}));
+
+app.listen(app.get('port'), () => {
+  console.log(`Port: ${app.get('port')}.`);
+});
+```
+
+```js
+// graphql.js
+import { buildSchema } from 'graphql';
+
+export const schema = buildSchema(`
+  type Query {
+    helloWorld: String
+  }
+`);
+
+export const rootValue = {
+  helloWorld() {
+    return 'Hello World';
+  }
+};
+```
+
+```js
+$ nodemon app.js --exec babel-node
+```
+
+http://localhost:8000/graphql
+
+查詢 `helloWorld`
+
+```js
+{
+  helloWorld
+}
+```
+
+查詢結果
+
+```js
+{
+  "data": {
+    "helloWorld": "Hello World"
+  }
+}
+```
+
+用戶端取得資料
+
+```bash
+$ curl -X POST \
+    -H "Content-Type: application/json" \
+    -d '{ "query": "{ helloWorld }" }' \
+    http://localhost:8000/graphql
+
+# { "data": { "helloWorld": "Hello World" } }
+```
+
+```js
+import { join } from 'path';
+
+app.use(express.static(join(__dirname, '../public')));
+```
+
+```html
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GraphQL</title>
+  </head>
+  <body>
+    <script>
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = 'json';
+      xhr.open('POST', '/graphql');
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.onload = () => console.log('GraphQL:', xhr.response);
+      xhr.send(JSON.stringify({ query: '{ helloWorld }' }));
+    </script>
+  </body>
+</html>
+```
+
+***
+
+```js
+// app.js
+import express from 'express';
+import graphql from 'express-graphql';
+
+import { schema } from './graphql';
+
+const app = express();
+
+app.set('port', (process.env.PORT || 8000));
+
+app.use('/graphql', graphql({
+  schema,
+  graphiql: true
+}));
+
+app.listen(app.get('port'), () => {
+  console.log(`Port: ${app.get('port')}.`);
+});
+```
+
+```js
+// graphql.js
+import { GraphQLSchema, GraphQLObjectType, GraphQLString } from 'graphql';
+
+// 這裡之後換成從 mongoose 的模型取得
+const data = {
+  "1": { "id": "1", "name": "Foo" },
+  "2": { "id": "2", "name": "Bar" },
+  "3": { "id": "3", "name": "Baz" }
+};
+
+export const schema = new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: 'Query',
+    fields: {
+      user: {
+        type: new GraphQLObjectType({
+          name: 'User',
+          fields: {
+            id: { type: GraphQLID },
+            name: { type: GraphQLString },
+          }
+        }),
+        args: {
+          id: { type: GraphQLID }
+        },
+        resolve(_, args) {
+          return data[args.id];
+        }
+      }
+    }
+  })
+});
+```
+
+查詢
+
+```js
+{
+  user(id: "1") {
+    name
+  }
+}
+```
+
+回傳
+
+```js
+{
+  "data": {
+    "user": {
+      "name": "Foo"
+    }
+  }
+}
+```
+
+#### 型別
+
+基本:
+* `GraphQLSchema`
+* `GraphQLObjectType`
+
+定標:
+* `GraphQLInt` or `GraphQLFloat`
+* `GraphQLString`
+* `GraphQLBoolean`
+* `GraphQLID`
+
+介面: `GraphQLInterfaceType`
+
+列舉: `GraphQLEnumType`
+
+#### 用戶端
+
+```bash
+$ npm i apollo-client -S
+```
+
+```js
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
+import gql from 'graphql-tag';
+
+const client = new ApolloClient({
+  networkInterface: createNetworkInterface({
+    uri: 'http://localhost:8000/__/graphql'  // GraphQL Server
+  })
+});
+
+client.query({
+    query: gql`
+      {
+        users {
+          name
+        }
+      }
+    `
+  })
+  .then(res => console.log(res));
 ```
