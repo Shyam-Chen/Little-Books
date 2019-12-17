@@ -27,7 +27,7 @@
 
 ##### Linux
 
-* Ubuntu
 * Docker
 * [Kubernetes](./Linux/Kubernetes/README.md)
-* Cloud Run
+* Caddy
+* CircleCI

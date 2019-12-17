@@ -7,4 +7,4 @@
  *
  */
 
-console.log('Welcome to Big Little Books.');
+console.log('Welcome to Little Books.');
