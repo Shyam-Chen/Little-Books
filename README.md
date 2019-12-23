@@ -28,6 +28,6 @@
 ##### Linux
 
 * Docker
+* Ansible
 * [Kubernetes](./Linux/Kubernetes/README.md)
-* Caddy
-* CircleCI
+* Terraform
