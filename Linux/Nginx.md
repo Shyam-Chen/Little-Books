@@ -4,21 +4,30 @@
 
 ```html
 <!-- dist/index.html -->
-...
+
+<!-- Your SPA project -->
 ```
 
 ```conf
 # nginx.conf
 
 server {
-  listen ${NGINX_PORT};
   server_name ${NGINX_HOST};
+  listen ${NGINX_PORT};
+
+  root /usr/share/nginx/html;
+  index index.html;
 
   location / {
-    root /usr/share/nginx/html;
-    try_files $uri /index.html;
-    index index.html;
+    try_files $uri $uri/ /index.html;
   }
+
+  location /service-worker.js {
+    add_header Cache-Control "max-age=0,no-cache,no-store,must-revalidate";
+  }
+
+  client_max_body_size 4G;
+  keepalive_timeout 10;
 }
 ```
 
