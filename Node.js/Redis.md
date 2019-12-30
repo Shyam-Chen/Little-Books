@@ -14,6 +14,8 @@
 
 ***
 
+Types: String (字串), List (列表), Set (無序集合), Hash, ZSet (有序集合)
+
 ```js
 import redis from 'redis';
 

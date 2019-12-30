@@ -14,6 +14,8 @@
 
 ***
 
+Sequelize, SQL, PostgreSQL
+
 ```js
 import Sequelize from 'sequelize';
 
