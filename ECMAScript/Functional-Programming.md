@@ -225,9 +225,36 @@ compose(inc(1), sub(2), mul(3))(5);  // 12
 // 6 - 2 = 4
 // 4 * 3 = 12
 
-// -
+// reverse (right to left)
 
-const compose = (...funcs) => res => funcs.reduce((acc, next) => next(acc), res);
+const compose = (...funcs) =>
+  funcs.reduce((f, g) => (...args) => f(g(...args)), arg => arg);
+
+const inc = num => num + 1;
+const dbl = num => num * 2;
+const sqr = num => num * num;
+
+compose(inc, dbl, sqr)(2);
+// 2 * 2 = 4
+// 4 * 2 = 8
+// 8 + 1 = 9
+```
+
+```js
+// pipe async function
+
+const pipeAsync = (...fns) =>
+  arg =>
+    fns.reduce((p, f) => p.then(f), Promise.resolve(arg));
+
+const inc = num => num + 1;
+const dbl = async num => (await num) * 2;
+const sqr = num => num * num;
+
+(async () => {
+  const data = await pipeAsync(inc, dbl, sqr)(2);
+  console.log(data); // 36
+})();
 ```
 
 ### Currying (柯里化)

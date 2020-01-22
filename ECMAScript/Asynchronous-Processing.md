@@ -111,6 +111,28 @@ foo()
   .finally(() => console.log('done'));
 ```
 
+Convert Callbacks to Promises
+
+```js
+import fs from 'fs';
+
+const readFilePromise = (...args) => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(...args, (err, data) => {
+      if (err) return reject(err);
+      resolve(data);
+    });
+  });
+};
+
+// -
+
+import fs from 'fs';
+import util from 'util';
+
+const readFilePromise = util.promisify(fs.readFile)
+```
+
 ## Generators (產生器)
 
 ```js
