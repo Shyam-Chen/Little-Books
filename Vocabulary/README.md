@@ -49,12 +49,14 @@ Words from software, excluding [CEFR level A1 to B2](./CEFR-level-A1-to-B2.md).
 - snapshot (n.)
 - isolated (adj.)
 - teardown (n.)
+- assessment (n.)
 
 # Deployment
 
 - orchestration (n.)
 - containerize (v.)
 - workflow (n.)
+- derived (adj.)
 
 # Data
 

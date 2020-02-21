@@ -147,8 +147,7 @@ agriculture n. 3
 ahead adv. 1
 AI/artificial intelligence n. 5
 aid n./v. 2
-AIDS/acquired immune
- deficiency syndrome n. 4
+AIDS/acquired immune deficiency syndrome n. 4
 aim n./v. 2
 air n. 1
 air-conditioner n. 3
@@ -178,7 +177,7 @@ alliance n. 6
 alligator n. 5
 allocate v. 6
 allow v. 1
-allowance/pocket moneyn. 4
+allowance/pocket money n. 4
 ally n./v. 5
 almond n. 2
 almost adv. 1
@@ -363,8 +362,7 @@ asylum n. 6
 at prep. 1
 athlete n. 3
 athletic adj. 4
-ATM/automatic teller
-machine n. 4
+ATM/automatic teller machine n. 4
 atmosphere n. 4
 atom n. 4
 atomic adj. 4
@@ -534,8 +532,7 @@ belief n. 2
 believable adj. 2
 believe v. 1
 bell n. 1
-belly/stomach/tummy/
-abdomen n. 3
+belly/stomach/tummy/abdomen n. 3
 belong v. 1
 belongings n. 5
 beloved adj./n. 5
@@ -882,8 +879,7 @@ cell n. 2
 cellar n./v. 5
 cello n. 5
 cell-phone/cellphone/cellular phone/mobile phone n. 5
-Celsius/Centigrade/
-centigrade n. 5
+Celsius/Centigrade/centigrade n. 5
 cement n./v. 4
 cemetery n. 6
 cent n. 1
@@ -900,10 +896,7 @@ certificate n./v. 5
 certify v. 6
 chain n./v. 3
 chair n./v. 1
-chairperson/chair/
- chairman/
- chairwoman
-n. 5
+chairperson/chair/chairman/chairwoman n. 5
 chalk n./v. 2
 challenge n./v. 3
 chamber n. 4
@@ -1221,9 +1214,7 @@ confusion n. 4
 congratulate v. 4
 congratulation(s) n. 2
 congress n. 4
-congressman/
- congresswoman
-n. 6
+congressman/congresswoman n. 6
 conjunction n. 4
 connect v. 3
 connection n. 3
@@ -1862,8 +1853,7 @@ dusk n. 5
 dust n./v. 3
 dusty adj. 4
 duty n. 2
-DVD/digital video disk/
- digital versatile disk n. 4
+DVD/digital video disk/digital versatile disk n. 4
 dwarf n./v. 5
 dwell v. 5
 dwelling n. 5
@@ -2017,8 +2007,7 @@ environmental adj. 3
 envy n./v. 3
 epidemic n./adj. 6
 episode n. 6
-EQ/emotional quotient/
-emotional intelligence n. 6
+EQ/emotional quotient/emotional intelligence n. 6
 equal adj./n./v. 1
 equality n. 4
 equate v. 5
@@ -2134,7 +2123,7 @@ export v./n. 3
 expose v. 4
 exposure n. 4
 express (1) v. 2
-express (2) adj./adv./n.
+express (2) adj./adv./n. 2
 expression n. 3
 expressive adj. 3
 exquisite adj. 6
@@ -2532,8 +2521,7 @@ glory n./v. 3
 glove(s) n. 2
 glow v./n. 3
 glue n./v. 2
-GMO/genetically
- modified organism n. 6
+GMO/genetically modified organism n. 6
 gnaw v. 5
 go v./n. 1
 goal n. 2
@@ -2544,10 +2532,7 @@ gold n./adj. 1
 golden adj. 2
 golf n./v. 2
 good adj./n./adv. 1
-good-bye/goodbye/
-good-by/goodby/
-bye-bye/bye
-n. 1
+good-bye/goodbye/good-by/goodby/bye-bye/bye n. 1
 goods n. 4
 goose n. 1
 gorge (1) n. 5
@@ -3144,8 +3129,7 @@ joy n. 1
 joyful adj. 3
 joyous adj. 6
 judge (1) n. 2
-judge(ment/
- judgment) (2) v./(n.) 2
+judge(ment/judgment) (2) v./(n.) 2
 jug n./v. 5
 juice n. 1
 juicy adj. 2
@@ -3256,8 +3240,7 @@ layer n./v. 5
 layman n. 6
 layout n. 6
 lazy adj. 1
-LCD/liquid crystal
- display n. 6
+LCD/liquid crystal display n. 6
 lead (1) v./n. 1
 lead (2) n. 4
 leader n. 1
@@ -3296,8 +3279,7 @@ lengthen v. 3
 lengthy adj. 6
 lens n. 3
 leopard n. 2
-less adj./adv./pron.
-/prep. 1
+less adj./adv./pron./prep. 1
 lessen v. 5
 lesson n. 1
 lest conj. 5
@@ -3676,10 +3658,7 @@ mold (2) n. 5
 molecule n. 5
 moment n. 1
 momentum n. 6
-mommy/momma/mom/
-mam(m)a/ma/
-mummy
-n. 1
+mommy/momma/mom/mam(m)a/ma/mummy n. 1
 monarch n. 5
 Monday/Mon. n. 1
 money n. 1
@@ -3728,23 +3707,15 @@ mournful adj. 6
 mouse n. 1
 mouth n./v. 1
 mouthpiece (1) n. 6
-mouthpiece (2)/
- spokesperson/
-spokesman/
-spokeswoman
-n. 6
+mouthpiece (2)/spokesperson/spokesman/spokeswoman n. 6
 movable adj. 2
 move(ment) v./(n.) 1
-movie/motion picture/
-film/cinema n. 1
+movie/motion picture/film/cinema n. 1
 mow v. 4
 mower n. 5
 Mr./mister n. 1
 Mrs. n. 1
-MRT/mass rapid
- transit/subway/
- underground/metro
-n. 2
+MRT/mass rapid transit/subway/underground/metro n. 2
 Ms. n. 1
 MTV/music television n. 4
 much adj./pron./adv. 1
@@ -3828,8 +3799,7 @@ negotiate v. 4
 negotiation n. 6
 neighbor n./v. 2
 neighborhood n. 3
-neither adj./adv./pron./
- conj. 2
+neither adj./adv./pron./conj. 2
 neon n. 6
 nephew n. 2
 nerve n. 3
@@ -3844,8 +3814,7 @@ new adj. 1
 newlywed n. 6
 news n. 1
 newscast n. 5
-newscaster/anchorman/
- anchorwoman n. 6
+newscaster/anchorman/anchorwoman n. 6
 newspaper n. 1
 next adj./adv. 1
 nibble v./n. 5
@@ -3967,7 +3936,7 @@ official adj./n. 2
 offspring n. 6
 often adv. 1
 oil n./v. 1
-O.K./OK/okay adj./adv./n./v.
+O.K./OK/okay adj./adv./n./v. 1
 old adj. 1
 olive n./adj. 5
 omit v. 2
@@ -4176,8 +4145,7 @@ pave(ment) v./(n.) 3
 paw n./v. 3
 pay (1) (ment) v./(n.) 1
 pay (2)/salary/wage(s) n. 3
-PDA/personal digital
- assistant n. 6
+PDA/personal digital assistant n. 6
 pea n. 3
 peace n. 2
 peaceful adj. 2
@@ -5012,8 +4980,7 @@ sake n. 3
 salad n. 2
 salary n./v. 4
 sale n. 1
-salesperson/salesman/
-saleswoman n. 4
+salesperson/salesman/saleswoman n. 4
 salmon n./adj. 5
 saloon n. 6
 salt n./adj./v. 1
@@ -5474,17 +5441,13 @@ splendid adj. 4
 splendor n. 5
 split v./n. 4
 spoil v. 3
-spokesperson/
- spokesman/
- spokeswoman
-n. 6
+spokesperson/spokesman/spokeswoman n. 6
 sponge n./v. 5
 sponsor n./v. 6
 spontaneous adj. 6
 spoon n./v. 1
 sport n./v. 1
-sportsman/
-sportswoman n. 4
+sportsman/sportswoman n. 4
 sportsmanship n. 4
 spot n./v. 2
 spotlight n./v. 5
@@ -5566,8 +5529,7 @@ stereo n. 3
 stereotype n./v. 5
 stern adj. 5
 stew v./n. 5
-steward/stewardess/
-attendant n. 5
+steward/stewardess/attendant n. 5
 stick (1) n. 2
 stick (2) v. 2
 sticky adj. 3
@@ -5868,8 +5830,7 @@ texture n./v. 6
 than prep./conj. 1
 thank v./n. 1
 thankful adj. 3
-that pron./adj./adv./
-conj. 1
+that pron./adj./adv./conj. 1
 the art. 1
 theater n. 2
 theatrical adj. 6
@@ -6540,10 +6501,7 @@ zeal n. 6
 zebra n. 2
 zero n./v. 1
 zinc n. 5
-zip/ZIP/zone
- improvement plan/
- zip code
-n./v. 5
+zip/ZIP/zone improvement plan/zip code n./v. 5
 zipper n./v. 3
 zone n./v. 3
 zoo n. 1
