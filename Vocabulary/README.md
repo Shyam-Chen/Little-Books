@@ -1,6 +1,6 @@
 # Software
 
-Words from software, excluding [CEFR-A1-to-B2](./CEFR-A1-to-B2.md).
+Words from software, excluding [CEFR level A1 to B2](./CEFR-level-A1-to-B2.md).
 
 ***
 
@@ -19,6 +19,8 @@ Words from software, excluding [CEFR-A1-to-B2](./CEFR-A1-to-B2.md).
 - icon (n.)
 - graphical (adj.)
 - flex (v.) (n.)
+- wrapper (n.)
+- hierarchy (n.)
 
 # Development
 
@@ -36,6 +38,11 @@ Words from software, excluding [CEFR-A1-to-B2](./CEFR-A1-to-B2.md).
   - predictably (adv.)
     - This helps safely and predictably create, change, and improve infrastructure.
 - sanity (n.)
+- reuse (v.) (n.)
+  - reusable (adj.)
+- compiler (n.)
+  - compilation (n.)
+    - ahead-of-time compilation
 
 # Testing
 
@@ -47,6 +54,7 @@ Words from software, excluding [CEFR-A1-to-B2](./CEFR-A1-to-B2.md).
 
 - orchestration (n.)
 - containerize (v.)
+- workflow (n.)
 
 # Data
 

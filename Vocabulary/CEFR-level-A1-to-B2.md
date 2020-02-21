@@ -948,7 +948,6 @@ chemist n. 5
 chemistry n. 4
 cherish v. 4
 cherry n./adj. 3
- 12
 chess n. 2
 chest n. 3
 chestnut n./adj. 5
@@ -1035,7 +1034,6 @@ climate n. 2
 climax n./v. 4
 climb v./n. 1
 cling v. 5
- 13
 clinic n. 3
 clinical adj. 6
 clip n./v. 3
@@ -1122,7 +1120,6 @@ commentator n. 5
 commerce n. 4
 commercial adj./n. 3
 commission n./v. 5
- 14
 commit v. 4
 commitment n. 6
 committee n. 3
@@ -1209,7 +1206,6 @@ confer v. 6
 conference n. 4
 confess v. 4
 confession n. 5
- 15
 confidence n. 4
 confident adj. 3
 confidential adj. 6
@@ -1298,7 +1294,6 @@ contrast n./v. 4
 contribute v. 4
 contribution n. 4
 control n./v. 2
- 16
 controller n. 2
 controversial adj. 6
 controversy n. 6
@@ -1385,7 +1380,6 @@ cowboy n. 1
 cozy adj. 5
 crab n. 2
 crack n./v. 4
- 17
 cracker n. 5
 cradle n./v. 3
 craft n. 4
@@ -1472,7 +1466,6 @@ curriculum n. 5
 curry n./v. 5
 curse n./v. 4
 curtain/drape n./v. 2
- 18
 curve n./v. 4
 cushion n./v. 4
 custom n. 2
@@ -1559,7 +1552,6 @@ delegation n. 5
 deliberate adj./v. 6
 delicate adj. 4
 delicious adj. 2
- 19
 delight n./v. 4
 delightful adj. 4
 delinquent n./adj. 6
@@ -1646,7 +1638,6 @@ dialect n. 5
 dialogue n. 3
 diameter n. 6
 diamond n. 2
- 20
 diaper n. 4
 diary n. 2
 dictate v. 6
@@ -1733,7 +1724,6 @@ disorder n./v. 4
 dispatch v./n. 6
 dispensable adj. 6
 dispense v. 5
- 21
 disperse v. 6
 displace v. 6
 display v./n. 2
@@ -1820,7 +1810,6 @@ dozen n. 1
 Dr. n. 2
 draft n./v. 4
 drag v./n. 2
- 22
 dragon n. 2
 dragonfly n. 2
 drain v./n. 3
@@ -1908,7 +1897,6 @@ economic adj. 4
 economical adj. 4
 economics n. 4
 economist n. 4
- 23
 economy n. 4
 ecstasy n. 6
 edge n./v. 1
@@ -1995,7 +1983,6 @@ ending n. 2
 endurance n. 6
 endure v. 4
 enemy n. 2
- 24
 energetic adj. 3
 energy n. 2
 enforce(ment) v./(n.) 4
@@ -2083,7 +2070,6 @@ evolution n. 6
 evolve v. 6
 exact adj. 2
 exaggerate v. 4
- 25
 exaggeration n. 5
 examination/exam n. 1
 examine v. 1
@@ -2170,7 +2156,6 @@ eyelash/lash n. 5
 eyelid n. 5
 eyesight n. 6
 F
- 26
 fable n. 3
 fabric n. 5
 fabulous adj. 6
@@ -2257,7 +2242,6 @@ ferry n./v. 4
 fertile adj. 4
 fertility n. 6
 fertilizer n. 5
- 27
 festival n. 2
 fetch v./n. 4
 fever n. 2
@@ -2344,7 +2328,6 @@ flutter v./n. 6
 fly (1) n. 1
 fly (2) v. 1
 foam n./v. 4
- 28
 focus n./v. 2
 foe n. 5
 fog n./v. 1
@@ -2431,7 +2414,6 @@ fresh adj. 1
 freshman n. 4
 fret v. 6
 friction n. 6
- 29
 Friday/Fri. n. 1
 friend n. 1
 friendly adj. 2
@@ -2518,7 +2500,6 @@ germ n. 4
 gesture n./v. 3
 get v. 1
 ghost n. 1
- 30
 giant n./adj. 2
 gift n. 1
 gifted adj. 4
@@ -2608,7 +2589,6 @@ grasshopper n. 3
 grassy adj. 2
 grateful adj. 4
 gratitude n. 4
- 31
 grave (1) adj. 4
 grave (2) n. 4
 gravity n. 5
@@ -2695,7 +2675,6 @@ handy adj. 3
 hang v. 2
 hanger n. 2
 happen v. 1
- 32
 happy adj. 1
 harass(ment) v./(n.) 6
 harbor n./v. 3
@@ -2782,7 +2761,6 @@ highway n. 2
 hijack v./n. 5
 hike n./v. 3
 hill n. 1
- 33
 him pron. 1
 hint n./v. 3
 hip n. 2
@@ -2869,7 +2847,6 @@ humble adj./v. 2
 humid adj. 2
 humidity n. 4
 humiliate v. 6
- 34
 humor n. 2
 humorous adj. 3
 hunch v./n. 6
@@ -2956,7 +2933,6 @@ incident n. 4
 incidental adj. 6
 incline v./n. 6
 include v. 2
- 35
 including prep. 4
 inclusive adj. 6
 income n. 2
@@ -3043,7 +3019,6 @@ instead adv. 3
 instinct n. 4
 institute n./v. 5
 institution n. 6
- 36
 instruct v. 4
 instruction n. 3
 instructor n. 4
@@ -3130,7 +3105,6 @@ itch v./n. 4
 item n. 2
 its pron. 1
 ivory n./adj. 3
- 37
 ivy n. 5
 J
 jack n./v. 5
@@ -3218,7 +3192,6 @@ kitchen n. 1
 kite n. 1
 kitten/kitty n. 1
 knee n./v. 1
- 38
 kneel v. 3
 knife n./v. 1
 knight n./v. 3
@@ -3306,7 +3279,6 @@ lecturer n. 4
 left adj./adv./n. 1
 leg n. 1
 legal adj. 2
- 39
 legend n. 4
 legendary adj. 6
 legislation n. 5
@@ -3394,7 +3366,6 @@ litter n./v. 3
 little adj./adv./n. 1
 live (1) adj. 1
 live (2) v. 1
- 40
 lively adj. 3
 liver n. 3
 livestock n. 5
@@ -3481,7 +3452,6 @@ maiden n./adj. 5
 mail n./v. 1
 main adj./n. 2
 mainland n. 5
- 41
 mainstream n. 5
 maintain v. 2
 maintenance n. 5
@@ -3568,7 +3538,6 @@ mean (1) v. 1
 mean (2) adj. 1
 meaning n. 2
 meaningful adj. 3
- 42
 means n. 2
 meantime adv./n. 5
 meanwhile adv./n. 3
@@ -3655,7 +3624,6 @@ mineral n. 4
 mingle v. 5
 miniature adj./n./v. 6
 minimal adj. 5
- 43
 minimize v. 6
 minimum n./adj. 4
 minister n. 4
@@ -3744,7 +3712,6 @@ motel n. 3
 moth n. 2
 mother n./v. 1
 motherhood n. 5
- 44
 motion n./v. 2
 motivate v. 4
 motivation n. 4
@@ -3835,7 +3802,6 @@ nationality n. 4
 native adj./n. 3
 natural adj. 2
 naturalist n. 6
- 45
 nature n. 1
 naughty adj. 2
 naval adj. 6
@@ -3923,7 +3889,6 @@ nothing pron./n. 1
 notice n./v. 1
 noticeable adj. 5
 notify v. 5
- 46
 notion n. 5
 notorious adj. 6
 noun n. 4
@@ -4010,7 +3975,6 @@ on prep./adv. 1
 once adv./conj./n. 1
 one n./adj./pron. 1
 onion n. 2
- 47
 only adv./adj./conj. 1
 onto prep. 3
 open adj./v./n. 1
@@ -4097,7 +4061,6 @@ overcome v. 4
 overdo v. 5
 overeat v. 5
 overflow v./n. 5
- 48
 overhead adv./adj./n. 6
 overhear v. 5
 overlap v./n. 6
@@ -4184,7 +4147,6 @@ party n./v. 1
 pass v./n. 1
 passage n. 3
 passenger n. 2
- 49
 passion n. 3
 passionate adj. 5
 passive adj. 4
@@ -4272,7 +4234,6 @@ permit v./n. 3
 perseverance n. 6
 persevere v. 6
 persist v. 5
- 50
 persistence n. 6
 persistent adj. 6
 person n. 1
@@ -4359,7 +4320,6 @@ plant (2) n./v. 1
 plantation n. 5
 plastic n./adj. 3
 plate n./v. 2
- 51
 platform n. 2
 play v./n. 1
 player n. 1
@@ -4446,7 +4406,6 @@ post (2) n./v./adv. 2
 post (3) n./v. 2
 postage n. 3
 postcard n. 2
- 52
 poster n. 3
 postpone(ment) v./(n.) 3
 posture n./v. 6
@@ -4533,7 +4492,6 @@ princess n. 2
 principal (1) adj. 2
 principal (2) n. 2
 principle n. 2
- 53
 print v./n. 1
 printer n. 2
 prior adj./adv./n. 5
@@ -4620,7 +4578,6 @@ prune (1) n. 5
 prune (2) v. 5
 psychological adj. 4
 psychologist n. 4
- 54
 psychology n. 4
 pub n. 3
 public adj./n. 1
@@ -4707,7 +4664,6 @@ rail n. 5
 railroad n. 1
 rain n./v. 1
 rainbow n. 1
- 55
 rainfall n. 4
 rainy adj. 2
 raise v./n. 1
@@ -4794,7 +4750,6 @@ reflect v. 4
 reflection n. 4
 reflective adj. 6
 reform v./n. 4
- 56
 refresh(ment) v./(n.) 4
 refreshment(s) n. 6
 refrigerator/fridge/
@@ -4882,7 +4837,6 @@ reputation n. 4
 request n./v. 3
 require(ment) v./(n.) 2
 rescue v./n. 4
- 57
 research n./v. 4
 researcher n. 4
 resemblance n. 6
@@ -4969,7 +4923,6 @@ right (1) adj./adv./n. 1
 right (2) n. 1
 rigid adj. 5
 rigorous adj. 6
- 58
 rim n./v. 5
 ring (1) n./v. 1
 ring (2) v./n. 1
@@ -5056,7 +5009,6 @@ sail n./v. 1
 sailor n. 2
 saint n./v. 5
 sake n. 3
- 59
 salad n. 2
 salary n./v. 4
 sale n. 1
@@ -5144,7 +5096,6 @@ second (1) adj./n./adv. 1
 second (2) n. 1
 secondary adj. 3
 secret adj./n. 2
- 60
 secretary n. 2
 section n./v. 2
 sector n. 6
@@ -5231,7 +5182,6 @@ shaver n. 4
 she pron./n. 1
 shed n./v. 6
 sheep n. 1
- 61
 sheer adj./adv. 6
 sheet n. 1
 shelf n. 2
@@ -5318,7 +5268,6 @@ sing v. 1
 singer n. 1
 single adj./n./v. 2
 singular adj./n. 4
- 62
 sink (1) v. 2
 sink (2) n. 2
 sip v./n. 3
@@ -5405,7 +5354,6 @@ snort n./v. 5
 snow n./v. 1
 snowy adj. 2
 so (1) adv. 1
- 63
 so (2) conj. 1
 soak v./n. 5
 soap n./v. 1
@@ -5492,7 +5440,6 @@ special adj. 1
 specialist n. 5
 specialize v. 6
 specialty n. 6
- 64
 species n. 4
 specific adj. 3
 specify v. 6
@@ -5581,7 +5528,6 @@ stand v./n. 1
 standard n./adj. 2
 stanza n. 5
 staple n./v. 6
- 65
 stapler n. 6
 star n./v. 1
 starch n./v. 6
@@ -5669,7 +5615,6 @@ strawberry n. 2
 stray v./n./adj. 5
 streak n./v. 5
 stream n./v. 2
- 66
 street n. 1
 strength n. 3
 strengthen v. 4
@@ -5756,7 +5701,6 @@ Sunday/Sun. n. 1
 sunny adj. 2
 super adj./adv. 1
 superb adj. 6
- 67
 superficial adj. 5
 superior adj./n. 3
 superiority n. 6
@@ -5843,7 +5787,6 @@ tailor n./v. 3
 take v. 1
 tale n. 1
 talent n. 2
- 68
 talk v./n. 1
 talkative adj. 2
 tall adj. 1
@@ -5931,7 +5874,6 @@ the art. 1
 theater n. 2
 theatrical adj. 6
 theft n. 6
- 69
 their(s) pron. 1
 them pron. 1
 theme n. 4
@@ -6018,7 +5960,6 @@ toast n./v. 2
 tobacco n. 3
 today adv./n. 1
 toe n./v. 2
- 70
 tofu/bean curd n. 2
 together adv. 1
 toil v./n. 5
@@ -6105,7 +6046,6 @@ trash n./v. 3
 trauma n. 6
 travel v./n. 2
 traveler n. 3
- 71
 tray n. 3
 tread v./n. 6
 treason n. 6
@@ -6192,7 +6132,6 @@ typewriter n. 3
 typhoon n. 2
 typical adj. 3
 typist n. 4
- 72
 tyranny n. 6
 tyrant n. 5
 U
@@ -6279,7 +6218,6 @@ vain adj. 4
 valiant adj. 6
 valid adj. 6
 validity n. 6
- 73
 valley n. 2
 valuable adj. 3
 value n./v. 2
@@ -6452,7 +6390,6 @@ weird adj. 5
 welcome v./adj./n. 1
 welfare n. 4
 well (1) adj./adv. 1
- 75
 well (2) n. 1
 west n./adj./adv. 1
 western adj./n. 2
@@ -6539,7 +6476,6 @@ woman n. 1
 wonder n./v. 2
 wonderful adj. 2
 woo v. 6
- 76
 wood(s) n. 1
 wooden adj. 2
 woodpecker n. 5
