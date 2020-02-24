@@ -12,6 +12,7 @@ Words from software, excluding [CEFR level A1 to B2](./CEFR-level-A1-to-B2.md).
 - ecosystem (n.)
 - premium (n.) (adj.)
 - velocity (n.)
+- marketplace (n.)
 
 # Styles
 
@@ -28,6 +29,7 @@ Words from software, excluding [CEFR level A1 to B2](./CEFR-level-A1-to-B2.md).
 - declarative (adj.)
 - dashboard (n.)
 - real-time (adj.)
+- pagination (n.)
 - approachable (adj.)
 - performant (adj.)
 - monolithic (adj.)
@@ -79,6 +81,8 @@ Words from software, excluding [CEFR level A1 to B2](./CEFR-level-A1-to-B2.md).
 # Namespaces
 
 - git (n.)
+- rail (n.) (v.)
+- python (n.)
 - caddy (n.)
 - jest (n.)
 - graphite (n.)

@@ -2122,8 +2122,7 @@ explosive adj./n. 4
 export v./n. 3
 expose v. 4
 exposure n. 4
-express (1) v. 2
-express (2) adj./adv./n. 2
+express v./adj./adv./n. 2
 expression n. 3
 expressive adj. 3
 exquisite adj. 6
@@ -3140,8 +3139,8 @@ jungle n. 3
 junior adj./n. 4
 junk n./v. 3
 jury n. 5
-just(1) adj. 1
-just(2) adv. 1
+just (1) adj. 1
+just (2) adv. 1
 justice n. 3
 justify v. 5
 juvenile adj./n. 5
@@ -3809,7 +3808,7 @@ net n./v. 2
 network n. 3
 neutral adj./n. 6
 never adv. 1
-nevertheless/nonethelessadv. 4
+nevertheless/nonethelessad v. 4
 new adj. 1
 newlywed n. 6
 news n. 1
@@ -3936,7 +3935,7 @@ official adj./n. 2
 offspring n. 6
 often adv. 1
 oil n./v. 1
-O.K./OK/okay adj./adv./n./v. 1
+O.K./OK/okay adj./adv./n./v. *
 old adj. 1
 olive n./adj. 5
 omit v. 2
