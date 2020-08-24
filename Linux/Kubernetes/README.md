@@ -35,6 +35,10 @@ Install Kubernetes CLI via Homebrew (透過 Homebrew 安裝 Kubernetes CLI)
 $ brew install kubectl
 ```
 
+```bash
+$ kubectl version --client
+```
+
 Install Minikube (安裝 Minikube)
 
 下載 Minikube
@@ -65,7 +69,7 @@ $ minikube version
 or
 
 ```bash
-$ brew cask install minikube
+$ brew install minikube
 ```
 
 啟動 Kubernetes 叢集

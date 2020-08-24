@@ -1,10 +1,6 @@
 # TypeScript
 
-A language for application-scale JavaScript.
-
-### Reference Resources (參考資源)
-
-* http://www.typescriptlang.org/
+TypeScript is a superset of JavaScript that compiles to clean JavaScript output.
 
 ***
 

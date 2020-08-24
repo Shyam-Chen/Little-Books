@@ -6,28 +6,28 @@
 
 ### [ECMAScript](./ECMAScript)
 
-* Babel
-* Flow
-* [TypeScript](./ECMAScript/TypeScript/README.md)
-* [ReactiveX](./ECMAScript/ReactiveX/README.md)
+- [Babel](./ECMAScript/Babel/README.md)
+- [TypeScript](./ECMAScript/TypeScript/README.md)
+- [Lodash](./ECMAScript/Lodash/README.md)
+- [ReactiveX](./ECMAScript/ReactiveX/README.md)
 
 ### [HTML5](./HTML5)
 
-* Vue
-* React
-* [Angular](./HTML5/Angular/README.md)
-* Svelte
+- Vue
+- React
+- [Angular](./HTML5/Angular/README.md)
+- Svelte
 
 ### [Node.js](./Node.js)
 
-* [Express](./Node.js/Express/README.md)
-* Koa
-* [Nest](./Node.js/Nest/README.md)
-* Fastify
+- [Express](./Node.js/Express/README.md)
+- Koa
+- [Nest](./Node.js/Nest/README.md)
+- Fastify
 
 ### [Linux](./Linux)
 
-* Docker
-* Ansible
-* [Kubernetes](./Linux/Kubernetes/README.md)
-* Terraform
+- Docker
+- Ansible
+- [Kubernetes](./Linux/Kubernetes/README.md)
+- Terraform
