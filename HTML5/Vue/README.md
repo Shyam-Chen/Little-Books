@@ -6,6 +6,9 @@ Vue is a progressive, incrementally-adoptable JavaScript framework for building 
 
 ### Table of Contents
 
+- Routing
+- State Management
+
 ---
 
 ## Reactivity
@@ -55,6 +58,46 @@ export default {};
 </script>
 ```
 
+**Watcher**
+
+data - `watch`
+
+```vue
+<script setup>
+import { reactive, watch } from 'vue';
+
+export const state = reactive({ val: 0 });
+
+watch(
+  () => state.val,
+  (val, prevVal) => {},
+);
+
+export default {};
+</script>
+```
+
+dependencies - `watchEffect`
+
+```vue
+<template>
+  <div></div>
+</template>
+
+<script setup>
+import { reactive, watchEffect } from 'vue';
+
+export const state1 = reactive({ val: 0 });
+export const state2 = reactive({ val: 0 });
+
+watchEffect(() => {
+  console.log(state1.val);
+});
+
+export default {};
+</script>
+```
+
 **Readonly Proxies**
 
 ```vue
@@ -67,6 +110,8 @@ export const copy = readonly(original);
 export default {};
 </script>
 ```
+
+## Component Communication
 
 **Props**
 
@@ -140,9 +185,73 @@ export default {
 
 ```vue
 <!-- Bar.vue -->
-<template>
-</template>
+<template></template>
 
+<script setup></script>
+```
+
+## Async Components
+
+```js
+import { defineAsyncComponent } from 'vue';
+```
+
+Suspense
+
+```html
+<Suspense>
+  <template #default> </template>
+
+  <template #fallback>
+    <div>Loading...</div>
+  </template>
+</Suspense>
+```
+
+## Routing
+
+```js
+// src/core/router.js
+import { defineAsyncComponent } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
+
+import Home from '~/mods/home/Home';
+
+const router = createRouter({
+  history: createWebHistory('/'),
+  routes: [
+    {
+      path: '/',
+      component: Home,
+    },
+    {
+      path: '/about',
+      component: defineAsyncComponent(() => import('~/mods/about/About')),
+    },
+  ],
+});
+
+export default router;
+```
+
+```js
+// src/main.js
+import router from '~/core/router';
+
+app.use(router);
+```
+
+```vue
 <script setup>
+import { useRouter, useRoute } from 'vue-router';
+
+const router = useRouter();
+const route = useRoute();
+
+export const goBack = () => {
+  window.history.length > 1 ? router.go(-1) : router.push('/');
+};
+
+export default {};
 </script>
 ```
