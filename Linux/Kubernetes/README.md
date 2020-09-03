@@ -2,6 +2,8 @@
 
 A system for managing containerized workloads and services.
 
+---
+
 ### Table of Contents (目錄)
 
 * [Getting Started (起手式)](#getting-started-起手式)
@@ -16,6 +18,8 @@ A system for managing containerized workloads and services.
 * StatefulSets (狀態集)
 * ConfigMaps and Secrets (配置映射和加密)
 * Jobs (作業)
+* [Serverless Computing](#serverless-computing)
+* [CI/CD Pipelines](#ci-cd-pipelines)
 
 ***
 
@@ -134,3 +138,11 @@ $ minikube stop
 # Stopping local Kubernetes cluster...
 # Machine stopped.
 ```
+
+## Serverless Computing
+
+Knative
+
+## CI/CD Pipelines
+
+Tekton

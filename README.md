@@ -29,5 +29,4 @@
 
 - [Docker](./Linux/Docker/README.md)
 - [Kubernetes](./Linux/Kubernetes/README.md)
-- [Ansible](./Linux/Ansible/README.md)
 - [Terraform](./Linux/Terraform/README.md)
