@@ -14,7 +14,7 @@
   * Adapter (匹配器)
   * Bridge (橋梁)
   * Composite (組合)
-  * Decorator (修飾)
+  * [Decorator (修飾)](#decorator)
   * Facade (外觀)
   * Flyweight (享元)
   * Proxy (代理)
@@ -109,4 +109,54 @@ const instance1 = new Singleton();
 const instance2 = new Singleton();
 
 instance1 === instance2;  // true
+```
+
+### Decorator
+
+> Decorator is a Conceptual pattern that allows adding new behaviors to objects dynamically by placing them inside special wrapper objects.
+
+```ts
+interface Component {
+  operation(): string;
+}
+
+// The base Decorator class follows the same interface as the other components.
+class Decorator implements Component {
+  protected component: Component;
+
+  constructor(component: Component) {
+    this.component = component;
+  }
+
+  public operation(): string {
+    return this.component.operation();
+  }
+}
+
+class DecoratorFoo extends Decorator {
+  public operation(): string {
+    return `DecoratorFoo(${super.operation()})`;
+  }
+}
+
+class DecoratorBar extends Decorator {
+  public operation(): string {
+    return `DecoratorBar(${super.operation()})`;
+  }
+}
+
+class BaseComponent implements Component {
+  public operation(): string {
+    return 'BaseComponent';
+  }
+}
+
+const instance1 = new DecoratorFoo(new BaseComponent());
+const instance2 = new DecoratorBar(instance1);
+
+console.log(instance1.operation());
+// DecoratorFoo(BaseComponent)
+
+console.log(instance2.operation());
+// DecoratorBar(DecoratorFoo(BaseComponent))
 ```
