@@ -1,7 +1,0 @@
-# Terraform
-
----
-
-### Table of Contents
-
----

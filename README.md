@@ -23,4 +23,4 @@
   - [Docker](./Linux/Docker/README.md)
   - [Kubernetes](./Linux/Kubernetes/README.md)
   - [OpenShift](./Linux/OpenShift/README.md)
-  - [Terraform](./Linux/Terraform/README.md)
+  - [Pulumi](./Linux/Pulumi/README.md)
