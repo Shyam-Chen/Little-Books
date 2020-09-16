@@ -1,29 +1,21 @@
 # Express
 
-### Reference Resources (參考資源)
-
-* https://github.com/expressjs/express
-
-### Actual Operation (實作執行)
-
-* https://github.com/Shyam-Chen/Backend-Starter-Kit
-
-***
+---
 
 ### Table of Contents (目錄)
 
-* [Getting Started (入門)](#getting-started-入門)
-  * [Routing (路由)](#路由)
-  * [Middlewares (中介軟體)](#中介軟體)
-  * Request and Response (請求和回應)
-* REST (表徵狀態轉移)
-* [Mongoose](#mongoose)
-* Storage‎ (存儲)
-* Messaging (訊息)
-* Payment (金流)
-* [GraphQL](#graphql)
+- [Getting Started (入門)](#getting-started-入門)
+  - [Routing (路由)](#路由)
+  - [Middlewares (中介軟體)](#中介軟體)
+  - Request and Response (請求和回應)
+- REST (表徵狀態轉移)
+- [Mongoose](#mongoose)
+- Storage‎ (存儲)
+- Messaging (訊息)
+- Payment (金流)
+- [GraphQL](#graphql)
 
-***
+---
 
 ## Getting Started (入門)
 
@@ -45,7 +37,7 @@ import express from 'express';
 
 const app = express();
 
-app.set('port', (process.env.PORT || 8000));
+app.set('port', process.env.PORT || 8000);
 
 app.listen(app.get('port'), () => {
   console.log(`Port: ${app.get('port')}.`);
@@ -89,7 +81,7 @@ http://localhost:8000/text/foo
 app.get('/random/:min/:max', (req, res) => {
   const min = Number(req.params.min);
   const max = Number(req.params.max);
-  const result = Math.round((Math.random() * (max - min)) + min);
+  const result = Math.round(Math.random() * (max - min) + min);
 
   res.json({ result });
 });
@@ -200,24 +192,25 @@ app.use('/bar', bar);
 ### 中介軟體
 
 Express 的中介軟體模組
-* `body-parser` - 解析 HTTP 請求的 Body
-* `compression` - 壓縮 HTTP 回應
-* `connect-rid` - 產生讀一無二的請求 ID
-* `cookie-parser` -
-* `cookie-session` - 設立基於 cookie 的 sessions
-* `cors` - 啟用具有各種選項的跨源資源共享 (CORS)
-* `csurf` -
-* `errorhandler` - 開發用的錯誤處理/除錯
-* `method-override` - 使用表頭覆蓋 HTTP 方法
-* `morgan` - HTTP 請求記錄器
-* `multer` - 處理多部分表單資料
-* `response-time` - 紀錄 HTTP 回應時間
-* `serve-favicon` - 提供一個圖標
-* `serve-index` - 為給定的路徑提供目錄列表
-* `serve-static` - 提供靜態檔案
-* `session` - 設立基於伺服器的 sessions (僅限開發用)
-* `timeout` - 設定 HTTP 請求處理的超時時間
-* `vhost` - 建立虛擬網域
+
+- `body-parser` - 解析 HTTP 請求的 Body
+- `compression` - 壓縮 HTTP 回應
+- `connect-rid` - 產生讀一無二的請求 ID
+- `cookie-parser` -
+- `cookie-session` - 設立基於 cookie 的 sessions
+- `cors` - 啟用具有各種選項的跨源資源共享 (CORS)
+- `csurf` -
+- `errorhandler` - 開發用的錯誤處理/除錯
+- `method-override` - 使用表頭覆蓋 HTTP 方法
+- `morgan` - HTTP 請求記錄器
+- `multer` - 處理多部分表單資料
+- `response-time` - 紀錄 HTTP 回應時間
+- `serve-favicon` - 提供一個圖標
+- `serve-index` - 為給定的路徑提供目錄列表
+- `serve-static` - 提供靜態檔案
+- `session` - 設立基於伺服器的 sessions (僅限開發用)
+- `timeout` - 設定 HTTP 請求處理的超時時間
+- `vhost` - 建立虛擬網域
 
 ## REST
 
@@ -226,7 +219,7 @@ Express 的中介軟體模組
 ```js
 import { Router } from 'express';
 
-import { List } from '~/models';  // Mongoose 模型
+import { List } from '~/models'; // Mongoose 模型
 
 const router = Router();
 /**
@@ -285,8 +278,12 @@ router.get('/pagination/:page/:row', async (req, res, next) => {
     const data = [];
 
     for (let i = 0, l = list.length; i < l / row; i++) {
-      if (Number(req.params.page) === (i + 1)) {
-        data.push(List.find({}).skip(i * row).limit(row));
+      if (Number(req.params.page) === i + 1) {
+        data.push(
+          List.find({})
+            .skip(i * row)
+            .limit(row),
+        );
       }
     }
 
@@ -325,9 +322,9 @@ router.post('/', async (req, res, next) => {
  */
 router.put('/:id', async (req, res, next) => {
   try {
-    const message = await List
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(() => 'List updated');
+    const message = await List.findOneAndUpdate({ _id: req.params.id }, req.body).then(
+      () => 'List updated',
+    );
 
     res.json({ message });
   } catch (err) {
@@ -342,9 +339,7 @@ router.put('/:id', async (req, res, next) => {
  */
 router.delete('/:id', async (req, res, next) => {
   try {
-    const message = await List
-      .findByIdAndRemove(req.params.id)
-      .then(() => 'List deleted');
+    const message = await List.findByIdAndRemove(req.params.id).then(() => 'List deleted');
 
     res.json({ message });
   } catch (err) {
@@ -374,14 +369,15 @@ mongoose.connection.once('open', () => console.log('Connection Succeeded.'));
 ### 綱要
 
 綱要型別 (SchemaTypes):
-* String
-* Number
-* Date
-* Buffer
-* Boolean
-* Mixed
-* ObjectId
-* Array
+
+- String
+- Number
+- Date
+- Buffer
+- Boolean
+- Mixed
+- ObjectId
+- Array
 
 ```js
 import { Schema } from 'mongoose';
@@ -392,7 +388,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   image: String,
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 ```
 
@@ -407,7 +403,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   image: String,
   created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+  updated_at: { type: Date, default: Date.now },
 });
 
 export const User = mongoose.model('user', userSchema);
@@ -438,7 +434,7 @@ import mongoose, { Schema } from 'mongoose';
 
 const listSchema = Schema({
   text: String,
-  created: Date
+  created: Date,
 });
 
 const List = mongoose.model('List', listSchema);
@@ -449,7 +445,7 @@ const List = mongoose.model('List', listSchema);
 ```js
 const list = new List(req.body);
 
-list.save(err => {
+list.save((err) => {
   if (err) return next(err);
   res.json({ message: 'List saved' });
 });
@@ -481,7 +477,7 @@ List.findById(req.params.id, (err, data) => {
     data[prop] = req.body[prop];
   }
 
-  data.save(err => {
+  data.save((err) => {
     if (err) return next(err);
     res.json({ message: 'List updated' });
   });
@@ -491,7 +487,7 @@ List.findById(req.params.id, (err, data) => {
 ### 刪除
 
 ```js
-List.findByIdAndRemove(req.params.id, err => {
+List.findByIdAndRemove(req.params.id, (err) => {
   if (err) return next(err);
   res.json({ message: 'List deleted' });
 });
@@ -555,8 +551,7 @@ request('https://www.sitepoint.com/', (error, response, body) => {
 import request from 'request';
 import { createWriteStream } from 'fs';
 
-request('https://www.sitepoint.com/')
-  .pipe(createWriteStream('index.html'));
+request('https://www.sitepoint.com/').pipe(createWriteStream('index.html'));
 ```
 
 ## GraphQL
@@ -576,13 +571,16 @@ import { schema, rootValue } from './graphql';
 
 const app = express();
 
-app.set('port', (process.env.PORT || 8000));
+app.set('port', process.env.PORT || 8000);
 
-app.use('/graphql', graphql({
-  schema,
-  rootValue,
-  graphiql: true
-}));
+app.use(
+  '/graphql',
+  graphql({
+    schema,
+    rootValue,
+    graphiql: true,
+  }),
+);
 
 app.listen(app.get('port'), () => {
   console.log(`Port: ${app.get('port')}.`);
@@ -602,7 +600,7 @@ export const schema = buildSchema(`
 export const rootValue = {
   helloWorld() {
     return 'Hello World';
-  }
+  },
 };
 ```
 
@@ -616,7 +614,7 @@ http://localhost:8000/graphql
 
 ```js
 {
-  helloWorld
+  helloWorld;
 }
 ```
 
@@ -652,7 +650,7 @@ app.use(express.static(join(__dirname, '../public')));
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>GraphQL</title>
   </head>
   <body>
@@ -669,7 +667,7 @@ app.use(express.static(join(__dirname, '../public')));
 </html>
 ```
 
-***
+---
 
 ```js
 // app.js
@@ -680,12 +678,15 @@ import { schema } from './graphql';
 
 const app = express();
 
-app.set('port', (process.env.PORT || 8000));
+app.set('port', process.env.PORT || 8000);
 
-app.use('/graphql', graphql({
-  schema,
-  graphiql: true
-}));
+app.use(
+  '/graphql',
+  graphql({
+    schema,
+    graphiql: true,
+  }),
+);
 
 app.listen(app.get('port'), () => {
   console.log(`Port: ${app.get('port')}.`);
@@ -698,9 +699,9 @@ import { GraphQLSchema, GraphQLObjectType, GraphQLString } from 'graphql';
 
 // 這裡之後換成從 mongoose 的模型取得
 const data = {
-  "1": { "id": "1", "name": "Foo" },
-  "2": { "id": "2", "name": "Bar" },
-  "3": { "id": "3", "name": "Baz" }
+  1: { id: '1', name: 'Foo' },
+  2: { id: '2', name: 'Bar' },
+  3: { id: '3', name: 'Baz' },
 };
 
 export const schema = new GraphQLSchema({
@@ -713,17 +714,17 @@ export const schema = new GraphQLSchema({
           fields: {
             id: { type: GraphQLID },
             name: { type: GraphQLString },
-          }
+          },
         }),
         args: {
-          id: { type: GraphQLID }
+          id: { type: GraphQLID },
         },
         resolve(_, args) {
           return data[args.id];
-        }
-      }
-    }
-  })
+        },
+      },
+    },
+  }),
 });
 ```
 
@@ -752,14 +753,16 @@ export const schema = new GraphQLSchema({
 #### 型別
 
 基本:
-* `GraphQLSchema`
-* `GraphQLObjectType`
+
+- `GraphQLSchema`
+- `GraphQLObjectType`
 
 定標:
-* `GraphQLInt` or `GraphQLFloat`
-* `GraphQLString`
-* `GraphQLBoolean`
-* `GraphQLID`
+
+- `GraphQLInt` or `GraphQLFloat`
+- `GraphQLString`
+- `GraphQLBoolean`
+- `GraphQLID`
 
 介面: `GraphQLInterfaceType`
 
@@ -777,18 +780,19 @@ import gql from 'graphql-tag';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'http://localhost:8000/__/graphql'  // GraphQL Server
-  })
+    uri: 'http://localhost:8000/__/graphql', // GraphQL Server
+  }),
 });
 
-client.query({
+client
+  .query({
     query: gql`
       {
         users {
           name
         }
       }
-    `
+    `,
   })
-  .then(res => console.log(res));
+  .then((res) => console.log(res));
 ```
