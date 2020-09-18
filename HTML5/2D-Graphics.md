@@ -1,106 +1,100 @@
 # 2D Graphics
 
-### Reference Resources (參考資源)
-
-* https://developer.mozilla.org/en-US/docs/Web/SVG
-* https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
-* https://github.com/d3/d3
-
-***
+---
 
 ### Table of Contents (目錄)
 
-* [Shapes (形狀)](#shapes-形狀)
-  * [Line (線)](#line-線)
-  * [Polyline (折線)](#polyline-折線)
-  * [Circle (圓形)](#circle-圓形)
-  * [Ellipse (橢圓形)](#ellipse-橢圓形)
-  * [Rectangle (矩形)](#rectangle-矩形)
-  * [Polygon (多邊形)](#polygon-多邊形)
-  * [Path (路徑)](#path-路徑)
-  * [Layer (圖層)](#layer-圖層)
-* [Filters (濾鏡)](#filters-濾鏡)
-  * [Blur (模糊)](#blur-模糊)
-  * [Shadow (陰影)](#shadow-陰影)
-  * [Grayscale (灰階)](#grayscale-灰階)
-  * Gooey (粘稠)
-  * Ripple (漣漪)
-* [Gradients (漸層)](#gradients-漸層)
-  * [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
-  * [Radial Gradient (放射性漸層)](#radial-gradient-放射性漸層)
-* [Transformations (變形)](#transformations-變形)
-  * [Translation (位置)](#translation-位置)
-  * Rotation (旋轉)
-  * Scaling (縮放)
-  * Skewing (傾斜)
-  * Matrix (矩陣)
-* Animations (動畫)
-  * [Displacement (位移)](#displacement-位移)
-* Combination (組合)
-  * Clipping (裁切)
-  * Masking (遮色片)
-* Texture (紋理)
-  * [Text (文字)](#text-文字)
-  * [Image (圖像)](#image-圖像)
-  * Pattern (圖案)
-* [D3 (Data-Driven Documents)](#d3)
-  * [Components (元件)](#components-元件)
-    * [Selection (選擇) `d3-selection`](#選擇)
-    * Animation (動畫) `d3-ease`
-    * Transition (漸變) `d3-transition`
-    * Color (顏色) `d3-color`
-    * Arrays (陣列) `d3-array`
-    * 亂數 `d3-random`
-    * 請求 `d3-request`
-    * Queue (佇列) `d3-queue`
-    * Format (格式化) `d3-format`
-    * Localization (本地化) `d3-time-format`
-    * Interpolate (插值) `d3-interpolate`
-  * SVG
-    * 形狀 `d3-shape`
-      * 弧
-      * 餅
-      * 線
-      * 面積
-      * 曲線
-      * 鏈接
-      * 符號
-      * 堆疊
-    * 弦 `d3-chord`
-    * 軸 `d3-axis`
-    * 刷子 `d3-brush`
-  * Canvas
-    * 路徑 `d3-path`
-  * 集合 `d3-collection`
-    * 物件
-    * Map
-    * Set
-    * 巢狀
-  * 比例尺 `d3-scale`
-  * Time 時間 `d3-time`
-    * Timer (計時器) `d3-timer`
-  * Layout (版面)
-    * Forces (力量) `d3-force`
-    * Hierarchies (層次結構) `d3-hierarchy`
-  * 地理 `d3-geo`
-    * 路徑
-    * 球形形狀
-    * 球面運算
-    * 投影
-    * 變形
-    * 流
-  * 幾何
-    * 四叉樹 `d3-quadtree`
-    * 多邊形 `d3-polygon`
-    * 沃羅諾伊圖 `d3-voronoi`
-  * 行為
-    * 拖曳 `d3-drag`
-    * 縮放 `d3-zoom`
-  * Utility (公用)
-    * Dispatches (調度) `d3-dispatch`
-    * Delimiter-separated Values `d3-dsv`
+- [Shapes (形狀)](#shapes-形狀)
+  - [Line (線)](#line-線)
+  - [Polyline (折線)](#polyline-折線)
+  - [Circle (圓形)](#circle-圓形)
+  - [Ellipse (橢圓形)](#ellipse-橢圓形)
+  - [Rectangle (矩形)](#rectangle-矩形)
+  - [Polygon (多邊形)](#polygon-多邊形)
+  - [Path (路徑)](#path-路徑)
+  - [Layer (圖層)](#layer-圖層)
+- [Filters (濾鏡)](#filters-濾鏡)
+  - [Blur (模糊)](#blur-模糊)
+  - [Shadow (陰影)](#shadow-陰影)
+  - [Grayscale (灰階)](#grayscale-灰階)
+  - Gooey (粘稠)
+  - Ripple (漣漪)
+- [Gradients (漸層)](#gradients-漸層)
+  - [Linear Gradient (線性漸層)](#linear-gradient-線性漸層)
+  - [Radial Gradient (放射性漸層)](#radial-gradient-放射性漸層)
+- [Transformations (變形)](#transformations-變形)
+  - [Translation (位置)](#translation-位置)
+  - Rotation (旋轉)
+  - Scaling (縮放)
+  - Skewing (傾斜)
+  - Matrix (矩陣)
+- Animations (動畫)
+  - [Displacement (位移)](#displacement-位移)
+- Combination (組合)
+  - Clipping (裁切)
+  - Masking (遮色片)
+- Texture (紋理)
+  - [Text (文字)](#text-文字)
+  - [Image (圖像)](#image-圖像)
+  - Pattern (圖案)
+- [D3 (Data-Driven Documents)](#d3)
+  - [Components (元件)](#components-元件)
+    - [Selection (選擇) `d3-selection`](#選擇)
+    - Animation (動畫) `d3-ease`
+    - Transition (漸變) `d3-transition`
+    - Color (顏色) `d3-color`
+    - Arrays (陣列) `d3-array`
+    - 亂數 `d3-random`
+    - 請求 `d3-request`
+    - Queue (佇列) `d3-queue`
+    - Format (格式化) `d3-format`
+    - Localization (本地化) `d3-time-format`
+    - Interpolate (插值) `d3-interpolate`
+  - SVG
+    - 形狀 `d3-shape`
+      - 弧
+      - 餅
+      - 線
+      - 面積
+      - 曲線
+      - 鏈接
+      - 符號
+      - 堆疊
+    - 弦 `d3-chord`
+    - 軸 `d3-axis`
+    - 刷子 `d3-brush`
+  - Canvas
+    - 路徑 `d3-path`
+  - 集合 `d3-collection`
+    - 物件
+    - Map
+    - Set
+    - 巢狀
+  - 比例尺 `d3-scale`
+  - Time 時間 `d3-time`
+    - Timer (計時器) `d3-timer`
+  - Layout (版面)
+    - Forces (力量) `d3-force`
+    - Hierarchies (層次結構) `d3-hierarchy`
+  - 地理 `d3-geo`
+    - 路徑
+    - 球形形狀
+    - 球面運算
+    - 投影
+    - 變形
+    - 流
+  - 幾何
+    - 四叉樹 `d3-quadtree`
+    - 多邊形 `d3-polygon`
+    - 沃羅諾伊圖 `d3-voronoi`
+  - 行為
+    - 拖曳 `d3-drag`
+    - 縮放 `d3-zoom`
+  - Utility (公用)
+    - Dispatches (調度) `d3-dispatch`
+    - Delimiter-separated Values `d3-dsv`
 
-***
+---
 
 ## Shapes (形狀)
 
@@ -144,11 +138,7 @@ Canvas: `moveTo()`, `lineTo()`
 
 ```html
 <svg width="300" height="300" viewBox="0 0 300 300">
-  <line
-    x1="30" y1="50"
-    x2="120" y2="100"
-    stroke-width="3" stroke="#E91E63"
-  />
+  <line x1="30" y1="50" x2="120" y2="100" stroke-width="3" stroke="#E91E63" />
 </svg>
 ```
 
@@ -157,10 +147,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/line
 Round line (圓線)
 
 ```html
-  <line
-    [...]
-    stroke-linecap="round"
-  />
+<line [...] stroke-linecap="round" />
 ```
 
 #### Canvas
@@ -216,7 +203,8 @@ ctx.lineCap = 'round';
       150,50
     "
     fill-opacity="0"
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
   />
 </svg>
 ```
@@ -273,11 +261,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo
 
 ```html
 <svg width="300" height="300" viewBox="0 0 300 300">
-  <circle
-    cx="50" cy="50" r="40"
-    fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
-  />
+  <circle cx="50" cy="50" r="40" fill="#F8BBD0" stroke-width="3" stroke="#E91E63" />
 </svg>
 ```
 
@@ -319,11 +303,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
 
 ```html
 <svg width="300" height="300" viewBox="0 0 300 300">
-  <ellipse
-    cx="150" cy="100" rx="100" ry="50"
-    fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
-  />
+  <ellipse cx="150" cy="100" rx="100" ry="50" fill="#F8BBD0" stroke-width="3" stroke="#E91E63" />
 </svg>
 ```
 
@@ -362,12 +342,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellips
 
 ```html
 <svg width="300" height="300" viewBox="0 0 300 300">
-  <rect
-    x="30" y="10"
-    width="150" height="100"
-    fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
-  />
+  <rect x="30" y="10" width="150" height="100" fill="#F8BBD0" stroke-width="3" stroke="#E91E63" />
 </svg>
 ```
 
@@ -382,11 +357,15 @@ Add rounded corners (加個圓角)
 ```html
 <svg width="300" height="300">
   <rect
-    x="30" y="10"
-    rx="12" ry="12"
-    width="150" height="100"
+    x="30"
+    y="10"
+    rx="12"
+    ry="12"
+    width="150"
+    height="100"
     fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
   />
 </svg>
 ```
@@ -430,11 +409,11 @@ ctx.beginPath();
 ctx.lineWidth = '3';
 ctx.strokeStyle = '#E91E63';
 
-ctx.moveTo(x, y);  // Starting point (起始點)
+ctx.moveTo(x, y); // Starting point (起始點)
 ctx.lineTo(width + x, y);
 ctx.lineTo(width + x, height + y);
 ctx.lineTo(x, height + y);
-ctx.lineTo(x, y);  // Back to the starting point (回到起始點)
+ctx.lineTo(x, y); // Back to the starting point (回到起始點)
 
 ctx.fillStyle = '#F8BBD0';
 ctx.fill();
@@ -446,15 +425,15 @@ ctx.stroke();
 // Add `quadraticCurveTo(cpx, cpy, x, y)`
 // `cpx` and `cpy` is the vertical turning point (`cpx` 和 `cpy` 為垂直轉折點)
 
-ctx.moveTo(x + rx, y);  // Starting point (起始點)
+ctx.moveTo(x + rx, y); // Starting point (起始點)
 ctx.lineTo(width + x - rx, y);
 ctx.quadraticCurveTo(width + x, y, width + x, y + ry);
 ctx.lineTo(width + x, height + y - ry);
 ctx.quadraticCurveTo(width + x, height + y, width + x - rx, height + y);
-ctx.lineTo(x + rx , height + y);
-ctx.quadraticCurveTo(x , height + y, x, height - ry);
+ctx.lineTo(x + rx, height + y);
+ctx.quadraticCurveTo(x, height + y, x, height - ry);
 ctx.lineTo(x, y + ry);
-ctx.quadraticCurveTo(x, y, x + rx, y);  // `x + rx, y` is back to the starting point (`x + rx, y` 是回到起始點)
+ctx.quadraticCurveTo(x, y, x + rx, y); // `x + rx, y` is back to the starting point (`x + rx, y` 是回到起始點)
 ```
 
 https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/rect <br>
@@ -476,7 +455,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/quadra
       20,40
     "
     fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
   />
 </svg>
 ```
@@ -521,19 +501,12 @@ ctx.stroke();
 
 // or
 
-const points = [
-  60, 20,
-  100, 40,
-  100, 80,
-  60, 100,
-  20, 80,
-  20, 40
-];
+const points = [60, 20, 100, 40, 100, 80, 60, 100, 20, 80, 20, 40];
 
 ctx.moveTo(points[0], points[1]);
 
 for (let i = 2, l = points.length - 1; i < l; i += 2) {
-  ctx.lineTo(points[i] , points[i + 1]);
+  ctx.lineTo(points[i], points[i + 1]);
 }
 ```
 
@@ -543,10 +516,7 @@ M = moveTo (起始點), `d="M25 50"` <=> `ctx.moveTo(25, 50)`
 
 ```html
 <svg width="300" height="300" viewBox="0 0 300 300">
-  <path
-    d="M25 50"
-    stroke-width="3" stroke="#E91E63"
-  />
+  <path d="M25 50" stroke-width="3" stroke="#E91E63" />
 </svg>
 ```
 
@@ -570,7 +540,8 @@ L = lineTo (至指定點), `d="L50 75"` <=> `ctx.lineTo(50, 75)`
       M25 50
       L50 75
     "
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
   />
 </svg>
 ```
@@ -596,7 +567,8 @@ H = horizontal lineTo (水平至指定點), `d="H100"` <=> `ctx.lineTo(100, x)`
       M25 50
       H100
     "
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
   />
 </svg>
 ```
@@ -622,7 +594,8 @@ V = vertical lineTo (垂直至指定點), `d="V100"` <=> `ctx.lineTo(x, 100)`
       M25 50
       V100
     "
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
   />
 </svg>
 ```
@@ -642,25 +615,25 @@ ctx.stroke();
 C = curveto (曲線)
 
 ```js
-bezierCurveTo()
+bezierCurveTo();
 ```
 
 S = smooth curveto
 
 ```js
-bezierCurveTo()
+bezierCurveTo();
 ```
 
 Q = quadratic Bézier curve
 
 ```js
-quadraticCurveTo()
+quadraticCurveTo();
 ```
 
 T = smooth quadratic Bézier curveto
 
 ```js
-quadraticCurveTo()
+quadraticCurveTo();
 ```
 
 A = elliptical Arc
@@ -682,7 +655,8 @@ Return a line from the end to the starting point (從終點連一條線回起點
       Z
     "
     fill="none"
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
   />
 </svg>
 ```
@@ -764,9 +738,12 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
   </defs>
 
   <circle
-    cx="50" cy="50" r="40"
+    cx="50"
+    cy="50"
+    r="40"
     fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
     filter="url(#blur)"
   />
 </svg>
@@ -801,9 +778,12 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feGaussianBlur
   </defs>
 
   <circle
-    cx="50" cy="50" r="40"
+    cx="50"
+    cy="50"
+    r="40"
     fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
     filter="url(#multi-blur)"
     transform="translate(100, 100)"
   />
@@ -840,10 +820,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
   </defs>
 
   <rect
-    x="25" y="25"
-    width="150" height="100"
+    x="25"
+    y="25"
+    width="150"
+    height="100"
     fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
     filter="url(#shadow)"
   />
 </svg>
@@ -858,10 +841,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter
   </defs>
 
   <rect
-    x="25" y="25"
-    width="150" height="100"
+    x="25"
+    y="25"
+    width="150"
+    height="100"
     fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
+    stroke-width="3"
+    stroke="#E91E63"
     filter="url(#shadow-2)"
   />
 </svg>
@@ -929,7 +915,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadow
 
   <image
     href="https://avatars3.githubusercontent.com/u/32692097?s=400&v=4"
-    width="300" height="300"
+    width="300"
+    height="300"
     filter="url(#grayscale)"
   />
 </svg>
@@ -962,11 +949,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix
     </linearGradient>
   </defs>
 
-  <rect
-    x="25" y="25"
-    width="150" height="100"
-    fill="url(#linear)"
-  />
+  <rect x="25" y="25" width="150" height="100" fill="url(#linear)" />
 </svg>
 ```
 
@@ -983,7 +966,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/stop
 const canvas = document.querySelector('#linear');
 const ctx = canvas.getContext('2d');
 
-const offset = [10, 90];  // Percentage (百分比)
+const offset = [10, 90]; // Percentage (百分比)
 
 const [x, y] = [25, 25];
 const [width, height] = [150, 100];
@@ -1013,10 +996,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/create
     </radialGradient>
   </defs>
 
-  <ellipse
-    cx="150" cy="100" rx="100" ry="50"
-    fill="url(#radial)"
-  />
+  <ellipse cx="150" cy="100" rx="100" ry="50" fill="url(#radial)" />
 </svg>
 ```
 
@@ -1032,7 +1012,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/radialGradient
 const canvas = document.querySelector('#radial');
 const ctx = canvas.getContext('2d');
 
-const offset = [10, 90];  // Percentage (百分比)
+const offset = [10, 90]; // Percentage (百分比)
 
 const [cx, cy, rx, ry] = [150, 100, 100, 50];
 
@@ -1059,28 +1039,29 @@ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/create
 ```html
 <svg width="300" height="300" viewBox="0 0 300 300">
   <!-- Pink -->
-  <rect
-    x="10" y="10"
-    width="150" height="100"
-    fill="#F8BBD0"
-    stroke-width="3" stroke="#E91E63"
-  />
+  <rect x="10" y="10" width="150" height="100" fill="#F8BBD0" stroke-width="3" stroke="#E91E63" />
 
   <!-- Indigo -->
   <rect
-    x="10" y="10"
-    width="150" height="100"
+    x="10"
+    y="10"
+    width="150"
+    height="100"
     fill="#C5CAE9"
-    stroke-width="3" stroke="#3F51B5"
+    stroke-width="3"
+    stroke="#3F51B5"
     transform="translate(50)"
   />
 
   <!-- Purple -->
   <rect
-    x="10" y="10"
-    width="150" height="100"
+    x="10"
+    y="10"
+    width="150"
+    height="100"
     fill="#E1BEE7"
-    stroke-width="3" stroke="#9C27B0"
+    stroke-width="3"
+    stroke="#9C27B0"
     transform="translate(25, 25)"
   />
 </svg>
@@ -1217,7 +1198,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/tspan
 
   <text>
     <textPath href="#text-path">This text is very very very long.</textPath>
-   </text>
+  </text>
 </svg>
 ```
 
@@ -1233,7 +1214,8 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/textPath
 <svg width="300" height="300" viewbox="0 0 300 300">
   <image
     href="https://avatars3.githubusercontent.com/u/32692097?s=400&v=4"
-    width="300" height="300"
+    width="300"
+    height="300"
   />
 </svg>
 ```
@@ -1242,7 +1224,7 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Element/image
 
 #### Canvas
 
-***
+---
 
 ## D3
 
@@ -1256,18 +1238,18 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
 import { select } from 'd3-selection';
 import { transition } from 'd3-transition';
 
-Observable::fromEvent(document, 'click')
-  .subscribe(() => {
-    const exEl = select('#ex');
+Observable::fromEvent(document, 'click').subscribe(() => {
+  const exEl = select('#ex');
 
-    exEl.text('Hello!')
-      .style('text-align', 'center')
-      .style('line-height', '10rem')
-      .style('font-size', '7rem')
-      ::transition()
-      .duration(500)
-      .style('color', '#F44336');
-  });
+  exEl
+    .text('Hello!')
+    .style('text-align', 'center')
+    .style('line-height', '10rem')
+    .style('font-size', '7rem')
+    ::transition()
+    .duration(500)
+    .style('color', '#F44336');
+});
 ```
 
 ```html
@@ -1286,15 +1268,11 @@ import { scaleLinear } from 'd3-scale';
 
 const exEl = select('#ex');
 
-const chart = exEl.append('canvas')
-  .attr('width', 'auto')
-  .attr('height', 'auto');
+const chart = exEl.append('canvas').attr('width', 'auto').attr('height', 'auto');
 
 const context = chart.node().getContext('2d');
 
-const scale = scaleLinear()
-  .range([10, 200])
-  .domain([1, 10]);
+const scale = scaleLinear().range([10, 200]).domain([1, 10]);
 
 [1, 2, 3, 5, 8].forEach((d) => {
   context.beginPath();
@@ -1314,7 +1292,7 @@ const scale = scaleLinear()
 ```js
 import { select } from 'd3-selection';
 
-select('li');  // 選擇第一個 <li></li>
+select('li'); // 選擇第一個 <li></li>
 select('#ex');
 select('.ex');
 ```
@@ -1322,7 +1300,7 @@ select('.ex');
 ```js
 import { selectAll } from 'd3-selection';
 
-selectAll('li');  // 選擇所有 <li></li>
+selectAll('li'); // 選擇所有 <li></li>
 ```
 
 設定標籤屬性
@@ -1330,7 +1308,8 @@ selectAll('li');  // 選擇所有 <li></li>
 ```js
 import { select } from 'd3-selection';
 
-select('#ex').append('svg')
+select('#ex')
+  .append('svg')
   .append('svg:rect')
   .attr('x', 10)
   .attr('y', 10)
@@ -1349,15 +1328,13 @@ select('#ex').append('svg')
 import { select } from 'd3-selection';
 import 'd3-selection-multi';
 
-select('#ex').append('svg')
-  .append('svg:rect')
-  .attrs({
-    x: 10,
-    y: 10,
-    width: 100,
-    height: 40,
-    fill: '#F44336'
-  });
+select('#ex').append('svg').append('svg:rect').attrs({
+  x: 10,
+  y: 10,
+  width: 100,
+  height: 40,
+  fill: '#F44336',
+});
 ```
 
 設定樣式類別
@@ -1376,7 +1353,8 @@ el.classed();
 ```js
 import { select } from 'd3-selection';
 
-select('#ex').append('svg')
+select('#ex')
+  .append('svg')
   .append('svg:rect')
   .attrs({ x: 10, y: 10, width: 100, height: 40, fill: '#F44336' })
   .style('stroke', '#B71C1C')
@@ -1389,12 +1367,13 @@ select('#ex').append('svg')
 import { select } from 'd3-selection';
 import 'd3-selection-multi';
 
-select('#ex').append('svg')
+select('#ex')
+  .append('svg')
   .append('svg:rect')
   .attrs({ x: 10, y: 10, width: 100, height: 40, fill: '#F44336' })
   .styles({
     stroke: '#B71C1C',
-    'stroke-width': 5
+    'stroke-width': 5,
   });
 ```
 
@@ -1407,7 +1386,7 @@ select('#ex').property('value', 'D3');
 ```
 
 ```html
-<input type="text" id="ex">
+<input type="text" id="ex" />
 ```
 
 設定文字
@@ -1425,7 +1404,7 @@ import { select } from 'd3-selection';
 
 const el = select('#ex');
 
-el.html('')
+el.html('');
 ```
 
 ```js
@@ -1441,7 +1420,7 @@ import { select } from 'd3-selection';
 
 const el = select('#ex');
 
-el.insert('')
+el.insert('');
 ```
 
 ```js
@@ -1449,7 +1428,7 @@ import { select } from 'd3-selection';
 
 const el = select('#ex');
 
-el.remove('')
+el.remove('');
 ```
 
 ```js
@@ -1457,7 +1436,7 @@ import { select } from 'd3-selection';
 
 const el = select('#ex');
 
-el.data('')
+el.data('');
 ```
 
 整合 Immutable
@@ -1469,9 +1448,7 @@ import { Set } from 'immutable';
 const el = select('#ex');
 const matrix = Set([1, 2, 3]);
 
-el.append('ul')
-  ::selectAll('li')
-  .data(matrix)
+el.append('ul')::selectAll('li').data(matrix);
 ```
 
 ```js
@@ -1479,7 +1456,7 @@ import { select } from 'd3-selection';
 
 const el = select('#ex');
 
-el.enter('')
+el.enter('');
 ```
 
 ```js
@@ -1487,7 +1464,7 @@ import { select } from 'd3-selection';
 
 const el = select('#ex');
 
-el.exit('')
+el.exit('');
 ```
 
 ```js
@@ -1495,8 +1472,7 @@ import { selectAll } from 'd3-selection';
 
 const list = selectAll('li');
 
-list.filter((value, index) => index % 2 === 0)
-  .style('color', '#F44336');
+list.filter((value, index) => index % 2 === 0).style('color', '#F44336');
 ```
 
 ```js
@@ -1507,20 +1483,18 @@ let exHeight = 200;
 
 const exDataset = [5, 10, 15, 20, 15, 10, 15, 20, 15, 10, 5];
 
-const exSvgEl = select('#ex')
-  .append('svg')
-  .attr('width', exWidth)
-  .attr('height', exHeight);
+const exSvgEl = select('#ex').append('svg').attr('width', exWidth).attr('height', exHeight);
 
-exSvgEl.selectAll('rect')
+exSvgEl
+  .selectAll('rect')
   .data(exDataset)
   .enter()
   .append('rect')
   .attr('x', (data, index) => index * (exWidth / exDataset.length))
-  .attr('fill', data => `rgba(200, 100, 200, ${data / 25})`)
-  .attr('y', data => exHeight - (data * 4))
+  .attr('fill', (data) => `rgba(200, 100, 200, ${data / 25})`)
+  .attr('y', (data) => exHeight - data * 4)
   .attr('width', exWidth / exDataset.length - 1)
-  .attr('height', data => data * 4);
+  .attr('height', (data) => data * 4);
 ```
 
 ### 漸變

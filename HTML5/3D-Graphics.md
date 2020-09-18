@@ -1,26 +1,18 @@
 # 3D Graphics
 
-### Reference Resources (參考資源)
-
-* https://github.com/mrdoob/three.js
-
-### Actual Operation (實作執行)
-
-* https://github.com/Shyam-Chen/Frontend-Starter-Kit
-
-***
+---
 
 ### Table of Contents (目錄)
 
-* WebGL
-* Three
-  * Components (元件)
-  * Material (材質)
-  * Light (光源)
-  * Geometry (幾何體)
-  * Particle (粒子)
+- WebGL
+- Three
+  - Components (元件)
+  - Material (材質)
+  - Light (光源)
+  - Geometry (幾何體)
+  - Particle (粒子)
 
-***
+---
 
 空白的骨架
 
@@ -39,10 +31,7 @@ init();
 製作場景
 
 ```js
-import {
-  Scene, PerspectiveCamera, WebGLRenderer,
-  Color
-} from 'three';
+import { Scene, PerspectiveCamera, WebGLRenderer, Color } from 'three';
 
 const init = () => {
   const scene = new Scene();
@@ -51,7 +40,7 @@ const init = () => {
 
   const renderer = new WebGLRenderer();
   renderer.setClearColorHex();
-  renderer.setClearColor(new Color(0xEEEEEE));
+  renderer.setClearColor(new Color(0xeeeeee));
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   // ...
@@ -60,10 +49,15 @@ const init = () => {
 init();
 ```
 
-***
-
 ```js
-import { PerspectiveCamera, Scene, BoxGeometry, MeshBasicMaterial, Mesh, WebGLRenderer } from 'three';
+import {
+  PerspectiveCamera,
+  Scene,
+  BoxGeometry,
+  MeshBasicMaterial,
+  Mesh,
+  WebGLRenderer,
+} from 'three';
 
 let camera, scene, renderer, geometry, material, mesh;
 
@@ -82,8 +76,7 @@ const init = () => {
   renderer = new WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
 
-  document.querySelector('#ex')
-    .appendChild(renderer.domElement);
+  document.querySelector('#ex').appendChild(renderer.domElement);
 };
 
 const animate = () => {
