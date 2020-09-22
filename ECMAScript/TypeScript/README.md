@@ -1493,6 +1493,41 @@ class Thing {
 }
 ```
 
+Logging Decorator
+
+```ts
+const Log = (logFunc: Function = console.log) => {
+  return function log(target: any, key: string, descriptor: any) {
+    const originalMethod = descriptor.value;
+
+    descriptor.value = function (...args: any[]) {
+      const result = originalMethod.apply(this, args);
+      logFunc(result);
+      return result;
+    };
+
+    return descriptor;
+  };
+};
+
+class MathIsFun {
+  @Log()
+  add(x: number, y: number) {
+    return x + y;
+  }
+
+  @Log()
+  evenOdd(n: number) {
+    return n % 2 === 0 ? 'Even' : 'Odd';
+  }
+}
+
+const mathIsFun = new MathIsFun();
+
+mathIsFun.add(1, 2);
+mathIsFun.evenOdd(10);
+```
+
 ### Parameter Decorators (參數修飾器)
 
 ```ts
