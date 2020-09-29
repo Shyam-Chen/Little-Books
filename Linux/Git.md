@@ -1,20 +1,31 @@
 # Git
 
+---
+
 ### Table of Contents
 
-* [Individual](#individual)
-* [Team](#team)
-* [Format](#format)
+- [Individual](#individual)
+- [Team](#team)
+- [Format](#format)
 
-***
+---
 
 ## Individual
 
-```bash
+```sh
 $ git init
 ```
 
-```bash
+```sh
+$ git config --local user.name
+$ git config --local user.email
+
+# setting
+$ git config --local user.name <USER_NAME>
+$ git config --local user.email <USER_EMAIL>
+```
+
+```sh
 $ git add .
 
 $ git add -A
@@ -22,21 +33,21 @@ $ git add -A
 $ git add <FILE_NAME|FOLDER_NAME>
 ```
 
-```bash
+```sh
 $ git commit -m "[<TICKET>] <TYPE>(<SCOPE>): <SUBJECT>"
 
 $ git commit --amend -m "[<TICKET>] <TYPE>(<SCOPE>): <SUBJECT>"
 ```
 
-```bash
+```sh
 $ git status
 ```
 
-```bash
+```sh
 $ git diff
 ```
 
-```bash
+```sh
 $ git log
 $ git log -<NUMBER>
 
@@ -44,7 +55,7 @@ $ git log -p
 $ git log -p -<NUMBER>
 ```
 
-```bash
+```sh
 # remove tracked file
 $ git rm --cached <FILE_NAME>
 
@@ -52,7 +63,7 @@ $ git rm --cached <FILE_NAME>
 $ git rm --cached -r <FOLDER_NAME>
 ```
 
-```bash
+```sh
 $ git reset --hard HEAD
 
 $ git reset --hard HEAD^0
@@ -60,7 +71,7 @@ $ git reset --hard HEAD^0
 $ git reset --hard HEAD <COMMIT_ISH>
 ```
 
-```bash
+```sh
 # remove untracked files
 $ git clean -df
 
@@ -70,19 +81,20 @@ $ git clean -dfx -e '.*'
 
 ## Team
 
-```bash
+```sh
 $ git clone <HTTPS_URL|SSH_KEY>
 ```
 
-```bash
+```sh
 $ git checkout <BRANCH_NAME>
 
 $ git checkout -b <BRANCH_NAME>
 
 $ git checkout -- .
+$ git checkout -- <PATH>
 ```
 
-```bash
+```sh
 # show a list
 $ git branch
 
@@ -93,32 +105,39 @@ $ git branch -D <BRANCH_NAME>
 $ git branch -m <OLD_NAME> <NEW_NAME>
 ```
 
-```bash
+```sh
 $ git merge <BRANCH_NAME>
+
+# squash commits into one
+$ git checkout master
+$ git merge --squash <BRANCH_NAME>
+$ git commit
 ```
 
-```bash
+```sh
 $ git remote -v
 
 $ git remote add <SHORT_NAME> <HTTPS_URL|SSH_KEY>
+
+$ git remote rm <SHORT_NAME>
 ```
 
-```bash
+```sh
 $ git push <SHORTNAME> <BRANCH_NAME>
 ```
 
-```bash
+```sh
 $ git fetch
 ```
 
-```bash
+```sh
 $ git pull
 
 $ git remote add upstream <HTTPS_URL|SSH_KEY>
 $ git pull upstream master
 ```
 
-```bash
+```sh
 $ git stash
 # or
 $ git stash save
@@ -140,12 +159,12 @@ $ git stash pop stash@{0}
 $ git stash branch <BRANCH_NAME>
 ```
 
-```bash
+```sh
 # get commits and apply
 $ git cherry-pick <COMMIT_ISH>
 ```
 
-```bash
+```sh
 $ git tag
 
 $ git tag -a <VERSION> -m <MESSAGE>
@@ -154,7 +173,7 @@ $ git tag -a <VERSION> -m <MESSAGE>
 ## Format
 
 ```txt
-[ticket] <type>(<scope>): <subject>
+[<TICKET>] <TYPE>(<SCOPE>): <SUBJECT>
 ```
 
 ### Ticket
@@ -165,22 +184,22 @@ Issue ticket number.
 
 Must be one of the following:
 
-* build: Changes that affect the build system or external dependencies
-* ci: Changes to our CI configuration files and scripts
-* docs: Documentation only changes
-* feat: A new feature
-* fix: A bug fix
-* perf: A code change that improves performance
-* refactor: A code change that neither fixes a bug nor adds a feature
-* style: Changes that do not affect the meaning of the code
-* test: Adding missing tests or correcting existing tests
-* release: Release a new version
-* revert: Revert commits
+- `feat` - Features, A new feature
+- `fix` - Bug Fixes, A bug fix
+- `docs` - Documentation, Documentation only changes
+- `style` - Styles, Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- `refactor` - Code Refactoring, A code change that neither fixes a bug nor adds a feature
+- `perf` - Performance Improvements, A code change that improves performance
+- `test` - Tests, Adding missing tests or correcting existing tests
+- `build` - Builds, Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- `ci` - Continuous Integrations, Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+- `chore` - Chores, Other changes that don't modify src or test files
+- `revert` - Reverts, Reverts a previous commit
 
 ### Scope
 
 Feature modules.
 
-### subject
+### Subject
 
 What has been done.
