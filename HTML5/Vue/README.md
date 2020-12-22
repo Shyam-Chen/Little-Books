@@ -255,3 +255,142 @@ export const goBack = () => {
 export default {};
 </script>
 ```
+
+## `v-model`
+
+Basic usage
+
+```vue
+<template>
+  <input v-model="value" />
+  <span>{{ value }}</span>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+export const value = ref('');
+
+export default {};
+</script>
+```
+
+Use on custom components
+
+```vue
+<!-- CustomInput.vue -->
+<template>
+  <div class="text-field">
+    <input :value="modelValue" @input="onInput" />
+    <div>{{ modelValue }}</div>
+  </div>
+</template>
+
+<script setup>
+export default {
+  props: ['modelValue'],
+  emits: ['update:modelValue'],
+  methods: {
+    onInput(event) {
+      this.$emit('update:modelValue', event.target.value);
+    },
+  },
+};
+</script>
+
+<style scoped>
+.text-field > input,
+.text-field > div {
+  color: chocolate;
+}
+</style>
+```
+
+```vue
+<template>
+  <CustomInput v-model="myValue" />
+  <!-- would be shorthand for: -->
+  <CustomInput :modelValue="myValue" @update:modelValue="myValue = $event" />
+</template>
+
+<script>
+import { ref } from 'vue';
+
+import CustomInput from './CustomInput.vue';
+
+export default {
+  components: {
+    CustomInput,
+  },
+  setup() {
+    const myValue = ref('');
+    return { myValue };
+  },
+};
+</script>
+```
+
+Arguments
+
+```vue
+<!-- CustomInput.vue -->
+<template>
+  <div class="text-field">
+    <input :value="foo" @input="onInput" />
+    <div>{{ foo }}</div>
+  </div>
+</template>
+
+<script setup>
+export default {
+  props: ['foo'],
+  emits: ['update:foo'],
+  methods: {
+    onInput(event) {
+      this.$emit('update:foo', event.target.value);
+    },
+  },
+};
+</script>
+
+<style scoped>
+.text-field > input,
+.text-field > div {
+  color: chocolate;
+}
+</style>
+```
+
+```vue
+<template>
+  <CustomInput v-model:foo="myFoo" />
+  <!-- would be shorthand for: -->
+  <CustomInput :foo="myFoo" @update:foo="myFoo = $event" />
+</template>
+
+<script>
+import { ref } from 'vue';
+
+import CustomInput from './CustomInput.vue';
+
+export default {
+  components: {
+    CustomInput,
+  },
+  setup() {
+    const myFoo = ref('');
+    return { myFoo };
+  },
+};
+</script>
+```
+
+Multiple bindings
+
+```vue
+```
+
+Modifiers
+
+```vue
+```
