@@ -8,6 +8,49 @@
 
 ---
 
+```html
+<script>
+  const msg = 'Message';
+  const text = '<span>Text</span>';
+</script>
+
+<div>{msg}</div>
+<div>{@html text}</div>
+```
+
+```html
+<script>
+  function clickMe() {}
+</script>
+
+<button on:click={clickMe}>Click Me</button>
+<button on:click|once={clickMe}>Click Me (Once)</button>
+```
+
+```html
+<script>
+  let count = 1;
+  $: doubled = count * 2;
+</script>
+
+<div>{count} * 2 = {doubled}</div>
+```
+
+```html
+<script>
+	let text = '';
+</script>
+
+<input bind:value={name}>
+```
+
+```html
+<!-- runs once -->
+<script context="module">
+  export function foo() {}
+</script>
+```
+
 **Props**
 
 ```html
