@@ -3,31 +3,31 @@
 - and
 - of
 - to
-- a
+- a, an
 - in
-- have
-- it
-- you
-- he
+- have, had, hadn't, has, hasn't, haven't, having
+- it, its
+- you, your, yours
+- he, him, his
 - for
-- they
+- they, their, theirs, them
 - not
-- that
-- we
+- that, those
+- we, our, ours, us
 - on
 - with
-- this
-- I
-- do
+- this, these
+- I, me, my
+- do, did, didn't, does, doesn't, doing, don't, done
 - as
 - at
 - she
 - but
 - from
 - by
-- will
+- will, willed, willing, won't
 - or
-- say
+- say, said, saying, sayings, says
 - go
 - so
 - all
@@ -47,11 +47,11 @@
 - think
 - make
 - time
-- see
+- see, saw, seeing, seen, sees
 - what
-- up
+- up, upped, upping, ups
 - some
-- other
+- other, others
 - out
 - good
 - people
@@ -2510,11 +2510,12 @@
 - reliable
 - gear
 - poet
-- fortune
-- ceremony
-- pile
-- pig
-- mixture
+- fortune, fortunes
+- ceremony, ceremonies
+- pile, piled, piles, piling
+- pig (n.) 豬；貪吃的人 (v.) 像豬一樣過活, pigged, pigging, pigs
+  - pig out (on sth) (phr.v.) 大口狂吃
+- mixture (n.) 混合物，合劑, mixtures
 - automatically
 - scholar
 - psychological
@@ -2668,8 +2669,8 @@
 - ocean
 - quietly
 - castle
-- veteran
-- reflection
+- veteran (n.) 經驗豐富的人，老手；老兵，退伍軍人 (adj.) 資深的，經驗豐富的, veterans
+- reflection (n.) 映射，反射；反映，表達；沈思, reflections
 - nerve
 - determination
 - altogether
@@ -2787,18 +2788,18 @@
 - autumn
 - cheek
 - attachment
-- holder
-- grin
-- noun
+- holder, holders
+- grin, grinned, grinning, grins
+- noun, nouns
 - fortunate
 - alright
-- lazy
+- lazy, lazier, laziest
 - hello
-- hunger
-- insure
+- hunger, hungered, hungering, hungers
+- insure, insured, insures, insuring
 - ashamed
-- found
-- thirst
+- found, founded, founding, founds
+- thirst, thirsted, thirsting, thirsts
 - two
 - three
 - four
@@ -3803,5 +3804,6 @@
 - congruent
 - descendent
 - neo
-- goods
-- factorial
+- goods (n.) 商品，貨物
+- factorial (n.) (數學) 階乘 (adj.) 階乘的；因子的
+  - factorial experiment (phr.n.) 因子實驗
