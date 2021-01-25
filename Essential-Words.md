@@ -1,3 +1,7 @@
+# Essential Words
+
+The list is comprised of the most important high-frequency words in English from NGSL and NAWL.
+
 - the
 - be, am, are, aren't, been, being, beings, is, isn't, was, wasn't, were, weren't
 - and
@@ -21,17 +25,20 @@
 - do, did, didn't, does, doesn't, doing, don't, done
 - as
 - at
-- she
-- but
+- she, her, hers
+- but (conj.) 但是 (prep.) 除...以外 (adv.) 只是，僅僅；(強調) 肯定地 (n.) 異議, buts
+  - not only ... but (also) (correlative conj.) 不僅...而且
+  - no buts (about it) 沒有商量的餘地
 - from
 - by
 - will, willed, willing, won't
 - or
 - say, said, saying, sayings, says
-- go
+- go, goes, going, gone, gonna, went
 - so
 - all
-- if
+- if (conj.) 如果，假如；雖然，即使；每當；是否 (n.) 條件, ifs
+  - no ifs, ands, or buts (idiom) (對兒童) 別找藉口
 - one
 - would
 - about
@@ -2514,7 +2521,7 @@
 - ceremony, ceremonies
 - pile, piled, piles, piling
 - pig (n.) 豬；貪吃的人 (v.) 像豬一樣過活, pigged, pigging, pigs
-  - pig out (on sth) (phr.v.) 大口狂吃
+  - pig out (on sth) 大口狂吃
 - mixture (n.) 混合物，合劑, mixtures
 - automatically
 - scholar
@@ -3806,4 +3813,4 @@
 - neo
 - goods (n.) 商品，貨物
 - factorial (n.) (數學) 階乘 (adj.) 階乘的；因子的
-  - factorial experiment (phr.n.) 因子實驗
+  - factorial experiment 因子實驗
