@@ -6,27 +6,58 @@ Vue is a progressive, incrementally-adoptable JavaScript framework for building 
 
 ### Table of Contents
 
-- Routing
+- Getting Started
+- Components
+- Directives
+- Dependency injection
+- Transitions & Animation
+- [Routing & Navigation](./Routing-and-Navigation.md)
 - State Management
+- Testing
 
 ---
+
+## Getting Started
+
+```js
+// main.js
+import { createApp } from 'vue';
+
+import App from './App.vue';
+
+const app = createApp(App);
+
+app.mount('#root');
+```
+
+```vue
+<!-- App.vue -->
+<script setup>
+const helloWorld = 'Hello, World!';
+</script>
+
+<template>
+  <div>{{ helloWorld }}</div>
+  <!-- Hello, World! -->
+</template>
+```
 
 ## Reactivity
 
 **Refs**
 
 ```vue
-<template>
-  <div>{{ val }}</div>
-</template>
-
 <script setup>
 import { ref } from 'vue';
 
-export const val = 0;
-
-export default {};
+const count = ref(0);
+count.value += 1;
 </script>
+
+<template>
+  <div>{{ count }}</div>
+  <!-- 1 -->
+</template>
 ```
 
 **Reactives**
@@ -35,27 +66,30 @@ export default {};
 <script setup>
 import { reactive } from 'vue';
 
-export const state = reactive({ val: 0 });
-
-export default {};
+const state = reactive({ count: 0 });
+state.count += 1;
 </script>
+
+<template>
+  <div>{{ state.count }}</div>
+  <!-- 1 -->
+</template>
 ```
 
 **computed**
 
 ```vue
-<template>
-  <div>{{ evenOrOdd }}</div>
-</template>
-
 <script setup>
 import { ref, computed } from 'vue';
 
-export const num = ref(1);
-export const evenOrOdd = computed(() => (num.value % 2 === 0 ? 'Even' : 'Odd'));
-
-export default {};
+const num = ref(1);
+const evenOrOdd = computed(() => (num.value % 2 === 0 ? 'Even' : 'Odd'));
 </script>
+
+<template>
+  <div>{{ evenOrOdd }}</div>
+  <!-- Odd -->
+</template>
 ```
 
 **Watcher**
@@ -66,36 +100,54 @@ data - `watch`
 <script setup>
 import { reactive, watch } from 'vue';
 
-export const state = reactive({ val: 0 });
+const state = reactive({ name: '' });
 
 watch(
-  () => state.val,
-  (val, prevVal) => {},
+  () => state.name,
+  (val, prevVal) => {
+    console.log(val, prevVal);
+  },
+);
+</script>
+
+<template>
+  <input v-model="state.name" type="text" />
+  <div>{{ state.name }}</div>
+</template>
+```
+
+```vue
+<script setup>
+import { reactive, watch } from 'vue';
+
+const state = reactive({ database: { model: 'Document', engine: 'MongoDB' } });
+
+watch(
+  () => state.database,
+  (val) => {
+    if (val.engine === 'PostgreSQL') {
+      state.database.model = 'Relational';
+    }
+  },
+  { deep: true },
 );
 
-export default {};
+const switchToPostgres = () => {
+  state.database.engine = 'PostgreSQL';
+};
 </script>
+
+<template>
+  <div>{{ state.database.model }}</div>
+  <div>{{ state.database.engine }}</div>
+  <button @click="switchToPostgres">Switch to PostgreSQL</button>
+</template>
 ```
 
 dependencies - `watchEffect`
 
 ```vue
-<template>
-  <div></div>
-</template>
 
-<script setup>
-import { reactive, watchEffect } from 'vue';
-
-export const state1 = reactive({ val: 0 });
-export const state2 = reactive({ val: 0 });
-
-watchEffect(() => {
-  console.log(state1.val);
-});
-
-export default {};
-</script>
 ```
 
 **Readonly Proxies**
@@ -104,10 +156,8 @@ export default {};
 <script setup>
 import { reactive, readonly } from 'vue';
 
-export const original = reactive({ val: 0 });
-export const copy = readonly(original);
-
-export default {};
+const original = reactive({ val: 0 });
+const copy = readonly(original);
 </script>
 ```
 
@@ -116,29 +166,40 @@ export default {};
 **Props**
 
 ```vue
+<!-- Hello.vue -->
 <script setup>
-export default {
-  props: {
-    list: { type: [String], default: () => [] },
-  },
-};
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  msg: String,
+});
 </script>
+
+<template>
+  <div>Hello, {{ props.msg }}!</div>
+</template>
+```
+
+```vue
+<script setup>
+import Hello from './Hello.vue';
+</script>
+
+<template>
+  <Hello msg="Vue" />
+  <!-- Hello, Vue! -->
+</template>
 ```
 
 **Emits**
 
 ```vue
 <script setup>
-export default {
-  emits: {
-    toggle: null,
-  },
-  methods: {
-    toggle() {
-      this.$emit('toggle');
-    },
-  },
-};
+import { defineEmit } from 'vue';
+
+const emit = defineEmit({
+  foo: null,
+});
 </script>
 ```
 
@@ -157,37 +218,13 @@ import {
   onRenderTracked,
   onRenderTriggered,
 } from 'vue';
-
-export default {};
 </script>
 ```
 
 ## Dependency Injection
 
-```vue
-<!-- Foo.vue -->
-<template>
-  <Bar />
-</template>
-
-<script setup>
-import { InjectionKey, provide, inject } from 'vue';
-
-import Bar from './Bar';
-
-export default {
-  components: {
-    Bar,
-  },
-};
-</script>
-```
-
-```vue
-<!-- Bar.vue -->
-<template></template>
-
-<script setup></script>
+```js
+import { provide, inject } from 'vue';
 ```
 
 ## Async Components
@@ -208,51 +245,11 @@ Suspense
 </Suspense>
 ```
 
-## Routing
-
-```js
-// src/core/router.js
-import { defineAsyncComponent } from 'vue';
-import { createRouter, createWebHistory } from 'vue-router';
-
-import Home from '~/mods/home/Home';
-
-const router = createRouter({
-  history: createWebHistory('/'),
-  routes: [
-    {
-      path: '/',
-      component: Home,
-    },
-    {
-      path: '/about',
-      component: defineAsyncComponent(() => import('~/mods/about/About')),
-    },
-  ],
-});
-
-export default router;
-```
-
-```js
-// src/main.js
-import router from '~/core/router';
-
-app.use(router);
-```
+Top level `await`
 
 ```vue
 <script setup>
-import { useRouter, useRoute } from 'vue-router';
-
-const router = useRouter();
-const route = useRoute();
-
-export const goBack = () => {
-  window.history.length > 1 ? router.go(-1) : router.push('/');
-};
-
-export default {};
+const data = await fetch(`/api/data`).then((res) => res.json());
 </script>
 ```
 
@@ -261,136 +258,129 @@ export default {};
 Basic usage
 
 ```vue
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+</script>
+
 <template>
   <input v-model="value" />
   <span>{{ value }}</span>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-
-export const value = ref('');
-
-export default {};
-</script>
 ```
 
 Use on custom components
 
 ```vue
 <!-- CustomInput.vue -->
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps(['modelValue']);
+const emit = defineEmit(['update:modelValue']);
+
+const onInput = (event) => {
+  emit('update:modelValue', event.target.value);
+};
+</script>
+
 <template>
-  <div class="text-field">
+  <div>
     <input :value="modelValue" @input="onInput" />
     <div>{{ modelValue }}</div>
   </div>
 </template>
-
-<script setup>
-export default {
-  props: ['modelValue'],
-  emits: ['update:modelValue'],
-  methods: {
-    onInput(event) {
-      this.$emit('update:modelValue', event.target.value);
-    },
-  },
-};
-</script>
-
-<style scoped>
-.text-field > input,
-.text-field > div {
-  color: chocolate;
-}
-</style>
 ```
 
 ```vue
+<script setup>
+import { ref } from 'vue';
+
+import CustomInput from './CustomInput.vue';
+
+const myValue = ref('');
+</script>
+
 <template>
   <CustomInput v-model="myValue" />
   <!-- would be shorthand for: -->
   <CustomInput :modelValue="myValue" @update:modelValue="myValue = $event" />
 </template>
-
-<script>
-import { ref } from 'vue';
-
-import CustomInput from './CustomInput.vue';
-
-export default {
-  components: {
-    CustomInput,
-  },
-  setup() {
-    const myValue = ref('');
-    return { myValue };
-  },
-};
-</script>
 ```
 
 Arguments
 
 ```vue
 <!-- CustomInput.vue -->
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps(['foo']);
+const emit = defineEmit(['update:foo']);
+
+const onInput = (event) => {
+  emit('update:foo', event.target.value);
+};
+</script>
+
 <template>
-  <div class="text-field">
+  <div>
     <input :value="foo" @input="onInput" />
     <div>{{ foo }}</div>
   </div>
 </template>
-
-<script setup>
-export default {
-  props: ['foo'],
-  emits: ['update:foo'],
-  methods: {
-    onInput(event) {
-      this.$emit('update:foo', event.target.value);
-    },
-  },
-};
-</script>
-
-<style scoped>
-.text-field > input,
-.text-field > div {
-  color: chocolate;
-}
-</style>
 ```
 
 ```vue
+<script setup>
+import { ref } from 'vue';
+
+import CustomInput from './CustomInput.vue';
+
+const myFoo = ref('');
+</script>
+
 <template>
   <CustomInput v-model:foo="myFoo" />
   <!-- would be shorthand for: -->
   <CustomInput :foo="myFoo" @update:foo="myFoo = $event" />
 </template>
-
-<script>
-import { ref } from 'vue';
-
-import CustomInput from './CustomInput.vue';
-
-export default {
-  components: {
-    CustomInput,
-  },
-  setup() {
-    const myFoo = ref('');
-    return { myFoo };
-  },
-};
-</script>
 ```
 
 Multiple bindings
 
 ```vue
+
 ```
 
 Modifiers
 
 ```vue
+
+```
+
+## Custom Directives
+
+```js
+// foo-bar.js
+export default {
+  created() {},
+  beforeMount() {},
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
+  beforeUnmount() {},
+  unmounted() {},
+};
+```
+
+```vue
+<script setup>
+import fooBar from './foo-bar';
+</script>
+
+<template>
+  <div v-foo-bar />
+</template>
 ```
