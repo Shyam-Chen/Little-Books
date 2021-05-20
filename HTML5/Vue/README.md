@@ -191,6 +191,16 @@ import Hello from './Hello.vue';
 </template>
 ```
 
+`mergeProps`
+
+```vue
+<script setup>
+import { mergeProps } from 'vue';
+
+const props = mergeProps();
+</script>
+```
+
 **Emits**
 
 ```vue
@@ -250,6 +260,21 @@ Top level `await`
 ```vue
 <script setup>
 const data = await fetch(`/api/data`).then((res) => res.json());
+</script>
+```
+
+**`nextTick`**
+
+```vue
+<script setup>
+import { reactive, onMounted, nextTick } from 'vue';
+
+const state = reactive({ msg: 'Hello!' });
+
+onMounted(async () => {
+  state.msg = 'Goodbye!';
+  await nextTick();
+});
 </script>
 ```
 

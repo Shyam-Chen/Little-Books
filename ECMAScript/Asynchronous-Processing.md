@@ -8,6 +8,7 @@
 * [Promises (承諾)](#promises-承諾)
 * [Generators (產生器)](#generators-產生器)
 * [Async Functions (非同步函式)](#async-functions-非同步函式)
+  * `for await...of`
 * [Observables (可觀察)](#observables-可觀察)
 * Event Loop
   * HTML5 Event Loop
