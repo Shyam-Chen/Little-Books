@@ -1,4 +1,4 @@
-# Routing & Navigation
+# Routing and Navigation
 
 ```js
 // core/router.js

@@ -9,9 +9,9 @@ Vue is a progressive, incrementally-adoptable JavaScript framework for building 
 - Getting Started
 - Components
 - Directives
-- Dependency injection
-- Transitions & Animation
-- [Routing & Navigation](./Routing-and-Navigation.md)
+- [Dependency Injection](./Dependency-Injection.md)
+- Transitions and Animation
+- [Routing and Navigation](./Routing-and-Navigation.md)
 - State Management
 - Testing
 
@@ -229,12 +229,6 @@ import {
   onRenderTriggered,
 } from 'vue';
 </script>
-```
-
-## Dependency Injection
-
-```js
-import { provide, inject } from 'vue';
 ```
 
 ## Async Components
