@@ -13,6 +13,7 @@ Vue is a progressive, incrementally-adoptable JavaScript framework for building 
 - Transitions and Animation
 - [Routing and Navigation](./Routing-and-Navigation.md)
 - State Management
+- Internationalization
 - Testing
 
 ---
@@ -205,9 +206,9 @@ const props = mergeProps();
 
 ```vue
 <script setup>
-import { defineEmit } from 'vue';
+import { defineEmits } from 'vue';
 
-const emit = defineEmit({
+const emits = defineEmits({
   foo: null,
 });
 </script>
@@ -294,20 +295,20 @@ Use on custom components
 ```vue
 <!-- CustomInput.vue -->
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps(['modelValue']);
-const emit = defineEmit(['update:modelValue']);
+const emits = defineEmits(['update:modelValue']);
 
 const onInput = (event) => {
-  emit('update:modelValue', event.target.value);
+  emits('update:modelValue', event.target.value);
 };
 </script>
 
 <template>
   <div>
-    <input :value="modelValue" @input="onInput" />
-    <div>{{ modelValue }}</div>
+    <input :value="props.modelValue" @input="onInput" />
+    <div>{{ props.modelValue }}</div>
   </div>
 </template>
 ```
@@ -333,20 +334,20 @@ Arguments
 ```vue
 <!-- CustomInput.vue -->
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps(['foo']);
-const emit = defineEmit(['update:foo']);
+const emits = defineEmits(['update:foo']);
 
 const onInput = (event) => {
-  emit('update:foo', event.target.value);
+  emits('update:foo', event.target.value);
 };
 </script>
 
 <template>
   <div>
-    <input :value="foo" @input="onInput" />
-    <div>{{ foo }}</div>
+    <input :value="props.foo" @input="onInput" />
+    <div>{{ props.foo }}</div>
   </div>
 </template>
 ```

@@ -143,3 +143,74 @@ const changeName = inject('changeName');
   <button @click="changeName">Change Name</button>
 </template>
 ```
+
+Store Pattern
+
+```js
+// store.js
+import { reactive, inject, computed } from 'vue';
+
+const stateSymbol = Symbol('state');
+
+const createState = reactive({
+  count: 0,
+});
+
+export const useState = () => inject(stateSymbol);
+
+export const useActions = () => {
+  const state = useState();
+
+  return {
+    incrementCount() {
+      state.count += 1;
+    },
+  };
+};
+
+export const useComputeds = () => {
+  const state = useState();
+
+  return {
+    evenOrOdd: computed(() => (state.count % 2 === 0 ? 'Even' : 'Odd')),
+  };
+};
+
+export const store = {
+  install(app) {
+    app.provide(stateSymbol, createState);
+  },
+};
+```
+
+```js
+// main.js
+import { createApp } from 'vue';
+
+import { store } from '~/core/store.js';
+
+import App from './App.vue';
+
+const app = createApp(App);
+
+app.use(store);
+
+app.mount('#root');
+```
+
+```vue
+<!-- Display.vue -->
+<script setup>
+import { useState, useActions, useComputeds } from '~/core/store.js';
+
+const state = useState();
+const actions = useActions();
+const computeds = useComputeds();
+</script>
+
+<template>
+  <div>{{ state.count }}</div>
+  <div>{{ computeds.evenOrOdd.value }}</div>
+  <button @click="actions.incrementCount">Increment Count</button>
+</template>
+```
