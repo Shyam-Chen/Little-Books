@@ -6,33 +6,37 @@ Vue is a progressive, incrementally-adoptable JavaScript framework for building 
 
 ### Table of Contents
 
-- Getting Started
+- Introduction
+
+#### Part 1
+
 - Components
 - Directives
 - [Dependency Injection](./Dependency-Injection.md)
 - Transitions and Animation
 - [Routing and Navigation](./Routing-and-Navigation.md)
+
+#### Part 2
+
+- Components
 - State Management
 - Internationalization
 - Testing
 
 ---
 
-## Getting Started
+## Introduction
 
-```js
-// main.js
-import { createApp } from 'vue';
-
-import App from './App.vue';
-
-const app = createApp(App);
-
-app.mount('#root');
+```sh
+$ yarn create vite <APP_NAME> --template vue
 ```
 
+## Components
+
+text
+
 ```vue
-<!-- App.vue -->
+<!-- HelloWorld.vue -->
 <script setup>
 const helloWorld = 'Hello, World!';
 </script>
@@ -43,7 +47,46 @@ const helloWorld = 'Hello, World!';
 </template>
 ```
 
-## Reactivity
+html
+
+```vue
+<!-- HelloWorld.vue -->
+<script setup>
+const helloWorld = `Hello, <strong>World!</strong>`;
+</script>
+
+<template>
+  <div v-html="helloWorld"></div>
+</template>
+```
+
+attributes
+
+```vue
+<script setup>
+import logo from '~/assets/logo.png';
+</script>
+
+<template>
+  <img :src="logo" alt="Logo" />
+</template>
+```
+
+styling
+
+```vue
+<template>
+  <div class="blue-text">Blue Text</div>
+</template>
+
+<style scoped>
+.blue-text {
+  color: blue;
+}
+</style>
+```
+
+Reactivity
 
 **Refs**
 
@@ -145,10 +188,29 @@ const switchToPostgres = () => {
 </template>
 ```
 
+_For-Part-2_
+
 dependencies - `watchEffect`
 
 ```vue
+<script setup>
+const stop = watchEffect((onInvalidate) => {
+  // ...
 
+  onInvalidate(() => {
+    // ...
+  });
+});
+
+const onStop = () => {
+  stop();
+};
+</script>
+
+<template>
+  <div></div>
+  <button @click="onStop">Stop</button>
+</template>
 ```
 
 **Readonly Proxies**
@@ -160,6 +222,55 @@ import { reactive, readonly } from 'vue';
 const original = reactive({ val: 0 });
 const copy = readonly(original);
 </script>
+```
+
+`if`...`else`
+
+```vue
+<script setup>
+import { ref } from 'vue';
+
+const isRendering = ref(true);
+</script>
+
+<template>
+  <div v-if="isRendering">Rendered</div>
+  <div v-else>Not Rendered</div>
+</template>
+```
+
+`for`
+
+```vue
+<script setup>
+import { ref } from 'vue';
+
+const list = ref(['foo', 'bar', 'baz']);
+</script>
+
+<template>
+  <ul>
+    <li v-for="item in list">{{ item }}</li>
+  </ul>
+</template>
+```
+
+template refs
+
+```vue
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const input = ref(null);
+
+onMounted(() => {
+  input.value.focus();
+});
+</script>
+
+<template>
+  <input ref="input" />
+</template>
 ```
 
 ## Component Communication
@@ -191,6 +302,8 @@ import Hello from './Hello.vue';
   <!-- Hello, Vue! -->
 </template>
 ```
+
+_For-Part-2_
 
 `mergeProps`
 
