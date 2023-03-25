@@ -1,38 +1,41 @@
 ---
 layout: home
 
+title: ViteSheet
+titleTemplate: Thoughts on X versus Y with Vite
+
 hero:
-  name: Lorem ipsum
-  text: Donec at leo at lectus tempus volutpat
-  tagline: Nam facilisis mi nec semper pharetra
+  name: ViteSheet
+  text: Thoughts on X versus Y with Vite
+  tagline: Get ready for a development environment that can finally catch up with you.
   image:
-    src: https://rollupjs.org/rollup-logo.svg
-    alt: Lorem ipsum
+    src: https://vitejs.dev/logo-with-shadow.png
+    alt: Vite
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/thoughts-on-vue-vs-x
+      link: /guide/
     - theme: alt
       text: View on GitHub
-      link: https://github.com/vuejs/vitepress
+      link: https://github.com/Shyam-Chen/Little-Books
 
 features:
+  - icon: 💡
+    title: Instant Server Start
+    details: On demand file serving over native ESM, no bundling required!
   - icon: ⚡️
-    title: Lorem ipsum dolor
-    details: Fusce at sem ullamcorper, mollis elit at, commodo quam
-  - icon: 🖖
-    title: Lorem ipsum dolor sit amet
-    details: Duis finibus eros in tortor elementum, ut auctor mauris cursus
+    title: Lightning Fast HMR
+    details: Hot Module Replacement (HMR) that stays fast regardless of app size.
   - icon: 🛠️
-    title: Lorem ipsum dolor sit
-    details: Proin suscipit risus eget nisl tempus laoreet
-  - icon: ⚡️
-    title: Lorem ipsum dolor
-    details: Fusce at sem ullamcorper, mollis elit at, commodo quam
-  - icon: 🖖
-    title: Lorem ipsum dolor sit amet
-    details: Duis finibus eros in tortor elementum, ut auctor mauris cursus
-  - icon: 🛠️
-    title: Lorem ipsum dolor sit
-    details: Proin suscipit risus eget nisl tempus laoreet
+    title: Rich Features
+    details: Out-of-the-box support for TypeScript, JSX, CSS and more.
+  - icon: 📦
+    title: Optimized Build
+    details: Pre-configured Rollup build with multi-page and library mode support.
+  - icon: 🔩
+    title: Universal Plugins
+    details: Rollup-superset plugin interface shared between dev and build.
+  - icon: 🔑
+    title: Fully Typed APIs
+    details: Flexible programmatic APIs with full TypeScript typing.
 ---

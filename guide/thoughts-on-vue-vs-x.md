@@ -1,36 +1,51 @@
-# Thoughts on Vue vs X
+# Thoughts on Vue versus X
 
-## Hello world component
+## Template Syntax
 
 :::code-group
 
 ```vue [Vue]
+<script lang="ts" setup>
+const value = undefined;
+
+let number = 0;
+</script>
+
 <template>
-  <div>Hello world</div>
+  <div>{{ value }}</div>
+  <div>{{ number + 1 }}</div>
 </template>
 ```
 
 ```svelte [Svelte]
-<div>Hello world</div>
+<script lang="ts">
+  const value = undefined;
+
+  let number = 0;
+</script>
+
+<div>{value ? value : ''}</div>
+<div>{number + 1}</div>
 ```
 
-```tsx [Qwik]
-import { component$ } from '@builder.io/qwik';
+```tsx [React]
+export function App() {
+  const value = undefined;
 
-export const HelloWorld = component$(() => {
-  return <>Hello world</>;
-});
-```
+  let number = 0;
 
-```tsx [React (preact/compat)]
-export function HelloWorld() {
-  return <>Hello world</>;
+  return (
+    <>
+      <div>{value}</div>
+      <div>{number + 1}</div>
+    </>
+  );
 }
 ```
 
 :::
 
-## Button with a click handler
+## Event Handling
 
 :::code-group
 
@@ -387,6 +402,57 @@ export function App() {
       <button onClick={increment}>Increment</button>
     </>
   );
+}
+```
+
+:::
+
+## Template Refs
+
+:::code-group
+
+```vue [Vue]
+<script lang="ts" setup>
+import { ref, onMounted } from 'vue';
+
+const target = ref();
+
+onMounted(() => {
+  target.value.focus();
+});
+</script>
+
+<template>
+  <input ref="target" />
+</template>
+```
+
+```svelte [Svelte]
+<script lang="ts">
+  import { onMount } from 'svelte';
+
+  let target;
+
+  onMount(() => {
+    target.focus();
+  });
+</script>
+
+<input bind:this={target} />
+
+```
+
+```tsx [React]
+import { useRef, useEffect } from 'react';
+
+export function App() {
+  const target = useRef();
+
+  useEffect(() => {
+    target.current.focus();
+  }, []);
+
+  return <input ref={target} />;
 }
 ```
 
