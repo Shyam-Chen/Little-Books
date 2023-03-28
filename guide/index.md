@@ -1,6 +1,5 @@
 # Getting Started
 
-Thoughts on Vue versus:
+## Cheat Sheets
 
-- Svelte
-- React (Preact)
+- [Thoughts on Vue versus X](./thoughts-on-vue-vs-x.md)

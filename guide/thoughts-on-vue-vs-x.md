@@ -1,5 +1,11 @@
 # Thoughts on Vue versus X
 
+Vue versus X:
+
+- Svelte
+- React (`preact/compat`)
+- Qwik (`@builder.io/qwik`)
+
 ## Template Syntax
 
 :::code-group
@@ -43,6 +49,23 @@ export function App() {
 }
 ```
 
+```tsx [Qwik]
+import { component$ } from '@builder.io/qwik';
+
+export default component$(() => {
+  const value = undefined;
+
+  let number = 0;
+
+  return (
+    <>
+      <div>{value}</div>
+      <div>{number + 1}</div>
+    </>
+  );
+});
+```
+
 :::
 
 ## Event Handling
@@ -79,7 +102,7 @@ export const Button = component$(() => {
 });
 ```
 
-```tsx [React (preact/compat)]
+```tsx [React]
 export function Button() {
   return <button onClick={() => console.log('clicked')}>Click me</button>;
 }
@@ -288,13 +311,15 @@ export default component$(() => {
 });
 ```
 
-```tsx [React (preact/compat)]
+```tsx [React]
 import { useSignal } from '@preact/signals';
 
 export function App() {
   const text = useSignal('');
 
-  const onInput = (event) => (text.value = event.target.value);
+  const onInput = (event: Event) => {
+    text.value = (event.target as HTMLInputElement).value;
+  };
 
   return (
     <>
@@ -313,7 +338,7 @@ export function App() {
 
 ```vue [Vue]
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { reactive, watch } from 'vue';
 
 const store = reactive({
   count: 0,
@@ -381,7 +406,7 @@ export default component$(() => {
 });
 ```
 
-```tsx [React (preact/compat)]
+```tsx [React]
 import { useEffect } from 'react';
 import { useSignal } from '@preact/signals';
 
@@ -439,7 +464,6 @@ onMounted(() => {
 </script>
 
 <input bind:this={target} />
-
 ```
 
 ```tsx [React]
@@ -454,6 +478,297 @@ export function App() {
 
   return <input ref={target} />;
 }
+```
+
+:::
+
+## Passing Down Classes
+
+Parent:
+
+:::code-group
+
+```vue [Vue]
+<script lang="ts" setup>
+import Child from './components/Child.vue';
+</script>
+
+<template>
+  <Child />
+  <Child class="text-danger" />
+</template>
+
+<style>
+.text-danger {
+  color: red;
+}
+</style>
+```
+
+```svelte [Svelte]
+<script lang="ts">
+  import Child from './lib/Child.svelte';
+</script>
+
+<div class="parent">
+  <Child />
+  <Child class="text-danger" />
+</div>
+
+<style>
+.parent :global(.text-danger) {
+  color: red;
+}
+</style>
+```
+
+:::
+
+Child:
+
+:::code-group
+
+```vue [Vue]
+<template>
+  <p class="paragraph">This is a paragraph.</p>
+</template>
+
+<style>
+.paragraph {
+  color: purple;
+}
+</style>
+```
+
+```svelte [Svelte]
+<p class={`paragraph ${$$restProps.class}`}>This is a paragraph.</p>
+
+<style>
+.paragraph {
+  color: purple;
+}
+</style>
+```
+
+:::
+
+## Text Fields
+
+TextField:
+
+:::code-group
+
+```vue [Vue]
+<script lang="ts" setup>
+import { computed } from 'vue';
+import uniqueId from 'lodash/uniqueId';
+
+const props = defineProps<{
+  label?: string;
+  value?: string;
+}>();
+
+const emit = defineEmits<{
+  (evt: 'update:value', val: string): void;
+}>();
+
+const uid = uniqueId('text-field-');
+
+const textFieldValue = computed({
+  get: () => props.value || '',
+  set: (val) => emit('update:value', val),
+});
+</script>
+
+<template>
+  <div class="text-field">
+    <label :for="uid">{{ label }}</label>
+    <input :id="uid" v-bind="$attrs" :value="value" />
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.text-field {
+  @apply flex flex-col w-full;
+}
+</style>
+```
+
+```svelte [Svelte]
+<script lang="ts">
+  import { computed } from 'vue';
+  import uniqueId from 'lodash/uniqueId';
+
+  export let label = '';
+  export let value = '';
+
+  const uid = uniqueId('text-field-');
+</script>
+
+<div class="text-field">
+  <label for={uid}>{label}</label>
+  <input id={uid} bind:value />
+</div>
+
+<style lang="scss">
+  .text-field {
+    --at-apply: flex flex-col w-full;
+  }
+</style>
+```
+
+```tsx [React]
+import uniqueId from 'lodash/uniqueId';
+
+export interface TextFieldProps {
+  label?: string;
+  value?: string;
+  onInput(val: string): void;
+}
+
+export function TextField(props: TextFieldProps) {
+  const { label, value, onInput, ...rest } = props;
+
+  const uid = uniqueId('text-field-');
+
+  return (
+    <div class="text-field">
+      <label for={uid}>{label}</label>
+      <input
+        id={uid}
+        value={value}
+        onInput={(evt) => onInput((evt.target as HTMLInputElement).value)}
+        {...rest}
+      />
+    </div>
+  );
+}
+```
+
+```tsx [Qwik]
+import type { PropFunction } from '@builder.io/qwik';
+import { component$, useSignal } from '@builder.io/qwik';
+import uniqueId from 'lodash/uniqueId';
+
+export interface TextFieldProps {
+  label?: string;
+  value?: string;
+  onInput$?: PropFunction<(val: string) => void>;
+}
+
+export const TextField = component$((props: TextFieldProps) => {
+  const uid = uniqueId('text-field-');
+
+  return (
+    <div class="text-field">
+      <label for={uid}>{props.label}</label>
+      <input
+        id={uid}
+        value={value.value}
+        onInput$={(evt) => props.onInput$((evt.target as HTMLInputElement).value)}
+      />
+    </div>
+  );
+});
+```
+
+:::
+
+Usage:
+
+:::code-group
+
+```vue [Vue]
+<script lang="ts" setup>
+import { reactive } from 'vue';
+
+import TextField from '~/components/TextField.vue';
+
+const store = reactive({
+  val1: '',
+  val2: '',
+  val3: '',
+  blurVal3() {
+    console.log('blurVal3');
+  },
+});
+</script>
+
+<template>
+  <TextField v-model:value="store.val1" />
+  <TextField v-model:value="store.val2" class="max-w-36" />
+  <TextField v-model:value="store.val3" @blur="store.blurVal3" />
+</template>
+```
+
+```svelte [Svelte]
+<script lang="ts">
+  import { writable } from 'svelte/store';
+
+  import TextField from '$lib/components/TextField.svelte';
+
+  const state = writable({
+    val1: '',
+    val2: '',
+    val3: '',
+  });
+
+  const actions = {
+    blurVal3() {
+      console.log('blurVal3');
+    },
+  };
+</script>
+
+<div class="page">
+  <TextField bind:value={state.val1} />
+  <TextField bind:value={state.val2} class="name" />
+  <TextField bind:value={state.val3} on:blur={actions.blurVal3} />
+</div>
+
+<style lang="scss">
+.page :global(.name) {
+  --at-apply: max-w-36;
+}
+</style>
+```
+
+```tsx [React]
+import { useSignal } from '@preact/signals';
+
+import { TextField } from '~/components/TextField';
+
+export function App() {
+  const val1 = useSignal('');
+
+  return (
+    <>
+      <TextField value={val1.value} onInput={(val) => (val1.value = val)} />
+      {val1.value}
+    </>
+  );
+}
+```
+
+```tsx [Qwik]
+import { component$, useStore, $ } from '@builder.io/qwik';
+
+import { TextField } from '~/components/TextField';
+
+export default component$(() => {
+  const store = useStore({
+    val1: '',
+    val2: '',
+  });
+
+  return (
+    <>
+      <TextField value={state.val1} onInput$={$((val) => (state.val1 = val))} />
+      <TextField value={state.val2} onInput$={$((val) => (state.val2 = val))} class="max-w-36" />
+      <TextField value={state.val3} onInput$={$((val) => (state.val3 = val))} />
+    </>
+  );
+});
 ```
 
 :::
