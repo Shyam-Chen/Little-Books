@@ -10,16 +10,17 @@ export default defineConfig({
   themeConfig: {
     logo: 'https://vitejs.dev/logo.svg',
     nav: [
-      { text: 'Guide', link: '/guide/thoughts-on-vue-vs-x' },
-      // { text: 'Modules', link: '/modules/todos' },
+      { text: 'Guide', link: '/guide/' },
+      // { text: '__XXX___', link: '__XXX__' },
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Shyam-Chen/Little-Books' },
+      // { icon: '__XXX___', link: '__XXX__' },
     ],
     sidebar: {
       '/guide': [
         {
-          text: 'Getting Started',
+          text: 'Overview',
           link: '/guide/',
         },
         {

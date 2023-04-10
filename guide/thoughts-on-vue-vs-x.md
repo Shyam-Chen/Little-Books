@@ -647,25 +647,31 @@ export function TextField(props: TextFieldProps) {
 
 ```tsx [Qwik]
 import type { PropFunction } from '@builder.io/qwik';
-import { component$, useSignal } from '@builder.io/qwik';
+import { component$, useStylesScoped$ } from '@builder.io/qwik';
 import uniqueId from 'lodash/uniqueId';
+
+import styles from './styles.css?inline';
 
 export interface TextFieldProps {
   label?: string;
   value?: string;
-  onInput$?: PropFunction<(val: string) => void>;
+  onInput$?: PropFunction<(value: string) => string>;
 }
 
-export const TextField = component$((props: TextFieldProps) => {
+export default component$((props: TextFieldProps) => {
+  useStylesScoped$(styles);
+
   const uid = uniqueId('text-field-');
 
   return (
     <div class="text-field">
       <label for={uid}>{props.label}</label>
+
       <input
         id={uid}
-        value={value.value}
-        onInput$={(evt) => props.onInput$((evt.target as HTMLInputElement).value)}
+        type="text"
+        value={props.value}
+        onInput$={(evt) => props.onInput$?.((evt.target as HTMLInputElement).value)}
       />
     </div>
   );
@@ -751,21 +757,22 @@ export function App() {
 ```
 
 ```tsx [Qwik]
-import { component$, useStore, $ } from '@builder.io/qwik';
+import { component$, useStore } from '@builder.io/qwik';
 
-import { TextField } from '~/components/TextField';
+import TextField from '~/components/TextField';
 
 export default component$(() => {
-  const store = useStore({
+  const state = useStore({
     val1: '',
     val2: '',
+    val3: '',
   });
 
   return (
     <>
-      <TextField value={state.val1} onInput$={$((val) => (state.val1 = val))} />
-      <TextField value={state.val2} onInput$={$((val) => (state.val2 = val))} class="max-w-36" />
-      <TextField value={state.val3} onInput$={$((val) => (state.val3 = val))} />
+      <TextField value={state.val1} onInput$={(val) => (state.val1 = val)} />
+      <TextField value={state.val2} onInput$={(val) => (state.val2 = val)} class="max-w-36" />
+      <TextField value={state.val3} onInput$={(val) => (state.val3 = val)} />
     </>
   );
 });
