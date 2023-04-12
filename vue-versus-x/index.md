@@ -1,72 +1,12 @@
-# Thoughts on Vue versus X
+# Vue versus X
 
-Vue versus X:
+Comparing Framework Internals
 
 - Svelte
 - React (`preact/compat`)
 - Qwik (`@builder.io/qwik`)
 
-## Template Syntax
-
-:::code-group
-
-```vue [Vue]
-<script lang="ts" setup>
-const value = undefined;
-
-let number = 0;
-</script>
-
-<template>
-  <div>{{ value }}</div>
-  <div>{{ number + 1 }}</div>
-</template>
-```
-
-```svelte [Svelte]
-<script lang="ts">
-  const value = undefined;
-
-  let number = 0;
-</script>
-
-<div>{value ? value : ''}</div>
-<div>{number + 1}</div>
-```
-
-```tsx [React]
-export function App() {
-  const value = undefined;
-
-  let number = 0;
-
-  return (
-    <>
-      <div>{value}</div>
-      <div>{number + 1}</div>
-    </>
-  );
-}
-```
-
-```tsx [Qwik]
-import { component$ } from '@builder.io/qwik';
-
-export default component$(() => {
-  const value = undefined;
-
-  let number = 0;
-
-  return (
-    <>
-      <div>{value}</div>
-      <div>{number + 1}</div>
-    </>
-  );
-});
-```
-
-:::
+## [Template Syntax](./template-syntax.md)
 
 ## Event Handling
 
@@ -80,7 +20,7 @@ const clickMe = () => {
 </script>
 
 <template>
-  <button @click="clickMe">Click me</button>
+  <button @click="clickMe">Click Me</button>
 </template>
 ```
 
@@ -91,184 +31,26 @@ const clickMe = () => {
   };
 </script>
 
-<button on:click={clickMe}>Click me</button>
-```
-
-```tsx [Qwik]
-import { component$, useSignal } from '@builder.io/qwik';
-
-export const Button = component$(() => {
-  return <button onClick$={() => console.log('clicked')}>Click me</button>;
-});
+<button on:click={clickMe}>Click Me</button>
 ```
 
 ```tsx [React]
 export function Button() {
-  return <button onClick={() => console.log('clicked')}>Click me</button>;
+  return <button onClick={() => console.log('clicked')}>Click Me</button>;
 }
 ```
 
-:::
+```tsx [Qwik]
+import { component$ } from '@builder.io/qwik';
 
-## List Rendering
-
-### `v-for`
-
-:::code-group
-
-```vue [Vue]
-<script lang="ts" setup>
-import { ref } from 'vue';
-
-const list = ref([{ text: 'Foo' }, { text: 'Bar' }]);
-</script>
-
-<template>
-  <ul>
-    <li v-for="(item, index) in list" :key="`list${index}`">
-      {{ item.text }}
-    </li>
-  </ul>
-</template>
-```
-
-```svelte [Svelte]
-<script lang="ts">
-  const list = [{ text: 'Foo' }, { text: 'Bar' }];
-</script>
-
-<ul>
-  {#each list as item, index (`list${index}`)}
-    <li>{item.text}</li>
-  {/each}
-</ul>
-```
-
-```tsx [React]
-import { Fragment } from 'react';
-import { useSignal } from '@preact/signals';
-
-export function App() {
-  const list = useSignal([{ text: 'Foo' }, { text: 'Bar' }]);
-
-  return (
-    <ul>
-      {list.value.map((item, index) => (
-        <Fragment key={`list${index}`}>
-          <li>{item.text}</li>
-        </Fragment>
-      ))}
-    </ul>
-  );
-}
-```
-
-:::
-
-### `v-for` with an Object
-
-:::code-group
-
-```vue [Vue]
-<script lang="ts" setup>
-import { ref } from 'vue';
-
-const deps = ref({
-  vue: '3.2.47',
-  svelte: '3.57.0',
-  preact: '10.13.1',
+export default component$(() => {
+  return <button onClick$={() => console.log('clicked')}>Click Me</button>;
 });
-</script>
-
-<template>
-  <ul>
-    <li v-for="(value, key, index) in deps" :key="`deps${index}`">
-      {{ index }}. {{ key }}: {{ value }}
-    </li>
-  </ul>
-</template>
-```
-
-```svelte [Svelte]
-<script lang="ts">
-  const deps = {
-    vue: '3.2.47',
-    svelte: '3.57.0',
-    preact: '10.13.1',
-  };
-</script>
-
-<ul>
-  {#each Object.entries(deps) as [key, value], index (`deps${index}`)}
-    <li>{index}. {key}: v{value}</li>
-  {/each}
-</ul>
-```
-
-```tsx [React]
-import { Fragment } from 'react';
-import { useSignal } from '@preact/signals';
-
-export function App() {
-  const deps = useSignal({
-    vue: '3.2.47',
-    svelte: '3.57.0',
-    preact: '10.13.1',
-  });
-
-  return (
-    <ul>
-      {Object.entries(deps.value).map(([key, value], index) => (
-        <Fragment key={`deps${index}`}>
-          <li>
-            {index}. {key}: v{value}
-          </li>
-        </Fragment>
-      ))}
-    </ul>
-  );
-}
 ```
 
 :::
 
-### `v-for` with a Range
-
-:::code-group
-
-```vue [Vue]
-<template>
-  <ul>
-    <li v-for="(num, index) in 10" :key="index">{{ num }}</li>
-  </ul>
-</template>
-```
-
-```svelte [Svelte]
-<ul>
-  {#each Array(10) as empty, index (index)}
-    <li>{index + 1}</li>
-  {/each}
-</ul>
-```
-
-```tsx [React]
-import { Fragment } from 'react';
-
-export function App() {
-  return (
-    <ul>
-      {[...Array(10)].map((empty, index) => (
-        <Fragment key={index}>
-          <li>{index + 1}</li>
-        </Fragment>
-      ))}
-    </ul>
-  );
-}
-```
-
-:::
+## [List Rendering](./list-rendering.md)
 
 ## Form Input Bindings
 
@@ -323,8 +105,8 @@ export function App() {
 
   return (
     <>
-      <input value={text.value} onInput={onInput} />
-      <div>{text.value}</div>
+      <input value={text} onInput={onInput} />
+      <div>{text}</div>
     </>
   );
 }
@@ -387,7 +169,7 @@ watch(
 ```
 
 ```tsx [Qwik]
-import { component$, useTask$, useSignal } from '@builder.io/qwik';
+import { component$, useTask$, useStore } from '@builder.io/qwik';
 
 export default component$(() => {
   const state = useStore({ count: 0 });
@@ -552,7 +334,7 @@ Child:
 
 :::
 
-## Text Fields
+## Component `v-model`
 
 TextField:
 

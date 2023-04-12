@@ -2,11 +2,11 @@
 layout: home
 
 title: ViteSheet
-titleTemplate: Thoughts on X versus Y with Vite
+titleTemplate: Thoughts on Vite
 
 hero:
   name: ViteSheet
-  text: Thoughts on X versus Y with Vite
+  text: Thoughts on Vite
   tagline: Get ready for a development environment that can finally catch up with you.
   image:
     src: https://vitejs.dev/logo-with-shadow.png
@@ -14,10 +14,10 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/Shyam-Chen/Little-Books
+      link: /sheets/
+    # - theme: alt
+    #   text: View on GitHub
+    #   link: https://github.com/Shyam-Chen/Little-Books
 
 features:
   - icon: 💡
