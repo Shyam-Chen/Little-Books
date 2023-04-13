@@ -39,7 +39,13 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/vue-versus-x/' },
             { text: 'Template Syntax', link: '/vue-versus-x/template-syntax' },
+            { text: 'Event Handling', link: '/vue-versus-x/event-handling' },
             { text: 'List Rendering', link: '/vue-versus-x/list-rendering' },
+            { text: 'Form Input Bindings', link: '/vue-versus-x/form-input-bindings' },
+            { text: 'Watchers', link: '/vue-versus-x/watchers' },
+            { text: 'Template Refs', link: '/vue-versus-x/template-refs' },
+            { text: 'Passing Down Classes', link: '/vue-versus-x/passing-down-classes' },
+            { text: 'Component v-model', link: '/vue-versus-x/component-v-model' },
           ],
         },
       ],
@@ -66,6 +72,25 @@ export default defineConfig({
               items: [
                 { text: 'State Management', link: '/vue-formor/state-management' },
                 { text: 'Internationalization', link: '/vue-formor/internationalization' },
+              ],
+            },
+          ],
+        },
+      ],
+      '/vue-localer': [
+        {
+          text: 'Vue Localer',
+          items: [
+            { text: 'Overview', link: '/vue-localer/' },
+            {
+              text: 'Guide',
+              collapsed: false,
+              items: [
+                { text: 'Locale Changing', link: '/vue-localer/locale-changing' },
+                { text: 'Format Syntax', link: '/vue-localer/format-syntax' },
+                { text: 'Local Scope', link: '/vue-localer/local-scope' },
+                { text: 'List Interpolation', link: '/vue-localer/list-interpolation' },
+                { text: 'Component Interpolation', link: '/vue-localer/component-interpolation' },
               ],
             },
           ],
