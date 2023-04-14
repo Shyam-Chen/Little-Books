@@ -6,13 +6,16 @@ TextField:
 
 ```vue [Vue]
 <script lang="ts" setup>
+import type { InputHTMLAttributes } from 'vue';
 import { computed } from 'vue';
 import uniqueId from 'lodash/uniqueId';
 
-const props = defineProps<{
+interface Props extends InputHTMLAttributes {
   label?: string;
   value?: string;
-}>();
+}
+
+const props = defineProps<Props>();
 
 const emit = defineEmits<{
   (evt: 'update:value', val: string): void;
@@ -29,7 +32,7 @@ const textFieldValue = computed({
 <template>
   <div class="text-field">
     <label :for="uid">{{ label }}</label>
-    <input :id="uid" v-bind="$attrs" :value="value" />
+    <input :id="uid" v-model="textFieldValue" v-bind="$attrs" />
   </div>
 </template>
 
