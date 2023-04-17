@@ -42,7 +42,7 @@ import { defineLocale } from 'vue-localer';
 import enUS from './en-US'; // src/routes/foo/_includes/useLocale/en-US.ts
 import jaJP from './ja-JP'; // src/routes/foo/_includes/useLocale/ja-JP.ts
 
-export default defineLocale('foo', {
+export default defineLocale<typeof enUS>('foo', {
   'en-US': enUS,
   'ja-JP': jaJP,
   'ko-KR': () => import('./ko-KR'),

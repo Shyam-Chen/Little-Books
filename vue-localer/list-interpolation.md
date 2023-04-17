@@ -18,10 +18,12 @@ List interpolation allows you to specify array defined in JavaScript. In the loc
 The following is an example of the use of `$f` in a template:
 
 ```vue
-<script setup>
+<script lang="ts" setup>
 import { useLocale } from 'vue-localer';
+
 const locale = useLocale();
 </script>
+
 <template>
   <div>{{ $f(locale.hello, ['hello']) }}</div>
 </template>
