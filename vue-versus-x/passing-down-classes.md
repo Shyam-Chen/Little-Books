@@ -6,36 +6,22 @@ Parent:
 
 ```vue [Vue]
 <script lang="ts" setup>
-import Child from './components/Child.vue';
+import Child from '~/components/Child.vue';
 </script>
 
 <template>
   <Child />
-  <Child class="text-danger" />
+  <Child class="bg-blue-200" />
 </template>
-
-<style>
-.text-danger {
-  color: red;
-}
-</style>
 ```
 
 ```svelte [Svelte]
 <script lang="ts">
-  import Child from './lib/Child.svelte';
+  import Child from '$lib/components/Child.svelte';
 </script>
 
-<div class="parent">
-  <Child />
-  <Child class="text-danger" />
-</div>
-
-<style>
-.parent :global(.text-danger) {
-  color: red;
-}
-</style>
+<Child />
+<Child class="bg-blue-200" />
 ```
 
 :::
@@ -49,7 +35,7 @@ Child:
   <p class="paragraph">This is a paragraph.</p>
 </template>
 
-<style>
+<style lang="scss" scoped>
 .paragraph {
   color: purple;
 }
@@ -57,12 +43,12 @@ Child:
 ```
 
 ```svelte [Svelte]
-<p class={`paragraph ${$$restProps.class}`}>This is a paragraph.</p>
+<p class="paragraph {$$props.class}">This is a paragraph.</p>
 
-<style>
-.paragraph {
-  color: purple;
-}
+<style lang="scss">
+  .paragraph {
+    color: purple;
+  }
 </style>
 ```
 

@@ -40,6 +40,7 @@ export default defineConfig({
             { text: 'Overview', link: '/vue-versus-x/' },
             { text: 'Template Syntax', link: '/vue-versus-x/template-syntax' },
             { text: 'Class and Style Bindings', link: '/vue-versus-x/class-and-style-bindings' },
+            { text: 'Conditional Rendering', link: '/vue-versus-x/conditional-rendering' },
             { text: 'List Rendering', link: '/vue-versus-x/list-rendering' },
             { text: 'Event Handling', link: '/vue-versus-x/event-handling' },
             { text: 'Form Input Bindings', link: '/vue-versus-x/form-input-bindings' },

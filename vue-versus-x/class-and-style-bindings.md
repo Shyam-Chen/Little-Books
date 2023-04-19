@@ -2,28 +2,67 @@
 
 ## Binding HTML Classes
 
-```vue
-<div class="static" :class="{ active: isActive, 'text-danger': hasError }">Text</div>
+:::code-group
+
+```vue [Vue]
+<template>
+  <div
+    class="static"
+    :class="{
+      active: isActive,
+      'text-danger': hasError,
+    }"
+  >
+    Text
+  </div>
+</template>
 ```
 
-```svelte
-<div class="static" class:active={isActive} class:text-danger={hasError}>Text</div>
+```svelte [Svelte]
+<div
+  class="static"
+  class:active={isActive}
+  class:text-danger={hasError}
+>
+  Text
+</div>
 ```
 
-```tsx
-<div class={clsx('static', { active: isActive, 'text-danger': hasError })}>Text</div>
+```tsx [React]
+import clsx from 'clsx';
+
+export function App() {
+  return (
+    <>
+      <div
+        class={clsx('static', {
+          active: isActive,
+          'text-danger': hasError,
+        })}
+      >
+        Text
+      </div>
+    </>
+  );
+}
 ```
+
+:::
 
 ## Binding Inline Styles
 
-```vue
+:::code-group
+
+```vue [Vue]
 <div :style="{ color: dangerColor }">Text</div>
 ```
 
-```svelte
+```svelte [Svelte]
 <div style:color={dangerColor}>Text</div>
 ```
 
-```tsx
+```tsx [React]
 <div style={{ color: dangerColor }}>Text</div>
 ```
+
+:::
