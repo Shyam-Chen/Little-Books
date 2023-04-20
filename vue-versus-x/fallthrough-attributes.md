@@ -1,4 +1,4 @@
-# Passing Down Classes
+# Fallthrough Attributes
 
 Parent:
 
@@ -32,7 +32,7 @@ Child:
 
 ```vue [Vue]
 <template>
-  <p class="paragraph">This is a paragraph.</p>
+  <p v-bind="$attrs" class="paragraph">This is a paragraph.</p>
 </template>
 
 <style lang="scss" scoped>

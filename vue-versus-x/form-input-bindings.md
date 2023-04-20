@@ -43,19 +43,4 @@ export function App() {
 }
 ```
 
-```tsx [Qwik]
-import { component$, useSignal } from '@builder.io/qwik';
-
-export default component$(() => {
-  const text = useSignal('');
-
-  return (
-    <>
-      <input bind:value={text} />
-      <div>{text}</div>
-    </>
-  );
-});
-```
-
 :::

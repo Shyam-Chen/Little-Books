@@ -39,6 +39,7 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/vue-versus-x/' },
             { text: 'Template Syntax', link: '/vue-versus-x/template-syntax' },
+            { text: 'Computed Properties', link: '/vue-versus-x/computed-properties' },
             { text: 'Class and Style Bindings', link: '/vue-versus-x/class-and-style-bindings' },
             { text: 'Conditional Rendering', link: '/vue-versus-x/conditional-rendering' },
             { text: 'List Rendering', link: '/vue-versus-x/list-rendering' },
@@ -47,8 +48,9 @@ export default defineConfig({
             { text: 'Lifecycle Hooks', link: '/vue-versus-x/lifecycle-hooks' },
             { text: 'Watchers', link: '/vue-versus-x/watchers' },
             { text: 'Template Refs', link: '/vue-versus-x/template-refs' },
-            { text: 'Passing Down Classes', link: '/vue-versus-x/passing-down-classes' },
             { text: 'Component v-model', link: '/vue-versus-x/component-v-model' },
+            { text: 'Fallthrough Attributes', link: '/vue-versus-x/fallthrough-attributes' },
+            { text: 'Slots', link: '/vue-versus-x/slots' },
             { text: 'Custom Directives', link: '/vue-versus-x/custom-directives' },
           ],
         },
