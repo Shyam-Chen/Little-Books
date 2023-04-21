@@ -52,6 +52,7 @@ export default defineConfig({
             { text: 'Fallthrough Attributes', link: '/vue-versus-x/fallthrough-attributes' },
             { text: 'Slots', link: '/vue-versus-x/slots' },
             { text: 'Custom Directives', link: '/vue-versus-x/custom-directives' },
+            { text: 'Transition', link: '/vue-versus-x/transition' },
           ],
         },
       ],
