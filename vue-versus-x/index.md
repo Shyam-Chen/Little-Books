@@ -1,7 +1,7 @@
 # Vue versus X
 
-Comparing Framework Internals
+## Comparing Framework Internals
 
-- Svelte
-- React (`preact/compat`)
-- Qwik (`@builder.io/qwik`)
+- Vue (`vue`)
+- Svelte (`svelte`)
+- React (`preact`, `@preact/signals`)
