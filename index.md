@@ -15,9 +15,9 @@ hero:
     - theme: brand
       text: Get Started
       link: /sheets/
-    # - theme: alt
-    #   text: View on GitHub
-    #   link: https://github.com/Shyam-Chen/Little-Books
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/Shyam-Chen/Little-Books
 
 features:
   - icon: 💡

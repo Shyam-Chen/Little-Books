@@ -48,6 +48,8 @@ export default defineConfig({
             { text: 'Lifecycle Hooks', link: '/vue-versus-x/lifecycle-hooks' },
             { text: 'Watchers', link: '/vue-versus-x/watchers' },
             { text: 'Template Refs', link: '/vue-versus-x/template-refs' },
+            { text: 'Props', link: '/vue-versus-x/props' },
+            { text: 'Events', link: '/vue-versus-x/events' },
             { text: 'Component v-model', link: '/vue-versus-x/component-v-model' },
             { text: 'Fallthrough Attributes', link: '/vue-versus-x/fallthrough-attributes' },
             { text: 'Slots', link: '/vue-versus-x/slots' },
