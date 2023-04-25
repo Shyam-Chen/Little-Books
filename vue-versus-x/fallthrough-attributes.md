@@ -24,6 +24,19 @@ import Child from '~/components/Child.vue';
 <Child class="bg-blue-200" />
 ```
 
+```tsx [React]
+import { Child } from '~/components/Child';
+
+export function App() {
+  return (
+    <>
+      <Child />
+      <Child class="bg-blue-200" />
+    </>
+  );
+}
+```
+
 :::
 
 Child:
@@ -50,6 +63,30 @@ Child:
     color: purple;
   }
 </style>
+```
+
+```tsx [React]
+import clsx from 'clsx';
+
+import classes from './Child.module.scss';
+
+interface Props {
+  class?: string;
+}
+
+export function Child(props: Props) {
+  return (
+    <>
+      <p class={clsx(classes.paragraph, props.class)}>This is a paragraph.</p>
+    </>
+  );
+}
+```
+
+```scss [React (Child.module.scss)]
+.paragraph {
+  color: purple;
+}
 ```
 
 :::

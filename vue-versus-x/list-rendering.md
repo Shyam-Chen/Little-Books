@@ -33,7 +33,6 @@ const list = ref([{ text: 'Foo' }, { text: 'Bar' }]);
 ```
 
 ```tsx [React]
-import { Fragment } from 'react';
 import { useSignal } from '@preact/signals';
 
 export function App() {
@@ -42,9 +41,7 @@ export function App() {
   return (
     <ul>
       {list.value.map((item, index) => (
-        <Fragment key={`list${index}`}>
-          <li>{item.text}</li>
-        </Fragment>
+        <li key={`list${index}`}>{item.text}</li>
       ))}
     </ul>
   );
@@ -94,7 +91,6 @@ const deps = ref({
 ```
 
 ```tsx [React]
-import { Fragment } from 'react';
 import { useSignal } from '@preact/signals';
 
 export function App() {
@@ -107,11 +103,9 @@ export function App() {
   return (
     <ul>
       {Object.entries(deps.value).map(([key, value], index) => (
-        <Fragment key={`deps${index}`}>
-          <li>
-            {index}. {key}: v{value}
-          </li>
-        </Fragment>
+        <li key={`deps${index}`}>
+          {index}. {key}: v{value}
+        </li>
       ))}
     </ul>
   );
@@ -141,15 +135,11 @@ export function App() {
 ```
 
 ```tsx [React]
-import { Fragment } from 'react';
-
 export function App() {
   return (
     <ul>
       {[...Array(10)].map((empty, index) => (
-        <Fragment key={index}>
-          <li>{index + 1}</li>
-        </Fragment>
+        <li key={index}>{index + 1}</li>
       ))}
     </ul>
   );

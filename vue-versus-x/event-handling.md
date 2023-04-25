@@ -36,18 +36,6 @@ export function App() {
 }
 ```
 
-```tsx [Qwik]
-import { component$, $ } from '@builder.io/qwik';
-
-export default component$(() => {
-  const handleClick = $(() => {
-    console.log('clicked');
-  });
-
-  return <button onClick$={handleClick}>Click me!</button>;
-});
-```
-
 :::
 
 ## Inline Handlers
@@ -82,16 +70,6 @@ export function App() {
 
   return <button onClick={() => (count.value += 1)}>Increment</button>;
 }
-```
-
-```tsx [Qwik]
-import { component$, useSignal } from '@builder.io/qwik';
-
-export default component$(() => {
-  const count = useSignal(0);
-
-  return <button onClick$={() => (count.value += 1)}>Increment</button>;
-});
 ```
 
 :::

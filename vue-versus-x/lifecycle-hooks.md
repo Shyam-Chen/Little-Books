@@ -61,22 +61,4 @@ export function App() {
 }
 ```
 
-```tsx [Qwik]
-import { component$, useVisibleTask$, useSignal } from '@builder.io/qwik';
-
-export default component$(() => {
-  const count = useSignal(0);
-
-  useVisibleTask$(({ cleanup }) => {
-    const interval = setInterval(() => {
-      count.value += 1;
-    }, 1000);
-
-    cleanup(() => clearInterval(interval));
-  });
-
-  return <>{count}</>;
-});
-```
-
 :::

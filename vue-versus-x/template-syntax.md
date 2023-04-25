@@ -43,23 +43,6 @@ export function App() {
 }
 ```
 
-```tsx [Qwik]
-import { component$ } from '@builder.io/qwik';
-
-export default component$(() => {
-  const value = undefined;
-
-  let number = 0;
-
-  return (
-    <>
-      <div>{value}</div>
-      <div>{number + 1}</div>
-    </>
-  );
-});
-```
-
 :::
 
 ## Attribute Bindings
@@ -78,7 +61,7 @@ const disabled = ref(true);
 </template>
 ```
 
-```svelte [Vue]
+```svelte [Svelte]
 <script lang="ts">
   let disabled = true;
 </script>
@@ -98,20 +81,6 @@ export function App() {
     </>
   );
 }
-```
-
-```tsx [Qwik]
-import { component$, useSignal } from '@builder.io/qwik';
-
-export default component$(() => {
-  const disabled = useSignal(true);
-
-  return (
-    <>
-      <button disabled={disabled.value}>Click Me</button>
-    </>
-  );
-});
 ```
 
 :::

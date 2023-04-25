@@ -45,7 +45,6 @@ const textFieldValue = computed({
 
 ```svelte [Svelte]
 <script lang="ts">
-  import { computed } from 'vue';
   import uniqueId from 'lodash/uniqueId';
 
   export let label = '';
@@ -56,7 +55,7 @@ const textFieldValue = computed({
 
 <div class="text-field">
   <label for={uid}>{label}</label>
-  <input id={uid} bind:value />
+  <input id={uid} class="{$$props.class}" bind:value bind:blur />
 </div>
 
 <style lang="scss">
@@ -67,9 +66,10 @@ const textFieldValue = computed({
 ```
 
 ```tsx [React]
+import type { ComponentPropsWithoutRef } from 'react';
 import uniqueId from 'lodash/uniqueId';
 
-export interface TextFieldProps {
+export interface TextFieldProps extends ComponentPropsWithoutRef<'input'> {
   label?: string;
   value?: string;
   onInput(val: string): void;
@@ -92,39 +92,6 @@ export function TextField(props: TextFieldProps) {
     </div>
   );
 }
-```
-
-```tsx [Qwik]
-import type { PropFunction } from '@builder.io/qwik';
-import { component$, useStylesScoped$ } from '@builder.io/qwik';
-import uniqueId from 'lodash/uniqueId';
-
-import styles from './styles.css?inline';
-
-export interface TextFieldProps {
-  label?: string;
-  value?: string;
-  onInput$?: PropFunction<(value: string) => string>;
-}
-
-export default component$((props: TextFieldProps) => {
-  useStylesScoped$(styles);
-
-  const uid = uniqueId('text-field-');
-
-  return (
-    <div class="text-field">
-      <label for={uid}>{props.label}</label>
-
-      <input
-        id={uid}
-        type="text"
-        value={props.value}
-        onInput$={(evt) => props.onInput$?.((evt.target as HTMLInputElement).value)}
-      />
-    </div>
-  );
-});
 ```
 
 :::
@@ -175,17 +142,9 @@ const store = reactive({
   };
 </script>
 
-<div class="page">
-  <TextField bind:value={state.val1} />
-  <TextField bind:value={state.val2} class="name" />
-  <TextField bind:value={state.val3} on:blur={actions.blurVal3} />
-</div>
-
-<style lang="scss">
-.page :global(.name) {
-  --at-apply: max-w-36;
-}
-</style>
+<TextField bind:value={state.val1} />
+<TextField bind:value={state.val2} class="max-w-36" />
+<TextField bind:value={state.val3} on:blur={actions.blurVal3} />
 ```
 
 ```tsx [React]
@@ -195,36 +154,21 @@ import { TextField } from '~/components/TextField';
 
 export function App() {
   const val1 = useSignal('');
+  const val2 = useSignal('');
+  const val3 = useSignal('');
+
+  const blurVal3 = () => {
+    console.log('blurVal3');
+  };
 
   return (
     <>
       <TextField value={val1.value} onInput={(val) => (val1.value = val)} />
-      {val1.value}
+      <TextField value={val2.value} onInput={(val) => (val2.value = val)} class="max-w-36" />
+      <TextField value={val3.value} onInput={(val) => (val3.value = val)} onBlur={blurVal3} />
     </>
   );
 }
-```
-
-```tsx [Qwik]
-import { component$, useStore } from '@builder.io/qwik';
-
-import TextField from '~/components/TextField';
-
-export default component$(() => {
-  const state = useStore({
-    val1: '',
-    val2: '',
-    val3: '',
-  });
-
-  return (
-    <>
-      <TextField value={state.val1} onInput$={(val) => (state.val1 = val)} />
-      <TextField value={state.val2} onInput$={(val) => (state.val2 = val)} class="max-w-36" />
-      <TextField value={state.val3} onInput$={(val) => (state.val3 = val)} />
-    </>
-  );
-});
 ```
 
 :::
