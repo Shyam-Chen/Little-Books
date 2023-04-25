@@ -20,7 +20,8 @@ const state = reactive({
 });
 
 const msgs = {
-  required: `This is a required field`,
+  required: 'This is a required field',
+  letters: 'This must contain only letters',
 };
 
 const string = () => z.string({ required_error: msgs.required });
@@ -32,7 +33,7 @@ const schema = useZodSchema(
       .refine((val) => {
         if (val) return /^[A-Za-z]+$/.test(val);
         return true;
-      }, 'This must contain only letters'),
+      }, msgs.letters),
   }),
   toRef(state, 'zodForm'),
   toRef(state, 'zodValdn'),
@@ -46,15 +47,15 @@ const submit = () => {
 </script>
 
 <template>
-  <form>
+  <div>
     <div>
-      <label>Name:</label>
-      <input v-model="state.zodForm.name" type="text" />
+      <label for="name">Name:</label>
+      <input id="name" v-model="state.zodForm.name" type="text" />
       <div class="text-red-500">{{ state.zodValdn.name }}</div>
     </div>
 
     <button @click="submit">Submit</button>
-  </form>
+  </div>
 
   <pre>{{ state.zodForm }}</pre>
 
@@ -65,33 +66,35 @@ const submit = () => {
 ```vue [Yup]
 <script lang="ts" setup>
 import { computed, reactive } from 'vue';
-import { useSchema } from 'vue-formor';
-import { setLocale, addMethod, string } from 'yup';
+import { useYupSchema } from 'vue-formor';
+import { string } from 'yup';
 
 interface CustomSchemas {
   name: string;
 }
 
-setLocale({
-  mixed: {
-    required: 'This is a required field',
-  },
-});
-
-addMethod(string, 'letters', function () {
-  return this.test('letters', 'This must contain only letters', (value) => {
-    if (value && !/^[A-Za-z]+$/.test(value)) return false;
-    return true;
-  });
-});
+const msgs = {
+  required: 'This is a required field',
+  letters: 'This must contain only letters',
+};
 
 const state = reactive({
   customSchemas: {} as CustomSchemas,
   errors: {} as Record<string, string>,
 });
 
-const schema = useSchema(
-  [[computed(() => state.customSchemas.name), string().required().letters()]],
+const schema = useYupSchema(
+  [
+    [
+      computed(() => state.customSchemas.name),
+      string()
+        .required(msgs.required)
+        .test('letters', msgs.letters, (value) => {
+          if (value && !/^[A-Za-z]+$/.test(value)) return false;
+          return true;
+        }),
+    ],
+  ],
   state,
 );
 
@@ -104,33 +107,19 @@ const submit = () => {
 
 <template>
   <div>
-    <div>Custom Schemas</div>
-
     <div>
-      <div>
-        <label for="name">Name:</label>
-        <input id="name" type="text" v-model="state.customSchemas.name" />
-        <div>{{ state.errors['customSchemas.name'] }}</div>
-      </div>
-
-      <button @click="submit">Submit</button>
+      <label for="name">Name:</label>
+      <input id="name" v-model="state.customSchemas.name" type="text" />
+      <div class="text-red-500">{{ state.errors['customSchemas.name'] }}</div>
     </div>
 
-    <pre>{{ state.customSchemas }}</pre>
-
-    <pre>{{ state.errors }}</pre>
+    <button @click="submit">Submit</button>
   </div>
+
+  <pre>{{ state.customSchemas }}</pre>
+
+  <pre>{{ state.errors }}</pre>
 </template>
-```
-
-```ts [Yup (shims.d.ts)]
-import type { StringSchema } from 'yup';
-
-declare module 'yup' {
-  interface StringSchema {
-    letters(): StringSchema;
-  }
-}
 ```
 
 :::

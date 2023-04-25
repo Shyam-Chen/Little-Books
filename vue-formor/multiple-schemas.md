@@ -5,7 +5,7 @@
 ```vue
 <script lang="ts" setup>
 import { computed, reactive } from 'vue';
-import { useSchema } from 'vue-formor';
+import { useYupSchema } from 'vue-formor';
 import { setLocale, string } from 'yup';
 
 interface Forms {
@@ -24,9 +24,9 @@ const state = reactive({
   errors: {} as Record<string, string>,
 });
 
-const fooSchema = useSchema([[computed(() => state.fooForm.text), string().required()]], state);
+const fooSchema = useYupSchema([[computed(() => state.fooForm.text), string().required()]], state);
 
-const barSchema = useSchema([[computed(() => state.barForm.text), string().required()]], state);
+const barSchema = useYupSchema([[computed(() => state.barForm.text), string().required()]], state);
 
 const fooSubmit = () => {
   barSchema.stop();
@@ -86,7 +86,7 @@ const baeSubmit = () => {
 ```vue
 <script lang="ts" setup>
 import { computed, reactive } from 'vue';
-import { useSchema } from 'vue-formor';
+import { useYupSchema } from 'vue-formor';
 import { setLocale, string } from 'yup';
 
 interface Forms {
@@ -106,13 +106,13 @@ const state = reactive({
   barErrors: {} as Record<string, string>,
 });
 
-const fooSchema = useSchema(
+const fooSchema = useYupSchema(
   [[computed(() => state.fooForm.text), string().required()]],
   state,
   'fooErrors',
 );
 
-const barSchema = useSchema(
+const barSchema = useYupSchema(
   [[computed(() => state.barForm.text), string().required()]],
   state,
   'barErrors',
@@ -173,4 +173,30 @@ const baeSubmit = () => {
     </div>
   </div>
 </template>
+```
+
+## Combinations
+
+```vue
+<script lang="ts" setup>
+const fooSchema = useZodSchema(
+  z.object({
+    /* ... */
+  }),
+  toRef(state, 'fooForm'),
+  toRef(state, 'fooValdn'),
+);
+
+const barSchema = useZodSchema(
+  z.array(
+    z.object({
+      /* ... */
+    }),
+  ),
+  toRef(state, 'barForm'),
+  toRef(state, 'barValdn'),
+);
+
+[fooSchema, barSchema].map((schema) => schema.validate()).every(Boolean);
+</script>
 ```

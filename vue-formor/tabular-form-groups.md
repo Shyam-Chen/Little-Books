@@ -3,7 +3,7 @@
 ```vue
 <script lang="ts" setup>
 import { computed, reactive } from 'vue';
-import { useSchema } from 'vue-formor';
+import { useYupSchema } from 'vue-formor';
 import { setLocale, string } from 'yup';
 
 setLocale({
@@ -36,7 +36,7 @@ const state = reactive({
   errors: {} as Record<string, string>,
 });
 
-const schema = useSchema(
+const schema = useYupSchema(
   [
     [
       computed(() => state.listGroup),

@@ -5,7 +5,7 @@
 ```ts
 // src/path/to/schema.ts
 import { computed } from 'vue';
-import { useSchema } from 'vue-formor';
+import { useYupSchema } from 'vue-formor';
 import { useI18n } from 'vue-i18n';
 import { string } from 'yup';
 
@@ -15,7 +15,7 @@ export const useSignInFormSchema = () => {
   const { t } = useI18n();
   const state = useState();
 
-  const schema = useSchema(
+  const schema = useYupSchema(
     [
       [computed(() => state.signInForm.username), computed(() => string().required(t('required')))],
       [
@@ -49,7 +49,7 @@ export default defineLocale<typeof enUS>('messages', {
 ```ts
 // src/path/to/schema.ts
 import { computed } from 'vue';
-import { useSchema } from 'vue-formor';
+import { useYupSchema } from 'vue-formor';
 import { string } from 'yup';
 
 import useMessages from '~/composables/useMessages';
@@ -60,7 +60,7 @@ export const useSignInFormSchema = () => {
   const messages = useMessages();
   const state = useState();
 
-  const schema = useSchema(
+  const schema = useYupSchema(
     [
       [
         computed(() => state.signInForm.username),

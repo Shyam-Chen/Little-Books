@@ -92,7 +92,7 @@ const submit = () => {
 ```vue [Yup]
 <script lang="ts" setup>
 import { computed, reactive } from 'vue';
-import { useSchema } from 'vue-formor';
+import { useYupSchema } from 'vue-formor';
 import { setLocale, string } from 'yup';
 
 interface DynamicForms {
@@ -111,7 +111,7 @@ const state = reactive({
   errors: {} as Record<string, string>,
 });
 
-const schema = useSchema(
+const schema = useYupSchema(
   [
     [computed(() => state.dynamicForms.language), string().required()],
     [

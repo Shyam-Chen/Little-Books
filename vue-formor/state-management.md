@@ -27,7 +27,7 @@ export const useSignInStore = defineStore('/sign-in', {
 ```ts
 // schema.ts
 import { computed } from 'vue';
-import { useSchema } from 'vue-formor';
+import { useYupSchema } from 'vue-formor';
 import { setLocale, string } from 'yup';
 
 import { useStore } from './store';
@@ -45,7 +45,7 @@ setLocale({
 export const useBasicFormsSchema = () => {
   const store = useStore();
 
-  const schema = useSchema(
+  const schema = useYupSchema(
     [
       [computed(() => store.basicForms.email), string().required().email()],
       [computed(() => store.basicForms.password), string().required().min(8)],
