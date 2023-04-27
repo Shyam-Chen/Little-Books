@@ -39,6 +39,7 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/vue-versus-x/' },
             { text: 'Template Syntax', link: '/vue-versus-x/template-syntax' },
+            { text: 'Reactivity Fundamentals', link: '/vue-versus-x/reactivity-fundamentals' },
             { text: 'Computed Properties', link: '/vue-versus-x/computed-properties' },
             { text: 'Class and Style Bindings', link: '/vue-versus-x/class-and-style-bindings' },
             { text: 'Conditional Rendering', link: '/vue-versus-x/conditional-rendering' },
@@ -53,6 +54,7 @@ export default defineConfig({
             { text: 'Component v-model', link: '/vue-versus-x/component-v-model' },
             { text: 'Fallthrough Attributes', link: '/vue-versus-x/fallthrough-attributes' },
             { text: 'Slots', link: '/vue-versus-x/slots' },
+            { text: 'Provide / Inject', link: '/vue-versus-x/provide-inject' },
             { text: 'Custom Directives', link: '/vue-versus-x/custom-directives' },
             { text: 'Transition', link: '/vue-versus-x/transition' },
           ],

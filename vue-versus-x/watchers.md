@@ -27,6 +27,28 @@ watch(
 </template>
 ```
 
+```vue [Vue (watchEffect)]
+<script lang="ts" setup>
+import { reactive, watchEffect } from 'vue';
+
+const store = reactive({
+  count: 0,
+  incrememnt() {
+    store.count += 1;
+  },
+});
+
+watchEffect(() => {
+  console.log(store.count);
+});
+</script>
+
+<template>
+  <div>{{ store.count }}</div>
+  <button @click="store.incrememnt">Incrememnt</button>
+</template>
+```
+
 ```svelte [Svelte]
 <script lang="ts">
   import { writable } from 'svelte/store';
