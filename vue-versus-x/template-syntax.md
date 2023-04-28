@@ -9,12 +9,16 @@
 const value = undefined;
 const string = 'word';
 let number = 0;
+
+const obj = { foo: 'bar' };
 </script>
 
 <template>
   <div>{{ value }}</div>
   <div>{{ string.toUpperCase() }}</div>
   <div>{{ number + 1 }}</div>
+
+  <pre>{{ obj }}</pre>
 </template>
 ```
 
@@ -23,11 +27,15 @@ let number = 0;
   const value = undefined;
   const string = 'word';
   let number = 0;
+
+  const obj = { foo: 'bar' };
 </script>
 
 <div>{value ? value : ''}</div>
 <div>{string.toUpperCase()}</div>
 <div>{number + 1}</div>
+
+<pre>{JSON.stringify(obj, null, 2)}</pre>
 ```
 
 ```tsx [React]
@@ -36,11 +44,15 @@ export function App() {
   const string = 'word';
   let number = 0;
 
+  const obj = { foo: 'bar' };
+
   return (
     <>
       <div>{value}</div>
       <div>{string.toUpperCase()}</div>
       <div>{number + 1}</div>
+
+      <pre>{JSON.stringify(obj, null, 2)}</pre>
     </>
   );
 }
