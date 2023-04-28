@@ -43,6 +43,36 @@ const textFieldValue = computed({
 </style>
 ```
 
+```vue [Vue (defineModel)]
+<script lang="ts" setup>
+import type { InputHTMLAttributes } from 'vue';
+import uniqueId from 'lodash/uniqueId';
+
+interface Props extends InputHTMLAttributes {
+  label?: string;
+}
+
+const props = defineProps<Props>();
+
+const value = defineModel<string>('value', { default: '' });
+
+const uid = uniqueId('text-field-');
+</script>
+
+<template>
+  <div class="text-field">
+    <label :for="uid">{{ label }}</label>
+    <input :id="uid" v-model="value" v-bind="$attrs" />
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.text-field {
+  @apply flex flex-col w-full;
+}
+</style>
+```
+
 ```svelte [Svelte]
 <script lang="ts">
   import uniqueId from 'lodash/uniqueId';

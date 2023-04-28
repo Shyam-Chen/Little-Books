@@ -37,7 +37,7 @@ const name = 'World';
 ```tsx [React]
 import classes from './Typography.module.scss';
 
-export function Typography() {
+export default function Typography() {
   const name = 'World';
 
   return (
