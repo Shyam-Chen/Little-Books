@@ -91,3 +91,33 @@ export function App() {
 ```
 
 :::
+
+## Dynamic Components
+
+:::code-group
+
+```vue [Vue]
+<template>
+  <component :is="currentComponent" />
+</template>
+```
+
+```svelte [Svelte]
+<svelte:component this={currentComponent}/>
+```
+
+```tsx [React]
+import type { ComponentType, FunctionalComponent } from 'preact';
+
+interface Props {
+  is: ComponentType<any>;
+}
+
+const Component: FunctionalComponent<Props> = ({ is: Is, ...props }) => {
+  return <Is {...props} />;
+};
+
+export default Component;
+```
+
+:::

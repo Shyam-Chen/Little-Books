@@ -63,11 +63,7 @@ watchEffect(() => {
     },
   };
 
-  const watch = (val) => {
-    console.log(val);
-  };
-
-  $: watch($state.count);
+  $: $state.count, console.log($state.count);
 </script>
 
 <div>{$state.count}</div>
