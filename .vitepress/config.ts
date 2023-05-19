@@ -18,6 +18,7 @@ export default defineConfig({
           { text: 'Vue Formor', link: '/vue-formor/' },
           { text: 'Vue Storer', link: '/vue-storer/' },
           { text: 'Vue Localer', link: '/vue-localer/' },
+          { text: 'vite-plugin-vue-routes', link: '/vite-plugin-vue-routes/' },
         ],
       },
     ],
@@ -106,6 +107,23 @@ export default defineConfig({
                 { text: 'Component Interpolation', link: '/vue-localer/component-interpolation' },
               ],
             },
+          ],
+        },
+      ],
+      '/vue-storer': [
+        {
+          text: 'Vue Storer',
+          items: [{ text: 'Overview', link: '/vue-storer/' }],
+        },
+      ],
+      '/vite-plugin-vue-routes': [
+        {
+          text: 'vite-plugin-vue-routes',
+          items: [
+            { text: 'Overview', link: '/vite-plugin-vue-routes/' },
+            { text: 'Routes', link: '/vite-plugin-vue-routes/routes' },
+            { text: 'Layouts', link: '/vite-plugin-vue-routes/layouts' },
+            { text: 'Middleware', link: '/vite-plugin-vue-routes/middleware' },
           ],
         },
       ],
