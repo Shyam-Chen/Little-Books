@@ -14,11 +14,20 @@ export default defineConfig({
         text: 'Docs',
         items: [
           { text: 'Overview', link: '/sheets/' },
-          { text: 'Vue versus X', link: '/vue-versus-x/' },
-          { text: 'Vue Formor', link: '/vue-formor/' },
-          { text: 'Vue Storer', link: '/vue-storer/' },
-          { text: 'Vue Localer', link: '/vue-localer/' },
-          { text: 'vite-plugin-vue-routes', link: '/vite-plugin-vue-routes/' },
+          {
+            text: 'Vue Related',
+            items: [
+              { text: 'Vue versus X', link: '/vue-versus-x/' },
+              { text: 'Vue Formor', link: '/vue-formor/' },
+              { text: 'Vue Storer', link: '/vue-storer/' },
+              { text: 'Vue Localer', link: '/vue-localer/' },
+              { text: 'vite-plugin-vue-routes', link: '/vite-plugin-vue-routes/' },
+            ],
+          },
+          {
+            text: 'Fastify Related',
+            items: [{ text: 'vite-plugin-fastify-routes', link: '/vite-plugin-fastify-routes/' }],
+          },
         ],
       },
     ],
@@ -29,11 +38,23 @@ export default defineConfig({
     sidebar: {
       '/sheets': [
         { text: 'Overview', link: '/sheets/' },
-        { text: 'Vue versus X', link: '/vue-versus-x/' },
-        { text: 'Vue Formor', link: '/vue-formor/' },
-        { text: 'Vue Storer', link: '/vue-storer/' },
-        { text: 'Vue Localer', link: '/vue-localer/' },
+        {
+          text: 'Vue Related',
+          items: [
+            { text: 'Vue versus X', link: '/vue-versus-x/' },
+            { text: 'Vue Formor', link: '/vue-formor/' },
+            { text: 'Vue Storer', link: '/vue-storer/' },
+            { text: 'Vue Localer', link: '/vue-localer/' },
+            { text: 'vite-plugin-vue-routes', link: '/vite-plugin-vue-routes/' },
+          ],
+        },
+        {
+          text: 'Fastify Related',
+          items: [{ text: 'vite-plugin-fastify-routes', link: '/vite-plugin-fastify-routes/' }],
+        },
       ],
+
+      // vue
       '/vue-versus-x': [
         {
           text: 'Vue versus X',
@@ -125,6 +146,14 @@ export default defineConfig({
             { text: 'Layouts', link: '/vite-plugin-vue-routes/layouts' },
             { text: 'Middleware', link: '/vite-plugin-vue-routes/middleware' },
           ],
+        },
+      ],
+
+      // fastify
+      '/vite-plugin-fastify-routes': [
+        {
+          text: 'vite-plugin-fastify-routes',
+          items: [{ text: 'Overview', link: '/vite-plugin-fastify-routes/' }],
         },
       ],
     },
