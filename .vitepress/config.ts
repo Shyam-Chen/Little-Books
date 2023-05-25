@@ -122,6 +122,7 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { text: 'Locale Changing', link: '/vue-localer/locale-changing' },
+                { text: 'Fallbacking', link: '/vue-localer/fallbacking' },
                 { text: 'Format Syntax', link: '/vue-localer/format-syntax' },
                 { text: 'Local Scope', link: '/vue-localer/local-scope' },
                 { text: 'List Interpolation', link: '/vue-localer/list-interpolation' },

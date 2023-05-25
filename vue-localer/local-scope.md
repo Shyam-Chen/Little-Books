@@ -1,46 +1,32 @@
 # Local Scope
 
-```ts
-import { createRouter, createWebHistory } from 'vue-router';
-
-export default createRouter({
-  history: createWebHistory(),
-  routes: [{ path: '/foo', component: () => import('~/routes/foo/Registry.vue') }],
-});
-```
-
 ```vue
-<!-- src/routes/foo/Registry.vue -->
 <script lang="ts" setup>
-import { useLocaler, defineLocale } from 'vue-localer';
+import { defineLocale } from 'vue-localer';
 
-import enUS from './_locales/en-US';
-import jaJP from './_locales/ja-JP';
-
-const { f } = useLocaler();
+import enUS from './locales/en-US';
 
 const useLocale = defineLocale<typeof enUS>('foo', {
   'en-US': enUS,
-  'ja-JP': jaJP,
-  'ko-KR': () => import('./_locales/ko-KR'),
+  'ja-JP': () => import('./locales/ja-JP'),
+  'ko-KR': () => import('./locales/ko-KR'),
 });
 
 const locale = useLocale();
 </script>
 
 <template>
-  <div>{{ f(locale.hello, { msg: 'Vue' }) }}</div>
+  <div>{{ $f(locale.hello, { msg: 'Vue' }) }}</div>
 </template>
 ```
 
-### Shared
+## Shared Locale Messages
 
 ```ts
-// src/routes/foo/_includes/useLocale/index.ts
 import { defineLocale } from 'vue-localer';
 
-import enUS from './en-US'; // src/routes/foo/_includes/useLocale/en-US.ts
-import jaJP from './ja-JP'; // src/routes/foo/_includes/useLocale/ja-JP.ts
+import enUS from './en-US';
+import jaJP from './ja-JP';
 
 export default defineLocale<typeof enUS>('foo', {
   'en-US': enUS,
@@ -50,17 +36,30 @@ export default defineLocale<typeof enUS>('foo', {
 ```
 
 ```vue
-<!-- src/routes/foo/Registry.vue -->
 <script lang="ts" setup>
-import { useLocaler } from 'vue-localer';
+import useLocale from './locales';
 
-import useLocale from './_includes/useLocale';
-
-const { f } = useLocaler();
 const locale = useLocale();
 </script>
 
 <template>
-  <div>{{ f(locale.hello, { msg: 'Vue' }) }}</div>
+  <div>{{ $f(locale.hello, { msg: 'Vue' }) }}</div>
 </template>
+```
+
+## Type-safe Resources
+
+`defineLocale<typeof enUS>()`
+
+<!-- prettier-ignore -->
+```ts
+import { defineLocale } from 'vue-localer';
+
+import enUS from './en-US';
+
+export default defineLocale<typeof enUS>('foo', { // [!code ++]
+  'en-US': enUS,
+  'ja-JP': () => import('./ja-JP'),
+  'ko-KR': () => import('./ko-KR'),
+});
 ```

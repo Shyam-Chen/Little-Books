@@ -25,3 +25,21 @@ const locale = useLocale();
   <div>{{ f(locale.hello, { msg: 'Vue' }) }}</div>
 </template>
 ```
+
+::: tip
+
+When creating language files, it is recommended to use backticks to avoid Prettier breaking lines that are too long, while ensuring that the line count remains consistent across all language files.
+
+```ts
+// from
+export default {
+  description:
+    'An approachable, performant and versatile framework for building web user interfaces.',
+};
+// to
+export default {
+  description: `An approachable, performant and versatile framework for building web user interfaces.`,
+};
+```
+
+:::
