@@ -28,48 +28,115 @@ bun add vue-localer
 
 ## Usage
 
+Used for global scope:
+
 :::code-group
 
 ```ts [ESM]
-import { createLocaler, useLocaler, useLocale, defineLocale, Localer } from 'vue-localer';
+import { createLocaler, useLocaler, useLocale } from 'vue-localer';
 ```
 
 ```ts [CJS]
-const { createLocaler, useLocaler, useLocale, defineLocale, Localer } = require('vue-localer');
+const { createLocaler, useLocaler, useLocale } = require('vue-localer');
 ```
 
 :::
+
+Used for local scope:
+
+:::code-group
+
+```ts [ESM]
+import { defineLocale } from 'vue-localer';
+```
+
+```ts [CJS]
+const { defineLocale } = require('vue-localer');
+```
+
+:::
+
+Used for component interpolation:
+
+:::code-group
+
+```ts [ESM]
+import { Localer } from 'vue-localer';
+```
+
+```ts [CJS]
+const { Localer } = require('vue-localer');
+```
+
+:::
+
+## Getting Started
+
+First, prepare the multilingual files.
+
+```ts
+// src/locales/en-US.ts
+export default {
+  hello: `Hello, {msg}!`,
+};
+
+// src/locales/ja-JP.ts
+export default {
+  hello: `こんにちは、{msg}!`,
+};
+
+// src/locales/ko-KR.ts
+export default {
+  hello: `안녕하세요, {msg}!`,
+};
+```
+
+Instantiate `vue-localer` and load multiple language files.
 
 ```ts
 // src/plugins/localer.ts
 import { createLocaler } from 'vue-localer';
 
 import enUS from '~/locales/en-US';
-import jaJP from '~/locales/ja-JP';
 
 export default createLocaler({
   fallbackLocale: 'en-US',
   messages: {
     'en-US': enUS,
-    'ja-JP': jaJP,
+    'ja-JP': () => import('~/locales/ja-JP'),
     'ko-KR': () => import('~/locales/ko-KR'),
   },
 });
 ```
 
+Register the instantiated `vue-localer` as app-level functionality to Vue.
+
 ```ts
 // src/main.ts
 import { createApp } from 'vue';
 
-import router from '~/plugins/router';
-import localer from '~/plugins/localer';
+import localer from '~/plugins/localer'; // [!code ++]
 
 import App from './App.vue';
 
 const app = createApp(App);
 
-app.use(router);
-app.use(localer);
+app.use(localer); // [!code ++]
 
 app.mount('#root');
+```
+
+Next, by using `useLocale`, you can obtain the source of the current locale.
+
+```vue
+<script lang="ts" setup>
+import { useLocale } from 'vue-localer';
+
+const locale = useLocale();
+</script>
+
+<template>
+  <div>{{ $f(locale.hello, { msg: 'Vue' }) }}</div>
+  <!-- Hello, Vue! -->
+</template>
 ```

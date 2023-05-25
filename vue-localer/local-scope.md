@@ -19,7 +19,7 @@ import jaJP from './_locales/ja-JP';
 
 const { f } = useLocaler();
 
-const useLocale = defineLocale('foo', {
+const useLocale = defineLocale<typeof enUS>('foo', {
   'en-US': enUS,
   'ja-JP': jaJP,
   'ko-KR': () => import('./_locales/ko-KR'),
