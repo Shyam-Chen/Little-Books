@@ -127,6 +127,7 @@ export default defineConfig({
                 { text: 'Local Scope', link: '/vue-localer/local-scope' },
                 { text: 'List Interpolation', link: '/vue-localer/list-interpolation' },
                 { text: 'Component Interpolation', link: '/vue-localer/component-interpolation' },
+                { text: 'Glob Import', link: '/vue-localer/glob-import' },
               ],
             },
           ],

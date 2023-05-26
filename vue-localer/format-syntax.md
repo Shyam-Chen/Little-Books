@@ -43,3 +43,28 @@ export default {
 ```
 
 :::
+
+## Type-safe Resources
+
+```ts
+// src/locales/index.ts
+import { useLocale } from 'vue-localer';
+
+import enUS from './en-US';
+
+export default () => useLocale<typeof enUS>();
+```
+
+```vue
+<!-- src/App.vue -->
+<script lang="ts" setup>
+import { useLocale } from 'vue-localer'; // [!code --]
+import useLocale from '~/locales'; // [!code ++]
+
+const locale = useLocale();
+</script>
+
+<template>
+  <div>{{ $f(locale.hello, { msg: 'Vue' }) }}</div>
+</template>
+```

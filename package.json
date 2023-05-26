@@ -1,17 +1,16 @@
 {
-  "name": "cheat-sheet",
   "private": true,
   "scripts": {
     "dev": "vitepress dev --port 3715",
     "build": "vitepress build",
-    "preview": "vitepress preview --port 3715"
-  },
-  "devDependencies": {
-    "unocss": "^0.51.8",
-    "vitepress": "1.0.0-alpha.74",
-    "vue": "^3.2.47"
+    "preview": "vitepress preview --port 3714"
   },
   "dependencies": {
-    "@unocss/reset": "^0.51.8"
+    "@unocss/reset": "^0.52.3"
+  },
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.1.52",
+    "unocss": "^0.52.3",
+    "vitepress": "1.0.0-beta.1"
   }
 }

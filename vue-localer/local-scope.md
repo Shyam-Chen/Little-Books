@@ -26,11 +26,10 @@ const locale = useLocale();
 import { defineLocale } from 'vue-localer';
 
 import enUS from './en-US';
-import jaJP from './ja-JP';
 
 export default defineLocale<typeof enUS>('foo', {
   'en-US': enUS,
-  'ja-JP': jaJP,
+  'ja-JP': () => import('./ja-JP'),
   'ko-KR': () => import('./ko-KR'),
 });
 ```
@@ -46,6 +45,41 @@ const locale = useLocale();
   <div>{{ $f(locale.hello, { msg: 'Vue' }) }}</div>
 </template>
 ```
+
+::: tip
+
+If you want to define error messages, you can also place them in `composables` like this:
+
+```ts
+// src/composables/useValdnMsgs/index.ts
+import { defineLocale } from 'vue-localer';
+
+import enUS from './en-US'; // src/composables/useValdnMsgs/en-US.ts
+
+export default defineLocale<typeof enUS>('foo', {
+  'en-US': enUS,
+  'ja-JP': () => import('./ja-JP'), // src/composables/useValdnMsgs/ja-JP.ts
+  'ko-KR': () => import('./ko-KR'), // src/composables/useValdnMsgs/ko-KR.ts
+});
+```
+
+Call the predefined message:
+
+```vue
+<script lang="ts" setup>
+import { z } from 'zod';
+
+import useValdnMsgs from '~/composables/useValdnMsgs';
+
+const valdnMsgs = useValdnMsgs();
+
+z.object({
+  text: z.string().nonempty(valdnMsgs.value.required),
+});
+</script>
+```
+
+:::
 
 ## Type-safe Resources
 
