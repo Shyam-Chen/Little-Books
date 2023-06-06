@@ -219,9 +219,11 @@ const increment: InstanceType<typeof Control>['onInc'] = (val) => {
 
 ```svelte [Svelte]
 <script lang="ts">
+  import type { ComponentEvents } from 'svelte';
+
   import Control from '$lib/components/Control.svelte';
 
-  function increment(evt: CustomEvent<number>) {
+  function increment(evt: ComponentEvents<Control>['inc']) {
     console.log(evt.detail); // 7
   }
 </script>

@@ -26,7 +26,12 @@ export default defineConfig({
           },
           {
             text: 'Fastify Related',
-            items: [{ text: 'vite-plugin-fastify-routes', link: '/vite-plugin-fastify-routes/' }],
+            items: [
+              { text: 'Fastify I18n', link: '/fastify-i18n/' },
+              { text: 'Fastify Cloudinary', link: '/fastify-cloudinary/' },
+              { text: 'vite-plugin-fastify', link: '/vite-plugin-fastify/' },
+              { text: 'vite-plugin-fastify-routes', link: '/vite-plugin-fastify-routes/' },
+            ],
           },
         ],
       },
@@ -50,7 +55,12 @@ export default defineConfig({
         },
         {
           text: 'Fastify Related',
-          items: [{ text: 'vite-plugin-fastify-routes', link: '/vite-plugin-fastify-routes/' }],
+          items: [
+            { text: 'Fastify I18n', link: '/fastify-i18n/' },
+            { text: 'Fastify Cloudinary', link: '/fastify-cloudinary/' },
+            { text: 'vite-plugin-fastify', link: '/vite-plugin-fastify/' },
+            { text: 'vite-plugin-fastify-routes', link: '/vite-plugin-fastify-routes/' },
+          ],
         },
       ],
 
@@ -84,6 +94,7 @@ export default defineConfig({
             { text: 'Transition', link: '/vue-versus-x/transition' },
             { text: 'Suspense', link: '/vue-versus-x/suspense' },
             { text: 'State Management', link: '/vue-versus-x/state-management' },
+            { text: 'Generics', link: '/vue-versus-x/generics' },
           ],
         },
       ],
@@ -155,6 +166,24 @@ export default defineConfig({
       ],
 
       // fastify
+      '/fastify-i18n': [
+        {
+          text: 'Fastify I18n',
+          items: [{ text: 'Overview', link: '/fastify-i18n/' }],
+        },
+      ],
+      '/fastify-cloudinary': [
+        {
+          text: 'Fastify Cloudinary',
+          items: [{ text: 'Overview', link: '/fastify-cloudinary/' }],
+        },
+      ],
+      '/vite-plugin-fastify': [
+        {
+          text: 'vite-plugin-fastify',
+          items: [{ text: 'Overview', link: '/vite-plugin-fastify/' }],
+        },
+      ],
       '/vite-plugin-fastify-routes': [
         {
           text: 'vite-plugin-fastify-routes',

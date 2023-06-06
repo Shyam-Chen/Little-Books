@@ -95,3 +95,21 @@ $subscribe((state) => {
 ```
 
 In the example above, `useCounter` returns an object with `state`, `getters`, `actions`, `$reset`, and `$subscribe`. `state`, `getters`, and `actions` are the same as the object returned by the factory function. `$reset` is a function that resets the store's state to its initial state. `$subscribe` is a function that allows you to subscribe to changes in the store's state.
+
+## Persisted State
+
+If you need persistent data storage, it can be integrated with Web Storage.
+
+```ts
+import { reactive, readonly } from 'vue';
+import { defineStore } from 'vue-storer';
+
+export const useCounter = defineStore(
+  'counter', // This will be the stored key.
+  () => {
+    /* ... */
+    return { state, getters, actions };
+  },
+  sessionStorage, // You can also use `localStorage`. // [!code ++]
+);
+```

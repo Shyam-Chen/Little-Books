@@ -14,31 +14,8 @@ export const increment = () => {
 };
 ```
 
-```ts [Vue (vue-storer)]
-import { reactive, readonly } from 'vue';
-import { defineStore } from 'vue-storer';
-
-export default defineStore('counter', () => {
-  const state = reactive({
-    count: 0,
-  });
-
-  const getters = readonly({
-    doubleCount: computed(() => state.count * 2),
-  });
-
-  const actions = readonly({
-    increment() {
-      state.count += 1;
-    },
-  });
-
-  return { state, getters, actions };
-});
-```
-
 ```ts [Svelte]
-import { writable, derived, get } from 'svelte/store';
+import { writable, derived } from 'svelte/store';
 
 export const count = writable(0);
 
@@ -74,20 +51,6 @@ import { count, doubleCount, increment } from './store';
   <p>Count: {{ count }}</p>
   <p>Double Count: {{ doubleCount }}</p>
   <button @click="increment">Increment</button>
-</template>
-```
-
-```vue [Vue (vue-storer)]
-<script lang="ts" setup>
-import useCounter from './store';
-
-const { state, getters, actions } = useCounter();
-</script>
-
-<template>
-  <p>Count: {{ state.count }}</p>
-  <p>Double Count: {{ getters.doubleCount }}</p>
-  <button @click="actions.increment">Increment</button>
 </template>
 ```
 
