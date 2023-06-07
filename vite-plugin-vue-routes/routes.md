@@ -28,26 +28,43 @@ src/routes/(group)/bar/Registry.vue -> /bar
 src/routes/(home)/Registry.vue -> /
 ```
 
-It does not support nested routes, so it is not possible to declare `<RouterView />` in `Registry.vue`.
+## Nested Routes
 
-The following configuration can achieve something similar:
+Declare `<RouterView />` in `src/routes/users/[id]/Registry.vue`:
+
+```vue
+<template>
+  <h2>User {{ $route.params.id }}</h2>
+  <RouterView />
+</template>
+```
 
 ```coffee
-src/layouts/User.vue
-
-src/routes/users/[id]/(entry)/Registry.vue -> /users/:id
+src/routes/users/[id]/Registry.vue -> /users/:id
+src/routes/users/[id]/(home)/Registry.vue -> /users/:id
 src/routes/users/[id]/profile/Registry.vue -> /users/:id/profile
 src/routes/users/[id]/posts/Registry.vue -> /users/:id/posts
 ```
 
-Using in `Registry.vue`:
-
-```vue
-<script lang="ts" setup>
-defineRegistry({
-  layout: 'default@user',
-});
-</script>
+```ts
+const routes = [
+  {
+    path: '/users/:id',
+    component: () => import('~/routes/users/[id]/Registry.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('~/routes/users/[id]/(home)/Registry.vue'),
+      },
+      {
+        path: 'profile',
+        component: () => import('~/routes/users/[id]/profile/Registry.vue'),
+      },
+      {
+        path: 'posts',
+        component: () => import('~/routes/users/[id]/posts/Registry.vue'),
+      },
+    ],
+  },
+];
 ```
-
-You can refer to the [Layouts usage](./layouts) for examples on how to use the `defineRegistry` macro.

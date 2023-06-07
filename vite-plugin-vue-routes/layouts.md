@@ -53,3 +53,39 @@ As for libraries for state management, you can consider the following options:
 - `createInjectionState` in `@vueuse/shared`
 
 If there is a scroll bar on the layout, you can use `useScroll` from `@vueuse/core` to store the original coordinates in state management.
+
+## Layout Meta Fields
+
+```vue
+<!-- src/routes/foo/Registry.vue -->
+<script lang="ts" setup>
+defineRegistry({
+  layout: 'foo',
+});
+</script>
+```
+
+```ts
+const routes = [
+  {
+    path: '/foo',
+    component: () => import('~/routes/foo/Registry.vue'),
+    meta: { layout: 'foo' },
+  },
+];
+```
+
+## Layout Component
+
+```vue
+<!-- src/App.vue -->
+<script lang="ts" setup>
+import Layout from 'virtual:vue-routes/Layout.vue';
+</script>
+
+<template>
+  <Layout>
+    <RouterView />
+  </Layout>
+</template>
+```
