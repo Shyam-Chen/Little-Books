@@ -30,6 +30,21 @@ import Layout from 'virtual:vue-routes/Layout.vue';
 </template>
 ```
 
+::: warning
+If you encounter this error, please ignore it as it does not affect actual development and only occurs when there are updates in the dependencies.
+
+```sh
+Error: Failed to scan for dependencies from entries:
+  /path/to/index.html
+
+  ✘ [ERROR] ENOENT: no such file or directory, open 'virtual:vue-routes/Layout.vue' [plugin vite:dep-scan]
+
+    script:/path/to/src/App.vue?id=0:39:7:
+      xx │ import 'virtual:vue-routes/Layout.vue'
+         ╵        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+:::
+
 ## Setting Another Layout
 
 By using the `layout` attribute in the `defineRegistry` macro, you can specify the desired layout.

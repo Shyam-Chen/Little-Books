@@ -39,6 +39,8 @@ src/middleware/foo.ts
 <script lang="ts" setup>
 defineRegistry({
   layout: 'Foo',
+  // layout: 'FooBar' -> src/layouts/FooBar.vue
+  // middleware -> src/middleware/fooBar.ts
 });
 </script>
 ```

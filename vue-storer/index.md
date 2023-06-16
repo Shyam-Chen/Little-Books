@@ -80,9 +80,12 @@ import { useCounter } from './store';
 
 const { state, getters, actions, $reset, $subscribe } = useCounter();
 
-$subscribe((state) => {
+const unsubscribe = $subscribe((state) => {
   console.log(state.count);
 });
+
+// manually remove the listener
+unsubscribe();
 </script>
 
 <template>
