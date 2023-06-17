@@ -6,11 +6,11 @@
     "preview": "vitepress preview --port 3714"
   },
   "dependencies": {
-    "@unocss/reset": "^0.52.3"
+    "@unocss/reset": "^0.53.1"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.52",
-    "unocss": "^0.52.3",
-    "vitepress": "1.0.0-beta.1"
+    "unocss": "^0.53.1",
+    "vitepress": "1.0.0-beta.2"
   }
 }

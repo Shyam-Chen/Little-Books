@@ -100,11 +100,9 @@ interface DynamicForms {
   preprocessor: string;
 }
 
-setLocale({
-  mixed: {
-    required: 'This is a required field',
-  },
-});
+const msgs = {
+  required: `This is a required field`,
+};
 
 const state = reactive({
   dynamicForms: {} as DynamicForms,
@@ -113,10 +111,14 @@ const state = reactive({
 
 const schema = useYupSchema(
   [
-    [computed(() => state.dynamicForms.language), string().required()],
+    [computed(() => state.dynamicForms.language), string().required(msgs.required)],
     [
       computed(() => state.dynamicForms.preprocessor),
-      computed(() => state.dynamicForms.language === 'js' ? string().required() : string().nullable()),
+      computed(() =>
+        state.dynamicForms.language === 'js'
+          ? string().required(msgs.required)
+          : string().nullable(),
+      ),
     ],
   ],
   state,
@@ -154,8 +156,11 @@ const submit = () => {
       <div>
         <label for="preprocessor">Preprocessor:</label>
 
-        <select id="preprocessor" v-model="state.dynamicForms.preprocessor"
-          :disabled="state.dynamicForms.language !== 'js'">
+        <select
+          id="preprocessor"
+          v-model="state.dynamicForms.preprocessor"
+          :disabled="state.dynamicForms.language !== 'js'"
+        >
           <option value="">None</option>
           <option value="ts">TypeScript</option>
         </select>

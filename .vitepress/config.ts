@@ -21,12 +21,14 @@ export default defineConfig({
               { text: 'Vue Formor', link: '/vue-formor/' },
               { text: 'Vue Storer', link: '/vue-storer/' },
               { text: 'Vue Localer', link: '/vue-localer/' },
+              { text: 'Vue QRCode Image', link: '/vue-qrcode-image/' },
               { text: 'vite-plugin-vue-routes', link: '/vite-plugin-vue-routes/' },
             ],
           },
           {
             text: 'Fastify Related',
             items: [
+              { text: 'Fastify versus X', link: '/fastify-versus-x/' },
               { text: 'Fastify I18n', link: '/fastify-i18n/' },
               { text: 'Fastify Cloudinary', link: '/fastify-cloudinary/' },
               { text: 'vite-plugin-fastify', link: '/vite-plugin-fastify/' },
@@ -36,10 +38,10 @@ export default defineConfig({
         ],
       },
     ],
-    // socialLinks: [
-    //   { icon: 'github', link: 'https://github.com/Shyam-Chen/Little-Books' },
-    //   // { icon: '__XXX___', link: '__XXX__' },
-    // ],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/Shyam-Chen/Little-Books' },
+      // { icon: '__XXX___', link: '__XXX__' },
+    ],
     sidebar: {
       '/sheets': [
         { text: 'Overview', link: '/sheets/' },
@@ -50,12 +52,14 @@ export default defineConfig({
             { text: 'Vue Formor', link: '/vue-formor/' },
             { text: 'Vue Storer', link: '/vue-storer/' },
             { text: 'Vue Localer', link: '/vue-localer/' },
+            { text: 'Vue QRCode Image', link: '/vue-qrcode-image/' },
             { text: 'vite-plugin-vue-routes', link: '/vite-plugin-vue-routes/' },
           ],
         },
         {
           text: 'Fastify Related',
           items: [
+            { text: 'Fastify versus X', link: '/fastify-versus-x/' },
             { text: 'Fastify I18n', link: '/fastify-i18n/' },
             { text: 'Fastify Cloudinary', link: '/fastify-cloudinary/' },
             { text: 'vite-plugin-fastify', link: '/vite-plugin-fastify/' },
@@ -153,6 +157,12 @@ export default defineConfig({
           items: [{ text: 'Overview', link: '/vue-storer/' }],
         },
       ],
+      '/vue-qrcode-image/': [
+        {
+          text: 'Vue QRCode Image',
+          items: [{ text: 'Overview', link: '/vue-qrcode-image/' }],
+        },
+      ],
       '/vite-plugin-vue-routes': [
         {
           text: 'vite-plugin-vue-routes',
@@ -166,6 +176,15 @@ export default defineConfig({
       ],
 
       // fastify
+      '/fastify-versus-x/': [
+        {
+          text: 'Fastify versus X',
+          items: [
+            { text: 'Overview', link: '/fastify-versus-x/' },
+            { text: 'Routing', link: '/fastify-versus-x/routing' },
+          ],
+        },
+      ],
       '/fastify-i18n': [
         {
           text: 'Fastify I18n',

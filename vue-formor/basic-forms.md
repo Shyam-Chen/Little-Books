@@ -17,7 +17,7 @@ First, start by adding some markup, you can start by having a `form` wrapping a 
       <input type="password" />
     </div>
 
-    <button>Sign in</button>
+    <button type="button">Sign in</button>
   </form>
 </template>
 ```
@@ -50,7 +50,7 @@ const state = reactive({
       <input v-model="state.loginForm.password" type="password" /> // [!code hl]
     </div>
 
-    <button>Login</button>
+    <button type="button">Sign in</button>
   </form>
 </template>
 ```
