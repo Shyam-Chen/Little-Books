@@ -182,6 +182,12 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/fastify-versus-x/' },
             { text: 'Routing', link: '/fastify-versus-x/routing' },
+            { text: 'Caching', link: '/fastify-versus-x/caching' },
+            { text: 'Task Scheduling', link: '/fastify-versus-x/task-scheduling' },
+            { text: 'Queues', link: '/fastify-versus-x/queues' },
+            { text: 'Logging', link: '/fastify-versus-x/logging' },
+            { text: 'Events', link: '/fastify-versus-x/events' },
+            { text: 'HTTP Module', link: '/fastify-versus-x/http-module' },
           ],
         },
       ],
