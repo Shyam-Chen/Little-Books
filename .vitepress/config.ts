@@ -182,7 +182,11 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/fastify-versus-x/' },
             { text: 'Routing', link: '/fastify-versus-x/routing' },
+            { text: 'Lifecycle Hooks', link: '/fastify-versus-x/lifecycle-hooks' },
+            { text: 'Database', link: '/fastify-versus-x/database' },
+            { text: 'Validation', link: '/fastify-versus-x/validation' },
             { text: 'Caching', link: '/fastify-versus-x/caching' },
+            { text: 'Serialization', link: '/fastify-versus-x/serialization' },
             { text: 'Task Scheduling', link: '/fastify-versus-x/task-scheduling' },
             { text: 'Queues', link: '/fastify-versus-x/queues' },
             { text: 'Logging', link: '/fastify-versus-x/logging' },

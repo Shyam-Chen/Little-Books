@@ -75,7 +75,13 @@ const uid = uniqueId('text-field-');
 
 ```svelte [Svelte]
 <script lang="ts">
+  import type { HTMLInputAttributes } from 'svelte/elements';
   import uniqueId from 'lodash/uniqueId';
+
+  interface $$Props extends HTMLInputAttributes {
+    label?: string;
+    value?: string;
+  }
 
   export let label = '';
   export let value = '';
@@ -85,7 +91,7 @@ const uid = uniqueId('text-field-');
 
 <div class="text-field">
   <label for={uid}>{label}</label>
-  <input id={uid} class="{$$props.class}" bind:value bind:blur />
+  <input id={uid} class="{$$props.class}" bind:value {...$$restProps} />
 </div>
 
 <style lang="scss">
