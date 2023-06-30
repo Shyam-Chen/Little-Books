@@ -20,13 +20,15 @@ If you use a `App.vue` you will also need to add `<Layout>`:
 ```vue
 <!-- src/App.vue -->
 <script lang="ts" setup>
-import Layout from 'virtual:vue-routes/Layout';
+import { RouterView } from 'vue-router';
+
+import Layout from 'virtual:vue-routes/Layout'; // [!code ++]
 </script>
 
 <template>
-  <Layout>
+  <Layout// [!code ++]>
     <RouterView />
-  </Layout>
+  </Layout> // [!code ++]
 </template>
 ```
 

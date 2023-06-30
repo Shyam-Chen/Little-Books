@@ -171,6 +171,7 @@ export default defineConfig({
             { text: 'Routes', link: '/vite-plugin-vue-routes/routes' },
             { text: 'Layouts', link: '/vite-plugin-vue-routes/layouts' },
             { text: 'Middleware', link: '/vite-plugin-vue-routes/middleware' },
+            { text: 'Configuration', link: '/vite-plugin-vue-routes//configuration' },
           ],
         },
       ],

@@ -1,6 +1,6 @@
 # Middleware
 
-## Format
+## Middleware Function
 
 Route middleware are navigation guards that receive the current route and the next route as arguments.
 
@@ -8,7 +8,12 @@ Route middleware are navigation guards that receive the current route and the ne
 // src/middleware/foo.ts
 import type { NavigationGuard } from 'vue-router';
 
-export default (async (to, from, next) => {
+export default ((to, from) => {
+  return true;
+}) as NavigationGuard;
+
+// or async
+export default (async (to, from) => {
   return true;
 }) as NavigationGuard;
 ```
@@ -25,7 +30,7 @@ defineRegistry({
 </script>
 ```
 
-## Layout Level Middleware
+## Middleware Layouts
 
 When Layout and Middleware have the same name regardless of case sensitivity, Layout will automatically use that Middleware.
 
