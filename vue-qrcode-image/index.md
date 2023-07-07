@@ -45,6 +45,18 @@ const qrcode = ref('https://www.npmjs.com/search?q=vue-qrcode-image');
 
 ### Size
 
+- Type: `number`
+- Default: `2`
+
 ```html
 <QrcodeImage :value="qrcode" :size="4" />
+```
+
+### Margin
+
+- Type: `number`
+- Default: `8`
+
+```html
+<QrcodeImage :value="qrcode" :margin="6" />
 ```

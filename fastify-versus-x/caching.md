@@ -2,24 +2,50 @@
 
 ## In-memory Cache
 
-```sh
-$ pnpm install @fastify/caching
+```ts
+import type { FastifyPluginAsyncTypebox } from '@fastify/type-provider-typebox';
+import { Type } from '@sinclair/typebox';
+import { caching } from 'cache-manager';
+
+export default (async (app) => {
+  const cache = await caching('memory', { ttl: 10 * 1000, max: 500 });
+
+  /*
+  curl --request GET \
+    --url http://127.0.0.1:3000/api/hello-world/caching?text=foo
+
+  curl --request GET \
+    --url http://127.0.0.1:3000/api/hello-world/caching?text=bar
+  */
+  app.get(
+    '',
+    {
+      schema: {
+        querystring: Type.Object({
+          text: Type.String(),
+        }),
+        response: {
+          200: Type.Object({
+            message: Type.String(),
+          }),
+        },
+      },
+    },
+    async (req, reply) => {
+      const { text } = req.query;
+
+      const cached = await cache.wrap('hello', async () => {
+        return { message: text };
+      });
+
+      return reply.send(cached);
+    },
+  );
+}) as FastifyPluginAsyncTypebox;
 ```
 
-```ts
-import caching from '@fastify/caching';
-import abstractCache from 'abstract-cache';
-
-app.register(caching, { cache: abstractCache({ useAwait: true }) });
-```
+## Mongo Cache
 
 ```ts
-app.get('/', async (req, reply) => {
-  await app.cache.set('hello', { hello: 'world' });
 
-  const helloCache = await app.cache.get('hello');
-  if (helloCache) reply.send(helloCache);
-
-  return reply.send({ hello: 'world' });
-});
 ```

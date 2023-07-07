@@ -1,22 +1,31 @@
 # Queues
 
-## In-memory Work Queue
-
-```sh
-$ pnpm install fastq
-```
+## In-memory Queue
 
 ```ts
-import fastq from 'fastq';
+import mqemitter from 'mqemitter';
 
-const queue = fastq.promise(worker, 1);
+const emitter = mqemitter({ matchEmptyLevels: true });
 
-async function worker(arg: number) {
-  return arg * 2;
-}
-
-app.get('/', async (req, reply) => {
-  await queue.push(42);
-  return reply.send({ hello: 'world' });
+emitter.on('hello/+/world', function (message, cb) {
+  // will capture { topic: 'hello/my/world', 'something': 'more' }
+  // and capture { topic: 'hello//world', 'something': 'more' }
+  console.log(message);
+  cb();
 });
+
+emitter.on('hello/+', function (message, cb) {
+  // will not be called
+  console.log(message);
+  cb();
+});
+
+emitter.emit({ topic: 'hello/my/world', something: 'more' });
+emitter.emit({ topic: 'hello//world', something: 'more' });
+```
+
+## Mongo Queue
+
+```ts
+
 ```

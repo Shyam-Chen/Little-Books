@@ -1,10 +1,6 @@
 # Task Scheduling
 
-## Installation
-
-```sh
-$ pnpm install @fastify/schedule toad-scheduler
-```
+## Cron
 
 ```ts
 import { fastifySchedulePlugin as schedule } from '@fastify/schedule';
@@ -29,4 +25,10 @@ const task = new AsyncTask(
 const job = new SimpleIntervalJob({ seconds: 20 }, task);
 
 app.scheduler.addSimpleIntervalJob(job);
+```
+
+## Mongo Cron
+
+```ts
+
 ```
