@@ -9,6 +9,10 @@ export default defineConfig({
   ],
   themeConfig: {
     logo: 'https://vitejs.dev/logo.svg',
+    siteTitle: 'ViteSheet',
+    search: {
+      provider: 'local',
+    },
     nav: [
       {
         text: 'Docs',
@@ -192,6 +196,7 @@ export default defineConfig({
             { text: 'Queues', link: '/fastify-versus-x/queues' },
             { text: 'Logging', link: '/fastify-versus-x/logging' },
             { text: 'HTTP Module', link: '/fastify-versus-x/http-module' },
+            { text: 'Performance', link: '/fastify-versus-x/performance' },
           ],
         },
       ],

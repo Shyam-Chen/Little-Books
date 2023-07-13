@@ -1,34 +1,43 @@
 # Task Scheduling
 
-## Cron
+## BullMQ
 
 ```ts
-import { fastifySchedulePlugin as schedule } from '@fastify/schedule';
+import type { FastifyPluginAsyncTypebox } from '@fastify/type-provider-typebox';
+import { Type } from '@sinclair/typebox';
 
-app.register(schedule);
-```
+import useQueue from '~/composables/useQueue';
+import useWorker from '~/composables/useWorker';
 
-```ts
-import { SimpleIntervalJob, AsyncTask } from 'toad-scheduler';
+const paintQueue = useQueue('Paint');
 
-const task = new AsyncTask(
-  'simple task',
-  () => {
-    return db.pollForSomeData().then((result) => {
-      /* continue the promise chain */
-    });
-  },
-  (err) => {
-    /* handle errors here */
-  },
-);
-const job = new SimpleIntervalJob({ seconds: 20 }, task);
+export default (async (app) => {
+  /*
+  curl --request GET \
+    --url http://127.0.0.1:3000/api/queues?color=blue
+  */
+  app.get(
+    '',
+    {
+      schema: {
+        querystring: Type.Object({ color: Type.String() }),
+        response: { 200: Type.Object({ message: Type.String() }) },
+      },
+    },
+    async (req, reply) => {
+      await paintQueue.add(
+        'wall',
+        { color: req.query.color },
+        { repeat: { pattern: '45 * * * * *' } },
+      );
 
-app.scheduler.addSimpleIntervalJob(job);
-```
+      return reply.send({ message: 'Hi!' });
+    },
+  );
+}) as FastifyPluginAsyncTypebox;
 
-## Mongo Cron
-
-```ts
-
+useWorker('Paint', async (job) => {
+  console.log(job.id, job.name, job.data);
+  return;
+});
 ```
