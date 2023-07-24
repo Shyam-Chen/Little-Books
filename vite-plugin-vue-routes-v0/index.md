@@ -9,19 +9,19 @@ Install `vite-plugin-vue-routes` with your favorite package manager:
 :::code-group
 
 ```sh [npm]
-npm i vite-plugin-vue-routes -D
+npm i vite-plugin-vue-routes@0.9.13 -D
 ```
 
 ```sh [Yarn]
-yarn add vite-plugin-vue-routes -D
+yarn add vite-plugin-vue-routes@0.9.13 -D
 ```
 
 ```sh [pnpm]
-pnpm i vite-plugin-vue-routes -D
+pnpm i vite-plugin-vue-routes@0.9.13 -D
 ```
 
 ```sh [Bun]
-bun add vite-plugin-vue-routes -D
+bun add vite-plugin-vue-routes@0.9.13 -D
 ```
 
 :::
@@ -61,10 +61,10 @@ import routes from 'virtual:vue-routes'; // [!code ++]
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    ...routes, // [!code ++]
+    ...routes(), // [!code ++]
 
     {
-      path: '/:slug(.*)*',
+      path: '/:pathMatch(.*)*',
       component: () => import('~/Error.vue'),
     },
   ],
@@ -81,6 +81,16 @@ export default router;
 ```
 
 If the project is using TypeScript, below is the type configuration:
+
+```json
+// tsconfig.json
+  "types": [
+    // ...
+   "vite-plugin-vue-routes/client", // [!code ++]
+  ],
+```
+
+or
 
 ```ts
 // src/vite-env.d.ts
