@@ -1,6 +1,6 @@
 # [vite-plugin-vue-routes](https://github.com/Vanilla-IceCream/vite-plugin-vue-routes)
 
-File system based routing for Vue applications using Vite.
+File-based routing for Vue applications using Vite.
 
 ## Installation
 

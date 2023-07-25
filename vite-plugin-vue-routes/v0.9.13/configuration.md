@@ -11,7 +11,7 @@ The directory which will be processed to auto-generate your application routes.
 
 ```ts
 vueRoutes({
-  routesDir: 'src/routes', // e.g., 'src/pages'.
+  routesDir: 'src/routes', // e.g., 'pages'.
 });
 ```
 
@@ -24,7 +24,7 @@ The layouts directory, each file of which will be auto-registered as a layout.
 
 ```ts
 vueRoutes({
-  layoutsDir: 'src/layouts',
+  layoutsDir: 'src/layouts', // e.g., 'layouts'.
 });
 ```
 
@@ -37,7 +37,7 @@ The middleware directory, each file of which will be auto-registered as a middle
 
 ```ts
 vueRoutes({
-  middlewareDir: 'src/middleware',
+  middlewareDir: 'src/middleware', // e.g., 'middleware'.
 });
 ```
 
