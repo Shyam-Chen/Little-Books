@@ -84,5 +84,5 @@ If the project is using TypeScript, below is the type configuration:
 
 ```ts
 // src/vite-env.d.ts
-/// <reference types="vite-plugin-vue-routes/client" />  // [!code ++]
+/// <reference types="vite-plugin-vue-routes/client" /> // [!code ++]
 ```

@@ -53,14 +53,17 @@ Configure Vite by creating a `vite.config.ts` file in the root directory of your
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import fastify from 'vite-plugin-fastify';
-import fastifyRoutes from 'vite-plugin-fastify-routes';
+import fastifyRoutes from 'vite-plugin-fastify-routes'; // [!code ++]
 
 export default defineConfig({
   server: {
     host: '127.0.0.1',
     port: 3000,
   },
-  plugins: [fastify(), fastifyRoutes()],
+  plugins: [
+    fastify(),
+    fastifyRoutes(), // [!code ++]
+  ],
   resolve: {
     alias: {
       '~': resolve(__dirname, 'src'),
@@ -127,11 +130,11 @@ Create the router plugin by defining `src/plugins/router.ts`:
 // src/plugins/router.ts
 import plugin from 'fastify-plugin';
 
-import routes from 'virtual:fastify-routes';
+import routes from 'virtual:fastify-routes'; // [!code ++]
 
 export default plugin(
   async (app) => {
-    routes(app, { prefix: '/api' });
+    routes(app, { prefix: '/api' }); // [!code ++]
   },
   { name: 'router' },
 );
@@ -139,19 +142,9 @@ export default plugin(
 
 #### Type
 
-```diff
-// tsconfig.json
-  "types": [
-    // ...
-+   "vite-plugin-fastify-routes/client",
-  ],
-```
-
-or
-
 ```ts
 // vite-env.d.ts
-/// <reference types="vite-plugin-fastify-routes/client" />
+/// <reference types="vite-plugin-fastify-routes/client" /> // [!code ++]
 ```
 
 ### Define Routes
@@ -159,7 +152,7 @@ or
 Define routes by creating files in the `src/routes` directory:
 
 ```ts
-// src/routes/hello-world/registry.ts
+// src/routes/hello-world/+handler.ts
 import type { FastifyInstance } from 'fastify';
 
 export default async (app: FastifyInstance) => {
@@ -175,23 +168,23 @@ export default async (app: FastifyInstance) => {
 The file naming convention for the routes is as follows:
 
 ```coffee
-src/routes/hello-world/registry.ts -> /hello-world
+src/routes/hello-world/+handler.ts -> /hello-world
 
-src/routes/products/registry.ts -> /products
-src/routes/products/[id]/registry.ts -> /products/:id
+src/routes/products/+handler.ts -> /products
+src/routes/products/[id]/+handler.ts -> /products/:id
 
-src/routes/posts/[[title]]/registry.ts -> /posts/:title?
+src/routes/posts/[[title]]/+handler.ts -> /posts/:title?
 
-src/routes/blog/[...info]/registry.ts -> /blog/*
+src/routes/blog/[...info]/+handler.ts -> /blog/*
 
-src/routes/(group)/foo/registry.ts -> /foo
-src/routes/(group)/bar/registry.ts -> /bar
+src/routes/(group)/foo/+handler.ts -> /foo
+src/routes/(group)/bar/+handler.ts -> /bar
 
-src/routes/(freeze)/registry.ts -> /
+src/routes/(freeze)/+handler.ts -> /
 ```
 
 ```ts
-// path/to/registry.ts
+// src/routes/path/to/+handler.ts
 import type { FastifyInstance } from 'fastify';
 
 export default async (app: FastifyInstance) => {
