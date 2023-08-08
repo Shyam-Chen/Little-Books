@@ -47,7 +47,7 @@ export default defineConfig({
       // { icon: '__XXX___', link: '__XXX__' },
     ],
     sidebar: {
-      '/sheets': [
+      '/sheets/': [
         { text: 'Overview', link: '/sheets/' },
         {
           text: 'Vue Related',
@@ -73,7 +73,7 @@ export default defineConfig({
       ],
 
       // vue
-      '/vue-versus-x': [
+      '/vue-versus-x/': [
         {
           text: 'Vue versus X',
           items: [
@@ -106,7 +106,7 @@ export default defineConfig({
           ],
         },
       ],
-      '/vue-formor': [
+      '/vue-formor/': [
         {
           text: 'Vue Formor',
           items: [
@@ -134,7 +134,7 @@ export default defineConfig({
           ],
         },
       ],
-      '/vue-localer': [
+      '/vue-localer/': [
         {
           text: 'Vue Localer',
           items: [
@@ -155,7 +155,7 @@ export default defineConfig({
           ],
         },
       ],
-      '/vue-storer': [
+      '/vue-storer/': [
         {
           text: 'Vue Storer',
           items: [{ text: 'Overview', link: '/vue-storer/' }],
@@ -167,7 +167,7 @@ export default defineConfig({
           items: [{ text: 'Overview', link: '/vue-qrcode-image/' }],
         },
       ],
-      '/vite-plugin-vue-routes': [
+      '/vite-plugin-vue-routes/': [
         {
           text: 'vite-plugin-vue-routes',
           items: [
@@ -211,25 +211,25 @@ export default defineConfig({
           ],
         },
       ],
-      '/fastify-i18n': [
+      '/fastify-i18n/': [
         {
           text: 'Fastify I18n',
           items: [{ text: 'Overview', link: '/fastify-i18n/' }],
         },
       ],
-      '/fastify-cloudinary': [
+      '/fastify-cloudinary/': [
         {
           text: 'Fastify Cloudinary',
           items: [{ text: 'Overview', link: '/fastify-cloudinary/' }],
         },
       ],
-      '/vite-plugin-fastify': [
+      '/vite-plugin-fastify/': [
         {
           text: 'vite-plugin-fastify',
           items: [{ text: 'Overview', link: '/vite-plugin-fastify/' }],
         },
       ],
-      '/vite-plugin-fastify-routes': [
+      '/vite-plugin-fastify-routes/': [
         {
           text: 'vite-plugin-fastify-routes',
           items: [{ text: 'Overview', link: '/vite-plugin-fastify-routes/' }],
