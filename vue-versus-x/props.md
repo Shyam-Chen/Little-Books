@@ -21,6 +21,18 @@ withDefaults(
 </template>
 ```
 
+```vue [Vue (destructure)]
+<script lang="ts" setup>
+const { answer = 0 } = defineProps<{
+  answer?: number;
+}>();
+</script>
+
+<template>
+  <p>The answer is {{ answer }}</p>
+</template>
+```
+
 ```vue [Vue (computed)]
 <script lang="ts" setup>
 import { computed } from 'vue';
