@@ -8,62 +8,69 @@ import { defineStore } from 'pinia';
 
 import { State } from './type';
 
-export const useSignInStore = defineStore('/sign-in', {
+export default defineStore('/sign-in', {
   state: (): State => ({
-    basicForms: {},
-    errors: {},
+    form: {},
+    valdn: {},
   }),
 
   getters: {},
 
   actions: {
     signIn() {
-      console.log('Sign In', this.basicForms);
+      console.log(this.form);
     },
   },
 });
 ```
 
-```ts
+:::code-group
+
+```ts [Yup]
 // schema.ts
 import { computed } from 'vue';
 import { useYupSchema } from 'vue-formor';
-import { setLocale, string } from 'yup';
+import { string } from 'yup';
 
-import { useStore } from './store';
+import useStore from './store';
 
-setLocale({
-  mixed: {
-    required: 'This is a required field',
-  },
+const msgs = {
+  required: 'This is a required field',
   string: {
-    email: 'This must be a valid email',
     min: 'This must be at least 8 characters',
   },
-});
+};
 
-export const useBasicFormsSchema = () => {
+export const useSchema = () => {
   const store = useStore();
 
   const schema = useYupSchema(
     [
-      [computed(() => store.basicForms.email), string().required().email()],
-      [computed(() => store.basicForms.password), string().required().min(8)],
+      [computed(() => store.form.username), string().required(msgs.required)],
+      [
+        computed(() => store.form.password),
+        string().required(msgs.required).min(8, msgs.string.min),
+      ],
     ],
     store,
+    'valdn',
   );
 
   return schema;
 };
 ```
 
-```vue
+:::
+
+:::code-group
+
+```vue [Yup]
 <script lang="ts" setup>
-import { useStore } from './store';
-import { useBasicFormsSchema } from './schema';
+import useStore from './store';
+import { useSchema } from './schema';
 
 const store = useStore();
-const schema = useBasicFormsSchema();
+const schema = useSchema();
 
 const signIn = () => {
   if (schema.validate()) {
@@ -75,21 +82,23 @@ const signIn = () => {
 <template>
   <form>
     <div>
-      <label for="email">Email:</label>
-      <input id="email" type="email" v-model="store.basicForms.email" />
-      <div>{{ store.errors['basicForms.email'] }}</div>
+      <label>Username:</label>
+      <input type="text" v-model="store.form.username" />
+      <div>{{ store.valdn['form.username'] }}</div>
     </div>
 
     <div>
-      <label for="password">Password:</label>
-      <input id="password" type="password" v-model="store.basicForms.password" />
-      <div>{{ store.errors['basicForms.password'] }}</div>
+      <label>Password:</label>
+      <input type="password" v-model="store.form.password" />
+      <div>{{ store.valdn['form.password'] }}</div>
     </div>
 
-    <button @click="signIn">Sign in</button>
+    <button type="button" @click="signIn">Sign in</button>
   </form>
 </template>
 ```
+
+:::
 
 ## `vue-storer`
 
@@ -98,17 +107,17 @@ const signIn = () => {
 import { reactive, readonly } from 'vue';
 import { defineStore } from 'vue-storer';
 
-export const useLoginStore = defineStore('/login', () => {
+export default defineStore('/login', () => {
   const state = reactive({
-    loginForm: {},
-    loginValdn: {},
+    form: {},
+    valdn: {},
   });
 
   const getters = readonly({});
 
   const actions = readonly({
-    login() {
-      console.log('Login', state.loginForm);
+    signIn() {
+      console.log(state.form);
     },
   });
 
@@ -116,46 +125,53 @@ export const useLoginStore = defineStore('/login', () => {
 });
 ```
 
-```ts
+:::code-group
+
+```ts [Zod]
 import { toRef } from 'vue';
 import { useZodSchema } from 'vue-formor';
 import { z } from 'zod';
 
-import { useLoginStore } from './store';
+import useStore from './store';
 
 const msgs = {
-  email: `This must be a valid email`,
   required: `This is a required field`,
-  min: `This must be at least 8 characters`,
+  string: {
+    min: `This must be at least 8 characters`,
+  },
 };
 
-export const useLoginFormSchema = () => {
-  const { state } = useLoginStore();
+export const useSchema = () => {
+  const { state } = useStore();
 
   const string = () => z.string({ required_error: msgs.required });
 
   const schema = useZodSchema(
     z.object({
-      email: string().email(msgs.email).nonempty(msgs.required),
-      password: string().min(8, msgs.min).nonempty(msgs.required),
+      username: string().nonempty(msgs.required),
+      password: string().min(8, msgs.string.min).nonempty(msgs.required),
     }),
-    toRef(state, 'loginForm'),
-    toRef(state, 'loginValdn'),
+    toRef(state, 'form'),
+    toRef(state, 'valdn'),
   );
 
   return schema;
 };
 ```
 
-```vue
+:::
+
+:::code-group
+
+```vue [Zod]
 <script lang="ts" setup>
-import { useLoginStore } from './store';
-import { useLoginFormSchema } from './schema';
+import useStore from './store';
+import { useSchema } from './schema';
 
-const { state, actions } = useLoginStore();
-const schema = useLoginFormSchema();
+const { state, actions } = useStore();
+const schema = useSchema();
 
-const login = () => {
+const signIn = () => {
   if (schema.validate()) {
     actions.login();
   }
@@ -165,18 +181,20 @@ const login = () => {
 <template>
   <form>
     <div>
-      <label for="email">Email:</label>
-      <input id="email" type="email" v-model="state.loginForm.email" />
-      <div>{{ state.loginValdn.email }}</div>
+      <label>Username:</label>
+      <input type="text" v-model="state.form.username" />
+      <div>{{ state.valdn.username }}</div>
     </div>
 
     <div>
-      <label for="password">Password:</label>
-      <input id="password" type="password" v-model="state.loginForm.password" />
-      <div>{{ state.loginValdn.password }}</div>
+      <label>Password:</label>
+      <input type="password" v-model="state.form.password" />
+      <div>{{ state.valdn.password }}</div>
     </div>
 
-    <button @click="login">Login</button>
+    <button type="button" @click="signIn">Sign in</button>
   </form>
 </template>
 ```
+
+:::
