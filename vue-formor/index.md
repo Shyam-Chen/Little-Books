@@ -1,6 +1,6 @@
 # [Vue Formor](https://github.com/Vanilla-IceCream/vue-formor)
 
-Form validation for Vue in composition functions with Yup or Zod.
+Form validation for Vue in composition functions with Valibot or Zod or Yup.
 
 ## Installation
 
@@ -31,11 +31,23 @@ bun add vue-formor
 :::code-group
 
 ```ts [ESM]
-import { useYupSchema, useZodSchema } from 'vue-formor';
+import { useValibotSchema, useZodSchema, useYupSchema } from 'vue-formor';
 ```
 
 ```ts [CJS]
-const { useYupSchema, useZodSchema } = require('vue-formor');
+const { useValibotSchema, useZodSchema, useYupSchema } = require('vue-formor');
 ```
 
+:::
+
+::: tip
+If you intend to use `useValibotSchema`, don't forget to install `valibot`.
+:::
+
+::: tip
+If you intend to use `useZodSchema`, don't forget to install `zod`.
+:::
+
+::: tip
+If you intend to use `useYupSchema`, don't forget to install `yup`.
 :::

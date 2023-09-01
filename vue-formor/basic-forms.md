@@ -28,13 +28,13 @@ First, start by adding some markup, you can start by having a `form` wrapping a 
 <script lang="ts" setup>
 import { reactive } from 'vue';
 
-interface BasicForms {
+interface LoginForm {
   email: string;
   password: string;
 }
 
 const state = reactive({
-  loginForm: {} as BasicForms,
+  loginForm: {} as LoginForm,
 });
 </script>
 
@@ -59,15 +59,37 @@ const state = reactive({
 
 :::code-group
 
-```vue {12-15} [Zod]
+```vue {8,11-18} [Valibot]
+<script lang="ts" setup>
+import { toRef } from 'vue';
+import { useValibotSchema } from 'vue-formor';
+import { withDefault, object, string, minLength, email } from 'valibot';
+
+const state = reactive({
+  loginForm: {} as LoginForm,
+  loginValdn: {} as Record<string, string>,
+});
+
+const schema = useValibotSchema(
+  object({
+    email: withDefault(string([minLength(1), email()]), ''),
+    password: withDefault(string([minLength(1), minLength(8)]), ''),
+  }),
+  toRef(state, 'loginForm'),
+  toRef(state, 'loginValdn'),
+);
+</script>
+```
+
+```vue {8,11-18} [Zod]
 <script lang="ts" setup>
 import { toRef } from 'vue';
 import { useZodSchema } from 'vue-formor';
 import { z } from 'zod';
 
 const state = reactive({
-  loginForm: {} as BasicForms,
-  loginValdn: {} as Record<string, string>, // [!code hl]
+  loginForm: {} as LoginForm,
+  loginValdn: {} as Record<string, string>,
 });
 
 const schema = useZodSchema(
@@ -76,29 +98,29 @@ const schema = useZodSchema(
     password: z.string().min(8).nonempty(),
   }),
   toRef(state, 'loginForm'),
-  toRef(state, 'loginValdn'), // [!code hl]
+  toRef(state, 'loginValdn'),
 );
 </script>
 ```
 
-```vue [Yup]
+```vue {8,11-18} [Yup]
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { useYupSchema } from 'vue-formor';
-import { string } from 'yup';
+import { object, string } from 'yup';
 
 const state = reactive({
-  loginForm: {} as BasicForms,
-  loginValdn: {} as Record<string, string>, // [!code hl]
+  loginForm: {} as LoginForm,
+  loginValdn: {} as Record<string, string>,
 });
 
 const schema = useYupSchema(
-  [
-    [computed(() => state.loginForm.email), string().required().email()], // [!code hl]
-    [computed(() => state.loginForm.password), string().required().min(8)], // [!code hl]
-  ],
-  state,
-  'loginValdn', // [!code hl]
+  object({
+    email: string().required().email(),
+    password: string().required().min(8),
+  }),
+  toRef(state, 'loginForm'),
+  toRef(state, 'loginValdn'),
 );
 </script>
 ```
@@ -108,6 +130,41 @@ const schema = useYupSchema(
 ## Displaying Error Messages
 
 :::code-group
+
+```vue [Valibot]
+<script lang="ts" setup>
+const msgs = {
+  required: `This is a required field`,
+  min: `This must be at least 8 characters`,
+  email: `This must be a valid email`,
+};
+
+const schema = useValibotSchema(
+  object({
+    email: withDefault(string([minLength(1, msgs.required), email(msgs.email)]), ''),
+    password: withDefault(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
+  }),
+  toRef(state, 'loginForm'),
+  toRef(state, 'loginValdn'),
+);
+</script>
+
+<template>
+  <form>
+    <div>
+      <label>Email:</label>
+      <input v-model="state.loginForm.email" type="email" />
+      <div>{{ state.loginValdn.email }}// [!code hl]</div>
+    </div>
+
+    <div>
+      <label>Password:</label>
+      <input v-model="state.loginForm.password" type="password" />
+      <div>{{ state.loginValdn.password }}// [!code hl]</div>
+    </div>
+  </form>
+</template>
+```
 
 ```vue [Zod]
 <script lang="ts" setup>
@@ -119,14 +176,8 @@ const msgs = {
 
 const schema = useZodSchema(
   z.object({
-    email: z // [!code hl]
-      .string({ required_error: msgs.required }) // [!code hl]
-      .email(msgs.email) // [!code hl]
-      .nonempty(msgs.required), // [!code hl]
-    password: z // [!code hl]
-      .string({ required_error: msgs.required }) // [!code hl]
-      .min(8, msgs.min) // [!code hl]
-      .nonempty(msgs.required), // [!code hl]
+    email: z.string({ required_error: msgs.required }).email(msgs.email).nonempty(msgs.required),
+    password: z.string({ required_error: msgs.required }).min(8, msgs.min).nonempty(msgs.required),
   }),
   toRef(state, 'loginForm'),
   toRef(state, 'loginValdn'),
@@ -159,108 +210,13 @@ const msgs = {
 };
 
 const schema = useYupSchema(
-  [
-    [
-      computed(() => state.loginForm.email),
-      string().required(msgs.required).email(msgs.email), // [!code hl]
-    ],
-    [
-      computed(() => state.loginForm.password),
-      string().required(msgs.required).min(8, msgs.min), // [!code hl]
-    ],
-  ],
-  state,
-  'loginValdn', // [!code hl]
-);
-</script>
-
-<template>
-  <form>
-    <div>
-      <label>Email:</label>
-      <input v-model="state.loginForm.email" type="email" />
-      <div>{{ state.loginValdn['loginForm.email'] }}// [!code hl]</div>
-    </div>
-
-    <div>
-      <label>Password:</label>
-      <input v-model="state.loginForm.password" type="password" />
-      <div>{{ state.loginValdn['loginForm.password'] }}// [!code hl]</div>
-    </div>
-  </form>
-</template>
-```
-
-:::
-
-## Handling Submissions
-
-```vue {3}
-<script lang="ts" setup>
-const login = () => {
-  if (schema.validate()) {
-    console.log('validated data =', state.loginForm);
-  }
-};
-</script>
-
-<template>
-  <form>
-    <!-- ... -->
-
-    <button @click="login">Login</button> // [!code hl]
-  </form>
-</template>
-```
-
-## Final Code
-
-Putting all the pieces from the above sections together it should be as following:
-
-:::code-group
-
-```vue {38} [Zod]
-<script lang="ts" setup>
-import { reactive, toRef } from 'vue';
-import { useZodSchema } from 'vue-formor';
-import { z } from 'zod';
-
-interface BasicForms {
-  email: string;
-  password: string;
-}
-
-const state = reactive({
-  loginForm: {} as BasicForms,
-  loginValdn: {} as Record<string, string>, // [!code hl]
-});
-
-const msgs = {
-  required: `This is a required field`,
-  email: `This must be a valid email`,
-  min: `This must be at least 8 characters`,
-};
-
-const schema = useZodSchema(
-  z.object({
-    email: z // [!code hl]
-      .string({ required_error: msgs.required }) // [!code hl]
-      .email(msgs.email) // [!code hl]
-      .nonempty(msgs.required), // [!code hl]
-    password: z // [!code hl]
-      .string({ required_error: msgs.required }) // [!code hl]
-      .min(8, msgs.min) // [!code hl]
-      .nonempty(msgs.required), // [!code hl]
+  object({
+    email: string().required(msgs.required).email(msgs.email),
+    password: string().required(msgs.required).min(8, msgs.min),
   }),
   toRef(state, 'loginForm'),
-  toRef(state, 'loginValdn'), // [!code hl]
+  toRef(state, 'loginValdn'),
 );
-
-const signIn = () => {
-  if (schema.validate()) {
-    console.log('validated data =', state.loginForm);
-  }
-};
 </script>
 
 <template>
@@ -276,26 +232,52 @@ const signIn = () => {
       <input v-model="state.loginForm.password" type="password" />
       <div>{{ state.loginValdn.password }}// [!code hl]</div>
     </div>
-
-    <button @click="signIn">Sign in</button>
   </form>
 </template>
 ```
 
-```vue {38} [Yup]
-<script lang="ts" setup>
-import { computed, reactive } from 'vue';
-import { useYupSchema } from 'vue-formor';
-import { string } from 'yup';
+:::
 
-interface BasicForms {
+## Handling Submissions
+
+```vue {3}
+<script lang="ts" setup>
+const signIn = () => {
+  if (schema.validate()) {
+    console.log('validated data =', state.loginForm);
+  }
+};
+</script>
+
+<template>
+  <form>
+    <!-- ... -->
+
+    <button type="button" @click="signIn">Sign in</button> // [!code hl]
+  </form>
+</template>
+```
+
+## Final Code
+
+Putting all the pieces from the above sections together it should be as following:
+
+:::code-group
+
+```vue [Valibot]
+<script lang="ts" setup>
+import { reactive, toRef } from 'vue';
+import { useValibotSchema } from 'vue-formor';
+import { withDefault, object, string, minLength, email } from 'valibot';
+
+interface LoginForm {
   email: string;
   password: string;
 }
 
 const state = reactive({
-  loginForm: {} as BasicForms,
-  loginValdn: {} as Record<string, string>, // [!code hl]
+  loginForm: {} as LoginForm,
+  loginValdn: {} as Record<string, string>,
 });
 
 const msgs = {
@@ -304,19 +286,13 @@ const msgs = {
   min: `This must be at least 8 characters`,
 };
 
-const schema = useYupSchema(
-  [
-    [
-      computed(() => state.loginForm.email), // [!code hl]
-      string().required(msgs.required).email(msgs.email), // [!code hl]
-    ],
-    [
-      computed(() => state.loginForm.password), // [!code hl]
-      string().required(msgs.required).min(8, msgs.min), // [!code hl]
-    ],
-  ],
-  state,
-  'loginValdn', // [!code hl]
+const schema = useValibotSchema(
+  object({
+    email: withDefault(string([minLength(1, msgs.required), email(msgs.email)]), ''),
+    password: withDefault(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
+  }),
+  toRef(state, 'loginForm'),
+  toRef(state, 'loginValdn'),
 );
 
 const signIn = () => {
@@ -329,18 +305,132 @@ const signIn = () => {
 <template>
   <form>
     <div>
-      <label for="email">Email:</label>
-      <input id="email" type="email" v-model="state.loginForm.email" />
-      <div>{{ state.loginValdn['loginForm.email'] }}// [!code hl]</div>
+      <label>Email:</label>
+      <input v-model="state.loginForm.email" type="email" />
+      <div>{{ state.loginValdn.email }}</div>
     </div>
 
     <div>
-      <label for="password">Password:</label>
-      <input id="password" type="password" v-model="state.loginForm.password" />
-      <div>{{ state.loginValdn['loginForm.password'] }}// [!code hl]</div>
+      <label>Password:</label>
+      <input v-model="state.loginForm.password" type="password" />
+      <div>{{ state.loginValdn.password }}</div>
     </div>
 
-    <button @click="signIn">Sign in</button>
+    <button type="button" @click="signIn">Sign in</button>
+  </form>
+</template>
+```
+
+```vue [Zod]
+<script lang="ts" setup>
+import { reactive, toRef } from 'vue';
+import { useZodSchema } from 'vue-formor';
+import { z } from 'zod';
+
+interface LoginForm {
+  email: string;
+  password: string;
+}
+
+const state = reactive({
+  loginForm: {} as LoginForm,
+  loginValdn: {} as Record<string, string>,
+});
+
+const msgs = {
+  required: `This is a required field`,
+  email: `This must be a valid email`,
+  min: `This must be at least 8 characters`,
+};
+
+const schema = useZodSchema(
+  z.object({
+    email: z.string({ required_error: msgs.required }).email(msgs.email).nonempty(msgs.required),
+    password: z.string({ required_error: msgs.required }).min(8, msgs.min).nonempty(msgs.required),
+  }),
+  toRef(state, 'loginForm'),
+  toRef(state, 'loginValdn'),
+);
+
+const signIn = () => {
+  if (schema.validate()) {
+    console.log('validated data =', state.loginForm);
+  }
+};
+</script>
+
+<template>
+  <form>
+    <div>
+      <label>Email:</label>
+      <input v-model="state.loginForm.email" type="email" />
+      <div>{{ state.loginValdn.email }}</div>
+    </div>
+
+    <div>
+      <label>Password:</label>
+      <input v-model="state.loginForm.password" type="password" />
+      <div>{{ state.loginValdn.password }}</div>
+    </div>
+
+    <button type="button" @click="signIn">Sign in</button>
+  </form>
+</template>
+```
+
+```vue [Yup]
+<script lang="ts" setup>
+import { computed, reactive } from 'vue';
+import { useYupSchema } from 'vue-formor';
+import { object, string } from 'yup';
+
+interface LoginForm {
+  email: string;
+  password: string;
+}
+
+const state = reactive({
+  loginForm: {} as LoginForm,
+  loginValdn: {} as Record<string, string>,
+});
+
+const msgs = {
+  required: `This is a required field`,
+  email: `This must be a valid email`,
+  min: `This must be at least 8 characters`,
+};
+
+const schema = useYupSchema(
+  object({
+    email: string().required(msgs.required).email(msgs.email),
+    password: string().required(msgs.required).min(8, msgs.min),
+  }),
+  toRef(state, 'loginForm'),
+  toRef(state, 'loginValdn'),
+);
+
+const signIn = () => {
+  if (schema.validate()) {
+    console.log('validated data =', state.loginForm);
+  }
+};
+</script>
+
+<template>
+  <form>
+    <div>
+      <label>Email:</label>
+      <input v-model="state.loginForm.email" type="email" />
+      <div>{{ state.loginValdn.email }}</div>
+    </div>
+
+    <div>
+      <label>Password:</label>
+      <input v-model="state.loginForm.password" type="password" />
+      <div>{{ state.loginValdn.password }}</div>
+    </div>
+
+    <button type="button" @click="signIn">Sign in</button>
   </form>
 </template>
 ```
