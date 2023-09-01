@@ -264,7 +264,7 @@ Putting all the pieces from the above sections together it should be as followin
 
 :::code-group
 
-```vue [Valibot]
+```vue {3-4,22-26} [Valibot]
 <script lang="ts" setup>
 import { reactive, toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
@@ -321,7 +321,7 @@ const signIn = () => {
 </template>
 ```
 
-```vue [Zod]
+```vue {3-4,22-26} [Zod]
 <script lang="ts" setup>
 import { reactive, toRef } from 'vue';
 import { useZodSchema } from 'vue-formor';
@@ -378,9 +378,9 @@ const signIn = () => {
 </template>
 ```
 
-```vue [Yup]
+```vue {3-4,22-26} [Yup]
 <script lang="ts" setup>
-import { computed, reactive } from 'vue';
+import { reactive, toRef } from 'vue';
 import { useYupSchema } from 'vue-formor';
 import { object, string } from 'yup';
 

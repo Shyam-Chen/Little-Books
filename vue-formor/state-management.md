@@ -8,14 +8,12 @@ import { defineStore } from 'pinia';
 
 import { State } from './type';
 
-export default defineStore('/sign-in', {
+export default defineStore('my-form', {
   state: (): State => ({
     form: {},
     valdn: {},
   }),
-
   getters: {},
-
   actions: {
     signIn() {
       console.log(this.form);
@@ -26,34 +24,33 @@ export default defineStore('/sign-in', {
 
 :::code-group
 
-```ts [Yup]
+```ts [Zod]
 // schema.ts
-import { computed } from 'vue';
-import { useYupSchema } from 'vue-formor';
-import { string } from 'yup';
+import { reactive, toRef } from 'vue';
+import { useZodSchema } from 'vue-formor';
+import { z } from 'zod';
 
 import useStore from './store';
 
 const msgs = {
-  required: 'This is a required field',
-  string: {
-    min: 'This must be at least 8 characters',
-  },
+  required: `This is a required field`,
+  email: `This must be a valid email`,
+  min: `This must be at least 8 characters`,
 };
 
 export const useSchema = () => {
   const store = useStore();
 
-  const schema = useYupSchema(
-    [
-      [computed(() => store.form.username), string().required(msgs.required)],
-      [
-        computed(() => store.form.password),
-        string().required(msgs.required).min(8, msgs.string.min),
-      ],
-    ],
-    store,
-    'valdn',
+  const schema = useZodSchema(
+    z.object({
+      email: z.string({ required_error: msgs.required }).email(msgs.email).nonempty(msgs.required),
+      password: z
+        .string({ required_error: msgs.required })
+        .min(8, msgs.min)
+        .nonempty(msgs.required),
+    }),
+    toRef(store, 'form'),
+    toRef(store, 'valdn'),
   );
 
   return schema;
@@ -62,9 +59,7 @@ export const useSchema = () => {
 
 :::
 
-:::code-group
-
-```vue [Yup]
+```vue
 <script lang="ts" setup>
 import useStore from './store';
 import { useSchema } from './schema';
@@ -72,7 +67,7 @@ import { useSchema } from './schema';
 const store = useStore();
 const schema = useSchema();
 
-const signIn = () => {
+const onSignIn = () => {
   if (schema.validate()) {
     store.signIn();
   }
@@ -82,23 +77,21 @@ const signIn = () => {
 <template>
   <form>
     <div>
-      <label>Username:</label>
-      <input type="text" v-model="store.form.username" />
-      <div>{{ store.valdn['form.username'] }}</div>
+      <label>Email:</label>
+      <input v-model="store.form.email" type="email" />
+      <div>{{ store.valdn.email }}</div>
     </div>
 
     <div>
       <label>Password:</label>
-      <input type="password" v-model="store.form.password" />
-      <div>{{ store.valdn['form.password'] }}</div>
+      <input v-model="store.form.password" type="password" />
+      <div>{{ store.valdn.password }}</div>
     </div>
 
-    <button type="button" @click="signIn">Sign in</button>
+    <button type="button" @click="onSignIn">Sign in</button>
   </form>
 </template>
 ```
-
-:::
 
 ## `vue-storer`
 
@@ -107,7 +100,7 @@ const signIn = () => {
 import { reactive, readonly } from 'vue';
 import { defineStore } from 'vue-storer';
 
-export default defineStore('/login', () => {
+export default defineStore('my-form', () => {
   const state = reactive({
     form: {},
     valdn: {},
@@ -127,7 +120,38 @@ export default defineStore('/login', () => {
 
 :::code-group
 
+```ts [Valibot]
+// schema.ts
+import { toRef } from 'vue';
+import { useValibotSchema } from 'vue-formor';
+import { withDefault, object, string, minLength, email } from 'valibot';
+
+import useStore from './store';
+
+const msgs = {
+  required: `This is a required field`,
+  email: `This must be a valid email`,
+  min: `This must be at least 8 characters`,
+};
+
+export const useSchema = () => {
+  const { state } = useStore();
+
+  const schema = useValibotSchema(
+    object({
+      email: withDefault(string([minLength(1, msgs.required), email(msgs.email)]), ''),
+      password: withDefault(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
+    }),
+    toRef(state, 'loginForm'),
+    toRef(state, 'loginValdn'),
+  );
+
+  return schema;
+};
+```
+
 ```ts [Zod]
+// schema.ts
 import { toRef } from 'vue';
 import { useZodSchema } from 'vue-formor';
 import { z } from 'zod';
@@ -136,20 +160,20 @@ import useStore from './store';
 
 const msgs = {
   required: `This is a required field`,
-  string: {
-    min: `This must be at least 8 characters`,
-  },
+  email: `This must be a valid email`,
+  min: `This must be at least 8 characters`,
 };
 
 export const useSchema = () => {
   const { state } = useStore();
 
-  const string = () => z.string({ required_error: msgs.required });
-
   const schema = useZodSchema(
     z.object({
-      username: string().nonempty(msgs.required),
-      password: string().min(8, msgs.string.min).nonempty(msgs.required),
+      email: z.string({ required_error: msgs.required }).email(msgs.email).nonempty(msgs.required),
+      password: z
+        .string({ required_error: msgs.required })
+        .min(8, msgs.min)
+        .nonempty(msgs.required),
     }),
     toRef(state, 'form'),
     toRef(state, 'valdn'),
@@ -161,9 +185,7 @@ export const useSchema = () => {
 
 :::
 
-:::code-group
-
-```vue [Zod]
+```vue
 <script lang="ts" setup>
 import useStore from './store';
 import { useSchema } from './schema';
@@ -171,9 +193,9 @@ import { useSchema } from './schema';
 const { state, actions } = useStore();
 const schema = useSchema();
 
-const signIn = () => {
+const onSignIn = () => {
   if (schema.validate()) {
-    actions.login();
+    actions.signIn();
   }
 };
 </script>
@@ -181,20 +203,18 @@ const signIn = () => {
 <template>
   <form>
     <div>
-      <label>Username:</label>
-      <input type="text" v-model="state.form.username" />
-      <div>{{ state.valdn.username }}</div>
+      <label>Email:</label>
+      <input v-model="state.form.email" type="email" />
+      <div>{{ state.valdn.email }}</div>
     </div>
 
     <div>
       <label>Password:</label>
-      <input type="password" v-model="state.form.password" />
+      <input v-model="state.form.password" type="password" />
       <div>{{ state.valdn.password }}</div>
     </div>
 
-    <button type="button" @click="signIn">Sign in</button>
+    <button type="button" @click="onSignIn">Sign in</button>
   </form>
 </template>
 ```
-
-:::

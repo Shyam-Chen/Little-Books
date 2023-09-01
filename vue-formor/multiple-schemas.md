@@ -4,118 +4,50 @@
 
 ```vue
 <script lang="ts" setup>
-import { computed, reactive } from 'vue';
-import { useYupSchema } from 'vue-formor';
-import { setLocale, string } from 'yup';
+const fooSchema = use_LIB_Schema(
+  /* ... */
+  toRef(state, 'fooForm'),
+  toRef(state, 'myValdn'), // [!code hl]
+);
 
-interface Forms {
-  text: string;
-}
-
-setLocale({
-  mixed: {
-    required: 'This is a required field',
-  },
-});
-
-const state = reactive({
-  fooForm: {} as Forms,
-  barForm: {} as Forms,
-  errors: {} as Record<string, string>,
-});
-
-const fooSchema = useYupSchema([[computed(() => state.fooForm.text), string().required()]], state);
-
-const barSchema = useYupSchema([[computed(() => state.barForm.text), string().required()]], state);
+const barSchema = use_LIB_Schema(
+  /* ... */
+  toRef(state, 'barForm'),
+  toRef(state, 'myValdn'), // [!code hl]
+);
 
 const fooSubmit = () => {
-  barSchema.stop();
+  barSchema.stop(); // [!code hl]
 
   if (fooSchema.validate()) {
     // passed
   }
 };
 
-const baeSubmit = () => {
-  fooSchema.stop();
+const barSubmit = () => {
+  fooSchema.stop(); // [!code hl]
 
   if (barSchema.validate()) {
     // passed
   }
 };
 </script>
-
-<template>
-  <div>
-    <div>Multiple Schemas >> Multiple Schemas (Single-instance)</div>
-
-    <div>
-      <div>
-        <label for="foo">Foo:</label>
-        <input id="foo" type="text" v-model="state.fooForm.text" />
-        <div>{{ state.errors['fooForm.text'] }}</div>
-      </div>
-
-      <div>
-        <label for="bar">Bar:</label>
-        <input id="bar" type="text" v-model="state.barForm.text" />
-        <div>{{ state.errors['barForm.text'] }}</div>
-      </div>
-
-      <button @click="fooSubmit">Foo</button>
-      <button @click="baeSubmit">Bar</button>
-    </div>
-
-    <div>
-      fooForm:
-      <pre>{{ state.fooForm }}</pre>
-    </div>
-
-    <div>
-      barForm:
-      <pre>{{ state.barForm }}</pre>
-    </div>
-
-    <pre>{{ state.errors }}</pre>
-  </div>
-</template>
 ```
 
 ## Multiple Instances
 
 ```vue
 <script lang="ts" setup>
-import { computed, reactive } from 'vue';
-import { useYupSchema } from 'vue-formor';
-import { setLocale, string } from 'yup';
-
-interface Forms {
-  text: string;
-}
-
-setLocale({
-  mixed: {
-    required: 'This is a required field',
-  },
-});
-
-const state = reactive({
-  fooForm: {} as Forms,
-  barForm: {} as Forms,
-  fooErrors: {} as Record<string, string>,
-  barErrors: {} as Record<string, string>,
-});
-
-const fooSchema = useYupSchema(
-  [[computed(() => state.fooForm.text), string().required()]],
-  state,
-  'fooErrors',
+const fooSchema = use_LIB_Schema(
+  /* ... */
+  toRef(state, 'fooForm'),
+  toRef(state, 'fooValdn'), // [!code hl]
 );
 
-const barSchema = useYupSchema(
-  [[computed(() => state.barForm.text), string().required()]],
-  state,
-  'barErrors',
+const barSchema = use_LIB_Schema(
+  /* ... */
+  toRef(state, 'barForm'),
+  toRef(state, 'barValdn'), // [!code hl]
 );
 
 const fooSubmit = () => {
@@ -124,79 +56,34 @@ const fooSubmit = () => {
   }
 };
 
-const baeSubmit = () => {
+const barSubmit = () => {
   if (barSchema.validate()) {
     // passed
   }
 };
 </script>
-
-<template>
-  <div>
-    <div>Multiple Schemas >> Multiple Schemas (Multiple-instance)</div>
-
-    <div>
-      <div>
-        <label for="foo">Foo:</label>
-        <input id="foo" type="text" v-model="state.fooForm.text" />
-        <div>{{ state.fooErrors['fooForm.text'] }}</div>
-      </div>
-
-      <div>
-        <label for="bar">Bar:</label>
-        <input id="bar" type="text" v-model="state.barForm.text" />
-        <div>{{ state.barErrors['barForm.text'] }}</div>
-      </div>
-
-      <button @click="fooSubmit">Foo</button>
-      <button @click="baeSubmit">Bar</button>
-    </div>
-
-    <div>
-      fooForm:
-      <pre>{{ state.fooForm }}</pre>
-    </div>
-
-    <div>
-      barForm:
-      <pre>{{ state.barForm }}</pre>
-    </div>
-
-    <div>
-      fooErrors:
-      <pre>{{ state.fooErrors }}</pre>
-    </div>
-
-    <div>
-      barErrors:
-      <pre>{{ state.barErrors }}</pre>
-    </div>
-  </div>
-</template>
 ```
 
 ## Combinations
 
-```vue
+```vue {15}
 <script lang="ts" setup>
-const fooSchema = useZodSchema(
-  z.object({
-    /* ... */
-  }),
+const fooSchema = use_LIB_Schema(
+  /* ... */
   toRef(state, 'fooForm'),
   toRef(state, 'fooValdn'),
 );
 
-const barSchema = useZodSchema(
-  z.array(
-    z.object({
-      /* ... */
-    }),
-  ),
+const barSchema = use_LIB_Schema(
+  /* ... */
   toRef(state, 'barForm'),
   toRef(state, 'barValdn'),
 );
 
-[fooSchema, barSchema].map((schema) => schema.validate()).every(Boolean);
+const submit = () => {
+  if ([fooSchema, barSchema].map((schema) => schema.validate()).every(Boolean)) {
+    // passed
+  }
+};
 </script>
 ```

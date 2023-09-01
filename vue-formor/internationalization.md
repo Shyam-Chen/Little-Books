@@ -4,9 +4,38 @@
 
 :::code-group
 
+```ts [Valibot]
+// src/path/to/schema.ts
+import { toRef } from 'vue';
+import { useValibotSchema } from 'vue-formor';
+import { useI18n } from 'vue-i18n';
+import { withDefault, object, string, minLength } from 'valibot';
+
+import useStore from './store'; // pinia
+
+export const useAuthSchema = () => {
+  const store = useStore();
+  const { t } = useI18n();
+
+  const schema = useValibotSchema(
+    object({
+      username: withDefault(string([minLength(1, t('required'))]), ''),
+      password: withDefault(
+        string([minLength(1, t('required')), minLength(8, t('min', { char: '8' }))]),
+        '',
+      ),
+    }),
+    toRef(store, 'form'),
+    toRef(store, 'valdn'),
+  );
+
+  return schema;
+};
+```
+
 ```ts [Zod]
 // src/path/to/schema.ts
-import { computed } from 'vue';
+import { toRef } from 'vue';
 import { useZodSchema } from 'vue-formor';
 import { useI18n } from 'vue-i18n';
 import { z } from 'zod';
@@ -22,7 +51,7 @@ export const useAuthSchema = () => {
       username: z.string({ required_error: t('required') }).nonempty(t('required')),
       password: z
         .string({ required_error: t('required') })
-        .min(8, t('string.min'))
+        .min(8, t('min', { char: '8' }))
         .nonempty(t('required')),
     }),
     toRef(store, 'form'),
@@ -35,10 +64,10 @@ export const useAuthSchema = () => {
 
 ```ts [Yup]
 // src/path/to/schema.ts
-import { computed } from 'vue';
+import { toRef } from 'vue';
 import { useYupSchema } from 'vue-formor';
 import { useI18n } from 'vue-i18n';
-import { string } from 'yup';
+import { object, string } from 'yup';
 
 import useStore from './store'; // pinia
 
@@ -47,15 +76,14 @@ export const useAuthSchema = () => {
   const { t } = useI18n();
 
   const schema = useYupSchema(
-    [
-      [computed(() => store.form.username), computed(() => string().required(t('required')))],
-      [
-        computed(() => store.form.password),
-        computed(() => string().required(t('required')).min(8, t('string.min'))),
-      ],
-    ],
-    store,
-    'valdn',
+    object({
+      username: string().required(t('required')),
+      password: string()
+        .required(t('required'))
+        .min(8, t('min', { char: '8' })),
+    }),
+    toRef(store, 'form'),
+    toRef(store, 'valdn'),
   );
 
   return schema;
@@ -80,10 +108,46 @@ export default defineLocale<typeof enUS>('validation-messages', {
 
 :::code-group
 
+```ts [Valibot]
+// src/path/to/schema.ts
+import { toRef } from 'vue';
+import { useValibotSchema } from 'vue-formor';
+import { useLocaler } from 'vue-localer';
+import { withDefault, object, string, minLength } from 'valibot';
+
+import useValidationMessages from '~/composables/useValidationMessages';
+
+import useStore from './store'; // vue-storer
+
+export const useAuthSchema = () => {
+  const { f } = useLocaler();
+  const { state } = useStore();
+  const valdnMsgs = useValidationMessages();
+
+  const schema = useValibotSchema(
+    object({
+      username: withDefault(string([minLength(1, valdnMsgs.value.required)]), ''),
+      password: withDefault(
+        string([
+          minLength(1, valdnMsgs.value.required),
+          minLength(8, f(valdnMsgs.value.min, { char: '8' })),
+        ]),
+        '',
+      ),
+    }),
+    toRef(state, 'form'),
+    toRef(state, 'valdn'),
+  );
+
+  return schema;
+};
+```
+
 ```ts [Zod]
 // src/path/to/schema.ts
-import { computed } from 'vue';
+import { toRef } from 'vue';
 import { useZodSchema } from 'vue-formor';
+import { useLocaler } from 'vue-localer';
 import { z } from 'zod';
 
 import useValidationMessages from '~/composables/useValidationMessages';
@@ -91,18 +155,19 @@ import useValidationMessages from '~/composables/useValidationMessages';
 import useStore from './store'; // vue-storer
 
 export const useAuthSchema = () => {
+  const { f } = useLocaler();
   const { state } = useStore();
-  const messages = useValidationMessages();
+  const valdnMsgs = useValidationMessages();
 
   const schema = useZodSchema(
     z.object({
       username: z
-        .string({ required_error: messages.value.required })
-        .nonempty(messages.value.required),
+        .string({ required_error: valdnMsgs.value.required })
+        .nonempty(valdnMsgs.value.required),
       password: z
-        .string({ required_error: messages.value.required })
-        .min(8, messages.value.string?.min)
-        .nonempty(messages.value.required),
+        .string({ required_error: valdnMsgs.value.required })
+        .min(8, f(valdnMsgs.value.min, { char: '8' }))
+        .nonempty(valdnMsgs.value.required),
     }),
     toRef(state, 'form'),
     toRef(state, 'valdn'),
@@ -114,33 +179,29 @@ export const useAuthSchema = () => {
 
 ```ts [Yup]
 // src/path/to/schema.ts
-import { computed } from 'vue';
+import { toRef } from 'vue';
 import { useYupSchema } from 'vue-formor';
-import { string } from 'yup';
+import { useLocaler } from 'vue-localer';
+import { object, string } from 'yup';
 
 import useValidationMessages from '~/composables/useValidationMessages';
 
 import useStore from './store'; // vue-storer
 
-export const useSignInFormSchema = () => {
+export const useAuthSchema = () => {
+  const { f } = useLocaler();
   const { state } = useStore();
-  const messages = useValidationMessages();
+  const valdnMsgs = useValidationMessages();
 
   const schema = useYupSchema(
-    [
-      [
-        computed(() => state.form.username),
-        computed(() => string().required(messages.value.required)),
-      ],
-      [
-        computed(() => state.form.password),
-        computed(() =>
-          string().required(messages.value.required).min(8, messages.value.string?.min),
-        ),
-      ],
-    ],
-    state,
-    'valdn',
+    object({
+      username: string().required(valdnMsgs.value.required),
+      password: string()
+        .required(valdnMsgs.value.required)
+        .min(8, f(valdnMsgs.value.min, { char: '8' })),
+    }),
+    toRef(state, 'form'),
+    toRef(state, 'valdn'),
   );
 
   return schema;
