@@ -24,6 +24,36 @@ export default defineStore('my-form', {
 
 :::code-group
 
+```ts [Valibot]
+// schema.ts
+import { reactive, toRef } from 'vue';
+import { useValibotSchema } from 'vue-formor';
+import { withDefault, object, string, minLength, email } from 'valibot';
+
+import useStore from './store';
+
+const msgs = {
+  required: `This is a required field`,
+  email: `This must be a valid email`,
+  min: `This must be at least 8 characters`,
+};
+
+export const useSchema = () => {
+  const store = useStore();
+
+  const schema = useZodSchema(
+    object({
+      email: withDefault(string([minLength(1, msgs.required), email(msgs.email)]), ''),
+      password: withDefault(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
+    }),
+    toRef(store, 'form'),
+    toRef(store, 'valdn'),
+  );
+
+  return schema;
+};
+```
+
 ```ts [Zod]
 // schema.ts
 import { reactive, toRef } from 'vue';
@@ -48,6 +78,36 @@ export const useSchema = () => {
         .string({ required_error: msgs.required })
         .min(8, msgs.min)
         .nonempty(msgs.required),
+    }),
+    toRef(store, 'form'),
+    toRef(store, 'valdn'),
+  );
+
+  return schema;
+};
+```
+
+```ts [Yup]
+// schema.ts
+import { reactive, toRef } from 'vue';
+import { useYupSchema } from 'vue-formor';
+import { object, string } from 'yup';
+
+import useStore from './store';
+
+const msgs = {
+  required: `This is a required field`,
+  email: `This must be a valid email`,
+  min: `This must be at least 8 characters`,
+};
+
+export const useSchema = () => {
+  const store = useStore();
+
+  const schema = useZodSchema(
+    object({
+      email: string().required(msgs.required).email(msgs.email),
+      password: string().required(msgs.required).min(8, msgs.min),
     }),
     toRef(store, 'form'),
     toRef(store, 'valdn'),
@@ -174,6 +234,36 @@ export const useSchema = () => {
         .string({ required_error: msgs.required })
         .min(8, msgs.min)
         .nonempty(msgs.required),
+    }),
+    toRef(state, 'form'),
+    toRef(state, 'valdn'),
+  );
+
+  return schema;
+};
+```
+
+```ts [Yup]
+// schema.ts
+import { toRef } from 'vue';
+import { useYupSchema } from 'vue-formor';
+import { object, string } from 'yup';
+
+import useStore from './store';
+
+const msgs = {
+  required: `This is a required field`,
+  email: `This must be a valid email`,
+  min: `This must be at least 8 characters`,
+};
+
+export const useSchema = () => {
+  const { state } = useStore();
+
+  const schema = useYupSchema(
+    object({
+      email: string().required(msgs.required).email(msgs.email),
+      password: string().required(msgs.required).min(8, msgs.min),
     }),
     toRef(state, 'form'),
     toRef(state, 'valdn'),
