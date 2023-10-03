@@ -28,7 +28,7 @@ export default defineStore('my-form', {
 // schema.ts
 import { reactive, toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
-import { withDefault, object, string, minLength, email } from 'valibot';
+import { optional, object, string, minLength, email } from 'valibot';
 
 import useStore from './store';
 
@@ -43,8 +43,8 @@ export const useSchema = () => {
 
   const schema = useZodSchema(
     object({
-      email: withDefault(string([minLength(1, msgs.required), email(msgs.email)]), ''),
-      password: withDefault(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
+      email: optional(string([minLength(1, msgs.required), email(msgs.email)]), ''),
+      password: optional(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
     }),
     toRef(store, 'form'),
     toRef(store, 'valdn'),
@@ -184,7 +184,7 @@ export default defineStore('my-form', () => {
 // schema.ts
 import { toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
-import { withDefault, object, string, minLength, email } from 'valibot';
+import { optional, object, string, minLength, email } from 'valibot';
 
 import useStore from './store';
 
@@ -199,8 +199,8 @@ export const useSchema = () => {
 
   const schema = useValibotSchema(
     object({
-      email: withDefault(string([minLength(1, msgs.required), email(msgs.email)]), ''),
-      password: withDefault(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
+      email: optional(string([minLength(1, msgs.required), email(msgs.email)]), ''),
+      password: optional(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
     }),
     toRef(state, 'loginForm'),
     toRef(state, 'loginValdn'),

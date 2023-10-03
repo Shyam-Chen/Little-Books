@@ -9,7 +9,7 @@
 import { toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
 import { useI18n } from 'vue-i18n';
-import { withDefault, object, string, minLength } from 'valibot';
+import { optional, object, string, minLength } from 'valibot';
 
 import useStore from './store'; // pinia
 
@@ -19,8 +19,8 @@ export const useAuthSchema = () => {
 
   const schema = useValibotSchema(
     object({
-      username: withDefault(string([minLength(1, t('required'))]), ''),
-      password: withDefault(
+      username: optional(string([minLength(1, t('required'))]), ''),
+      password: optional(
         string([minLength(1, t('required')), minLength(8, t('min', { char: '8' }))]),
         '',
       ),
@@ -113,7 +113,7 @@ export default defineLocale<typeof enUS>('validation-messages', {
 import { toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
 import { useLocaler } from 'vue-localer';
-import { withDefault, object, string, minLength } from 'valibot';
+import { optional, object, string, minLength } from 'valibot';
 
 import useValidationMessages from '~/composables/useValidationMessages';
 
@@ -126,8 +126,8 @@ export const useAuthSchema = () => {
 
   const schema = useValibotSchema(
     object({
-      username: withDefault(string([minLength(1, valdnMsgs.value.required)]), ''),
-      password: withDefault(
+      username: optional(string([minLength(1, valdnMsgs.value.required)]), ''),
+      password: optional(
         string([
           minLength(1, valdnMsgs.value.required),
           minLength(8, f(valdnMsgs.value.min, { char: '8' })),

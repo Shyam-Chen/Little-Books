@@ -63,7 +63,7 @@ const state = reactive({
 <script lang="ts" setup>
 import { toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
-import { withDefault, object, string, minLength, email } from 'valibot';
+import { optional, object, string, minLength, email } from 'valibot';
 
 const state = reactive({
   loginForm: {} as LoginForm,
@@ -72,8 +72,8 @@ const state = reactive({
 
 const schema = useValibotSchema(
   object({
-    email: withDefault(string([minLength(1), email()]), ''),
-    password: withDefault(string([minLength(1), minLength(8)]), ''),
+    email: optional(string([minLength(1), email()]), ''),
+    password: optional(string([minLength(1), minLength(8)]), ''),
   }),
   toRef(state, 'loginForm'),
   toRef(state, 'loginValdn'),
@@ -105,7 +105,7 @@ const schema = useZodSchema(
 
 ```vue {8,11-18} [Yup]
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { toRef } from 'vue';
 import { useYupSchema } from 'vue-formor';
 import { object, string } from 'yup';
 
@@ -131,7 +131,7 @@ const schema = useYupSchema(
 
 :::code-group
 
-```vue [Valibot]
+```vue {2-6,10-11} [Valibot]
 <script lang="ts" setup>
 const msgs = {
   required: `This is a required field`,
@@ -141,8 +141,8 @@ const msgs = {
 
 const schema = useValibotSchema(
   object({
-    email: withDefault(string([minLength(1, msgs.required), email(msgs.email)]), ''),
-    password: withDefault(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
+    email: optional(string([minLength(1, msgs.required), email(msgs.email)]), ''),
+    password: optional(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
   }),
   toRef(state, 'loginForm'),
   toRef(state, 'loginValdn'),
@@ -166,7 +166,7 @@ const schema = useValibotSchema(
 </template>
 ```
 
-```vue [Zod]
+```vue {2-6,10-11} [Zod]
 <script lang="ts" setup>
 const msgs = {
   required: `This is a required field`,
@@ -201,7 +201,7 @@ const schema = useZodSchema(
 </template>
 ```
 
-```vue [Yup]
+```vue {2-6,10-11} [Yup]
 <script lang="ts" setup>
 const msgs = {
   required: `This is a required field`,
@@ -268,7 +268,7 @@ Putting all the pieces from the above sections together it should be as followin
 <script lang="ts" setup>
 import { reactive, toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
-import { withDefault, object, string, minLength, email } from 'valibot';
+import { optional, object, string, minLength, email } from 'valibot';
 
 interface LoginForm {
   email: string;
@@ -288,8 +288,8 @@ const msgs = {
 
 const schema = useValibotSchema(
   object({
-    email: withDefault(string([minLength(1, msgs.required), email(msgs.email)]), ''),
-    password: withDefault(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
+    email: optional(string([minLength(1, msgs.required), email(msgs.email)]), ''),
+    password: optional(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
   }),
   toRef(state, 'loginForm'),
   toRef(state, 'loginValdn'),

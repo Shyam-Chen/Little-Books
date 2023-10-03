@@ -7,21 +7,16 @@
 ```vue [Valibot]
 <script lang="ts" setup>
 import { useValibotSchema } from 'vue-formor';
-import { withDefault, object, string } from 'valibot';
+import { optional, object, string, getPipeIssues } from 'valibot';
 
 const schema = useValibotSchema(
   object({
-    name: withDefault(
+    name: optional(
       string([
+        minLength(1, msgs.required),
         (input) => {
           if (input && !/^[A-Za-z]+$/.test(input)) {
-            return {
-              issue: {
-                validation: 'custom',
-                message: msgs.letters,
-                input,
-              },
-            };
+            return getPipeIssues('custom', msgs.letters, input);
           }
 
           return { output: input };
@@ -87,7 +82,7 @@ const schema = useYupSchema(
 <script lang="ts" setup>
 import { reactive, toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
-import { withDefault, object, string } from 'valibot';
+import { optional, object, string, getPipeIssues } from 'valibot';
 
 interface CustomSchemas {
   name: string;
@@ -105,17 +100,12 @@ const msgs = {
 
 const schema = useValibotSchema(
   object({
-    name: withDefault(
+    name: optional(
       string([
+        minLength(1, msgs.required),
         (input) => {
           if (input && !/^[A-Za-z]+$/.test(input)) {
-            return {
-              issue: {
-                validation: 'custom',
-                message: msgs.letters,
-                input,
-              },
-            };
+            return getPipeIssues('custom', msgs.letters, input);
           }
 
           return { output: input };
