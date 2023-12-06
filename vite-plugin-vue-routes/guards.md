@@ -1,6 +1,6 @@
-# Middleware
+# Guards
 
-## Middleware Function
+## Guard Function
 
 You can directly define route navigation guards inside route components.
 
@@ -17,7 +17,7 @@ defineOptions({
 </script>
 ```
 
-## Middleware Layouts
+## Guard Layouts
 
 You can declare it in `+layout.vue`:
 

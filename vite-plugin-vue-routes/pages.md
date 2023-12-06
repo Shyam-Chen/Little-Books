@@ -1,8 +1,8 @@
-# Routes
+# Pages
 
-## Define Routes
+## Define Page
 
-Define routes by creating files in the `src/routes` directory:
+Define a page by creating files in the `src/routes` directory:
 
 ```coffee
 src/routes/path/to/+page.vue
@@ -10,7 +10,7 @@ src/routes/path/to/+page.vue
 
 ## Route File Naming Convention
 
-The file naming convention for the routes is as follows:
+The file naming convention for the pages is as follows:
 
 ```coffee
 src/routes/hello-world/+page.vue -> /hello-world

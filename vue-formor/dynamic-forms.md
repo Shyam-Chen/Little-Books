@@ -7,21 +7,13 @@
 ```vue [Valibot]
 <script lang="ts" setup>
 import { useValibotSchema } from 'vue-formor';
-import { optional, object, string, minLength, getPipeIssues } from 'valibot';
+import { optional, object, string, minLength, custom } from 'valibot';
 
 const schema = useValibotSchema(
   object({
     language: optional(string([minLength(1, msgs.required)]), ''),
     preprocessor: optional(
-      string([
-        (input) => {
-          if (state.valibotForm.language === 'js' && !input) {
-            return getPipeIssues('custom', msgs.required, input);
-          }
-
-          return { output: input };
-        },
-      ]),
+      string([custom((input) => state.valibotForm.language === 'js' && !!input, msgs.require)]),
     ),
   }),
   toRef(state, 'valibotForm'),
@@ -83,7 +75,7 @@ const schema = useYupSchema(
 <script lang="ts" setup>
 import { reactive, toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
-import { optional, object, string, optional, minLength, getPipeIssues } from 'valibot';
+import { optional, object, string, optional, minLength, custom } from 'valibot';
 
 interface DynamicForms {
   language: string;
@@ -103,15 +95,7 @@ const schema = useValibotSchema(
   object({
     language: optional(string([minLength(1, msgs.required)]), ''),
     preprocessor: optional(
-      string([
-        (input) => {
-          if (state.valibotForm.language === 'js' && !input) {
-            return getPipeIssues('custom', msgs.required, input);
-          }
-
-          return { output: input };
-        },
-      ]),
+      string([custom((input) => state.valibotForm.language === 'js' && !!input, msgs.require)]),
     ),
   }),
   toRef(state, 'valibotForm'),

@@ -29,8 +29,8 @@ First, start by adding some markup, you can start by having a `form` wrapping a 
 import { reactive } from 'vue';
 
 interface LoginForm {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
 const state = reactive({
@@ -67,7 +67,7 @@ import { optional, object, string, minLength, email } from 'valibot';
 
 const state = reactive({
   loginForm: {} as LoginForm,
-  loginValdn: {} as Record<string, string>,
+  loginValdn: {} as Record<keyof LoginForm, string>,
 });
 
 const schema = useValibotSchema(
@@ -89,7 +89,7 @@ import { z } from 'zod';
 
 const state = reactive({
   loginForm: {} as LoginForm,
-  loginValdn: {} as Record<string, string>,
+  loginValdn: {} as Record<keyof LoginForm, string>,
 });
 
 const schema = useZodSchema(
@@ -111,7 +111,7 @@ import { object, string } from 'yup';
 
 const state = reactive({
   loginForm: {} as LoginForm,
-  loginValdn: {} as Record<string, string>,
+  loginValdn: {} as Record<keyof LoginForm, string>,
 });
 
 const schema = useYupSchema(
@@ -271,13 +271,13 @@ import { useValibotSchema } from 'vue-formor';
 import { optional, object, string, minLength, email } from 'valibot';
 
 interface LoginForm {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
 const state = reactive({
   loginForm: {} as LoginForm,
-  loginValdn: {} as Record<string, string>,
+  loginValdn: {} as Record<keyof LoginForm, string>,
 });
 
 const msgs = {
@@ -328,13 +328,13 @@ import { useZodSchema } from 'vue-formor';
 import { z } from 'zod';
 
 interface LoginForm {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
 const state = reactive({
   loginForm: {} as LoginForm,
-  loginValdn: {} as Record<string, string>,
+  loginValdn: {} as Record<keyof LoginForm, string>,
 });
 
 const msgs = {
@@ -385,13 +385,13 @@ import { useYupSchema } from 'vue-formor';
 import { object, string } from 'yup';
 
 interface LoginForm {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
 const state = reactive({
   loginForm: {} as LoginForm,
-  loginValdn: {} as Record<string, string>,
+  loginValdn: {} as Record<keyof LoginForm, string>,
 });
 
 const msgs = {

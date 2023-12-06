@@ -40,11 +40,12 @@ import vueRoutes from 'vite-plugin-vue-routes'; // [!code ++]
 export default defineConfig({
   plugins: [
     vue(),
-    vueRoutes(), // [!code ++]
+    vueRoutes(), // Default: { routesDir: '<rootDir>/src/routes' } // [!code ++]
   ],
   resolve: {
     alias: {
       '~': resolve(__dirname, 'src'),
+      '@': resolve(__dirname, 'src'),
     },
   },
 });
@@ -60,21 +61,16 @@ import routes from 'virtual:vue-routes'; // [!code ++]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    ...routes, // [!code ++]
-
-    {
-      path: '/:slug(.*)*',
-      component: () => import('~/Error.vue'),
-    },
-  ],
+  routes, // [!code ++]
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition;
-    }
-
+    if (savedPosition) return savedPosition;
     return { top: 0 };
   },
+});
+
+router.beforeEach((to, from) => {
+  // ...
+  return true;
 });
 
 export default router;
