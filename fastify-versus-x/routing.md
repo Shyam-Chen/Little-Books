@@ -1,6 +1,8 @@
 # Routing
 
-```ts
+:::code-group
+
+```ts [Fastify]
 import type { FastifyPluginAsyncTypebox } from '@fastify/type-provider-typebox';
 import { Type } from '@sinclair/typebox';
 
@@ -24,6 +26,34 @@ export default (async (app) => {
   );
 }) as FastifyPluginAsyncTypebox;
 ```
+
+```ts [Hono]
+import { Hono } from 'hono';
+
+const router = new Hono();
+
+router.get('/hello-world', (ctx) => {
+  return ctx.json({
+    message: `Hello, World!`,
+  });
+});
+
+export default router;
+```
+
+```ts [Elysia]
+import type { Elysia } from 'elysia';
+
+export default (app: Elysia) => {
+  app.get('/hello-world', () => {
+    return {
+      message: `Hello, World!`,
+    };
+  });
+};
+```
+
+:::
 
 ## Route methods
 

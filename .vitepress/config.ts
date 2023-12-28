@@ -120,6 +120,7 @@ export default defineConfig({
                 { text: 'Tabular Forms', link: '/vue-formor/tabular-forms' },
                 { text: 'Tabular Form Groups', link: '/vue-formor/tabular-form-groups' },
                 { text: 'Custom Schemas', link: '/vue-formor/custom-schemas' },
+                { text: 'Touched', link: '/vue-formor/touched' },
                 { text: 'Multiple Schemas', link: '/vue-formor/multiple-schemas' },
               ],
             },
