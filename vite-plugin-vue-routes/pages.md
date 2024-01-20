@@ -8,6 +8,13 @@ Define a page by creating files in the `src/routes` directory:
 src/routes/path/to/+page.vue
 ```
 
+```vue
+<!-- src/routes/path/to/+page.vue -->
+<template>
+  <h1>My Page</h1>
+</template>
+```
+
 ## Route File Naming Convention
 
 The file naming convention for the pages is as follows:

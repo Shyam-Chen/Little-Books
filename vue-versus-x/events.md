@@ -217,6 +217,21 @@ const increment: InstanceType<typeof Control>['onInc'] = (val) => {
 </template>
 ```
 
+```vue [Vue (type-helpers)]
+<script lang="ts" setup>
+import type { ComponentProps } from 'vue-component-type-helpers';
+import Control from '~/components/Control.vue';
+
+const increment: ComponentProps<typeof Control>['onInc'] = (val) => {
+  console.log(val); // 7
+};
+</script>
+
+<template>
+  <Control @inc="increment" />
+</template>
+```
+
 ```svelte [Svelte]
 <script lang="ts">
   import type { ComponentEvents } from 'svelte';
