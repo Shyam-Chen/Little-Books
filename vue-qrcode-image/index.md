@@ -1,4 +1,4 @@
-# Vue QRCode Image
+# [vue-qrcode-image](https://github.com/Vanilla-IceCream/vue-qrcode-image)
 
 A Vue component for QR code generation.
 
@@ -46,17 +46,35 @@ const qrcode = ref('https://www.npmjs.com/search?q=vue-qrcode-image');
 ### Size
 
 - Type: `number`
-- Default: `2`
+- Default: `6`
 
 ```html
-<QrcodeImage :value="qrcode" :size="4" />
+<QrcodeImage :value="qrcode" :size="5" />
 ```
 
 ### Margin
 
 - Type: `number`
-- Default: `8`
+- Default: `24`
 
 ```html
-<QrcodeImage :value="qrcode" :margin="6" />
+<QrcodeImage :value="qrcode" :margin="18" />
+```
+
+### Foreground
+
+- Type: `[R: number, G: number, B: number]`
+- Default: `[0, 0, 0]`
+
+```html
+<QrcodeImage :value="qrcode" :foreground="[99, 102, 241]" />
+```
+
+### Background
+
+- Type: `[R: number, G: number, B: number]`
+- Default: `[255, 255, 255]`
+
+```html
+<QrcodeImage :value="qrcode" :background="[99, 102, 241]" />
 ```

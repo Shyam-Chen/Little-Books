@@ -63,7 +63,7 @@ const state = reactive({
 <script lang="ts" setup>
 import { toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
-import { optional, object, string, minLength, email } from 'valibot';
+import { nullish, object, string, minLength, email } from 'valibot';
 
 const state = reactive({
   loginForm: {} as LoginForm,
@@ -72,8 +72,8 @@ const state = reactive({
 
 const schema = useValibotSchema(
   object({
-    email: optional(string([minLength(1), email()]), ''),
-    password: optional(string([minLength(1), minLength(8)]), ''),
+    email: nullish(string([minLength(1), email()]), ''),
+    password: nullish(string([minLength(1), minLength(8)]), ''),
   }),
   toRef(state, 'loginForm'),
   toRef(state, 'loginValdn'),
@@ -268,7 +268,7 @@ Putting all the pieces from the above sections together it should be as followin
 <script lang="ts" setup>
 import { reactive, toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
-import { optional, object, string, minLength, email } from 'valibot';
+import { nullish, object, string, minLength, email } from 'valibot';
 
 interface LoginForm {
   email?: string;
@@ -288,8 +288,8 @@ const msgs = {
 
 const schema = useValibotSchema(
   object({
-    email: optional(string([minLength(1, msgs.required), email(msgs.email)]), ''),
-    password: optional(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
+    email: nullish(string([minLength(1, msgs.required), email(msgs.email)]), ''),
+    password: nullish(string([minLength(1, msgs.required), minLength(8, msgs.min)]), ''),
   }),
   toRef(state, 'loginForm'),
   toRef(state, 'loginValdn'),

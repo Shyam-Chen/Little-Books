@@ -31,20 +31,3 @@ defineOptions({
 });
 </script>
 ```
-
-## Define Guards <Badge type="danger" text="Not Implemented" />
-
-Define a guard by creating files in the `src/routes` directory:
-
-```coffee
-src/routes/path/to/+guard.ts
-```
-
-```ts
-// src/routes/path/to/+guard.ts
-import type { NavigationGuard } from 'vue-router';
-
-export default (() => {
-  return true;
-}) as NavigationGuard;
-```

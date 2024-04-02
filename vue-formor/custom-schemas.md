@@ -7,11 +7,11 @@
 ```vue [Valibot]
 <script lang="ts" setup>
 import { useValibotSchema } from 'vue-formor';
-import { optional, object, string, custom } from 'valibot';
+import { nullish, object, string, custom } from 'valibot';
 
 const schema = useValibotSchema(
   object({
-    name: optional(
+    name: nullish(
       string([
         minLength(1, msgs.required),
         custom((input) => /^[A-Za-z]+$/.test(input), msgs.letters),
@@ -76,7 +76,7 @@ const schema = useYupSchema(
 <script lang="ts" setup>
 import { reactive, toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
-import { optional, object, string, custom } from 'valibot';
+import { nullish, object, string, custom } from 'valibot';
 
 interface CustomSchemas {
   name: string;
@@ -94,7 +94,7 @@ const msgs = {
 
 const schema = useValibotSchema(
   object({
-    name: optional(
+    name: nullish(
       string([
         minLength(1, msgs.required),
         custom((input) => /^[A-Za-z]+$/.test(input), msgs.letters),

@@ -1,4 +1,4 @@
-# [Fastify I18n](https://github.com/Vanilla-IceCream/fastify-i18n)
+# [fastify-i18n](https://github.com/Vanilla-IceCream/fastify-i18n)
 
 Internationalization plugin for Fastify. Built upon [`node-polyglot`](https://github.com/airbnb/polyglot.js).
 
@@ -56,10 +56,10 @@ fastify.register(i18n, {
 });
 
 /*
-  curl --request GET \
-    --url http://127.0.0.1:3000/api/i18n \
-    --header 'accept-language: ja'
-  */
+$ curl --request GET \
+       --url http://127.0.0.1:3000/api/i18n \
+       --header 'accept-language: ja'
+*/
 fastify.get('/api/i18n', async (req, reply) => {
   return reply.send({ message: req.i18n.t('text') });
 });
@@ -80,9 +80,9 @@ export default async (app: FastifyInstance) => {
   });
 
   /*
-  curl --request GET \
-    --url http://127.0.0.1:3000/api/hello-world \
-    --header 'accept-language: ja'
+  $ curl --request GET \
+         --url http://127.0.0.1:3000/api/hello-world \
+         --header 'accept-language: ja'
   */
   app.get('/hello-world', async (req, reply) => {
     const i18n = useI18n(req);

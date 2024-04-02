@@ -1,4 +1,4 @@
-# [Vue Storer](https://github.com/Vanilla-IceCream/vue-storer)
+# [vue-storer](https://github.com/Vanilla-IceCream/vue-storer)
 
 State management for Vue.
 
@@ -47,7 +47,7 @@ const { defineStore } = require('vue-storer');
 `vue-storer` provides a `defineStore` function that allows you to define a store with `state`, `getters`, and `actions`. Here's an example:
 
 ```ts
-import { reactive, readonly } from 'vue';
+import { reactive } from 'vue';
 import { defineStore } from 'vue-storer';
 
 export const useCounter = defineStore('counter', () => {
@@ -56,11 +56,11 @@ export const useCounter = defineStore('counter', () => {
     count: 0,
   });
 
-  const getters = readonly({
+  const getters = reactive({
     doubleCount: computed(() => state.count * 2),
   });
 
-  const actions = readonly({
+  const actions = reactive({
     increment() {
       state.count += 1;
     },
@@ -104,7 +104,7 @@ In the example above, `useCounter` returns an object with `state`, `getters`, `a
 If you need persistent data storage, it can be integrated with Web Storage.
 
 ```ts
-import { reactive, readonly } from 'vue';
+import { reactive } from 'vue';
 import { defineStore } from 'vue-storer';
 
 export const useCounter = defineStore(

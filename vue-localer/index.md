@@ -1,4 +1,4 @@
-# [Vue Localer](https://github.com/Vanilla-IceCream/vue-localer)
+# [vue-localer](https://github.com/Vanilla-IceCream/vue-localer)
 
 Internationalization plugin for Vue.
 

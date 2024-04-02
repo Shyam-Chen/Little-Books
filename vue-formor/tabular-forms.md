@@ -7,14 +7,14 @@
 ```vue [Valibot]
 <script lang="ts" setup>
 import { useValibotSchema } from 'vue-formor';
-import { optional, object, array, string, minLength } from 'valibot';
+import { nullish, object, array, string, minLength } from 'valibot';
 
 const schema = useValibotSchema(
   object({
     rows: array(
       object({
-        firstField: optional(string([minLength(1, msgs.required)]), ''),
-        secondField: optional(string([minLength(1, msgs.required)]), ''),
+        firstField: nullish(string([minLength(1, msgs.required)]), ''),
+        secondField: nullish(string([minLength(1, msgs.required)]), ''),
       }),
     ),
   }),
@@ -74,7 +74,7 @@ const schema = useYupSchema(
 <script lang="ts" setup>
 import { reactive, toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
-import { optional, object, array, string, minLength } from 'valibot';
+import { nullish, object, array, string, minLength } from 'valibot';
 
 const msgs = { required: `This is a required field` };
 
@@ -98,8 +98,8 @@ const schema = useValibotSchema(
   object({
     rows: array(
       object({
-        firstField: optional(string([minLength(1, msgs.required)]), ''),
-        secondField: optional(string([minLength(1, msgs.required)]), ''),
+        firstField: nullish(string([minLength(1, msgs.required)]), ''),
+        secondField: nullish(string([minLength(1, msgs.required)]), ''),
       }),
     ),
   }),

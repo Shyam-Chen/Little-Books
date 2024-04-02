@@ -4,12 +4,12 @@
 
 :::code-group
 
-```ts [Valibot]
+```ts [Valibot] {14,22}
 // src/path/to/schema.ts
 import { computed, toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
 import { useI18n } from 'vue-i18n';
-import { optional, object, string, minLength } from 'valibot';
+import { nullish, object, string, minLength } from 'valibot';
 
 import useStore from './store'; // pinia
 
@@ -20,8 +20,8 @@ export const useAuthSchema = () => {
   const schema = useValibotSchema(
     computed(() =>
       object({
-        username: optional(string([minLength(1, t('required'))]), ''),
-        password: optional(
+        username: nullish(string([minLength(1, t('required'))]), ''),
+        password: nullish(
           string([minLength(1, t('required')), minLength(8, t('min', { char: '8' }))]),
           '',
         ),
@@ -35,7 +35,7 @@ export const useAuthSchema = () => {
 };
 ```
 
-```ts [Zod]
+```ts [Zod] {14,22}
 // src/path/to/schema.ts
 import { computed, toRef } from 'vue';
 import { useZodSchema } from 'vue-formor';
@@ -66,7 +66,7 @@ export const useAuthSchema = () => {
 };
 ```
 
-```ts [Yup]
+```ts [Yup] {14,21}
 // src/path/to/schema.ts
 import { computed, toRef } from 'vue';
 import { useYupSchema } from 'vue-formor';
@@ -114,12 +114,12 @@ export default defineLocale<typeof enUS>('validation-messages', {
 
 :::code-group
 
-```ts [Valibot]
+```ts [Valibot] {17,28}
 // src/path/to/schema.ts
 import { computed, toRef } from 'vue';
 import { useValibotSchema } from 'vue-formor';
 import { useLocaler } from 'vue-localer';
-import { optional, object, string, minLength } from 'valibot';
+import { nullish, object, string, minLength } from 'valibot';
 
 import useValidationMessages from '~/composables/useValidationMessages';
 
@@ -133,8 +133,8 @@ export const useAuthSchema = () => {
   const schema = useValibotSchema(
     computed(() =>
       object({
-        username: optional(string([minLength(1, valdnMsgs.value.required)]), ''),
-        password: optional(
+        username: nullish(string([minLength(1, valdnMsgs.value.required)]), ''),
+        password: nullish(
           string([
             minLength(1, valdnMsgs.value.required),
             minLength(8, f(valdnMsgs.value.min, { char: '8' })),
@@ -151,7 +151,7 @@ export const useAuthSchema = () => {
 };
 ```
 
-```ts [Zod]
+```ts [Zod] {17,27}
 // src/path/to/schema.ts
 import { computed, toRef } from 'vue';
 import { useZodSchema } from 'vue-formor';
@@ -187,7 +187,7 @@ export const useAuthSchema = () => {
 };
 ```
 
-```ts [Yup]
+```ts [Yup] {17,24}
 // src/path/to/schema.ts
 import { computed, toRef } from 'vue';
 import { useYupSchema } from 'vue-formor';

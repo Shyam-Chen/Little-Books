@@ -1,4 +1,4 @@
-# [Vue Formor](https://github.com/Vanilla-IceCream/vue-formor)
+# [vue-formor](https://github.com/Vanilla-IceCream/vue-formor)
 
 Form validation for Vue in composition functions with Valibot or Zod or Yup.
 

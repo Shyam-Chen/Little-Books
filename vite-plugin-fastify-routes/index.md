@@ -1,6 +1,6 @@
 # [vite-plugin-fastify-routes](https://github.com/Vanilla-IceCream/vite-plugin-fastify-routes)
 
-File system based routing for Fastify applications using Vite.
+File-based routing for Fastify applications using Vite.
 
 ## Installation
 

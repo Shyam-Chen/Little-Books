@@ -108,7 +108,7 @@ export default defineConfig({
       ],
       '/vue-formor/': [
         {
-          text: 'Vue Formor',
+          text: 'vue-formor',
           items: [
             { text: 'Overview', link: '/vue-formor/' },
             {
@@ -137,7 +137,7 @@ export default defineConfig({
       ],
       '/vue-localer/': [
         {
-          text: 'Vue Localer',
+          text: 'vue-localer',
           items: [
             { text: 'Overview', link: '/vue-localer/' },
             {
@@ -158,13 +158,13 @@ export default defineConfig({
       ],
       '/vue-storer/': [
         {
-          text: 'Vue Storer',
+          text: 'vue-storer',
           items: [{ text: 'Overview', link: '/vue-storer/' }],
         },
       ],
       '/vue-qrcode-image/': [
         {
-          text: 'Vue QRCode Image',
+          text: 'vue-qrcode-image',
           items: [{ text: 'Overview', link: '/vue-qrcode-image/' }],
         },
       ],
@@ -204,13 +204,13 @@ export default defineConfig({
       ],
       '/fastify-i18n/': [
         {
-          text: 'Fastify I18n',
+          text: 'fastify-i18n',
           items: [{ text: 'Overview', link: '/fastify-i18n/' }],
         },
       ],
       '/fastify-cloudinary/': [
         {
-          text: 'Fastify Cloudinary',
+          text: 'fastify-cloudinary',
           items: [{ text: 'Overview', link: '/fastify-cloudinary/' }],
         },
       ],
@@ -233,7 +233,7 @@ export default defineConfig({
     },
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-present ViteSheet',
+      copyright: `Copyright © ${new Date().getFullYear()} ViteSheet`,
     },
   },
 });
