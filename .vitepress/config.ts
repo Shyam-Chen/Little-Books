@@ -151,6 +151,7 @@ export default defineConfig({
                 { text: 'List Interpolation', link: '/vue-localer/list-interpolation' },
                 { text: 'Component Interpolation', link: '/vue-localer/component-interpolation' },
                 { text: 'Glob Import', link: '/vue-localer/glob-import' },
+                { text: 'Locale Outside', link: '/vue-localer/locale-outside' },
               ],
             },
           ],

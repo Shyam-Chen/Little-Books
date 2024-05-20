@@ -7,12 +7,12 @@
     "preview": "vitepress preview --port 3714"
   },
   "dependencies": {
-    "@unocss/reset": "^0.58.9"
+    "@unocss/reset": "^0.60.2"
   },
   "devDependencies": {
-    "@iconify-json/tabler": "^1.1.109",
-    "unocss": "^0.58.9",
-    "vite": "^5.2.7",
-    "vitepress": "^1.0.2"
+    "@iconify-json/tabler": "^1.1.112",
+    "unocss": "^0.60.2",
+    "vite": "^5.2.11",
+    "vitepress": "^1.2.0"
   }
 }
