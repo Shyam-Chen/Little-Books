@@ -44,6 +44,10 @@ const { useValibotSchema, useZodSchema, useYupSchema } = require('vue-formor');
 If you intend to use `useValibotSchema`, don't forget to install `valibot`.
 :::
 
+::: warning
+If you need to use `valibot` v0.30 or later, please install `vue-formor` v4.x instead.
+:::
+
 ::: tip
 If you intend to use `useZodSchema`, don't forget to install `zod`.
 :::
