@@ -109,27 +109,57 @@ export default defineConfig({
       '/vue-formor/': [
         {
           text: 'vue-formor',
+          base: '/vue-formor',
           items: [
-            { text: 'Overview', link: '/vue-formor/' },
+            { text: 'Overview', link: '/' },
             {
               text: 'Guide',
               collapsed: false,
               items: [
-                { text: 'Basic Forms', link: '/vue-formor/basic-forms' },
-                { text: 'Dynamic Forms', link: '/vue-formor/dynamic-forms' },
-                { text: 'Tabular Forms', link: '/vue-formor/tabular-forms' },
-                { text: 'Tabular Form Groups', link: '/vue-formor/tabular-form-groups' },
-                { text: 'Custom Schemas', link: '/vue-formor/custom-schemas' },
-                { text: 'Touched', link: '/vue-formor/touched' },
-                { text: 'Multiple Schemas', link: '/vue-formor/multiple-schemas' },
+                { text: 'Basic Forms', link: '/basic-forms' },
+                { text: 'Dynamic Forms', link: '/dynamic-forms' },
+                { text: 'Tabular Forms', link: '/tabular-forms' },
+                { text: 'Tabular Form Groups', link: '/tabular-form-groups' },
+                { text: 'Custom Schemas', link: '/custom-schemas' },
+                { text: 'Touched', link: '/touched' },
+                { text: 'Multiple Schemas', link: '/multiple-schemas' },
               ],
             },
             {
               text: 'Integrations',
               collapsed: false,
               items: [
-                { text: 'State Management', link: '/vue-formor/state-management' },
-                { text: 'Internationalization', link: '/vue-formor/internationalization' },
+                { text: 'State Management', link: '/state-management' },
+                { text: 'Internationalization', link: '/internationalization' },
+              ],
+            },
+          ],
+        },
+        {
+          text: 'vue-formor v4.x',
+          base: '/vue-formor/4.x',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/' },
+            {
+              text: 'Guide',
+              collapsed: false,
+              items: [
+                { text: 'Basic Forms', link: '/basic-forms' },
+                { text: 'Dynamic Forms', link: '/dynamic-forms' },
+                { text: 'Tabular Forms', link: '/tabular-forms' },
+                { text: 'Tabular Form Groups', link: '/tabular-form-groups' },
+                { text: 'Custom Schemas', link: '/custom-schemas' },
+                { text: 'Touched', link: '/touched' },
+                { text: 'Multiple Schemas', link: '/multiple-schemas' },
+              ],
+            },
+            {
+              text: 'Integrations',
+              collapsed: false,
+              items: [
+                { text: 'State Management', link: '/state-management' },
+                { text: 'Internationalization', link: '/internationalization' },
               ],
             },
           ],

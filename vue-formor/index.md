@@ -1,6 +1,6 @@
 # [vue-formor](https://github.com/Vanilla-IceCream/vue-formor)
 
-Form validation for Vue in composition functions with Valibot or Zod or Yup.
+Form validation for Vue in composition functions with Valibot.
 
 ## Installation
 
@@ -26,32 +26,45 @@ bun add vue-formor
 
 :::
 
-## Usage
+::: tip
+Don't forget to install `valibot`.
 
 :::code-group
 
-```ts [ESM]
-import { useValibotSchema, useZodSchema, useYupSchema } from 'vue-formor';
+```sh [npm]
+npm i valibot
 ```
 
-```ts [CJS]
-const { useValibotSchema, useZodSchema, useYupSchema } = require('vue-formor');
+```sh [Yarn]
+yarn add valibot
+```
+
+```sh [pnpm]
+pnpm i valibot
+```
+
+```sh [Bun]
+bun add valibot
 ```
 
 :::
+<!-- ::: -->
 
-::: tip
-If you intend to use `useValibotSchema`, don't forget to install `valibot`.
-:::
+## Usage
+
+```ts
+import { useSchema } from 'vue-formor';
+import * as v from 'valibot';
+```
 
 ::: warning
-If you need to use `valibot` v0.30 or later, please install `vue-formor` v4.x instead.
+If you need to use `valibot` v0.30 or lower, please install `vue-formor` v4.x instead.
 :::
 
-::: tip
-If you intend to use `useZodSchema`, don't forget to install `zod`.
-:::
+::: danger
+For front-end development, it is best to use libraries that support tree shaking and modularization.
+It is recommended to use `valibot`. No longer recommend using `zod` and `yup`.
 
-::: tip
-If you intend to use `useYupSchema`, don't forget to install `yup`.
+The functions `useValibotSchema`, `useZodSchema`, and `useYupSchema` will be removed in v6.
+Additionally, please use `useSchema` instead of `useValibotSchema`.
 :::

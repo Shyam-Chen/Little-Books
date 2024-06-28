@@ -4,13 +4,13 @@
 
 ```vue
 <script lang="ts" setup>
-const fooSchema = useSchema(
+const fooSchema = use_LIB_Schema(
   /* ... */
   toRef(state, 'fooForm'),
   toRef(state, 'myValdn'), // [!code hl]
 );
 
-const barSchema = useSchema(
+const barSchema = use_LIB_Schema(
   /* ... */
   toRef(state, 'barForm'),
   toRef(state, 'myValdn'), // [!code hl]
@@ -38,13 +38,13 @@ const barSubmit = () => {
 
 ```vue
 <script lang="ts" setup>
-const fooSchema = useSchema(
+const fooSchema = use_LIB_Schema(
   /* ... */
   toRef(state, 'fooForm'),
   toRef(state, 'fooValdn'), // [!code hl]
 );
 
-const barSchema = useSchema(
+const barSchema = use_LIB_Schema(
   /* ... */
   toRef(state, 'barForm'),
   toRef(state, 'barValdn'), // [!code hl]
@@ -68,13 +68,13 @@ const barSubmit = () => {
 
 ```vue {15}
 <script lang="ts" setup>
-const fooSchema = useSchema(
+const fooSchema = use_LIB_Schema(
   /* ... */
   toRef(state, 'fooForm'),
   toRef(state, 'fooValdn'),
 );
 
-const barSchema = useSchema(
+const barSchema = use_LIB_Schema(
   /* ... */
   toRef(state, 'barForm'),
   toRef(state, 'barValdn'),

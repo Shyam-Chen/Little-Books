@@ -9,7 +9,7 @@ const state = reactive({
   loginTouched: {} as Record<keyof LoginForm, boolean>, // [!code hl]
 });
 
-const schema = useSchema(
+const schema = use_LIB_Schema(
   /* ... */,
   toRef(state, 'loginForm'),
   toRef(state, 'loginValdn'),
