@@ -182,7 +182,7 @@ $ curl --request GET \
 // global
 fastify.register(i18n, {
   fallbackLocale: 'en-US',
-  messages: messages: import.meta.glob(['~/locales/*.ts'], { eager: true }),
+  messages: import.meta.glob(['~/locales/*.ts'], { eager: true }),
 });
 ```
 

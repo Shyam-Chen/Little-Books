@@ -6,7 +6,7 @@ Thoughts on X in Vite.
 
 - [Vue versus X](../vue-versus-x/index.md) - Comparing Framework Internals
 - [vue-storer](../vue-storer/index.md) - State management for Vue.
-- [vue-formor](../vue-formor/index.md) - Form validation for Vue in composition functions with Valibot or Zod or Yup.
+- [vue-formor](../vue-formor/index.md) - Form validation for Vue in composition functions with Valibot.
 - [vue-localer](../vue-localer/index.md) - Internationalization plugin for Vue.
 - [vue-qrcode-image](../vue-qrcode-image/index.md) - A Vue component for QR code generation.
 - [vite-plugin-vue-routes](../vite-plugin-vue-routes/index.md) - File system based routing for Vue applications using Vite.

@@ -140,3 +140,33 @@ const locale = useLocale();
   <!-- Hello, Vue! -->
 </template>
 ```
+
+Besides that, you can also use type inference for `useLocale`.
+
+```ts
+// src/locales/index.ts
+import { useLocale } from 'vue-localer';
+
+import type enUS from './en-US';
+
+export default () => useLocale<typeof enUS>();
+```
+
+```vue
+<script lang="ts" setup>
+import { useLocale } from 'vue-localer'; // [!code --]
+import useGlobalLocale from '~/locales'; // [!code ++]
+
+const locale = useLocale(); // [!code --]
+const globalLocale = useGlobalLocale(); // [!code ++]
+</script>
+
+<template>
+  <div>{{ $f(globalLocale.hello, { msg: 'Vue' }) }}</div>
+  <!-- Hello, Vue! -->
+</template>
+```
+
+It's worth noting that the name has been changed from `useLocale` to `useGlobalLocale` mainly to distinguish between local and global scopes.
+
+As for the local scope, you can check it out [here](./local-scope.md).
