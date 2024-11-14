@@ -17,7 +17,7 @@ export default defineConfig({
       {
         text: 'Docs',
         items: [
-          { text: 'Overview', link: '/sheets/' },
+          { text: 'Overview', link: '/' },
           {
             text: 'Vue Related',
             items: [
@@ -47,8 +47,8 @@ export default defineConfig({
       // { icon: '__XXX___', link: '__XXX__' },
     ],
     sidebar: {
-      '/sheets/': [
-        { text: 'Overview', link: '/sheets/' },
+      '/': [
+        { text: 'Overview', link: '/' },
         {
           text: 'Vue Related',
           items: [

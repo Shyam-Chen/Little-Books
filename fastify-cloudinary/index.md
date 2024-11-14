@@ -1,4 +1,4 @@
-# [fastify-cloudinary](https://github.com/Vanilla-IceCream/fastify-cloudinary)
+# <div class="flex items-center">fastify-cloudinary[<div class="i-tabler-brand-github ms-2"></div>](https://github.com/Vanilla-IceCream/fastify-cloudinary)</div>
 
 Plugin to share a common Cloudinary connection across Fastify.
 

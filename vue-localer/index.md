@@ -1,4 +1,4 @@
-# [vue-localer](https://github.com/Vanilla-IceCream/vue-localer)
+# <div class="flex items-center">vue-localer[<div class="i-tabler-brand-github ms-2"></div>](https://github.com/Vanilla-IceCream/vue-localer)</div>
 
 Internationalization plugin for Vue.
 

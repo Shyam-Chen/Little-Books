@@ -1,41 +1,18 @@
----
-layout: home
+# Overview
 
-title: ViteSheet
-titleTemplate: Thoughts on Vite
+## Vue Related
 
-hero:
-  name: ViteSheet
-  text: Thoughts on Vite
-  tagline: Get ready for a development environment that can finally catch up with you.
-  image:
-    src: https://vitejs.dev/logo-with-shadow.png
-    alt: Vite
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /sheets/
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/Shyam-Chen/Little-Books
+- [Vue versus X](./vue-versus-x/index.md) - Comparing Framework Internals
+- [vue-storer](./vue-storer/index.md) - State management for Vue.
+- [vue-formor](./vue-formor/index.md) - Form validation for Vue in composition functions with Valibot.
+- [vue-localer](./vue-localer/index.md) - Internationalization plugin for Vue.
+- [vue-qrcode-image](./vue-qrcode-image/index.md) - A Vue component for QR code generation.
+- [vite-plugin-vue-routes](./vite-plugin-vue-routes/index.md) - File system based routing for Vue applications using Vite.
 
-features:
-  - icon: 💡
-    title: Instant Server Start
-    details: On demand file serving over native ESM, no bundling required!
-  - icon: ⚡️
-    title: Lightning Fast HMR
-    details: Hot Module Replacement (HMR) that stays fast regardless of app size.
-  - icon: 🛠️
-    title: Rich Features
-    details: Out-of-the-box support for TypeScript, JSX, CSS and more.
-  - icon: 📦
-    title: Optimized Build
-    details: Pre-configured Rollup build with multi-page and library mode support.
-  - icon: 🔩
-    title: Universal Plugins
-    details: Rollup-superset plugin interface shared between dev and build.
-  - icon: 🔑
-    title: Fully Typed APIs
-    details: Flexible programmatic APIs with full TypeScript typing.
----
+## Fastify Related
+
+- [Fastify versus X](./fastify-versus-x/index.md) - Comparing Framework Internals
+- [fastify-i18n](./fastify-i18n/index.md) - Internationalization plugin for Fastify. Built upon `node-polyglot`.
+- [fastify-cloudinary](./fastify-cloudinary/index.md) - Plugin to share a common Cloudinary connection across Fastify.
+- [vite-plugin-fastify](./vite-plugin-fastify/index.md) - Fastify plugin for Vite with Hot-module Replacement.
+- [vite-plugin-fastify-routes](./vite-plugin-fastify-routes/index.md) - File system based routing for Fastify applications using Vite.

@@ -1,4 +1,4 @@
-# [vue-qrcode-image](https://github.com/Vanilla-IceCream/vue-qrcode-image)
+# <div class="flex items-center">vue-qrcode-image[<div class="i-tabler-brand-github ms-2"></div>](https://github.com/Vanilla-IceCream/vue-qrcode-image)</div>
 
 A Vue component for QR code generation.
 

@@ -1,4 +1,4 @@
-# [fastify-i18n](https://github.com/Vanilla-IceCream/fastify-i18n)
+# <div class="flex items-center">fastify-i18n[<div class="i-tabler-brand-github ms-2"></div>](https://github.com/Vanilla-IceCream/fastify-i18n)</div>
 
 Internationalization plugin for Fastify. Built upon [`node-polyglot`](https://github.com/airbnb/polyglot.js).
 

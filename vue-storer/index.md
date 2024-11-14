@@ -1,4 +1,4 @@
-# [vue-storer](https://github.com/Vanilla-IceCream/vue-storer)
+# <div class="flex items-center">vue-storer[<div class="i-tabler-brand-github ms-2"></div>](https://github.com/Vanilla-IceCream/vue-storer)</div>
 
 State management for Vue.
 

@@ -1,4 +1,4 @@
-# [vite-plugin-fastify](https://github.com/Vanilla-IceCream/vite-plugin-fastify)
+# <div class="flex items-center">vite-plugin-fastify[<div class="i-tabler-brand-github ms-2"></div>](https://github.com/Vanilla-IceCream/vite-plugin-fastify)</div>
 
 Fastify plugin for Vite with Hot-module Replacement.
 

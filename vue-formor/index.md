@@ -1,4 +1,4 @@
-# [vue-formor](https://github.com/Vanilla-IceCream/vue-formor)
+# <div class="flex items-center">vue-formor[<div class="i-tabler-brand-github ms-2"></div>](https://github.com/Vanilla-IceCream/vue-formor)</div>
 
 Form validation for Vue in composition functions with Valibot.
 
@@ -48,6 +48,7 @@ bun add valibot
 ```
 
 :::
+
 <!-- ::: -->
 
 ## Usage

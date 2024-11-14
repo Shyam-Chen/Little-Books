@@ -1,4 +1,4 @@
-# [vite-plugin-vue-routes](https://github.com/Vanilla-IceCream/vite-plugin-vue-routes)
+# <div class="flex items-center">vite-plugin-vue-routes[<div class="i-tabler-brand-github ms-2"></div>](https://github.com/Vanilla-IceCream/vite-plugin-vue-routes)</div>
 
 File-based routing for Vue applications using Vite.
 

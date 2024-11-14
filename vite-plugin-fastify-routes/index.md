@@ -1,4 +1,4 @@
-# [vite-plugin-fastify-routes](https://github.com/Vanilla-IceCream/vite-plugin-fastify-routes)
+# <div class="flex items-center">vite-plugin-fastify-routes[<div class="i-tabler-brand-github ms-2"></div>](https://github.com/Vanilla-IceCream/vite-plugin-fastify-routes)</div>
 
 File-based routing for Fastify applications using Vite.
 

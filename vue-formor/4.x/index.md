@@ -1,4 +1,4 @@
-# [vue-formor v4.x](https://github.com/Vanilla-IceCream/vue-formor/tree/v4.x)
+# <div class="flex items-center">vue-formor v4.x[<div class="i-tabler-brand-github ms-2"></div>](https://github.com/Vanilla-IceCream/vue-formor/tree/v4.x)</div>
 
 Form validation for Vue in composition functions with Valibot or Zod or Yup.
 
